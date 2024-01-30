@@ -21,18 +21,15 @@ jobs:
             github.event.workflow_run.conclusion == 'success'
         permissions:
             checks: write
-            contents: write
-            deployments: write
             pull-requests: write
-            statuses: write
         steps:
             - name: Checkout to repo
-              uses: actions/checkout@v3
+              uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
               with:
                   ref: ${{ github.event.workflow_run.head_commit.id }}
             - name: Download artifact
               id: download-artifact
-              uses: dawidd6/action-download-artifact@v2
+              uses: dawidd6/action-download-artifact@268677152d06ba59fcec7a7f0b5d961b6ccd7e1e
               with:
                   workflow_conclusion: success
                   run_id: ${{ github.event.workflow_run.id }}
@@ -46,7 +43,7 @@ jobs:
 
             - name: 'Generate action link comment'
               id: generate_action_url
-              uses: actions/github-script@v3
+              uses: actions/github-script@ffc2c79a5b2490bd33e0a41c1de74b877714d736
               with:
                   github-token: ${{ github.token }}
                   script: |
@@ -60,7 +57,7 @@ jobs:
                         ].join('\n')
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
               with:
                   header: Cloudflare Pages Preview Comment
                   number: ${{steps.pr_information.outputs.issue_number}}
@@ -87,7 +84,7 @@ jobs:
                       echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
                   fi
             - name: Setup node
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8
 
             - name: Create npmrc file
               shell: bash
@@ -98,7 +95,7 @@ jobs:
               run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
             - name: Get build output from master cache
-              uses: actions/cache/restore@v3
+              uses: actions/cache/restore@e12d46a63a90f2fae62d114769bbf2a179198b5c
               with:
                   key: master-cache-public
                   restore-keys: |
@@ -108,7 +105,7 @@ jobs:
                       public
             - name: Get cached dependencies
               id: cache-npm
-              uses: actions/cache/restore@v3
+              uses: actions/cache/restore@e12d46a63a90f2fae62d114769bbf2a179198b5c
               with:
                   path: node_modules
                   key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -160,7 +157,7 @@ jobs:
             - name: 'Generate preview link comment'
               if: success()
               id: generate_preview_url
-              uses: actions/github-script@v3
+              uses: actions/github-script@ffc2c79a5b2490bd33e0a41c1de74b877714d736
               with:
                   github-token: ${{ github.token }}
                   script: |
@@ -179,7 +176,7 @@ jobs:
             - name: 'Generate failure comment'
               if: failure()
               id: generate_failure_comment
-              uses: actions/github-script@v3
+              uses: actions/github-script@ffc2c79a5b2490bd33e0a41c1de74b877714d736
               with:
                   github-token: ${{ github.token }}
                   script: |
@@ -194,7 +191,7 @@ jobs:
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
               if: success() || failure()
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
               with:
                   header: Cloudflare Pages Preview Comment
                   number: ${{steps.pr_information.outputs.issue_number}}
@@ -202,7 +199,7 @@ jobs:
                   recreate: true
 
             - name: Upload PR information to artifact
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2
               with:
                   name: 'pr-${{github.run_id}}'
                   path: .pr

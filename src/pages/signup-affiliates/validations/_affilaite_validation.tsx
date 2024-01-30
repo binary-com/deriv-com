@@ -6,7 +6,7 @@ export const affiliate_validation_regex = {
     latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
     phone: /^\+\d+$/,
-    user_name: /[^a-zA-Za 0-9!"?¨'_.,-]/,
+    user_name: /[^a-zA-Za 0-9!"?¨'_.,-]{3,30}$/,
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]+$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     city: /^[a-zA-Z /_.,-]*$/,
@@ -36,7 +36,9 @@ const userNameValidation = (input) => {
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
     } else if (input.length < 3) {
-        return localize('_t_You should enter 3-256 characters _t_')
+        return localize('_t_You should enter 8-30 characters _t_')
+    } else if (!affiliate_validation_regex.user_name.test(input)) {
+        return localize('_t_Wrong user name format_t_')
     }
 }
 const nameValidation = (input, text, min_digit, max_digit) => {

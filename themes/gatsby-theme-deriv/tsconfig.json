@@ -1,7 +1,19 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "baseUrl": "src",
+        "baseUrl": "./src",
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules",
+                "options": {
+                    "rendererOptions": {
+                        "sass": {
+                            "loadPaths": ["./src"]
+                        }
+                    }
+                }
+            }
+        ]
     },
     "include": [
         "./src/**/*",

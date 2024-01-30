@@ -1,8 +1,8 @@
 import React from 'react'
-import { WithIntl } from 'components/localization'
 import HomePage from 'features/pages/home'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import { WithIntl } from 'components/localization'
 
 const Home = () => {
     return <HomePage />

@@ -13,18 +13,6 @@
         "moduleResolution": "Bundler",
         "module": "ESNext",
         "resolveJsonModule": true,
-        "downlevelIteration": true,
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    "rendererOptions": {
-                        "sass": {
-                            "loadPaths": ["./src"]
-                        }
-                    }
-                }
-            }
-        ]
-    },
+        "downlevelIteration": true
+    }
 }

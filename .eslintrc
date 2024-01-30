@@ -83,7 +83,7 @@
                 ]
             }
         ],
-        "import/no-useless-path-segments": "error",
+        // "import/no-useless-path-segments": "error",
         "import/prefer-default-export": 0,
         "import/order": [
             "error",
@@ -127,21 +127,16 @@
         "jest": true
     },
     "settings": {
-        "import/resolver": {
-            "node": {
-                "paths": [
-                    "src"
-                ],
-                "extensions": [
-                    ".js",
-                    ".jsx",
-                    ".ts",
-                    ".tsx"
-                ]
-            }
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
         },
-        "react": {
-            "version": "17"
+        "import/resolver": {
+            "typescript": {
+                "project": ["tsconfig.json", "themes/gatsby-theme-deriv/tsconfig.json"]
+            },
+            "node": {
+                "project": ["tsconfig.json", "themes/gatsby-theme-deriv/tsconfig.json"]
+            }
         }
     }
 }

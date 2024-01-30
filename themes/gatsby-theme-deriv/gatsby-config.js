@@ -1,3 +1,4 @@
+const path = require("path");
 const language_config = require(`./i18n-config.js`)
 const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
@@ -229,7 +230,7 @@ module.exports = {
                 background_color: '#000000',
                 theme_color: '#000000',
                 display: 'standalone',
-                icon: './favicons/favicon-512x512.png',
+                icon: path.resolve(__dirname, "./", "favicons", "favicon-512x512.png"),
                 icons: [
                     {
                         src: `favicons/favicon-48x48.png`,

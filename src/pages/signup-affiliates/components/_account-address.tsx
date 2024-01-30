@@ -100,8 +100,8 @@ const AccountAddress = ({
                         : form_data[property],
             }
         }
-        console.log('useEffect==>', data.city, form_data.city)
         updateData({ ...data })
+        console.log('useEffect==>', data.city, form_data.city)
         onValidate(
             data.country?.name &&
                 data.state?.name &&

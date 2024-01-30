@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o"
+    "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
+    "clean": "rimraf dist *.tsbuildinfo node_modules public .cache"
   },
   "keywords": [],
   "author": "",

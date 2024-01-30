@@ -110,7 +110,6 @@ const AccountDetails = ({
                         : form_data[property],
             }
         }
-        console.log('==>', data, form_data)
         updateData({ ...data })
         onValidate(
             is_individual
@@ -146,6 +145,20 @@ const AccountDetails = ({
     }, [form_data])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+
+        setFormData((prev) => ({ ...prev, [name]: value }))
+
+        if (affiliate_validation[name]) {
+            const error_msg = affiliate_validation[name](value)
+            setFormErrors((errors) => ({
+                ...errors,
+                [`${name}_error_msg`]: error_msg,
+            }))
+        }
+    }, [])
+
+    const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 
         setFormData((prev) => ({ ...prev, [name]: value.trim() }))
@@ -216,6 +229,7 @@ const AccountDetails = ({
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}
                                     onChange={handleInput}
+                                    onBlur={handleBlur}
                                     data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />

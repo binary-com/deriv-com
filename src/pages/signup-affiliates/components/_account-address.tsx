@@ -101,6 +101,7 @@ const AccountAddress = ({
             }
         }
         updateData({ ...data })
+        console.log('useEffect==>', data.city, form_data.city)
         onValidate(
             data.country?.name &&
                 data.state?.name &&
@@ -127,6 +128,20 @@ const AccountAddress = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
+        console.log('HERE handleInput: ', value, name)
+    }, [])
+
+    const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
+        if (affiliate_validation[name]) {
+            const error_msg = affiliate_validation[name](value.trim())
+            setFormErrors((errors) => ({
+                ...errors,
+                [`${name}_error_msg`]: error_msg,
+            }))
+        }
+        console.log('HERE Blur: ', value, name)
     }, [])
 
     const handleError = (item) => {
@@ -167,6 +182,7 @@ const AccountAddress = ({
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
+                                    onBlur={handleBlur}
                                     handleError={() => handleError(item)}
                                 />
                             </li>

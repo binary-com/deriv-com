@@ -1,9 +1,14 @@
+const { join } = require('path');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    content: [join(
+        __dirname,
+        'src/**/*.{ts,tsx,js,jx}',
+      ),],
     theme: {
         extend: {},
     },
     plugins: [],
-    presets: [require('@deriv/quill-design/quill-tailwind/tailwind.config')],
+    presets: [require('../../tailwind.config')],
 }

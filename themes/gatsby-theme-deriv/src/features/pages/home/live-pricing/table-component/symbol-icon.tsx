@@ -1,3 +1,4 @@
+/*eslint import/namespace: ['error', { allowComputed: true }]*/
 import React from 'react'
 import * as icons from 'components/elements/symbols-shortcode'
 import Image from 'features/components/atoms/image'

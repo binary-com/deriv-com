@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
+// eslint-disable-next-line import/default
 import DatePicker from 'react-date-picker'
 import { AffiliateLabel } from './_affiliate-input'
 import Calendar from 'images/svg/signup-affiliates/calendar.svg'

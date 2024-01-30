@@ -1,3 +1,4 @@
+/*eslint import/namespace: ['error', { allowComputed: true }]*/
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Popover, ArrowContainer } from 'react-tiny-popover'

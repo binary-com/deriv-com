@@ -2,7 +2,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { TString } from 'types/generics'
 
 export type ContentType = {
-    title: TString
+    title: TString | string
     header?: TString
     second_title?: TString
     subtitle?: TString

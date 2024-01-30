@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContentType } from './index'
+import { ContentType } from 'pages/landing/_types'
 import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements/typography'

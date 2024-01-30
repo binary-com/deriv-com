@@ -158,20 +158,6 @@ const AccountDetails = ({
         }
     }, [])
 
-    const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-
-        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
-
-        if (affiliate_validation[name]) {
-            const error_msg = affiliate_validation[name](value.trim())
-            setFormErrors((errors) => ({
-                ...errors,
-                [`${name}_error_msg`]: error_msg,
-            }))
-        }
-    }, [])
-
     const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
@@ -229,7 +215,6 @@ const AccountDetails = ({
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}
                                     onChange={handleInput}
-                                    onBlur={handleBlur}
                                     data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />

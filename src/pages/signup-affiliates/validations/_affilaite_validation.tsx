@@ -49,10 +49,7 @@ const nameValidation = (input, text, min_digit, max_digit) => {
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`_t_You should enter 2-256 characters._t_`)
-    } else if (
-        affiliate_validation_regex.latin.test(input) ||
-        affiliate_validation_regex.name.test(input)
-    ) {
+    } else if (!affiliate_validation_regex.name.test(input)) {
         return localize('_t_Only Latin and Alphabet characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')

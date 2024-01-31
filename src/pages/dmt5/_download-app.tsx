@@ -66,7 +66,7 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 const InfoText = styled.p`
-    font-size: 25px;
+    font-size: 24px;
     margin-left: 16px;
     line-height: 34px;
     @media ${device.tabletL} {

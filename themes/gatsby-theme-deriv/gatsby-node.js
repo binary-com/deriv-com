@@ -83,7 +83,7 @@ const BuildPage = (page, actions, isEUPage) => {
         })
         createRedirect({
             fromPath: `/contact-us`,
-            toPath: `/contact_us`,
+            toPath: `/contact_us/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -427,20 +427,24 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             usedExports: true,
         },
         plugins: [
-            new StylelintPlugin({...style_lint_options, ...options}),
-            new webpack.optimize.LimitChunkCountPlugin({maxChunks: 1}),
+            new StylelintPlugin({ ...style_lint_options, ...options }),
+            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
-        ...((stage === 'build-html' || stage === 'develop-html') ? {
-            module: {
-                rules: [{
-                    test: /analytics/,
-                    use: loaders.null()
-                }]
-            }
-        } : {}),
+        ...(stage === 'build-html' || stage === 'develop-html'
+            ? {
+                  module: {
+                      rules: [
+                          {
+                              test: /analytics/,
+                              use: loaders.null(),
+                          },
+                      ],
+                  },
+              }
+            : {}),
     })
 }
 

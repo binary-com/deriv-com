@@ -62,7 +62,6 @@ const SignupPublicForm = () => {
                     md={{
                         direction: 'row',
                         justify: 'between',
-                        align: 'center',
                         gap: '4x',
                     }}
                 >

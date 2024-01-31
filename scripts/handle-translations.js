@@ -78,15 +78,14 @@ const handleProcess = (action) => {
 
     // Detect Auto Translation Process
 
-    if (action !== 'pull-master')
-        console.log(
-            `\x1b[33mInitialized auto translation pull for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
-        )
-    else {
-        console.log(
-            `\x1b[32m[Main] \x1b[33mFetching translation from the master source \x1b[33m   \n \x1b[0m`,
-        )
+   
+    const consoleMsgs = {
+        'pull':  `\x1b[32m[Main] \x1b[33mFetching translation from the master source \x1b[33m   \n \x1b[0m`,
+        'pull-master': `\x1b[33mInitialized auto translation pull for \x1b[32m[${branch_name}]\x1b[33m   \n \x1b[0m`,
+        'merge-master-translation': `\x1b[33mMerging master and resolving conflicts....   \n \x1b[0m`
     }
+
+    console.log(consoleMsgs[action])
 
     runProcess({
         process: action,
@@ -115,6 +114,12 @@ const runProcess = (data) => {
         case 'pull-master':
             exec(
                 `crowdin download -b  master -T ${CROWDIN_API_KEY} && crowdin download -b master -l zh-CN -T ${CROWDIN_API_KEY} `,
+                callback,
+            )
+            break
+        case 'merge-master-translation':
+            exec(
+                `git merge -X theirs --commit master -m "chore: $(git status --short)"`,
                 callback,
             )
             break

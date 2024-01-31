@@ -2,7 +2,7 @@ import React from 'react'
 import { Features } from '@deriv-com/blocks'
 import { swiperOption } from '../live-pricing-migration/utils'
 import { cards } from './data'
-import { Localize } from 'components/localization'
+import { Localize, is_rtl } from 'components/localization'
 
 const TwentyYearsStrong = () => {
     return (
@@ -14,6 +14,7 @@ const TwentyYearsStrong = () => {
                 className: 'w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg ',
                 variant: 'ContentBottom',
                 cards: cards,
+                dir: is_rtl ? 'rtl' : 'ltr',
             }}
         />
     )

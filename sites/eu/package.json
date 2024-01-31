@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
     "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
-    "clean": "rimraf dist *.tsbuildinfo node_modules public .cache"
+    "serve": "gatsby serve",
+    "clean": "rimraf dist *.tsbuildinfo node_modules public .cache",
+    "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json"
   },
   "keywords": [],
   "author": "",

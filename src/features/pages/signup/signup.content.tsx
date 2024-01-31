@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Analytics } from '@deriv-com/analytics'
+import { signup_latam_human_image } from './signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import MaleHuman from 'images/common/sign-up/latam-male-human.png'
+import Image from 'features/components/atoms/image'
+import useRegion from 'components/hooks/use-region'
 
 const SignUpContent = () => {
+    const { is_latam } = useRegion()
+
+    const [
+        growthbook_feature_flag__latam_signup_human_element_visible,
+        setLatamSignupHumanElementVisible,
+    ] = useState<boolean>(false)
+
+    useEffect(() => {
+        const value = (Analytics.getFeatureValue('latam-signup-human-element', false) ||
+            false) as boolean
+
+        setLatamSignupHumanElementVisible(value)
+    }, [])
+
     return (
         <Flex.Box
             basis="6-12"
@@ -13,6 +32,16 @@ const SignUpContent = () => {
             align="center"
             gap="8x"
         >
+            {/**
+             * This is for growthbook a/b testing in the LATAM region
+             */}
+            {is_latam && growthbook_feature_flag__latam_signup_human_element_visible && (
+                <Image
+                    className={signup_latam_human_image}
+                    src={MaleHuman}
+                    alt="LATAM male human"
+                />
+            )}
             <Typography.Heading size="small" align="center">
                 <Localize translate_text="_t_Unique trade types. Hundreds of instruments. Financial and derived markets._t_" />
             </Typography.Heading>

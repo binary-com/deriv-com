@@ -4,7 +4,7 @@ import { localize } from 'components/localization'
 export const affiliate_validation_regex = {
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/,
     latin: /[^a-zA-Za 0-9-]/,
-    name: /^[a-zA-Z ,.'-]{1,30}$/,
+    name: /^[a-zA-Z ,.'-]{1,256}$/,
     phone: /^\+\d+$/,
     user_name: /^[a-zA-Z0-9]{8,30}$/,
     password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,256}/,
@@ -43,7 +43,7 @@ const userNameValidation = (input) => {
 }
 const nameValidation = (input) => {
     if (!input) {
-        return text + localize('_t_ is required_t_')
+        return localize('_t_This field is required_t_')
     } else if (!affiliate_validation_regex.name.test(input)) {
         return localize('_t_Only Latin and Alphabet characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {

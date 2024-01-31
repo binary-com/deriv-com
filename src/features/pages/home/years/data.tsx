@@ -1,10 +1,10 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
 import {
-    LightDependableIcon,
-    LightSafeAndSecureIcon,
-    LightRegulatedIcon,
-    LightTwentyFourSevenSupportIcon,
+    DerivLightDependableIcon,
+    DerivLightSafeAndSecureIcon,
+    DerivLightRegulatedIcon,
+    DerivLightTwentyFourSevenSupportIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustration'
 import { Localize } from 'components/localization'
@@ -20,7 +20,12 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <LightDependableIcon width={120} height={145} role="img" title="Dependable platform" />
+            <DerivLightDependableIcon
+                width={120}
+                height={145}
+                role="img"
+                title="Dependable platform"
+            />
         ),
         className: 'h-full',
     },
@@ -32,7 +37,7 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <LightSafeAndSecureIcon
+            <DerivLightSafeAndSecureIcon
                 width={120}
                 height={145}
                 role="img"
@@ -51,7 +56,7 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <LightRegulatedIcon
+            <DerivLightRegulatedIcon
                 width={120}
                 height={145}
                 role="img"
@@ -70,7 +75,7 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <LightTwentyFourSevenSupportIcon
+            <DerivLightTwentyFourSevenSupportIcon
                 width={120}
                 height={145}
                 role="img"

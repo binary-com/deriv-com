@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import trackEvent from './utils/_tracking'
-import { Submit } from './utils/_utils'
+import { Submit, trackEvent } from './utils/_utils'
 import { AffiliateAccountTypes, SignUpStatusTypes } from './_types'
 import { AffiliateSignupForm, AffiliateSignupStatus, Wizard } from './_lazy-loading'
 import { isBrowser } from 'common/utility'
@@ -25,6 +24,10 @@ const ParentWrapper = styled.div`
     background-image: url(${Map});
     background-repeat: no-repeat;
     background-position: bottom;
+
+    @media ${device.tabletL} {
+        background-image: unset;
+    }
 `
 const StyledContainer = styled(Container)`
     display: flex;
@@ -86,7 +89,13 @@ const AffiliateSignup = () => {
 
     useEffect(() => {
         trackEvent({ action: 'open' })
-        return () => trackEvent({ action: 'close' })
+        const handleBeforeUnload = (event) => {
+            event.preventDefault()
+            trackEvent({ action: 'close' })
+            trackEvent({ action: 'close_wizard' })
+        }
+        window.addEventListener('beforeunload', handleBeforeUnload)
+        return () => window.removeEventListener('beforeunload', handleBeforeUnload)
     }, [])
 
     useEffect(() => {
@@ -104,8 +113,16 @@ const AffiliateSignup = () => {
 
     useEffect(() => {
         const partner_signup_error_message = affiliate_api_error?.error.message
-
-        if (partner_signup_error_message == 'Username not available') {
+        if (affiliate_api_data) {
+            trackEvent({
+                action: 'success_popup_opened',
+                user_choice:
+                    JSON.stringify(affiliate_api_error?.echo_req) ||
+                    'success, but without echo_req',
+                success_source: partner_signup_error_message ? 'failed_popup' : 'last_step',
+            })
+            setSignupStatus('success')
+        } else if (partner_signup_error_message == 'Username not available') {
             trackEvent({ action: 'partners_signup_error', partner_signup_error_message })
             setSignupStatus(partner_signup_error_message)
         } else if (
@@ -117,15 +134,7 @@ const AffiliateSignup = () => {
             setSignupStatus('Your website is not a valid entry')
         } else if (partner_signup_error_message)
             trackEvent({ action: 'other_error', partner_signup_error_message })
-
-        if (affiliate_api_data) {
-            trackEvent({
-                action: 'success_popup_opened',
-                user_choice: JSON.stringify(affiliate_api_error?.echo_req),
-            })
-            setSignupStatus('success')
-        }
-    }, [affiliate_api_data, affiliate_api_error, affiliateSend])
+    }, [affiliate_api_data, affiliate_api_error])
 
     useEffect(() => {
         setAffiliateAccount({

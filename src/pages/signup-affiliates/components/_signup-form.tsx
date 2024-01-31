@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpFormProps } from '../_types'
+import { trackEvent } from '../utils/_utils'
 import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
@@ -88,6 +89,7 @@ export const SignUpWrapper = styled(Container)`
         padding: 0;
     }
 `
+const email = localize('_t_Email_t_')
 let language = getLanguage()
 language = language !== 'en' ? '/' + language : ''
 
@@ -97,7 +99,6 @@ const AffiliateSignupForm = ({
     setShowWizard,
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
-    const email = localize('_t_Email_t_')
 
     const handleStateChange = useCallback(
         ({ e, field }: { e?: React.ChangeEvent<HTMLInputElement>; field: string }) => {
@@ -172,6 +173,7 @@ const AffiliateSignupForm = ({
                     secondary
                     onClick={() => {
                         window.scrollTo(0, 0)
+                        trackEvent({ action: 'open_wizard', email: affiliate_account.email })
                         setShowWizard(true)
                     }}
                     disabled={!(affiliate_account.email && !email_error_msg)}

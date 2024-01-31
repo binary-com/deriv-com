@@ -15,7 +15,6 @@ const TurboOptions = () => {
         <OptionsLayout
             heading="_t_What are turbo options?_t_"
             description="_t_Turbo options allow you to earn a potentially high payout if your market predictions are right and if the spot price does not touch or breach a predetermined barrier._t_"
-            is_coming_soon
         >
             <Typography.Heading
                 as="h2"

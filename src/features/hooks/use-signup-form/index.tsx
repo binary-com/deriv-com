@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import Cookies from 'js-cookie'
-import { Analytics } from '@deriv/analytics'
+import { Analytics } from '@deriv-com/analytics'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'

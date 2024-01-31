@@ -7,7 +7,6 @@ import {
     AccountType,
 } from '../_lazy-loading'
 import { AffiliateAccountTypes, WizardProps } from '../_types'
-import trackEvent from '../utils/_tracking'
 import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 
@@ -25,11 +24,6 @@ const Wizard = ({
     })
 
     const is_individual = affiliate_account?.account_type == 1
-
-    useEffect(() => {
-        show_wizard && trackEvent({ action: 'open_wizard' })
-        return () => trackEvent({ action: 'close_wizard' })
-    }, [show_wizard])
 
     useEffect(() => {
         if (is_individual) {

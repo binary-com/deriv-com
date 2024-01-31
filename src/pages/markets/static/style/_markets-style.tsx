@@ -137,6 +137,13 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
         gap: 5px;
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
     }
+    & p {
+        grid-column: span ${({ col }) => col ?? 3};
+        @media ${device.tabletL} {
+            gap: 10px;
+            grid-column: span ${({ col }) => col ?? 2};
+        }
+    }
 `
 export const DerivedMarketsList = styled.div<MarketsListProps>`
     display: grid;

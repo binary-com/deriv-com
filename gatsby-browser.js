@@ -2,7 +2,7 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
-import { Analytics } from '@deriv/analytics'
+import { Analytics } from '@deriv-com/analytics'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -105,7 +105,6 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
@@ -125,7 +124,7 @@ export const onClientEntry = () => {
     }
     const dd_script = document.createElement('script')
     dd_script.type = 'text/javascript'
-    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
+    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
         dd_options,
     )})});`
     document.head.appendChild(dd_script)

@@ -223,6 +223,20 @@ export const volatility_indices_eu: TMarketSymbol[] = [
         text: '_t_Volatility 250 (1s) Index_t_',
     },
 ]
+export const volatility_indices_c_trader: TMarketSymbol[] = [
+    {
+        src: icons.VINDEX15S1,
+        text: '_t_Volatility 15 (1s) Index_t_',
+    },
+    {
+        src: icons.VINDEX30S1,
+        text: '_t_Volatility 30 (1s) Index_t_',
+    },
+    {
+        src: icons.VINDEX90S1,
+        text: '_t_Volatility 90 (1s) Index_t_',
+    },
+]
 
 export const crash_boom: TMarketSymbol[] = [
     {
@@ -248,6 +262,25 @@ export const crash_boom: TMarketSymbol[] = [
     {
         src: icons.BOOM1000NEW,
         text: '_t_Boom 1000 Index_t_',
+    },
+]
+
+export const crash_boom_ctrader: TMarketSymbol[] = [
+    {
+        src: icons.CRASHI600,
+        text: '_t_Crash 600 Index_t_',
+    },
+    {
+        src: icons.CRASHI900,
+        text: '_t_Crash 900 Index_t_',
+    },
+    {
+        src: icons.BOOMI600,
+        text: '_t_Boom 600 Index _t_',
+    },
+    {
+        src: icons.BOOMI900,
+        text: '_t_Boom 900 Index _t_',
     },
 ]
 

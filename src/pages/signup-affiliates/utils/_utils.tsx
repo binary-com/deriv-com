@@ -1,4 +1,4 @@
-import { Analytics } from '@deriv/analytics'
+import { Analytics, TEvents } from '@deriv-com/analytics'
 import { SubmitTypes } from '../_types'
 
 export const customSlugify = (text: string): string => {
@@ -68,4 +68,25 @@ export const Submit = ({
                     affiliate_account.account_details?.company_registration_number,
             }),
         })
+}
+
+export const trackEvent = ({
+    action,
+    email,
+    partner_signup_error_message,
+    user_choice,
+    success_source,
+    step_num,
+    step_codename,
+}: TEvents['ce_partner_account_signup_form']) => {
+    Analytics?.trackEvent('ce_partner_account_signup_form', {
+        action,
+        form_name: 'ce_partner_account_signup_form',
+        ...(email && { email }),
+        ...(user_choice && { user_choice }),
+        ...(success_source && { success_source }),
+        ...(step_num && { step_num }),
+        ...(step_codename && { step_codename }),
+        ...(partner_signup_error_message && { partner_signup_error_message }),
+    })
 }

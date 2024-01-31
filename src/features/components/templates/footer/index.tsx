@@ -9,7 +9,8 @@ import {
     socialButtonsROW,
     warnText,
 } from './data'
-import { DerivGoBannerAndAwards } from './banner-and-awards'
+import { DerivGoBanner } from './deriv-go-banner'
+import { IIPAward } from './iip-award'
 import { DescriptionContent, DescriptionContentCPA, DescriptionContentEU } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
@@ -35,7 +36,8 @@ export const MainFooter = () => {
         <Footer.FooterBlock
             warningText={!is_eu && !is_cpa_plan ? warnText : null}
             socialButtons={socialButtons}
-            bannerAndAwards={DerivGoBannerAndAwards}
+            banner={DerivGoBanner}
+            awards={IIPAward}
             descriptionContent={
                 is_eu
                     ? DescriptionContentEU

@@ -358,6 +358,13 @@ import DEX600UP from 'images/svg/symbols/dex-600up.svg'
 import DEX600DN from 'images/svg/symbols/dex-600dn.svg'
 import DEX1500UP from 'images/svg/symbols/dex-1500up.svg'
 import DEX1500DN from 'images/svg/symbols/dex-1500dn.svg'
+import VINDEX15S1 from 'images/svg/symbols/volatility_15_1s.svg'
+import VINDEX30S1 from 'images/svg/symbols/volatility_30_1s.svg'
+import VINDEX90S1 from 'images/svg/symbols/volatility_90_1s.svg'
+import CRASHI600 from 'images/svg/symbols/crash-indices-600.svg'
+import CRASHI900 from 'images/svg/symbols/crash-indices-900.svg'
+import BOOMI600 from 'images/svg/symbols/boom-indices-600.svg'
+import BOOMI900 from 'images/svg/symbols/boom-indices-900.svg'
 
 export {
     AAL,
@@ -720,4 +727,11 @@ export {
     DEX600DN,
     DEX1500UP,
     DEX1500DN,
+    VINDEX15S1,
+    VINDEX30S1,
+    VINDEX90S1,
+    CRASHI600,
+    CRASHI900,
+    BOOMI600,
+    BOOMI900,
 }

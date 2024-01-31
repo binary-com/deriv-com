@@ -153,7 +153,7 @@ export const CrashBoomDetails = () => (
     <DetailsContainer>
         <CrashText>
             <Localize
-                translate_text="_t_With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 300, 500, or 1,000 ticks</0>._t_"
+                translate_text="_t_With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a series of <0>300, 500, 600, 900 or 1,000 ticks</0>._t_"
                 components={[<strong key={0} />]}
             />
         </CrashText>
@@ -318,7 +318,7 @@ export const StepIndicesDetails = () => (
 export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
         <Text>
-            <Localize translate_text="_t_These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, 100%, 150%, and 250%._t_" />
+            <Localize translate_text="_t_These indices correspond to simulated markets with constant volatilities of 10%, 15%, 25%, 30%, 50%, 75%, 90%, 100%, 150%, and 250%._t_" />
         </Text>
         <Text>
             <Localize
@@ -328,7 +328,7 @@ export const VolatilityIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), 100 (1s), 150 (1s), and 250 (1s)</0>._t_"
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 15 (1s), 25 (1s), 30 (1s),50 (1s), 75 (1s), 90 (1s),100 (1s), 150 (1s), and 250 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>

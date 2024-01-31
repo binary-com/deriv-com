@@ -131,6 +131,8 @@ jobs:
                   GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
                   GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
                   GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
+                  GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+
               run: npm run build
 
             - name: Publish to Cloudflare Pages

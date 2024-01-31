@@ -456,7 +456,6 @@ export const not_avalable_appgallery_and_ios_countries = [
     'fk',
     'tf',
     'gg',
-    'cf',
     'im',
     'je',
     'ki',
@@ -473,13 +472,9 @@ export const not_avalable_appgallery_and_ios_countries = [
     'aq',
     'hm',
     'um',
-    'bi',
-    'et',
-    'gq',
-    'ls',
 ]
 
-export const not_available_iOS_countries = ['ad', 'ck', 'ps']
+export const not_available_iOS_countries = ['ad', 'ck', 'ps', 'et', 'bi', 'cf', 'gq', 'ls']
 
 export const not_available_ctrader_countries = [
     'as',

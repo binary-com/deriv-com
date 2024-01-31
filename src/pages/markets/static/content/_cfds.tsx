@@ -149,13 +149,13 @@ export const synthetic_cfds: TMarketContent = {
         {
             id: 'jump-indices',
             title: '_t_Jump indices_t_',
-            component: <JumpIndices />,
+            component: <JumpIndices is_cfd />,
             details: <JumpIndicesDetails />,
         },
         {
             id: 'step-indices',
             title: '_t_Step indices_t_',
-            component: <StepIndices />,
+            component: <StepIndices is_cfd />,
             details: <StepIndicesDetails />,
         },
         {

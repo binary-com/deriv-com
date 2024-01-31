@@ -50,15 +50,19 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                 </StyledLink>
 
                 <SideTab data={filtered_questions} tab_header={category}>
-                    {filtered_questions.map(({ label, question, answer, renderProp }) => (
-                        <AnswerCard
-                            key={label}
-                            question={question}
-                            answer={typeof answer == 'function' ? answer({ is_eu }) : answer}
-                            label={label}
-                            renderProp={renderProp}
-                        />
-                    ))}
+                    {filtered_questions.map(
+                        ({ label, question, answer, renderProp, margin, flex }) => (
+                            <AnswerCard
+                                key={label}
+                                question={question}
+                                answer={typeof answer == 'function' ? answer({ is_eu }) : answer}
+                                label={label}
+                                renderProp={renderProp}
+                                margin={margin}
+                                flex={flex}
+                            />
+                        ),
+                    )}
                 </SideTab>
             </Container>
 

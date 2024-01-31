@@ -4,7 +4,7 @@ import { localize } from 'components/localization'
 export const affiliate_validation_regex = {
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/,
     latin: /[^a-zA-Za 0-9-]/,
-    name: /^[a-zA-Z ,.'-]/,
+    name: /^[a-zA-Z ,.'-]{1,30}$/,
     phone: /^\+\d+$/,
     user_name: /^[a-zA-Z0-9]{8,30}$/,
     password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,256}/,
@@ -41,14 +41,9 @@ const userNameValidation = (input) => {
         return localize('_t_Please enter a valid username with Latin characters and numbers._t_')
     }
 }
-const nameValidation = (input, text, min_digit, max_digit) => {
+const nameValidation = (input) => {
     if (!input) {
         return text + localize('_t_ is required_t_')
-    } else if (
-        !validation_is_exceed_number(input, max_digit) ||
-        !validation_is_lack_number(input, min_digit)
-    ) {
-        return localize(`_t_You should enter 2-256 characters._t_`)
     } else if (!affiliate_validation_regex.name.test(input)) {
         return localize('_t_Only Latin and Alphabet characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {

@@ -144,7 +144,7 @@ jobs:
                   echo "Installing Wrangler CLI"
                   npm i -g wrangler
                   echo "Deploying build to Cloudflare Pages"
-                  directory='public'
+                  directory='sites/row/public'
                   projectName='deriv-com-preview-links'
                   branch=$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
                   cf_preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)

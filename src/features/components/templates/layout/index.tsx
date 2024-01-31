@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { ReactNode, useCallback } from 'react'
 import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
+import 'features/styles/app.scss'
+import '../../../../../static/css/global.css'
+import '@deriv-com/blocks/style.css'
+import 'swiper/swiper-bundle.min.css'
 import { main_wrapper } from './style.module.scss'
 import { langItemsROW } from './data'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'

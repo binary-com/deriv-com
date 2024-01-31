@@ -184,6 +184,7 @@
         "translate:upload": "crowdin upload sources -b crowdin",
         "translation:pull": "node scripts/handle-translations.js pull",
         "translation:fetch": "node scripts/handle-translations.js pull-master",
+        "translation:fix": "node scripts/handle-translations.js merge-master-translation;  npm run pre-commit-translate",
         "translation:branch": "node scripts/handle-translations.js branch",
         "translation:check": "cd scripts && node extract-translations.js show-untranslated && cd ..",
         "branch:create": "node scripts/branch-manager.js",

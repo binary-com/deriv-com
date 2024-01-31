@@ -6,11 +6,12 @@ const program = require('commander')
 const crc32 = require('crc-32').str
 const fs = require('fs')
 const glob = require('glob')
-const translated_keys = require('../src/translations/ach.json')
+const translated_keys = require('../themes/gatsby-theme-deriv/src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
-const strap_data = require('../public/page-data/404/page-data.json')
+const strap_data_row = require('../sites/row/public/page-data/404/page-data.json')
+const strap_data_eu = require('../sites/eu/public/page-data/404/page-data.json')
 
-
+const strap_data = [strap_data_row, strap_data_eu]
 
 /*
 (_t_)                     = the capturing group for prefix "_t_"
@@ -88,7 +89,7 @@ function extractTranslations() {
 
             // Find all file types listed in `globs`
             for (let i = 0; i < globs.length; i++) {
-                let filesFound = glob.sync(`../src/${globs[i]}`);
+                let filesFound = glob.sync(`../themes/gatsby-theme-deriv/src/${globs[i]}`);
                 filesFound = filesFound.filter(path => path.indexOf('__tests__') === -1);
                 file_paths.push(...filesFound);
             }
@@ -109,8 +110,14 @@ function extractTranslations() {
                 }
             }
 
-            const data_from_strapi = getStrapiStrings(strap_data.result.data.strapiWhoWeArePage)
-            const messages = new Array(...pre_messages, ...data_from_strapi)
+            let messages = new Array(...pre_messages);
+
+            strap_data.forEach(item => {
+                if(item){
+                    messages.push(getStrapiStrings(item.result.data.strapiWhoWeArePage))
+                }
+            })
+
 
             const untranslated = []
             // Hash the messages and set the key-value pair for json

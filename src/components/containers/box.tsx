@@ -3,6 +3,7 @@ import { Margins, MarginsType, Paddings, PaddingsType } from '../../themes/funct
 import device, { size } from 'themes/device'
 
 export const mediaqueries = Object.keys(size)
+    //check
     .sort(function (a, b) {
         return size[b] - size[a]
     })

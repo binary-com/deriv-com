@@ -1,14 +1,11 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
-import {
-    DerivProductDerivBotBrandDarkLogoHorizontalIcon,
-    DerivProductDerivGoBrandDarkLogoHorizontalIcon,
-    DerivProductDerivTraderBrandDarkLogoHorizontalIcon,
-    DerivProductDerivXBrandDarkLogoIcon,
-    PartnersProductDerivCtraderBrandLightLogoHorizontalIcon,
-    PartnersProductDerivMt5BrandLightLogoHorizontalIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Logo'
+import DerivProductDerivBotBrandDarkLogoHorizontalIcon from '../../../../images/svg/new-homepage/dbot.svg'
+import DerivProductDerivGoBrandDarkLogoHorizontalIcon from '../../../../images/svg/new-homepage/dgo.svg'
+import DerivProductDerivTraderBrandDarkLogoHorizontalIcon from '../../../../images/svg/new-homepage/dt.svg'
+import DerivProductDerivXBrandDarkLogoIcon from '../../../../images/svg/new-homepage/dx.svg'
+import PartnersProductDerivCtraderBrandLightLogoHorizontalIcon from '../../../../images/svg/new-homepage/dct.svg'
+import PartnersProductDerivMt5BrandLightLogoHorizontalIcon from '../../../../images/svg/new-homepage/dmt5.svg'
 import { FilterKeyType, PlatformTab } from './type'
 import { Localize } from 'components/localization'
 
@@ -32,7 +29,9 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
         ),
-        icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
+        icon: (
+            <img src={PartnersProductDerivMt5BrandLightLogoHorizontalIcon} width={48} height={48} />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -49,7 +48,13 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_Fast CFDs platform with inbuilt copy trading._t_" />
         ),
-        icon: <PartnersProductDerivCtraderBrandLightLogoHorizontalIcon height="48" width="48" />,
+        icon: (
+            <img
+                src={PartnersProductDerivCtraderBrandLightLogoHorizontalIcon}
+                height="48"
+                width="48"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -66,7 +71,7 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_User-friendly and customisable CFDs platform._t_" />
         ),
-        icon: <DerivProductDerivXBrandDarkLogoIcon height="48" width="48" />,
+        icon: <img src={DerivProductDerivXBrandDarkLogoIcon} height="48" width="48" />,
         size: 'md',
         align: 'start',
         color: 'light',
@@ -83,7 +88,7 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_Mobile app for multipliers trading on the go._t_" />
         ),
-        icon: <DerivProductDerivGoBrandDarkLogoHorizontalIcon width={48} height={48} />,
+        icon: <img src={DerivProductDerivGoBrandDarkLogoHorizontalIcon} width={48} height={48} />,
         size: 'md',
         align: 'start',
         color: 'light',
@@ -100,7 +105,9 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
         ),
-        icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
+        icon: (
+            <img src={DerivProductDerivTraderBrandDarkLogoHorizontalIcon} height="48" width="48" />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -115,7 +122,7 @@ export const RowCards: PlatformCardContent[] = [
         filterKey: ['Options', 'Bots'],
         header: <Localize translate_text="_t_Deriv Bot_t_" />,
         description: <Localize translate_text="_t_Automated trading. No coding required._t_" />,
-        icon: <DerivProductDerivBotBrandDarkLogoHorizontalIcon height="48" width="48" />,
+        icon: <img src={DerivProductDerivBotBrandDarkLogoHorizontalIcon} height="48" width="48" />,
         size: 'md',
         align: 'start',
         color: 'light',
@@ -137,7 +144,9 @@ export const EUCards: CardContent[] = [
                 components={[<strong key={0} />]}
             />
         ),
-        icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
+        icon: (
+            <img src={PartnersProductDerivMt5BrandLightLogoHorizontalIcon} width={48} height={48} />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -156,7 +165,9 @@ export const EUCards: CardContent[] = [
                 components={[<strong key={0} />]}
             />
         ),
-        icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
+        icon: (
+            <img src={DerivProductDerivTraderBrandDarkLogoHorizontalIcon} height="48" width="48" />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',

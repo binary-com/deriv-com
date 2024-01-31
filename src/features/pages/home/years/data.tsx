@@ -1,12 +1,9 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
-import {
-    LightDependableIcon,
-    LightSafeAndSecureIcon,
-    LightRegulatedIcon,
-    LightTwentyFourSevenSupportIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Illustration'
+import LightDependableIcon2 from '../../../../images/svg/new-homepage/LightDependableIcon.svg'
+import LightSafeAndSecureIcon2 from '../../../../images/svg/new-homepage/LightSafeAndSecureIcon.svg'
+import LightRegulatedIcon2 from '../../../../images/svg/new-homepage/LightRegulatedIcon.svg'
+import LightTwentyFourSevenSupportIcon2 from '../../../../images/svg/new-homepage/LightTwentyFourSevenSupportIcon.svg'
 import { Localize } from 'components/localization'
 
 export const cards: CardContent[] = [
@@ -19,7 +16,8 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightDependableIcon width={120} height={145} />,
+        icon: <img src={LightDependableIcon2} width={120} height={145} />,
+
         className: 'h-full',
     },
     {
@@ -29,7 +27,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightSafeAndSecureIcon width={120} height={145} />,
+        icon: <img src={LightSafeAndSecureIcon2} width={120} height={145} />,
         className: 'h-full',
     },
     {
@@ -41,7 +39,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightRegulatedIcon width={120} height={145} />,
+        icon: <img src={LightRegulatedIcon2} width={120} height={145} />,
         className: 'h-full',
     },
     {
@@ -53,7 +51,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightTwentyFourSevenSupportIcon width={120} height={145} />,
+        icon: <img src={LightTwentyFourSevenSupportIcon2} width={120} height={145} />,
         className: 'h-full',
     },
 ]

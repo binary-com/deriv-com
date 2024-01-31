@@ -53,19 +53,6 @@ module.exports = {
     plugins: [
         'gatsby-plugin-postcss',
         {
-            resolve: 'gatsby-plugin-html-minifier',
-            options: {
-                collapseWhitespace: true,
-                decodeEntities: true,
-                minifyCSS: true,
-                minifyJS: true,
-                removeComments: true,
-                removeEmptyAttributes: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-            },
-        },
-        {
             resolve: 'gatsby-plugin-sass',
             options: {
                 postCssPlugins: [

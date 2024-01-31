@@ -52,6 +52,12 @@ module.exports = {
     plugins: [
         'gatsby-plugin-postcss',
         {
+            resolve: 'gatsby-plugin-external-css',
+            options: {
+              source: `${__dirname}/static/css/global.css`,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-html-minifier',
             options: {
                 collapseWhitespace: true,

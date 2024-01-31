@@ -19,7 +19,7 @@ import './static/css/noto-sans-arabic.css'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 import './static/css/ubuntu.css'
-import './static/css/global.css'
+// import './static/css/global.css'
 import '@deriv-com/blocks/style.css';
 
 const is_browser = typeof window !== 'undefined'

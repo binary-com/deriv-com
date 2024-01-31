@@ -78,8 +78,8 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages && node scripts/copy-htaccess.js",
+        "analyze-bundle:row": "npm run analyze-bundle --workspace @deriv/row",
+        "build:row": "npm run build --workspace @deriv/row",
         "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest",
         "partytown": "partytown copylib public/~partytown",
         "develop:row": "npm run develop --workspace @deriv/row",

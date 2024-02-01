@@ -6,7 +6,7 @@ export const affiliate_validation_regex = {
     latin: /[^a-zA-Za 0-9-]/,
     name: /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u,
     phone: /^\+\d+$/,
-    user_name: /^[a-zA-Z0-9!"?¨'_.,-]{3,30}$/,
+    user_name: /[^a-zA-Za 0-9!"?¨'_.,-]/,
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     city: /^[a-zA-Z /_.,-]*$/,
@@ -35,10 +35,8 @@ const userNameValidation = (input) => {
         return localize('_t_Username is required_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
-    } else if (input.length < 3) {
-        return localize('_t_You should enter 3-30 characters _t_')
     } else if (!affiliate_validation_regex.user_name.test(input)) {
-        return localize('_t_Please enter Latin characters, numbers and general symbols._t_')
+        return localize('_t_Please enter Latin characters, numbers and standard symbols._t_')
     }
 }
 const nameValidation = (input) => {

@@ -11,6 +11,8 @@ permissions:
 on:
     pull_request_target:
         types: [opened, synchronize]
+        branches:
+            - '**'
 
 env:
     NODE_OPTIONS: '--max-old-space-size=8192'

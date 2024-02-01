@@ -4,10 +4,10 @@ import { localize } from 'components/localization'
 export const affiliate_validation_regex = {
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/,
     latin: /[^a-zA-Za 0-9-]/,
-    name: /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/,
+    name: /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u,
     phone: /^\+\d+$/,
-    user_name: /^[a-zA-Z0-9]{8,30}$/,
-    password: /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u,
+    user_name: /^[a-zA-Z0-9!"?¨'_.,-]{3,30}$/,
+    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     city: /^[a-zA-Z /_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
@@ -35,19 +35,19 @@ const userNameValidation = (input) => {
         return localize('_t_Username is required_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
-    } else if (input.length < 8) {
-        return localize('_t_You should enter 8-30 characters _t_')
+    } else if (input.length < 3) {
+        return localize('_t_You should enter 3-30 characters _t_')
     } else if (!affiliate_validation_regex.user_name.test(input)) {
-        return localize('_t_Please enter a valid username with Latin characters and numbers._t_')
+        return localize('_t_Please enter Latin characters, numbers and general symbols._t_')
     }
 }
 const nameValidation = (input) => {
     if (!input) {
         return localize('_t_This field is required_t_')
-    } else if (input.length < 8) {
+    } else if (input.length < 2) {
         return localize('_t_You should enter 2-50 characters _t_')
     } else if (!affiliate_validation_regex.name.test(input)) {
-        return localize('_t_Only Alphabet characters_t_')
+        return localize('_t_Please enter valid characters._t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
     }
@@ -83,11 +83,8 @@ const phoneValidation = (input) => {
 const passwordValidation = (input, min_digit, max_digit) => {
     if (!input) {
         return localize('_t_Password is required_t_')
-    } else if (
-        !validation_is_exceed_number(input, max_digit) ||
-        !validation_is_lack_number(input, min_digit)
-    ) {
-        return localize(`_t_You should enter 8-256 characters._t_`)
+    } else if (input.length < 8) {
+        return localize(`_t_You should enter at least 8 characters._t_`)
     } else if (!affiliate_validation_regex.password.test(input)) {
         return localize(
             `_t_Password should have lower and uppercase English letters with numbers._t_`,

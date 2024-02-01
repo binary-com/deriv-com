@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Analytics } from '@deriv-com/analytics'
+import React from 'react'
 import { signup_latam_human_image } from './signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -7,21 +6,13 @@ import { Localize } from 'components/localization'
 import MaleHuman from 'images/common/sign-up/latam-male-human.png'
 import Image from 'features/components/atoms/image'
 import useRegion from 'components/hooks/use-region'
+import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
 
 const SignUpContent = () => {
     const { is_latam } = useRegion()
 
-    const [
-        growthbook_feature_flag__latam_signup_human_element_visible,
-        setLatamSignupHumanElementVisible,
-    ] = useState<boolean>(false)
-
-    useEffect(() => {
-        const value = (Analytics.getFeatureValue('latam-signup-human-element', false) ||
-            false) as boolean
-
-        setLatamSignupHumanElementVisible(value)
-    }, [])
+    const growthbook_feature_flag__latam_signup_human_element_visible =
+        useGrowthbookFeatureFlag<boolean>('latam-signup-human-element', false)
 
     return (
         <Flex.Box

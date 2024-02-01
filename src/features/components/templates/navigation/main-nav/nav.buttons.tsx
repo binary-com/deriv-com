@@ -79,17 +79,19 @@ export const MainNavigationButtons = () => {
                     dangerouslySetInnerHTML={{
                         __html: `
                     <script>
-                        const isLoggedIn = document?.cookie.split(';').some(function(item) { return item.trim().startsWith('client_information='); });
-                        const isRealDevice = typeof window !== 'undefined';
-
-                        if (isRealDevice) {
-                            if (isLoggedIn) {
-                                document.querySelector('#${uniq} .navbuttons_tradershub').classList.remove('navbuttons_tradershub--hidden');
-                            } else {
-                                document.querySelector('#${uniq} .navbuttons_login').classList.remove('navbuttons_login--hidden');
-                                document.querySelector('#${uniq} .navbuttons_opendemo').classList.remove('navbuttons_opendemo--hidden');
+                        (function() {
+                            const isLoggedIn = document?.cookie.split(';').some(function(item) { return item.trim().startsWith('client_information='); });
+                            const isRealDevice = typeof window !== 'undefined';
+    
+                            if (isRealDevice) {
+                                if (isLoggedIn) {
+                                    document.querySelector('#${uniq} .navbuttons_tradershub').classList.remove('navbuttons_tradershub--hidden');
+                                } else {
+                                    document.querySelector('#${uniq} .navbuttons_login').classList.remove('navbuttons_login--hidden');
+                                    document.querySelector('#${uniq} .navbuttons_opendemo').classList.remove('navbuttons_opendemo--hidden');
+                                }
                             }
-                        }
+                        })();
                     </script>
                 `,
                     }}

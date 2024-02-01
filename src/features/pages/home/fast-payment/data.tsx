@@ -52,10 +52,11 @@ export const RowPaymentMethods: CardContent[] = [
         id: 1,
         icon: (
             <img
-                src={PaymentMethodMaestroBrandIcon}
+                src={PaymentMethodMastercardBrandIcon}
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -71,6 +72,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -86,6 +88,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -101,6 +104,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -116,6 +120,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -131,6 +136,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -146,6 +152,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -161,6 +168,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -176,6 +184,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -191,6 +200,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -206,6 +216,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -221,6 +232,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -236,6 +248,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -251,6 +264,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -266,6 +280,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -281,6 +296,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -296,6 +312,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -311,6 +328,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -326,6 +344,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -341,6 +360,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -356,6 +376,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -371,6 +392,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -386,6 +408,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -401,6 +424,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -417,6 +441,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -433,6 +458,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -448,6 +474,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -463,6 +490,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -478,6 +506,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -493,6 +522,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -508,6 +538,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -523,6 +554,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -538,6 +570,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -553,6 +586,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -568,6 +602,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -583,6 +618,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -598,6 +634,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -613,6 +650,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',
@@ -628,6 +666,7 @@ export const RowPaymentMethods: CardContent[] = [
                 height={80}
                 width={128}
                 className="max-w-[128px] h-[80px]"
+                loading="lazy"
             />
         ),
         color: 'gray',

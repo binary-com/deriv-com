@@ -104,6 +104,17 @@ jobs:
 
               run: npm run build
 
+            - name: Retrieve PR information
+              env:
+                  EVENT_NUMBER: ${{ github.event.number }}
+                  EVENT_USERNAME: ${{ github.event.pull_request.user.login }}
+                  HEAD_REF: ${{ github.head_ref }}
+              run: |
+                  mkdir -p ./pr
+                  echo "$EVENT_NUMBER" > ./pr/NR
+                  echo "$EVENT_USERNAME" > ./pr/USERNAME
+                  echo "$HEAD_REF" > ./pr/BRANCHNAME
+
             - name: Publish to Cloudflare Pages
               id: publish-to-pages
               env:
@@ -172,17 +183,6 @@ jobs:
                   number: ${{github.event.number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true
-
-            - name: Retrieve PR information
-              env:
-                  EVENT_NUMBER: ${{ github.event.number }}
-                  EVENT_USERNAME: ${{ github.event.pull_request.user.login }}
-                  HEAD_REF: ${{ github.head_ref }}
-              run: |
-                  mkdir -p ./pr
-                  echo "$EVENT_NUMBER" > ./pr/NR
-                  echo "$EVENT_USERNAME" > ./pr/USERNAME
-                  echo "$HEAD_REF" > ./pr/BRANCHNAME
 
             - name: Upload PR information to artifact
               uses: actions/upload-artifact@v2

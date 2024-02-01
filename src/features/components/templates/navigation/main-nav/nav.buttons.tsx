@@ -26,7 +26,7 @@ export const MainNavigationButtons = () => {
 
     // needs unique class, as for some reason, there are multiple navs hidden on the same page
     // so the script needs to be scoped to one of them
-    const uniq = !isRealDevice && `navbuttons_uniq_class_${Math.random().toString(36).substr(2, 9)}`
+    const uniq = `navbuttons_uniq_class_${Math.random().toString(36).substr(2, 9)}`
 
     return (
         <div className="flex items-center gap-gap-md" id={uniq}>

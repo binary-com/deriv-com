@@ -210,6 +210,7 @@ const AccountDetails = ({
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
+                                    onBlur={handleBlur}
                                     handleError={() => handleError(item)}
                                 />
                             </li>

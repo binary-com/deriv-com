@@ -1,5 +1,4 @@
 /* eslint-disable import/order */
-const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
@@ -25,7 +24,7 @@ const commonConfig = ({ stage, actions, loaders, getConfig }, { ...options }) =>
                 cacheGroups: {
                     default: false,
                     vendors: false,
-                    // Merge all js, ts, and tsx files into one bundle
+                    // Merge all js, ts, and tsx files  into one bundle
                     all: {
                         test: /\.(js|ts|tsx)$/,
                         name: 'deriv',
@@ -48,7 +47,6 @@ const commonConfig = ({ stage, actions, loaders, getConfig }, { ...options }) =>
         },
         plugins: [
             new StylelintPlugin({ ...style_lint_options, ...options }),
-            new webpack.optimize.LimitChunkCountPlugin({maxChunks: 1}),
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
@@ -452,10 +450,5 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
 
     actions.setWebpackConfig({
         ...common,
-        entry: './src/pages/index.tsx', // Set the entry point to our main js file
-        output: {
-            filename: 'deriv', // Output filename
-            path: path.resolve(__dirname, 'dist'), // Output directory
-        },
     });
 };

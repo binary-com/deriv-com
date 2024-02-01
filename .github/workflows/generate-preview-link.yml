@@ -23,16 +23,16 @@ jobs:
     build_to_cloudflare_pages:
         runs-on: Ubuntu-latest
         steps:
-            - name: Checkout to repo
-              uses: actions/checkout@v3
-              with:
-                  ref: ${{ github.event.pull_request.head.sha }}
-
             - name: Verify user
               uses: 'deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1'
               with:
                   username: ${{github.event.pull_request.user.login}}
                   token: ${{ secrets.PREVIEW_LINK_TOKEN }}
+
+            - name: Checkout to repo
+              uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
 
             - name: 'Generate action link comment'
               id: generate_action_url

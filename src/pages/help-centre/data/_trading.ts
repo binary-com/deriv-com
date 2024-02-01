@@ -117,21 +117,22 @@ const trading: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_We have a diverse suite of 7 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>Deriv Trader</2>, <3>Deriv Bot</3>, <4>Deriv GO</4>, <5>SmartTrader</5>, and <6>Binary Bot</6>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
+                        '_t_We have a diverse suite of 8 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>Deriv cTrader</2>, <3>Deriv Trader</3>, <4>Deriv Bot</4>, <5>Deriv GO</5>, <6>SmartTrader</6>, and <7>Binary Bot</7>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
                     eu_translation_text:
                         '_t_We offer 2 trading platforms in the EU: <0>Deriv MT5</0> (CFDs) and <2>Deriv Trader</2> (multipliers). They’re designed to fit any trading style and give you access to financial and derived markets._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/dmt5/' },
                         { key: 1, type: 'link', to: '/derivx/' },
-                        { key: 2, type: 'link', to: '/dtrader/' },
-                        { key: 3, type: 'link', to: '/dbot/' },
-                        { key: 4, type: 'link', to: '/deriv-go/' },
+                        { key: 2, type: 'link', to: '/deriv-ctrader/' },
+                        { key: 3, type: 'link', to: '/dtrader/' },
+                        { key: 4, type: 'link', to: '/dbot/' },
+                        { key: 5, type: 'link', to: '/deriv-go/' },
                         {
-                            key: 5,
+                            key: 6,
                             type: 'link',
                             to: 'https://smarttrader.deriv.com/en/trading.html',
                         },
-                        { key: 6, type: 'link', to: binary_bot_url },
+                        { key: 7, type: 'link', to: binary_bot_url },
                     ],
                 },
             ],

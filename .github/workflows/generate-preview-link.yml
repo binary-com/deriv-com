@@ -9,42 +9,30 @@ permissions:
     statuses: write
 
 on:
-    workflow_run:
-        workflows: ['Pre-generate preview link']
-        types:
-            - completed
+    pull_request_target:
+        types: [opened, synchronize]
 
 env:
     NODE_OPTIONS: '--max-old-space-size=8192'
 
 concurrency:
-    group: cloudflare-pages-build-${{ github.event.workflow_run.head_branch }}
+    group: cloudflare-pages-build-${{github.head_ref}}
     cancel-in-progress: true
 
 jobs:
     build_to_cloudflare_pages:
         runs-on: Ubuntu-latest
-        if: >
-            github.event.workflow_run.event == 'pull_request' &&
-            github.event.workflow_run.conclusion == 'success'
         steps:
+            - name: Verify user
+              uses: 'deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1'
+              with:
+                  username: ${{github.event.pull_request.user.login}}
+                  token: ${{ secrets.PREVIEW_LINK_TOKEN }}
+
             - name: Checkout to repo
               uses: actions/checkout@v3
               with:
-                  ref: ${{ github.event.workflow_run.head_sha }}
-            - name: Download artifact
-              id: download-artifact
-              uses: dawidd6/action-download-artifact@v2
-              with:
-                  workflow_conclusion: success
-                  run_id: ${{ github.event.workflow_run.id }}
-                  name: 'pr-${{ github.event.workflow_run.id }}'
-                  path: .pr
-
-            - name: Retrieve pull request
-              id: pr_information
-              run: |
-                  echo "issue_number=$(cat .pr/NR)" >> $GITHUB_OUTPUT
+                  ref: ${{ github.event.pull_request.head.sha }}
 
             - name: 'Generate action link comment'
               id: generate_action_url
@@ -61,33 +49,15 @@ jobs:
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
+
             - name: Post Cloudflare Pages Preview comment
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Cloudflare Pages Preview Comment
-                  number: ${{steps.pr_information.outputs.issue_number}}
+                  number: ${{github.event.pull_request.user.login}}
                   message: ${{steps.generate_action_url.outputs.comment}}
                   recreate: true
 
-            - name: Verify user organization
-              id: verify_user_organization
-              run: |
-                  echo "Verifying user's organization..."
-                  user=$(cat .pr/USERNAME)
-                  response=$(curl -s -L \
-                      -w "%{http_code}" \
-                      -o /dev/null -H "Accept: application/vnd.github+json" \
-                      -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-                      -H "X-GitHub-Api-Version: 2022-11-28" \
-                      "https://api.github.com/orgs/binary-com/memberships/$user")
-                      
-                  if [ $response != "200" ]; then
-                      echo "User is not a member of binary-com organization."
-                      exit 1
-                  else
-                      echo "User is a member of binary-com organization."
-                      echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
-                  fi
             - name: Setup node
               uses: actions/setup-node@v2
 
@@ -134,12 +104,23 @@ jobs:
 
               run: npm run build
 
+            - name: Retrieve PR information
+              env:
+                  EVENT_NUMBER: ${{ github.event.number }}
+                  EVENT_USERNAME: ${{ github.event.pull_request.user.login }}
+                  HEAD_REF: ${{ github.head_ref }}
+              run: |
+                  mkdir -p .pr
+                  echo "$EVENT_NUMBER" > .pr/NR
+                  echo "$EVENT_USERNAME" > .pr/USERNAME
+                  echo "$HEAD_REF" > .pr/BRANCHNAME
+
             - name: Publish to Cloudflare Pages
               id: publish-to-pages
               env:
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
                   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
-                  HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+                  HEAD_BRANCH: ${{ github.head_ref }}
               run: |
                   echo "Installing Wrangler CLI"
                   npm i -g wrangler
@@ -199,7 +180,7 @@ jobs:
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Cloudflare Pages Preview Comment
-                  number: ${{steps.pr_information.outputs.issue_number}}
+                  number: ${{github.event.number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true
 

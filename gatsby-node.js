@@ -1,13 +1,69 @@
 /* eslint-disable import/order */
+const { merge } = require('webpack-merge')
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
-const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const translations_cache = {}
+
+const commonConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
+    const config = getConfig();
+    const isProduction = config.mode === 'production';
+
+    const baseConfig = {
+        devtool: isProduction ? false : 'inline-source-map',
+        mode: isProduction ? 'production' : 'development',
+        optimization: {
+            minimize: isProduction,
+            minimizer: [new TerserPlugin()],
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                    // Merge all js, ts, and tsx files  into one bundle
+                    all: {
+                        test: /\.(js|ts|tsx)$/,
+                        name: 'deriv',
+                        chunks: 'all',
+                    },
+                },
+            },
+            mangleExports: 'size',
+            mangleWasmImports: true,
+            mergeDuplicateChunks: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            innerGraph: true,
+            chunkIds: 'size',
+            moduleIds: 'size',
+            sideEffects: true,
+            concatenateModules: true,
+            providedExports: true,
+            usedExports: true,
+        },
+        plugins: [
+            new StylelintPlugin({ ...style_lint_options, ...options }),
+        ],
+        resolve: {
+            modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        },
+    };
+
+    const htmlConfig = (stage === 'build-html' || stage === 'develop-html') ? {
+        module: {
+            rules: [{
+                test: /analytics/,
+                use: loaders.null(),
+            }],
+        },
+    } : {};
+
+    return merge(baseConfig, htmlConfig);
+}
 
 exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
@@ -390,56 +446,9 @@ const style_lint_options = {
 }
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
-    const config = getConfig()
-    const isProduction = config.mode === 'production'
+    const common = commonConfig({ stage, actions, loaders, getConfig }, { ...options });
 
     actions.setWebpackConfig({
-        devtool: isProduction ? false : 'inline-source-map', // enable/disable source-maps
-        mode: isProduction ? 'production' : 'development',
-        optimization: {
-            minimize: isProduction,
-            minimizer: [new TerserPlugin()],
-            // splitChunks: {
-            //     chunks: 'all',
-            //     name: "deriv-com",
-            // },
-
-            mangleExports: 'size',
-            mangleWasmImports: true,
-
-            mergeDuplicateChunks: true,
-            removeAvailableModules: true,
-            removeEmptyChunks: true,
-            innerGraph: true,
-
-            chunkIds: 'size',
-            moduleIds: 'size',
-
-            // runtimeChunk: 'single', // compilation fails
-            sideEffects: true,
-
-            concatenateModules: true,
-            providedExports: true,
-            usedExports: true,
-        },
-        plugins: [
-            new StylelintPlugin({ ...style_lint_options, ...options }),
-            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
-        ],
-        resolve: {
-            modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-        },
-        ...(stage === 'build-html' || stage === 'develop-html'
-            ? {
-                  module: {
-                      rules: [
-                          {
-                              test: /analytics/,
-                              use: loaders.null(),
-                          },
-                      ],
-                  },
-              }
-            : {}),
-    })
-}
+        ...common,
+    });
+};

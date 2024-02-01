@@ -24,8 +24,12 @@ export const MainNavigationButtons = () => {
     const renderLoginButton = isRealDevice && !is_logged_in
     const renderSignupButton = isRealDevice && !is_logged_in
 
+    // needs unique class, as for some reason, there are multiple navs hidden on the same page
+    // so the script needs to be scoped to one of them
+    const uniq = !isRealDevice && `navbuttons_uniq_class_${Math.random().toString(36).substr(2, 9)}`
+
     return (
-        <div className="flex items-center gap-gap-md">
+        <div className="flex items-center gap-gap-md" id={uniq}>
             <Button
                 variant="secondary"
                 colorStyle="black"
@@ -33,7 +37,7 @@ export const MainNavigationButtons = () => {
                 onClick={handleRedirectToTradersHub}
                 icon={LabelPairedGrid2CaptionBoldIcon}
                 iconPosition="start"
-                className={`navbuttons_tradershub ${
+                className={`navbuttons_tradershub ${uniq} ${
                     renderTradershubButton ? '' : 'navbuttons_tradershub--hidden'
                 }`}
             >
@@ -45,7 +49,7 @@ export const MainNavigationButtons = () => {
                 colorStyle="black"
                 size="lg"
                 onClick={handleLogin}
-                className={`navbuttons_login ${
+                className={`navbuttons_login ${uniq} ${
                     renderLoginButton ? '' : 'navbuttons_login--hidden'
                 }`}
             >
@@ -55,7 +59,7 @@ export const MainNavigationButtons = () => {
             <Button
                 size="lg"
                 onClick={handleSignup}
-                className={`hidden lg:block navbuttons_opendemo ${
+                className={`hidden lg:block navbuttons_opendemo ${uniq} ${
                     renderSignupButton ? '' : 'navbuttons_opendemo--hidden'
                 }`}
             >
@@ -80,10 +84,10 @@ export const MainNavigationButtons = () => {
 
                         if (isRealDevice) {
                             if (isLoggedIn) {
-                                document.querySelector('.navbuttons_tradershub').classList.remove('navbuttons_tradershub--hidden');
+                                document.querySelector('#${uniq} .navbuttons_tradershub').classList.remove('navbuttons_tradershub--hidden');
                             } else {
-                                document.querySelector('.navbuttons_login').classList.remove('navbuttons_login--hidden');
-                                document.querySelector('.navbuttons_opendemo').classList.remove('navbuttons_opendemo--hidden');
+                                document.querySelector('#${uniq} .navbuttons_login').classList.remove('navbuttons_login--hidden');
+                                document.querySelector('#${uniq} .navbuttons_opendemo').classList.remove('navbuttons_opendemo--hidden');
                             }
                         }
                     </script>

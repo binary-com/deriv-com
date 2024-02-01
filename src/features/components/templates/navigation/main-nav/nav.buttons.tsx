@@ -70,9 +70,9 @@ export const MainNavigationButtons = () => {
                 still there might be micro flickering, but it should be completely marginal if ever visible
             */}
             {!isRealDevice && (
-                <>
-                    dangerouslySetInnerHTML=
-                    {{
+                <div
+                    style={{ display: 'none' }}
+                    dangerouslySetInnerHTML={{
                         __html: `
                     <script>
                         const isLoggedIn = document?.cookie.split(';').some(function(item) { return item.trim().startsWith('client_information='); });
@@ -89,7 +89,7 @@ export const MainNavigationButtons = () => {
                     </script>
                 `,
                     }}
-                </>
+                ></div>
             )}
 
             <MobileNavToggle data-cy="hamburger-menu" />

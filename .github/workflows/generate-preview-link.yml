@@ -110,10 +110,10 @@ jobs:
                   EVENT_USERNAME: ${{ github.event.pull_request.user.login }}
                   HEAD_REF: ${{ github.head_ref }}
               run: |
-                  mkdir -p ./pr
-                  echo "$EVENT_NUMBER" > ./pr/NR
-                  echo "$EVENT_USERNAME" > ./pr/USERNAME
-                  echo "$HEAD_REF" > ./pr/BRANCHNAME
+                  mkdir -p .pr
+                  echo "$EVENT_NUMBER" > .pr/NR
+                  echo "$EVENT_USERNAME" > .pr/USERNAME
+                  echo "$HEAD_REF" > .pr/BRANCHNAME
 
             - name: Publish to Cloudflare Pages
               id: publish-to-pages

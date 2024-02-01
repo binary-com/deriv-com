@@ -11,8 +11,10 @@ import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-fl
 const SignUpContent = () => {
     const { is_latam } = useRegion()
 
-    const growthbook_feature_flag__latam_signup_human_element_visible =
-        useGrowthbookFeatureFlag<boolean>('latam-signup-human-element', false)
+    const growthbook_feature_flag__latam_signup_human_element_visible = useGrowthbookFeatureFlag({
+        featureFlag: 'latam-signup-human-element',
+        defaultValue: false,
+    })
 
     return (
         <Flex.Box

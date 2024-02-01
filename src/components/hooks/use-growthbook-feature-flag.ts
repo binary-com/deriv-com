@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Analytics } from '@deriv-com/analytics'
 
-const useGrowthbookFeatureFlag = <T>(featureFlag: string, defaultValue: T) => {
+interface UseGrowthbookFeatureFlagArgs<T> {
+    featureFlag: string
+    defaultValue: T
+}
+
+const useGrowthbookFeatureFlag = <T>({
+    featureFlag,
+    defaultValue,
+}: UseGrowthbookFeatureFlagArgs<T>) => {
     const [featureFlagValue, setFeatureFlagValue] = useState<T>(defaultValue)
 
     useEffect(() => {

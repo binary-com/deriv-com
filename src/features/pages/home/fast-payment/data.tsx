@@ -45,7 +45,7 @@ const PaymentMethodPseBrandIcon = '/payments/logos-35.svg'
 const PaymentMethodBitcoinBrandIcon = '/payments/logos-36.svg'
 const PaymentMethodEthereumBrandIcon = '/payments/logos-37.svg'
 const PaymentMethodTronBrandIcon = '/payments/logos-38.svg'
-const PaymentMethodMastercardBrandIcon = 'images/svg/new-homepage/payments/logos.svg'
+const PaymentMethodMastercardBrandIcon = '/payments/logos.svg'
 
 export const RowPaymentMethods: CardContent[] = [
     {

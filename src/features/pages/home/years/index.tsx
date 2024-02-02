@@ -14,7 +14,7 @@ const TwentyYearsStrong = () => {
                 className: 'w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg ',
                 variant: 'ContentBottom',
                 cards: cards,
-                dir: is_rtl ? 'rtl' : 'ltr',
+                dir: is_rtl() ? 'rtl' : 'ltr',
             }}
         />
     )

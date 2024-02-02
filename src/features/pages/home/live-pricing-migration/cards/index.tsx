@@ -127,7 +127,7 @@ const LiveMarketCard = <T extends MarketName>({
                 slideClasses="max-w-[296px] !mr-gap-none !ml-gap-none"
                 className="w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg"
                 cards={livePriceData.slice(0, 4)}
-                dir={is_rtl ? 'rtl' : 'ltr'}
+                dir={is_rtl() ? 'rtl' : 'ltr'}
             />
             <div className="flex items-center flex-col ">{children}</div>
         </>

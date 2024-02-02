@@ -94,6 +94,9 @@ const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDow
                         </StyledHeading>
                     </div>
                 </QRScanBox>
+                <StyledHeading as="p" weight="100">
+                    <Localize translate_text={'_t_bkjbscjdkasbckjbsa fhekhfusahf_t_'} />
+                </StyledHeading>
                 <DownloadAppOsLinks>
                     <StyledItemsWrapper>
                         {items.map(({ icon, link, text, smallText }) => (

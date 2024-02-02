@@ -3,7 +3,7 @@ import { FastPayment } from '@deriv-com/blocks'
 import { EUPaymentMethods, RowPaymentMethods } from './data'
 import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
-import useIsInViewport from 'components/hooks/use-visible-section'
+import useIsInViewport from 'components/hooks/use-is-in-viewport'
 
 const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()

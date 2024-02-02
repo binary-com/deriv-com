@@ -107,30 +107,30 @@ export type LinkUrlType = InternalLinkType | ExternalLinkType
 type InferSide<T, K extends string> = T extends `${K}-${infer R}` ? R : never
 
 // Typography Classes
-export type TTypographyAlign = InferSide<ClassNames, 'at-typography-align'>
-export type TTypographyBreakWord = InferSide<ClassNames, 'at-typography-break'>
-export type TTypographyWeight = InferSide<ClassNames, 'at-typography-weight'>
-export type THeadingSize = InferSide<ClassNames, 'at-heading'>
-export type TTextSize = InferSide<ClassNames, 'at-text'>
-export type TBorderRadius = InferSide<ClassNames, 'at-border-radius'>
-export type TSpacingSize = InferSide<ClassNames, 'at-margin-block'>
-export type TTypographyColor = InferSide<ClassNames, 'at-typography-color'>
-export type TTypographyFont = InferSide<ClassNames, 'at-typography-font'>
+export type TTypographyAlign = InferSide<ClassNames, 'typography-align'>
+export type TTypographyBreakWord = InferSide<ClassNames, 'typography-break'>
+export type TTypographyWeight = InferSide<ClassNames, 'typography-weight'>
+export type THeadingSize = InferSide<ClassNames, 'heading'>
+export type TTextSize = InferSide<ClassNames, 'text'>
+export type TBorderRadius = InferSide<ClassNames, 'border-radius'>
+export type TSpacingSize = InferSide<ClassNames, 'margin-block'>
+export type TTypographyColor = InferSide<ClassNames, 'typography-color'>
+export type TTypographyFont = InferSide<ClassNames, 'typography-font'>
 
 // Background Classes
-export type TBGColor = InferSide<ClassNames, 'at-bg-color'>
+export type TBGColor = InferSide<ClassNames, 'bg-color'>
 
 // FlexBox Classes
-export type TAlignItems = InferSide<ClassNames, 'at-align-items'>
-export type TAlignSelf = InferSide<ClassNames, 'at-align-self'>
-export type TJustifyContent = InferSide<ClassNames, 'at-justify'>
-export type TFlexGrow = InferSide<ClassNames, 'at-flex-grow'>
-export type TFlexShrink = InferSide<ClassNames, 'at-flex-shrink'>
-export type TFlexWrap = InferSide<ClassNames, 'at-flex-wrap'>
-export type TFlexDirection = InferSide<ClassNames, 'at-flex-dir'>
-export type TFlexBasis = InferSide<ClassNames, 'at-flex-basis'>
-export type TContainerType = InferSide<ClassNames, 'at-container'>
-export type TVisible = InferSide<ClassNames, 'at-visible'>
+export type TAlignItems = InferSide<ClassNames, 'align-items'>
+export type TAlignSelf = InferSide<ClassNames, 'align-self'>
+export type TJustifyContent = InferSide<ClassNames, 'justify'>
+export type TFlexGrow = InferSide<ClassNames, 'flex-grow'>
+export type TFlexShrink = InferSide<ClassNames, 'flex-shrink'>
+export type TFlexWrap = InferSide<ClassNames, 'flex-wrap'>
+export type TFlexDirection = InferSide<ClassNames, 'flex-dir'>
+export type TFlexBasis = InferSide<ClassNames, 'flex-basis'>
+export type TContainerType = InferSide<ClassNames, 'container'>
+export type TVisible = InferSide<ClassNames, 'visible'>
 
 export interface ClassProps {
     margin?: TSpacingSize

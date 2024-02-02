@@ -29,7 +29,7 @@ export const data: Data[] = [
         monthly_requirement: (
             <Localize
                 translate_text="_t_0 - 15 million <0>(Crypto)</0>_t_"
-                components={[<span key={0} className={dclsx('at-typography-color-light')} />]}
+                components={[<span key={0} className={dclsx('typography-color-light')} />]}
             />
         ),
         fee_per_million: <Localize translate_text="_t_5.5 bps / 0.055%_t_" />,
@@ -38,7 +38,7 @@ export const data: Data[] = [
         monthly_requirement: (
             <Localize
                 translate_text="_t_> 15 million <0>(Crypto)</0>_t_"
-                components={[<span key={0} className={dclsx('at-typography-color-light')} />]}
+                components={[<span key={0} className={dclsx('typography-color-light')} />]}
             />
         ),
         fee_per_million: <Localize translate_text="_t_5 bps / 0.05%_t_" />,

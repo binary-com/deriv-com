@@ -29,10 +29,10 @@ export const generateFlexItemClasses = (options: FlexItemClasses, prefix = '') =
     const classPrefix = prefix ? `${prefix}-` : ''
     const { align_self, grow, shrink, basis } = options
     return dclsx({
-        [`${classPrefix}at-align-self-${align_self}`]: align_self,
-        [`${classPrefix}at-flex-grow-${grow}`]: grow,
-        [`${classPrefix}at-flex-shrink-${shrink}`]: shrink,
-        [`${classPrefix}at-flex-basis-${basis}`]: basis,
+        [`${classPrefix}align-self-${align_self}`]: align_self,
+        [`${classPrefix}flex-grow-${grow}`]: grow,
+        [`${classPrefix}flex-shrink-${shrink}`]: shrink,
+        [`${classPrefix}flex-basis-${basis}`]: basis,
     })
 }
 

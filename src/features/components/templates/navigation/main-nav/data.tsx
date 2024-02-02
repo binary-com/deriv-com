@@ -151,7 +151,7 @@ export const mainRowNavItems: NavLinkItems = {
                             />
                         ),
                         description: (
-                            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
+                            <Localize translate_text="_t_Flagship options, accumulators, & multipliers trading platform._t_" />
                         ),
                     },
                     {
@@ -546,7 +546,7 @@ export const mainEuNavItems: NavLinkItems = {
                             />
                         ),
                         description: (
-                            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
+                            <Localize translate_text="_t_Flagship options, accumulators, & multipliers trading platform._t_" />
                         ),
                     },
                 ],

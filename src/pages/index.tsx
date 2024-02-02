@@ -12,8 +12,8 @@ export default WithIntl()(Home)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
-        title="_t_Trade forex, stocks, crypto, gold & commodities | Deriv_t_"
-        description="_t_Award-winning online broker, rated excellent on Trustpilot. Sign up for a demo trading account to trade forex, stocks, and other financial markets._t_"
+        title="_t_Online trading platform | Forex, cryptos, stocks | Deriv_t_"
+        description="_t_A global online trading broker for forex, commodities & other financial markets. Sign up for a demo account and join over 2.5 million traders._t_"
         has_organization_schema
         pageContext={pageContext}
     />

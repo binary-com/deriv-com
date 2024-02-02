@@ -22,7 +22,7 @@ const FastPaymentSection: React.FC = () => {
         ? is_eu
             ? '!animate-[40s_slide_linear_infinite] rtl:!animate-[40s_slideRtl_linear_infinite]'
             : '!animate-[100s_slide_linear_infinite] rtl:!animate-[100s_slideRtl_linear_infinite]'
-        : '!animate-[1000000s_slide_linear_infinite] rtl:!animate-[1000000s_slideRtl_linear_infinite]'
+        : ''
 
     return (
         <div ref={ref}>

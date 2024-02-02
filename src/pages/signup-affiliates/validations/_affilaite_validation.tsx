@@ -36,7 +36,7 @@ const userNameValidation = (input) => {
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
     } else if (!affiliate_validation_regex.user_name.test(input)) {
-        return localize('_t_Please enter Latin characters, numbers._t_')
+        return localize('_t_Please enter 3-18 Latin characters, numbers._t_')
     }
 }
 const nameValidation = (input, text, min_digit, max_digit) => {

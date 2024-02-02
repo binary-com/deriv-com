@@ -17,33 +17,15 @@ export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             as="style"
-            key="preload-ubuntu-font"
+            key="preload-ubuntu-ibm-fonts"
         />,
         <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            as="style"
-            key="preload-ibm-plex-sans-font"
-        />,
-        <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            as="style"
-            key="preload-ibm-plex-mono-font"
-        />,
-        <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;400;700&display=swap"
-            as="style"
-            key="preload-noto-sans-arabic-font"
-        />,
-        <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@100;400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
             type="text/css"
-            key="load-fonts"
+            key="load-ubuntu-ibm-fonts"
         />,
         <Partytown key="partytown" />,
         <script

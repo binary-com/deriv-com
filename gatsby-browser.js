@@ -17,7 +17,7 @@ import {
 } from 'common/utility'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
-import './static/css/fonts.css'
+// import './static/css/fonts.css'
 import './static/css/global.css'
 import '@deriv-com/blocks/style.css';
 

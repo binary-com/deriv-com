@@ -1,21 +1,21 @@
 @use './theme-mixins' as *;
 @import './variables';
 
-.at-typography {
+.typography {
     line-height: calc(2px + 2.5ex + 2px);
     color: $color-black-9;
     word-break: break-word;
 }
 
-[dir='ltr'] .at-typography-font-IBM {
+[dir='ltr'] .typography-font-IBM {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-[dir='ltr'] .at-typography-font-UBUNTU {
+[dir='ltr'] .typography-font-UBUNTU {
     font-family: Ubuntu, sans-serif;
 }
 
-.at-typography-link {
+.typography-link {
     cursor: pointer;
     text-decoration: none;
     transition: text-shadow 0.25s;
@@ -29,167 +29,167 @@
         opacity: 0.32;
     }
 }
-.at-typography-hover {
+.typography-hover {
     &:hover {
         color: $color-red;
         text-decoration: underline;
     }
 }
 
-.at-typography-align-center {
+.typography-align-center {
     text-align: center;
 }
-.at-typography-align-left {
+.typography-align-left {
     text-align: start;
 }
-.at-typography-align-right {
+.typography-align-right {
     text-align: end;
 }
-.at-typography-align-justify {
+.typography-align-justify {
     text-align: justify;
 }
 
-.at-typography-color-brand {
+.typography-color-brand {
     color: $color-brand;
 }
-.at-typography-color-primary {
+.typography-color-primary {
     color: $color-black-9;
 }
-.at-typography-color-secondary {
+.typography-color-secondary {
     color: #414652b2;
 }
-.at-typography-color-tertiary {
+.typography-color-tertiary {
     color: #425651;
 }
-.at-typography-color-inverted {
+.typography-color-inverted {
     color: $color-white;
 }
-.at-typography-color-white {
+.typography-color-white {
     color: $color-white;
 }
-.at-typography-color-black {
+.typography-color-black {
     color: $color-black-9;
 }
-.at-typography-color-light {
+.typography-color-light {
     color: $color-grey-5;
 }
-.at-typography-color-light-grey {
+.typography-color-light-grey {
     color: $color-grey-19;
 }
-.at-typography-color-light-black {
+.typography-color-light-black {
     color: #000000b8;
 }
-.at-typography-color-profit {
+.typography-color-profit {
     color: $color-blue-7;
 }
-.at-typography-color-gray-shade {
+.typography-color-gray-shade {
     color: $color-grey-46;
 }
-.at-typography-break-word {
+.typography-break-word {
     word-break: break-word;
 }
 
-.at-typography-break-normal {
+.typography-break-normal {
     word-break: normal;
 }
 
-.at-typography-weight-normal {
+.typography-weight-normal {
     font-weight: normal;
 }
-.at-typography-weight-bold {
+.typography-weight-bold {
     font-weight: bold;
 }
-.at-typography-weight-bolder {
+.typography-weight-bolder {
     font-weight: 700;
 }
 
 *[dir='ltr'] {
-    .at-heading {
+    .heading {
         font-family: Ubuntu, sans-serif;
     }
 }
 
-.at-heading-xxxl {
+.heading-xxxl {
     @include font-size($font-size-1300);
 }
 
-.at-heading-xxl {
+.heading-xxl {
     @include font-size($font-size-1200);
 }
 
-.at-heading-xlarge {
+.heading-xlarge {
     @include font-size($font-size-1100);
 }
 
-.at-heading-large {
+.heading-large {
     @include font-size($font-size-1000);
 }
 
-.at-heading-medium {
+.heading-medium {
     @include font-size($font-size-900);
 }
 
-.at-heading-small {
+.heading-small {
     @include font-size($font-size-800);
 }
 
-.at-heading-xs {
+.heading-xs {
     @include font-size($font-size-700);
 }
 
-.at-heading-xxs {
+.heading-xxs {
     @include font-size($font-size-600);
 }
 
-.at-text-xxxl {
+.text-xxxl {
     @include font-size($font-size-900);
 }
 
-.at-text-xxl {
+.text-xxl {
     @include font-size($font-size-800);
 }
 
-.at-text-xlarge {
+.text-xlarge {
     @include font-size($font-size-700);
 }
 
-.at-text-large {
+.text-large {
     @include font-size($font-size-600);
 }
 
-.at-text-medium {
+.text-medium {
     @include font-size($font-size-500);
 }
 
-.at-text-small {
+.text-small {
     @include font-size($font-size-400);
 }
 
-.at-text-xs {
+.text-xs {
     @include font-size($font-size-300);
 }
 
-.at-text-xxs {
+.text-xxs {
     @include font-size($font-size-200);
 }
 
 @mixin typography-align($media-name) {
-    .#{$media-name + #{'-'}}at-typography-align-center {
+    .#{$media-name + #{'-'}}typography-align-center {
         @include media($media-name) {
             text-align: center;
         }
     }
-    .#{$media-name + #{'-'}}at-typography-align-left {
+    .#{$media-name + #{'-'}}typography-align-left {
         @include media($media-name) {
             text-align: start;
         }
     }
-    .#{$media-name + #{'-'}}at-typography-align-right {
+    .#{$media-name + #{'-'}}typography-align-right {
         @include media($media-name) {
             text-align: end;
         }
     }
-    .#{$media-name + #{'-'}}at-typography-align-justify {
+    .#{$media-name + #{'-'}}typography-align-justify {
         @include media($media-name) {
             text-align: justify;
         }
@@ -197,17 +197,17 @@
 }
 
 @mixin typography-weight($media-name) {
-    .#{$media-name + #{'-'}}at-typography-weight-normal {
+    .#{$media-name + #{'-'}}typography-weight-normal {
         @include media($media-name) {
             font-weight: normal;
         }
     }
-    .#{$media-name + #{'-'}}at-typography-weight-bold {
+    .#{$media-name + #{'-'}}typography-weight-bold {
         @include media($media-name) {
             font-weight: bold;
         }
     }
-    .#{$media-name + #{'-'}}at-typography-weight-bolder {
+    .#{$media-name + #{'-'}}typography-weight-bolder {
         @include media($media-name) {
             font-weight: 700;
         }

@@ -12,7 +12,7 @@ const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }
             <Flex.Box gap="4x" pb="8x" align="center">
                 {item.icon && <img src={item.icon.src} alt={localize(item.icon.alt)} />}
                 {item.title && (
-                    <h4 className={dclsx('at-text-small')}>
+                    <h4 className={dclsx('text-small')}>
                         <Localize translate_text={item.title} />
                     </h4>
                 )}

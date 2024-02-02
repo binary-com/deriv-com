@@ -47,8 +47,8 @@ import { CardContent } from '@deriv-com/components'
 //     PaymentMethodMastercardBrandIcon,
 // } from '@deriv/quill-icons'
 
-const toImage = (path: string) => (
-    <img src={path} height={80} width={128} className="max-w-[128px] h-[80px]" loading="lazy" />
+const toImage = (path: string, loading: 'lazy' | 'eager' = 'lazy') => (
+    <img src={path} height={80} width={128} className="max-w-[128px] h-[80px]" loading={loading} />
 )
 
 const Card = (icon, id: number): CardContent => ({
@@ -61,18 +61,73 @@ const Card = (icon, id: number): CardContent => ({
 })
 
 const data = [
-    { card: Card(toImage('/payments/logos.svg'), 1), is_eu: true, is_row: true },
-    { card: Card(toImage('/payments/logos-1.svg'), 2), is_eu: true, is_row: true },
-    { card: Card(toImage('/payments/logos-2.svg'), 3), is_eu: true, is_row: true },
-    { card: Card(toImage('/payments/logos-3.svg'), 4), is_eu: true, is_row: true },
-    { card: Card(toImage('/payments/logos-4.svg'), 5), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-5.svg'), 6), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-6.svg'), 7), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-7.svg'), 8), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-8.svg'), 9), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-9.svg'), 10), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-10.svg'), 11), is_eu: false, is_row: true },
-    { card: Card(toImage('/payments/logos-11.svg'), 12), is_eu: false, is_row: true },
+    { card: Card(toImage('/payments/logos.svg'), 1), is_eu: true, is_row: true, loading: 'eager' },
+    {
+        card: Card(toImage('/payments/logos-1.svg'), 2),
+        is_eu: true,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-2.svg'), 3),
+        is_eu: true,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-3.svg'), 4),
+        is_eu: true,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-4.svg'), 5),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-5.svg'), 6),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-6.svg'), 7),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-7.svg'), 8),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-8.svg'), 9),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-9.svg'), 10),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-10.svg'), 11),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
+    {
+        card: Card(toImage('/payments/logos-11.svg'), 12),
+        is_eu: false,
+        is_row: true,
+        loading: 'eager',
+    },
     { card: Card(toImage('/payments/logos-12.svg'), 13), is_eu: false, is_row: true },
     { card: Card(toImage('/payments/logos-13.svg'), 14), is_eu: true, is_row: true },
     { card: Card(toImage('/payments/logos-14.svg'), 15), is_eu: false, is_row: true },

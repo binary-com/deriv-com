@@ -435,7 +435,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
                     // Merge all js, ts, and tsx files  into one bundle
                     all: {
                         test: /\.(js|ts|tsx)$/,
-                        name: 'deriv',
+                        name: 'bundle',
                         chunks: 'all',
                     },
                 },

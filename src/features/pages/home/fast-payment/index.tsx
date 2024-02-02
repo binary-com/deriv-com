@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef, useEffect } from 'react'
+import React, { MutableRefObject, useRef } from 'react'
 import { FastPayment } from '@deriv-com/blocks'
 import { EUPaymentMethods, RowPaymentMethods } from './data'
 import useRegion from 'components/hooks/use-region'
@@ -7,13 +7,16 @@ import useIsInViewport from 'components/hooks/use-is-in-viewport'
 
 const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
-    const cards = is_eu ? EUPaymentMethods : RowPaymentMethods
-
     const ref = useRef<HTMLDivElement>(null)
     const is_in_viewport = useIsInViewport(ref)
-    useEffect(() => {
-        console.log(`In View Port: ${is_in_viewport}`)
-    }, [is_in_viewport])
+
+    const cards = is_in_viewport
+        ? is_eu
+            ? EUPaymentMethods
+            : RowPaymentMethods
+        : is_eu
+        ? EUPaymentMethods.slice(0, 12)
+        : RowPaymentMethods.slice(0, 12)
 
     const animation = is_in_viewport
         ? is_eu

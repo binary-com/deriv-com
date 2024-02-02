@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { WizardStepProps } from '../_types'
+import { AffiliateAccountTypes, WizardStepProps } from '../_types'
 import affiliate_validation from '../validations/_affilaite_validation'
 import BirthForm from '../utils/_birth-form'
 import AffiliateInput from '../utils/_affiliate-input'
@@ -100,30 +100,40 @@ const AccountDetails = ({
     ]
 
     useEffect(() => {
-        updateData({ ...form_data })
+        let data = {} as AffiliateAccountTypes['account_details']
+        for (const property in form_data) {
+            data = {
+                ...data,
+                [property]:
+                    typeof form_data[property] === 'string'
+                        ? form_data[property].trim()
+                        : form_data[property],
+            }
+        }
+        updateData({ ...data })
         onValidate(
             is_individual
-                ? form_data.first_name &&
-                      form_data.last_name &&
-                      form_data.date_birth &&
-                      form_data.phone.length > 6 &&
-                      form_data.website_url &&
-                      form_data.username &&
-                      form_data.password &&
+                ? data.first_name &&
+                      data.last_name &&
+                      data.date_birth &&
+                      data.phone.length > 6 &&
+                      data.website_url &&
+                      data.username &&
+                      data.password &&
                       !form_errors.first_name_error_msg &&
                       !form_errors.last_name_error_msg &&
                       !form_errors.website_url_error_msg &&
                       !form_errors.phone_error_msg &&
                       !form_errors.password_error_msg
-                : form_data.first_name &&
-                      form_data.last_name &&
-                      form_data.date_birth &&
-                      form_data.phone.length > 6 &&
-                      form_data.website_url &&
-                      form_data.username &&
-                      form_data.password &&
-                      form_data.company_name &&
-                      form_data.company_registration_number &&
+                : data.first_name &&
+                      data.last_name &&
+                      data.date_birth &&
+                      data.phone.length > 6 &&
+                      data.website_url &&
+                      data.username &&
+                      data.password &&
+                      data.company_name &&
+                      data.company_registration_number &&
                       !form_errors.first_name_error_msg &&
                       !form_errors.last_name_error_msg &&
                       !form_errors.phone_error_msg &&
@@ -140,7 +150,19 @@ const AccountDetails = ({
         setFormData((prev) => ({ ...prev, [name]: value }))
 
         if (affiliate_validation[name]) {
-            const error_msg = affiliate_validation[name](value)
+            const error_msg = affiliate_validation[name](value.trim())
+            setFormErrors((errors) => ({
+                ...errors,
+                [`${name}_error_msg`]: error_msg,
+            }))
+        }
+    }, [])
+
+    const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
+        if (affiliate_validation[name]) {
+            const error_msg = affiliate_validation[name](value.trim())
             setFormErrors((errors) => ({
                 ...errors,
                 [`${name}_error_msg`]: error_msg,
@@ -188,6 +210,7 @@ const AccountDetails = ({
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
+                                    onBlur={handleBlur}
                                     handleError={() => handleError(item)}
                                 />
                             </li>

@@ -10,16 +10,8 @@ const FastPaymentSection: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null)
     const is_in_viewport = useIsInViewport(ref)
 
-    let cards
-    let hasSliced = false
-
+    let cards = []
     if (is_in_viewport) {
-        cards = is_eu ? EUPaymentMethods : RowPaymentMethods
-        hasSliced = false
-    } else if (!hasSliced) {
-        cards = is_eu ? EUPaymentMethods.slice(0, 12) : RowPaymentMethods.slice(0, 12)
-        hasSliced = true
-    } else {
         cards = is_eu ? EUPaymentMethods : RowPaymentMethods
     }
 

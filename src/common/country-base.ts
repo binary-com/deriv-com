@@ -36,7 +36,6 @@ export const latam_countries = [
     'aw',
     'bs',
     'bb',
-    'br',
     'ky',
     'cu',
     'dm',

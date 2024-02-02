@@ -7,10 +7,16 @@ import useIsInViewport from 'components/hooks/use-is-in-viewport'
 
 const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
+    const cards = is_eu ? EUPaymentMethods : RowPaymentMethods
+
     const ref = useRef<HTMLDivElement>(null)
     const is_in_viewport = useIsInViewport(ref)
-    const cards = is_eu ? EUPaymentMethods : RowPaymentMethods
-    const animation_duration = is_in_viewport ? (is_eu ? '40s' : '100s') : '1000000s'
+
+    const animation = is_in_viewport
+        ? is_eu
+            ? '!animate-[40s_slide_linear_infinite] rtl:!animate-[40s_slideRtl_linear_infinite]'
+            : '!animate-[100s_slide_linear_infinite] rtl:!animate-[100s_slideRtl_linear_infinite]'
+        : '!animate-[1000000s_slide_linear_infinite] rtl:!animate-[1000000s_slideRtl_linear_infinite]'
 
     return (
         <div ref={ref}>
@@ -33,7 +39,7 @@ const FastPaymentSection: React.FC = () => {
                 content={{
                     cols: 'infinite',
                     cards,
-                    sliderClass: `!animate-[${animation_duration}_slide_linear_infinite] rtl:!animate-[${animation_duration}_slideRtl_linear_infinite]`,
+                    sliderClass: animation,
                 }}
                 disclaimer={
                     <Localize translate_text="_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option._t_" />

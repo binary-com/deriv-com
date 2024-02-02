@@ -1,25 +1,23 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
 import {
-    PaymentMethodMastercardBrandIcon,
     PaymentMethodEpsBrandIcon,
     PaymentMethodGiropayBrandIcon,
     PaymentMethodIdealBrandIcon,
     PaymentMethodPrzelewy24BrandIcon,
     PaymentMethodRapidTransferBrandIcon,
-    PaymentMethodMaestroBrandIcon,
-    PaymentMethodVisaBrandIcon,
-    PaymentMethodVisaElectronBrandIcon,
-    PaymentMethodPixBrandIcon,
-    PaymentMethodHelp2payBrandIcon,
-    PaymentMethodZingpayBrandIcon,
-    PaymentMethodMpesaBrandIcon,
-    PaymentMethodMtnBrandIcon,
-    PaymentMethodVodafoneBrandIcon,
-    PaymentMethodAdvcashBrandIcon,
-    PaymentMethodAirtmBrandIcon,
 } from '@deriv/quill-icons'
-
+const PaymentMethodMaestroBrandIcon = '/payments/logos-1.svg'
+const PaymentMethodVisaBrandIcon = '/payments/logos-2.svg'
+const PaymentMethodVisaElectronBrandIcon = '/payments/logos-3.svg'
+const PaymentMethodPixBrandIcon = '/payments/logos-4.svg'
+const PaymentMethodHelp2payBrandIcon = '/payments/logos-5.svg'
+const PaymentMethodZingpayBrandIcon = '/payments/logos-6.svg'
+const PaymentMethodMpesaBrandIcon = '/payments/logos-7.svg'
+const PaymentMethodMtnBrandIcon = '/payments/logos-8.svg'
+const PaymentMethodVodafoneBrandIcon = '/payments/logos-9.svg'
+const PaymentMethodAdvcashBrandIcon = '/payments/logos-10.svg'
+const PaymentMethodAirtmBrandIcon = '/payments/logos-11.svg'
 const PaymentMethodAstropayBrandIcon = '/payments/logos-12.svg'
 const PaymentMethodJetonBrandIcon = '/payments/logos-13.svg'
 const PaymentMethodMifinityBrandIcon = '/payments/logos-14.svg'
@@ -47,11 +45,20 @@ const PaymentMethodPseBrandIcon = '/payments/logos-35.svg'
 const PaymentMethodBitcoinBrandIcon = '/payments/logos-36.svg'
 const PaymentMethodEthereumBrandIcon = '/payments/logos-37.svg'
 const PaymentMethodTronBrandIcon = '/payments/logos-38.svg'
+const PaymentMethodMastercardBrandIcon = '/payments/logos.svg'
 
 export const RowPaymentMethods: CardContent[] = [
     {
         id: 1,
-        icon: <PaymentMethodMastercardBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodMastercardBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -59,7 +66,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 2,
-        icon: <PaymentMethodMaestroBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodMaestroBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -67,7 +82,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 3,
-        icon: <PaymentMethodVisaBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodVisaBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -75,7 +98,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 4,
-        icon: <PaymentMethodVisaElectronBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodVisaElectronBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -83,7 +114,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 5,
-        icon: <PaymentMethodPixBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodPixBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -91,7 +130,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 6,
-        icon: <PaymentMethodHelp2payBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodHelp2payBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -99,7 +146,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 7,
-        icon: <PaymentMethodZingpayBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodZingpayBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -107,7 +162,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 8,
-        icon: <PaymentMethodMpesaBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodMpesaBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -115,7 +178,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 9,
-        icon: <PaymentMethodMtnBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodMtnBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -123,7 +194,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 10,
-        icon: <PaymentMethodVodafoneBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodVodafoneBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -131,7 +210,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 11,
-        icon: <PaymentMethodAdvcashBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodAdvcashBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',
@@ -139,7 +226,15 @@ export const RowPaymentMethods: CardContent[] = [
     },
     {
         id: 12,
-        icon: <PaymentMethodAirtmBrandIcon height="80px" width="128px" />,
+        icon: (
+            <img
+                src={PaymentMethodAirtmBrandIcon}
+                height={80}
+                width={128}
+                className="max-w-[128px] h-[80px]"
+                loading="lazy"
+            />
+        ),
         color: 'gray',
         size: 'xs',
         align: 'center',

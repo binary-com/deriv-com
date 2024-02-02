@@ -1,10 +1,10 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
 import {
-    LightDependableIcon,
-    LightSafeAndSecureIcon,
-    LightRegulatedIcon,
-    LightTwentyFourSevenSupportIcon,
+    DerivLightDependableIcon,
+    DerivLightSafeAndSecureIcon,
+    DerivLightRegulatedIcon,
+    DerivLightTwentyFourSevenSupportIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustration'
 import { Localize } from 'components/localization'
@@ -19,7 +19,14 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightDependableIcon width={120} height={145} />,
+        icon: (
+            <DerivLightDependableIcon
+                width={120}
+                height={145}
+                role="img"
+                title="Dependable platform"
+            />
+        ),
         className: 'h-full',
     },
     {
@@ -29,7 +36,14 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightSafeAndSecureIcon width={120} height={145} />,
+        icon: (
+            <DerivLightSafeAndSecureIcon
+                width={120}
+                height={145}
+                role="img"
+                title="Safe and secure platform"
+            />
+        ),
         className: 'h-full',
     },
     {
@@ -41,7 +55,14 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightRegulatedIcon width={120} height={145} />,
+        icon: (
+            <DerivLightRegulatedIcon
+                width={120}
+                height={145}
+                role="img"
+                title="Regulated and licenced broker"
+            />
+        ),
         className: 'h-full',
     },
     {
@@ -53,7 +74,14 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightTwentyFourSevenSupportIcon width={120} height={145} />,
+        icon: (
+            <DerivLightTwentyFourSevenSupportIcon
+                width={120}
+                height={145}
+                role="img"
+                title="24-hour chat support"
+            />
+        ),
         className: 'h-full',
     },
 ]

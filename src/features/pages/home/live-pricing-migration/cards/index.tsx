@@ -119,6 +119,7 @@ const LiveMarketCard = <T extends MarketName>({
         }))
     }, [data, is_logged_in, handleSignup])
 
+    console.log('isRTL', is_rtl)
     return (
         <>
             <CardSlider

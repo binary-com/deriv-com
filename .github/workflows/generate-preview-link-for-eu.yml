@@ -1,4 +1,4 @@
-name: Generate preview link
+name: Generate Eu preview link
 
 permissions:
     actions: write
@@ -46,8 +46,8 @@ jobs:
                       const comment = [
                           '| Name | Result |',
                           '| :--- | :------ |',
-                          `| **Build status**  | Building 🔨 |`,
-                          `| **Action URL**  | [Visit Action](${action_url}) |`,
+                          `| **Eu Build status**  | Building 🔨 |`,
+                          `| **Eu Action URL**  | [Visit Action](${action_url}) |`,
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
@@ -95,8 +95,8 @@ jobs:
               id: build-project
               env:
                   GATSBY_ENV: staging
-                  GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
-                  GATSBY_GROWTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GROWTHBOOK_DECRYPTION_KEY }}
+                  GATSBY_GEuTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GEuTHBOOK_CLIENT_KEY }}
+                  GATSBY_GEuTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GEuTHBOOK_DECRYPTION_KEY }}
                   GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
                   GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
                   GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
@@ -104,7 +104,7 @@ jobs:
                   GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
                   GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
 
-              run: npm run build
+              run: npm run build:eu
 
             - name: Retrieve PR information
               env:
@@ -127,22 +127,22 @@ jobs:
                   echo "Installing Wrangler CLI"
                   npm i -g wrangler
                   echo "Deploying build to Cloudflare Pages"
-                  directory='public'
+                  directory='sites/eu/public'
                   projectName='deriv-com-preview-links'
                   branch=$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
                   cf_preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   preview_url=https://$branch.deriv-com-preview-links.pages.dev
                   cat log.txt
-                  if grep -q "Deployment complete" log.txt; then
+                  if grep -q "Eu Deployment complete" log.txt; then
                     echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
                     echo $preview_url > .pr/PREVIEW_URL
                   else
-                    echo "Deployment to Cloudflare Pages failed."
+                    echo "Eu Deployment to Cloudflare Pages failed."
                     exit 1
                   fi
 
-            - name: 'Generate preview link comment'
+            - name: 'Generate Eu preview link comment'
               if: success()
               id: generate_preview_url
               uses: actions/github-script@v3
@@ -156,8 +156,8 @@ jobs:
                           '| Name | Result |',
                           '| :--- | :------ |',
                           `| **Build status**  | Completed ✅ |`,
-                          `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
-                          `| **Action URL**  | [Visit Action](${action_url}) |`,
+                          `| **Eu Preview URL**  | [Visit Preview](${preview_url}) |`,
+                          `| **Eu Action URL**  | [Visit Action](${action_url}) |`,
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
@@ -172,8 +172,8 @@ jobs:
                       const comment = [
                         '| Name | Result |',
                         '| :--- | :------ |',
-                        `| **Build status**  | Failed ❌ |`,
-                        `| **Action URL**  | [Visit Action](${action_url}) |`,
+                        `| **Eu Build status**  | Failed ❌ |`,
+                        `| **Eu Action URL**  | [Visit Action](${action_url}) |`,
                         ''
                       ].join('\n')
                       core.setOutput("comment", comment);

@@ -8,7 +8,7 @@ import useRegion from 'components/hooks/use-region'
 const ThingsInMind = () => {
     const { is_eu } = useRegion()
     const deal_cancellation_text = is_eu
-        ? "_t_Deal cancellation isn't available for Crash and Boom indices or cryptocurrency pairs. The stop out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop out percentage is shown below your stake on Deriv Trader and varies according to your chosen multiplier._t_"
+        ? "_t_The deal cancellation feature enables you to back out of a trade within a set period if the asset's price goes against what you expected. In this way, you can cancel any losing trade and get your stake back. We charge a small fee for this. This  is currently exclusive to volatility indices._t_"
         : '_t_Deal cancellation isn’t available for Crash and Boom indices. The stop-out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop-out percentage is shown below your stake on Deriv Trader and varies according to your chosen multiplier._t_'
     const protect_text = is_eu
         ? '_t_This is to protect you from losing your money when using deal cancellation. With deal cancellation, you are allowed to reclaim your full stake amount (minus a small fee) if you cancel your contract within an hour of opening the position. Stop loss, on the other hand, will close your contract at a loss if the market moves against your position. However, once the deal cancellation expires, you can set a stop loss level on the open contract._t_'

@@ -13,8 +13,16 @@ const useGrowthbookFeatureFlag = <T>({
     const [featureFlagValue, setFeatureFlagValue] = useState<T>(defaultValue)
 
     useEffect(() => {
-        const value = (Analytics.getFeatureValue(featureFlag, defaultValue) || defaultValue) as T
+        const value = (Analytics?.getFeatureValue(featureFlag, defaultValue) || defaultValue) as T
         setFeatureFlagValue(value)
+
+        // Set the renderer for GrowthBook to update the value when the feature flag changes
+        Analytics.getInstances()?.ab?.GrowthBook?.setRenderer(() => {
+            const value = (Analytics?.getFeatureValue(featureFlag, defaultValue) ||
+                defaultValue) as T
+
+            setFeatureFlagValue(value)
+        })
     }, [featureFlag, defaultValue])
 
     return featureFlagValue

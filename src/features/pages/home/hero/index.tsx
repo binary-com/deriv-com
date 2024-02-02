@@ -60,7 +60,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         />
                     </div>
                     {is_mounted && <HeroAwardImages />}
-                    {is_mounted && <HeroImage />}
+                    <HeroImage />
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
             </Section>

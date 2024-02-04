@@ -8,7 +8,7 @@ export const customSlugify = (text: string): string => {
         ')': ' ',
         ',': '',
         ';': '',
-        // Add other special characters and their mappings here if needed
+        /// Add other special characters and their mappings here if needed
     }
     return text
         .toString()

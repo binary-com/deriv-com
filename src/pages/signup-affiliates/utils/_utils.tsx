@@ -46,7 +46,7 @@ export const Submit = ({
             country: affiliate_account.account_address.country.symbol,
             address_city: trimOnly(affiliate_account.account_address.city),
             address_postcode: affiliate_account.account_address.postal_code,
-            address_state: customSlugify(affiliate_account.account_address.state.name),
+            address_state: trimOnly(affiliate_account.account_address.state?.name),
             address_street: trimOnly(affiliate_account.account_address.street),
             first_name: trimOnly(affiliate_account.account_details.first_name),
             last_name: trimOnly(affiliate_account.account_details.last_name),

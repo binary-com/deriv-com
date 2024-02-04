@@ -35,7 +35,7 @@ type AffiliateAccountTypes = {
 type AffiliateSendTypes = {
     address_city: string
     address_postcode: string
-    address_state: string
+    address_state: any
     address_street: string
     commission_plan: number
     country: string

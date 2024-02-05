@@ -17,12 +17,12 @@ export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         <link
             rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@100;400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:wght@400;700&family=Noto+Sans+Arabic:wght@100;400;700&display=swap"
             as="style"
             key="preload-fonts"
         />,
         <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+Arabic:wght@100;400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:wght@400;700&family=Noto+Sans+Arabic:wght@100;400;700&display=swap"
             rel="stylesheet"
             type="text/css"
             key="load-fonts"

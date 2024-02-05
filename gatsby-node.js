@@ -427,11 +427,19 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],
-            // splitChunks: {
-            //     chunks: 'all',
-            //     name: "deriv-com",
-            // },
-
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                    // Merge all js, ts, and tsx files  into one bundle
+                    all: {
+                        test: /\.(js|ts|tsx)$/,
+                        name: 'bundle',
+                        chunks: 'all',
+                    },
+                },
+            },
             mangleExports: 'size',
             mangleWasmImports: true,
 

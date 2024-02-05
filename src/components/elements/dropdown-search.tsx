@@ -18,6 +18,7 @@ import {
 import { Flex } from 'components/containers'
 
 type DropdownInputProps = {
+    readonly?: boolean
     tabIndex?: number
     onClick?: ToggleListVisibilityType
     onFocus?: ToggleListVisibilityType
@@ -78,6 +79,7 @@ const DropdownSearch = ({
     onChange,
     selected_item,
     is_alternate_style,
+    readonly,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -150,6 +152,7 @@ const DropdownSearch = ({
                         is_active={is_open}
                         is_alternate_style={is_alternate_style}
                         placeholder={label}
+                        readonly={readonly}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>

@@ -142,6 +142,7 @@ const AccountAddress = ({
                                 selected_item={form_data[item.name]}
                                 error={form_errors[`${item.name}_error_msg`]}
                                 onChange={item.handler}
+                                readonly={true}
                                 style={{ marginTop: '16px' }}
                             />
                         )

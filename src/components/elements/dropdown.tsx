@@ -441,6 +441,7 @@ export type DropdownProps = {
     autocomplete?: string
     mb?: string
     is_alternate_style?: boolean
+    readonly?: boolean
 } & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({

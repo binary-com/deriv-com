@@ -351,7 +351,7 @@ const BuildPage = (page, actions) => {
 }
 exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
-    const isProduction = process.env.GATSBY_ENV === 'production'
+    // const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
     if (pagesToBuild) {
         const pages_loaded = pagesToBuild.split(',')
@@ -371,12 +371,8 @@ exports.onCreatePage = ({ page, actions }) => {
         console.log('pages', pages)
 
         deletePage(page)
-        if (isProduction) {
+        if (pages.includes(page.path)) {
             return BuildPage(page, actions)
-        } else {
-            if (pages.includes(page.path)) {
-                return BuildPage(page, actions)
-            }
         }
     } else {
         return BuildPage(page, actions)

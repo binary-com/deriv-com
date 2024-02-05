@@ -5,12 +5,9 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import MaleHuman from 'images/common/sign-up/latam-male-human.png'
 import Image from 'features/components/atoms/image'
-import useRegion from 'components/hooks/use-region'
 import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
 
 const SignUpContent = () => {
-    const { is_latam } = useRegion()
-
     const growthbook_feature_flag__latam_signup_human_element_visible = useGrowthbookFeatureFlag({
         featureFlag: 'latam-signup-human-element',
         defaultValue: false,
@@ -26,9 +23,9 @@ const SignUpContent = () => {
             gap="8x"
         >
             {/**
-             * This is for growthbook a/b testing in the LATAM region
+             * This is for growthbook a/b testing in the LATAM region * More info in the growthbook dashboard
              */}
-            {is_latam && growthbook_feature_flag__latam_signup_human_element_visible && (
+            {growthbook_feature_flag__latam_signup_human_element_visible && (
                 <Image
                     className={signup_latam_human_image}
                     src={MaleHuman}

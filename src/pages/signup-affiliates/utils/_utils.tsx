@@ -46,9 +46,7 @@ export const Submit = ({
             last_name: affiliate_account.account_details.last_name,
             date_of_birth: affiliate_account.account_details.date_birth?.toISOString().slice(0, 10),
             over_18_declaration: 1,
-            website_url: affiliate_account.account_details?.website_url.includes('www.')
-                ? affiliate_account.account_details?.website_url
-                : `www.${affiliate_account.account_details?.website_url}`,
+            website_url: affiliate_account.account_details?.website_url,
             user_name: affiliate_account.account_details.username,
             password: affiliate_account.account_details.password,
             phone: affiliate_account.account_details.phone,

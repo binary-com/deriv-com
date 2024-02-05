@@ -31,7 +31,7 @@ export const cards: CardContent[] = [
     },
     {
         id: 2,
-        header: <Localize translate_text="_t_Safe and Secure_t_" />,
+        header: <Localize translate_text="_t_Safe and secure_t_" />,
         description: <Localize translate_text="_t_We keep your personal data and funds safe._t_" />,
         size: 'md',
         color: 'gray',

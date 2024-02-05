@@ -15,7 +15,7 @@ const AccountDetails = ({
 }: WizardStepProps<'account_details'>) => {
     const [form_data, setFormData] = useState(affiliate_account.account_details)
     const [form_errors, setFormErrors] = useState({
-        user_name_error_msg: '',
+        username_error_msg: '',
         first_name_error_msg: '',
         last_name_error_msg: '',
         phone_error_msg: '',
@@ -121,7 +121,7 @@ const AccountDetails = ({
                       data.website_url &&
                       data.username &&
                       data.password &&
-                      !form_errors.user_name_error_msg &&
+                      !form_errors.username_error_msg &&
                       !form_errors.first_name_error_msg &&
                       !form_errors.last_name_error_msg &&
                       !form_errors.website_url_error_msg &&
@@ -144,7 +144,7 @@ const AccountDetails = ({
                       !form_errors.company_name_error_msg &&
                       !form_errors.company_registration_number_error_msg,
         )
-    }, [form_data])
+    }, [form_data, form_errors])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target

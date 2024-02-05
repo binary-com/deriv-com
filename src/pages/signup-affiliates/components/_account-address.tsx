@@ -128,7 +128,7 @@ const AccountAddress = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
-        console.log('==>', value, 'handleInput')
+        console.log('==>', name, value, 'handleInput')
     }, [])
 
     const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -141,6 +141,7 @@ const AccountAddress = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
+        console.log('==>', name, value, 'handleBlur')
     }, [])
 
     const handleError = (item) => {

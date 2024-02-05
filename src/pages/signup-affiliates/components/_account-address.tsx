@@ -113,7 +113,6 @@ const AccountAddress = ({
                 !form_errors.street_error_msg &&
                 !form_errors.postal_code_error_msg,
         )
-        console.log('useEffect==>', data, form_data)
     }, [form_data])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -128,7 +127,6 @@ const AccountAddress = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
-        console.log('==>', name, value, 'handleInput')
     }, [])
 
     const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -141,7 +139,6 @@ const AccountAddress = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
-        console.log('==>', name, value, 'handleBlur')
     }, [])
 
     const handleError = (item) => {

@@ -110,6 +110,7 @@ const AccountDetails = ({
                         : form_data[property],
             }
         }
+        console.log('==>', data, form_data)
         updateData({ ...data })
         onValidate(
             is_individual
@@ -156,6 +157,7 @@ const AccountDetails = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
+        console.log('useEffect==>', data, form_data)
     }, [])
 
     const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -168,6 +170,7 @@ const AccountDetails = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
+        console.log('==>', name, value, 'handleBlur')
     }, [])
 
     const handleError = (item) => {

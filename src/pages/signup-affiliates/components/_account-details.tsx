@@ -121,6 +121,7 @@ const AccountDetails = ({
                       data.website_url &&
                       data.username &&
                       data.password &&
+                      !form_errors.user_name_error_msg &&
                       !form_errors.first_name_error_msg &&
                       !form_errors.last_name_error_msg &&
                       !form_errors.website_url_error_msg &&

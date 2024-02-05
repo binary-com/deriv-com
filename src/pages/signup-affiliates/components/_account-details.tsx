@@ -157,7 +157,7 @@ const AccountDetails = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
-        console.log('useEffect==>', data, form_data)
+        console.log('==>', name, value, 'handleBlur')
     }, [])
 
     const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

@@ -10,8 +10,6 @@ const translated_keys = require('../src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
 const strap_data = require('../public/page-data/404/page-data.json')
 
-
-
 /*
 (_t_)                     = the capturing group for prefix "_t_"
 (?<pure_text>.*?)         = the capturing group for the actual string ( this is what we use to create the key )
@@ -25,7 +23,9 @@ const new_i18n_marker = new RegExp(/(_t_)(?<pure_text>.*?)(_t_)/g)
 \s*                       = it matches any whitespace characters until unlimited times in our case it used to catch `\n` or newline
 /gs                       = `g` means it will take all of the matches, `s` means it matches even in newline
 */
-const old_i18n_marker = new RegExp(/translate_text=(['"])(.*?)\1|localize\(\s*?(['"])\s*(.*?)\s*\3/gs);
+const old_i18n_marker = new RegExp(
+    /translate_text=(['"])(.*?)\1|localize\(\s*?(['"])\s*(.*?)\s*\3/gs,
+)
 
 program
     .version('0.1.0')
@@ -38,23 +38,22 @@ program
  */
 const globs = ['**/*.js', '**/*.ts', '**/*.tsx']
 
-const getKeyHash = string => crc32(string)
+const getKeyHash = (string) => crc32(string)
 
 const action = process.argv[2]
 
-
 const old_find_keys = (file) => {
-    const keys = [];
-    let result = old_i18n_marker.exec(file);
-    while (result != null) {        
-        const extracted = result[2] || result[4]; // If it captures `text=` then it will be index 2, else its index 4 which captures `localize`
+    const keys = []
+    let result = old_i18n_marker.exec(file)
+    while (result != null) {
+        const extracted = result[2] || result[4] // If it captures `text=` then it will be index 2, else its index 4 which captures `localize`
         // if the key contains '_t_' we skip it and let new apprach extract it.
-        if(!extracted.includes("_t_")){
-            keys.push(extracted.replace(/\\/g, ''));
+        if (!extracted.includes('_t_')) {
+            keys.push(extracted.replace(/\\/g, ''))
         }
-        result = old_i18n_marker.exec(file);
+        result = old_i18n_marker.exec(file)
     }
-    return keys;
+    return keys
 }
 
 const new_find_keys = (file) => {
@@ -65,47 +64,51 @@ const new_find_keys = (file) => {
         keys.push(pure_text.replace(/\\/g, ''))
         result = new_i18n_marker.exec(file)
     }
-    return keys;
+    return keys
 }
 
 /** **********************************************
  * Compile
  */
-extractTranslations();
+extractTranslations()
 
 function getStrapiStrings(strapi_obj_data) {
-    return strapi_obj_data instanceof Array ? strapi_obj_data.map((array) => getStrapiStrings(array)).flat() :
-        strapi_obj_data instanceof Object ? Object.values(strapi_obj_data).map((object) => getStrapiStrings(object)).flat() :
-            strapi_obj_data;
+    return strapi_obj_data instanceof Array
+        ? strapi_obj_data.map((array) => getStrapiStrings(array)).flat()
+        : strapi_obj_data instanceof Object
+        ? Object.values(strapi_obj_data)
+              .map((object) => getStrapiStrings(object))
+              .flat()
+        : strapi_obj_data
 }
 
 function extractTranslations() {
-    (async () => {
+    ;(async () => {
         try {
-            const file_paths = [];
-            const pre_messages = [];
-            const messages_json = {};
+            const file_paths = []
+            const pre_messages = []
+            const messages_json = {}
 
             // Find all file types listed in `globs`
             for (let i = 0; i < globs.length; i++) {
-                let filesFound = glob.sync(`../src/${globs[i]}`);
-                filesFound = filesFound.filter(path => path.indexOf('__tests__') === -1);
-                file_paths.push(...filesFound);
+                let filesFound = glob.sync(`../src/${globs[i]}`)
+                filesFound = filesFound.filter((path) => path.indexOf('__tests__') === -1)
+                file_paths.push(...filesFound)
             }
             // Iterate over files and extract all strings from the i18n marker
             for (let i = 0; i < file_paths.length; i++) {
                 if (program.verbose) {
-                    console.log(file_paths[i]);
+                    console.log(file_paths[i])
                 }
 
                 try {
-                    const file = fs.readFileSync(file_paths[i], 'utf8');
+                    const file = fs.readFileSync(file_paths[i], 'utf8')
                     if (!file.includes(DISABLE_TRANSLATION)) {
-                        pre_messages.push(...old_find_keys(file));
+                        pre_messages.push(...old_find_keys(file))
                         pre_messages.push(...new_find_keys(file))
                     }
                 } catch (e) {
-                    console.log(e);
+                    console.log(e)
                 }
             }
 
@@ -115,20 +118,18 @@ function extractTranslations() {
             const untranslated = []
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {
-
                 const key = getKeyHash(messages[i])
-                messages_json[key] = messages[i];
+                messages_json[key] = messages[i]
 
                 if (!translated_keys[key]) {
                     untranslated.push({
                         key,
-                        string: messages[i]
+                        string: messages[i],
                     })
                 }
             }
 
-
-            if (action === "show-untranslated") {
+            if (action === 'show-untranslated') {
                 console.log(`Untranslated: ${untranslated.length}`)
                 console.log(untranslated)
                 return false
@@ -139,10 +140,10 @@ function extractTranslations() {
                 path.resolve(__dirname, '../crowdin/messages.json'),
                 JSON.stringify(messages_json, null, 2),
                 'utf8',
-                (err) => console.log(err)
-            );
+                (err) => console.log(err),
+            )
         } catch (e) {
-            console.error(e);
+            console.error(e)
         }
     })()
 }

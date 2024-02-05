@@ -2,6 +2,7 @@ import React from 'react'
 import { Hero, AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
 import { Text, Heading } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
+import * as styles from './eu_grid.module.scss'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import { deriv_app_url } from 'common/constants'
@@ -67,13 +68,11 @@ const Regulatory = () => {
                                     <EUgrid />
                                 </BlockWrapper>
                                 <AccordionBlock
-                                    className=" border-spacing-general-2xl"
                                     content={{
                                         data: [
                                             [
                                                 {
-                                                    className:
-                                                        'border-opacity-black-100 border-x-none',
+                                                    className: `${styles.accordion_border}`,
                                                     content: function noRefCheck() {
                                                         return (
                                                             <>
@@ -102,8 +101,7 @@ const Regulatory = () => {
                                                 },
 
                                                 {
-                                                    className:
-                                                        'border-opacity-black-100 border-x-none',
+                                                    className: `${styles.accordion_border}`,
                                                     content: function noRefCheck() {
                                                         return (
                                                             <div>
@@ -114,8 +112,7 @@ const Regulatory = () => {
                                                     title: 'Key information documents',
                                                 },
                                                 {
-                                                    className:
-                                                        'border-opacity-black-100 border-x-none',
+                                                    className: `${styles.accordion_border}`,
                                                     content: function noRefCheck() {
                                                         return (
                                                             <div className="flex lg:flex-row items-start justify-start flex-col ">

@@ -6,18 +6,22 @@ export type ResidenceType = {
     value: string
 }
 
+const isAlphanumeric = (str: string): boolean => /^[a-zA-Z0-9]+$/.test(str)
+
 const formatStatesList = (states) => {
     if (!states.length) {
         return []
     }
 
-    return states?.map(
-        ({ text }) =>
-            typeof text !== undefined && {
+    return states.reduce((acc, { text }) => {
+        if (text && isAlphanumeric(text)) {
+            acc.push({
                 name: text,
                 display_name: text,
-            },
-    )
+            })
+        }
+        return acc
+    }, [])
 }
 
 export const useStatesList = (country_code) => {

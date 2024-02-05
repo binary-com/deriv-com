@@ -6,6 +6,8 @@ export const customSlugify = (text: string): string => {
         ə: 'e',
         '(': ' ',
         ')': ' ',
+        ',': '',
+        ';': '',
         // Add other special characters and their mappings here if needed
     }
     return text
@@ -19,6 +21,10 @@ export const customSlugify = (text: string): string => {
         .replace(/'/g, '')
         .replace(/--+/g, '-')
 }
+export const trimOnly = (text: string): string => {
+    return text.trim()
+}
+
 export const Submit = ({
     is_online,
     affiliate_account,
@@ -34,22 +40,22 @@ export const Submit = ({
         })
     } else
         affiliateSend({
-            email: affiliate_account.email,
+            email: trimOnly(affiliate_account.email),
             type_of_account: affiliate_account.account_type,
             commission_plan: affiliate_account.account_plan,
             country: affiliate_account.account_address.country.symbol,
-            address_city: affiliate_account.account_address.city,
+            address_city: trimOnly(affiliate_account.account_address.city),
             address_postcode: affiliate_account.account_address.postal_code,
-            address_state: customSlugify(affiliate_account.account_address.state.name),
-            address_street: affiliate_account.account_address.street,
-            first_name: affiliate_account.account_details.first_name,
-            last_name: affiliate_account.account_details.last_name,
+            address_state: trimOnly(affiliate_account.account_address.state?.name),
+            address_street: trimOnly(affiliate_account.account_address.street),
+            first_name: trimOnly(affiliate_account.account_details.first_name),
+            last_name: trimOnly(affiliate_account.account_details.last_name),
             date_of_birth: affiliate_account.account_details.date_birth?.toISOString().slice(0, 10),
             over_18_declaration: 1,
             website_url: affiliate_account.account_details?.website_url.includes('www.')
                 ? affiliate_account.account_details?.website_url
                 : `www.${affiliate_account.account_details?.website_url}`,
-            user_name: affiliate_account.account_details.username,
+            user_name: trimOnly(affiliate_account.account_details.username),
             password: affiliate_account.account_details.password,
             phone: affiliate_account.account_details.phone,
             phone_code: Number(affiliate_account.account_details.phone.substring(1, 4)),

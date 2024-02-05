@@ -142,13 +142,13 @@ const affiliate_validation = {
         return null
     },
     city: (input) => {
-        return cityValidation(input, localize('_t_City is required_t_'), 2, 256)
+        return cityValidation(input, localize('_t_City is required_t_'))
     },
     street: (input) => {
-        return streetValidation(input, localize('_t_Street is required_t_'), 2, 256)
+        return streetValidation(input, localize('_t_Street is required_t_'))
     },
     postal_code: (input) => {
-        return postcodeValidation(input, 5, 10)
+        return postcodeValidation(input)
     },
     first_name: (input) => {
         return nameValidation(input, localize('_t_First Name_t_'))

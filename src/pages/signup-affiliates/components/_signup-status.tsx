@@ -141,7 +141,6 @@ const AffiliateSignupStatus = ({
 
     const handleTryAgain = useCallback(() => {
         setSignupStatus('loading')
-        console.log('I changed')
         onSubmit()
     }, [signup_status, onSubmit])
 

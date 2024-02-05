@@ -31,7 +31,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
         <>
             <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
                 <StaticImage
-                    src="../../../../images/migration/home/home_hero_bg.png"
+                    src="../../../../images/migration/home/home_hero_bg.jpg"
                     alt="hero bg image"
                     className="w-full -z-10"
                     placeholder="none"

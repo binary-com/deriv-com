@@ -1,12 +1,5 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
-import {
-    DerivLightDependableIcon,
-    DerivLightSafeAndSecureIcon,
-    DerivLightRegulatedIcon,
-    DerivLightTwentyFourSevenSupportIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Illustration'
 import { Localize } from 'components/localization'
 
 export const cards: CardContent[] = [
@@ -20,11 +13,12 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <DerivLightDependableIcon
+            <img
+                src="/new-homepage/LightDependableIcon.svg"
                 width={120}
                 height={145}
-                role="img"
-                title="Dependable platform"
+                alt="Dependable platform"
+                loading="lazy"
             />
         ),
         className: 'h-full',
@@ -37,11 +31,12 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <DerivLightSafeAndSecureIcon
+            <img
+                src="/new-homepage/LightSafeAndSecureIcon.svg"
                 width={120}
                 height={145}
-                role="img"
-                title="Safe and secure platform"
+                alt="Safe and secure platform"
+                loading="lazy"
             />
         ),
         className: 'h-full',
@@ -56,11 +51,12 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <DerivLightRegulatedIcon
+            <img
+                src="/new-homepage/LightRegulatedIcon.svg"
                 width={120}
                 height={145}
-                role="img"
-                title="Regulated and licenced broker"
+                alt="Regulated and licenced broker"
+                loading="lazy"
             />
         ),
         className: 'h-full',
@@ -75,11 +71,12 @@ export const cards: CardContent[] = [
         color: 'gray',
         align: 'center',
         icon: (
-            <DerivLightTwentyFourSevenSupportIcon
+            <img
+                src="/new-homepage/LightTwentyFourSevenSupportIcon.svg"
                 width={120}
                 height={145}
-                role="img"
-                title="24-hour chat support"
+                alt="24-hour chat support"
+                loading="lazy"
             />
         ),
         className: 'h-full',

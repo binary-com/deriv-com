@@ -460,7 +460,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         },
         plugins: [
             new StylelintPlugin({ ...style_lint_options, ...options }),
-            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+            // new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

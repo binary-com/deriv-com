@@ -23,13 +23,6 @@ import '@deriv-com/components/style.css'
 
 const is_browser = typeof window !== 'undefined'
 
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
-}
-
 const checkDomain = () => {
     return eval(
         decodeURIComponent(

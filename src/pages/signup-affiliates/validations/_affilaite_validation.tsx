@@ -48,18 +48,15 @@ const nameValidation = (input, text) => {
         return localize('_t_Only Latin and Alphabet characters_t_')
     }
 }
-const companyNameValidation = (input, min_digit, max_digit) => {
-    const length_error = localize(`_t_You should enter 2-256 characters._t_`)
+const companyNameValidation = (input) => {
     if (!input) {
         return localize('_t_Company name is required_t_')
-    } else if (!/^[a-zA-Z0-9 ]+$/.test(input)) {
-        return localize('_t_Incorrect company name_t_')
-    } else if (!validation_is_exceed_number(input, max_digit)) {
-        return length_error
-    } else if (!validation_is_lack_number(input, min_digit)) {
-        return length_error
-    } else if (affiliate_validation_regex.latin.test(input)) {
-        return localize('_t_Only Latin characters_t_')
+    } else if ((input.length<2 || input.length>256 )) {
+        return localize(`_t_You should enter 2-256 characters._t_`)
+    } else if (
+        affiliate_validation_regex.name.test(input)
+    ) {
+        return localize('_t_Only Latin and Alphabet characters_t_')
     }
 }
 const phoneValidation = (input) => {

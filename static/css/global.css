@@ -18,3 +18,38 @@
 .\[display\:-webkit-box\] {
     display: -webkit-box;
 }
+
+/* This is a patch. cssnano plugin is removing space from between [dir=rtl] and .rtl. */
+
+/* Patch Start */
+[dir=rtl] .rtl\:left-auto {
+    left: auto
+}
+
+[dir=rtl] .rtl\:right-50 {
+    right: 0
+}
+
+[dir=rtl] .rtl\:mr-auto {
+    margin-right: auto
+}
+
+[dir=rtl] .rtl\:rotate-180 {
+    --tw-rotate: 180deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+[dir=rtl] .rtl\:flex-row-reverse {
+    flex-direction: row-reverse
+}
+
+[dir=rtl] .rtl\:\[direction\:ltr\] {
+    direction: ltr
+}
+[dir=rtl] .rtl\:\[direction\:ltr\] {
+    direction: ltr;
+}
+[dir=rtl] .rtl\:\!animate-\[100s_slideRtl_linear_infinite\] {
+    animation: slideRtl 100s linear infinite !important;
+}
+/* Patch End */

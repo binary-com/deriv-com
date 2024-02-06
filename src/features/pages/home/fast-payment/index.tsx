@@ -2,7 +2,7 @@ import React from 'react'
 import { FastPayment } from '@deriv-com/blocks'
 import { EUPaymentMethods, RowPaymentMethods } from './data'
 import useRegion from 'components/hooks/use-region'
-import { Localize } from 'components/localization'
+import { Localize, get_lang_direction } from 'components/localization'
 
 const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
@@ -31,6 +31,7 @@ const FastPaymentSection: React.FC = () => {
             disclaimer={
                 <Localize translate_text="_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option._t_" />
             }
+            dir={get_lang_direction()}
         />
     )
 }

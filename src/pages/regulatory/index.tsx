@@ -114,38 +114,42 @@ const Regulatory = () => {
                                                 {
                                                     className: `${styles.accordion_border}`,
                                                     content: function noRefCheck() {
+                                                        const regulatoryDocuments = [
+                                                            {
+                                                                href: '/regulatory/RTS28-2022.pdf',
+                                                                text: '_t_RTS28 2022_t_',
+                                                            },
+                                                            {
+                                                                href: '/regulatory/RTS28-2021.pdf',
+                                                                text: '_t_RTS28 2021_t_',
+                                                            },
+                                                        ]
                                                         return (
-                                                            <div className="flex lg:flex-row items-start justify-start flex-col ">
-                                                                <CustomLink
-                                                                    href="/regulatory/RTS28-2022.pdf"
-                                                                    className="underline inline text-base mb-800 mr-800"
-                                                                >
-                                                                    <div className="flex items-center">
-                                                                        <img
-                                                                            src={PDFIcon}
-                                                                            alt="pdf icon black"
-                                                                            className="pr-400"
-                                                                        />
-                                                                        <Text>
-                                                                            <Localize translate_text="_t_RTS28 2022_t_" />
-                                                                        </Text>
-                                                                    </div>
-                                                                </CustomLink>
-                                                                <CustomLink
-                                                                    href="/regulatory/RTS28-2021.pdf"
-                                                                    className="underline inline text-base mb-800 mr-800"
-                                                                >
-                                                                    <div className="flex items-center">
-                                                                        <img
-                                                                            src={PDFIcon}
-                                                                            alt="pdf icon black"
-                                                                            className="pr-400"
-                                                                        />
-                                                                        <Text>
-                                                                            <Localize translate_text="_t_RTS28 2021_t_" />
-                                                                        </Text>
-                                                                    </div>
-                                                                </CustomLink>
+                                                            <div className="flex lg:flex-row items-start justify-start flex-col">
+                                                                {regulatoryDocuments.map(
+                                                                    (document, index) => (
+                                                                        <CustomLink
+                                                                            key={index}
+                                                                            href={document.href}
+                                                                            className="underline inline text-base mb-800 mr-800"
+                                                                        >
+                                                                            <div className="flex items-center">
+                                                                                <img
+                                                                                    src={PDFIcon}
+                                                                                    alt="pdf icon black"
+                                                                                    className="pr-400"
+                                                                                />
+                                                                                <Text>
+                                                                                    <Localize
+                                                                                        translate_text={
+                                                                                            document.text
+                                                                                        }
+                                                                                    />
+                                                                                </Text>
+                                                                            </div>
+                                                                        </CustomLink>
+                                                                    ),
+                                                                )}
                                                             </div>
                                                         )
                                                     },

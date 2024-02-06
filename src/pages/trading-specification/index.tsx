@@ -18,7 +18,7 @@ const TradingSpecification = () => {
         <Layout>
             <SectionContainer padding={'8rem 0 0 0'}>
                 <StyledHeader type="heading-2" as="p" align="center">
-                    <Localize translate_text="_t_Trading specifications for CFDs on Deriv_t_" />
+                    <Localize translate_text="_t_Trading specifications for CFDs_t_" />
                 </StyledHeader>
                 <MarketTab />
             </SectionContainer>

@@ -2,7 +2,7 @@ import { Dispatch, ReactElement, SetStateAction } from 'react'
 
 type CountryType = { name?: string; display_name?: string; prefix?: string; symbol?: string }
 
-type AffiliateAccountTypes = {
+export type AffiliateAccountTypes = {
     email: string
     account_type: number
     account_plan: number

@@ -4,7 +4,6 @@ const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
 const { exec } = require('child_process')
-const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
@@ -427,11 +426,19 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],
-            // splitChunks: {
-            //     chunks: 'all',
-            //     name: "deriv-com",
-            // },
-
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                    // Merge all js, ts, and tsx files  into one bundle
+                    all: {
+                        test: /\.(js|ts|tsx)$/,
+                        name: 'bundle',
+                        chunks: 'all',
+                    },
+                },
+            },
             mangleExports: 'size',
             mangleWasmImports: true,
 
@@ -452,7 +459,6 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         },
         plugins: [
             new StylelintPlugin({ ...style_lint_options, ...options }),
-            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

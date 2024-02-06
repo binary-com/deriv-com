@@ -1,11 +1,5 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
-import {
-    IllustrativeCfdsIcon,
-    IllustrativeMultipliersIcon,
-    IllustrativeOptionsIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Illustrative'
 import { Localize } from 'components/localization'
 
 export const RowCards: CardContent[] = [
@@ -15,7 +9,7 @@ export const RowCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_" />
         ),
-        icon: <IllustrativeCfdsIcon iconSize="lg" />,
+        icon: <img src="/new-homepage/cfds-lg.svg" width={48} height={48} loading="lazy" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -31,7 +25,7 @@ export const RowCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake._t_" />
         ),
-        icon: <IllustrativeOptionsIcon iconSize="lg" />,
+        icon: <img src="/new-homepage/options-lg.svg" width={48} height={48} loading="lazy" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -47,7 +41,7 @@ export const RowCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_" />
         ),
-        icon: <IllustrativeMultipliersIcon iconSize="lg" />,
+        icon: <img src="/new-homepage/multipliers-lg.svg" width={48} height={48} loading="lazy" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -66,7 +60,7 @@ export const EUCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_" />
         ),
-        icon: <IllustrativeCfdsIcon iconSize="lg" />,
+        icon: <img src="/new-homepage/cfds-lg.svg" width={48} height={48} loading="lazy" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -82,7 +76,7 @@ export const EUCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_" />
         ),
-        icon: <IllustrativeMultipliersIcon iconSize="lg" />,
+        icon: <img src="/new-homepage/multipliers-lg.svg" width={48} height={48} loading="lazy" />,
         align: 'start',
         color: 'light',
         size: 'md',

@@ -128,7 +128,7 @@ const AffiliateSignup = () => {
         } else if (
             partner_signup_error_message == 'Your website is not a valid entry' ||
             partner_signup_error_message == "String does not match '^[0-9A-Za-z.-]{5,250}$'" ||
-            partner_signup_error_message == 'Input validation failed: website_url'
+            partner_signup_error_message?.includes('website_url')
         ) {
             trackEvent({ action: 'partners_signup_error', partner_signup_error_message })
             setSignupStatus('Your website is not a valid entry')

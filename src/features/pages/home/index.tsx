@@ -5,7 +5,7 @@ import HomeHero from './hero'
 import LivePricing from './live-pricing'
 import P2PBanner from './p2p-banner'
 import ClientTestimonial from './client-testimonial'
-// import TradeTypes from './trade-types'
+import TradeTypes from './trade-types'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import AwardBanner from 'features/components/templates/banners/award-banners'
 import useRegion from 'components/hooks/use-region'
@@ -24,7 +24,7 @@ const HomePage = () => {
             <MainRowNavigation />
             <HomeHero />
             <LivePricing />
-            {/* <TradeTypes /> */}
+            <TradeTypes />
             <OurPlatforms />
             {is_eu ? null : <AwardBanner title="_t_Awards_t_" />}
             <ClientTestimonial />

@@ -83,7 +83,9 @@ module.exports = {
                                 mergeIdents: true,
                                 reduceIdents: true,
                                 mergeRules: true,
-                                minifySelectors: true,
+                                minifySelectors: {
+                                    exclude: [/\.rtl/], // Exclude selectors containing ".rtl"
+                                },
                                 discardEmpty: true,
                                 minifyFontValues: true,
                             },

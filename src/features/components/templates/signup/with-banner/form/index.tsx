@@ -9,11 +9,15 @@ import Link from 'features/components/atoms/link'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useSignupForm from 'features/hooks/use-signup-form'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const SignupPublicForm = () => {
     const { onSignup, signUpForm } = useSignupForm({
         form_name: 'virtual_signup_homepage_embedded',
     })
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
 
     const {
         register,

@@ -16,7 +16,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
 
     setHeadComponents([
         <link key="preconnect-gstatic" rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />,
-        <link rel="preload" href="https://fonts.gstatic.com/s/ibmplexsans/v19/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIFsdP3pBms.woff2" as="font" type="font/woff2" crossOrigin="true" />,
+        <link key="preload-font" rel="preload" href="https://fonts.gstatic.com/s/ibmplexsans/v19/zYX9KVElMYYaJe8bpLHnCwDKjWr7AIFsdP3pBms.woff2" as="font" type="font/woff2" crossOrigin="true" />,
         // Partytown setup
         <Partytown key="partytown" />,
         <script

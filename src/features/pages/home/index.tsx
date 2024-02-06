@@ -9,7 +9,7 @@ import ClientTestimonial from './client-testimonial'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import AwardBanner from 'features/components/templates/banners/award-banners'
 import useRegion from 'components/hooks/use-region'
-// import SignupPublic from 'features/components/templates/signup/with-banner'
+import SignupPublic from 'features/components/templates/signup/with-banner'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const OurPlatforms = loadable(() => import('./our-platforms'))
@@ -29,7 +29,7 @@ const HomePage = () => {
             {is_eu ? null : <AwardBanner title="_t_Awards_t_" />}
             <ClientTestimonial />
             {is_p2p_allowed_country && <P2PBanner />}
-            {/* <SignupPublic /> */}
+            <SignupPublic />
             <MainFooter />
         </Layout>
     )

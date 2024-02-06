@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
-import { Analytics } from '@deriv-com/analytics'
+import { Analytics } from '@deriv/analytics'
 import Cookies from 'js-cookie'
 import { getLanguage, isBrowser } from 'common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'

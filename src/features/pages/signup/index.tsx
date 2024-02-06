@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Analytics } from '@deriv-com/analytics'
+import { Analytics } from '@deriv/analytics'
 import Layout from 'features/components/templates/layout'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'

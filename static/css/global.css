@@ -49,7 +49,7 @@
 [dir=rtl] .rtl\:\[direction\:ltr\] {
     direction: ltr;
 }
-.rtl\:\!animate-\[100s_slideRtl_linear_infinite\]:where([dir=rtl],[dir=rtl] *) {
+[dir=rtl] .rtl\:\!animate-\[100s_slideRtl_linear_infinite\] {
     animation: slideRtl 100s linear infinite !important;
 }
 /* Patch End */

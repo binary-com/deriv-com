@@ -51,19 +51,19 @@ module.exports = {
     ],
     plugins: [
         'gatsby-plugin-postcss',
-        // {
-        //     resolve: 'gatsby-plugin-html-minifier',
-        //     options: {
-        //         collapseWhitespace: true,
-        //         decodeEntities: true,
-        //         minifyCSS: true,
-        //         minifyJS: true,
-        //         removeComments: true,
-        //         removeEmptyAttributes: true,
-        //         removeRedundantAttributes: true,
-        //         useShortDoctype: true,
-        //     },
-        // },
+        {
+            resolve: 'gatsby-plugin-html-minifier',
+            options: {
+                collapseWhitespace: true,
+                decodeEntities: true,
+                minifyCSS: true,
+                minifyJS: true,
+                removeComments: true,
+                removeEmptyAttributes: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+            },
+        },
         {
             resolve: 'gatsby-plugin-sass',
             options: {
@@ -74,7 +74,21 @@ module.exports = {
                         dest: 'src/classnames.d.ts',
                         exportAsDefault: true,
                     }),
-                    require('cssnano'),
+                    require('cssnano')({
+                        preset: [
+                            'default',
+                            {
+                                discardComments: { removeAll: true },
+                                discardUnused: true,
+                                mergeIdents: true,
+                                reduceIdents: true,
+                                mergeRules: true,
+                                minifySelectors: true,
+                                discardEmpty: true,
+                                minifyFontValues: true,
+                            },
+                        ],
+                    }),
                 ],
             },
         },

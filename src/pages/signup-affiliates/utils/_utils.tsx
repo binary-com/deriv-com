@@ -45,16 +45,16 @@ export const Submit = ({
             commission_plan: affiliate_account.account_plan,
             country: affiliate_account.account_address.country.symbol,
             address_city: trimOnly(affiliate_account.account_address.city),
-            address_postcode: affiliate_account.account_address.postal_code,
+            address_postcode: trimOnly(affiliate_account.account_address.postal_code),
             address_state: trimOnly(affiliate_account.account_address.state?.name),
             address_street: trimOnly(affiliate_account.account_address.street),
             first_name: trimOnly(affiliate_account.account_details.first_name),
             last_name: trimOnly(affiliate_account.account_details.last_name),
             date_of_birth: affiliate_account.account_details.date_birth?.toISOString().slice(0, 10),
             over_18_declaration: 1,
-            website_url: affiliate_account.account_details?.website_url.includes('www.')
+            website_url: trimOnly(affiliate_account.account_details?.website_url.includes('www.')
                 ? affiliate_account.account_details?.website_url
-                : `www.${affiliate_account.account_details?.website_url}`,
+                : `www.${affiliate_account.account_details?.website_url}`),
             user_name: trimOnly(affiliate_account.account_details.username),
             password: affiliate_account.account_details.password,
             phone: affiliate_account.account_details.phone,

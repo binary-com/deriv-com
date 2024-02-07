@@ -15,7 +15,7 @@ const ConnectivityReliabilityItem = ({ item }: ConnectivityReliabilityItemProps)
     return (
         <Flex.Box direction="col" align="center" gap="4x">
             <Image src={item.icon_src} width={48} height={48} alt={localize(item.alt)} />
-            <Typography.Heading className={dclsx('text-medium')} as="h3" textcolor="inverted">
+            <Typography.Heading className={dclsx('at-text-medium')} as="h3" textcolor="inverted">
                 <Localize translate_text={item.title} />
             </Typography.Heading>
             <Flex.Item className={item_box}>

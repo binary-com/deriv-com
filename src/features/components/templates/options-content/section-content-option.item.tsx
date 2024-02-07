@@ -12,14 +12,14 @@ const SectionOptionContentItem = ({ item }: { item: OptionContentSectionItemData
             <Flex.Box gap="4x" align="center">
                 {item.icon.src && <img src={item.icon.src} alt={localize(item.icon.alt)} />}
                 {item.title && (
-                    <h4 className={dclsx('text-small')}>
+                    <h4 className={dclsx('at-text-small')}>
                         <Localize translate_text={item.title} />
                     </h4>
                 )}
             </Flex.Box>
             {item.sections.map((sectionItem) => (
                 <Flex.Box key={sectionItem.title} direction="col">
-                    <h5 className={dclsx('text-small', 'padding-block-12x')}>
+                    <h5 className={dclsx('at-text-small', 'at-padding-block-12x')}>
                         <Localize translate_text={sectionItem.title} />
                     </h5>
                     <Flex.Box direction="col" gap="6x" pb="16x">

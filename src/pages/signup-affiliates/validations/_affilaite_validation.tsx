@@ -54,7 +54,7 @@ const companyNameValidation = (input) => {
     } else if ((input.length<2 || input.length>256 )) {
         return localize(`_t_You should enter 2-256 characters._t_`)
     } else if (
-        affiliate_validation_regex.name.test(input)
+        !affiliate_validation_regex.name.test(input)
     ) {
         return localize('_t_Only Latin and Alphabet characters_t_')
     }

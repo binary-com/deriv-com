@@ -1,4 +1,5 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import isEqual from 'lodash.isequal'
 import { TSmartContent } from 'types/generics'
 
 export interface IUseVisibleContent<T extends TSmartContent<unknown, object>> {
@@ -23,11 +24,16 @@ function useVisibleContent<T extends TSmartContent<unknown, object>>({
     config,
     content,
 }: IUseVisibleContent<T>): T[] {
+    const [items, setItems] = useState<T[]>([])
     const visible_items = useMemo(() => {
         return filterVisibleContent(content, config)
     }, [content, config])
 
-    return visible_items
+    useEffect(() => {
+        setItems(visible_items)
+    }, [visible_items.length])
+
+    return items
 }
 
 export default useVisibleContent

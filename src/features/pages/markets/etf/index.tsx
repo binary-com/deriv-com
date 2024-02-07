@@ -1,19 +1,20 @@
 import React from 'react'
+import loadable from '@loadable/component'
 import Layout from 'features/components/templates/layout'
-import Steps from './steps'
-import WhyTrade from './why-trade'
+// import Steps from './steps'
+// import WhyTrade from './why-trade'
 import Banner from './banner'
-import InstrumentsTable from './instruments'
-import InstrumentsContent from './instrumental-content'
+// import InstrumentsTable from './instruments'
+// import InstrumentsContent from './instrumental-content'
 import TradeTypes from './trades-available'
-import CheckTrading from './check-trading'
+// import CheckTrading from './check-trading'
 import SignupPublic from 'features/components/templates/signup/with-banner'
-import Flex from 'features/components/atoms/flex-box'
-import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import MainFooter from 'features/components/templates/footer/'
+// import Flex from 'features/components/atoms/flex-box'
+// import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
+const MainFooter = loadable(() => import('features/components/templates/footer'))
 
 const ETFMarket = () => {
     const { is_deriv_go } = usePlatformQueryParam()
@@ -27,9 +28,9 @@ const ETFMarket = () => {
                     </div>
                 </div>
             )}
-            <Banner />
+            {/* <Banner /> */}
             <TradeTypes />
-            <Flex.Box
+            {/* <Flex.Box
                 justify="center"
                 align="center"
                 direction="col"
@@ -39,11 +40,11 @@ const ETFMarket = () => {
             >
                 <InstrumentsTable />
                 <InstrumentsContent />
-            </Flex.Box>
-            <CheckTrading />
-            <WhyTrade />
-            <Steps />
-            <OtherMarketsSlider current_market="etfs" />
+            </Flex.Box> */}
+            {/* <CheckTrading /> */}
+            {/* <WhyTrade /> */}
+            {/* <Steps /> */}
+            {/* <OtherMarketsSlider current_market="etfs" /> */}
             <SignupPublic />
             <MainFooter />
         </Layout>

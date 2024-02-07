@@ -47,7 +47,7 @@ import { CardContent } from '@deriv-com/components'
 //     PaymentMethodMastercardBrandIcon,
 // } from '@deriv/quill-icons'
 
-const toImage = (path: string, loading: 'lazy' | 'eager' = 'lazy') => (
+const toImage = (path: string, loading: 'lazy' | 'eager' = 'eager') => (
     <img src={path} height={80} width={128} className="max-w-[128px] h-[80px]" loading={loading} />
 )
 

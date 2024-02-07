@@ -37,9 +37,7 @@ const HomePage = () => {
                     <TradeTypeSection />
                 </Suspense>
                 <StartTradingSteps />
-                <Suspense fallback={<div className="h-[493px] md:h-[436.5px] lg:h-[579.96px]" />}>
-                    <FastPaymentSection />
-                </Suspense>
+                <FastPaymentSection />
                 <CTA />
             </PageLayout>
             <MainFooter />

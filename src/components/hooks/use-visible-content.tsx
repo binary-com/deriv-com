@@ -35,6 +35,7 @@ function useVisibleContent<T extends TSmartContent<unknown, object>>({
     useEffect(() => {
         setItems(visible_items)
         prevVisibleItemsRef.current = visible_items
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useUpdateEffect(() => {

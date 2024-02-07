@@ -9,10 +9,6 @@ const FastPaymentSection: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null)
     const is_in_viewport = useIsInViewport(ref)
 
-    let cards = []
-    if (is_in_viewport) {
-        cards = is_eu ? EUPaymentMethods : RowPaymentMethods
-    }
     const logosAnimation = is_in_viewport
         ? is_eu
             ? '!animate-[40s_slide_linear_infinite] rtl:!animate-[40s_slideRtl_linear_infinite]'
@@ -38,7 +34,7 @@ const FastPaymentSection: React.FC = () => {
                 }}
                 content={{
                     cols: 'infinite',
-                    cards,
+                    cards: is_eu ? EUPaymentMethods : RowPaymentMethods,
                     sliderClass: logosAnimation,
                 }}
                 disclaimer={

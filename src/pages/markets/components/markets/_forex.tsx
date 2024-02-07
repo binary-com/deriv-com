@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
 import { forex_content, forex_content_eu } from '../../static/content/_forex'
@@ -27,6 +27,11 @@ type ForexProps = {
 
 const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useRegion()
+    const [content, setContent] = useState(forex_content)
+
+    useEffect(() => {
+        setContent(forex_content_eu)
+    }, [is_eu])
 
     return (
         <>
@@ -64,7 +69,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 </LinkButton.Primary>
             </Flex.Box>
             <FullWidthMultiColumn gap="2rem" header="_t_Why trade forex on Deriv_t_">
-                {(is_eu ? forex_content_eu : forex_content).map(({ alt, src, text }) => (
+                {content.map(({ alt, src, text }) => (
                     <StyledBox
                         key={text}
                         text={text}

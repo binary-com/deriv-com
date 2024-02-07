@@ -30,7 +30,9 @@ const Forex = ({ simple_step_content }: ForexProps) => {
     const [content, setContent] = useState(forex_content)
 
     useEffect(() => {
-        setContent(forex_content_eu)
+        if (is_eu) {
+            setContent(forex_content_eu)
+        }
     }, [is_eu])
 
     return (

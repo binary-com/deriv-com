@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { useIntersectionObserver } from 'usehooks-ts'
 import { FastPayment } from '@deriv-com/blocks'
 import { EUPaymentMethods, RowPaymentMethods } from './data'
 import useRegion from 'components/hooks/use-region'
@@ -8,10 +7,9 @@ import useIsInViewport from 'components/hooks/use-is-in-viewport'
 const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
     const ref = useRef<HTMLDivElement>(null)
-    // const is_in_viewport = useIsInViewport(ref)
-    const { isIntersecting } = useIntersectionObserver(ref, {})
+    const is_in_viewport = useIsInViewport(ref)
 
-    const logosAnimation = isIntersecting
+    const logosAnimation = is_in_viewport
         ? is_eu
             ? '!animate-[40s_slide_linear_infinite] rtl:!animate-[40s_slideRtl_linear_infinite]'
             : '!animate-[100s_slide_linear_infinite] rtl:!animate-[100s_slideRtl_linear_infinite]'

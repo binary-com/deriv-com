@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import isEqual from 'lodash.isequal'
+import { useUpdateEffect } from 'usehooks-ts'
 import { TSmartContent } from 'types/generics'
 
 export interface IUseVisibleContent<T extends TSmartContent<unknown, object>> {
@@ -24,14 +25,24 @@ function useVisibleContent<T extends TSmartContent<unknown, object>>({
     config,
     content,
 }: IUseVisibleContent<T>): T[] {
-    const [items, setItems] = useState<T[]>([])
     const visible_items = useMemo(() => {
         return filterVisibleContent(content, config)
     }, [content, config])
 
+    const prevVisibleItemsRef = useRef<T[]>([])
+    const [items, setItems] = useState<T[]>([])
+
     useEffect(() => {
         setItems(visible_items)
-    }, [visible_items.length])
+        prevVisibleItemsRef.current = visible_items
+    }, [])
+
+    useUpdateEffect(() => {
+        if (!isEqual(prevVisibleItemsRef.current, visible_items)) {
+            setItems(visible_items)
+            prevVisibleItemsRef.current = visible_items
+        }
+    }, [visible_items])
 
     return items
 }

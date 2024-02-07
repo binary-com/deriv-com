@@ -25,8 +25,6 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
         },
     })
 
-    console.log('==>', available_trade_items)
-
     return (
         <Flex.Box direction="col" gap="10x" md={{ gap: '20x' }} align="center" justify="center">
             <TabMenu
@@ -61,25 +59,25 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
                         <Flex.Box direction="row" gap="12x" justify="center">
                             {available_trade_items.map(({ data }) => {
                                 return (
-                                    <Flex.Box
-                                        direction="row"
-                                        justify="center"
-                                        align="center"
-                                        key={data.name}
-                                    >
-                                        <Flex.Box direction="row" gap="2x" align="center">
-                                            <Icon
-                                                src={data.icon}
-                                                alt={'_t_chevron_t_'}
-                                                size={'large'}
-                                                width={24}
-                                                height={24}
-                                            />
-                                            <Typography.Paragraph font_family="UBUNTU" size="small">
-                                                <Localize translate_text={data.name} />
-                                            </Typography.Paragraph>
+                                    <Link url={data.link} key={data.name} no_hover>
+                                        <Flex.Box direction="row" justify="center" align="center">
+                                            <Flex.Box direction="row" gap="2x" align="center">
+                                                <Icon
+                                                    src={data.icon}
+                                                    alt={'_t_chevron_t_'}
+                                                    size={'large'}
+                                                    width={24}
+                                                    height={24}
+                                                />
+                                                <Typography.Paragraph
+                                                    font_family="UBUNTU"
+                                                    size="small"
+                                                >
+                                                    <Localize translate_text={data.name} />
+                                                </Typography.Paragraph>
+                                            </Flex.Box>
                                         </Flex.Box>
-                                    </Flex.Box>
+                                    </Link>
                                 )
                             })}
                         </Flex.Box>

@@ -22,7 +22,6 @@ const MarketInstruments = ({
         <MarketsWrapper>
             {content?.map(
                 ({
-                    symbols,
                     instruments,
                     title,
                     col,

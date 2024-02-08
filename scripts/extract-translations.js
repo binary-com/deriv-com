@@ -8,14 +8,7 @@ const fs = require('fs')
 const glob = require('glob')
 const translated_keys = require('../src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
-// Check if the file exists before requiring it
-let strap_data
-const strapDataPath = '../public/page-data/404/page-data.json'
-if (fs.existsSync(strapDataPath)) {
-    strap_data = require(strapDataPath)
-} else {
-    strap_data = [] // Provide default value if the file is missing
-}
+const strap_data = require('../public/page-data/404/page-data.json')
 
 /*
 (_t_)                     = the capturing group for prefix "_t_"
@@ -113,8 +106,7 @@ function extractTranslations() {
                     console.log(e);
                 }
             }
-            const data_from_strapi =
-                getStrapiStrings(strap_data?.result?.data?.strapiWhoWeArePage) || []
+            const data_from_strapi = getStrapiStrings(strap_data.result.data.strapiWhoWeArePage)
             const messages = new Array(...pre_messages, ...data_from_strapi)
 
             const untranslated = []

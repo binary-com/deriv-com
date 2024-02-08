@@ -31,7 +31,7 @@ export const MainFooter = () => {
 
     const getSocialButtons = () => {
         let socialIcons: any
-        if (language in specialLanguageUrls) {
+        if (language.toLowerCase() in specialLanguageUrls) {
             socialIcons = is_eu
                 ? socialButtonsEU.map((button) => {
                       if (button['aria-label'] in specialLanguageUrls[language]) {

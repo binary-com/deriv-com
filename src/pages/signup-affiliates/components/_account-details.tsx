@@ -132,7 +132,7 @@ const AccountDetails = ({
                       !form_errors.company_name_error_msg &&
                       !form_errors.company_registration_number_error_msg,
         )
-    }, [form_data])
+    }, [form_data, form_errors])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -205,6 +205,7 @@ const AccountDetails = ({
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}
                                     onChange={handleInput}
+                                    onBlur={handleInput}
                                     data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />

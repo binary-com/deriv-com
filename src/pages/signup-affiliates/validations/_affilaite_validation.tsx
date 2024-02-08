@@ -8,7 +8,7 @@ export const affiliate_validation_regex = {
         const regex = /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u
         return regex.test(value) && value.length >= 2 && value.length <= 50
     },
-    phone: /^\+\d+$/,
+    phone: /^\+\d{8,13}$/,
     user_name: /^[A-Za-z0-9_]{3,20}$/,
     password: (value) => {
         const regex = /^[A-Za-z\d]{6,30}$/
@@ -22,7 +22,7 @@ export const affiliate_validation_regex = {
         const regex = /^[\p{L}\p{Nd}'.,:;()\\x{b0}@#/-][\p{L}\p{Nd}\s'.,:;()\\x{b0}@#/-]{0,68}$/u
         return regex.test(value) && value.length <= 69
     },
-    postal_code: /^[a-zA-Z 0-9_.-]{2,10}$/,
+    postal_code: /^[a-zA-Z 0-9-]{2,10}$/,
     company_registration_number: /^[a-zA-Z0-9]{2,20}$/,
     url: (value) => {
         const regex = /^https?:\/\/[\w_@./:#&+-]+$/

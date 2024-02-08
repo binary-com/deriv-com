@@ -10,7 +10,7 @@ export const affiliate_validation_regex = {
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,50}$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     city: /^[a-zA-Z /_.,-]*$/,
-    postal_code: /^[a-zA-Z 0-9_.-]{2,10}$/,
+    postal_code: /^[a-zA-Z 0-9-]{2,10}$/,
     company_registration_number: /^[a-zA-Z0-9]{2,20}$/,
     url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/,
     non_empty_string: /^\S.*$/,

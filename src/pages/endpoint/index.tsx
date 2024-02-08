@@ -195,7 +195,7 @@ const Endpoint = () => {
                                     type="text"
                                     label="Server URL"
                                     background="white"
-                                    placeholder={'e.g. green.binaryws.com'}
+                                    placeholder={'e.g. green.derivws.com'}
                                 />
                                 <StyledInput
                                     name="app_id"

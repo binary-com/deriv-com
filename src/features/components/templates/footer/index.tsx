@@ -20,6 +20,7 @@ export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
     const language = getLanguage()
+    console.log('lang', language)
 
     useEffect(() => {
         const current_path = getLocationPathname()

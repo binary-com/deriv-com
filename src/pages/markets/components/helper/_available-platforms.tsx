@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import DerivcTrader from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
@@ -94,6 +94,11 @@ const AvailablePlatforms = ({
     m_top,
 }: AvailablePlatformsProps) => {
     const { is_eu } = useRegion()
+    const [show_derivx, setShowDerivX] = useState(true)
+
+    useEffect(() => {
+        if (is_eu) setShowDerivX(false)
+    }, [is_eu])
 
     return (
         <Flex
@@ -153,7 +158,7 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
-                {derivx && !is_eu && (
+                {derivx && show_derivx && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivX} width="25" height="25" />

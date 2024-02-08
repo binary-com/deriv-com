@@ -26,25 +26,31 @@ type ForexProps = {
 }
 
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_row, is_eu } = useRegion()
+    const { is_eu } = useRegion()
     const [content, setContent] = useState(forex_content)
+    const [cfds, setCfds] = useState(forex_cfds)
+    const [show_digital_options, setShowDigitalOptions] = useState(true)
+    const [multiplier, setMultiflier] = useState(forex_multiplier)
 
     useEffect(() => {
         if (is_eu) {
             setContent(forex_content_eu)
+            setCfds(forex_cfds_eu)
+            setShowDigitalOptions(false)
+            setMultiflier(forex_multiplier_eu)
         }
     }, [is_eu])
 
     return (
         <>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu ? forex_cfds_eu : forex_cfds} />}
+                CFDs={<CFDs market_content={cfds} />}
                 DigitalOptions={
-                    is_row && <DigitalOptions market_name="forex" options_list={forex_options} />
+                    show_digital_options && (
+                        <DigitalOptions market_name="forex" options_list={forex_options} />
+                    )
                 }
-                Multipliers={
-                    <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
-                }
+                Multipliers={<Multipliers market_content={multiplier} />}
                 display_title="_t_Forex trades available on Deriv_t_"
             />
             <Flex.Box

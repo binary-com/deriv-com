@@ -7,17 +7,19 @@ import {
     socialButtonsCareers,
     socialButtonsEU,
     socialButtonsROW,
+    specialLanguageUrls,
     warnText,
 } from './data'
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
-import { getLocationPathname } from 'common/utility'
+import { getLanguage, getLocationPathname } from 'common/utility'
 
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
+    const language = getLanguage()
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -26,11 +28,41 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const socialButtons = is_career
-        ? socialButtonsCareers
-        : is_eu
-        ? socialButtonsEU
-        : socialButtonsROW
+    const getSocialButtons = () => {
+        let socialIcons: any
+        if (language in specialLanguageUrls) {
+            socialIcons = is_eu
+                ? socialButtonsEU.map((button) => {
+                      if (button['aria-label'] in specialLanguageUrls[language]) {
+                          return {
+                              ...button,
+                              href: specialLanguageUrls[language][button['aria-label']],
+                          }
+                      } else {
+                          return button
+                      }
+                  })
+                : socialButtonsROW.map((button) => {
+                      if (button['aria-label'] in specialLanguageUrls[language]) {
+                          return {
+                              ...button,
+                              href: specialLanguageUrls[language][button['aria-label']],
+                          }
+                      } else {
+                          return button
+                      }
+                  })
+        } else {
+            socialIcons = is_career
+                ? socialButtonsCareers
+                : is_eu
+                ? socialButtonsEU
+                : socialButtonsROW
+        }
+        return socialIcons
+    }
+
+    const socialButtons = getSocialButtons()
 
     return (
         <Footer.FooterBlock

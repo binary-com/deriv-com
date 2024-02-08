@@ -132,8 +132,10 @@ const AffiliateSignup = () => {
         ) {
             trackEvent({ action: 'partners_signup_error', partner_signup_error_message })
             setSignupStatus('Your website is not a valid entry')
-        } else if (partner_signup_error_message)
+        } else if (partner_signup_error_message) {
             trackEvent({ action: 'other_error', partner_signup_error_message })
+            setSignupStatus('unhandled error')
+        }
     }, [affiliate_api_data, affiliate_api_error])
 
     useEffect(() => {

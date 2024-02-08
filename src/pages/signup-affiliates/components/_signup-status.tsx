@@ -230,6 +230,23 @@ const AffiliateSignupStatus = ({
                     <Background />
                 </ProgressModal>
             )}
+            {signup_status == 'unhandled error' && (
+                <ProgressModal>
+                    <Modal is_rtl={is_rtl}>
+                        <Image src={Failed} alt="email" width="100" height="100" />
+                        <Header type="subtitle-1" align="center">
+                            <Localize translate_text="_t_Signup failed_t_" />
+                        </Header>
+                        <Header type="paragraph-1" align="center" weight="normal">
+                            <Localize translate_text="_t_Something went wrong. Please check your details and try again._t_" />
+                        </Header>
+                        <StyledButton secondary onClick={handleIssue}>
+                            <Localize translate_text="_t_Try again_t_" />
+                        </StyledButton>
+                    </Modal>
+                    <Background />
+                </ProgressModal>
+            )}
             {signup_status == 'Username not available' && (
                 <ProgressModal>
                     <Modal is_rtl={is_rtl}>

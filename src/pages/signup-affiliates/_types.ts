@@ -70,6 +70,7 @@ type AffiliateAccountProps = {
 export type SignUpStatusTypes =
     | 'Username not available'
     | 'lost connection'
+    | 'unhandled error'
     | 'success'
     | 'loading'
     | 'Your website is not a valid entry'

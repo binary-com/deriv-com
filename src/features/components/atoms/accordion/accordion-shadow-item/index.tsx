@@ -16,14 +16,18 @@ interface TAccordionItem extends AccordionItemProps {
 
 const AccordionShadowItem = React.forwardRef<HTMLDivElement, TAccordionItem>(
     ({ children, className, renderHeader, item_title, icon_type = 'chevron', ...props }, ref) => (
-        <Accordion.Item className={'accordion_item accordion_shadow_item'} ref={ref} {...props}>
+        <Accordion.Item
+            className={'at-accordion_item at-accordion_shadow_item'}
+            ref={ref}
+            {...props}
+        >
             <Accordion.Header>
                 <Accordion.Trigger
                     className={dclsx(
-                        'accordion_trigger accordion_shadow_item_trigger',
-                        'bg-color-primary',
-                        'padding-block-8x',
-                        'border-radius-4x',
+                        'at-accordion_trigger at-accordion_shadow_item_trigger',
+                        'at-bg-color-primary',
+                        'at-padding-block-8x',
+                        'at-border-radius-4x',
                     )}
                 >
                     {renderHeader ? (
@@ -36,17 +40,20 @@ const AccordionShadowItem = React.forwardRef<HTMLDivElement, TAccordionItem>(
                     {icon_type === 'chevron' ? (
                         <Icon
                             src={Chevron}
-                            className={'accordion_icon'}
+                            className={'at-accordion_icon'}
                             alt={'chevron'}
                             size={'large'}
                         />
                     ) : (
-                        <span className="accordion_icon plus_icon" />
+                        <span className="at-accordion_icon at-plus_icon" />
                     )}
                 </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Content
-                className={dclsx('accordion_content accordion_shadow_item_content', className)}
+                className={dclsx(
+                    'at-accordion_content at-accordion_shadow_item_content',
+                    className,
+                )}
             >
                 <div className="AccordionContentText">{children}</div>
             </Accordion.Content>

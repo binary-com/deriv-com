@@ -17,11 +17,6 @@ const query = graphql`
         mainHeaderImage: file(relativePath: { eq: "stock-indices/stocksMainHeaderImg.png" }) {
             ...fadeIn
         }
-        mainHeaderImageMobile: file(
-            relativePath: { eq: "stock-indices/stocksMainHeaderImg-m.png" }
-        ) {
-            ...fadeIn
-        }
     }
 `
 
@@ -290,7 +285,7 @@ const HeaderSection = () => {
                             </DesktopImageWrapper>
                             <MobileImageWrapper>
                                 <QueryImage
-                                    data={data['mainHeaderImageMobile']}
+                                    data={data['mainHeaderImage']}
                                     alt={localize('_t_deriv platform mobile_t_')}
                                     width="100%"
                                 />

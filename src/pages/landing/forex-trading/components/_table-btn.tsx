@@ -55,7 +55,7 @@ const Tablebtn = ({ btnlabel, text }: TablebtnProps) => {
             {
                 id: 'swap-free-pairs',
                 title: '_t_Swap-free pairs_t_',
-                component: <SwapFreePairs />,
+                symbols: <SwapFreePairs />,
             },
         ],
     }

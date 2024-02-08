@@ -30,14 +30,14 @@ const Forex = ({ simple_step_content }: ForexProps) => {
     const [content, setContent] = useState(forex_content)
     const [cfds, setCfds] = useState(forex_cfds)
     const [show_digital_options, setShowDigitalOptions] = useState(true)
-    const [multiplier, setMultiflier] = useState(forex_multiplier)
+    const [multiplier, setMultiplier] = useState(forex_multiplier)
 
     useEffect(() => {
         if (is_eu) {
             setContent(forex_content_eu)
             setCfds(forex_cfds_eu)
             setShowDigitalOptions(false)
-            setMultiflier(forex_multiplier_eu)
+            setMultiplier(forex_multiplier_eu)
         }
     }, [is_eu])
 

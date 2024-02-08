@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Symbol from '../components/helper/_symbol'
 import {
     volatility_indices,
@@ -12,10 +12,15 @@ import dclsx from 'features/utils/dclsx'
 
 const VolatilityIndices = () => {
     const { is_eu } = useRegion()
+    const [show_eu_content, setShowEuContent] = useState(false)
+
+    useEffect(() => {
+        if (is_eu) setShowEuContent(true)
+    }, [is_eu])
 
     return (
         <>
-            {is_eu ? (
+            {show_eu_content ? (
                 <>
                     {volatility_indices_trade_type_eu.map((symbol, index) => (
                         <Symbol key={index} src={symbol.src} text={symbol.text} />

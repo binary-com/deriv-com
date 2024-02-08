@@ -21,7 +21,8 @@ export type TMarketSymbol = {
 
 type TContent = {
     title: TString
-    component: React.ReactElement
+    symbols?: React.ReactNode
+    instruments: React.ReactNode
     id?: string
     title_components?: React.ReactElement[]
     mobile_title?: TString
@@ -31,6 +32,7 @@ type TContent = {
     mobile_col?: number
     padding?: string
     gap?: string
+    flex?: boolean
     gap_mobile?: string
     mobile_template?: true
 }

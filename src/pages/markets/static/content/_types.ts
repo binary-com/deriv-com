@@ -21,7 +21,6 @@ export type TMarketSymbol = {
 
 type TContent = {
     title: TString
-    symbols?: React.ReactNode
     instruments: React.ReactNode
     id?: string
     title_components?: React.ReactElement[]

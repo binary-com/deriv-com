@@ -1,4 +1,4 @@
-import React, { createContext, Dispatch, ReactNode, useEffect, useRef, useState } from 'react'
+import React, { createContext, Dispatch, ReactNode, useEffect, useState } from 'react'
 import type { WebsiteStatus } from '@deriv/api-types'
 import { useCookieState } from 'components/hooks/use-cookie-state'
 import { setCookiesWithDomain } from 'common/utility'
@@ -19,7 +19,6 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
     const { data, send } = useWS(WEBSITE_STATUS_COUNTRY_KEY)
     const [days_from_today, setDaysFromToday] = useState(null)
-    const sendRef = useRef(send)
 
     useEffect(() => {
         const data = new Date()
@@ -31,8 +30,8 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     })
 
     useEffect(() => {
-        sendRef.current = send
-    }, [send])
+        send()
+    }, [])
 
     useEffect(() => {
         if (data) {

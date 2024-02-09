@@ -110,7 +110,7 @@ module.exports = {
     },
     sw: {
         path: 'sw',
-        display_name: 'Swahili',
+        display_name: 'Kiswahili',
         short_name: 'SW',
         affiliate_lang: 18,
     },

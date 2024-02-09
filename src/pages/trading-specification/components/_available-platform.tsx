@@ -82,7 +82,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                     <Flex direction="row">
                                         <img src={DerivMT5} alt={localize('_t_Deriv MT5_t_')} />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                            <Localize translate_text={deriv_mt5} />
+                                            {deriv_mt5}
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
@@ -95,7 +95,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                             height="24"
                                         />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                            <Localize translate_text={deriv_x} />
+                                            {deriv_x}
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
@@ -117,7 +117,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         as="h2"
                                         width="auto"
                                     >
-                                        <Localize translate_text={deriv_mt5} />
+                                        {deriv_mt5}
                                     </StyledHeader>
                                 </Flex>
                             </StyledLocalizedLink>

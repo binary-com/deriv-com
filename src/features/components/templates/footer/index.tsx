@@ -33,23 +33,25 @@ export const MainFooter = () => {
         return lang in specialLanguageUrls
             ? is_eu
                 ? socialButtonsEU.map((button) =>
-                      button['aria-label'] in specialLanguageUrls[lang]
-                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
-                          : button,
-                  )
+                    button['aria-label'] in specialLanguageUrls[lang]
+                        ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                        : button,
+                )
                 : socialButtonsROW.map((button) =>
-                      button['aria-label'] in specialLanguageUrls[lang]
-                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
-                          : button,
-                  )
+                    button['aria-label'] in specialLanguageUrls[lang]
+                        ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                        : button,
+                )
             : is_career
-            ? socialButtonsCareers
-            : is_eu
-            ? socialButtonsEU
-            : socialButtonsROW
+                ? socialButtonsCareers
+                : is_eu
+                    ? socialButtonsEU
+                    : socialButtonsROW
     }
-
-    const socialButtons = getSocialButtons()
+    let socialButtons: any
+    useEffect(() => {
+        socialButtons = getSocialButtons()
+    }, [is_eu, lang])
 
     return (
         <Footer.FooterBlock

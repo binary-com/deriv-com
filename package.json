@@ -7,13 +7,13 @@
         "@artsy/fresnel": "^6.2.1",
         "@builder.io/partytown": "^0.8.1",
         "@deriv-com/analytics": "^1.4.10",
-        "@deriv-com/blocks": "^0.80.0",
-        "@deriv-com/components": "^0.49.0",
+        "@deriv-com/blocks": "^0.87.0",
+        "@deriv-com/components": "^0.52.0",
         "@deriv-com/hooks": "^0.11.0",
         "@deriv-com/providers": "^0.12.0",
         "@deriv/deriv-api": "^1.0.13",
-        "@deriv/quill-design": "^1.3.2",
-        "@deriv/quill-icons": "^1.16.1",
+        "@deriv/quill-design": "^1.2.16",
+        "@deriv/quill-icons": "^1.17.3",
         "@hookform/resolvers": "^3.3.2",
         "@livechat/customer-sdk": "^3.1.5",
         "@loadable/component": "^5.15.3",
@@ -64,7 +64,7 @@
         "prop-types": "^15.8.1",
         "react": "^18.2.0",
         "react-date-picker": "8.4.0",
-        "react-device-detect": "^2.2.2",
+        "react-device-detect": "^2.2.3",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.48.2",
         "react-i18next": "^11.18.6",
@@ -154,7 +154,7 @@
         "typescript-plugin-css-modules": "^4.2.3"
     },
     "optionalDependencies": {
-        "@parcel/watcher-linux-x64-glibc": "2.4.0"
+        "@parcel/watcher-linux-x64-glibc": "^2.4.0"
     },
     "keywords": [
         "deriv",
@@ -163,8 +163,10 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
+        "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest @deriv/quill-design@latest",
+        "update:quill-libs": "npm i @deriv/quill-design@latest @deriv/quill-icons@latest",
+        "update:all-libs": "npm run update:quill-libs; npm run update:deriv-com-libs",
         "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages && node scripts/copy-htaccess.js",
-        "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest",
         "partytown": "partytown copylib public/~partytown",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
@@ -182,6 +184,7 @@
         "translate:upload": "crowdin upload sources -b crowdin",
         "translation:pull": "node scripts/handle-translations.js pull",
         "translation:fetch": "node scripts/handle-translations.js pull-master",
+        "translation:fix": "node scripts/handle-translations.js merge-master-translation;  npm run pre-commit-translate",
         "translation:branch": "node scripts/handle-translations.js branch",
         "translation:check": "cd scripts && node extract-translations.js show-untranslated && cd ..",
         "branch:create": "node scripts/branch-manager.js",

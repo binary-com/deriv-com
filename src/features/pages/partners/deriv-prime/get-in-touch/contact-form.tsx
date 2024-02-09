@@ -140,7 +140,7 @@ const ContactFormGetInTouch = () => {
                 </Flex.Box>
                 <Flex.Item>
                     <Typography.Paragraph
-                        className={'visible-phone-only'}
+                        className={'at-visible-phone-only'}
                         size={'xs'}
                         textcolor={get_form_bottom_message?.color}
                     >
@@ -148,7 +148,7 @@ const ContactFormGetInTouch = () => {
                     </Typography.Paragraph>
 
                     <Typography.Paragraph
-                        className={'visible-larger-than-phone'}
+                        className={'at-visible-larger-than-phone'}
                         size={'small'}
                         textcolor={get_form_bottom_message?.color}
                     >

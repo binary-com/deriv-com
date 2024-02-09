@@ -12,15 +12,16 @@
         "paths": {
             "swiper": ["../node_modules/swiper"]
         },
-        "jsx": "preserve",
-        "lib": ["ES2021.String", "DOM", "DOM.Iterable"],
+        "target": "es5",
+        "lib": ["ES5", "DOM", "DOM.Iterable"],
+        "jsx": "react",
+        "module": "commonjs",
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noEmit": true,
         "skipLibCheck": true,
-        "moduleResolution": "Bundler",
-        "module": "ESNext",
+        "moduleResolution": "Node",
         "resolveJsonModule": true,
         "downlevelIteration": true,
         "plugins": [

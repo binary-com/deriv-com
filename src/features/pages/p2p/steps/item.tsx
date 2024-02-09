@@ -25,14 +25,14 @@ const DP2StepItem = ({ item }: IStepItemProps) => {
             className={step_item}
         >
             <Flex.Box
-                className={dclsx(mobile_icon, 'visible-phone-and-tablet')}
+                className={dclsx(mobile_icon, 'at-visible-phone-and-tablet')}
                 justify="center"
                 align="center"
             >
                 <Image src={item.mobile_icon_src} alt="Icon" />
             </Flex.Box>
             <Flex.Box
-                className={dclsx(desktop_icon, 'visible-larger-than-tablet')}
+                className={dclsx(desktop_icon, 'at-visible-larger-than-tablet')}
                 justify="center"
                 align="center"
             >

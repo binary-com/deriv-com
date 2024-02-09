@@ -17,7 +17,7 @@ const ProductsHeading = ({ title }: ProductsHeadingProps) => {
                 align={'left'}
                 pt={'4x'}
                 md={{ pt: '8x' }}
-                className="visible-larger-than-tablet"
+                className="at-visible-larger-than-tablet"
             >
                 {title.map((text, index) => (
                     <React.Fragment key={index}>
@@ -32,7 +32,7 @@ const ProductsHeading = ({ title }: ProductsHeadingProps) => {
                 align={'left'}
                 pt={'4x'}
                 md={{ pt: '8x' }}
-                className="visible-phone-and-tablet"
+                className="at-visible-phone-and-tablet"
             >
                 {title.map((text, index) => (
                     <React.Fragment key={index}>

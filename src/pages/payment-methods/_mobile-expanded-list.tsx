@@ -325,21 +325,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                             </StyledKeyDiv>
                         </StyledRow>
                     )}
-                    {payment_data.description && (
-                        <Flex p="16px 0" fd="column">
-                            <Header as="p" type="paragraph-1" weight="normal">
-                                <Localize translate_text={payment_data.description} />
-                            </Header>
-                            {payment_data.url && (
-                                <StyledButton
-                                    onClick={() => window.open(payment_data.url, '_blank')}
-                                    tertiary
-                                >
-                                    <Localize translate_text="_t_Learn more_t_" />
-                                </StyledButton>
-                            )}
-                        </Flex>
-                    )}
                 </Flex>
             </DetailsWrapper>
         </>

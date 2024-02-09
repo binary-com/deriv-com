@@ -44,29 +44,31 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
     }
     switch (pd.name) {
         case '_t_Credit & debit cards_t_':
-            displayString = 'Make deposits via cards easily.'
+            displayString = '_t_Make deposits via cards easily._t_'
             break
         case '_t_Online banking_t_':
-            displayString = 'Send and receive payments directly from your bank account.'
+            displayString = '_t_Send and receive payments directly from your bank account._t_'
             break
         case '_t_Mobile payments_t_':
-            displayString = 'Pay on the go with your phone for instant convenience.'
+            displayString = '_t_Pay on the go with your phone for instant convenience._t_'
             break
         case '_t_E-wallets_t_':
-            displayString = 'Benefit from quick and secure Deriv payments with your e-wallet.'
+            displayString = '_t_Benefit from quick and secure Deriv payments with your e-wallet._t_'
             break
         case '_t_Cryptocurrencies_t_':
-            displayString = 'Make payments with top cryptocurrencies.'
+            displayString = '_t_Make payments with top cryptocurrencies._t_'
             break
         case '_t_On-ramp / Off-ramp_t_':
-            displayString = 'Send crypto directly to your Deriv account, get credited in fiat.'
+            displayString =
+                '_t_Send crypto directly to your Deriv account, get credited in fiat._t_'
             break
         case '_t_Voucher_t_':
-            displayString = 'A convenient way to make payments without cards or bank accounts.'
+            displayString =
+                '_t_A convenient way to make payments without cards or bank accounts._t_'
             break
         case '_t_Deriv P2P_t_':
             displayString =
-                'Fund your account securely through our peer-to-peer deposit and withdrawal service.'
+                '_t_Fund your account securely through our peer-to-peer deposit and withdrawal service._t_'
             break
         default:
             displayString = ''
@@ -76,7 +78,7 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
     return (
         <>
             <DescriptionText>
-                {displayString ? <Localize translate_text={`_t_${displayString}_t_`} /> : null}
+                {displayString ? <Localize translate_text={displayString} /> : null}
             </DescriptionText>
             <ParentWrapper>
                 {pd.data.map((items, idx) => {

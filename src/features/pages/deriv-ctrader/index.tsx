@@ -6,6 +6,8 @@ import CTraderTradeDescription from './trade-description'
 import CTraderWhyTrade from './why-trade'
 import BrowseOurFaq from './browse-our-faq'
 import CTraderTradeFeatures from './platform-features'
+import DerivCtraderApp from './get-trading'
+import CopyTrading from './copy-trading'
 import HowToStartCTrader from './how-to-start'
 import CTraderPlatformBanner from './platform-banner'
 import OtherPlatforms from './other-platforms'
@@ -24,13 +26,14 @@ const DerivCTrader = () => {
             <CTraderTradeDescription />
             <CTraderWhyTrade />
             <CTraderTradeFeatures />
+            <CopyTrading />
             <HowToStartCTrader />
             {is_ctrader && (
                 <>
                     <CTraderPlatformBanner />
                 </>
             )}
-
+            <DerivCtraderApp />
             <OtherPlatforms />
             <BrowseOurFaq />
             <MainFooter />

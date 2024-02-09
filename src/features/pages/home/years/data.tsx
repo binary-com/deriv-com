@@ -1,12 +1,5 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
-import {
-    LightDependableIcon,
-    LightSafeAndSecureIcon,
-    LightRegulatedIcon,
-    LightTwentyFourSevenSupportIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Illustration'
 import { Localize } from 'components/localization'
 
 export const cards: CardContent[] = [
@@ -14,24 +7,38 @@ export const cards: CardContent[] = [
         id: 1,
         header: <Localize translate_text="_t_Dependable_t_" />,
         description: (
-            <Localize translate_text="_t_Cutting-edge technology with 99.97% uptime for uninterrupted trading._t_" />
+            <Localize translate_text="_t_Our 99.97% uptime ensures your uninterrupted access to the markets._t_" />
         ),
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightDependableIcon width={120} height={145} />,
+        icon: (
+            <img
+                src="/new-homepage/LightDependableIcon.svg"
+                width={120}
+                height={145}
+                alt="Dependable platform"
+                loading="lazy"
+            />
+        ),
         className: 'h-full',
     },
     {
         id: 2,
-        header: <Localize translate_text="_t_Safe & Secure_t_" />,
-        description: (
-            <Localize translate_text="_t_Your personal data is private, and your funds are safely segregated._t_" />
-        ),
+        header: <Localize translate_text="_t_Safe and secure_t_" />,
+        description: <Localize translate_text="_t_We keep your personal data and funds safe._t_" />,
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightSafeAndSecureIcon width={120} height={145} />,
+        icon: (
+            <img
+                src="/new-homepage/LightSafeAndSecureIcon.svg"
+                width={120}
+                height={145}
+                alt="Safe and secure platform"
+                loading="lazy"
+            />
+        ),
         className: 'h-full',
     },
     {
@@ -43,7 +50,15 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightRegulatedIcon width={120} height={145} />,
+        icon: (
+            <img
+                src="/new-homepage/LightRegulatedIcon.svg"
+                width={120}
+                height={145}
+                alt="Regulated and licenced broker"
+                loading="lazy"
+            />
+        ),
         className: 'h-full',
     },
     {
@@ -55,7 +70,15 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'center',
-        icon: <LightTwentyFourSevenSupportIcon width={120} height={145} />,
+        icon: (
+            <img
+                src="/new-homepage/LightTwentyFourSevenSupportIcon.svg"
+                width={120}
+                height={145}
+                alt="24-hour chat support"
+                loading="lazy"
+            />
+        ),
         className: 'h-full',
     },
 ]

@@ -34,7 +34,7 @@ import { percentToDecimal, swiperOption } from '../utils'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { Localize } from 'components/localization'
+import { Localize, is_rtl } from 'components/localization'
 
 const IconsMapper = {
     // Forex Icons
@@ -124,11 +124,12 @@ const LiveMarketCard = <T extends MarketName>({
             <CardSlider
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
-                slideClasses="max-w-[296px] mr-800"
-                className="w-screen !mr-[calc((-100vw+100%)/2)] lg:w-full lg:!mr-auto"
+                slideClasses="max-w-[296px] !mr-gap-none !ml-gap-none"
+                className="w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg"
                 cards={livePriceData.slice(0, 4)}
+                dir={is_rtl() ? 'rtl' : 'ltr'}
             />
-            <div className="flex items-center flex-col">{children}</div>
+            <div className="flex items-center flex-col ">{children}</div>
         </>
     )
 }

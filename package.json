@@ -6,14 +6,14 @@
     "dependencies": {
         "@artsy/fresnel": "^6.2.1",
         "@builder.io/partytown": "^0.8.1",
-        "@deriv-com/blocks": "^0.79.0",
-        "@deriv-com/components": "^0.47.0",
-        "@deriv-com/hooks": "^0.10.0",
-        "@deriv-com/providers": "^0.11.0",
-        "@deriv/analytics": "^1.4.4",
+        "@deriv-com/analytics": "^1.4.10",
+        "@deriv-com/blocks": "^0.87.0",
+        "@deriv-com/components": "^0.52.0",
+        "@deriv-com/hooks": "^0.11.0",
+        "@deriv-com/providers": "^0.12.0",
         "@deriv/deriv-api": "^1.0.13",
         "@deriv/quill-design": "^1.2.16",
-        "@deriv/quill-icons": "^1.1.13",
+        "@deriv/quill-icons": "^1.17.3",
         "@hookform/resolvers": "^3.3.2",
         "@livechat/customer-sdk": "^3.1.5",
         "@loadable/component": "^5.15.3",
@@ -39,6 +39,7 @@
         "gatsby": "^5.12.11",
         "gatsby-plugin-anchor-links": "^1.2.1",
         "gatsby-plugin-canonical-urls": "^5.12.0",
+        "gatsby-plugin-html-minifier": "^2.0.0",
         "gatsby-plugin-image": "3.11.0",
         "gatsby-plugin-manifest": "^5.12.3",
         "gatsby-plugin-robots-txt": "^1.8.0",
@@ -75,6 +76,7 @@
         "rxjs": "^7.8.1",
         "sass": "^1.69.5",
         "swiper": "^9.4.1",
+        "terser-webpack-plugin": "^5.3.10",
         "use-query-params": "^1.2.3",
         "usehooks-ts": "^2.9.1",
         "webpack": "^5.89.0",
@@ -151,6 +153,9 @@
         "typescript": "^5.3.2",
         "typescript-plugin-css-modules": "^4.2.3"
     },
+    "optionalDependencies": {
+        "@parcel/watcher-linux-x64-glibc": "^2.4.0"
+    },
     "keywords": [
         "deriv",
         "static"
@@ -158,10 +163,10 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
         "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest @deriv/quill-design@latest",
         "update:quill-libs": "npm i @deriv/quill-design@latest @deriv/quill-icons@latest",
         "update:all-libs": "npm run update:quill-libs; npm run update:deriv-com-libs",
+        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages && node scripts/copy-htaccess.js",
         "partytown": "partytown copylib public/~partytown",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
@@ -179,6 +184,7 @@
         "translate:upload": "crowdin upload sources -b crowdin",
         "translation:pull": "node scripts/handle-translations.js pull",
         "translation:fetch": "node scripts/handle-translations.js pull-master",
+        "translation:fix": "node scripts/handle-translations.js merge-master-translation;  npm run pre-commit-translate",
         "translation:branch": "node scripts/handle-translations.js branch",
         "translation:check": "cd scripts && node extract-translations.js show-untranslated && cd ..",
         "branch:create": "node scripts/branch-manager.js",
@@ -210,8 +216,5 @@
             "react": "^18.2.0",
             "react-dom": "^18.2.0"
         }
-    },
-    "optionalDependencies": {
-        "@parcel/watcher-linux-x64-glibc": "^2.3.0"
     }
 }

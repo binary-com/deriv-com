@@ -18,7 +18,7 @@ const kid_data: kidType[] = [
 
     {
         title: '_t_CFDs - Stock indices_t_',
-        ref: 'kid_deriv_Stock Indices.pdf',
+        ref: 'kid_deriv_Stock_Indices.pdf',
     },
     {
         title: '_t_CFDs - Cryptocurrencies_t_',

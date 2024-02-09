@@ -1,20 +1,25 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
+import { isMobile } from 'react-device-detect'
 import { TAnswer } from '../data/_data-types'
 import ImageCard from './_image-card'
 import TranslationComponents from './_translation-components'
 import List from './_list'
+import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 type AnswerCardType = {
     label: string
     question: TString
     answer?: TAnswer
     renderProp?: () => ReactNode
+    margin?: string
+    flex?: boolean
 }
 
 export const Wrapper = styled.div`
@@ -32,15 +37,15 @@ export const Wrapper = styled.div`
     }
 `
 
-const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
+const AnswerCard = ({ question, answer, renderProp, margin, flex }: AnswerCardType) => {
     const { is_eu } = useRegion()
+    const { is_mobile } = useBreakpoints()
 
     return (
         <Wrapper>
             <Header size="2.4rem" as="p" mb="2.4rem">
                 <Localize translate_text={question} />
             </Header>
-            {renderProp?.()}
             {answer?.map(
                 ({
                     translation_text,
@@ -77,6 +82,15 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                     )
                 },
             )}
+            <div
+                style={{
+                    margin: `${margin}`,
+                    display: `${flex ? 'flex' : 'block'}`,
+                    justifyContent: `${is_mobile ? 'center' : 'start'}`,
+                }}
+            >
+                {renderProp?.()}
+            </div>
         </Wrapper>
     )
 }

@@ -31,7 +31,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
         <>
             <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
                 <StaticImage
-                    src="../../../../images/migration/home/home_hero_bg.png"
+                    src="../../../../images/migration/home/home_hero_bg.jpg"
                     alt="hero bg image"
                     className="w-full -z-10"
                     placeholder="none"
@@ -60,7 +60,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         />
                     </div>
                     {is_mounted && <HeroAwardImages />}
-                    {is_mounted && <HeroImage />}
+                    <HeroImage />
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
             </Section>

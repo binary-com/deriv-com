@@ -4,6 +4,9 @@ const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
 const { exec } = require('child_process')
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+
 const translations_cache = {}
 
 function OSFunction() {
@@ -105,7 +108,7 @@ const BuildPage = (page, actions) => {
         })
         createRedirect({
             fromPath: `/contact-us`,
-            toPath: `/contact_us`,
+            toPath: `/contact_us/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -407,9 +410,6 @@ exports.onCreatePage = ({ page, actions }) => {
     }
 }
 
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-
 const style_lint_options = {
     files: 'src/**/*.js',
     emitErrors: false,
@@ -418,25 +418,62 @@ const style_lint_options = {
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
     const config = getConfig()
-    if (config.optimization) {
-        config.optimization.minimizer = [new TerserPlugin()]
-    }
-    if (stage === 'build-html' || stage === 'develop-html') {
-        actions.setWebpackConfig({
-            module: {
-                rules: [
-                    {
-                        test: /analytics/,
-                        use: loaders.null(),
-                    },
-                ],
-            },
-        })
-    }
+    const isProduction = config.mode === 'production'
+
     actions.setWebpackConfig({
-        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
+        devtool: isProduction ? false : 'inline-source-map', // enable/disable source-maps
+        mode: isProduction ? 'production' : 'development',
+        optimization: {
+            minimize: isProduction,
+            minimizer: [new TerserPlugin()],
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                    // Merge all js, ts, and tsx files  into one bundle
+                    all: {
+                        test: /\.(js|ts|tsx)$/,
+                        name: 'bundle',
+                        chunks: 'all',
+                    },
+                },
+            },
+            mangleExports: 'size',
+            mangleWasmImports: true,
+
+            mergeDuplicateChunks: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            innerGraph: true,
+
+            chunkIds: 'size',
+            moduleIds: 'size',
+
+            // runtimeChunk: 'single', // compilation fails
+            sideEffects: true,
+
+            concatenateModules: true,
+            providedExports: true,
+            usedExports: true,
+        },
+        plugins: [
+            new StylelintPlugin({ ...style_lint_options, ...options }),
+        ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
+        ...(stage === 'build-html' || stage === 'develop-html'
+            ? {
+                  module: {
+                      rules: [
+                          {
+                              test: /analytics/,
+                              use: loaders.null(),
+                          },
+                      ],
+                  },
+              }
+            : {}),
     })
 }

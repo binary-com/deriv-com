@@ -6,14 +6,14 @@ import { Localize, localize } from 'components/localization'
 export const RowCards: CardContent[] = [
     {
         id: 1,
-        header: <Localize translate_text="_t_1. Sign up & explore_t_" />,
+        header: <Localize translate_text="_t_1. Sign up and explore_t_" />,
         description: (
-            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
+            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub — all your trading needs, in one place._t_" />
         ),
         content: (
             <StaticImage
                 src="../../../../images/migration/home/steps1.png"
-                alt={localize('_t_Sign up & explore_t_')}
+                alt={localize('_t_Sign up and explore_t_')}
                 loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
@@ -23,7 +23,7 @@ export const RowCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
-        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1 !max-h-none',
     },
     {
         id: 2,
@@ -44,7 +44,7 @@ export const RowCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
-        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1 !max-h-none',
     },
     {
         id: 3,
@@ -65,21 +65,21 @@ export const RowCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
-        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1 !max-h-none',
     },
 ]
 
 export const EUCards: CardContent[] = [
     {
         id: 1,
-        header: <Localize translate_text="_t_1. Sign up & explore_t_" />,
+        header: <Localize translate_text="_t_1. Sign up and explore_t_" />,
         description: (
-            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
+            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub — all your trading needs, in one place._t_" />
         ),
         content: (
             <StaticImage
                 src="../../../../images/migration/home/steps1_eu.png"
-                alt={localize('_t_Sign up & explore_t_')}
+                alt={localize('_t_Sign up and explore_t_')}
                 loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
@@ -89,7 +89,7 @@ export const EUCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
-        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1 !max-h-none',
     },
     {
         id: 2,
@@ -110,7 +110,7 @@ export const EUCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
-        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1 !max-h-none',
     },
     {
         id: 3,
@@ -131,6 +131,6 @@ export const EUCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
-        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1 !max-h-none',
     },
 ]

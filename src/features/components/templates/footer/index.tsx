@@ -29,7 +29,7 @@ export const MainFooter = () => {
     }, [])
 
     const getSocialButtons = () => {
-        return lang.toLowerCase() in specialLanguageUrls
+        return lang?.toLowerCase() in specialLanguageUrls
             ? is_eu
                 ? socialButtonsEU.map((button) =>
                       button['aria-label'] in specialLanguageUrls[lang]

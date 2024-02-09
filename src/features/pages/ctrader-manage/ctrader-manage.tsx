@@ -31,8 +31,8 @@ const CtraderManage = ({
                     </Typography.Heading>
                     {steps && (
                         <Flex.Box direction="row" gap={'15x'} padding="10x" align="center">
-                            <div className="visible-phone-only">{image_url_mobile}</div>
-                            <div className="visible-larger-than-phone">{image_url}</div>
+                            <div className="at-visible-phone-only">{image_url_mobile}</div>
+                            <div className="at-visible-larger-than-phone">{image_url}</div>
                             <Flex.Box gap={'5x'} direction="col" justify="center">
                                 {steps.map((step) => (
                                     <Typography.Paragraph key={step.id}>

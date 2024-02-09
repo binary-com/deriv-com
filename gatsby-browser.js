@@ -15,11 +15,11 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
-import './static/css/noto-sans-arabic.css'
-import './static/css/ubuntu.css'
+import 'swiper/swiper-bundle.min.css'
+import 'features/styles/app.scss'
 import './static/css/global.css'
-import '@deriv-com/blocks/style.css'
-import '@deriv-com/components/style.css'
+import './static/css/google-fonts.css'
+import '@deriv-com/blocks/style.css';
 
 const is_browser = typeof window !== 'undefined'
 

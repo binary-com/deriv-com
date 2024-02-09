@@ -16,8 +16,8 @@ const DP2HeroContent = () => {
             basis="6-12"
             dir={get_lang_direction()}
         >
-            <div className="visible-phone-and-tablet">{banner_content.logo_mobile}</div>
-            <div className="visible-larger-than-tablet">{banner_content.logo_desktop}</div>
+            <div className="at-visible-phone-and-tablet">{banner_content.logo_mobile}</div>
+            <div className="at-visible-larger-than-tablet">{banner_content.logo_desktop}</div>
             <Typography.Heading as="h1" size={is_mobile ? 'large' : 'xxxl'}>
                 <Localize translate_text={banner_content.heading} />
             </Typography.Heading>

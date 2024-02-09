@@ -52,7 +52,7 @@ const trading: TradingType[] = [
     {
         title: '_t_... And how you want_t_',
         subtitle:
-            '_t_Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second._t_',
+            '_t_Choose from a variety of customisable trade types with flexible contract durations and stakes as low as $0.35._t_',
         image_name: 'how_you_want',
         image_alt: '_t_Customise your trade types_t_',
     },

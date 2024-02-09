@@ -1,4 +1,4 @@
-import { Analytics, TEvents } from '@deriv/analytics'
+import { Analytics, TEvents } from '@deriv-com/analytics'
 import { SubmitTypes } from '../_types'
 
 export const customSlugify = (text: string): string => {

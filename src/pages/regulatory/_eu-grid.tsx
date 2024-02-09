@@ -47,6 +47,8 @@ const Order = styled.div`
 `
 const License = styled.div`
     margin: 0;
+    display: flex;
+    align-items: center;
 
     & a {
         margin-left: 0.3rem;

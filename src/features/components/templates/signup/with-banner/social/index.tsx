@@ -1,5 +1,5 @@
 import React from 'react'
-import { Analytics } from '@deriv/analytics'
+import { Analytics } from '@deriv-com/analytics'
 import { public_signup_social_links } from './social.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'

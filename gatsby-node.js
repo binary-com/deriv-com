@@ -3,12 +3,42 @@ const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
+const { exec } = require('child_process')
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const translations_cache = {}
+
+function OSFunction() {
+    this.execCommand = function (cmd, callback) {
+        exec(cmd, (error, stdout) => {
+            if (error) {
+                console.error(`exec error: ${error}`)
+                return
+            }
+
+            callback(stdout)
+        })
+    }
+}
+
+const fetchTrustpilotData = () => {
+    // Trustpilot on-build data fetching
+    const os = new OSFunction()
+
+    os.execCommand('node scripts/trustpilot.js', (returnvalue) => {
+        console.log(returnvalue)
+    })
+}
 
 exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
 }
+exports.onPreInit = () => {
+    // Update truspilot.json file with latest data
+    fetchTrustpilotData()
+}
+
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 
 const BuildPage = (page, actions) => {
@@ -78,7 +108,7 @@ const BuildPage = (page, actions) => {
         })
         createRedirect({
             fromPath: `/contact-us`,
-            toPath: `/contact_us`,
+            toPath: `/contact_us/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -349,48 +379,37 @@ const BuildPage = (page, actions) => {
 exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
     const isProduction = process.env.GATSBY_ENV === 'production'
-    const pagesToBuild = process.env.GATSBY_BUILD_PAGES || 'all'
+    const pagesToBuild = process.env.GATSBY_BUILD_PAGES
+    if (pagesToBuild) {
+        const pages_loaded = pagesToBuild.split(',')
+        const allowed_pages = ['', pages_loaded]
 
-    // First delete the incoming page that was automatically created by Gatsby
-    // So everything in src/pages/
-    deletePage(page)
+        const pages = allowed_pages.reduce((result, Item) => {
+            if (Array.isArray(Item)) {
+                // Flatten the nested array and add the '/' prefix
+                const nested_array = Item.map((subItem) => `/${subItem}/`)
+                return result.concat(nested_array)
+            } else {
+                // Add the '/' prefix for the root item
+                return result.concat(`/${Item}`)
+            }
+        }, [])
 
-    const pagesCategory = {
-        all: [''],
-        'no-affiliates': ['signup-affiliates', 'landing', 'ctrader', 'partners'],
-        'no-help-centre': ['help-centre'],
-        'no-tools': ['trader-tools'],
-        fast: [
-            'signup-affiliates',
-            'landing',
-            'ctrader',
-            'partners',
-            'help-centre',
-            'trader-tools',
-            'careers',
-            // 'markets',
-            // 'trade-types' Note: Feel free to adjust pages you want to skip building for faster local development
-        ],
-    }
+        console.log('pages', pages)
 
-    const disallowedPages = pagesCategory[pagesToBuild] || []
-
-    const regex = new RegExp(`/${disallowedPages.join('|') + '|'}/g`)
-
-    const isMatch = regex.test(page.path)
-
-    if (isProduction) {
-        return BuildPage(page, actions)
-    } else {
-        if (!isMatch || pagesToBuild === 'all') {
-            console.log(`\x1b[32mcreating\x1b[0m [${pagesToBuild}] ${page.path}`)
+        deletePage(page)
+        if (isProduction) {
             return BuildPage(page, actions)
+        } else {
+            if (pages.includes(page.path)) {
+                return BuildPage(page, actions)
+            }
         }
+    } else {
+        return BuildPage(page, actions)
     }
 }
 
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
 const style_lint_options = {
     files: 'src/**/*.js',
     emitErrors: false,
@@ -399,25 +418,62 @@ const style_lint_options = {
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
     const config = getConfig()
-    if (config.optimization) {
-        config.optimization.minimizer = [new TerserPlugin()]
-    }
-    if (stage === 'build-html' || stage === 'develop-html') {
-        actions.setWebpackConfig({
-            module: {
-                rules: [
-                    {
-                        test: /analytics/,
-                        use: loaders.null(),
-                    },
-                ],
-            },
-        })
-    }
+    const isProduction = config.mode === 'production'
+
     actions.setWebpackConfig({
-        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
+        devtool: isProduction ? false : 'inline-source-map', // enable/disable source-maps
+        mode: isProduction ? 'production' : 'development',
+        optimization: {
+            minimize: isProduction,
+            minimizer: [new TerserPlugin()],
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                    default: false,
+                    vendors: false,
+                    // Merge all js, ts, and tsx files  into one bundle
+                    all: {
+                        test: /\.(js|ts|tsx)$/,
+                        name: 'bundle',
+                        chunks: 'all',
+                    },
+                },
+            },
+            mangleExports: 'size',
+            mangleWasmImports: true,
+
+            mergeDuplicateChunks: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            innerGraph: true,
+
+            chunkIds: 'size',
+            moduleIds: 'size',
+
+            // runtimeChunk: 'single', // compilation fails
+            sideEffects: true,
+
+            concatenateModules: true,
+            providedExports: true,
+            usedExports: true,
+        },
+        plugins: [
+            new StylelintPlugin({ ...style_lint_options, ...options }),
+        ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
+        ...(stage === 'build-html' || stage === 'develop-html'
+            ? {
+                  module: {
+                      rules: [
+                          {
+                              test: /analytics/,
+                              use: loaders.null(),
+                          },
+                      ],
+                  },
+              }
+            : {}),
     })
 }

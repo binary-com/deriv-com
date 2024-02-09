@@ -69,7 +69,7 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
 
     return (
         <Wrapper>
-            <div className={dclsx('visible-larger-than-tablet')}>
+            <div className={dclsx('at-visible-larger-than-tablet')}>
                 <Header max_width="38.4rem" size="3.6rem" mb="4rem">
                     <Localize translate_text={tab_header} />
                 </Header>

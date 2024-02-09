@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtMerge } from '@deriv/quill-design'
 import {
@@ -14,12 +15,12 @@ import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
-import { getLanguage, getLocationPathname } from 'common/utility'
+import { getLocationPathname } from 'common/utility'
 
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
-    const lang = getLanguage()
+    const lang = Cookies.get('user_language') || 'en'
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -29,7 +30,7 @@ export const MainFooter = () => {
     }, [])
 
     const getSocialButtons = () => {
-        return lang?.toLowerCase() in specialLanguageUrls
+        return lang in specialLanguageUrls
             ? is_eu
                 ? socialButtonsEU.map((button) =>
                       button['aria-label'] in specialLanguageUrls[lang]

@@ -19,8 +19,7 @@ import { getLanguage, getLocationPathname } from 'common/utility'
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
-    const language = getLanguage()
-    console.log('lang', language)
+    const lang = getLanguage()
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -30,37 +29,23 @@ export const MainFooter = () => {
     }, [])
 
     const getSocialButtons = () => {
-        let socialIcons: any
-        if (language.toLowerCase() in specialLanguageUrls) {
-            socialIcons = is_eu
-                ? socialButtonsEU.map((button) => {
-                      if (button['aria-label'] in specialLanguageUrls[language]) {
-                          return {
-                              ...button,
-                              href: specialLanguageUrls[language][button['aria-label']],
-                          }
-                      } else {
-                          return button
-                      }
-                  })
-                : socialButtonsROW.map((button) => {
-                      if (button['aria-label'] in specialLanguageUrls[language]) {
-                          return {
-                              ...button,
-                              href: specialLanguageUrls[language][button['aria-label']],
-                          }
-                      } else {
-                          return button
-                      }
-                  })
-        } else {
-            socialIcons = is_career
-                ? socialButtonsCareers
-                : is_eu
-                ? socialButtonsEU
-                : socialButtonsROW
-        }
-        return socialIcons
+        return lang.toLowerCase() in specialLanguageUrls
+            ? is_eu
+                ? socialButtonsEU.map((button) =>
+                      button['aria-label'] in specialLanguageUrls[lang]
+                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                          : button,
+                  )
+                : socialButtonsROW.map((button) =>
+                      button['aria-label'] in specialLanguageUrls[lang]
+                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                          : button,
+                  )
+            : is_career
+            ? socialButtonsCareers
+            : is_eu
+            ? socialButtonsEU
+            : socialButtonsROW
     }
 
     const socialButtons = getSocialButtons()

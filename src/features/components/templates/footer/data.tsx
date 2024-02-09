@@ -134,8 +134,8 @@ export const RowFooterNavData: FooterItems[] = [
                 header: <Localize translate_text="_t_PLATFORMS_t_" />,
                 type: 'link',
                 items: [
-                    { id: 0, href: '/dmt5', text: <Localize translate_text="_t_Deriv MT5_t_" /> },
-                    { id: 1, href: '/derivx', text: <Localize translate_text="_t_Deriv X_t_" /> },
+                    { id: 0, href: '/dmt5', text: 'Deriv MT5' },
+                    { id: 1, href: '/derivx', text: 'Deriv X' },
                     {
                         id: 2,
                         href: '/deriv-ctrader',
@@ -144,7 +144,7 @@ export const RowFooterNavData: FooterItems[] = [
                     {
                         id: 3,
                         href: '/deriv-go',
-                        text: <Localize translate_text="_t_Deriv GO_t_" />,
+                        text: 'Deriv GO',
                     },
                     {
                         id: 4,

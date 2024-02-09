@@ -87,7 +87,7 @@ const DerivGoGetApp = () => {
             <ContentWrapper is_rtl={is_rtl}>
                 <img
                     src={derivGoLogo}
-                    alt={localize('_t_Deriv Go logo_t_')}
+                    alt='Deriv Go'
                     width="64px"
                     height="64px"
                 />

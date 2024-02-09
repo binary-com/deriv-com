@@ -19,7 +19,7 @@ export const RowCards: PlatformCardContent[] = [
     {
         id: 1,
         filterKey: ['CFDs'],
-        header: <Localize translate_text="_t_Deriv MT5_t_" />,
+        header: 'Deriv MT5',
         description: (
             <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
         ),
@@ -70,7 +70,7 @@ export const RowCards: PlatformCardContent[] = [
     {
         id: 4,
         filterKey: ['Options'],
-        header: <Localize translate_text="_t_Deriv GO_t_" />,
+        header: 'Deriv GO',
         description: (
             <Localize translate_text="_t_Mobile app for multipliers trading on the go._t_" />
         ),
@@ -121,7 +121,7 @@ export const RowCards: PlatformCardContent[] = [
 export const EUCards: CardContent[] = [
     {
         id: 1,
-        header: <Localize translate_text="_t_Deriv MT5_t_" />,
+        header: 'Deriv MT5',
         description: (
             <Localize
                 translate_text="_t_The most popular and comprehensive <0>CFDs</0> platform._t_"

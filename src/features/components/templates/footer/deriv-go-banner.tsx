@@ -21,7 +21,7 @@ export const DerivGoBanner = () => {
                                     height={24}
                                 />
                                 <Heading.H5 aria-level={3}>
-                                    <Localize translate_text="_t_Deriv GO_t_" />
+                                    'Deriv GO'
                                 </Heading.H5>
                             </div>
                             <Text size="sm">

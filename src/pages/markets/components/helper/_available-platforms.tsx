@@ -168,7 +168,7 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivGo} width="24" height="24" />
                             <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv GO_t_" />
+                                'Deriv GO'
                             </Text>
                         </StyledFlex>
                     </LocalizedLink>

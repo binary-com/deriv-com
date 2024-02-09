@@ -80,7 +80,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
-                                        <img src={DerivMT5} alt={localize('_t_Deriv MT5_t_')} />
+                                        <img src={DerivMT5} alt={'Deriv MT5'} />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             {deriv_mt5}
                                         </StyledHeader>
@@ -90,7 +90,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                     <Flex direction="row">
                                         <img
                                             src={DerivX}
-                                            alt={localize('_t_Deriv X_t_')}
+                                            alt={'Deriv X'}
                                             width="24"
                                             height="24"
                                         />
@@ -107,7 +107,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 <Flex direction="row">
                                     <img
                                         src={DerivMT5}
-                                        alt={localize('_t_Deriv MT5_t_')}
+                                        alt={'Deriv MT5'}
                                         width="24"
                                         height="24"
                                     />

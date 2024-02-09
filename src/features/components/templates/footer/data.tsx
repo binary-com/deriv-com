@@ -391,7 +391,7 @@ export const EuFooterNavData: FooterItems[] = [
                 header: <Localize translate_text="_t_PLATFORMS_t_" />,
                 type: 'link',
                 items: [
-                    { id: 0, href: '/dmt5', text: <Localize translate_text="_t_Deriv MT5_t_" /> },
+                    { id: 0, href: '/dmt5', text: 'Deriv MT5' },
                     {
                         id: 1,
                         href: '/dtrader',

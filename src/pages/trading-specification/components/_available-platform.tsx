@@ -59,8 +59,8 @@ const StyledFlex = styled(Flex)`
     padding: 20px;
 `
 const available_on: TString = '_t_Available on_t_'
-const deriv_mt5: TString = '_t_Deriv MT5_t_'
-const deriv_x: TString = '_t_Deriv X_t_'
+const deriv_mt5: TString = 'Deriv MT5'
+const deriv_x: TString = 'Deriv X'
 
 const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
     const { is_row } = useRegion()

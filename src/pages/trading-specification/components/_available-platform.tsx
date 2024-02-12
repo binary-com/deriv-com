@@ -8,7 +8,6 @@ import { Localize, LocalizedLink, localize } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { TString } from 'types/generics'
-import Typography from 'features/components/atoms/typography'
 
 type AvailablePlatformProps = {
     selected_market: string
@@ -17,6 +16,9 @@ type AvailablePlatformProps = {
 const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
     font-weight: bold;
+`
+const StyledHeader2 = styled(Header)`
+    inline-size: 'auto';
 `
 
 const PlatformsContainer = styled(Flex)`
@@ -71,9 +73,9 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer>
-                        <Typography.Paragraph pt="2x" align="center" font_family="UBUNTU">
+                        <StyledHeader2 type="paragraph-1" weight="normal" width="auto" as="h2">
                             <Localize translate_text={available_on} />
-                        </Typography.Paragraph>
+                        </StyledHeader2>
                     </FlexContainer>
 
                     {is_row ? (

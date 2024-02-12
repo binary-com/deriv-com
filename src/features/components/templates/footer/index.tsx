@@ -49,7 +49,7 @@ export const MainFooter = () => {
     )
 }
 
-const getSocialButtons = (lang: string, is_eu: boolean, is_career: boolean) => {
+const getSocialButtons = (lang, is_eu, is_career) => {
     const overrideWithLang = (arr: any) =>
         arr.map((button: any) =>
             lang in specialLanguageUrls

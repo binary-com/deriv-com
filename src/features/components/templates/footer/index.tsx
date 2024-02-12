@@ -30,6 +30,7 @@ export const MainFooter = () => {
     }, [])
 
     let socialButtons = {}
+
     useEffect(() => {
         socialButtons = getSocialButtons(lang, is_eu, is_career)
     }, [is_eu, lang, is_career])

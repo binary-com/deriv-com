@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtMerge } from '@deriv/quill-design'
 import {
@@ -7,6 +8,7 @@ import {
     socialButtonsCareers,
     socialButtonsEU,
     socialButtonsROW,
+    specialLanguageUrls,
     warnText,
 } from './data'
 import { DerivGoBanner } from './deriv-go-banner'
@@ -18,6 +20,7 @@ import { getLocationPathname } from 'common/utility'
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
+    const lang = Cookies.get('user_language') || 'en'
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -26,11 +29,29 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const socialButtons = is_career
-        ? socialButtonsCareers
-        : is_eu
-        ? socialButtonsEU
-        : socialButtonsROW
+    const getSocialButtons = () => {
+        return lang in specialLanguageUrls
+            ? is_eu
+                ? socialButtonsEU.map((button) =>
+                      button['aria-label'] in specialLanguageUrls[lang]
+                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                          : button,
+                  )
+                : socialButtonsROW.map((button) =>
+                      button['aria-label'] in specialLanguageUrls[lang]
+                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                          : button,
+                  )
+            : is_career
+            ? socialButtonsCareers
+            : is_eu
+            ? socialButtonsEU
+            : socialButtonsROW
+    }
+    let socialButtons: any
+    useEffect(() => {
+        socialButtons = getSocialButtons()
+    }, [is_eu, lang])
 
     return (
         <Footer.FooterBlock

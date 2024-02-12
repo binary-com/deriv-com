@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtMerge } from '@deriv/quill-design'
@@ -29,8 +29,9 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const socialButtons = useMemo(() => {
-        return getSocialButtons(lang, is_eu, is_career)
+    let socialButtons = {}
+    useEffect(() => {
+        socialButtons = getSocialButtons(lang, is_eu, is_career)
     }, [is_eu, lang, is_career])
 
     return (

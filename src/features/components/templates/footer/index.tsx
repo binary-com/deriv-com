@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtMerge } from '@deriv/quill-design'
@@ -29,10 +29,8 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    let socialButtons = {}
-
-    useEffect(() => {
-        socialButtons = getSocialButtons(lang, is_eu, is_career)
+    const socialButtons = useMemo(() => {
+        return getSocialButtons(lang, is_eu, is_career)
     }, [is_eu, lang, is_career])
 
     return (
@@ -61,6 +59,8 @@ const getSocialButtons = (lang, is_eu, is_career) => {
 
     let buttons = is_career ? socialButtonsCareers : is_eu ? socialButtonsEU : socialButtonsROW
     buttons = overrideWithLang(buttons)
+
+    console.log(buttons.map((b) => b['aria-label']))
 
     return buttons
 }

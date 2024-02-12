@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtMerge } from '@deriv/quill-design'
@@ -16,11 +16,13 @@ import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
+import { TAppConfig, useAppConfig } from '../../../../components/hooks/use-app-config'
 
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
     const lang = Cookies.get('user_language') || 'en'
+    const config = useAppConfig()
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -29,29 +31,9 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const getSocialButtons = () => {
-        return lang in specialLanguageUrls
-            ? is_eu
-                ? socialButtonsEU.map((button) =>
-                      button['aria-label'] in specialLanguageUrls[lang]
-                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
-                          : button,
-                  )
-                : socialButtonsROW.map((button) =>
-                      button['aria-label'] in specialLanguageUrls[lang]
-                          ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
-                          : button,
-                  )
-            : is_career
-            ? socialButtonsCareers
-            : is_eu
-            ? socialButtonsEU
-            : socialButtonsROW
-    }
-    let socialButtons: any
-    useEffect(() => {
-        socialButtons = getSocialButtons()
-    }, [is_eu, lang])
+    const socialButtons = useMemo(() => {
+        return getSocialButtons(lang, is_eu, is_career, config)
+    }, [is_eu, lang, is_career, config])
 
     return (
         <Footer.FooterBlock
@@ -65,6 +47,24 @@ export const MainFooter = () => {
             <Footer.MainNavContent items={is_eu ? EuFooterNavData : RowFooterNavData} cols="six" />
         </Footer.FooterBlock>
     )
+}
+
+const getSocialButtons = (lang: string, is_eu: boolean, is_career: boolean, config: TAppConfig) => {
+    const overrideWithLang = (arr) =>
+        arr.map((button) =>
+            lang in specialLanguageUrls
+                ? button['aria-label'] in specialLanguageUrls[lang]
+                    ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                    : button
+                : button,
+        )
+
+    let buttons = is_career ? socialButtonsCareers : is_eu ? socialButtonsEU : socialButtonsROW
+
+    buttons = buttons.filter((button) => !!config[button?.['aria-label']])
+    buttons = overrideWithLang(buttons)
+
+    return buttons
 }
 
 export default MainFooter

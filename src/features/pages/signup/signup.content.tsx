@@ -6,12 +6,15 @@ import { Localize } from 'components/localization'
 import MaleHuman from 'images/common/sign-up/latam-male-human.png'
 import Image from 'features/components/atoms/image'
 import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
+import useRegion from 'components/hooks/use-region'
 
 const SignUpContent = () => {
     const growthbook_feature_flag__latam_signup_human_element_visible = useGrowthbookFeatureFlag({
         featureFlag: 'latam-signup-human-element',
         defaultValue: false,
     })
+
+    const { is_latam } = useRegion()
 
     return (
         <Flex.Box
@@ -25,7 +28,7 @@ const SignUpContent = () => {
             {/**
              * This is for growthbook a/b testing in the LATAM region * More info in the growthbook dashboard
              */}
-            {growthbook_feature_flag__latam_signup_human_element_visible && (
+            {is_latam && growthbook_feature_flag__latam_signup_human_element_visible && (
                 <Image
                     className={signup_latam_human_image}
                     src={MaleHuman}

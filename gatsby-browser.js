@@ -44,9 +44,13 @@ const hacker_one_url = 'https://hackerone.com/deriv?type=team'
 if (is_browser) {
     if (window.location.pathname.includes(bug_bounty_path)) window.location.href = hacker_one_url
 }
+let GlobalProviderInstance = null;
 
 export const wrapRootElement = ({ element }) => {
-    return <GlobalProvider>{element}</GlobalProvider>
+    if (!GlobalProviderInstance) {
+        GlobalProviderInstance = <GlobalProvider>{element}</GlobalProvider>;
+        return GlobalProviderInstance;
+    }
 }
 
 export const onInitialClientRender = () => {

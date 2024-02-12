@@ -105,7 +105,7 @@ export const langItemsROW: LangItems = {
     },
     sw: {
         path: 'sw',
-        displayName: 'Swahili',
+        displayName: 'Kiswahili',
         shortName: 'SW',
         affiliateLang: 18,
     },

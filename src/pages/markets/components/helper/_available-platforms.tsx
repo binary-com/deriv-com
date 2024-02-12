@@ -118,7 +118,7 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <embed src={DMT5} width="24" height="24" />
                             <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv MT5_t_" />
+                                'Deriv MT5'
                             </Text>
                         </StyledFlex>
                     </LocalizedLink>

@@ -9,6 +9,7 @@ import useRegion from 'components/hooks/use-region'
 
 export const DerivGoBanner = () => {
     const { is_row } = useRegion()
+    const deriv_go: String = 'Deriv GO'
     return (
         <div className="flex flex-col gap-gap-lg">
             {is_row && (
@@ -21,7 +22,7 @@ export const DerivGoBanner = () => {
                                     height={24}
                                 />
                                 <Heading.H5 aria-level={3}>
-                                    'Deriv GO'
+                                    {deriv_go}
                                 </Heading.H5>
                             </div>
                             <Text size="sm">

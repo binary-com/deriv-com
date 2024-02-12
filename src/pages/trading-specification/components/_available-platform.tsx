@@ -108,11 +108,8 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                     <img
                                         src={DerivMT5}
                                         alt={deriv_mt5}
-                                        width="24"
-                                        height="24"
                                     />
                                     <StyledHeader
-                                        weight="bold"
                                         type="paragraph-1"
                                         as="h2"
                                         width="auto"

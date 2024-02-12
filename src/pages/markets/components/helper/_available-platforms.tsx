@@ -94,6 +94,9 @@ const AvailablePlatforms = ({
     m_top,
 }: AvailablePlatformsProps) => {
     const { is_eu } = useRegion()
+    const deriv_mt5_name: String = 'Deriv MT5'
+    const deriv_go_name: String = 'Deriv GO'
+    
 
     return (
         <Flex
@@ -118,7 +121,7 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <embed src={DMT5} width="24" height="24" />
                             <Text ml="0.4rem">
-                                'Deriv MT5'
+                                {deriv_mt5_name}
                             </Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -168,7 +171,7 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivGo} width="24" height="24" />
                             <Text ml="0.4rem">
-                                'Deriv GO'
+                                {deriv_go_name}
                             </Text>
                         </StyledFlex>
                     </LocalizedLink>

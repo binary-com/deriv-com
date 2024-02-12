@@ -108,8 +108,8 @@ const AffiliateSignupStatus = ({
     setAffiliateAccount,
     onSubmit,
 }: SignUpStatusProps) => {
-    const [username_error, setUsernameError] = useState<string>()
-    const [website_url_error, setWebsiteUrlError] = useState<string>()
+    const [username_error, setUsernameError] = useState<string>(' ')
+    const [website_url_error, setWebsiteUrlError] = useState<string>(' ')
     const is_rtl = useIsRtl()
 
     const handleStateChange = useCallback(
@@ -273,7 +273,11 @@ const AffiliateSignupStatus = ({
                             handleError={() => handleStateChange({ field: 'username' })}
                             required
                         />
-                        <StyledButton secondary onClick={handleTryAgain}>
+                        <StyledButton
+                            disabled={!!username_error}
+                            secondary
+                            onClick={handleTryAgain}
+                        >
                             <Localize translate_text="_t_Change username_t_" />
                         </StyledButton>
                     </Modal>
@@ -300,7 +304,11 @@ const AffiliateSignupStatus = ({
                             handleError={() => handleStateChange({ field: 'website_url' })}
                             required
                         />
-                        <StyledButton secondary onClick={handleTryAgain}>
+                        <StyledButton
+                            disabled={!!website_url_error}
+                            secondary
+                            onClick={handleTryAgain}
+                        >
                             <Localize translate_text="_t_Change website url_t_" />
                         </StyledButton>
                     </Modal>

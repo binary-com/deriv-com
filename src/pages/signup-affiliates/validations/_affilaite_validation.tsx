@@ -5,17 +5,23 @@ export const affiliate_validation_regex = {
     email: (value: string) => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value),
     latin: (value: string) => /[^a-zA-Za 0-9-]/.test(value),
     name: (value: string) =>
-        /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u.test(value) && value.length >= 2 && value.length <= 50,
+        /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u.test(value) &&
+        value.trim().length >= 2 &&
+        value.length <= 50,
     phone: (value: string) => /^\+\d+$/.test(value),
     user_name: (value: string) => /^[A-Za-z0-9_]{3,20}$/.test(value),
     password: (value: string) => /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]{6,50}$/.test(value),
-    city: (value: string) => /^[\p{L}][\p{L}\s'.-]{0,49}$/u.test(value) && value.length <= 50,
+    city: (value: string) =>
+        /^[\p{L}][\p{L}\s'.-]{0,49}$/u.test(value) &&
+        value.trim().length >= 2 &&
+        value.length <= 50,
     street: (value: string) =>
         /^[\p{L}\p{Nd}'.,:;()\\x{b0}@#/-][\p{L}\p{Nd}\s'.,:;()\\x{b0}@#/-]{0,68}$/u.test(value) &&
+        value.trim().length >= 2 &&
         value.length <= 69,
     postal_code: (value: string) => /^[a-zA-Z 0-9-]{2,10}$/.test(value),
     company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value),
-    url: (value: string) => /^[\w_@./:#&+-]+$/.test(value),
+    url: (value: string) => /^[\w_@./:#&+-]+(?:\.[\w]{2,})$/.test(value),
     non_empty_string: (value: string) => /^\S.*$/.test(value),
 }
 
@@ -38,8 +44,8 @@ const userNameValidation = (input: string) => {
 const nameValidation = (input: string, text: string) => {
     if (!input) {
         return text + localize('_t_ is required_t_')
-    } else if (input.length < 2 || input.length > 256) {
-        return localize(`_t_You should enter 2-256 characters._t_`)
+    } else if (input.length < 2 || input.length > 50) {
+        return localize(`_t_You should enter 2-50 characters._t_`)
     } else if (affiliate_validation_regex.latin(input) || !affiliate_validation_regex.name(input)) {
         return localize('_t_Only Latin and Alphabet characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string(input)) {
@@ -51,6 +57,8 @@ const companyNameValidation = (input: string) => {
         return localize('_t_Company name is required_t_')
     } else if (!/^[a-zA-Z0-9 ]+$/.test(input)) {
         return localize('_t_Incorrect company name_t_')
+    } else if (input.length < 2 || input.length > 50) {
+        return localize(`_t_You should enter 2-50 characters._t_`)
     } else if (affiliate_validation_regex.latin(input)) {
         return localize('_t_Only Latin characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string(input)) {
@@ -106,8 +114,8 @@ const streetValidation = (input: string, text: string) => {
     if (!input) return text
     if (affiliate_validation_regex.latin(input)) {
         return localize('_t_Only Latin characters_t_')
-    } else if (input.length < 2 || input.length > 256) {
-        return localize(`_t_You should enter 2-256 characters._t_`)
+    } else if (input.length < 2 || input.length > 50) {
+        return localize(`_t_You should enter 2-50 characters._t_`)
     } else if (!affiliate_validation_regex.street(input)) {
         return localize('_t_Please enter a valid street_t_')
     } else if (!affiliate_validation_regex.non_empty_string(input)) {
@@ -118,8 +126,8 @@ const cityValidation = (input: string, text: string) => {
     if (!input) return text
     if (affiliate_validation_regex.latin(input)) {
         return localize('_t_Only Latin characters_t_')
-    } else if (input.length < 2 || input.length > 256) {
-        return localize(`_t_You should enter 2-256 characters._t_`)
+    } else if (input.length < 2 || input.length > 50) {
+        return localize(`_t_You should enter 2-50 characters._t_`)
     } else if (!affiliate_validation_regex.city(input)) {
         return localize('_t_Please enter a valid city_t_')
     } else if (!affiliate_validation_regex.non_empty_string(input)) {
@@ -129,6 +137,8 @@ const cityValidation = (input: string, text: string) => {
 const urlValidation = (input: string) => {
     if (!affiliate_validation_regex.url(input)) {
         return localize(`_t_Please enter a valid url_t_`)
+    } else if (input.length < 2 || input.length > 50) {
+        return localize(`_t_You should enter 2-50 characters._t_`)
     } else if (!affiliate_validation_regex.non_empty_string(input)) {
         return localize('_t_Empty input not available_t_')
     }

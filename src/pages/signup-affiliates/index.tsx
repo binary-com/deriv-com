@@ -88,17 +88,6 @@ const AffiliateSignup = () => {
     } = useWS('affiliate_register_person')
 
     useEffect(() => {
-        trackEvent({ action: 'open' })
-        const handleBeforeUnload = (event) => {
-            event.preventDefault()
-            trackEvent({ action: 'close' })
-            trackEvent({ action: 'close_wizard' })
-        }
-        window.addEventListener('beforeunload', handleBeforeUnload)
-        return () => window.removeEventListener('beforeunload', handleBeforeUnload)
-    }, [])
-
-    useEffect(() => {
         const handleStatusChange = () => {
             if (!navigator.onLine) trackEvent({ action: 'other_error' })
             setIsOnline(navigator.onLine)

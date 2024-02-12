@@ -103,7 +103,7 @@ const AccountAddress = ({
                 !form_errors.street_error_msg &&
                 !form_errors.postal_code_error_msg,
         )
-    }, [form_data])
+    }, [form_data, form_errors])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -157,6 +157,7 @@ const AccountAddress = ({
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
+                                    onBlur={handleInput}
                                     handleError={() => handleError(item)}
                                 />
                             </li>

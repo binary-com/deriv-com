@@ -88,17 +88,6 @@ const AffiliateSignup = () => {
     } = useWS('affiliate_register_person')
 
     useEffect(() => {
-        trackEvent({ action: 'open' })
-        const handleBeforeUnload = (event) => {
-            event.preventDefault()
-            trackEvent({ action: 'close' })
-            trackEvent({ action: 'close_wizard' })
-        }
-        window.addEventListener('beforeunload', handleBeforeUnload)
-        return () => window.removeEventListener('beforeunload', handleBeforeUnload)
-    }, [])
-
-    useEffect(() => {
         const handleStatusChange = () => {
             if (!navigator.onLine) trackEvent({ action: 'other_error' })
             setIsOnline(navigator.onLine)
@@ -128,12 +117,14 @@ const AffiliateSignup = () => {
         } else if (
             partner_signup_error_message == 'Your website is not a valid entry' ||
             partner_signup_error_message == "String does not match '^[0-9A-Za-z.-]{5,250}$'" ||
-            partner_signup_error_message == 'Input validation failed: website_url'
+            partner_signup_error_message?.includes('website_url')
         ) {
             trackEvent({ action: 'partners_signup_error', partner_signup_error_message })
             setSignupStatus('Your website is not a valid entry')
-        } else if (partner_signup_error_message)
+        } else if (partner_signup_error_message) {
             trackEvent({ action: 'other_error', partner_signup_error_message })
+            setSignupStatus('unhandled error')
+        }
     }, [affiliate_api_data, affiliate_api_error])
 
     useEffect(() => {

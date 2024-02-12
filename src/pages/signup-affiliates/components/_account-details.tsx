@@ -7,25 +7,7 @@ import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-
 import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
 
-const AccountDetails = ({
-    is_individual,
-    affiliate_account,
-    updateData,
-    onValidate,
-}: WizardStepProps<'account_details'>) => {
-    const [form_data, setFormData] = useState(affiliate_account.account_details)
-    const [form_errors, setFormErrors] = useState({
-        user_name_error_msg: '',
-        first_name_error_msg: '',
-        last_name_error_msg: '',
-        phone_error_msg: '',
-        company_name_error_msg: '',
-        company_registration_number_error_msg: '',
-        website_url_error_msg: '',
-        second_website_url_error_msg: '',
-        password_error_msg: '',
-    })
-
+const getFormFields = (is_individual: boolean) => {
     const company_fields = !is_individual
         ? [
               {
@@ -43,7 +25,7 @@ const AccountDetails = ({
           ]
         : []
 
-    const form_inputs = [
+    return [
         {
             id: 'dm-first_name',
             name: 'first_name',
@@ -98,6 +80,30 @@ const AccountDetails = ({
             label: localize('_t_Password*_t_'),
         },
     ]
+}
+
+const AccountDetails = ({
+    is_individual,
+    affiliate_account,
+    updateData,
+    onValidate,
+}: WizardStepProps<'account_details'>) => {
+    const [form_data, setFormData] = useState(affiliate_account.account_details)
+    const [form_errors, setFormErrors] = useState({
+        user_name_error_msg: '',
+        first_name_error_msg: '',
+        last_name_error_msg: '',
+        phone_error_msg: Number.isInteger(Number(form_data.phone.substring(1)))
+            ? ''
+            : affiliate_validation['phone'](form_data['phone']),
+        company_name_error_msg: '',
+        company_registration_number_error_msg: '',
+        website_url_error_msg: '',
+        second_website_url_error_msg: '',
+        password_error_msg: '',
+    })
+
+    const form_inputs = getFormFields(is_individual)
 
     useEffect(() => {
         updateData({ ...form_data })
@@ -132,15 +138,13 @@ const AccountDetails = ({
                       !form_errors.company_name_error_msg &&
                       !form_errors.company_registration_number_error_msg,
         )
-    }, [form_data])
+    }, [form_data, form_errors])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
-
         setFormData((prev) => ({ ...prev, [name]: value }))
-
         if (affiliate_validation[name]) {
-            const error_msg = affiliate_validation[name](value)
+            const error_msg = affiliate_validation[name](value) || ''
             setFormErrors((errors) => ({
                 ...errors,
                 [`${name}_error_msg`]: error_msg,
@@ -205,6 +209,7 @@ const AccountDetails = ({
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}
                                     onChange={handleInput}
+                                    onBlur={handleInput}
                                     data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />

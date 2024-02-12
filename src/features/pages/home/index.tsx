@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { lazy, Suspense } from 'react'
 import { PageLayout } from '@deriv-com/components'
+import { Analytics } from '@deriv-com/analytics'
 import QuillLayout from 'features/components/quill/quill-layout'
 import TwentyYearsStrong from './years'
 import StatSection from './stats'
@@ -11,6 +12,7 @@ import TrustpilotSection from './trustpilot'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
+
 const FastPaymentSection = lazy(() => import('./fast-payment'))
 const LiveMarketSection = lazy(() => import('./live-pricing-migration'))
 const TradeTypeSection = lazy(() => import('./trade-type'))
@@ -18,6 +20,16 @@ const UserFriendlyPlatforms = lazy(() => import('./user-platfroms'))
 
 const HomePage = () => {
     useOpenLiveChat(true)
+    const third_party_config = Analytics?.getFeatureValue('third-party-config', {
+        is_livechat_enabled: true,
+        is_hotjar_enabled: true,
+        is_trustpilot_enabled: true,
+        is_snapchat_enabled: true,
+        is_tiktok_pixel_enabled: true,
+        is_gtm_enabled: true,
+        is_datadog_enabled: true,
+    })
+    console.log(third_party_config)
 
     return (
         <QuillLayout>

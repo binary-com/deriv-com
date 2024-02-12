@@ -17,10 +17,6 @@ const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
     font-weight: bold;
 `
-const StyledHeader2 = styled(Header)`
-    inline-size: 'auto';
-`
-
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
     width: unset;
@@ -61,6 +57,20 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StyledFlex = styled(Flex)`
     padding: 20px;
 `
+const StyledText = styled(Header)`
+    margin-right: 1.6rem;
+
+    @media ${device.tabletL} {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    @media ${device.mobileL} {
+        margin-right: 0;
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+`
 const available_on: TString = '_t_Available on_t_'
 const deriv_mt5: String = 'Deriv MT5'
 const deriv_x: String = 'Deriv X'
@@ -73,9 +83,9 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer>
-                        <StyledHeader2 type="paragraph-1" weight="normal" width="auto" as="h2">
-                            <Localize translate_text={available_on} />
-                        </StyledHeader2>
+                        <StyledText type="paragraph-1" weight="normal" width="auto">
+                            <Localize translate_text="_t_Available on_t_" />
+                        </StyledText>
                     </FlexContainer>
 
                     {is_row ? (

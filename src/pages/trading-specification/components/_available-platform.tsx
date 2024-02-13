@@ -57,8 +57,14 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StyledFlex = styled(Flex)`
     padding: 20px;
 `
-const StyledText = styled(Header)`
+
+type TextProps = {
+    textWrap?: "wrap" | "nowrap"
+}
+
+const StyledText = styled(Header)<TextProps>`
     margin-right: 1.6rem;
+    text-wrap: ${(props) => props.textWrap};
 
     @media ${device.tabletL} {
         font-size: 16px;
@@ -82,8 +88,8 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
         <>
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
-                    <FlexContainer wrap="nowrap" text-wrap= "nowrap">
-                        <StyledText type="paragraph-1" weight="normal" text-wrap= "nowrap">
+                    <FlexContainer wrap="nowrap">
+                        <StyledText type="paragraph-1" weight="normal" textWrap= "nowrap">
                             <Localize translate_text="_t_Available on_t_" />
                         </StyledText>
                     </FlexContainer>

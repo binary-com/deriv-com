@@ -35,8 +35,8 @@ const LayoutOverlay = () => {
                     </Suspense>
                 </Flex.Box>
                 <Flex.Box direction="col">
-                    <LiveChatButton />
-                    <WhatsappButton />
+                    {/* <LiveChatButton /> */}
+                    {/* <WhatsappButton /> */}
                 </Flex.Box>
             </Flex.Box>
             <CfdWarningBanner />

@@ -50,8 +50,8 @@ const LayoutOverlay = () => {
                         )}px`,
                     }}
                 >
-                    <LiveChatButton />
-                    <WhatsappButton />
+                    {/* <LiveChatButton /> */}
+                    {/* <WhatsappButton /> */}
                 </div>
             </div>
             <CfdWarningBanner />

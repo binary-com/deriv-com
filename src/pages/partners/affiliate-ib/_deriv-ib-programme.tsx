@@ -299,7 +299,7 @@ const DerivIBProgramme = () => {
                         >
                             <Localize translate_text="_t_Can’t decide which programme or commission plan suits you?_t_" />
                         </StyledHeader>
-                        <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" />
+                        {/* <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" /> */}
                     </DecideSection>
                 </IBSectionContainer>
             </Container>

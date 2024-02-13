@@ -25,8 +25,8 @@ const LayoutOverlay = () => {
 
     return (
         <OverlayContainer is_rtl={is_rtl} id="overlay-container">
-            <LiveChat />
-            <WhatsApp />
+            {/* <LiveChat /> */}
+            {/* <WhatsApp /> */}
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
             <CfdWarningBanner />
         </OverlayContainer>

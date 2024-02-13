@@ -67,11 +67,11 @@ export const Submit = ({
             tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
             tnc_affiliate_accepted: affiliate_account.terms_of_use.tnc_affiliate_accepted && 1,
             ...(affiliate_account.account_details?.company_name !== '' && {
-                company_name: affiliate_account.account_details?.company_name,
+                company_name: affiliate_account.account_details?.company_name.trim(),
             }),
             ...(affiliate_account.account_details?.company_registration_number !== '' && {
                 company_registration_number:
-                    affiliate_account.account_details?.company_registration_number,
+                    affiliate_account.account_details?.company_registration_number.trim(),
             }),
         })
 }

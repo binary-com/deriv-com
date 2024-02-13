@@ -83,7 +83,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer wrap="nowrap" text-wrap= "nowrap">
-                        <StyledText type="paragraph-1" weight="normal">
+                        <StyledText type="paragraph-1" weight="normal" text-wrap= "nowrap">
                             <Localize translate_text="_t_Available on_t_" />
                         </StyledText>
                     </FlexContainer>

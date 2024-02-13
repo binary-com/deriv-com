@@ -55,7 +55,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_eu: isEuDomain(),
         is_non_eu: !isEuDomain(),
         is_cpa_plan: false,
-        is_latam: latam_countries.includes(Cookies.get('clients_country')),
+        is_latam: false,
         is_row: !isEuDomain(),
         is_dev: false,
         is_africa: false,

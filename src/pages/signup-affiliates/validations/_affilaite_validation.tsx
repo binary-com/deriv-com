@@ -19,7 +19,7 @@ export const affiliate_validation_regex = {
         /^[\p{L}\p{Nd}'.,:;()\\x{b0}@#/-][\p{L}\p{Nd}\s'.,:;()\\x{b0}@#/-]{0,68}$/u.test(value) &&
         value.trim().length >= 2 &&
         value.length <= 69,
-    postal_code: (value: string) => /^[a-zA-Z 0-9-]{2,10}$/.test(value),
+    postal_code: (value: string) => /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()),
     company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value),
     url: (value: string) => /^[\w_@./:#&+-]+(?:\.[\w]{2,})$/.test(value),
     non_empty_string: (value: string) => /^\S.*$/.test(value),
@@ -57,8 +57,8 @@ const companyNameValidation = (input: string) => {
         return localize('_t_Company name is required_t_')
     } else if (!/^[a-zA-Z0-9 ]+$/.test(input)) {
         return localize('_t_Incorrect company name_t_')
-    } else if (input.length < 2 || input.length > 50) {
-        return localize(`_t_You should enter 2-50 characters._t_`)
+    } else if (input.length < 2 || input.length > 20) {
+        return localize(`_t_You should enter 2-20 characters._t_`)
     } else if (affiliate_validation_regex.latin(input)) {
         return localize('_t_Only Latin characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string(input)) {

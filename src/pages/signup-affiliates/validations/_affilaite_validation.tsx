@@ -8,7 +8,7 @@ export const affiliate_validation_regex = {
         /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u.test(value) &&
         value.trim().length >= 2 &&
         value.length <= 50,
-    phone: (value: string) => /^\+\d+$/.test(value),
+    phone: (value: string) => /^\+?\d+$/.test(value),
     username: (value: string) => /^[A-Za-z0-9_]{3,20}$/.test(value),
     password: (value: string) => /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]{6,50}$/.test(value),
     city: (value: string) =>

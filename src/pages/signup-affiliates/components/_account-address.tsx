@@ -19,9 +19,12 @@ const AccountAddress = ({
     const [form_errors, setFormErrors] = useState({
         country_error_msg: affiliate_validation['country'](form_data['country']) ?? '',
         state_error_msg: '',
-        city_error_msg: affiliate_validation['city'](form_data['city']) ?? '',
-        street_error_msg: affiliate_validation['street'](form_data['street']) ?? '',
-        postal_code_error_msg: affiliate_validation['postal_code'](form_data['postal_code']) ?? '',
+        city_error_msg: form_data.city && (affiliate_validation['city'](form_data['city']) ?? ''),
+        street_error_msg:
+            form_data.street && (affiliate_validation['street'](form_data['street']) ?? ''),
+        postal_code_error_msg:
+            form_data.postal_code &&
+            (affiliate_validation['postal_code'](form_data['postal_code']) ?? ''),
     })
     const [states_list] = useStatesList(form_data.country?.symbol)
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'

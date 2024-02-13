@@ -57,7 +57,9 @@ export const Submit = ({
                     : `https://${affiliate_account.account_details?.website_url.trim()}`,
             user_name: affiliate_account.account_details.username.trim(),
             password: affiliate_account.account_details.password,
-            phone: affiliate_account.account_details.phone,
+            phone: affiliate_account.account_details.phone.includes('+')
+                ? affiliate_account.account_details.phone
+                : `+${affiliate_account.account_details.phone}`,
             phone_code: Number(affiliate_account.account_details.phone.substring(1, 4)),
             whatsapp_number: affiliate_account.account_details.phone,
             whatsapp_number_phoneCode: Number(

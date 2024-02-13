@@ -9,7 +9,7 @@ export const affiliate_validation_regex = {
         value.trim().length >= 2 &&
         value.length <= 50,
     phone: (value: string) => /^\+\d+$/.test(value),
-    user_name: (value: string) => /^[A-Za-z0-9_]{3,20}$/.test(value),
+    username: (value: string) => /^[A-Za-z0-9_]{3,20}$/.test(value),
     password: (value: string) => /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]{6,50}$/.test(value),
     city: (value: string) =>
         /^[\p{L}][\p{L}\s'.-]{0,49}$/u.test(value) &&
@@ -34,10 +34,13 @@ const emailValidation = (input: string) => {
 const userNameValidation = (input: string) => {
     if (!input) return localize('_t_Username is required_t_')
     else if (
-        !affiliate_validation_regex.user_name(input) ||
-        !affiliate_validation_regex.non_empty_string(input)
-    )
+        !affiliate_validation_regex.username(input) ||
+        !affiliate_validation_regex.non_empty_string(input) ||
+        input.length < 2 ||
+        input.length > 20
+    ) {
         return localize('_t_Please enter 3-20 Latin characters, numbers._t_')
+    }
 }
 const nameValidation = (input: string, text: string) => {
     if (!input) {

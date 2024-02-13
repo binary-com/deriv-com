@@ -40,7 +40,7 @@ export type TLiveMarketTableProps = {
 const forex_note: TString =
     '_t_<0>Note:</0> There is a daily break during weekdays between 21:00-21:05 (GMT)_t_'
 const row_disclaimer: TString =
-    '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions. Certain offerings and specifications may vary depending on your country of residence, regulated jurisdiction, and individual trading circumstances._t_'
+    "_t_Information is updated monthly and may not represent today's trading conditions. Offerings can differ by location, jurisdiction, and trade scenario._t_"
 const eu_disclaimer: TString =
     '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions._t_'
 

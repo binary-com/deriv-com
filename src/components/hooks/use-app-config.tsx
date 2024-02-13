@@ -16,7 +16,6 @@ export type TAppConfig = {
 
 export const useAppConfig = (): TAppConfig => {
     const [config, setConfig] = useState<TAppConfig>(DefaultConfig)
-
     const growthBookConfig: any = Analytics?.getFeatureValue('deriv-com-icons-config', {})
     setConfig(growthBookConfig)
 

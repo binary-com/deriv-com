@@ -32,6 +32,7 @@ export const eu_countries = [
 ]
 
 export const latam_countries = [
+    'br',
     'ag',
     'aw',
     'bs',

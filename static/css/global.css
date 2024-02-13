@@ -52,7 +52,4 @@
 [dir=rtl] .rtl\:\!animate-\[100s_slideRtl_linear_infinite\] {
     animation: slideRtl 100s linear infinite !important;
 }
-[dir=rtl] .rtl\:\!animate-\[40s_slideRtl_linear_infinite\] {
-    animation: slideRtl 40s linear infinite !important;
-}
 /* Patch End */

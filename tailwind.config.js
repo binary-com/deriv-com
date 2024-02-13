@@ -23,9 +23,6 @@ module.exports = {
                 }
             }
         },
-        maxHeight: {
-            "none": "none",
-        },
     },
     plugins: [],
     presets: [require('@deriv/quill-design/quill-tailwind/tailwind.config')],

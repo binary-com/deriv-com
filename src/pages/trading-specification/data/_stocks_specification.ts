@@ -147,7 +147,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'UK 100',
             },
               contract_size: 1,
-              base_currency: GBP,
+              base_currency: 'GBP',
               minimum_size: 0.1,
               minimum_spread: 0.76,
               target_spread: 2.24,

@@ -16,7 +16,7 @@ import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
-import { TAppConfig, useAppConfig } from 'components/hooks/use-app-config'
+import { useAppConfig } from 'components/hooks/use-app-config'
 
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
@@ -49,7 +49,7 @@ export const MainFooter = () => {
     )
 }
 
-const getSocialButtons = (lang: string, is_eu: boolean, is_career: boolean, config: TAppConfig) => {
+const getSocialButtons = (lang: string, is_eu: boolean, is_career: boolean, config: any) => {
     const overrideWithLang = (arr) =>
         arr.map((button) =>
             lang in specialLanguageUrls

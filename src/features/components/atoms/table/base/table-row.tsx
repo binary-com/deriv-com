@@ -16,13 +16,13 @@ const TableRow = <T, K extends keyof T>({ data, columns }: TableRowProps<T, K>) 
                         <td
                             key={col.accessor}
                             className={dclsx(
-                                'typography-color-black',
-                                'typography-align-center',
-                                'typography-font-UBUNTU',
-                                'text-small',
-                                'padding-block-4x',
-                                'padding-inline-10x',
-                                'md-padding-block-6x',
+                                'at-typography-color-black',
+                                'at-typography-align-center',
+                                'at-typography-font-UBUNTU',
+                                'at-text-small',
+                                'at-padding-block-4x',
+                                'at-padding-inline-10x',
+                                'md-at-padding-block-6x',
                             )}
                         >
                             {row[col.accessor]}

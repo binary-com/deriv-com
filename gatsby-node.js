@@ -3,15 +3,42 @@ const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
-const webpack = require('webpack')
+const { exec } = require('child_process')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const translations_cache = {}
 
+function OSFunction() {
+    this.execCommand = function (cmd, callback) {
+        exec(cmd, (error, stdout) => {
+            if (error) {
+                console.error(`exec error: ${error}`)
+                return
+            }
+
+            callback(stdout)
+        })
+    }
+}
+
+const fetchTrustpilotData = () => {
+    // Trustpilot on-build data fetching
+    const os = new OSFunction()
+
+    os.execCommand('node scripts/trustpilot.js', (returnvalue) => {
+        console.log(returnvalue)
+    })
+}
+
 exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
 }
+exports.onPreInit = () => {
+    // Update truspilot.json file with latest data
+    fetchTrustpilotData()
+}
+
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 
 const BuildPage = (page, actions) => {
@@ -399,11 +426,24 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],
-            // splitChunks: {
-            //     chunks: 'all',
-            //     name: "deriv-com",
-            // },
-
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                  vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                    priority: -10,
+                  },
+                  bundle: {
+                    test: /\.(js|ts|tsx)$/,
+                    name: 'bundle',
+                    chunks: 'all',
+                    priority: -20,
+                    enforce: true,
+                  },
+                },
+            },
             mangleExports: 'size',
             mangleWasmImports: true,
 
@@ -424,7 +464,6 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         },
         plugins: [
             new StylelintPlugin({ ...style_lint_options, ...options }),
-            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

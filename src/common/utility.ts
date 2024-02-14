@@ -3,6 +3,7 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import language_config from '../../i18n-config'
+import visibleItemData from '../../static/enableFlags'
 import {
     deriv_cookie_domain,
     deriv_app_languages,
@@ -456,3 +457,12 @@ export const getP2PCookie = () => {
     const p2p_validity = Cookies.get('is_p2p_disabled')
     return p2p_validity
 }
+
+// export const isEnabled = (parameter) => {
+//     // visibleItemData = visibleItemData || visibleItemData
+//     for (let key in visibleItemData) {
+
+//     }
+//     // If the parameter value doesn't exist in any key, return null
+//     return null
+// }

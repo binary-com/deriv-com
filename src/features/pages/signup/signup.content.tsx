@@ -20,13 +20,6 @@ const SignUpContent = () => {
         defaultValue: false,
     })
 
-    // eslint-disable-next-line no-console
-    console.log({
-        is_latam,
-        growthbook_feature_flag__latam_signup_human_element_visible,
-        client_country: Cookies.get('clients_country'),
-    })
-
     return (
         <Flex.Box
             basis="6-12"

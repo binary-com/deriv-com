@@ -98,8 +98,8 @@ const CloseButton = styled.img`
     }
 `
 
-const user_name = localize('_t_User name_t_')
-const web_site = localize('_t_Website url_t_')
+const user_name = localize('_t_Username*_t_')
+const web_site = localize('_t_Website/social media URL*_t_')
 
 const AffiliateSignupStatus = ({
     signup_status,

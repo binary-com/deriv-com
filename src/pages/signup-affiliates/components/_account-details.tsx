@@ -90,19 +90,33 @@ const AccountDetails = ({
 }: WizardStepProps<'account_details'>) => {
     const [form_data, setFormData] = useState(affiliate_account.account_details)
     const [form_errors, setFormErrors] = useState({
-        user_name_error_msg: '',
-        first_name_error_msg: '',
-        last_name_error_msg: '',
-        phone_error_msg: Number.isInteger(Number(form_data.phone.substring(1)))
+        username_error_msg:
+            form_data.username && (affiliate_validation['username'](form_data['username']) ?? ''),
+        first_name_error_msg:
+            form_data.first_name &&
+            (affiliate_validation['first_name'](form_data['first_name']) ?? ''),
+        last_name_error_msg:
+            form_data.last_name &&
+            (affiliate_validation['last_name'](form_data['last_name']) ?? ''),
+        phone_error_msg: Number.isInteger(Number(form_data.phone?.substring(1)))
             ? ''
             : affiliate_validation['phone'](form_data['phone']),
-        company_name_error_msg: '',
-        company_registration_number_error_msg: '',
-        website_url_error_msg: '',
+        company_name_error_msg:
+            form_data.company_name &&
+            (affiliate_validation['company_name'](form_data['company_name']) ?? ''),
+        company_registration_number_error_msg:
+            form_data.company_registration_number &&
+            (affiliate_validation['company_registration_number'](
+                form_data['company_registration_number'],
+            ) ??
+                ''),
+        website_url_error_msg:
+            form_data.website_url &&
+            (affiliate_validation['website_url'](form_data['website_url']) ?? ''),
         second_website_url_error_msg: '',
-        password_error_msg: '',
+        password_error_msg:
+            form_data.password && (affiliate_validation['password'](form_data['password']) ?? ''),
     })
-
     const form_inputs = getFormFields(is_individual)
 
     useEffect(() => {

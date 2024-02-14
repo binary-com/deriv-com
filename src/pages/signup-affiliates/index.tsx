@@ -19,11 +19,12 @@ const meta_attributes: TMetaAttributes = {
         '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader, Deriv Bot, and SmartTrader._t_',
 }
 
-const ParentWrapper = styled.div`
+const ParentWrapper = styled.div<{ pop_up_opened?: boolean }>`
     block-size: calc(100svh - 70px);
     background-image: url(${Map});
     background-repeat: no-repeat;
     background-position: bottom;
+    overflow: ${({ pop_up_opened }) => (pop_up_opened ? 'hidden' : 'auto')};
 
     @media ${device.tabletL} {
         background-image: unset;
@@ -145,7 +146,7 @@ const AffiliateSignup = () => {
 
     return (
         <Layout type="affiliates" padding_top="7" show_footer={false}>
-            <ParentWrapper>
+            <ParentWrapper pop_up_opened={!!signup_status}>
                 <AtomicContainer.Fluid dir="row">
                     <StyledContainer>
                         {show_wizard ? (

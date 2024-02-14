@@ -62,7 +62,7 @@ const companyNameValidation = (input: string) => {
         !affiliate_validation_regex.non_empty_string(input)
     ) {
         return localize('_t_Incorrect company name_t_')
-    } else if (input.length < 2 || input.length > 20) {
+    } else if (input.trim().length < 2 || input.length > 20) {
         return localize('_t_You should enter 2-20 characters._t_')
     } else if (affiliate_validation_regex.latin(input)) {
         return localize('_t_Only Latin characters_t_')

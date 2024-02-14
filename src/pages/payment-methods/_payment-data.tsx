@@ -308,8 +308,8 @@ const payment_data: PaymentDataProps[] = [
             {
                 method: <StyledIcon src={PayRetailers} alt="PayRetailers" />,
                 currencies: 'USD',
-                min_max_deposit: '50 - 1000',
-                min_max_withdrawal: '50 - 2400',
+                min_max_deposit: '50 - 1,000',
+                min_max_withdrawal: '50 - 2,400',
                 deposit_time: '_t_1 - 2 working days_t_',
                 withdrawal_time: '_t_1 - 5 working days_t_',
                 description: '_t_Make deposits and withdrawals through your local bank._t_',
@@ -522,7 +522,7 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
-                currencies: 'USD, EUR, AUD, GBP',
+                currencies: 'USD',
                 min_max_deposit: '_t_10 - 500_t_',
                 min_max_withdrawal: '_t_5 - 10,000_t_',
                 deposit_time: '_t_1 working day_t_',

@@ -32,7 +32,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                 <Typography.Heading as="h2" align="center" size="large" mb="8x" md={{ mb: '40x' }}>
                     <Localize translate_text={heading} />
                 </Typography.Heading>
-                <div className={dclsx('md-padding-inline-15x', slider_wrapper)}>
+                <div className={dclsx('md-at-padding-inline-15x', slider_wrapper)}>
                     <Swiper
                         speed={500}
                         slidesPerView={1}
@@ -58,7 +58,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                             },
                         }}
                         className={dclsx(
-                            'padding-inline-5x padding-bottom-20x md-padding-bottom-10x',
+                            'at-padding-inline-5x at-padding-bottom-20x md-at-padding-bottom-10x',
                         )}
                     >
                         {data.map((slide) => (
@@ -69,7 +69,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                     </Swiper>
                     <button
                         className={dclsx(
-                            'padding-0x slider-button-prev visible-larger-than-tablet',
+                            'at-padding-0x slider-button-prev at-visible-larger-than-tablet',
                             slider_button,
                             slider_button_prev,
                         )}
@@ -78,7 +78,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                     </button>
                     <button
                         className={dclsx(
-                            'padding-0x slider-button-next visible-larger-than-tablet',
+                            'at-padding-0x slider-button-next at-visible-larger-than-tablet',
                             slider_button,
                             slider_button_next,
                         )}

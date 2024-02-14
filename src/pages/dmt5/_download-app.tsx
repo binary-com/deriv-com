@@ -66,7 +66,7 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 const InfoText = styled.p`
-    font-size: 25px;
+    font-size: 24px;
     margin-left: 16px;
     line-height: 34px;
     @media ${device.tabletL} {
@@ -114,10 +114,7 @@ const DerivMT5GetApp = () => {
                     <Flex jc="stretch" ai="flex-start" height="auto">
                         <StyledInfoIcon src={InfoIcon} alt={localize('_t_info symbol_t_')} />
                         <InfoText>
-                            <Localize
-                                translate_text="_t_For mobile app sign-ups, set the broker code to <0>Deriv.com Limited.<0>_t_"
-                                components={[<strong key={0} />]}
-                            />
+                            <Localize translate_text="_t_For mobile app login, you can find the broker name on Trader's Hub once you log in to your Deriv MT5 account_t_" />
                         </InfoText>
                     </Flex>
                 </TextAndButtonWrapper>

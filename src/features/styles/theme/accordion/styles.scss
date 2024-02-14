@@ -1,11 +1,11 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.accordion_root {
+.at-accordion_root {
     inline-size: 100%;
 }
 
-.accordion {
+.at-accordion {
     @keyframes slideDown {
         from {
             block-size: 0;
@@ -57,11 +57,11 @@
         padding-inline: 1.6rem;
         min-block-size: 5rem;
 
-        .accordion_icon {
+        .at-accordion_icon {
             transition: transform 0.25s linear;
             transform: rotate(-180deg);
         }
-        .plus_icon {
+        .at-plus_icon {
             inline-size: 1.6rem;
             block-size: 1.6rem;
             background: url(images/svg/elements/plus.svg) no-repeat top left;
@@ -74,7 +74,7 @@
             }
         }
 
-        &[data-state='open'] .plus_icon {
+        &[data-state='open'] .at-plus_icon {
             background: url(images/svg/elements/minus.svg) no-repeat top left;
             background-size: contain;
         }

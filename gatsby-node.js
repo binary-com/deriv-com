@@ -426,24 +426,24 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],
-            // splitChunks: {
-            //     chunks: 'all',
-            //     cacheGroups: {
-            //       vendor: {
-            //         test: /[\\/]node_modules[\\/]/,
-            //         name: 'vendors',
-            //         chunks: 'all',
-            //         priority: -10,
-            //       },
-            //       bundle: {
-            //         test: /\.(js|ts|tsx)$/,
-            //         name: 'bundle',
-            //         chunks: 'all',
-            //         priority: -20,
-            //         enforce: true,
-            //       },
-            //     },
-            // },
+            splitChunks: {
+                chunks: 'all',
+                cacheGroups: {
+                  vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                    priority: -10,
+                  },
+                  bundle: {
+                    test: /\.(js|ts|tsx)$/,
+                    name: 'bundle',
+                    chunks: 'all',
+                    priority: -20,
+                    enforce: true,
+                  },
+                },
+            },
             mangleExports: 'size',
             mangleWasmImports: true,
 

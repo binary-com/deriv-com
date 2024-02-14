@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react'
-import Cookies from 'js-cookie'
 import {
     eu_countries,
     latam_countries,

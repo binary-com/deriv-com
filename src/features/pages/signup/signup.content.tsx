@@ -1,6 +1,6 @@
 import React from 'react'
 import Cookies from 'js-cookie'
-import { signup_latam_human_image, signup_latam_image_hide } from './signup.module.scss'
+import { signup_latam_human_image, signup_latam_image_show } from './signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -34,8 +34,8 @@ const SignUpContent = () => {
              */}
             <Image
                 className={dclsx(signup_latam_human_image, {
-                    [signup_latam_image_hide]:
-                        !is_latam || !growthbook_feature_flag__latam_signup_human_element_visible,
+                    [signup_latam_image_show]:
+                        is_latam && growthbook_feature_flag__latam_signup_human_element_visible,
                 })}
                 src={MaleHuman}
                 alt="LATAM male human"

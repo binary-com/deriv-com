@@ -42,7 +42,7 @@ const etfs_specification: TSpecification = {
                 symbol: 'STOCKSUS500',
                 instrument: 'ARKK.US',
               },
-              contract_size: 1,1,
+              contract_size: 1,
               base_currency: 'USD',
               minimum_size: 1,
               minimum_spread: 0.1,

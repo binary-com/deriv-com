@@ -8,15 +8,17 @@ import DocumentAccordion from './_document_accordion'
 import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
-import { Divider } from 'components/elements'
+import { Divider, LinkText } from 'components/elements'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 import { SEO } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
 import InitialLoader from 'components/elements/dot-loader'
+import { useLivechat } from 'components/hooks/use-livechat'
 
 const Regulatory = () => {
     const { is_row, is_cpa_plan, is_region_loading } = useRegion()
+    const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (
         <Layout>
@@ -341,12 +343,12 @@ const Regulatory = () => {
                                 <Localize
                                     translate_text="_t_For fair resolution of any complaints, please contact us via <0>live chat</0>. To learn more, see our <1>complaint policy</1>._t_"
                                     components={[
-                                        <a
+                                        <span
                                             key={0}
-                                            href="/contact_us?is_livechat_open=true"
-                                            className="underline text-typography-default inline text-base"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            className="underline text-typography-default inline text-base cursor-pointer"
+                                            onClick={() => {
+                                                is_livechat_interactive && LC_API.open_chat_window()
+                                            }}
                                         />,
                                         <a
                                             key={1}
@@ -525,12 +527,12 @@ const Regulatory = () => {
                             <Localize
                                 translate_text="_t_For fair resolution of any complaints, please contact us via <0>live chat</0>._t_"
                                 components={[
-                                    <a
+                                    <span
                                         key={0}
-                                        href="/contact_us?is_livechat_open=true"
-                                        className="underline text-typography-default inline text-base"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        className="underline text-typography-default inline text-base cursor-pointer"
+                                        onClick={() => {
+                                            is_livechat_interactive && LC_API.open_chat_window()
+                                        }}
                                     />,
                                 ]}
                             />

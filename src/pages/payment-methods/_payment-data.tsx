@@ -396,8 +396,8 @@ const payment_data: PaymentDataProps[] = [
             {
                 method: <StyledIcon src={Equitel} alt="Equitel" />,
                 currencies: 'USD',
-                min_max_deposit: '5 - 1000',
-                min_max_withdrawal: '5 - 1000',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',

@@ -19,12 +19,12 @@ const meta_attributes: TMetaAttributes = {
         '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader, Deriv Bot, and SmartTrader._t_',
 }
 
-const ParentWrapper = styled.div<{ pop_up_opened?: boolean }>`
+const ParentWrapper = styled.div<{ isPopupOpen?: boolean }>`
     block-size: calc(100svh - 70px);
     background-image: url(${Map});
     background-repeat: no-repeat;
     background-position: bottom;
-    overflow: ${({ pop_up_opened }) => (pop_up_opened ? 'hidden' : 'auto')};
+    overflow: ${({ isPopupOpen }) => (isPopupOpen ? 'hidden' : 'auto')};
 
     @media ${device.tabletL} {
         background-image: unset;

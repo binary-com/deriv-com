@@ -3,6 +3,7 @@ import { Partytown } from '@builder.io/partytown/react'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import './src/components/localization/config'
 import GlobalProvider from './src/store/global-provider'
+import { isFeatureEnabled } from './src/common/utility'
 
 export const wrapRootElement = ({ element }) => {
     return <GlobalProvider>{element}</GlobalProvider>
@@ -38,25 +39,28 @@ export const onRenderBody = ({ setHeadComponents }) => {
         />,
 
         // GTM setup
-        gtmTrackingId && (
+        isFeatureEnabled("isGTM") &&
+        (gtmTrackingId && (
             <script
                 key="gtm-script"
                 type="text/partytown"
                 async
                 src={`https://www.googletagmanager.com/gtm.js?id=${gtmTrackingId}`}
             ></script>
-        ),
-        gtmTrackingId && (
+        )),
+        isFeatureEnabled("isGTM") &&
+        (gtmTrackingId && (
             <script
                 key="gtm-script"
                 dangerouslySetInnerHTML={{
                     __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer', '${gtmTrackingId}');`,
                 }}
             />
-        ),
+        )),
 
         // Hotjar setup
-        hotjarId && (
+        isFeatureEnabled("isHotjar") &&
+        (hotjarId && (
             <script
                 key="hotjar-script"
                 dangerouslySetInnerHTML={{
@@ -72,6 +76,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
                 }}
             />
-        ),
+        )),
     ])
 }

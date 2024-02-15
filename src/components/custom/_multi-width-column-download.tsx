@@ -11,6 +11,7 @@ export type TDownloadColumnItem = {
     icon: string
     link: string
     smallText?: TString
+    visibility?: boolean
 }
 
 type TDownloadColumn = {

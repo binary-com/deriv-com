@@ -9,6 +9,7 @@ import {
     socialButtonsROW,
     warnText,
 } from './data'
+// import { socialIconROW, socialIconEU, socialIconCareer } from './validate-social-icons-data'
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
@@ -26,11 +27,14 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const socialButtons = is_career
-        ? socialButtonsCareers
-        : is_eu
-        ? socialButtonsEU
-        : socialButtonsROW
+    const filterSocialIcons = (iconsData) => {
+        return iconsData.filter((item) => item.visibility)
+    }
+    const socialIconROW = filterSocialIcons(socialButtonsROW)
+    const socialIconEU = filterSocialIcons(socialButtonsEU)
+    const socialIconCareer = filterSocialIcons(socialButtonsCareers)
+
+    const socialButtons = is_career ? socialIconCareer : is_eu ? socialIconEU : socialIconROW
 
     return (
         <Footer.FooterBlock

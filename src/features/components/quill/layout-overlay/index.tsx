@@ -2,11 +2,11 @@ import React, { lazy, Suspense } from 'react'
 import clsx from 'clsx'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
-// import visibleItem from '../../../../../static/enableFlags.json'
 import { wrapper_ltr, wrapper_rtl } from './styles.module.scss'
 import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import { isFeatureEnabled } from 'common/utility'
 // import { isEnabled } from 'common/utility'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
@@ -52,8 +52,8 @@ const LayoutOverlay = () => {
                         )}px`,
                     }}
                 >
-                    <LiveChatButton />
-                    <WhatsappButton />
+                    {isFeatureEnabled('chat.isLiveChat') && <LiveChatButton />}
+                    {isFeatureEnabled('chat.isWhatsappChat') && <WhatsappButton />}
                 </div>
             </div>
             <CfdWarningBanner />

@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import language_config from '../../i18n-config'
-import visibleItemData from '../../static/enableFlags'
+import featuresConfig from '../../static/enableFlags'
 import {
     deriv_cookie_domain,
     deriv_app_languages,
@@ -458,11 +458,16 @@ export const getP2PCookie = () => {
     return p2p_validity
 }
 
-// export const isEnabled = (parameter) => {
-//     // visibleItemData = visibleItemData || visibleItemData
-//     for (let key in visibleItemData) {
+export const isFeatureEnabled = (featurePath) => {
+    const pathParts = featurePath.split('.')
+    let currentFeature = featuresConfig
 
-//     }
-//     // If the parameter value doesn't exist in any key, return null
-//     return null
-// }
+    for (const part of pathParts) {
+        if (currentFeature[part] === undefined) {
+            return false // Feature path does not exist
+        }
+        currentFeature = currentFeature[part]
+    }
+
+    return Boolean(currentFeature)
+}

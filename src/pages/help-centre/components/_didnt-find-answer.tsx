@@ -8,6 +8,7 @@ import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import { whatsapp_url } from 'common/constants'
+import { isFeatureEnabled } from 'common/utility'
 
 const DidntFindYourAnswerWrapper = styled.div`
     background: var(--color-black);
@@ -89,14 +90,18 @@ const DidntFindYourAnswerBanner = () => {
 
             {is_livechat_interactive && (
                 <ButtonWrapper>
-                    <ChatButton secondary onClick={openChatWindow}>
-                        <Localize translate_text="_t_Chat_t_" />
-                    </ChatButton>
+                    {isFeatureEnabled('chat.isLiveChat') && (
+                        <ChatButton secondary onClick={openChatWindow}>
+                            <Localize translate_text="_t_Chat_t_" />
+                        </ChatButton>
+                    )}
 
-                    <WhatsAppButton onClick={openWhatsappUrl}>
-                        <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
-                        <Localize translate_text="_t_WhatsApp_t_" />
-                    </WhatsAppButton>
+                    {isFeatureEnabled('chat.isWhatsappChat') && (
+                        <WhatsAppButton onClick={openWhatsappUrl}>
+                            <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
+                            <Localize translate_text="_t_WhatsApp_t_" />
+                        </WhatsAppButton>
+                    )}
                 </ButtonWrapper>
             )}
         </DidntFindYourAnswerWrapper>

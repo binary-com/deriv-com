@@ -11,6 +11,7 @@ import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import { isFeatureEnabled } from 'common/utility'
 
 const Offices = Loadable(() => import('./_offices'))
 const Affiliates = Loadable(() => import('./_affiliates'))
@@ -57,7 +58,9 @@ const ContactUs = ({ data }: TContactUs) => {
             </SectionContainer>
             <ContactWays support_section={support_section} />
             <Offices our_offices={our_offices} office_address={office_address} />
-            <Affiliates business_partnership={business_partnership} />
+            {isFeatureEnabled('chat.isLiveChat') && (
+                <Affiliates business_partnership={business_partnership} />
+            )}
         </Layout>
     )
 }

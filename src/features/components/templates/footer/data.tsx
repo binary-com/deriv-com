@@ -12,6 +12,7 @@ import {
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { Localize } from 'components/localization'
+import { isFeatureEnabled } from 'common/utility'
 
 export const RowFooterNavData: FooterItems[] = [
     {
@@ -500,36 +501,42 @@ export const socialButtonsROW = [
         href: 'https://www.facebook.com/derivdotcom',
         'data-cy': 'facebook',
         'aria-label': 'facebook',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.facebook'),
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_official',
         'data-cy': 'instagram',
         'aria-label': 'instagram',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.instagram'),
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/derivdotcom/',
         'data-cy': 'twitter',
         'aria-label': 'twitter',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.twitter'),
     },
     {
         icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.youtube.com/@deriv',
         'data-cy': 'youtube',
         'aria-label': 'youtube',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.youtube'),
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
         'data-cy': 'linkedin',
         'aria-label': 'linkedin',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.linkedin'),
     },
     {
         icon: <StandaloneTelegramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://t.me/Derivchannelofficial',
         'data-cy': 'telegram',
         'aria-label': 'telegram',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.telegram'),
     },
 ]
 
@@ -539,30 +546,35 @@ export const socialButtonsEU = [
         href: 'https://www.facebook.com/DerivEU',
         'data-cy': 'facebook',
         'aria-label': 'facebook',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.facebook'),
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_eu/',
         'data-cy': 'instagram',
         'aria-label': 'instagram',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.instagram'),
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/deriv_eu/',
         'data-cy': 'twitter',
         'aria-label': 'twitter',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.twitter'),
     },
     {
         icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.youtube.com/@deriv',
         'data-cy': 'youtube',
         'aria-label': 'youtube',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.youtube'),
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
         'data-cy': 'linkedin',
         'aria-label': 'linkedin',
+        visibility: isFeatureEnabled('isNormalSocialMediaIcons.linkedin'),
     },
 ]
 
@@ -572,17 +584,20 @@ export const socialButtonsCareers = [
         href: 'https://www.facebook.com/derivcareers',
         'data-cy': 'facebook',
         'aria-label': 'facebook',
+        visibility: isFeatureEnabled('isCareerSocialMediaIcons.facebook'),
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/derivcareers/',
         'data-cy': 'instagram',
         'aria-label': 'instagram',
+        visibility: isFeatureEnabled('isCareerSocialMediaIcons.instagram'),
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/life/',
         'data-cy': 'linkedin',
         'aria-label': 'linkedin',
+        visibility: isFeatureEnabled('isCareerSocialMediaIcons.linkedin'),
     },
 ]

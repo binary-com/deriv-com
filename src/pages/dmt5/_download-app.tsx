@@ -29,20 +29,52 @@ import {
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
+import { isFeatureEnabled } from 'common/utility'
 
 const items: TDownloadColumnItem[] = [
-    { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
-    { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
-    { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
+    {
+        text: 'Google Play',
+        icon: AndroidIcon,
+        link: dmt5_android_url,
+        visibility: isFeatureEnabled('mt5Apps.android'),
+    },
+    {
+        text: 'App Store',
+        icon: AppleIcon,
+        link: dmt5_ios_url,
+        visibility: isFeatureEnabled('mt5Apps.appStore'),
+    },
+    {
+        text: 'AppGallery',
+        icon: AppGalleryIcon,
+        link: dmt5_app_gallery_url,
+        visibility: isFeatureEnabled('mt5Apps.appGallery'),
+    },
     {
         text: 'Web Browser',
         icon: BrowserIcon,
         link: dmt5_web_browser_url,
         smallText: '_t_Use it on your_t_',
+        visibility: isFeatureEnabled('mt5Apps.webBrowser'),
     },
-    { text: 'Windows', icon: WinIcon, link: dmt5_windows },
-    { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
-    { text: 'Linux', icon: LinuxIcon, link: dmt5_linux_url },
+    {
+        text: 'Windows',
+        icon: WinIcon,
+        link: dmt5_windows,
+        visibility: isFeatureEnabled('mt5Apps.windows'),
+    },
+    {
+        text: 'macOS',
+        icon: MacIcon,
+        link: dmt5_mac_app_url,
+        visibility: isFeatureEnabled('mt5Apps.macOS'),
+    },
+    {
+        text: 'Linux',
+        icon: LinuxIcon,
+        link: dmt5_linux_url,
+        visibility: isFeatureEnabled('mt5Apps.linux'),
+    },
 ]
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`

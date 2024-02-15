@@ -1,15 +1,20 @@
 module.exports = {
     "chat": {
-        "isLiveChat": true,
+        "isLiveChat": false,
         "isWhatsappChat": true
     },
-    "isSocialMediaIcons": {
+    "isCareerSocialMediaIcons": {
         "facebook": true,
         "instagram": true,
-        "twitter": true,
-        "youtube": true,
         "linkedin": true,
-        "telegram": true
+    },
+    "isNormalSocialMediaIcons": {
+        "facebook": false,
+        "instagram": true,
+        "twitter": false,
+        "youtube": true,
+        "linkedin": false,
+        "telegram": false
     },
     "isTrustpilot": true,
     "isLivePricing": true,
@@ -18,36 +23,32 @@ module.exports = {
     "isHotjar": true,
     "isAnalytics": true,
     "isGrowthBook": true,
-    "isSignup": {
-        "google": true,
-        "apple": true,
-        "facebook": true
+    "isGoogleSignup": true,
+    "isAppleSignup": true,
+    "isFacebookSignup": true,
+    "mt5Apps": {
+        "android": true,
+        "appStore": true,
+        "appGallery": true,
+        "webBrowser": true,
+        "windows": true,
+        "macOS": true,
+        "linux": true
     },
-    "isApps": {
-        "mt5": {
-            "android": true,
-            "appStore": true,
-            "appGallery": true,
-            "webBrowser": true,
-            "windows": true,
-            "macOS": true,
-            "linux": true
-        },
-        "derivX": {
-            "android": true,
-            "appStore": true,
-            "appGallery": true,
-            "webBrowser": true
-        },
-        "ctrader": {
-            "android": true,
-            "webBrowser": true,
-            "windows": true
-        },
-        "derivGO": {
-            "android": true,
-            "appStore": true,
-            "appGallery": true
-        }
+    "derivXApps": {
+        "android": true,
+        "appStore": true,
+        "appGallery": true,
+        "webBrowser": true
+    },
+    "ctraderApps": {
+        "android": true,
+        "webBrowser": true,
+        "windows": true
+    },
+    "derivGOApps": {
+        "android": true,
+        "appStore": true,
+        "appGallery": true
     }
 }

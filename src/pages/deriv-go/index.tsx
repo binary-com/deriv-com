@@ -12,6 +12,7 @@ import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { ContentType } from 'pages/landing/_types'
 import { TGatsbyHead } from 'features/types'
+import { isFeatureEnabled } from 'common/utility'
 
 const items: ContentType[] = [
     {
@@ -68,7 +69,9 @@ const DerivGo = () => {
                     <WhyTradeDerivGo />
                     <DerivGoContent reverse P2P={items} />
                     <StartDerivGo />
-                    <Roadmap portal={derivGoPortalData} />
+                    {isFeatureEnabled('isDerivGOManagementBoard') && (
+                        <Roadmap portal={derivGoPortalData} />
+                    )}
                     <FooterBanner />
                     <OtherApps />
                 </Layout>

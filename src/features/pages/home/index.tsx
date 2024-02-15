@@ -11,6 +11,7 @@ import TrustpilotSection from './trustpilot'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
+import { isFeatureEnabled } from 'common/utility'
 const FastPaymentSection = lazy(() => import('./fast-payment'))
 const LiveMarketSection = lazy(() => import('./live-pricing-migration'))
 const TradeTypeSection = lazy(() => import('./trade-type'))
@@ -24,12 +25,16 @@ const HomePage = () => {
             <MainRowNavigation />
             <PageLayout>
                 <HomeHero />
-                <TrustpilotSection />
+                {isFeatureEnabled('isTrustpilot') && <TrustpilotSection />}
                 <StatSection />
                 <TwentyYearsStrong />
-                <Suspense fallback={<div className="h-[695px] md:h-[638.5px] lg:h-[811.78px]" />}>
-                    <LiveMarketSection />
-                </Suspense>
+                {isFeatureEnabled('isLivePricing') && (
+                    <Suspense
+                        fallback={<div className="h-[695px] md:h-[638.5px] lg:h-[811.78px]" />}
+                    >
+                        <LiveMarketSection />
+                    </Suspense>
+                )}
                 <Suspense fallback={<div className="h-[1805px] md:h-[1007.5px] lg:h-[999px]" />}>
                     <UserFriendlyPlatforms />
                 </Suspense>

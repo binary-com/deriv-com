@@ -8,7 +8,7 @@ import TalkToUs from './_talk-to-us'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { sanitize } from 'common/utility'
+import { isFeatureEnabled, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
@@ -171,7 +171,7 @@ const SearchSection = () => {
                             />
                         )}
                     </SearchForm>
-                    <TalkToUs />
+                    {isFeatureEnabled('chat.isLiveChat') && <TalkToUs />}
 
                     {has_search_value && (
                         <SearchResult

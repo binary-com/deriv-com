@@ -429,14 +429,19 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             splitChunks: {
                 chunks: 'all',
                 cacheGroups: {
-                    default: false,
-                    vendors: false,
-                    // Merge all js, ts, and tsx files  into one bundle
-                    all: {
-                        test: /\.(js|ts|tsx)$/,
-                        name: 'bundle',
-                        chunks: 'all',
-                    },
+                  vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                    priority: -10,
+                  },
+                  bundle: {
+                    test: /\.(js|ts|tsx)$/,
+                    name: 'bundle',
+                    chunks: 'all',
+                    priority: -20,
+                    enforce: true,
+                  },
                 },
             },
             mangleExports: 'size',

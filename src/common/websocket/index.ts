@@ -45,7 +45,7 @@ export class ApiManager {
                 this.socket = new WebSocket(websocket_connection_url)
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
-            this.registerKeepAlive()
+            // this.registerKeepAlive()
             this.ready = true
         }
     }
@@ -70,24 +70,25 @@ export class ApiManager {
         return this.derivApi.authorize({ authorize: token })
     }
 
-    private registerKeepAlive() {
-        if (this.pingInterval) {
-            clearInterval(this.pingInterval)
-        }
-        this.socket.addEventListener('open', () => {
-            this.pingInterval = setInterval(() => {
-                this.socket.send(JSON.stringify({ ping: 1 }))
-            }, PING_INTERVAL)
-        })
+    // private registerKeepAlive() {
+    //     console.log("called")
+    //     if (this.pingInterval) {
+    //         clearInterval(this.pingInterval)
+    //     }
+    //     this.socket.addEventListener('open', () => {
+    //         this.pingInterval = setInterval(() => {
+    //             this.socket.send(JSON.stringify({ ping: 1 }))
+    //         }, PING_INTERVAL)
+    //     })
 
-        this.socket.addEventListener('close', () => {
-            clearInterval(this.pingInterval)
-        })
+    //     this.socket.addEventListener('close', () => {
+    //         clearInterval(this.pingInterval)
+    //     })
 
-        this.socket.addEventListener('error', () => {
-            clearInterval(this.pingInterval)
-        })
-    }
+    //     this.socket.addEventListener('error', () => {
+    //         clearInterval(this.pingInterval)
+    //     })
+    // }
 
     public reset(language: string) {
         const socket_url = getSocketURL()
@@ -99,7 +100,7 @@ export class ApiManager {
 
         this.socket = new WebSocket(websocket_connection_url)
         this.derivApi = new DerivAPIBasic({ connection: this.socket })
-        this.registerKeepAlive()
+        // this.registerKeepAlive()
     }
 }
 let apiManager: ApiManager

@@ -59,27 +59,15 @@ const StyledFlex = styled(Flex)`
 `
 
 type TextProps = {
-    textWrap?: "wrap" | "nowrap"
+    textWrap?: 'wrap' | 'nowrap'
 }
 
 const StyledText = styled(Header)<TextProps>`
-    margin-right: 1.6rem;
     text-wrap: ${(props) => props.textWrap};
-
-    @media ${device.tabletL} {
-        font-size: 16px;
-        text-align: center;
-        margin-bottom: 12px;
-    }
-    @media ${device.mobileL} {
-        margin-right: 0;
-        font-size: 14px;
-        margin-bottom: 12px;
-    }
 `
 const available_on: TString = '_t_Available on_t_'
-const deriv_mt5: String = 'Deriv MT5'
-const deriv_x: String = 'Deriv X'
+const deriv_mt5 = 'Deriv MT5'
+const deriv_x = 'Deriv X'
 
 const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
     const { is_row } = useRegion()
@@ -89,7 +77,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer wrap="nowrap">
-                        <StyledText type="paragraph-1" weight="normal" textWrap= "nowrap">
+                        <StyledText type="paragraph-1" weight="normal" textWrap="nowrap">
                             <Localize translate_text="_t_Available on_t_" />
                         </StyledText>
                     </FlexContainer>
@@ -107,12 +95,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 </StyledLocalizedLink>
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
-                                        <img
-                                            src={DerivX}
-                                            alt={deriv_x}
-                                            width="24"
-                                            height="24"
-                                        />
+                                        <img src={DerivX} alt={deriv_x} width="24" height="24" />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             {deriv_x}
                                         </StyledHeader>
@@ -124,15 +107,8 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                         <FlexContainer>
                             <StyledLocalizedLink to="/dmt5/">
                                 <Flex direction="row">
-                                    <img
-                                        src={DerivMT5}
-                                        alt={deriv_mt5}
-                                    />
-                                    <StyledHeader
-                                        type="paragraph-1"
-                                        as="h2"
-                                        width="auto"
-                                    >
+                                    <img src={DerivMT5} alt={deriv_mt5} />
+                                    <StyledHeader type="paragraph-1" as="h2" width="auto">
                                         {deriv_mt5}
                                     </StyledHeader>
                                 </Flex>

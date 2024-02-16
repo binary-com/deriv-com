@@ -180,7 +180,7 @@ export const BotCard = ({ is_selected, word_break_cover }: CardProps) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }: DMT5CardProps) => (
-    <StyledLink aria_label="DMT5" to={!is_ppc_redirect && '/dmt5/'}>
+    <StyledLink aria_label="DMT5" to="/dmt5/">
         <Card
             cover_background="var(--color-green)"
             cover_content="_t_Discover Deriv MT5 now_t_"
@@ -403,7 +403,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                     content="_t_Trade on Deriv MT5, the all-in-one CFD trading platform._t_"
                     title="_t_Deriv MT5_t_"
                     onClick={onClick}
-                    to={!is_ppc_redirect && '/dmt5/'}
+                    to="/dmt5"
                 />
                 {is_row && (
                     <>

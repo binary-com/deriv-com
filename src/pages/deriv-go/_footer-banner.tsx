@@ -20,6 +20,7 @@ import {
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
+import { isFeatureEnabled } from 'common/utility'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -50,12 +51,31 @@ const DerivGoGetApp = () => {
         useRegion()
 
     const items: TDownloadColumnItem[] = [
-        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+        {
+            text: 'Google Play',
+            icon: AndroidIcon,
+            link: deriv_go_playstore_url,
+            visibility: isFeatureEnabled('ctraderApps.windows'),
+        },
         ...(is_ios_supported && is_appgallery_and_ios_supported
-            ? [{ text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url }]
+            ? [
+                  {
+                      text: 'App Store',
+                      icon: AppleIcon,
+                      link: deriv_go_ios_url,
+                      visibility: isFeatureEnabled('ctraderApps.appStore'),
+                  },
+              ]
             : []),
         ...(is_appgallery_supported && is_appgallery_and_ios_supported
-            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url }]
+            ? [
+                  {
+                      text: 'AppGallery',
+                      icon: AppGalleryIcon,
+                      link: deriv_go_huaweiappgallery_url,
+                      visibility: isFeatureEnabled('ctraderApps.appGallery'),
+                  },
+              ]
             : []),
     ]
 

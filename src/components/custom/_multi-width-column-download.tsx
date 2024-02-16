@@ -76,6 +76,8 @@ const StyledItemsWrapper = styled.div`
 `
 
 const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDownloadColumn) => {
+    const renderableItems = items.filter((item) => item.visibility)
+    const hasVisibilityFalse = items.some((item) => !item.visibility)
     return (
         <Flex ai="center">
             <DownloadAppWrapper is_rtl={is_rtl}>
@@ -90,14 +92,16 @@ const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDow
                         <StyledHeading as="p" weight="100">
                             <Localize translate_text={QRHeading1} />
                         </StyledHeading>
-                        <StyledHeading as="h5" weight="700">
-                            <Localize translate_text={QRHeading2} />
-                        </StyledHeading>
+                        {!hasVisibilityFalse && (
+                            <StyledHeading as="h5" weight="700">
+                                <Localize translate_text={QRHeading2} />
+                            </StyledHeading>
+                        )}
                     </div>
                 </QRScanBox>
                 <DownloadAppOsLinks>
                     <StyledItemsWrapper>
-                        {items.map(({ icon, link, text, smallText }) => (
+                        {renderableItems.map(({ icon, link, text, smallText }) => (
                             <StyledItems key={text}>
                                 <StyledOsIcon src={icon} alt={localize('_t_OS icon_t_')} />
                                 <AppButton

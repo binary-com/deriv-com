@@ -21,34 +21,32 @@ module.exports = {
     "isDerivGOManagementBoard": true,
     "isGTM": true,
     "isHotjar": true,
-    "isAnalytics": true,
-    "isGrowthBook": true,
     "isGoogleSignup": true,
     "isAppleSignup": true,
     "isFacebookSignup": true,
     "mt5Apps": {
         "android": true,
         "appStore": true,
-        "appGallery": true,
+        "appGallery": false,
         "webBrowser": true,
         "windows": true,
         "macOS": true,
         "linux": true
     },
     "derivXApps": {
-        "android": true,
+        "android": false,
         "appStore": true,
         "appGallery": true,
         "webBrowser": true
     },
     "ctraderApps": {
         "android": true,
-        "webBrowser": true,
+        "webBrowser": false,
         "windows": true
     },
     "derivGOApps": {
         "android": true,
-        "appStore": true,
+        "appStore": false,
         "appGallery": true
     }
 }

@@ -16,6 +16,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { ctrader_android_url, ctrader_traders_hub_url, ctrader_windows_url } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
+import { isFeatureEnabled } from 'common/utility'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -50,14 +51,25 @@ const DerivCtraderApp = () => {
     const is_rtl = useIsRtl()
 
     const items: TDownloadColumnItem[] = [
-        { text: 'Google Play', icon: AndroidIcon, link: ctrader_android_url },
+        {
+            text: 'Google Play',
+            icon: AndroidIcon,
+            link: ctrader_android_url,
+            visibility: isFeatureEnabled('ctraderApps.android'),
+        },
         {
             text: `Web Browser`,
             icon: BrowserIcon,
             link: ctrader_traders_hub_url,
             smallText: `_t_Via Trader's Hub_t_`,
+            visibility: isFeatureEnabled('ctraderApps.webBrowser'),
         },
-        { text: 'Windows', icon: WindowsIcon, link: ctrader_windows_url },
+        {
+            text: 'Windows',
+            icon: WindowsIcon,
+            link: ctrader_windows_url,
+            visibility: isFeatureEnabled('ctraderApps.windows'),
+        },
     ]
 
     return (

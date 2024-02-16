@@ -22,6 +22,7 @@ import {
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
+import { isFeatureEnabled } from 'common/utility'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -57,16 +58,34 @@ const DerivXGetApp = () => {
     const { is_appgallery_supported } = useRegion()
 
     const items: TDownloadColumnItem[] = [
-        { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
-        { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
+        {
+            text: 'Google Play',
+            icon: AndroidIcon,
+            link: derivx_android_url,
+            visibility: isFeatureEnabled('derivXApps.android'),
+        },
+        {
+            text: 'App Store',
+            icon: AppleIcon,
+            link: derivx_ios_url,
+            visibility: isFeatureEnabled('derivXApps.appStore'),
+        },
         ...(is_appgallery_supported
-            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url }]
+            ? [
+                  {
+                      text: 'AppGallery',
+                      icon: AppGalleryIcon,
+                      link: derivx_huawei_url,
+                      visibility: isFeatureEnabled('derivXApps.appGallery'),
+                  },
+              ]
             : []),
         {
             text: 'Web Browser',
             icon: BrowserIcon,
             link: derivx_app_url,
             smallText: '_t_Use it on your_t_',
+            visibility: isFeatureEnabled('derivXApps.webBrowser'),
         },
     ]
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms'
+import { TraderCard, BotCard } from 'components/custom/other-platforms'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -39,9 +39,6 @@ const query = graphql`
             ...fadeIn
         }
         dbot_trade: file(relativePath: { eq: "home/dbot_trade_home.png" }) {
-            ...fadeIn
-        }
-        dmt5_trade: file(relativePath: { eq: "home/dmt5_trade_home.png" }) {
             ...fadeIn
         }
     }
@@ -87,12 +84,6 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                                     alt={localize('_t_Dbot trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
-                            <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <QueryImage
-                                    data={data['dmt5_trade']}
-                                    alt={localize('_t_DMT5 trading platform at Deriv_t_')}
-                                />
-                            </ImageWrapper>
                         </ImageContainer>
                     </div>
                     <div style={{ width: '100%', maxWidth: '38.4rem' }}>
@@ -111,12 +102,6 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                                     <BotCard />
                                 </div>
                             )}
-                            <div
-                                onMouseEnter={() => setSelected(platforms.mt5)}
-                                onMouseLeave={() => setSelected('')}
-                            >
-                                <DMT5Card is_ppc_redirect={is_ppc_redirect} />
-                            </div>
                         </CssGrid>
                     </div>
                 </Flex>

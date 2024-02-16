@@ -73,30 +73,30 @@ export const MainNavigationButtons = () => {
                 so there would be visible delay if it would be in gatsby-ssr
                 still there might be micro flickering, but it should be completely marginal if ever visible
             */}
-            {/* {!isRealDevice && (
-                <div
-                    style={{ display: 'none' }}
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                    <script>
-                        (function() {
-                            const isLoggedIn = document?.cookie.split(';').some(function(item) { return item.trim().startsWith('client_information='); });
-                            const isRealDevice = typeof window !== 'undefined';
-    
-                            if (isRealDevice) {
-                                if (isLoggedIn) {
-                                    document.querySelector('#${uniq} .navbuttons_tradershub').classList.remove('navbuttons_tradershub--hidden');
-                                } else {
-                                    document.querySelector('#${uniq} .navbuttons_login').classList.remove('navbuttons_login--hidden');
-                                    document.querySelector('#${uniq} .navbuttons_opendemo').classList.remove('navbuttons_opendemo--hidden');
-                                }
+
+            <div
+                style={{ display: 'none' }}
+                dangerouslySetInnerHTML={{
+                    __html: `
+                <script>
+                    (function() {
+                        console.log('>> snippet running');
+                        const isLoggedIn = document?.cookie.split(';').some(function(item) { return item.trim().startsWith('client_information='); });
+                        const isRealDevice = typeof window !== 'undefined';
+
+                        if (isRealDevice) {
+                            if (isLoggedIn) {
+                                document.querySelector('#${uniq} .navbuttons_tradershub').classList.remove('navbuttons_tradershub--hidden');
+                            } else {
+                                document.querySelector('#${uniq} .navbuttons_login').classList.remove('navbuttons_login--hidden');
+                                document.querySelector('#${uniq} .navbuttons_opendemo').classList.remove('navbuttons_opendemo--hidden');
                             }
-                        })();
-                    </script>
-                `,
-                    }}
-                ></div>
-            )} */}
+                        }
+                    })();
+                </script>
+            `,
+                }}
+            ></div>
 
             <MobileNavToggle data-cy="hamburger-menu" />
         </div>

@@ -26,7 +26,7 @@ const SignUpPageForm = () => {
     const is_button_disabled =
         values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
-    if (is_mounted) return null
+    if (!is_mounted) return null
 
     return (
         <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onSignup)} gap="8x">

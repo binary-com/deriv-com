@@ -630,7 +630,7 @@ const ib_dmt5_swapFree: DMT5Type = {
             class_name: 'volatility-indices',
         },
         {
-            title: '_t_Step index_t_',
+            title: '_t_Step Index_t_',
             headerHeight: '6.4rem',
             assets: [
                 {

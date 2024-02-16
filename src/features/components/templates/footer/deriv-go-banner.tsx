@@ -6,9 +6,14 @@ import { StaticImage } from 'gatsby-plugin-image'
 import DownloadBadges from './download'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import { isFeatureEnabled } from 'common/utility'
 
 export const DerivGoBanner = () => {
     const { is_row } = useRegion()
+    const showQR =
+        isFeatureEnabled('derivGOApps.appGallery') &&
+        isFeatureEnabled('derivGOApps.android') &&
+        isFeatureEnabled('derivGOApps.appStore')
     return (
         <div className="flex flex-col gap-gap-lg">
             {is_row && (
@@ -28,20 +33,22 @@ export const DerivGoBanner = () => {
                                 <Localize translate_text="_t_Trade multipliers on our mobile app._t_" />
                             </Text>
                         </div>
-                        <div className="block max-sm:hidden">
-                            <div className="flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm">
-                                <StaticImage
-                                    src="../../../../images/common/migration/footer/deriv-go-qr.png"
-                                    alt={localize('_t_download deriv-go_t_')}
-                                    height={64}
-                                    width={64}
-                                    placeholder="none"
-                                />
-                                <CaptionText className="text-typography-default">
-                                    <Localize translate_text="_t_Scan to download_t_" />
-                                </CaptionText>
+                        {showQR && (
+                            <div className="block max-sm:hidden">
+                                <div className="flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm">
+                                    <StaticImage
+                                        src="../../../../images/common/migration/footer/deriv-go-qr.png"
+                                        alt={localize('_t_download deriv-go_t_')}
+                                        height={64}
+                                        width={64}
+                                        placeholder="none"
+                                    />
+                                    <CaptionText className="text-typography-default">
+                                        <Localize translate_text="_t_Scan to download_t_" />
+                                    </CaptionText>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                     <DownloadBadges />
                 </div>

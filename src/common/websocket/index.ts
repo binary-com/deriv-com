@@ -57,7 +57,7 @@ export class ApiManager {
 
     public reconnectIfNotConnected(lang?: string) {
         console.log('inside recoonect')
-        if (this.socket.readyState !== 1) {
+        if (this?.socket?.readyState !== 1) {
             this.socket = null
             this.init(lang)
         }

@@ -73,7 +73,7 @@ export const MainNavigationButtons = () => {
                 so there would be visible delay if it would be in gatsby-ssr
                 still there might be micro flickering, but it should be completely marginal if ever visible
             */}
-            {!isRealDevice && (
+            {/* {!isRealDevice && (
                 <div
                     style={{ display: 'none' }}
                     dangerouslySetInnerHTML={{
@@ -96,7 +96,7 @@ export const MainNavigationButtons = () => {
                 `,
                     }}
                 ></div>
-            )}
+            )} */}
 
             <MobileNavToggle data-cy="hamburger-menu" />
         </div>

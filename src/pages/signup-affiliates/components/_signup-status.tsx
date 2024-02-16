@@ -131,7 +131,7 @@ const AffiliateSignupStatus = ({
 
     const handleSuccess = useCallback((action: 'close_wizard' | 'success_popup_cta') => {
         trackEvent({ action })
-        window.location.href = 'https://deriv.com/'
+        window.location.href = ' https://deriv.com/partners/affiliate-ib/ '
     }, [])
 
     const handleIssue = useCallback(() => {

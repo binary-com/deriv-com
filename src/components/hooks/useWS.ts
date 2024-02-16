@@ -17,6 +17,7 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     }, [])
     useEffect(() => {
         if (isBrowser() && !websocketInitialized) {
+            console.log('reconnecting wwwe')
             const currentLanguage = getLanguage() ?? 'en'
             apiManager.reconnectIfNotConnected(currentLanguage).then(() => {
                 setWebsocketInitialized(true)

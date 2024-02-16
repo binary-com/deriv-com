@@ -9,6 +9,7 @@ import useRegion from 'components/hooks/use-region'
 
 export const DerivGoBanner = () => {
     const { is_row } = useRegion()
+    const deriv_go = 'Deriv GO'
     return (
         <div className="flex flex-col gap-gap-lg">
             {is_row && (
@@ -20,9 +21,7 @@ export const DerivGoBanner = () => {
                                     width={24}
                                     height={24}
                                 />
-                                <Heading.H5 aria-level={3}>
-                                    <Localize translate_text="_t_Deriv GO_t_" />
-                                </Heading.H5>
+                                <Heading.H5 aria-level={3}>{deriv_go}</Heading.H5>
                             </div>
                             <Text size="sm">
                                 <Localize translate_text="_t_Trade multipliers on our mobile app._t_" />

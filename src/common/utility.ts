@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import language_config from '../../i18n-config'
-import featuresConfig from '../../static/enableFlags'
+import featuresConfig from '../../static/appConfig'
 import {
     deriv_cookie_domain,
     deriv_app_languages,

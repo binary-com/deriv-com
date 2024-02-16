@@ -23,7 +23,15 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
         ),
-        icon: <img src="/new-homepage/dmt5.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/dmt5.svg"
+                alt="deriv mt5"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -40,7 +48,15 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_Fast CFDs platform with inbuilt copy trading._t_" />
         ),
-        icon: <img src="/new-homepage/dct.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/dct.svg"
+                alt="deriv ctrader"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -57,7 +73,9 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_User-friendly and customisable CFDs platform._t_" />
         ),
-        icon: <img src="/new-homepage/dx.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img src="/new-homepage/dx.svg" alt="deriv x" width={48} height={48} loading="lazy" />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -74,7 +92,9 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_Mobile app for multipliers trading on the go._t_" />
         ),
-        icon: <img src="/new-homepage/dgo.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img src="/new-homepage/dgo.svg" alt="deriv go" width={48} height={48} loading="lazy" />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -91,7 +111,15 @@ export const RowCards: PlatformCardContent[] = [
         description: (
             <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
         ),
-        icon: <img src="/new-homepage/dt.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/dt.svg"
+                alt="deriv trader"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -106,7 +134,15 @@ export const RowCards: PlatformCardContent[] = [
         filterKey: ['Options', 'Bots'],
         header: <Localize translate_text="_t_Deriv Bot_t_" />,
         description: <Localize translate_text="_t_Automated trading. No coding required._t_" />,
-        icon: <img src="/new-homepage/dbot.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/dbot.svg"
+                alt="deriv bot"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -128,7 +164,15 @@ export const EUCards: CardContent[] = [
                 components={[<strong key={0} />]}
             />
         ),
-        icon: <img src="/new-homepage/dmt5.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/dmt5.svg"
+                alt="deriv mt5"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',
@@ -147,7 +191,15 @@ export const EUCards: CardContent[] = [
                 components={[<strong key={0} />]}
             />
         ),
-        icon: <img src="/new-homepage/dt.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/dt.svg"
+                alt="deriv trader"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         size: 'md',
         align: 'start',
         color: 'light',

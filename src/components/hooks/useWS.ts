@@ -16,7 +16,9 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
         async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
             setIsLoading(true)
             try {
+                console.log(apiManager, 'wwwe')
                 const response = await apiManager.augmentedSend(name, data)
+                console.log(response, 'wwwe')
                 setData(response[name] as TSocketResponseData<T>)
             } catch (e) {
                 setError(e)

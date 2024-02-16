@@ -46,7 +46,20 @@ export class ApiManager {
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
             // this.registerKeepAlive()
+            this.socket.addEventListener('close', () => {
+                console.log('close')
+                this.derivApi.disconnect()
+                this.ready = null
+            })
             this.ready = true
+        }
+    }
+
+    public reconnectIfNotConnected(lang?: string) {
+        console.log('inside recoonect')
+        if (this.socket.readyState !== 1) {
+            this.socket = null
+            this.init(lang)
         }
     }
 

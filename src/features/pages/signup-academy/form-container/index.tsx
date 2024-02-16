@@ -1,0 +1,74 @@
+import React from 'react'
+import {
+    signup_form_container,
+    signup_form_line,
+    link_text,
+    sign_up_header,
+    sign_up_content,
+} from '../signup.module.scss'
+import FormSocialButtons from './form-social-buttons'
+import SignUpPageForm from './signup-page-form'
+import Flex from 'features/components/atoms/flex-box'
+import Typography from 'features/components/atoms/typography'
+import { Localize } from 'components/localization'
+import Link from 'features/components/atoms/link'
+import useRegion from 'components/hooks/use-region'
+
+const SignUpFormContainer = () => {
+    const { is_eu } = useRegion()
+
+    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
+
+    return (
+        <Flex.Box
+            basis="full"
+            padding="5x"
+            radius="4x"
+            direction="col"
+            gap="8x"
+            md={{
+                basis: '6-12',
+                padding: '20x',
+            }}
+            className={signup_form_container}
+        >
+            <Typography.Heading className={sign_up_header}>
+                <Localize translate_text="_t_Sign up_t_" />
+            </Typography.Heading>
+
+            <Typography.Paragraph>
+                <Localize translate_text="_t_Use this account to log in to <0Deriv</0> and Deriv Academy._t_" />
+            </Typography.Paragraph>
+            <SignUpPageForm />
+            <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
+                <Localize
+                    translate_text="_t_By clicking “Create account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy policy</0>._t_"
+                    components={[
+                        <Link
+                            className={link_text}
+                            textcolor="primary"
+                            key={0}
+                            url={{
+                                target: '_blank',
+                                type: 'non-company',
+                                href: security_pdf_link,
+                            }}
+                        />,
+                    ]}
+                />
+            </Typography.Paragraph>
+            <Flex.Box justify="center" align="center" padding_block="4x">
+                <Flex.Item className={signup_form_line} basis="4-12" />
+                <Flex.Item grow="1">
+                    <Typography.Paragraph align="center" textcolor="secondary">
+                        <Localize translate_text="_t_Or sign up with_t_" />
+                    </Typography.Paragraph>
+                </Flex.Item>
+                <Flex.Item className={signup_form_line} basis="4-12" />
+            </Flex.Box>
+            <FormSocialButtons />
+        </Flex.Box>
+    )
+}
+
+export default SignUpFormContainer

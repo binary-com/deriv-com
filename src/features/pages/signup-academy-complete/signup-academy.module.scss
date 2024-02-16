@@ -1,0 +1,26 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.next_btn {
+    display: flex;
+    justify-content: flex-end;
+    padding-block: 2.4rem;
+}
+
+.trading_btn {
+    display: flex;
+    justify-content: center;
+    @include breakpoints(tablet) {
+        justify-content: flex-end;
+        padding-top: 2.4rem;
+    }
+}
+
+.signup_form_line {
+    block-size: 1px;
+    background-color: $color-grey-7;
+    display: none;
+    @include breakpoints(tablet) {
+        display: block;
+    }
+}

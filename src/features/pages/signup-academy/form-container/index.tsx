@@ -37,7 +37,10 @@ const SignUpFormContainer = () => {
             </Typography.Heading>
 
             <Typography.Paragraph>
-                <Localize translate_text="_t_Use this account to log in to <0Deriv</0> and Deriv Academy._t_" />
+                <Localize
+                    translate_text="_t_Use this account to log in to <0>Deriv</0> and <0>Deriv Academy.</0>_t_"
+                    components={[<strong key={0} />]}
+                />
             </Typography.Paragraph>
             <SignUpPageForm />
             <Typography.Paragraph textcolor="secondary" className={sign_up_content}>

@@ -49,8 +49,7 @@ const PopUpMenu = () => {
         country: null,
         citizenship: null,
     })
-    console.log('country', selected_value.country)
-    console.log('citizenship', selected_value.citizenship)
+
     return (
         <>
             <Card>

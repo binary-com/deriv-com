@@ -4,11 +4,11 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import SignupCompleteAcademy from 'features/pages/signup-academy-complete'
 
-const SignupPage = () => {
+const CompleteSignupPage = () => {
     return <SignupCompleteAcademy />
 }
 
-export default WithIntl()(SignupPage)
+export default WithIntl()(CompleteSignupPage)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO

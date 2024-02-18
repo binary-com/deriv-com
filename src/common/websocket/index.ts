@@ -74,6 +74,7 @@ export class ApiManager {
         return new Promise((resolve, reject) => {
             if (this?.socket?.readyState !== 1) {
                 this.socket.close()
+                console.log(this.socket)
                 this.ready = null
                 this.init(lang)
                 this?.socket?.addEventListener?.('open', () => {

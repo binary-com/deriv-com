@@ -34,33 +34,57 @@ export class ApiManager {
         return ApiManager.instance
     }
 
+    public static readonly READY_STATE_KEY = 'websocket_ready_state'
+
+    private setReadyStateInSessionStorage(state: number) {
+        sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
+    }
     public init(lang?: string) {
         if (!this.ready) {
             if (!this.socket) {
+                console.log('inside init')
+                console.log(this.socket?.readyState, 'inside')
+
                 const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
                 const socket_url = getSocketURL()
                 const app_id = getAppId()
                 const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
 
                 this.socket = new WebSocket(websocket_connection_url)
+                this.setReadyStateInSessionStorage(this.socket?.readyState)
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
             // this.registerKeepAlive()
+            this.socket.addEventListener('open', () => {
+                console.log(this.socket, 'lll')
+
+                this.setReadyStateInSessionStorage(this.socket.readyState)
+            })
+
             this.socket.addEventListener('close', () => {
                 console.log('close')
                 this.derivApi.disconnect()
                 this.ready = null
+                sessionStorage.removeItem(ApiManager.READY_STATE_KEY)
             })
             this.ready = true
         }
     }
 
-    public reconnectIfNotConnected(lang?: string) {
-        console.log('inside recoonect')
-        if (this?.socket?.readyState !== 1) {
-            this.socket = null
-            this.init(lang)
-        }
+    public reconnectIfNotConnected(lang?: string): Promise<void> {
+        console.log('inside reconnect')
+        return new Promise((resolve, reject) => {
+            if (this.socket?.readyState !== 1) {
+                this.socket = null
+                this.init(lang)
+                // Assuming this.socket is set in the init method and it has an event listener for 'open'
+                this?.socket?.addEventListener?.('open', () => {
+                    resolve() // Resolve the promise when websocket connection is established
+                })
+            } else {
+                resolve() // If socket is already connected, resolve immediately
+            }
+        })
     }
 
     public augmentedSend<T extends TSocketEndpointNames>(

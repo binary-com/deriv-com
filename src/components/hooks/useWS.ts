@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, useRef } from 'react'
 import { TSocketEndpointNames, TSocketResponseData } from 'common/websocket/types'
 import apiManager from 'common/websocket'
 import { getLanguage, isBrowser } from 'common/utility'
@@ -7,41 +7,52 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [is_loading, setIsLoading] = useState(false)
     const [error, setError] = useState<unknown>()
     const [data, setData] = useState<TSocketResponseData<T>>()
-    const [websocketInitialized, setWebsocketInitialized] = useState(
-        apiManager?.socket?.readyState === 0 || apiManager?.socket?.readyState === 1,
-    )
+    const [websocketInitialized, setWebsocketInitialized] = useState(false)
+    const readyStateRef = useRef<number>(parseInt(sessionStorage.getItem('websocket_ready_state')))
 
     const clear = useCallback(() => {
         setError(null)
         setData(null)
     }, [])
+
     useEffect(() => {
-        if (isBrowser() && !websocketInitialized) {
-            console.log('reconnecting wwwe', apiManager)
-            const currentLanguage = getLanguage() ?? 'en'
-            apiManager.reconnectIfNotConnected(currentLanguage).then(() => {
-                setWebsocketInitialized(true)
-            })
+        const handleStorageChange = () => {
+            readyStateRef.current = parseInt(sessionStorage.getItem('websocket_ready_state'))
         }
-    }, [websocketInitialized])
+
+        window.addEventListener('storage', handleStorageChange)
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange)
+        }
+    }, [])
 
     const send = useCallback(
         async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
-            if (websocketInitialized) {
+            const readyState = readyStateRef.current
+            console.log(readyState, 'ddd')
+            if (readyState === 1 || readyState === 0) {
                 setIsLoading(true)
                 try {
-                    console.log(apiManager, 'wwwe')
                     const response = await apiManager.augmentedSend(name, data)
-                    console.log(response, 'wwwe')
+                    console.log(response, 'www')
                     setData(response[name] as TSocketResponseData<T>)
                 } catch (e) {
                     setError(e)
                 } finally {
                     setIsLoading(false)
                 }
+            } else {
+                if (isBrowser()) {
+                    const currentLanguage = getLanguage() ?? 'en'
+                    apiManager.reconnectIfNotConnected(currentLanguage).then(() => {
+                        setWebsocketInitialized(true)
+                        send()
+                    })
+                }
             }
         },
-        [name, websocketInitialized],
+        [name],
     )
 
     return { send, is_loading, error, data, clear }

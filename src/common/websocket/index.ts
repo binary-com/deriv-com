@@ -38,7 +38,7 @@ export class ApiManager {
 
     private setReadyStateInSessionStorage(state: number) {
         if (isBrowser()) {
-            sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
+            window.sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
         }
     }
 

@@ -8,35 +8,15 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [error, setError] = useState<unknown>()
     const [data, setData] = useState<TSocketResponseData<T>>()
     const [websocketInitialized, setWebsocketInitialized] = useState(false)
-    const readyStateRef = useRef<number>(() => {
-        if (isBrowser()) {
-            return parseInt(sessionStorage.getItem('websocket_ready_state')) || 0
-        }
-        return 0
-    })
 
     const clear = useCallback(() => {
         setError(null)
         setData(null)
     }, [])
 
-    useEffect(() => {
-        const handleStorageChange = () => {
-            if (isBrowser()) {
-                readyStateRef.current = parseInt(sessionStorage.getItem('websocket_ready_state'))
-            }
-        }
-
-        window.addEventListener('storage', handleStorageChange)
-
-        return () => {
-            window.removeEventListener('storage', handleStorageChange)
-        }
-    }, [])
-
     const send = useCallback(
         async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
-            const readyState = readyStateRef.current
+            const readyState = parseInt(sessionStorage.getItem('websocket_ready_state'))
             console.log(readyState, 'ddd')
             if (readyState === 1 || readyState === 0) {
                 setIsLoading(true)

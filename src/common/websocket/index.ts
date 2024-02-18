@@ -43,6 +43,7 @@ export class ApiManager {
     }
 
     public init(lang?: string) {
+        console.log(this.ready, this.socket, 'dddd')
         if (!this.ready) {
             if (!this.socket) {
                 console.log('inside init')
@@ -75,11 +76,17 @@ export class ApiManager {
     }
 
     public reconnectIfNotConnected(lang?: string): Promise<void> {
-        console.log('inside reconnect', this.socket?.readyState)
+        console.log(
+            'inside reconnect ddddd',
+            this.socket?.readyState,
+            this.socket?.readyState !== 1,
+        )
         return new Promise((resolve, reject) => {
             if (this.socket?.readyState !== 1) {
                 this.socket = null
                 this.init(lang)
+                console.log('dddddd', this.socket?.readyState, this.socket?.readyState !== 1)
+
                 // Assuming this.socket is set in the init method and it has an event listener for 'open'
                 this?.socket?.addEventListener?.('open', () => {
                     resolve() // Resolve the promise when websocket connection is established

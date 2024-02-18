@@ -8,7 +8,12 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [error, setError] = useState<unknown>()
     const [data, setData] = useState<TSocketResponseData<T>>()
     const [websocketInitialized, setWebsocketInitialized] = useState(false)
-    const readyStateRef = useRef<number>(parseInt(sessionStorage.getItem('websocket_ready_state')))
+    const readyStateRef = useRef<number>(() => {
+        if (isBrowser()) {
+            return parseInt(sessionStorage.getItem('websocket_ready_state')) || 0
+        }
+        return 0
+    })
 
     const clear = useCallback(() => {
         setError(null)
@@ -17,7 +22,9 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
 
     useEffect(() => {
         const handleStorageChange = () => {
-            readyStateRef.current = parseInt(sessionStorage.getItem('websocket_ready_state'))
+            if (isBrowser()) {
+                readyStateRef.current = parseInt(sessionStorage.getItem('websocket_ready_state'))
+            }
         }
 
         window.addEventListener('storage', handleStorageChange)

@@ -37,8 +37,11 @@ export class ApiManager {
     public static readonly READY_STATE_KEY = 'websocket_ready_state'
 
     private setReadyStateInSessionStorage(state: number) {
-        sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
+        if (isBrowser()) {
+            sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
+        }
     }
+
     public init(lang?: string) {
         if (!this.ready) {
             if (!this.socket) {

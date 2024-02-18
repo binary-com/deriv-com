@@ -23,7 +23,6 @@ const PING_INTERVAL = 30000
 export class ApiManager {
     private socket: WebSocket
     public derivApi: TDerivApi
-    private pingInterval: NodeJS.Timer
     private ready: boolean
 
     public static instance: ApiManager
@@ -38,17 +37,14 @@ export class ApiManager {
 
     private setReadyStateInSessionStorage(state: number) {
         if (isBrowser()) {
-            window.sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
+            sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
         }
     }
 
     public init(lang?: string) {
-        console.log(this.ready, this.socket, 'dddd')
         if (!this.ready) {
             if (!this.socket) {
-                console.log('inside init')
-                console.log(this.socket?.readyState, 'inside')
-
+                console.log('WS connecting...')
                 const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
                 const socket_url = getSocketURL()
                 const app_id = getAppId()
@@ -58,15 +54,13 @@ export class ApiManager {
                 this.setReadyStateInSessionStorage(this.socket?.readyState)
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
-            // this.registerKeepAlive()
             this.socket.addEventListener('open', () => {
-                console.log(this.socket, 'lll')
-
-                this.setReadyStateInSessionStorage(this.socket.readyState)
+                console.log('WS connected.')
+                this.setReadyStateInSessionStorage(this?.socket?.readyState)
             })
 
             this.socket.addEventListener('close', () => {
-                console.log('close')
+                console.log('WS closed')
                 this.derivApi.disconnect()
                 this.ready = null
                 sessionStorage.removeItem(ApiManager.READY_STATE_KEY)
@@ -76,24 +70,18 @@ export class ApiManager {
     }
 
     public reconnectIfNotConnected(lang?: string): Promise<void> {
-        console.log(
-            'inside reconnect ddddd',
-            this.socket?.readyState,
-            this.socket?.readyState !== 1,
-        )
+        console.log('WS reconnecting....')
         return new Promise((resolve, reject) => {
-            if (this.socket?.readyState !== 1) {
-                this.socket = null
+            if (this?.socket?.readyState !== 1) {
+                this.socket.close()
                 this.ready = null
                 this.init(lang)
-                console.log('dddddd', this.socket?.readyState, this.socket?.readyState !== 1)
-
-                // Assuming this.socket is set in the init method and it has an event listener for 'open'
                 this?.socket?.addEventListener?.('open', () => {
-                    resolve() // Resolve the promise when websocket connection is established
+                    console.log('WS connected using reconnect method.')
+                    resolve()
                 })
             } else {
-                resolve() // If socket is already connected, resolve immediately
+                resolve()
             }
         })
     }
@@ -118,26 +106,6 @@ export class ApiManager {
         return this.derivApi.authorize({ authorize: token })
     }
 
-    // private registerKeepAlive() {
-    //     console.log("called")
-    //     if (this.pingInterval) {
-    //         clearInterval(this.pingInterval)
-    //     }
-    //     this.socket.addEventListener('open', () => {
-    //         this.pingInterval = setInterval(() => {
-    //             this.socket.send(JSON.stringify({ ping: 1 }))
-    //         }, PING_INTERVAL)
-    //     })
-
-    //     this.socket.addEventListener('close', () => {
-    //         clearInterval(this.pingInterval)
-    //     })
-
-    //     this.socket.addEventListener('error', () => {
-    //         clearInterval(this.pingInterval)
-    //     })
-    // }
-
     public reset(language: string) {
         const socket_url = getSocketURL()
         const app_id = getAppId()
@@ -148,7 +116,6 @@ export class ApiManager {
 
         this.socket = new WebSocket(websocket_connection_url)
         this.derivApi = new DerivAPIBasic({ connection: this.socket })
-        // this.registerKeepAlive()
     }
 }
 let apiManager: ApiManager

@@ -26,7 +26,6 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     useEffect(() => {
         const data = new Date()
         setDaysFromToday(data.getDate() + 7)
-        console.log(statusDataPromise, 'www')
     }, [])
 
     const [websiteCountryStatus, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
@@ -35,22 +34,16 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
 
     useEffect(() => {
         if (wsData) {
-            console.log('>>> received data directly from ws, about to send it to promise')
             setData(wsData)
-
             statusDataPromiseResolve(wsData)
         } else if (!statusDataPromise) {
             statusDataPromise = new Promise((resolve) => {
-                console.log('>>> setting promise')
                 statusDataPromiseResolve = resolve
             })
-            console.log('>>> sending request')
             send()
         } else if (statusDataPromise) {
-            statusDataPromise.then((prData) => {
-                console.log('>>> receiving data through promise')
-                console.log(prData, 'www')
-                setData(prData)
+            statusDataPromise.then((data) => {
+                setData(data)
             })
         }
     }, [send, wsData])

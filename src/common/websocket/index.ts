@@ -84,6 +84,7 @@ export class ApiManager {
         return new Promise((resolve, reject) => {
             if (this.socket?.readyState !== 1) {
                 this.socket = null
+                this.ready = null
                 this.init(lang)
                 console.log('dddddd', this.socket?.readyState, this.socket?.readyState !== 1)
 

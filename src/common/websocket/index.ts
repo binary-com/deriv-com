@@ -75,7 +75,7 @@ export class ApiManager {
     }
 
     public reconnectIfNotConnected(lang?: string): Promise<void> {
-        console.log('inside reconnect')
+        console.log('inside reconnect', this.socket?.readyState)
         return new Promise((resolve, reject) => {
             if (this.socket?.readyState !== 1) {
                 this.socket = null

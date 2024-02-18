@@ -73,8 +73,7 @@ export class ApiManager {
         console.log('WS reconnecting....')
         return new Promise((resolve, reject) => {
             if (this?.socket?.readyState !== 1) {
-                this.socket.close()
-                console.log(this.socket)
+                this.socket = null
                 this.ready = null
                 this.init(lang)
                 this?.socket?.addEventListener?.('open', () => {

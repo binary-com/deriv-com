@@ -36,8 +36,6 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
                         })
                         .catch((e) => {
                             setError(e)
-                        })
-                        .finally(() => {
                             setIsLoading(false)
                         })
                 }

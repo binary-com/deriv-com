@@ -9,24 +9,14 @@ import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
 
 const Login = (() => {
-    const [containsAcademy, setContainsAcademy] = useState(false)
+    const url = window.location.href
+    const is_academy = isBrowser() && url.includes('academy')
 
     const redirectToLogin = () => {
         if (isStorageSupported(sessionStorage)) {
             window.location.href = loginUrl()
         }
     }
-
-    useEffect(() => {
-        const url = window.location.href
-        const is_academy = isBrowser() && url.includes('academy')
-
-        if (is_academy) {
-            setContainsAcademy(true)
-        } else {
-            setContainsAcademy(false)
-        }
-    })
 
     const loginUrl = () => {
         const server_url = localStorage.getItem('config.server_url')
@@ -45,7 +35,7 @@ const Login = (() => {
 
         const sub_url = redirectToTradingPlatform()
 
-        if (containsAcademy) {
+        if (is_academy) {
             if (server_url && /qa/.test(server_url)) {
                 return `https://${server_url}/oauth2/authorize?app_id=37228&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
             }

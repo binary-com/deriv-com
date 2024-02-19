@@ -184,7 +184,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }: DMT
         <Card
             cover_background="var(--color-green)"
             cover_content="_t_Discover Deriv MT5 now_t_"
-            title="_t_Deriv MT5_t_"
+            title="Deriv MT5"
             Icon={() => (
                 <StyledDmt5
                     src={DMT5}
@@ -464,7 +464,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 />
                             )}
                             content="_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_"
-                            title="_t_Deriv GO_t_"
+                            title="Deriv GO"
                             onClick={onClick}
                             to="/deriv-go/"
                         />

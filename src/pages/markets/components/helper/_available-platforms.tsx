@@ -99,6 +99,8 @@ const AvailablePlatforms = ({
     useEffect(() => {
         if (is_eu) setShowDerivX(false)
     }, [is_eu])
+    const deriv_mt5_name = 'Deriv MT5'
+    const deriv_go_name = 'Deriv GO'
 
     return (
         <Flex
@@ -122,9 +124,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DMT5} width="24" height="24" />
-                            <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv MT5_t_" />
-                            </Text>
+                            <Text ml="0.4rem">{deriv_mt5_name}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -172,9 +172,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/deriv-go/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivGo} width="24" height="24" />
-                            <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv GO_t_" />
-                            </Text>
+                            <Text ml="0.4rem">{deriv_go_name}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

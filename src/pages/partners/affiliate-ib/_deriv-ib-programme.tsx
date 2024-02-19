@@ -227,6 +227,7 @@ const DerivIBProgramme = () => {
             setActiveTab(tabName)
         }
     }
+    const deriv_mt5_name = 'Deriv MT5'
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">
@@ -262,7 +263,7 @@ const DerivIBProgramme = () => {
                     {activeTab === 'mt5' && (
                         <>
                             <Header as="h2" mb="3rem" type="page-title" align="center">
-                                <Localize translate_text="_t_Deriv MT5_t_" />
+                                {deriv_mt5_name}
                             </Header>
                             <StyledBlockWrap>
                                 <StyledColumnWrap>

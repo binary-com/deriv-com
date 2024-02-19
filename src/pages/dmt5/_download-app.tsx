@@ -95,12 +95,7 @@ const DerivMT5GetApp = () => {
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img
-                    src={dmt5Logo}
-                    alt={localize('_t_Deriv MT5 logo_t_')}
-                    width="64px"
-                    height="64px"
-                />
+                <img src={dmt5Logo} alt="Deriv MT5" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv MT5_t_"

@@ -13,7 +13,6 @@ const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
     font-weight: bold;
 `
-
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
     width: unset;
@@ -54,9 +53,17 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StyledFlex = styled(Flex)`
     padding: 20px;
 `
+
+type TextProps = {
+    textWrap?: 'wrap' | 'nowrap'
+}
+
+const StyledText = styled(Header)<TextProps>`
+    text-wrap: ${(props) => props.textWrap};
+`
 const available_on: TString = '_t_Available on_t_'
-const deriv_mt5: TString = '_t_Deriv MT5_t_'
-const deriv_x: TString = '_t_Deriv X_t_'
+const deriv_mt5 = 'Deriv MT5'
+const deriv_x = 'Deriv X'
 
 const AvailablePlatform = () => {
     const { is_row } = useRegion()
@@ -70,10 +77,10 @@ const AvailablePlatform = () => {
         <>
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
-                    <FlexContainer>
-                        <Header type="paragraph-1" weight="normal" width="auto" as="h2">
-                            <Localize translate_text={available_on} />
-                        </Header>
+                    <FlexContainer wrap="nowrap">
+                        <StyledText type="paragraph-1" weight="normal" textWrap="nowrap">
+                            <Localize translate_text="_t_Available on_t_" />
+                        </StyledText>
                     </FlexContainer>
 
                     {show_row_content ? (
@@ -81,22 +88,17 @@ const AvailablePlatform = () => {
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
-                                        <img src={DerivMT5} alt={localize('_t_Deriv MT5_t_')} />
+                                        <img src={DerivMT5} alt={deriv_mt5} />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                            <Localize translate_text={deriv_mt5} />
+                                            {deriv_mt5}
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
-                                        <img
-                                            src={DerivX}
-                                            alt={localize('_t_Deriv X_t_')}
-                                            width="24"
-                                            height="24"
-                                        />
+                                        <img src={DerivX} alt={deriv_x} width="24" height="24" />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                            <Localize translate_text={deriv_x} />
+                                            {deriv_x}
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
@@ -106,19 +108,9 @@ const AvailablePlatform = () => {
                         <FlexContainer>
                             <StyledLocalizedLink to="/dmt5/">
                                 <Flex direction="row">
-                                    <img
-                                        src={DerivMT5}
-                                        alt={localize('_t_Deriv MT5_t_')}
-                                        width="24"
-                                        height="24"
-                                    />
-                                    <StyledHeader
-                                        weight="bold"
-                                        type="paragraph-1"
-                                        as="h2"
-                                        width="auto"
-                                    >
-                                        <Localize translate_text={deriv_mt5} />
+                                    <img src={DerivMT5} alt={deriv_mt5} />
+                                    <StyledHeader type="paragraph-1" as="h2" width="auto">
+                                        {deriv_mt5}
                                     </StyledHeader>
                                 </Flex>
                             </StyledLocalizedLink>

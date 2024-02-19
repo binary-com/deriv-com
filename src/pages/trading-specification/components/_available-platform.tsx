@@ -64,6 +64,7 @@ type TextProps = {
 
 const StyledText = styled(Header)<TextProps>`
     text-wrap: ${(props) => props.textWrap};
+    text-align: center;
 `
 const available_on: TString = '_t_Available on_t_'
 const deriv_mt5 = 'Deriv MT5'

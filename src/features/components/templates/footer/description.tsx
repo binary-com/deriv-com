@@ -90,7 +90,33 @@ export const DescriptionContentROW = () => {
 
             <Text size="sm">
                 <Localize
-                    translate_text="_t_Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines. Deriv.com Limited, a company registered in Guernsey, is the holding company for these entities._t_"
+                    translate_text="_t_Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines._t_"
+                    components={[
+                        <a
+                            className={clsx(sharedClasses)}
+                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
+                            key={0}
+                            target="_blank"
+                        />,
+                        <a
+                            className={clsx(sharedClasses)}
+                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
+                            key={1}
+                            target="_blank"
+                        />,
+                        <a
+                            className={clsx(sharedClasses)}
+                            href="/regulatory/Deriv_(V)_Ltd.pdf"
+                            key={2}
+                            target="_blank"
+                        />,
+                    ]}
+                />
+            </Text>
+
+            <Text size="sm">
+                <Localize
+                    translate_text="_t_Deriv.com Limited, a company registered in Guernsey, is the holding company for these entities._t_"
                     components={[
                         <a
                             className={clsx(sharedClasses)}

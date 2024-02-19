@@ -326,7 +326,7 @@ const payment_data: PaymentDataProps[] = [
             {
                 method: <StyledIcon src={MPesa} alt="m-pesa" />,
                 currencies: 'USD',
-                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_deposit: '_t_5 - 150_t_',
                 min_max_withdrawal: '_t_5 - 1,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
@@ -366,7 +366,7 @@ const payment_data: PaymentDataProps[] = [
             {
                 method: <StyledIcon src={AIRTEL} alt="Airtel" />,
                 currencies: 'USD',
-                min_max_deposit: '5 - 1,000',
+                min_max_deposit: '5 - 150',
                 min_max_withdrawal: '5 - 1,000',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
@@ -396,7 +396,7 @@ const payment_data: PaymentDataProps[] = [
             {
                 method: <StyledIcon src={Equitel} alt="Equitel" />,
                 currencies: 'USD',
-                min_max_deposit: '5 - 1,000',
+                min_max_deposit: '5 - 150',
                 min_max_withdrawal: '5 - 1,000',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',

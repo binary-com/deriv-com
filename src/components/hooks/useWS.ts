@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { TSocketEndpointNames, TSocketResponseData } from 'common/websocket/types'
-import apiManager from 'common/websocket'
+import apiManager, { ApiManager } from 'common/websocket'
 import { getLanguage, isBrowser } from 'common/utility'
 
 const useWS = <T extends TSocketEndpointNames>(name: T) => {
@@ -16,7 +16,7 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const send = useCallback(
         async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
             setIsLoading(true)
-            const readyState = parseInt(sessionStorage.getItem('websocket_ready_state'))
+            const readyState = parseInt(ApiManager.readyState)
             if (readyState === 1 || readyState === 0) {
                 try {
                     const response = await apiManager.augmentedSend(name, data)

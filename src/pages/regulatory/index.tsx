@@ -41,6 +41,7 @@ const Regulatory = (locale: RegulatoryProps) => {
     const { is_mobile } = useBreakpoints()
     const { is_row, is_cpa_plan, is_region_loading } = useRegion()
     const [is_row_cpa, setIsRowCpa] = useState(true)
+    const investment_euroupe = is_row_cpa ? <InvestmentEurope locale={locale} /> : null
 
     useEffect(() => {
         if (is_row || is_cpa_plan) setIsRowCpa(false)
@@ -75,14 +76,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                 </GridContainer>
             </SectionContainer>
 
-            {
-                // Conditional rendering based on loading state and row CPA
-                is_region_loading ? (
-                    <InitialLoader />
-                ) : is_row_cpa ? (
-                    <InvestmentEurope locale={locale} />
-                ) : null
-            }
+            {is_region_loading ? <InitialLoader /> : investment_euroupe}
 
             <SectionContainer padding="0 0 4rem" mt={is_mobile ? '0' : '8rem'}>
                 <SmallContainer>

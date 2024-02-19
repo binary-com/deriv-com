@@ -75,11 +75,14 @@ const Regulatory = (locale: RegulatoryProps) => {
                 </GridContainer>
             </SectionContainer>
 
-            {is_region_loading ? (
-                <InitialLoader />
-            ) : is_row_cpa ? (
-                <InvestmentEurope locale={locale} />
-            ) : null}
+            {
+                // Conditional rendering based on loading state and row CPA
+                is_region_loading ? (
+                    <InitialLoader />
+                ) : is_row_cpa ? (
+                    <InvestmentEurope locale={locale} />
+                ) : null
+            }
 
             <SectionContainer padding="0 0 4rem" mt={is_mobile ? '0' : '8rem'}>
                 <SmallContainer>

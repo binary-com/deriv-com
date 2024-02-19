@@ -70,6 +70,18 @@ const BusinessGrid = () => {
     const { is_row } = useRegion()
     const language = getLanguage()
     const [show_row_content, setShowRowContent] = useState(true)
+    const general_terms_url_region = show_row_content
+        ? '/tnc/business-partners-general-terms.pdf'
+        : '/tnc/business-partners-general-terms-eu.pdf'
+    const affiliate_brokers_url_region = show_row_content
+        ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
+        : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+    const api_user_url_region = show_row_content
+        ? '/tnc/business-partners-api-user.pdf'
+        : '/tnc/business-partners-api-user-eu.pdf'
+    const bug_bounty_url_region = show_row_content
+        ? '/tnc/business-partners-bug-bounty.pdf'
+        : '/tnc/business-partners-bug-bounty-eu.pdf'
 
     useEffect(() => {
         if (!is_row) setShowRowContent(false)
@@ -92,9 +104,7 @@ const BusinessGrid = () => {
                     url={
                         show_row_content && language === 'es'
                             ? general_terms_url
-                            : show_row_content
-                            ? '/tnc/business-partners-general-terms.pdf'
-                            : '/tnc/business-partners-general-terms-eu.pdf'
+                            : general_terms_url_region
                     }
                     link_title="_t_General terms of use_t_"
                 />
@@ -105,9 +115,7 @@ const BusinessGrid = () => {
                     url={
                         show_row_content && language === 'es'
                             ? affiliate_brokers_url
-                            : show_row_content
-                            ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
-                            : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+                            : affiliate_brokers_url_region
                     }
                     link_title="_t_Affiliates & introducing brokers (IBs)_t_"
                 />
@@ -130,13 +138,7 @@ const BusinessGrid = () => {
                     Icon={show_row_content ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
-                    url={
-                        show_row_content && language === 'es'
-                            ? api_user_url
-                            : show_row_content
-                            ? '/tnc/business-partners-api-user.pdf'
-                            : '/tnc/business-partners-api-user-eu.pdf'
-                    }
+                    url={show_row_content && language === 'es' ? api_user_url : api_user_url_region}
                     link_title="_t_API users_t_"
                 />
                 <Col
@@ -146,9 +148,7 @@ const BusinessGrid = () => {
                     url={
                         show_row_content && language === 'es'
                             ? bug_bounty_url
-                            : show_row_content
-                            ? '/tnc/business-partners-bug-bounty.pdf'
-                            : '/tnc/business-partners-bug-bounty-eu.pdf'
+                            : bug_bounty_url_region
                     }
                     link_title="_t_Bug Bounty Program_t_"
                 />

@@ -70,6 +70,18 @@ const BusinessGrid = () => {
     const { is_row } = useRegion()
     const language = getLanguage()
     const [show_row_content, setShowRowContent] = useState(true)
+    const general_terms_url_region = is_row
+        ? '/tnc/business-partners-general-terms.pdf'
+        : '/tnc/business-partners-general-terms-eu.pdf'
+    const affiliate_brokers_url_region = is_row
+        ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
+        : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+    const api_user_url_region = is_row
+        ? '/tnc/business-partners-api-user.pdf'
+        : '/tnc/business-partners-api-user-eu.pdf'
+    const bug_bounty_url_region = is_row
+        ? '/tnc/business-partners-bug-bounty.pdf'
+        : '/tnc/business-partners-bug-bounty-eu.pdf'
 
     useEffect(() => {
         if (!is_row) setShowRowContent(false)
@@ -89,13 +101,7 @@ const BusinessGrid = () => {
                     Icon={General}
                     title="_t_General terms of use_t_"
                     content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
-                    url={
-                        show_row_content && language === 'es'
-                            ? general_terms_url
-                            : show_row_content
-                            ? '/tnc/business-partners-general-terms.pdf'
-                            : '/tnc/business-partners-general-terms-eu.pdf'
-                    }
+                    url={is_row && language === 'es' ? general_terms_url : general_terms_url_region}
                     link_title="_t_General terms of use_t_"
                 />
                 <Col
@@ -103,11 +109,9 @@ const BusinessGrid = () => {
                     title="_t_Affiliates & introducing brokers (IBs)_t_"
                     content="_t_Additional terms for our affiliates and introducing brokers_t_"
                     url={
-                        show_row_content && language === 'es'
+                        is_row && language === 'es'
                             ? affiliate_brokers_url
-                            : show_row_content
-                            ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
-                            : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+                            : affiliate_brokers_url_region
                     }
                     link_title="_t_Affiliates & introducing brokers (IBs)_t_"
                 />
@@ -119,7 +123,7 @@ const BusinessGrid = () => {
                         title="_t_Payment agents_t_"
                         content="_t_Additional terms for our payment agents_t_"
                         url={
-                            show_row_content && language === 'es'
+                            is_row && language === 'es'
                                 ? payment_agents_url
                                 : '/tnc/business-partners-payment-agents.pdf'
                         }
@@ -130,26 +134,14 @@ const BusinessGrid = () => {
                     Icon={show_row_content ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
-                    url={
-                        show_row_content && language === 'es'
-                            ? api_user_url
-                            : show_row_content
-                            ? '/tnc/business-partners-api-user.pdf'
-                            : '/tnc/business-partners-api-user-eu.pdf'
-                    }
+                    url={is_row && language === 'es' ? api_user_url : api_user_url_region}
                     link_title="_t_API users_t_"
                 />
                 <Col
                     Icon={show_row_content ? BugBountyRow : BugBounty}
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
-                    url={
-                        show_row_content && language === 'es'
-                            ? bug_bounty_url
-                            : show_row_content
-                            ? '/tnc/business-partners-bug-bounty.pdf'
-                            : '/tnc/business-partners-bug-bounty-eu.pdf'
-                    }
+                    url={is_row && language === 'es' ? bug_bounty_url : bug_bounty_url_region}
                     link_title="_t_Bug Bounty Program_t_"
                 />
             </StyledGrid>

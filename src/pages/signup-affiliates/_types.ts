@@ -1,14 +1,14 @@
 import { Dispatch, ReactElement, SetStateAction } from 'react'
 
-type CountryType = { name?: string; display_name?: string; prefix?: string; symbol?: string }
+type ResidenceType = { name?: string; display_name?: string; prefix?: string; symbol?: string }
 
 type AffiliateAccountTypes = {
     email: string
     account_type: number
     account_plan: number
     account_address: {
-        country: CountryType
-        state: { name?: string; display_name?: string }
+        country: ResidenceType
+        state: ResidenceType
         city: string
         street: string
         postal_code: string
@@ -119,7 +119,7 @@ type WizardStepProps<T extends keyof AffiliateAccountTypes> = {
     affiliate_account: AffiliateAccountTypes
     updateData: (value: AffiliateAccountTypes[T]) => void
     onValidate: (value: boolean) => void
-    residence_list?: CountryType[]
+    residence_list?: ResidenceType[]
     is_individual?: boolean
 }
 

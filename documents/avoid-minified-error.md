@@ -8,7 +8,7 @@ React rehydration errors (`uncaught error: minified React error #423 and #418`) 
 
 #### Table element is missing <thead> and <tbody>
     
-I have found out that if you don't include the <thead> and <tbody> elements on your table, React will give you a hydration error. Those elements are optional, so normally aren't required in HTML, but they are required when doing SSR / SSG with React. The reason for that is that the two elements will be added by browsers to the DOM if they are missing, but client-side rendering doesn't add them to React's shadow DOM. This gives a mismatch of the table data between the static HTML data DOM and client side render, resulting in a hydration error.
+I have found out that if you don't include the `<thead>` and `<tbody>` elements on your table, React will give you a hydration error. Those elements are optional, so normally aren't required in HTML, but they are required when doing SSR / SSG with React. The reason for that is that the two elements will be added by browsers to the DOM if they are missing, but client-side rendering doesn't add them to React's shadow DOM. This gives a mismatch of the table data between the static HTML data DOM and client side render, resulting in a hydration error.
 
 Note: we are not allowed to use div element inside tr, th, td
 
@@ -22,11 +22,11 @@ If you forget to close an element, it can give a hydration error.
 
 #### Invalid HTML structure
 
-Invalid HTML structure can give a hydration error. For example this is incorrect HTML: <p><h1>This is a heading</h1></p>. What makes that invalid is the fact that headings can't be placed inside paragraphs.
+Invalid HTML structure can give a hydration error. For example this is incorrect HTML: `<p><h1>This is a heading</h1></p>`. What makes that invalid is the fact that headings can't be placed inside paragraphs.
 
-Another common mistake is accidentally double quoting paragraphs, this is invalid: <p><p>Paragraph</p></p>
+Another common mistake is accidentally double quoting paragraphs, this is invalid: `<p><p>Paragraph</p></p>`
 
-since we are using Localize components we are using this bad practice in many places for example we are passing a Localize inside our p element and we are passing a div as a component to the Localize :sweat_smile:
+since we are using `Localize` components we are using this bad practice in many places for example we are passing a Localize inside our `p` element and we are passing a div as a component to the Localize :sweat_smile:
 
 ```javascript
 // bad practice
@@ -37,7 +37,7 @@ content: {
 },
 ```
 
-Please pass the key to the right element :sweat_smile:  and make sure that the key is unique
+Please pass the key to the right element :sweat_smile: and make sure that the key is unique
 
 ```javascript
 // bad practice
@@ -60,6 +60,7 @@ Please pass the key to the right element :sweat_smile:  and make sure that the k
 ```
 
 You will get destroy is not a function error!
+
 Instead you should use it like this:
 
 ```javascript
@@ -119,7 +120,7 @@ The regional conditions for EU and ROW content have changed. First, we adjust a 
     return (
         <AvailableTrades
             DigitalOptions={
-                show_digital_options && <p>Digital options contentn</p>
+                show_digital_options && <p>Digital options content</p>
             }
         />
     )

@@ -57,17 +57,7 @@ export const DescriptionContentEU = () => {
     return (
         <>
             <Text size="sm">
-                <Localize
-                    translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act._t_"
-                    components={[
-                        <a
-                            className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
-                            key={0}
-                            target="_blank"
-                        />,
-                    ]}
-                />
+                <Localize translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act._t_" />
             </Text>
             <Text size="sm" className="pt-general-lg">
                 <Localize

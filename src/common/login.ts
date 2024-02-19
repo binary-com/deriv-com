@@ -9,7 +9,7 @@ import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
 
 const Login = (() => {
-    const url = window && window.location.href
+    const url = isBrowser() && window.location.href
     const is_academy = isBrowser() && url.includes('academy')
 
     const redirectToLogin = () => {

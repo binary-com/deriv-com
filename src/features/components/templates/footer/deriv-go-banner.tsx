@@ -2,7 +2,9 @@ import React from 'react'
 import { CaptionText, Heading, Text } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
 import { DerivProductDerivGoBrandLightLogoHorizontalIcon } from '@deriv/quill-icons/Logo'
+import clsx from 'clsx'
 import DownloadBadges from './download'
+import { footer_qr_box } from './styles.module.scss'
 import derivGoQR from 'images/common/migration/footer/deriv-go-qr.svg'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
@@ -28,7 +30,12 @@ export const DerivGoBanner = () => {
                             </Text>
                         </div>
                         <div className="block max-sm:hidden">
-                            <div className="flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm">
+                            <div
+                                className={clsx(
+                                    footer_qr_box,
+                                    'flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm',
+                                )}
+                            >
                                 <img
                                     src={derivGoQR}
                                     height={64}

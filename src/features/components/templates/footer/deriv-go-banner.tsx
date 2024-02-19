@@ -42,7 +42,7 @@ export const DerivGoBanner = () => {
                                     width={64}
                                     alt={localize('_t_download deriv-go_t_')}
                                 />
-                                <CaptionText className="text-typography-default">
+                                <CaptionText className="text-typography-default text-center">
                                     <Localize translate_text="_t_Scan to download_t_" />
                                 </CaptionText>
                             </div>

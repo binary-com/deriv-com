@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { next_btn } from './signup-academy.module.scss'
 import { DropdownSearch } from 'components/elements'
@@ -93,7 +93,6 @@ const ResidenceForm = ({
                                         items={item.list}
                                         selected_item={country}
                                         mb="5px"
-                                        // error={form_errors[`${item.name}_error_msg`]}
                                         onChange={(country) => {
                                             setSelectedValue((prevState) => ({
                                                 ...prevState,
@@ -117,7 +116,6 @@ const ResidenceForm = ({
                                         items={item.list}
                                         selected_item={citizenship}
                                         mb="5px"
-                                        // error={form_errors[`${item.name}_error_msg`]}
                                         onChange={(citizenship) => {
                                             setSelectedValue((prevState) => ({
                                                 ...prevState,

@@ -1,18 +1,20 @@
 import React from 'react'
+import { Analytics } from '@deriv-com/analytics'
 import {
     signup_form_container,
-    signup_form_line,
     link_text,
     sign_up_header,
     sign_up_content,
+    signup_login_redirect,
 } from '../signup.module.scss'
-import FormSocialButtons from './form-social-buttons'
 import SignUpPageForm from './signup-page-form'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 import useRegion from 'components/hooks/use-region'
+import Login from 'common/login'
+import { isBrowser } from 'common/utility'
 
 const SignUpFormContainer = () => {
     const { is_eu } = useRegion()
@@ -60,16 +62,29 @@ const SignUpFormContainer = () => {
                     ]}
                 />
             </Typography.Paragraph>
-            <Flex.Box justify="center" align="center" padding_block="4x">
-                <Flex.Item className={signup_form_line} basis="4-12" />
-                <Flex.Item grow="1">
-                    <Typography.Paragraph align="center" textcolor="secondary">
-                        <Localize translate_text="_t_Or sign up with_t_" />
-                    </Typography.Paragraph>
-                </Flex.Item>
-                <Flex.Item className={signup_form_line} basis="4-12" />
-            </Flex.Box>
-            <FormSocialButtons />
+
+            <Typography.Paragraph align="center">
+                <Localize
+                    translate_text="_t_Already have an account? <0>Log in</0>_t_"
+                    components={[
+                        <Typography.Paragraph
+                            as="span"
+                            textcolor="brand"
+                            key={0}
+                            className={signup_login_redirect}
+                            onClick={(event) => {
+                                event.preventDefault()
+                                Analytics?.trackEvent('ce_virtual_signup_form', {
+                                    action: 'go_to_login',
+                                    form_source: isBrowser() && window.location.hostname,
+                                    form_name: 'default_diel_deriv',
+                                })
+                                Login.redirectToLogin()
+                            }}
+                        />,
+                    ]}
+                />
+            </Typography.Paragraph>
         </Flex.Box>
     )
 }

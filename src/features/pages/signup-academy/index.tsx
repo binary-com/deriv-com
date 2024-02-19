@@ -36,7 +36,7 @@ const SignUpAcademy = () => {
                 container="fluid"
                 align="start"
                 md={{
-                    justify: 'around',
+                    justify: 'center',
                     align: 'center',
                     gap: '16x',
                 }}

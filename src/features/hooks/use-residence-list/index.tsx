@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import useWS from 'components/hooks/useWS'
 
 export type ResidenceType = {
@@ -34,6 +34,13 @@ export const useResidenceList = ({
     restricted_countries?: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
 } = {}) => {
     const { send, data } = useWS('residence_list')
+    // console.log(
+    //     data.map((item) => {
+    //         if (item.disabled === 'DISABLED') {
+
+    //         }
+    //     }),
+    // )
     useEffect(() => {
         send()
     }, [send])

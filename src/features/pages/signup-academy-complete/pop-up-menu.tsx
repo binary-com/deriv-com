@@ -41,9 +41,7 @@ const Background = styled.div`
     z-index: 10;
 `
 const PopUpMenu = () => {
-    const [residence_list] = useResidenceList({
-        restricted_countries: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba'],
-    })
+    const [residence_list] = useResidenceList({})
     const [is_password, setIsPassword] = useState(false)
     const [selected_value, setSelectedValue] = useState({
         country: null,

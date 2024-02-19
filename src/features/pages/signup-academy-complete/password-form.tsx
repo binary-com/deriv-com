@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
-import { trading_btn, signup_form_line, input_field } from './signup-academy.module.scss'
+import { trading_btn, signup_form_line } from './signup-academy.module.scss'
 import AcademyInput from './academy-input'
 import { academy_validation } from './password-validation'
 import Flex from 'features/components/atoms/flex-box'
@@ -26,14 +26,14 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const handleInput = (e) => {
         e.preventDefault()
         const { value } = e.target
-        console.log('value', value)
-        value && setPassword(value)
+
+        setPassword(value)
         if (academy_validation) {
             const error_msg = academy_validation.password(value)
             setFormErrors(error_msg)
         }
     }
-    console.log('hi')
+
     const handleError = () => {
         setFormErrors('')
     }
@@ -68,7 +68,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                 <Localize translate_text="_t_Keep your account secure with a password_t_" />
             </Typography.Paragraph>
 
-            <Flex.Item className={input_field}>
+            <Flex.Item>
                 <AcademyInput
                     id="dm-password"
                     name="password"

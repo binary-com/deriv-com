@@ -15,7 +15,7 @@ export const trade_types: TradeType[] = [
                 id: 1,
                 data: {
                     icon: MT5,
-                    name: '_t_Deriv MT5_t_',
+                    name: 'Deriv MT5',
                     link: {
                         type: 'internal',
                         to: '/dmt5',

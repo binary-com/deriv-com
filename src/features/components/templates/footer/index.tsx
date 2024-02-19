@@ -30,9 +30,8 @@ export const MainFooter = () => {
     }, [])
 
     useEffect(() => {
-        setSocialButtons(
-            is_career ? socialButtonsCareers : is_eu ? socialButtonsEU : socialButtonsROW,
-        )
+        const eu_buttons = is_eu && socialButtonsEU
+        setSocialButtons(is_career ? socialButtonsCareers : eu_buttons)
         if (is_eu && is_cpa_plan) setWarnText(null)
         if (is_eu) setNavData(EuFooterNavData)
     }, [is_eu, is_cpa_plan, is_career])

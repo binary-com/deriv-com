@@ -1,5 +1,4 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import Layout from 'features/components/templates/layout'
 import CommercialPlan from './commercial-plan'
 import GetInTouchBanner from './get-in-touch'
@@ -12,7 +11,7 @@ import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
 import Hero from './hero'
 import PrimeNav from 'features/components/templates/navigation/partners-nav/prime-nav'
-const MainFooter = loadable(() => import('features/components/templates/footer'))
+import MainFooter from 'features/components/templates/footer'
 
 const DerivPrime = () => {
     return (

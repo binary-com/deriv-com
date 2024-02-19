@@ -1,5 +1,4 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import Layout from 'features/components/templates/layout'
 import Steps from './steps'
 import WhyTrade from './why-trade'
@@ -14,7 +13,7 @@ import OtherMarketsSlider from 'features/components/molecules/other-markets-slid
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
-const MainFooter = loadable(() => import('features/components/templates/footer'))
+import MainFooter from 'features/components/templates/footer'
 
 const ETFMarket = () => {
     const { is_deriv_go } = usePlatformQueryParam()

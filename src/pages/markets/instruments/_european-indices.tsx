@@ -8,10 +8,10 @@ const stocks_european_indices_eu_endpoint = stocks_european_indices.filter((cfds
 })
 const EuropeanIndices = () => {
     const { is_eu } = useRegion()
-    const [content, seetContent] = useState(stocks_european_indices)
+    const [content, setContent] = useState(stocks_european_indices)
 
     useEffect(() => {
-        if (is_eu) seetContent(stocks_european_indices_eu_endpoint)
+        if (is_eu) setContent(stocks_european_indices_eu_endpoint)
     }, [is_eu])
 
     return (

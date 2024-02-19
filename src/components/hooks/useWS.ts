@@ -16,8 +16,7 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const send = useCallback(
         async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
             setIsLoading(true)
-            const readyState = parseInt(apiManager.readyState)
-            console.log(apiManager.readyState)
+            const readyState = parseInt(sessionStorage.getItem('websocket_ready_state'))
             if (readyState === 1 || readyState === 0) {
                 try {
                     const response = await apiManager.augmentedSend(name, data)

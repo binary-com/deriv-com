@@ -24,7 +24,6 @@ export class ApiManager {
     private socket: WebSocket
     public derivApi: TDerivApi
     private ready: boolean
-    public static readyState
 
     public static instance: ApiManager
     public static getInstance() {
@@ -34,8 +33,12 @@ export class ApiManager {
         return ApiManager.instance
     }
 
-    private setReadyState(state: number) {
-        ApiManager.readyState = state.toString()
+    public static readonly READY_STATE_KEY = 'websocket_ready_state'
+
+    private setReadyStateInSessionStorage(state: number) {
+        if (isBrowser()) {
+            sessionStorage.setItem(ApiManager.READY_STATE_KEY, state.toString())
+        }
     }
 
     public init(lang?: string) {
@@ -48,19 +51,19 @@ export class ApiManager {
                 const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
 
                 this.socket = new WebSocket(websocket_connection_url)
-                this.setReadyState(this.socket?.readyState)
+                this.setReadyStateInSessionStorage(this.socket?.readyState)
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
             this.socket.addEventListener('open', () => {
                 console.log('WS connected.')
-                this.setReadyState(this?.socket?.readyState)
+                this.setReadyStateInSessionStorage(this?.socket?.readyState)
             })
 
             this.socket.addEventListener('close', () => {
                 console.log('WS closed')
                 this.derivApi.disconnect()
                 this.ready = null
-                this.setReadyState(null)
+                sessionStorage.removeItem(ApiManager.READY_STATE_KEY)
             })
             this.ready = true
         }

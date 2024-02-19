@@ -16,7 +16,7 @@ const InfoRowCpa = () => {
             <ResponsiveGrid align="flex-start">
                 <MobileWrapper>
                     <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
-                        <Localize translate_text="_t_Deriv Investments (Europe) Limited_t_" />
+                        <Localize translate_text="_t_Deriv Investments (Europe) Limiteddddd_t_" />
                     </StyledHeader>
                 </MobileWrapper>
             </ResponsiveGrid>

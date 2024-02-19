@@ -44,7 +44,11 @@ const Regulatory = (locale: RegulatoryProps) => {
     const investment_euroupe = is_row_cpa ? <InvestmentEurope locale={locale} /> : null
 
     useEffect(() => {
-        if (is_row || is_cpa_plan) setIsRowCpa(false)
+        if (is_row || is_cpa_plan) {
+            setIsRowCpa(false)
+        } else {
+            setIsRowCpa(true)
+        }
     }, [is_row, is_cpa_plan])
 
     return (

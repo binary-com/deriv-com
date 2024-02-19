@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -69,6 +69,11 @@ const BusinessGrid = () => {
     const bug_bounty_url = `/tnc/business-partners-bug-bounty-es.pdf`
     const { is_row } = useRegion()
     const language = getLanguage()
+    const [show_row_content, setShowRowContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_row) setShowRowContent(false)
+    }, [is_row])
 
     return (
         <StyledContainer>
@@ -85,9 +90,9 @@ const BusinessGrid = () => {
                     title="_t_General terms of use_t_"
                     content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
                     url={
-                        is_row && language === 'es'
+                        show_row_content && language === 'es'
                             ? general_terms_url
-                            : is_row
+                            : show_row_content
                             ? '/tnc/business-partners-general-terms.pdf'
                             : '/tnc/business-partners-general-terms-eu.pdf'
                     }
@@ -98,9 +103,9 @@ const BusinessGrid = () => {
                     title="_t_Affiliates & introducing brokers (IBs)_t_"
                     content="_t_Additional terms for our affiliates and introducing brokers_t_"
                     url={
-                        is_row && language === 'es'
+                        show_row_content && language === 'es'
                             ? affiliate_brokers_url
-                            : is_row
+                            : show_row_content
                             ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
                             : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
                     }
@@ -108,13 +113,13 @@ const BusinessGrid = () => {
                 />
 
                 <PartnersGuidePdf />
-                {is_row && (
+                {show_row_content && (
                     <Col
                         Icon={PA}
                         title="_t_Payment agents_t_"
                         content="_t_Additional terms for our payment agents_t_"
                         url={
-                            is_row && language === 'es'
+                            show_row_content && language === 'es'
                                 ? payment_agents_url
                                 : '/tnc/business-partners-payment-agents.pdf'
                         }
@@ -122,26 +127,26 @@ const BusinessGrid = () => {
                     />
                 )}
                 <Col
-                    Icon={is_row ? APIROW : API}
+                    Icon={show_row_content ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
                     url={
-                        is_row && language === 'es'
+                        show_row_content && language === 'es'
                             ? api_user_url
-                            : is_row
+                            : show_row_content
                             ? '/tnc/business-partners-api-user.pdf'
                             : '/tnc/business-partners-api-user-eu.pdf'
                     }
                     link_title="_t_API users_t_"
                 />
                 <Col
-                    Icon={is_row ? BugBountyRow : BugBounty}
+                    Icon={show_row_content ? BugBountyRow : BugBounty}
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
                     url={
-                        is_row && language === 'es'
+                        show_row_content && language === 'es'
                             ? bug_bounty_url
-                            : is_row
+                            : show_row_content
                             ? '/tnc/business-partners-bug-bounty.pdf'
                             : '/tnc/business-partners-bug-bounty-eu.pdf'
                     }

@@ -97,7 +97,7 @@ const DerivMT5GetApp = () => {
             <ContentWrapper is_rtl={is_rtl}>
                 <img
                     src={dmt5Logo}
-                    alt={localize('_t_Deriv MT5 logo_t_')}
+                    alt='Deriv MT5'
                     width="64px"
                     height="64px"
                 />

@@ -23,7 +23,7 @@ const HeroAwardImages = () => {
             <StaticImage
                 src="../../../../images/migration/home/award-1.png"
                 alt={localize('_t_Most Innovative Broker, UF Awards 2023_t_')}
-                width={132}
+                width={138}
                 height={68}
                 placeholder="none"
                 formats={['auto', 'webp']}

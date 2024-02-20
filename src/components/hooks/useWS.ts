@@ -17,28 +17,29 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
         async (data?: Parameters<typeof apiManager.augmentedSend<T>>[1]) => {
             setIsLoading(true)
             const readyState = parseInt(ApiManager.readyState)
-            if (readyState === 1 || readyState === 0) {
-                try {
-                    const response = await apiManager.augmentedSend(name, data)
-                    setData(response[name] as TSocketResponseData<T>)
-                } catch (e) {
-                    setError(e)
-                } finally {
-                    setIsLoading(false)
-                }
-            } else {
+            if (readyState !== 1 && readyState !== 0) {
                 if (isBrowser()) {
                     const currentLanguage = getLanguage() ?? 'en'
-                    apiManager
-                        .reconnectIfNotConnected(currentLanguage)
-                        .then(() => {
-                            send()
-                        })
-                        .catch((e) => {
-                            setError(e)
-                            setIsLoading(false)
-                        })
+                    try {
+                        // Connect to WebSocket if not connected
+                        await apiManager.reconnectIfNotConnected(currentLanguage)
+                    } catch (e) {
+                        setError(e)
+                        setIsLoading(false)
+                        return
+                    }
+                } else {
+                    setIsLoading(false)
+                    return
                 }
+            }
+            try {
+                const response = await apiManager.augmentedSend(name, data)
+                setData(response[name] as TSocketResponseData<T>)
+            } catch (e) {
+                setError(e)
+            } finally {
+                setIsLoading(false)
             }
         },
         [name],

@@ -420,30 +420,32 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
     const config = getConfig()
     const isProduction = config.mode === 'production'
 
+    const splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+            vendor: {
+                test: /[\\/]node_modules[\\/]/,
+                name: 'vendors',
+                chunks: 'all',
+                priority: -10,
+            },
+            bundle: {
+                test: /\.(js|ts|tsx)$/,
+                name: 'bundle',
+                chunks: 'all',
+                priority: -20,
+                enforce: true,
+            },
+        },
+    }
+
     actions.setWebpackConfig({
         devtool: isProduction ? false : 'inline-source-map', // enable/disable source-maps
         mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],
-            splitChunks: {
-                chunks: 'all',
-                cacheGroups: {
-                  vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendors',
-                    chunks: 'all',
-                    priority: -10,
-                  },
-                  bundle: {
-                    test: /\.(js|ts|tsx)$/,
-                    name: 'bundle',
-                    chunks: 'all',
-                    priority: -20,
-                    enforce: true,
-                  },
-                },
-            },
+            ...(isProduction && { splitChunks }),
             mangleExports: 'size',
             mangleWasmImports: true,
 
@@ -462,9 +464,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             providedExports: true,
             usedExports: true,
         },
-        plugins: [
-            new StylelintPlugin({ ...style_lint_options, ...options }),
-        ],
+        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

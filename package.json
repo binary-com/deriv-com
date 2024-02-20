@@ -6,7 +6,7 @@
     "dependencies": {
         "@artsy/fresnel": "^6.2.1",
         "@builder.io/partytown": "^0.8.1",
-        "@deriv-com/analytics": "^1.4.10",
+        "@deriv-com/analytics": "^1.4.11",
         "@deriv-com/blocks": "^0.87.0",
         "@deriv-com/components": "^0.52.0",
         "@deriv-com/hooks": "^0.11.0",
@@ -125,7 +125,6 @@
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-webpack-plugin": "^3.2.0",
-        "gatsby-plugin-env-variables": "^2.3.0",
         "gatsby-plugin-eslint": "^4.0.4",
         "gatsby-plugin-postcss": "^6.12.0",
         "gatsby-plugin-styled-components": "^6.12.0",

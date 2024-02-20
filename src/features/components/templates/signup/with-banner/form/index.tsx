@@ -1,6 +1,7 @@
 import React from 'react'
+import { Analytics } from '@deriv-com/analytics'
 import PublicSignupSocial from '../social'
-import { signup_public_form_container, signup_public_form } from './form.module.scss'
+import { signup_public_form, signup_public_form_container } from './form.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { localize, Localize } from 'components/localization'
@@ -10,6 +11,8 @@ import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useSignupForm from 'features/hooks/use-signup-form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+
+const handleCTA = () => Analytics?.trackEvent('deriv_com_signup_cta', { action: 'click' })
 
 const SignupPublicForm = () => {
     const { onSignup, signUpForm } = useSignupForm({
@@ -86,7 +89,7 @@ const SignupPublicForm = () => {
                         />
                     </Flex.Item>
                     <Flex.Item shrink="0" grow="1">
-                        <Button.Primary fluid disabled={is_button_disabled}>
+                        <Button.Primary fluid disabled={is_button_disabled} onClick={handleCTA}>
                             <Localize translate_text="_t_Sign up_t_" />
                         </Button.Primary>
                     </Flex.Item>

@@ -42,3 +42,14 @@
         color: $text-color-primary;
     }
 }
+
+.signup_latam_human_image {
+    width: 100%;
+    max-width: 610px;
+    padding: 0 3rem;
+    display: none;
+}
+
+.signup_latam_image_show {
+    display: block;
+}

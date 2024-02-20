@@ -85,12 +85,7 @@ const DerivGoGetApp = () => {
             secondColumnMobileMargin="8rem 0 0 0"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img
-                    src={derivGoLogo}
-                    alt={localize('_t_Deriv Go logo_t_')}
-                    width="64px"
-                    height="64px"
-                />
+                <img src={derivGoLogo} alt="Deriv Go" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv GO_t_"

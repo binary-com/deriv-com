@@ -18,7 +18,7 @@ const StepIndices = ({ is_cfd }: StepIndicesProps) => {
                         mb="4x"
                         weight="bold"
                         size="small"
-                        className={dclsx('visible-larger-than-phone')}
+                        className={dclsx('at-visible-larger-than-phone')}
                     >
                         <Localize translate_text={'_t_Deriv MT5 and Deriv X:_t_'} />
                     </Typography.Paragraph>
@@ -26,7 +26,7 @@ const StepIndices = ({ is_cfd }: StepIndicesProps) => {
                         mb="4x"
                         weight="bold"
                         size="xs"
-                        className={dclsx('visible-phone-only')}
+                        className={dclsx('at-visible-phone-only')}
                     >
                         <Localize translate_text={'_t_Deriv MT5 and Deriv X:_t_'} />
                     </Typography.Paragraph>

@@ -2,10 +2,12 @@ import React from 'react'
 import { Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
+import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 
 const sharedClasses = 'inline font-bold underline hover:text-typography-prominent'
 
-export const DescriptionContent = () => {
+export const DescriptionContentROW = () => {
     return (
         <>
             <Text size="sm">
@@ -33,7 +35,7 @@ export const DescriptionContent = () => {
                     ]}
                 />
             </Text>
-            <Text size="sm">
+            <Text size="sm" className="pt-general-lg">
                 <Localize
                     translate_text="_t_Please read our <0>Terms and conditions</0>, <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. The information on this website does not constitute investment advice._t_"
                     components={[
@@ -72,7 +74,7 @@ export const DescriptionContentEU = () => {
                     ]}
                 />
             </Text>
-            <Text size="sm">
+            <Text size="sm" className="pt-general-lg">
                 <Localize
                     translate_text="_t_Please read our <0>Terms and conditions</0>, <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. The information on this website does not constitute investment advice._t_"
                     components={[
@@ -129,7 +131,7 @@ export const DescriptionContentCPA = () => {
                     ]}
                 />
             </Text>
-            <Text size="sm">
+            <Text size="sm" className="pt-general-lg">
                 <Localize
                     translate_text="_t_Please read our <0>Terms and conditions</0>, <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. The information on this website does not constitute investment advice._t_"
                     components={[
@@ -149,5 +151,21 @@ export const DescriptionContentCPA = () => {
                 />
             </Text>
         </>
+    )
+}
+
+export const DescriptionContent = () => {
+    const { is_eu, is_cpa_plan } = useRegion()
+    const { exitRef } = useFloatingCtaContext()
+    return (
+        <div ref={exitRef}>
+            {is_eu ? (
+                <DescriptionContentEU />
+            ) : is_cpa_plan ? (
+                <DescriptionContentCPA />
+            ) : (
+                <DescriptionContentROW />
+            )}
+        </div>
     )
 }

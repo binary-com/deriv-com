@@ -80,7 +80,7 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/dmt5',
-                        text: <Localize translate_text="_t_Deriv MT5_t_" />,
+                        text: 'Deriv MT5',
                         type: 'direct',
                         icon: (
                             <PartnersProductDerivMt5BrandDarkLogoHorizontalIcon
@@ -151,13 +151,13 @@ export const mainRowNavItems: NavLinkItems = {
                             />
                         ),
                         description: (
-                            <Localize translate_text="_t_Flagship options, accumulators, & multipliers trading platform._t_" />
+                            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
                         ),
                     },
                     {
                         id: 1,
                         href: '/deriv-go',
-                        text: <Localize translate_text="_t_Deriv GO_t_" />,
+                        text: 'Deriv GO',
                         type: 'direct',
                         icon: (
                             <DerivProductDerivGoBrandDarkLogoHorizontalIcon
@@ -522,7 +522,7 @@ export const mainEuNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/dmt5',
-                        text: <Localize translate_text="_t_Deriv MT5_t_" />,
+                        text: 'Deriv MT5',
                         type: 'direct',
                         icon: (
                             <PartnersProductDerivMt5BrandDarkLogoHorizontalIcon
@@ -546,7 +546,7 @@ export const mainEuNavItems: NavLinkItems = {
                             />
                         ),
                         description: (
-                            <Localize translate_text="_t_Flagship options, accumulators, & multipliers trading platform._t_" />
+                            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
                         ),
                     },
                 ],

@@ -30,7 +30,7 @@ const Hero = () => {
                     formats={['avif', 'webp', 'auto']}
                     style={{ height: '100%' }}
                     objectPosition="center"
-                    className={dclsx('visible-larger-than-tablet')}
+                    className={dclsx('at-visible-larger-than-tablet')}
                 />
                 <StaticImage
                     src="../../../../../images/common/deriv-prime/hero-mobile.png"
@@ -42,7 +42,7 @@ const Hero = () => {
                     placeholder="blurred"
                     formats={['avif', 'webp', 'auto']}
                     style={{ height: '100%' }}
-                    className={dclsx('visible-phone-and-tablet')}
+                    className={dclsx('at-visible-phone-and-tablet')}
                 />
             </div>
             <Flex.Box

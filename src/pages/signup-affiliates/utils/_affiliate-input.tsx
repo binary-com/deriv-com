@@ -110,6 +110,7 @@ const AffiliateInput = ({
                     background="white"
                     ref={() => current_input}
                     type={is_password_visible ? 'text' : props.type}
+                    autoComplete="off"
                 />
                 {label && (
                     <AffiliateLabel error={error} htmlFor={id}>

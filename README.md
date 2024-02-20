@@ -13,7 +13,7 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)
 -   [How to contribute](#how-to-contribute)
--   [PR Formating guideline](#pr-formating-guideline)
+-   [PR Formatting guideline](#pr-formating-guideline)
 -   [PR without translations](#pr-without-translation)
 -   [PR with translations](#pr-with-translation)
 -   [Manage releases](#manage-releases)
@@ -132,7 +132,7 @@ PR will be based on the master branch if the commits are not having text changes
 
 ### PR with translation
 
--   Pre-requisite:
+-   Prerequisite:
 
     -   Install crowdin-cli
 
@@ -155,7 +155,7 @@ PR will be based on the master branch if the commits are not having text changes
     ```sh
     npm run translation:pull
     ```
-    This command will trigger the workflow to pull latest translation from the specific branch and automatically add the commit to that PR.
+    This command will trigger the workflow to pull the latest translation from the specific branch and automatically add the commit to that PR.
 
 -   Push the changes in the PR
 
@@ -163,11 +163,11 @@ PR will be based on the master branch if the commits are not having text changes
 
     Don't worry it's easy to resolve, you can either resolve it using your changes or their changes doesn't matter because after you commit, it will again generate an updated messages.json file based on your current code, as long as you have all the changes from the master you are good to go.
 
-    Pulled the translations but strings are still not translated
+    Pulled the translations but strings are still not translated.
     First you need to check if you have all the translations in your codebase.
     Search for the string and copy the corresponding hashed value for the string, can be found on messages.json
 
-    Now search the whole codebase using the hash, if json files for each languages appeared on your search results then you check if the values are not in English.
+    Now search the whole codebase using the hash, if json files for each language appeared on your search results then you check if the values are not in English.
     Once the translations are proven to be there, you need to check where the strings are used
     Usually if your are using localize function when not in the react component it is failing to translate strings properly, you can convert them to <Localize translate_text="" /> instead
 

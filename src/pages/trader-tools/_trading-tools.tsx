@@ -95,7 +95,7 @@ const Divider = styled.div`
 
 const StyledDesktop = styled.div`
     display: none;
-    @media (min-width: 991px) {
+    @media (min-width: 993px) {
         display: block;
     }
 `
@@ -103,7 +103,7 @@ const StyledDesktop = styled.div`
 const StyledMobile = styled.div`
     display: flex;
     flex-direction: column;
-    @media (min-width: 991px) {
+    @media (min-width: 993px) {
         display: none;
     }
 `

@@ -93,6 +93,21 @@ const Divider = styled.div`
     }
 `
 
+const StyledDesktop = styled.div`
+    display: none;
+    @media (min-width: 992px) {
+        display: block;
+    }
+`
+
+const StyledMobile = styled.div`
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 992px) {
+        display: none;
+    }
+`
+
 const query = graphql`
     query {
         margin: file(relativePath: { eq: "trade-tools/landing/margin-calculator.png" }) {
@@ -146,15 +161,15 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                         <React.Fragment key={item.image_alt}>
                             <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>
                                 <Column>
-                                    <Desktop>
+                                    <StyledDesktop>
                                         <QueryImage
                                             data={data[item.image_name]}
                                             alt={item.image_alt}
                                             height="100%"
                                             loading={index === 0 ? 'eager' : 'lazy'}
                                         />
-                                    </Desktop>
-                                    <Mobile className="margin-calculator-btn">
+                                    </StyledDesktop>
+                                    <StyledMobile>
                                         <QueryImage
                                             data={data[item.image_name + '_mobile']}
                                             alt={item.image_alt}
@@ -164,7 +179,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             <Localize translate_text={item.link.text} />
                                         </StyledLinkButton>
-                                    </Mobile>
+                                    </StyledMobile>
                                 </Column>
                                 <Content
                                     height="auto"

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { next_btn } from './signup-academy.module.scss'
 import { DropdownSearch } from 'components/elements'
@@ -30,6 +30,7 @@ type CountryType = {
     name: string
     display_name: string
     value: string
+    disabled: string
 }
 type HandleNextType = () => void
 
@@ -50,6 +51,21 @@ const ResidenceForm = ({
     setSelectedValue,
 }: ResidenceFormProps) => {
     const { country, citizenship } = selected_value
+    const [errors, setErrors] = useState(false)
+
+    const handleSelection = (country) => {
+        const is_country_disabled = residence_list.filter((item) => country.name === item.name)?.[0]
+            ?.disabled
+        setSelectedValue((prevState) => ({
+            ...prevState,
+            country: country,
+        }))
+        if (is_country_disabled) {
+            setErrors(true)
+        } else {
+            setErrors(false)
+        }
+    }
 
     const form_inputs = [
         {
@@ -61,6 +77,7 @@ const ResidenceForm = ({
             placeholder_message: localize(
                 '_t_Country of residence is where you currently live._t_',
             ),
+            error_message: '_t_Unfortunately, Deriv is not available in this country._t_',
         },
         {
             id: 'dm-citizenship-select',
@@ -73,7 +90,7 @@ const ResidenceForm = ({
             ),
         },
     ]
-
+    console.log(residence_list)
     return (
         <Flex.Box direction="col" align="start" padding="12x">
             <Typography.Paragraph weight="bold">
@@ -93,17 +110,23 @@ const ResidenceForm = ({
                                         items={item.list}
                                         selected_item={country}
                                         mb="5px"
-                                        onChange={(country) => {
-                                            setSelectedValue((prevState) => ({
-                                                ...prevState,
-                                                country: country,
-                                            }))
-                                        }}
+                                        onChange={(country) => handleSelection(country)}
                                         style={{ marginTop: '16px' }}
                                     />
-                                    <Typography.Paragraph size="xs" padding_inline="8x">
-                                        <Localize translate_text={item.placeholder_message} />
-                                    </Typography.Paragraph>
+                                    {errors && (
+                                        <Typography.Paragraph
+                                            size="small"
+                                            padding_inline="8x"
+                                            textcolor="brand"
+                                        >
+                                            <Localize translate_text={item.error_message} />
+                                        </Typography.Paragraph>
+                                    )}
+                                    {!errors && (
+                                        <Typography.Paragraph size="small" padding_inline="8x">
+                                            <Localize translate_text={item.placeholder_message} />
+                                        </Typography.Paragraph>
+                                    )}
                                 </>
                             )
                         } else {
@@ -124,7 +147,7 @@ const ResidenceForm = ({
                                         }}
                                         style={{ marginTop: '16px' }}
                                     />
-                                    <Typography.Paragraph size="xs" padding_inline="8x">
+                                    <Typography.Paragraph size="small" padding_inline="8x">
                                         <Localize translate_text={item.placeholder_message} />
                                     </Typography.Paragraph>
                                 </>
@@ -134,7 +157,7 @@ const ResidenceForm = ({
                     <div className={next_btn}>
                         <NextButton
                             secondary
-                            disabled={!citizenship || !country}
+                            disabled={!citizenship || !country || errors || !selected_value}
                             onClick={handleNext}
                         >
                             <Localize translate_text="_t_Next_t_" />

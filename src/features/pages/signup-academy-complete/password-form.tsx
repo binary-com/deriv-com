@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
 import { trading_btn, signup_form_line } from './signup-academy.module.scss'
-import AcademyInput from './academy-input'
+import AcademyPasswordInput from './academy-input'
 import { academy_validation } from './password-validation'
+import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
@@ -18,7 +19,6 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const [password, setPassword] = useState('')
     const [form_errors, setFormErrors] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
-    const [submit_error_msg, setSubmitErrorMsg] = useState('')
     const GoTrading = styled(Button)`
         border-radius: 4px;
     `
@@ -38,6 +38,14 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
         setFormErrors('')
     }
 
+    const params = new URLSearchParams(isBrowser() && location.search)
+    const codeValue = params.get('code')
+
+    const handleNavigation = () => {
+        window.location.href =
+            'https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228'
+    }
+
     const GetDerivAcademy = () => {
         apiManager
             .augmentedSend('new_account_virtual', {
@@ -45,7 +53,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                 type: 'trading',
                 client_password: password,
                 residence: residence,
-                verification_code: 'uoJvVuQ6',
+                verification_code: codeValue,
             })
             .then((response) => {
                 console.log(response)
@@ -54,10 +62,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     setSubmitErrorMsg(response.error.message)
                 } else {
                     setSubmitStatus('success')
-                    navigate(
-                        'https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228',
-                        { replace: true },
-                    )
+                    handleNavigation()
                 }
             })
     }
@@ -69,7 +74,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
             </Typography.Paragraph>
 
             <Flex.Item>
-                <AcademyInput
+                <AcademyPasswordInput
                     id="dm-password"
                     name="password"
                     type="password"

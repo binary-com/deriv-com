@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { isIndexEven } from 'common/utility'
-import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
+import { Container, SectionContainer, Flex, Desktop } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -95,7 +95,7 @@ const Divider = styled.div`
 
 const StyledDesktop = styled.div`
     display: none;
-    @media (min-width: 992px) {
+    @media (min-width: 991px) {
         display: block;
     }
 `
@@ -103,7 +103,7 @@ const StyledDesktop = styled.div`
 const StyledMobile = styled.div`
     display: flex;
     flex-direction: column;
-    @media (min-width: 992px) {
+    @media (min-width: 991px) {
         display: none;
     }
 `

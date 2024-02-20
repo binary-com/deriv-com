@@ -22,7 +22,7 @@ const HeroAwardImages = () => {
         >
             <StaticImage
                 src="../../../../images/migration/home/award-1.png"
-                alt={localize('_t_Best forex spreads APAC 2023 by UF Awards_t_')}
+                alt={localize('_t_Most Innovative Broker, UF Awards 2023_t_')}
                 width={132}
                 height={68}
                 placeholder="none"

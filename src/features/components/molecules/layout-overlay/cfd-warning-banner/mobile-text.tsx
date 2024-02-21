@@ -40,25 +40,24 @@ const MobileText = ({ loss_percent }: TextProps) => {
                         />
                     </Typography.Paragraph>
                 ) : (
-                    <Typography.Paragraph
-                        className={dclsx('container-fluid margin-inline-10x')}
-                        size="large"
-                    >
-                        <Localize
-                            translate_text="_t_<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
-                            values={{ loss_percent }}
-                            components={[
-                                <Link
-                                    weight="bold"
-                                    key={0}
-                                    target="_blank"
-                                    url={{
-                                        type: 'non-company',
-                                        href: '/tnc/eu/risk-disclosure.pdf',
-                                    }}
-                                />,
-                            ]}
-                        />
+                    <Typography.Paragraph size="large">
+                        <span className="block at-container-fluid at-margin-inline-10x">
+                            <Localize
+                                translate_text="_t_<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
+                                values={{ loss_percent }}
+                                components={[
+                                    <Link
+                                        weight="bold"
+                                        key={0}
+                                        target="_blank"
+                                        url={{
+                                            type: 'non-company',
+                                            href: '/tnc/eu/risk-disclosure.pdf',
+                                        }}
+                                    />,
+                                ]}
+                            />
+                        </span>
                     </Typography.Paragraph>
                 )}
             </Container.Fluid>

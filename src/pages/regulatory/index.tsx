@@ -507,6 +507,20 @@ const Regulatory = () => {
                     </ContentText>
 
                     <ContentText
+                        className="max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
+                        title="Deriv.com Limited"
+                    >
+                        <Text>
+                            <Localize
+                                translate_text="Deriv.com Limited is the holding company for the above
+                                    subsidiaries with the registration number 71479 and the
+                                    registered address is located at 2nd Floor, 1 Cornet Street, St
+                                    Peter Port, Guernsey, GY1 1BZ."
+                            />
+                        </Text>
+                    </ContentText>
+
+                    <ContentText
                         className=" max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
                         title="The Financial Commission"
                     >

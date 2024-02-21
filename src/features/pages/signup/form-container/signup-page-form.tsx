@@ -7,9 +7,11 @@ import { localize, Localize } from 'components/localization'
 import Input from 'features/components/atoms/input'
 import Link from 'features/components/atoms/link'
 import useSignupForm from 'features/hooks/use-signup-form'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const SignUpPageForm = () => {
     const { onSignup, signUpForm } = useSignupForm()
+    const [is_mounted] = usePageLoaded()
 
     const {
         register,
@@ -23,6 +25,8 @@ const SignUpPageForm = () => {
 
     const is_button_disabled =
         values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
+
+    if (!is_mounted) return null
 
     return (
         <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onSignup)} gap="8x">

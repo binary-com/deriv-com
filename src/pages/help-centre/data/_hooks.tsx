@@ -1,6 +1,8 @@
 import { TQuestions, TQuestionsData } from './_data-types'
 import useRegion from 'components/hooks/use-region'
 
+// TODO: Need to update these hooks and the questions data structue
+
 export const useFilteredQuestions = (data: TQuestions[]) => {
     const { is_eu } = useRegion()
     return data.filter(({ hide_for_eu, hide_for_non_eu }) =>

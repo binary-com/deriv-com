@@ -7,6 +7,7 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type TQuestionsSection = {
     data: TQuestionsData[]
@@ -58,6 +59,9 @@ const Wrapper = styled.div`
 
 const QuestionsSection = ({ data, section_name }: TQuestionsSection) => {
     const filtered_data = useFilteredCategory(data)
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
 
     return (
         <Section>

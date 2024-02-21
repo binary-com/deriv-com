@@ -1,0 +1,25 @@
+name: Generate preview link for ROW and EU
+
+on: 
+    pull_request_target:
+        types: [opened, synchronize]
+        branches: "**"
+
+env:
+    NODE_OPTIONS: '--max-old-space-size=8192'
+
+# concurrency:
+#     group: cloudflare-pages-build-${{github.head_ref}}
+#     cancel-in-progress: true
+
+jobs: 
+    build_to_cloudflare_pages:
+        runs-on: Ubuntu-latest
+        permissions:
+            checks: write
+            pull-requests: write
+        steps:
+            - name: Checkout to repo
+              uses: actions/checkout@v4
+              with:
+                ref: ${{ github.event.pull_request.head.sha }}

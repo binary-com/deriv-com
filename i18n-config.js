@@ -45,7 +45,7 @@ module.exports = {
     },
     th: {
         path: 'th',
-        display_name: 'Thai',
+        display_name: 'ไทย',
         short_name: 'TH',
         affiliate_lang: 12,
     },

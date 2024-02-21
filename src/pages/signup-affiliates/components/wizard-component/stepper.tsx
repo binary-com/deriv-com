@@ -105,21 +105,21 @@ const steps: { id: number; step_num: TString; step_name: TString; step_descripti
     },
     {
         id: 2,
-        step_num: '_t_Step 2 : Subscription plan (2 of 5)_t_',
-        step_name: '_t_Subscription plan_t_',
-        step_description: '_t_Choose which plan you would like to subscribe._t_',
-    },
-    {
-        id: 3,
-        step_num: '_t_Step 3 : Address details (3 of 5)_t_',
+        step_num: '_t_Step 2 : Address details (2 of 5)_t_',
         step_name: '_t_Address details_t_',
         step_description: '_t_Personal address_t_',
     },
     {
-        id: 4,
-        step_num: '_t_Step 4 : Personal details (4 of 5)_t_',
+        id: 3,
+        step_num: '_t_Step 3 : Personal details (3 of 5)_t_',
         step_name: '_t_Personal details_t_',
         step_description: '_t_ Details_t_',
+    },
+    {
+        id: 4,
+        step_num: '_t_Step 4 : Subscription plan (4 of 5)_t_',
+        step_name: '_t_Subscription plan_t_',
+        step_description: '_t_Choose which plan you would like to subscribe._t_',
     },
     {
         id: 5,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SyntheticIndices from '../components/markets/_synthetic-indices'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import NavTab from '../components/sections/_nav-tab'
@@ -10,21 +10,28 @@ import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TGatsbyHead } from 'features/types'
+import { TString } from 'types/generics'
 
 const Markets = () => {
     const { is_eu, is_row } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
+    const [description, setDescription] = useState<TString>(
+        '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_',
+    )
 
-    const description_eu =
-        '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_'
-    const description_row =
-        '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_'
+    useEffect(() => {
+        if (is_eu) {
+            setDescription(
+                '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_',
+            )
+        }
+    }, [is_eu])
 
     return (
         <Layout type="noNav" padding_top="0">
             <DerivedFXHero
                 title="_t_Derived indices_t_"
-                description={is_eu ? description_eu : description_row}
+                description={description}
                 is_derived_eu={is_eu ? true : false}
                 is_derived_row={is_row ? true : false}
             />

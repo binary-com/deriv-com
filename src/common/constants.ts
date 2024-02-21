@@ -166,7 +166,7 @@ export const localized_link_url = Object.freeze({
     'terms_and_conditions/#clients': domain_full_url,
     'terms_and_conditions/#business-partners': domain_full_url,
 })
-export const default_server_url = 'green.binaryws.com'
+export const default_server_url = 'green.derivws.com'
 
 export const live_chat_key = 'live_chat_redirection'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MobileNavToggle, NavigationBlock } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
 import { SubBrandDerivPrimeBrandLightIcon } from '@deriv/quill-icons/Logo'
@@ -37,6 +37,12 @@ const PrimeNavButtons = () => {
 
 const PrimeNav = () => {
     const { is_eu } = useRegion()
+    const [items, setItems] = useState(partnersItems)
+
+    useEffect(() => {
+        if (is_eu) setItems(partnersEUItems)
+    }, [is_eu])
+
     return (
         <NavigationBlock
             topNavigation={TopNavigation}
@@ -46,7 +52,7 @@ const PrimeNav = () => {
                     <SubBrandDerivPrimeBrandLightIcon width={118} height={24} />
                 </CustomLink>
             )}
-            items={is_eu ? partnersEUItems : partnersItems}
+            items={items}
         />
     )
 }

@@ -227,7 +227,7 @@ const DerivIBProgramme = () => {
             setActiveTab(tabName)
         }
     }
-    const deriv_mt5_name: String = 'Deriv MT5'
+    const deriv_mt5_name = 'Deriv MT5'
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">

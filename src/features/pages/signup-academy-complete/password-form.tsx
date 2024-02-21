@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { trading_btn, signup_form_line } from './signup-academy.module.scss'
 import AcademyPasswordInput from './academy-input'
@@ -24,16 +24,14 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
         border-radius: 4px;
     `
 
-    const handleInput = (e) => {
+    const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         const { value } = e.target
 
         setPassword(value)
-        if (academy_validation) {
-            const error_msg = academy_validation.password(value)
-            setFormErrors(error_msg)
-        }
-    }
+        const error_msg = academy_validation?.password(value) || { text: '', is_warning: false }
+        setFormErrors(error_msg)
+    }, [])
 
     const handleError = () => {
         setFormErrors({ text: '', is_warning: false })
@@ -82,7 +80,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     type="password"
                     label="Create a password"
                     value={password}
-                    error={form_errors?.text}
+                    error_or_warning={form_errors}
                     placeholder="Create a password"
                     password_icon={true}
                     onChange={handleInput}
@@ -101,9 +99,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
             <div className={trading_btn} onClick={GetDerivAcademy}>
                 <GoTrading
                     secondary
-                    disabled={
-                        form_errors?.text === '' || form_errors?.is_warning === false || !password
-                    }
+                    disabled={(form_errors?.text && !form_errors?.is_warning) || !password}
                 >
                     <Localize translate_text="_t_Go to Deriv Academy_t_" />
                 </GoTrading>

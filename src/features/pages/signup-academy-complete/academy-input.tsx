@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import device from 'themes/device'
 import {
@@ -13,15 +13,16 @@ import ClosedEye from 'images/svg/eye.svg'
 
 type AcademyPasswordInputProps = {
     password_icon?: boolean
+    error_or_warning?: { text: string; is_warning: boolean }
 } & InputProps
 
 export const StyledRelativeWrapper = styled(RelativeWrapper)`
     margin-block: 16px 36px;
 `
-export const ErrorMessage = styled.div<{ error?: boolean }>`
+export const ErrorMessage = styled.div<{ is_warning?: boolean }>`
     position: absolute;
     font-size: 12px;
-    color: ${({ error }) => (error ? 'var(--color-red-1)' : 'var(--color-grey-5)')};
+    color: ${({ is_warning }) => (is_warning ? 'var(--color-green)' : 'var(--color-red)')};
     padding: 6px 0;
 `
 const StyledIcon = styled.img<{ password_icon?: boolean }>`
@@ -84,17 +85,20 @@ export const StyledInputWrapper = styled(InputWrapper)<{
 const AcademyPasswordInput = ({
     label = '',
     id = '',
-    error = '',
+    error_or_warning = { text: '', is_warning: false },
     password_icon,
     ...props
 }: AcademyPasswordInputProps) => {
     const current_input = useRef(null)
     const [is_password_visible, setPasswordVisible] = useState(false)
 
+    const get_error_message = useCallback(() => {
+        return error_or_warning.text
+    }, [error_or_warning])
     return (
         <StyledRelativeWrapper>
             <StyledInputWrapper
-                error={error}
+                error={get_error_message()}
                 is_password={props.type === 'password'}
                 password_length={props.type === 'password' && props.value.length}
             >
@@ -102,14 +106,14 @@ const AcademyPasswordInput = ({
                     {...props}
                     id={id}
                     width={500}
-                    error={error}
+                    error={get_error_message()}
                     showLabel={label}
                     background="white"
                     ref={current_input}
                     type={is_password_visible ? 'text' : props.type}
                 />
                 {label && (
-                    <Label error={error} htmlFor={id}>
+                    <Label error={get_error_message()} htmlFor={id}>
                         {label}
                     </Label>
                 )}
@@ -122,9 +126,11 @@ const AcademyPasswordInput = ({
                     onClick={() => setPasswordVisible(!is_password_visible)}
                 />
             )}
-            {error && (
+            {get_error_message() && (
                 <>
-                    <ErrorMessage error>{error}</ErrorMessage>
+                    <ErrorMessage is_warning={error_or_warning.is_warning}>
+                        {get_error_message()}
+                    </ErrorMessage>
                 </>
             )}
         </StyledRelativeWrapper>

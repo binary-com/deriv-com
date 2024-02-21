@@ -40,11 +40,6 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const params = new URLSearchParams(isBrowser() && location.search)
     const codeValue = params.get('code')
 
-    const handleNavigation = () => {
-        window.location.href =
-            'https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228'
-    }
-
     const GetDerivAcademy = () => {
         apiManager
             .augmentedSend('new_account_virtual', {
@@ -55,6 +50,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                 verification_code: codeValue,
             })
             .then((response) => {
+                const auth_token = response.new_account_virtual.oauth_token
                 console.log(response)
                 if (response.error) {
                     setSubmitStatus('error')
@@ -62,7 +58,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                 } else {
                     setSubmitStatus('success')
                     //setting the session token
-                    handleNavigation()
+                    window.location.href = `https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228&token1=${auth_token}`
                 }
             })
     }

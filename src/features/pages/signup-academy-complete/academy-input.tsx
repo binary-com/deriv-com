@@ -22,7 +22,7 @@ export const StyledRelativeWrapper = styled(RelativeWrapper)`
 export const ErrorMessage = styled.div<{ is_warning?: boolean }>`
     position: absolute;
     font-size: 12px;
-    color: ${({ is_warning }) => (is_warning ? 'var(--color-green)' : 'var(--color-red)')};
+    color: ${({ is_warning }) => (is_warning ? 'var(--color-yellow-3)' : 'var(--color-red)')};
     padding: 6px 0;
 `
 const StyledIcon = styled.img<{ password_icon?: boolean }>`
@@ -48,6 +48,7 @@ export const Label = styled(StyledLabel)`
 export const StyledInputWrapper = styled(InputWrapper)<{
     password_length?: number
     is_password?: boolean
+    // is_warning:boolean
 }>`
     border-radius: 4px;
     border: solid 1px var(--color-grey-7);
@@ -98,7 +99,7 @@ const AcademyPasswordInput = ({
     return (
         <StyledRelativeWrapper>
             <StyledInputWrapper
-                error={get_error_message()}
+                error={error_or_warning.is_warning ? '' : get_error_message()}
                 is_password={props.type === 'password'}
                 password_length={props.type === 'password' && props.value.length}
             >

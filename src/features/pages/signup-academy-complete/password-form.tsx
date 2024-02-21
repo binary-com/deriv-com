@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
 import { trading_btn, signup_form_line } from './signup-academy.module.scss'
 import AcademyPasswordInput from './academy-input'
 import { academy_validation } from './password-validation'
@@ -17,8 +16,10 @@ type AcademyPasswordFormProps = {
 
 const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const [password, setPassword] = useState('')
-    const [form_errors, setFormErrors] = useState('')
+    // const [form_errors, setFormErrors] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
+    const [form_errors, setFormErrors] = useState({ text: '', is_warning: false })
+
     const GoTrading = styled(Button)`
         border-radius: 4px;
     `
@@ -35,7 +36,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     }
 
     const handleError = () => {
-        setFormErrors('')
+        setFormErrors({ text: '', is_warning: false })
     }
 
     const params = new URLSearchParams(isBrowser() && location.search)
@@ -62,6 +63,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     setSubmitErrorMsg(response.error.message)
                 } else {
                     setSubmitStatus('success')
+                    //setting the session token
                     handleNavigation()
                 }
             })
@@ -80,7 +82,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     type="password"
                     label="Create a password"
                     value={password}
-                    error={form_errors}
+                    error={form_errors?.text}
                     placeholder="Create a password"
                     password_icon={true}
                     onChange={handleInput}
@@ -97,7 +99,12 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
 
             <Flex.Item className={signup_form_line} />
             <div className={trading_btn} onClick={GetDerivAcademy}>
-                <GoTrading secondary disabled={form_errors || !password}>
+                <GoTrading
+                    secondary
+                    disabled={
+                        form_errors?.text === '' || form_errors?.is_warning === false || !password
+                    }
+                >
                     <Localize translate_text="_t_Go to Deriv Academy_t_" />
                 </GoTrading>
             </div>

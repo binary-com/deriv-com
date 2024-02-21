@@ -9,15 +9,21 @@ export const validation_is_lack_number = (input, min_digit) => input.length + 1 
 
 export const passwordValidation = (input) => {
     if (!input) {
-        return localize('_t_You should enter 8-25 characters._t_')
+        return { text: localize('_t_You should enter 8-25 characters._t_'), is_warning: false }
     } else if (password_regex_validate.common_password.test(input)) {
-        return localize(
-            `_t_Repeats like “abcabcabc” are only slightly harder to guess than “abc”._t_`,
-        )
+        return {
+            text: localize(
+                `_t_Repeats like “abcabcabc” are only slightly harder to guess than “abc”._t_`,
+            ),
+            is_warning: true,
+        }
     } else if (!password_regex_validate.password.test(input)) {
-        return localize(
-            `_t_Password should have lower and uppercase English letters with numbers._t_`,
-        )
+        return {
+            text: localize(
+                `_t_Password should have lower and uppercase English letters with numbers._t_`,
+            ),
+            is_warning: false,
+        }
     }
 }
 

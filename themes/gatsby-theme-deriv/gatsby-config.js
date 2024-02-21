@@ -379,15 +379,5 @@ module.exports = {
                 collectionTypes: strapi_config,
             },
         },
-        {
-            resolve: 'gatsby-plugin-env-variables',
-            options: {
-                allowList: [
-                    'GATSBY_RUDDERSTACK_URL',
-                    'GATSBY_RUDDERSTACK_STAGING_KEY',
-                    'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
-                ],
-            },
-        },
     ],
 }

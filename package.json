@@ -39,7 +39,6 @@
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-webpack-plugin": "^3.2.0",
-        "gatsby-plugin-env-variables": "^2.3.0",
         "gatsby-plugin-eslint": "^4.0.4",
         "gatsby-plugin-postcss": "^6.12.0",
         "gatsby-plugin-styled-components": "^6.12.0",
@@ -70,7 +69,7 @@
         "typescript-plugin-css-modules": "^4.2.3"
     },
     "optionalDependencies": {
-        "@parcel/watcher-linux-x64-glibc": "2.4.0"
+        "@parcel/watcher-linux-x64-glibc": "^2.4.0"
     },
     "keywords": [
         "deriv",

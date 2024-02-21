@@ -134,8 +134,8 @@ export const RowFooterNavData: FooterItems[] = [
                 header: <Localize translate_text="_t_PLATFORMS_t_" />,
                 type: 'link',
                 items: [
-                    { id: 0, href: '/dmt5', text: <Localize translate_text="_t_Deriv MT5_t_" /> },
-                    { id: 1, href: '/derivx', text: <Localize translate_text="_t_Deriv X_t_" /> },
+                    { id: 0, href: '/dmt5', text: 'Deriv MT5' },
+                    { id: 1, href: '/derivx', text: 'Deriv X' },
                     {
                         id: 2,
                         href: '/deriv-ctrader',
@@ -144,7 +144,7 @@ export const RowFooterNavData: FooterItems[] = [
                     {
                         id: 3,
                         href: '/deriv-go',
-                        text: <Localize translate_text="_t_Deriv GO_t_" />,
+                        text: 'Deriv GO',
                     },
                     {
                         id: 4,
@@ -392,7 +392,7 @@ export const EuFooterNavData: FooterItems[] = [
                 header: <Localize translate_text="_t_PLATFORMS_t_" />,
                 type: 'link',
                 items: [
-                    { id: 0, href: '/dmt5', text: <Localize translate_text="_t_Deriv MT5_t_" /> },
+                    { id: 0, href: '/dmt5', text: 'Deriv MT5' },
                     {
                         id: 1,
                         href: '/dtrader',
@@ -499,26 +499,31 @@ export const socialButtonsROW = [
         icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.facebook.com/derivdotcom',
         'data-cy': 'facebook',
+        'aria-label': 'facebook',
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_official',
         'data-cy': 'instagram',
+        'aria-label': 'instagram',
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/derivdotcom/',
         'data-cy': 'twitter',
+        'aria-label': 'twitter',
     },
     {
         icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.youtube.com/@deriv',
         'data-cy': 'youtube',
+        'aria-label': 'youtube',
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
         'data-cy': 'linkedin',
+        'aria-label': 'linkedin',
     },
     {
         icon: <StandaloneTelegramIcon iconSize="md" fill="#000000b8" />,
@@ -533,26 +538,31 @@ export const socialButtonsEU = [
         icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.facebook.com/DerivEU',
         'data-cy': 'facebook',
+        'aria-label': 'facebook',
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_eu/',
         'data-cy': 'instagram',
+        'aria-label': 'instagram',
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/deriv_eu/',
         'data-cy': 'twitter',
+        'aria-label': 'twitter',
     },
     {
         icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.youtube.com/@deriv',
         'data-cy': 'youtube',
+        'aria-label': 'youtube',
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
         'data-cy': 'linkedin',
+        'aria-label': 'linkedin',
     },
 ]
 
@@ -561,15 +571,18 @@ export const socialButtonsCareers = [
         icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.facebook.com/derivcareers',
         'data-cy': 'facebook',
+        'aria-label': 'facebook',
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/derivcareers/',
         'data-cy': 'instagram',
+        'aria-label': 'instagram',
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/life/',
         'data-cy': 'linkedin',
+        'aria-label': 'linkedin',
     },
 ]

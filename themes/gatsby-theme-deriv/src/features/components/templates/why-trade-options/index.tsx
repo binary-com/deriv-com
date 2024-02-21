@@ -50,7 +50,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
                         textcolor="inverted"
                         size="xxs"
                         mb="8x"
-                        className={dclsx('text-medium')}
+                        className={dclsx('at-text-medium')}
                     >
                         <Localize translate_text={data.heading2} />
                     </Typography.Heading>

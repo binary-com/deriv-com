@@ -7,7 +7,7 @@ const HeroImage = () => {
     return (
         <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
             <StaticImage
-                src="../../../../images/migration/home/home_hero_new.png"
+                src="../../../../images/migration/home/home_hero_new.webp"
                 alt="hero image"
                 placeholder="none"
                 formats={['auto', 'webp']}

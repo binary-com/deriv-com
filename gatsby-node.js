@@ -2,7 +2,6 @@
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
-const { copyLibFiles } = require('@builder.io/partytown/utils')
 const { exec } = require('child_process')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
@@ -31,9 +30,6 @@ const fetchTrustpilotData = () => {
     })
 }
 
-exports.onPreBuild = async () => {
-    await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
-}
 exports.onPreInit = () => {
     // Update truspilot.json file with latest data
     fetchTrustpilotData()

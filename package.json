@@ -5,7 +5,6 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^6.2.1",
-        "@builder.io/partytown": "^0.8.1",
         "@deriv-com/analytics": "^1.4.11",
         "@deriv-com/blocks": "^0.87.0",
         "@deriv-com/components": "^0.52.0",
@@ -168,7 +167,6 @@
         "update:quill-libs": "npm i @deriv/quill-design@latest @deriv/quill-icons@latest",
         "update:all-libs": "npm run update:quill-libs; npm run update:deriv-com-libs",
         "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages && node scripts/copy-htaccess.js",
-        "partytown": "partytown copylib public/~partytown",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

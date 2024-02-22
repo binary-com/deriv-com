@@ -41,6 +41,33 @@ export const wrapRootElement = ({ element }) => {
     return <GlobalProvider>{element}</GlobalProvider>
 }
 
+function initHJOnEvent(event) {
+    initHotjar();
+    event.currentTarget.removeEventListener(event.type, initHJOnEvent);
+}
+
+const initHotjar = () => {
+    const hotjarId = process.env.GATSBY_HOTJAR_ID || ''
+    const hj_script = document.createElement('script')
+
+    if (window.hjDidInit) {
+        return false;
+    }
+
+    window.hjDidInit = true;
+
+    hj_script.type = 'text/javascript'
+    hj_script.text = `(function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:'${hotjarId}',hjsv:'7'};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`
+    hotjarId && document.head.appendChild(hj_script)
+}
+
 function initGTMOnEvent(event) {
     initGTM();
     event.currentTarget.removeEventListener(event.type, initGTMOnEvent);
@@ -70,7 +97,7 @@ function initGTM() {
         });
     };
 
-    document.head.appendChild(script);
+    gtmTrackingId && document.head.appendChild(script);
 }
 
 export const onInitialClientRender = () => {
@@ -112,14 +139,22 @@ export const onInitialClientRender = () => {
     }
 }
 
+const eventListeners = (method) => {
+    document.addEventListener('scroll', method);
+    document.addEventListener('mousemove', method);
+    document.addEventListener('touchstart', method);
+}
+
 export const onClientEntry = () => {
     document.onreadystatechange = function () {
-        if (document.readyState !== 'loading') setTimeout(initGTM, 3000);
+        if (document.readyState !== 'loading') {
+            setTimeout(initGTM, 3000)
+            setTimeout(initHotjar, 3000)
+        }
     };
 
-    document.addEventListener('scroll', initGTMOnEvent);
-    document.addEventListener('mousemove', initGTMOnEvent);
-    document.addEventListener('touchstart', initGTMOnEvent);
+    eventListeners(initGTMOnEvent);
+    eventListeners(initHJOnEvent);
 
     // @deriv/analytics
     Analytics?.initialise({

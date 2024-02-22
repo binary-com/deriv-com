@@ -77,7 +77,7 @@ const StyledItemsWrapper = styled.div`
 
 const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDownloadColumn) => {
     const renderableItems = items.filter((item) => item.visibility)
-    const hasVisibilityFalse = items.some((item) => !item.visibility)
+    const containsHiddenItem = items.some((item) => !item.visibility)
     return (
         <Flex ai="center">
             <DownloadAppWrapper is_rtl={is_rtl}>
@@ -92,7 +92,7 @@ const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDow
                         <StyledHeading as="p" weight="100">
                             <Localize translate_text={QRHeading1} />
                         </StyledHeading>
-                        {!hasVisibilityFalse && (
+                        {!containsHiddenItem && (
                             <StyledHeading as="h5" weight="700">
                                 <Localize translate_text={QRHeading2} />
                             </StyledHeading>

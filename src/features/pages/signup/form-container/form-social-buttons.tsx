@@ -21,7 +21,7 @@ const FormSocialButtons = () => {
 
     return (
         <>
-            {isFeatureEnabled('isGoogleSignup') && (
+            {isFeatureEnabled('google_signup') && (
                 <Button.Secondary
                     outlined
                     id="dm-signup-google"
@@ -41,7 +41,7 @@ const FormSocialButtons = () => {
                     </Flex.Box>
                 </Button.Secondary>
             )}
-            {isFeatureEnabled('isFacebookSignup') && (
+            {isFeatureEnabled('facebook_signup') && (
                 <Button.Base
                     className={signup_fb_btn}
                     id="dm-signup-facebook"
@@ -66,7 +66,7 @@ const FormSocialButtons = () => {
                     </Flex.Box>
                 </Button.Base>
             )}
-            {isFeatureEnabled('isAppleSignup') && (
+            {isFeatureEnabled('apple_signup') && (
                 <Button.Base
                     className={signup_apple_btn}
                     textcolor="white"

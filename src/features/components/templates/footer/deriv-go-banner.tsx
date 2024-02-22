@@ -13,9 +13,9 @@ import { isFeatureEnabled } from 'common/utility'
 export const DerivGoBanner = () => {
     const { is_row } = useRegion()
     const showQR =
-        isFeatureEnabled('derivGOApps.appGallery') &&
-        isFeatureEnabled('derivGOApps.android') &&
-        isFeatureEnabled('derivGOApps.appStore')
+        isFeatureEnabled('deriv_go_apps.app_gallery') &&
+        isFeatureEnabled('deriv_go_apps.android') &&
+        isFeatureEnabled('deriv_go_apps.app_store')
     const deriv_go = 'Deriv GO'
     return (
         <div className="flex flex-col gap-gap-lg">

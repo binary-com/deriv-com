@@ -25,10 +25,10 @@ const HomePage = () => {
             <MainRowNavigation />
             <PageLayout>
                 <HomeHero />
-                {isFeatureEnabled('isTrustpilot') && <TrustpilotSection />}
+                {isFeatureEnabled('trustpilot') && <TrustpilotSection />}
                 <StatSection />
                 <TwentyYearsStrong />
-                {isFeatureEnabled('isLivePricing') && (
+                {isFeatureEnabled('live_pricing') && (
                     <Suspense
                         fallback={<div className="h-[695px] md:h-[638.5px] lg:h-[811.78px]" />}
                     >

@@ -55,7 +55,7 @@ const DerivGoGetApp = () => {
             text: 'Google Play',
             icon: AndroidIcon,
             link: deriv_go_playstore_url,
-            visibility: isFeatureEnabled('ctraderApps.windows'),
+            visibility: isFeatureEnabled('deriv_go_apps.windows'),
         },
         ...(is_ios_supported && is_appgallery_and_ios_supported
             ? [
@@ -63,7 +63,7 @@ const DerivGoGetApp = () => {
                       text: 'App Store',
                       icon: AppleIcon,
                       link: deriv_go_ios_url,
-                      visibility: isFeatureEnabled('ctraderApps.appStore'),
+                      visibility: isFeatureEnabled('deriv_go_apps.app_store'),
                   },
               ]
             : []),
@@ -73,7 +73,7 @@ const DerivGoGetApp = () => {
                       text: 'AppGallery',
                       icon: AppGalleryIcon,
                       link: deriv_go_huaweiappgallery_url,
-                      visibility: isFeatureEnabled('ctraderApps.appGallery'),
+                      visibility: isFeatureEnabled('deriv_go_apps.app_gallery'),
                   },
               ]
             : []),

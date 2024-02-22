@@ -55,20 +55,20 @@ const DerivCtraderApp = () => {
             text: 'Google Play',
             icon: AndroidIcon,
             link: ctrader_android_url,
-            visibility: isFeatureEnabled('ctraderApps.android'),
+            visibility: isFeatureEnabled('ctrader_apps.android'),
         },
         {
             text: `Web Browser`,
             icon: BrowserIcon,
             link: ctrader_traders_hub_url,
             smallText: `_t_Via Trader's Hub_t_`,
-            visibility: isFeatureEnabled('ctraderApps.webBrowser'),
+            visibility: isFeatureEnabled('ctrader_apps.web_browser'),
         },
         {
             text: 'Windows',
             icon: WindowsIcon,
             link: ctrader_windows_url,
-            visibility: isFeatureEnabled('ctraderApps.windows'),
+            visibility: isFeatureEnabled('ctrader_apps.windows'),
         },
     ]
 

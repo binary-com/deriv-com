@@ -25,7 +25,7 @@ const DownloadBadges = () => {
         useRegion()
     return (
         <div className="flex flex-col gap-gap-md max-lg:flex-1">
-            {isFeatureEnabled('derivGOApps.appGallery') &&
+            {isFeatureEnabled('deriv_go_apps.app_gallery') &&
                 is_appgallery_supported &&
                 is_appgallery_and_ios_supported && (
                     <CustomLink
@@ -43,7 +43,7 @@ const DownloadBadges = () => {
                         />
                     </CustomLink>
                 )}
-            {isFeatureEnabled('derivGOApps.android') && (
+            {isFeatureEnabled('deriv_go_apps.android') && (
                 <CustomLink
                     href={deriv_go_playstore_url}
                     target="_blank"
@@ -59,7 +59,7 @@ const DownloadBadges = () => {
                     />
                 </CustomLink>
             )}
-            {isFeatureEnabled('derivGOApps.appStore') &&
+            {isFeatureEnabled('deriv_go_apps.app_store') &&
                 is_ios_supported &&
                 is_appgallery_and_ios_supported && (
                     <CustomLink

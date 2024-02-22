@@ -171,7 +171,7 @@ const SearchSection = () => {
                             />
                         )}
                     </SearchForm>
-                    {isFeatureEnabled('chat.isLiveChat') && <TalkToUs />}
+                    {isFeatureEnabled('chat.live_chat') && <TalkToUs />}
 
                     {has_search_value && (
                         <SearchResult

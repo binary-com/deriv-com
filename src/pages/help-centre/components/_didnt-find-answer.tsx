@@ -90,13 +90,13 @@ const DidntFindYourAnswerBanner = () => {
 
             {is_livechat_interactive && (
                 <ButtonWrapper>
-                    {isFeatureEnabled('chat.isLiveChat') && (
+                    {isFeatureEnabled('chat.live_chat') && (
                         <ChatButton secondary onClick={openChatWindow}>
                             <Localize translate_text="_t_Chat_t_" />
                         </ChatButton>
                     )}
 
-                    {isFeatureEnabled('chat.isWhatsappChat') && (
+                    {isFeatureEnabled('chat.whatsapp_chat') && (
                         <WhatsAppButton onClick={openWhatsappUrl}>
                             <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
                             <Localize translate_text="_t_WhatsApp_t_" />

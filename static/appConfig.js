@@ -1,14 +1,14 @@
 module.exports = {
     "chat": {
-        "isLiveChat": true,
-        "isWhatsappChat": true
+        "live_chat": true,
+        "whatsapp_chat": true
     },
-    "isCareerSocialMediaIcons": {
+    "career_social_media_icons": {
         "facebook": true,
         "instagram": true,
-        "linkedin": true,
+        "linkedin": true
     },
-    "isNormalSocialMediaIcons": {
+    "normal_social_media_icons": {
         "facebook": true,
         "instagram": true,
         "twitter": true,
@@ -16,37 +16,37 @@ module.exports = {
         "linkedin": true,
         "telegram": true
     },
-    "isTrustpilot": true,
-    "isLivePricing": true,
-    "isDerivGOManagementBoard": true,
-    "isGTM": true,
-    "isHotjar": true,
-    "isGoogleSignup": true,
-    "isAppleSignup": true,
-    "isFacebookSignup": true,
-    "mt5Apps": {
+    "trustpilot": true,
+    "live_pricing": true,
+    "deriv_go_management_board": true,
+    "GTM": true,
+    "hotjar": true,
+    "google_signup": true,
+    "apple_signup": true,
+    "facebook_signup": true,
+    "mt5_apps": {
         "android": true,
-        "appStore": true,
-        "appGallery": true,
-        "webBrowser": true,
+        "app_store": true,
+        "app_gallery": true,
+        "web_browser": true,
         "windows": true,
-        "macOS": true,
+        "mac_os": true,
         "linux": true
     },
-    "derivXApps": {
+    "deriv_x_apps": {
         "android": true,
-        "appStore": true,
-        "appGallery": true,
-        "webBrowser": true
+        "app_store": true,
+        "app_gallery": true,
+        "web_browser": true
     },
-    "ctraderApps": {
+    "ctrader_apps": {
         "android": true,
-        "webBrowser": true,
+        "web_browser": true,
         "windows": true
     },
-    "derivGOApps": {
+    "deriv_go_apps": {
         "android": true,
-        "appStore": true,
-        "appGallery": true
+        "app_store": true,
+        "app_gallery": true
     }
 }

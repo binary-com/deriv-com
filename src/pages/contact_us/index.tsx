@@ -58,7 +58,7 @@ const ContactUs = ({ data }: TContactUs) => {
             </SectionContainer>
             <ContactWays support_section={support_section} />
             <Offices our_offices={our_offices} office_address={office_address} />
-            {isFeatureEnabled('chat.isLiveChat') && (
+            {isFeatureEnabled('chat.live_chat') && (
                 <Affiliates business_partnership={business_partnership} />
             )}
         </Layout>

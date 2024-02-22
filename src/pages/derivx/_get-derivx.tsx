@@ -62,13 +62,13 @@ const DerivXGetApp = () => {
             text: 'Google Play',
             icon: AndroidIcon,
             link: derivx_android_url,
-            visibility: isFeatureEnabled('derivXApps.android'),
+            visibility: isFeatureEnabled('deriv_x_apps.android'),
         },
         {
             text: 'App Store',
             icon: AppleIcon,
             link: derivx_ios_url,
-            visibility: isFeatureEnabled('derivXApps.appStore'),
+            visibility: isFeatureEnabled('deriv_x_apps.app_store'),
         },
         ...(is_appgallery_supported
             ? [
@@ -76,7 +76,7 @@ const DerivXGetApp = () => {
                       text: 'AppGallery',
                       icon: AppGalleryIcon,
                       link: derivx_huawei_url,
-                      visibility: isFeatureEnabled('derivXApps.appGallery'),
+                      visibility: isFeatureEnabled('deriv_x_apps.app_gallery'),
                   },
               ]
             : []),
@@ -85,7 +85,7 @@ const DerivXGetApp = () => {
             icon: BrowserIcon,
             link: derivx_app_url,
             smallText: '_t_Use it on your_t_',
-            visibility: isFeatureEnabled('derivXApps.webBrowser'),
+            visibility: isFeatureEnabled('deriv_x_apps.web_browser'),
         },
     ]
 

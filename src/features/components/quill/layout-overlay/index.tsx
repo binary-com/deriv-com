@@ -50,8 +50,8 @@ const LayoutOverlay = () => {
                         )}px`,
                     }}
                 >
-                    {isFeatureEnabled('chat.isLiveChat') && <LiveChatButton />}
-                    {isFeatureEnabled('chat.isWhatsappChat') && <WhatsappButton />}
+                    {isFeatureEnabled('chat.live_chat') && <LiveChatButton />}
+                    {isFeatureEnabled('chat.whatsapp_chat') && <WhatsappButton />}
                 </div>
             </div>
             <CfdWarningBanner />

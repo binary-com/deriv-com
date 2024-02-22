@@ -69,7 +69,7 @@ const DerivGo = () => {
                     <WhyTradeDerivGo />
                     <DerivGoContent reverse P2P={items} />
                     <StartDerivGo />
-                    {isFeatureEnabled('isDerivGOManagementBoard') && (
+                    {isFeatureEnabled('deriv_go_management_board') && (
                         <Roadmap portal={derivGoPortalData} />
                     )}
                     <FooterBanner />

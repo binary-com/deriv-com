@@ -3,7 +3,7 @@ import { isLoggedIn, isBrowser } from 'common/utility'
 
 const useAuthCheck = () => {
     const [is_logged_in, setLoggedIn] = useState(isLoggedIn())
-    const [isClient, setClient] = useState(isBrowser)
+    const [isClient, setClient] = useState(isBrowser())
     const [is_auth_checked, setIsAuthChecked] = useState(false)
     const checkCookieInterval = useRef<NodeJS.Timer>()
 
@@ -15,10 +15,10 @@ const useAuthCheck = () => {
 
     useEffect(() => {
         if (is_logged_in) {
-            setClient(isBrowser)
+            setClient(isBrowser())
             clearInterval(checkCookieInterval.current)
         }
-    }, [is_logged_in])
+    }, [is_logged_in, isClient])
 
     return [is_logged_in, is_auth_checked, isClient]
 }

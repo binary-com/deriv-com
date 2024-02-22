@@ -13,12 +13,15 @@ import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { langItemsROW } from 'features/pages/home/data'
 import FloatingCtaProvider from 'features/contexts/floating-cta/cta.provider'
+import BuildVariantProvider from 'features/contexts/build-variant/build-variant.provider'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     hide_layout_overlay?: boolean
     children: ReactNode
+    region: BuildVariantContextType['region']
 }
 
 if (isBrowser()) {
@@ -31,6 +34,7 @@ const QuillLayout = ({
     is_ppc = false,
     is_ppc_redirect = false,
     hide_layout_overlay = false,
+    region = 'row',
 }: LayoutProps) => {
     const { has_platform } = usePlatformQueryParam()
 
@@ -71,9 +75,13 @@ const QuillLayout = ({
                     <BreakpointProvider>
                         <ThemeProvider theme="light">
                             <FloatingCtaProvider>
-                                <main className="relative max-w-[256rem] mx-auto">{children}</main>
-                                <BrowserUpdateAlert />
-                                {!hide_layout_overlay && <LayoutOverlay />}
+                                <BuildVariantProvider region={region}>
+                                    <main className="relative max-w-[256rem] mx-auto">
+                                        {children}
+                                    </main>
+                                    <BrowserUpdateAlert />
+                                    {!hide_layout_overlay && <LayoutOverlay />}
+                                </BuildVariantProvider>
                             </FloatingCtaProvider>
                         </ThemeProvider>
                     </BreakpointProvider>

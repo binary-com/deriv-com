@@ -43,7 +43,7 @@ exports.onPreInit = () => {
 
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 
-const BuildPage = (page, actions, isEUPage) => {
+const BuildPage = (page, actions, region) => {
     const { createRedirect, createPage } = actions
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
@@ -234,7 +234,7 @@ const BuildPage = (page, actions, isEUPage) => {
             context: {
                 ...page.context,
                 locale: lang,
-                isEUPage,
+                region,
                 localeResources: translations_cache[lang],
                 pathname: localized_path,
             },
@@ -381,7 +381,7 @@ const BuildPage = (page, actions, isEUPage) => {
 }
 exports.onCreatePage = ({ page, actions }, options) => {
     const { deletePage } = actions
-    const {isEUPage} = options;
+    const {region} = options;
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
     if (pagesToBuild) {
@@ -403,14 +403,14 @@ exports.onCreatePage = ({ page, actions }, options) => {
 
         deletePage(page)
         if (isProduction) {
-            return BuildPage(page, actions, isEUPage)
+            return BuildPage(page, actions, region)
         } else {
             if (pages.includes(page.path)) {
-                return BuildPage(page, actions, isEUPage)
+                return BuildPage(page, actions, region)
             }
         }
     } else {
-        return BuildPage(page, actions, isEUPage)
+        return BuildPage(page, actions, region)
     }
 }
 

@@ -1,16 +1,16 @@
 import React, { useRef } from 'react'
 import { FastPayment } from '@deriv-com/blocks'
 import { EUPaymentMethods, RowPaymentMethods } from './data'
-import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useIsInViewport from 'components/hooks/use-is-in-viewport'
+import useBuildVariant from 'features/hooks/use-build-variant'
 const FastPaymentSection: React.FC = () => {
-    const { is_eu } = useRegion()
     const ref = useRef<HTMLDivElement>(null)
     const is_in_viewport = useIsInViewport(ref)
+    const { region } = useBuildVariant()
 
     const logosAnimation = is_in_viewport
-        ? is_eu
+        ? region === 'eu'
             ? '!animate-[40s_slide_linear_infinite] rtl:!animate-[40s_slideRtl_linear_infinite]'
             : '!animate-[100s_slide_linear_infinite] rtl:!animate-[100s_slideRtl_linear_infinite]'
         : ''
@@ -21,7 +21,7 @@ const FastPaymentSection: React.FC = () => {
                     <Localize translate_text="_t_Fast, hassle-free deposits and withdrawals_t_" />
                 }
                 description={
-                    !is_eu ? (
+                    region === 'row' ? (
                         <Localize translate_text="_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_" />
                     ) : (
                         <Localize translate_text="_t_10+ global payment methods. Deposit instantly starting from just USD 10. Withdraw in minutes.*_t_" />
@@ -34,7 +34,7 @@ const FastPaymentSection: React.FC = () => {
                 }}
                 content={{
                     cols: 'infinite',
-                    cards: is_eu ? EUPaymentMethods : RowPaymentMethods,
+                    cards: region === 'eu' ? EUPaymentMethods : RowPaymentMethods,
                     sliderClass: logosAnimation,
                 }}
                 disclaimer={

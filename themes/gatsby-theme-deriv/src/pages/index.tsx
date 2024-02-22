@@ -4,8 +4,9 @@ import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 import { WithIntl } from 'components/localization'
 
-const Home = () => {
-    return <HomePage />
+const Home = ({ pageContext }: TGatsbyHead) => {
+    const {region} = pageContext
+    return <HomePage region={region}/>
 }
 
 export default WithIntl()(Home)

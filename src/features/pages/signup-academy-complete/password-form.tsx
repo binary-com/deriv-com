@@ -56,13 +56,13 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     setSubmitErrorMsg(response.error.message)
                 } else {
                     const auth_token = response.new_account_virtual.oauth_token
-                    apiManager.augmentedSend('authorize', {
-                        authorize: auth_token,
-                    })
+                    // apiManager.augmentedSend('authorize', {
+                    //     authorize: auth_token,
+                    // })
                     setSubmitStatus('success')
 
                     //setting the session token
-                    // window.location.href = `https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228&token1=${auth_token}`
+                    window.location.href = `https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228&token1=${auth_token}`
                 }
             })
     }

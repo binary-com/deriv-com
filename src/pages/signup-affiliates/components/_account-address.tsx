@@ -125,6 +125,12 @@ const AccountAddress = ({
         }
     }, [])
 
+    const handleInput2 = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+
+        setFormData((prev) => ({ ...prev, [name]: value }))
+    }, [])
+
     const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
@@ -176,7 +182,7 @@ const AccountAddress = ({
                                         //error={form_errors[`${item.name}_error_msg`]}
                                         label={item.label}
                                         placeholder={item.label}
-                                        //onChange={handleInput}
+                                        onChange={handleInput2}
                                         //onBlur={handleInput}
                                         //handleError={() => handleError(item)}
                                     />

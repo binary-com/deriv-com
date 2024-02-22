@@ -28,6 +28,7 @@ const AccountAddress = ({
     })
     const [states_list] = useStatesList(form_data.country?.symbol)
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
+    const is_postcode_mandatory = false
 
     const handleCountry = (changed_country) => {
         if (
@@ -88,7 +89,9 @@ const AccountAddress = ({
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
-            label: localize('_t_Postal/Zip code*_t_'),
+            label: is_postcode_mandatory
+                ? localize('_t_Postal/Zip code*_t_')
+                : localize('_t_Postal/Zip code_t_'),
         },
     ]
 
@@ -147,6 +150,38 @@ const AccountAddress = ({
                                 onChange={item.handler}
                                 style={{ marginTop: '16px' }}
                             />
+                        )
+                    } else if (item.name === 'postal_code') {
+                        return (
+                            <li key={item.id}>
+                                {is_postcode_mandatory ? (
+                                    <AffiliateInput
+                                        id={item.id}
+                                        name={item.name}
+                                        type={item.type}
+                                        value={form_data[item.name]}
+                                        error={form_errors[`${item.name}_error_msg`]}
+                                        label={item.label}
+                                        placeholder={item.label}
+                                        onChange={handleInput}
+                                        onBlur={handleInput}
+                                        handleError={() => handleError(item)}
+                                    />
+                                ) : (
+                                    <AffiliateInput
+                                        id={item.id}
+                                        name={item.name}
+                                        type={item.type}
+                                        value={form_data[item.name]}
+                                        //error={form_errors[`${item.name}_error_msg`]}
+                                        label={item.label}
+                                        placeholder={item.label}
+                                        //onChange={handleInput}
+                                        //onBlur={handleInput}
+                                        //handleError={() => handleError(item)}
+                                    />
+                                )}
+                            </li>
                         )
                     } else {
                         return (

@@ -8,7 +8,7 @@ const toImage = (path: string, alt: string) => (
         height={80}
         width={128}
         className="max-w-[128px] h-[80px]"
-        loading="eager"
+        loading="lazy"
     />
 )
 

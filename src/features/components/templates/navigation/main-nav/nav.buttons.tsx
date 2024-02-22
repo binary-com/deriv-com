@@ -11,7 +11,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
 
 export const MainNavigationButtons = () => {
-    const [is_logged_in] = useAuthCheck()
+    const [is_logged_in, isClient] = useAuthCheck()
     const { is_ppc_redirect } = usePpc()
 
     const handleLogin = useHandleLogin()
@@ -19,7 +19,7 @@ export const MainNavigationButtons = () => {
 
     return (
         <div className="flex items-center gap-gap-md">
-            {is_logged_in ? (
+            {isClient && is_logged_in ? (
                 <Button
                     variant="secondary"
                     colorStyle="black"

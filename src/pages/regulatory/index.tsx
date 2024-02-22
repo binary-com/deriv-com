@@ -41,7 +41,7 @@ const Regulatory = () => {
 
                 <div className="max-w-[816px] mx-auto">
                     <Hero.ContentLess
-                        className="bg-solid-slate-75"
+                        className="bg-solid-slate-75 px-800 md:px-1200"
                         title={<Localize translate_text="_t_Regulatory information_t_" />}
                         description={
                             <>

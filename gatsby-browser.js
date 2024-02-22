@@ -41,6 +41,38 @@ export const wrapRootElement = ({ element }) => {
     return <GlobalProvider>{element}</GlobalProvider>
 }
 
+function initGTMOnEvent(event) {
+    initGTM();
+    event.currentTarget.removeEventListener(event.type, initGTMOnEvent);
+}
+
+function initGTM() {
+    const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''
+    const dataLayer = window.dataLayer
+
+    if (window.gtmDidInit) {
+        return false;
+    }
+
+    window.gtmDidInit = true;
+
+    var script = document.createElement('script');
+
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${gtmTrackingId}`;
+
+    script.onload = function () {
+        dataLayer.push({
+            event: 'gtm.js',
+            'gtm.start': new Date().getTime(),
+            'gtm.uniqueEventId': 0,
+        });
+    };
+
+    document.head.appendChild(script);
+}
+
 export const onInitialClientRender = () => {
     if (is_browser) {
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
@@ -81,6 +113,14 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    document.onreadystatechange = function () {
+        if (document.readyState !== 'loading') setTimeout(initGTM, 3000);
+    };
+
+    document.addEventListener('scroll', initGTMOnEvent);
+    document.addEventListener('mousemove', initGTMOnEvent);
+    document.addEventListener('touchstart', initGTMOnEvent);
+
     // @deriv/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
@@ -93,7 +133,7 @@ export const onClientEntry = () => {
     })
     const utm_data = JSON?.parse(
         Cookies?.get('utm_data') ||
-            `{"utm_source":"common","utm_medium":"common","utm_campaign":"common"}`,
+        `{"utm_source":"common","utm_medium":"common","utm_campaign":"common"}`,
     )
     Analytics?.setAttributes({
         country: Cookies?.get('clients_country') || Cookies?.getJSON('website_status'),

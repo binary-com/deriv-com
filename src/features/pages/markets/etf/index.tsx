@@ -10,10 +10,10 @@ import CheckTrading from './check-trading'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import MainFooter from 'features/components/templates/footer/'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
+import MainFooter from 'features/components/templates/footer'
 
 const ETFMarket = () => {
     const { is_deriv_go } = usePlatformQueryParam()

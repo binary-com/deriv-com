@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Features } from '@deriv-com/blocks'
 import { EUCards, RowCards } from './data'
 import { Localize } from 'components/localization'
@@ -7,6 +7,12 @@ import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-b
 
 const StartTradingSteps = () => {
     const { is_eu } = useRegion()
+    const [cards, setCards] = useState(RowCards)
+
+    useEffect(() => {
+        if (is_eu) setCards(EUCards)
+    }, [is_eu])
+
     return (
         <Features.Card
             hasPadding
@@ -19,7 +25,7 @@ const StartTradingSteps = () => {
             }
             cols="three"
             variant="ContentTop"
-            cards={is_eu ? EUCards : RowCards}
+            cards={cards}
         />
     )
 }

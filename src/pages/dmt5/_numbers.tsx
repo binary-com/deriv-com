@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DNumber from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
@@ -41,7 +41,11 @@ const numbers_content_eu: NumbersContentType[] = [
 
 const Numbers = () => {
     const { is_eu } = useRegion()
-    const contents = is_eu ? numbers_content_eu : numbers_content
+    const [contents, setContents] = useState(numbers_content)
+
+    useEffect(() => {
+        if (is_eu) setContents(numbers_content_eu)
+    }, [is_eu])
 
     return <DNumber items={contents} justify="space-around" />
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex, Desktop, Mobile } from 'components/containers'
@@ -35,6 +35,13 @@ const ImageWrapper = styled.div`
 const AboutDeriv = () => {
     const data = useStaticQuery(query)
     const { is_eu, is_region_loading } = useRegion()
+    const [platform_content, setPlatformContent] = useState(data.deriv_platform)
+
+    useEffect(() => {
+        if (is_eu) setPlatformContent(data.deriv_platform_eu)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [is_eu])
+
     return (
         <Container direction="column">
             <Mobile>
@@ -46,7 +53,7 @@ const AboutDeriv = () => {
                 {!is_region_loading ? (
                     <ImageWrapper>
                         <QueryImage
-                            data={is_eu ? data.deriv_platform_eu : data.deriv_platform}
+                            data={platform_content}
                             alt={localize('_t_Deriv.com on laptop and mobile_t_')}
                         />
                     </ImageWrapper>

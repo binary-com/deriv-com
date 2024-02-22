@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
@@ -29,21 +29,25 @@ type StockIndicesProps = {
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
+    const [cfds, setCfds] = useState(synthetic_cfds)
+    const [multiplier, setMultiplier] = useState(synthetic_multiplier)
+
+    useEffect(() => {
+        if (is_eu) {
+            setCfds(synthetic_cfds_eu)
+            setMultiplier(synthetic_multiplier_eu)
+        }
+    }, [is_eu])
 
     return (
         <div>
             <TradeDetails description="_t_Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks._t_" />
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds} />}
+                CFDs={<CFDs market_content={cfds} />}
                 DigitalOptions={
                     <DigitalOptions market_name="synthetics" options_list={synthetic_options} />
                 }
-                Multipliers={
-                    <Multipliers
-                        is_crypto
-                        market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
-                    />
-                }
+                Multipliers={<Multipliers is_crypto market_content={multiplier} />}
                 display_title="_t_Synthetics trades available on Deriv_t_"
             />
             <Flex.Box

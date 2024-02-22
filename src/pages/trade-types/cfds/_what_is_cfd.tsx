@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -7,6 +7,11 @@ import useRegion from 'components/hooks/use-region'
 
 const WhatIsCFD = () => {
     const { is_eu } = useRegion()
+    const [show_eu_content, setShowEuContent] = useState(false)
+
+    useEffect(() => {
+        if (is_eu) setShowEuContent(true)
+    }, [is_eu])
 
     return (
         <SectionContainer background="white" padding="8rem 0 1.2rem">
@@ -17,7 +22,7 @@ const WhatIsCFD = () => {
                 <Text mb="2.4rem">
                     <Localize translate_text="_t_A contract for difference (CFD) allows you to trade on the price movement of an asset, without buying the underlying asset._t_" />
                 </Text>
-                {is_eu ? (
+                {show_eu_content ? (
                     <Text mb="2.4rem">
                         <Localize translate_text="_t_On Deriv, you can trade CFDs with tight spreads. The spread is the difference between the buy price and sell price. The tighter the spread, the lower the cost to enter the market._t_" />
                     </Text>

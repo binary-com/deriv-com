@@ -12,6 +12,7 @@ import { StyledLink } from 'components/elements'
 import { Container } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type TQuestionsTemplate = {
     data: TQuestionsData
@@ -28,10 +29,13 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const filtered_questions = useFilteredQuestions(questions)
     const { is_deriv_go } = usePlatformQueryParam()
     const { is_eu } = useRegion()
+    const [is_mounted] = usePageLoaded()
 
     React.useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
+    if (!is_mounted) return null
 
     return (
         <Layout>

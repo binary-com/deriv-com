@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
 import { forex_content, forex_content_eu } from '../../static/content/_forex'
@@ -26,18 +26,31 @@ type ForexProps = {
 }
 
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_row, is_eu } = useRegion()
+    const { is_eu } = useRegion()
+    const [content, setContent] = useState(forex_content)
+    const [cfds, setCfds] = useState(forex_cfds)
+    const [show_digital_options, setShowDigitalOptions] = useState(true)
+    const [multiplier, setMultiplier] = useState(forex_multiplier)
+
+    useEffect(() => {
+        if (is_eu) {
+            setContent(forex_content_eu)
+            setCfds(forex_cfds_eu)
+            setShowDigitalOptions(false)
+            setMultiplier(forex_multiplier_eu)
+        }
+    }, [is_eu])
 
     return (
         <>
             <AvailableTrades
-                CFDs={<CFDs market_content={is_eu ? forex_cfds_eu : forex_cfds} />}
+                CFDs={<CFDs market_content={cfds} />}
                 DigitalOptions={
-                    is_row && <DigitalOptions market_name="forex" options_list={forex_options} />
+                    show_digital_options && (
+                        <DigitalOptions market_name="forex" options_list={forex_options} />
+                    )
                 }
-                Multipliers={
-                    <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
-                }
+                Multipliers={<Multipliers market_content={multiplier} />}
                 display_title="_t_Forex trades available on Deriv_t_"
             />
             <Flex.Box
@@ -64,7 +77,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 </LinkButton.Primary>
             </Flex.Box>
             <FullWidthMultiColumn gap="2rem" header="_t_Why trade forex on Deriv_t_">
-                {(is_eu ? forex_content_eu : forex_content).map(({ alt, src, text }) => (
+                {content.map(({ alt, src, text }) => (
                     <StyledBox
                         key={text}
                         text={text}

@@ -148,7 +148,7 @@ const eventListeners = (method) => {
 export const onClientEntry = () => {
     document.onreadystatechange = function () {
         if (document.readyState !== 'loading') {
-            setTimeout(initGTM, 3000)
+            setTimeout(initGTM, 1000)
             setTimeout(initHotjar, 3000)
         }
     };

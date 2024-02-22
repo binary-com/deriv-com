@@ -56,9 +56,9 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     setSubmitErrorMsg(response.error.message)
                 } else {
                     const auth_token = response.new_account_virtual.oauth_token
-                    // apiManager.augmentedSend('authorize', {
-                    //     authorize: auth_token,
-                    // })
+                    apiManager.augmentedSend('authorize', {
+                        authorize: auth_token,
+                    })
                     setSubmitStatus('success')
 
                     //setting the session token

@@ -44,7 +44,7 @@ const SignUpPageForm = () => {
                         components={[
                             <Link
                                 className={link_text}
-                                textcolor="brand"
+                                textcolor="primary"
                                 key={0}
                                 target="_blank"
                                 url={{

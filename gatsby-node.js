@@ -50,6 +50,7 @@ const BuildPage = (page, actions) => {
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
     const is_options = /options/g.test(page.path)
+    const is_academy = /academy-signup/g.test(page.path)
 
     if (is_careers) {
         createRedirect({
@@ -372,7 +373,14 @@ const BuildPage = (page, actions) => {
                 isPermanent: true,
             })
         }
-
+        if (is_academy) {
+            createRedirect({
+                fromPath: `/${lang}/academy-signup`,
+                toPath: `/en/academy-signup`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
         return current_page
     })
 }
@@ -429,19 +437,14 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             splitChunks: {
                 chunks: 'all',
                 cacheGroups: {
-                  vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendors',
-                    chunks: 'all',
-                    priority: -10,
-                  },
-                  bundle: {
-                    test: /\.(js|ts|tsx)$/,
-                    name: 'bundle',
-                    chunks: 'all',
-                    priority: -20,
-                    enforce: true,
-                  },
+                    default: false,
+                    vendors: false,
+                    // Merge all js, ts, and tsx files  into one bundle
+                    all: {
+                        test: /\.(js|ts|tsx)$/,
+                        name: 'bundle',
+                        chunks: 'all',
+                    },
                 },
             },
             mangleExports: 'size',
@@ -462,9 +465,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             providedExports: true,
             usedExports: true,
         },
-        plugins: [
-            new StylelintPlugin({ ...style_lint_options, ...options }),
-        ],
+        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

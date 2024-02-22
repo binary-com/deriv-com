@@ -4,7 +4,7 @@ import { isLoggedIn } from 'common/utility'
 const useAuthCheck = () => {
     const [is_logged_in, setLoggedIn] = useState(isLoggedIn())
     const [is_auth_checked, setIsAuthChecked] = useState(false)
-    const checkCookieInterval = useRef<NodeJS.Timer>()
+    const checkCookieInterval = useRef<NodeJS.Timeout>()
 
     useEffect(() => {
         setIsAuthChecked(true)

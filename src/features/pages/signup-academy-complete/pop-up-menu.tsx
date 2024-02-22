@@ -36,8 +36,7 @@ const Background = styled.div`
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: var(--color-black-6);
-    opacity: 0.4;
+    background-color: rgba(0, 0, 0, 0.72);
     z-index: 10;
 `
 const PopUpMenu = () => {

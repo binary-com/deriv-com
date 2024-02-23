@@ -11,7 +11,7 @@ import Layout from 'components/layout/layout'
 import { Divider, LinkText } from 'components/elements'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 import { SEO } from 'components/containers'
-import { Localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
 import InitialLoader from 'components/elements/dot-loader'
 import { useLivechat } from 'components/hooks/use-livechat'
@@ -124,7 +124,9 @@ const Regulatory = () => {
                                                         )
                                                     },
                                                     divider: 'bottom',
-                                                    title: 'Financial disclosure report',
+                                                    title: localize(
+                                                        '_t_Financial disclosure report_t_',
+                                                    ),
                                                 },
 
                                                 {
@@ -136,7 +138,9 @@ const Regulatory = () => {
                                                             </div>
                                                         )
                                                     },
-                                                    title: 'Key information documents',
+                                                    title: localize(
+                                                        '_t_Key information documents_t_',
+                                                    ),
                                                 },
                                                 {
                                                     className: `${styles.accordion_border}`,

@@ -391,5 +391,6 @@ module.exports = {
                 collectionTypes: strapi_config,
             },
         },
+        'gatsby-plugin-no-javascript',
     ],
 }

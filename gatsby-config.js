@@ -391,5 +391,16 @@ module.exports = {
                 collectionTypes: strapi_config,
             },
         },
+        {
+            resolve: 'gatsby-plugin-no-javascript-utils',
+            options: {
+                noScript: true,
+                noSourcemaps: true,
+                removeGeneratorTag: true,
+                removeHeadDataAttrs: true,
+                noInlineStyles: false,
+                removeGatsbyAnnouncer: false,
+            },
+        },
     ],
 }

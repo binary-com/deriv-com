@@ -26,9 +26,9 @@ export const accumulatorCards: CardContent[] = [
     },
     {
         id: 2,
-        header: <Localize translate_text="_t_30-260 tick duration_t_" />,
+        header: <Localize translate_text="_t_45-230 tick duration_t_" />,
         description: (
-            <Localize translate_text="_t_Fast-paced action with durations up to 260 ticks._t_" />
+            <Localize translate_text="_t_Fast-paced action with durations up to 230 ticks._t_" />
         ),
         icon: <Image src={TickDuration} width="48" height="48" />,
         color: 'gray',

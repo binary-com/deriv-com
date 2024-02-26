@@ -3,6 +3,7 @@ import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import affiliate_validation from '../validations/_affilaite_validation'
+import { isPostalCodeRequired } from '../utils/_utils'
 import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
@@ -24,11 +25,11 @@ const AccountAddress = ({
             form_data.street && (affiliate_validation['street'](form_data['street']) ?? ''),
         postal_code_error_msg:
             form_data.postal_code &&
+            isPostalCodeRequired(form_data['country'] as string) &&
             (affiliate_validation['postal_code'](form_data['postal_code']) ?? ''),
     })
     const [states_list] = useStatesList(form_data.country?.symbol)
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
-    const is_postcode_mandatory = false
 
     const handleCountry = (changed_country) => {
         if (
@@ -89,7 +90,7 @@ const AccountAddress = ({
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
-            label: is_postcode_mandatory
+            label: isPostalCodeRequired
                 ? localize('_t_Postal/Zip code*_t_')
                 : localize('_t_Postal/Zip code_t_'),
         },
@@ -160,7 +161,7 @@ const AccountAddress = ({
                     } else if (item.name === 'postal_code') {
                         return (
                             <li key={item.id}>
-                                {is_postcode_mandatory ? (
+                                {isPostalCodeRequired ? (
                                     <AffiliateInput
                                         id={item.id}
                                         name={item.name}
@@ -179,12 +180,12 @@ const AccountAddress = ({
                                         name={item.name}
                                         type={item.type}
                                         value={form_data[item.name]}
-                                        //error={form_errors[`${item.name}_error_msg`]}
+                                        error={form_errors[`${item.name}_error_msg`]}
                                         label={item.label}
                                         placeholder={item.label}
-                                        onChange={handleInput2}
-                                        //onBlur={handleInput}
-                                        //handleError={() => handleError(item)}
+                                        onChange={handleInput}
+                                        onBlur={handleInput}
+                                        handleError={() => handleError(item)}
                                     />
                                 )}
                             </li>

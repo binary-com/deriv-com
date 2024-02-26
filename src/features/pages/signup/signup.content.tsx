@@ -1,5 +1,4 @@
 import React from 'react'
-import Cookies from 'js-cookie'
 import { signup_latam_human_image, signup_latam_image_show } from './signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -7,14 +6,9 @@ import { Localize } from 'components/localization'
 import MaleHuman from 'images/common/sign-up/latam-male-human.png'
 import Image from 'features/components/atoms/image'
 import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
-import { latam_countries } from 'common/country-base'
 import dclsx from 'features/utils/dclsx'
 
 const SignUpContent = () => {
-    // This is for grwothbook a/b testing - we only want to show the image to the users coming from
-    // main or other landing page inside deriv.com
-    const is_latam = latam_countries.includes(Cookies.get('clients_country'))
-
     const growthbook_feature_flag__latam_signup_human_element_visible = useGrowthbookFeatureFlag({
         featureFlag: 'latam-signup-human-element',
         defaultValue: false,
@@ -35,7 +29,7 @@ const SignUpContent = () => {
             <Image
                 className={dclsx(signup_latam_human_image, {
                     [signup_latam_image_show]:
-                        is_latam && growthbook_feature_flag__latam_signup_human_element_visible,
+                        growthbook_feature_flag__latam_signup_human_element_visible,
                 })}
                 src={MaleHuman}
                 alt="LATAM male human"

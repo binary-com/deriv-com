@@ -7,9 +7,7 @@ import SignUpFormContainer from './form-container'
 import NavTemplate from 'features/components/templates/navigation/template'
 import Flex from 'features/components/atoms/flex-box'
 import { isBrowser } from 'common/utility'
-import Link from 'features/components/atoms/link'
-import Image from 'features/components/atoms/image'
-import LogoImage from 'images/common/derivacademy.svg'
+import AcademyNav from 'features/components/templates/navigation/academy-nav'
 
 const SignUpAcademy = () => {
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
@@ -23,15 +21,7 @@ const SignUpAcademy = () => {
 
     return (
         <Layout>
-            <NavTemplate
-                has_centered_items
-                has_centered_logo
-                renderLogo={() => (
-                    <Link url={{ type: 'internal', to: '/' }}>
-                        <Image src={LogoImage} className={static_nav_logo} />
-                    </Link>
-                )}
-            />
+            <AcademyNav />
 
             <Flex.Box
                 container="fluid"

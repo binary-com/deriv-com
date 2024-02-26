@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Analytics } from '@deriv-com/analytics'
 import styled from 'styled-components'
 import { Submit, trackEvent } from './utils/_utils'
 import { AffiliateAccountTypes, SignUpStatusTypes } from './_types'
@@ -50,6 +51,8 @@ const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
+
+    console.log(Analytics?.getFeatureValue('tracking-buttons-config', {}))
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
         email: '',
@@ -103,6 +106,8 @@ const AffiliateSignup = () => {
 
     useEffect(() => {
         const partner_signup_error_message = affiliate_api_error?.error.message
+        console.log('affiliate_api_data:', affiliate_api_data)
+        console.log('affiliate_api_error:', affiliate_api_error)
         if (affiliate_api_data) {
             trackEvent({
                 action: 'success_popup_opened',
@@ -110,6 +115,7 @@ const AffiliateSignup = () => {
                     JSON.stringify(affiliate_api_error?.echo_req) ||
                     'success, but without echo_req',
                 success_source: partner_signup_error_message ? 'failed_popup' : 'last_step',
+                affiliate_id: affiliate_api_data?.affiliate_user_id,
             })
             setSignupStatus('success')
         } else if (partner_signup_error_message == 'Username not available') {
@@ -146,7 +152,7 @@ const AffiliateSignup = () => {
 
     return (
         <Layout type="affiliates" padding_top="7" show_footer={false}>
-            <ParentWrapper pop_up_opened={!!signup_status}>
+            <ParentWrapper isPopupOpen={!!signup_status}>
                 <AtomicContainer.Fluid dir="row">
                     <StyledContainer>
                         {show_wizard ? (

@@ -4,12 +4,12 @@ import { StyledHeader } from '../utils/_affiliate-header'
 import AccountCard, { AccountCardProps, MainWrapper } from '../utils/_account-card'
 import { Localize } from 'components/localization'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import useRegion from 'components/hooks/use-region'
+import { cpa_plan_countries, eu_countries } from 'common/country-base'
 import Revenue from 'images/svg/signup-affiliates/revenue.svg'
 import Turnover from 'images/svg/signup-affiliates/turnover.svg'
 import CPA from 'images/svg/signup-affiliates/cpa.svg'
 
-const getPlans = (is_eu: boolean, is_cpa_plan: boolean): AccountCardProps[] => {
+const getPlans = (country: string): AccountCardProps[] => {
     const plans: AccountCardProps[] = [
         {
             value: 2,
@@ -26,7 +26,7 @@ const getPlans = (is_eu: boolean, is_cpa_plan: boolean): AccountCardProps[] => {
                 "_t_Earn based on each contract's payout probability or client's trade. <0>Learn more</>_t_",
         },
     ]
-    if (is_eu || is_cpa_plan) {
+    if (cpa_plan_countries.includes(country) || eu_countries.includes(country)) {
         plans.push({
             value: 6,
             icon: CPA,
@@ -44,9 +44,8 @@ const AccountPlan = ({
     onValidate,
 }: WizardStepProps<'account_plan'>) => {
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)
-    const { is_eu, is_cpa_plan } = useRegion()
     const is_rtl = useIsRtl()
-    const plans = getPlans(is_eu, is_cpa_plan)
+    const plans = getPlans(affiliate_account.account_address.country.symbol)
 
     useEffect(() => {
         updateData(account_plan)

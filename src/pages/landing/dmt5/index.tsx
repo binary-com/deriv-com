@@ -26,14 +26,17 @@ const query = graphql`
 
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }
 
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        const handleResizeWindow = () => {
+            setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        }
         window.addEventListener('resize', handleResizeWindow)
-    })
+
+        return () => {
+            window.removeEventListener('resize', handleResizeWindow)
+        }
+    }, [])
     const data = useStaticQuery(query)
 
     return (

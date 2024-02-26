@@ -10,8 +10,8 @@ import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
 import Hero from './hero'
-import MainFooter from 'features/components/templates/footer'
 import PrimeNav from 'features/components/templates/navigation/partners-nav/prime-nav'
+import MainFooter from 'features/components/templates/footer'
 
 const DerivPrime = () => {
     return (

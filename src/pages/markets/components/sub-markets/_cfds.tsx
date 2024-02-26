@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
@@ -9,6 +9,7 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { Header } from 'components/elements'
 import { TMarketContent } from 'pages/markets/static/content/_types'
+import { TString } from 'types/generics'
 
 type CFDProps = {
     market_content: TMarketContent
@@ -23,31 +24,55 @@ const StyledHeader = styled(Header)`
     margin-top: 0.8rem;
 `
 
+interface TextsType {
+    first: TString
+    second: TString
+}
+
 const CFDs = ({ market_content }: CFDProps) => {
     const { is_eu } = useRegion()
-    const first_text = is_eu
-        ? '_t_CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it._t_'
-        : '_t_CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset._t_'
-    const second_text = is_eu
-        ? '_t_On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss._t_'
-        : '_t_On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss._t_'
+    const [texts, setTexts] = useState<TextsType>({
+        first: '_t_CFD trading allows you to trade on the price movement of an asset without buying or owning the underlying asset._t_',
+        second: '_t_On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss._t_',
+    })
+    const [platforms, setPlatforms] = useState({
+        dmt5: true,
+        derivx: true,
+        deriv_ez: true,
+        deriv_ctrader: true,
+    })
+
+    useEffect(() => {
+        if (is_eu) {
+            setTexts({
+                first: '_t_CFD trading allows you to make a potential profit from the price movement of the underlying asset without purchasing it._t_',
+                second: '_t_On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss._t_',
+            })
+            setPlatforms({
+                dmt5: true,
+                derivx: false,
+                deriv_ez: false,
+                deriv_ctrader: false,
+            })
+        }
+    }, [is_eu])
 
     return (
         <StyledSection padding="4rem 0 8rem">
             <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center" font_size="14px">
-                        <Localize translate_text={first_text} />
+                        <Localize translate_text={texts.first} />
                     </StyledText>
                     <StyledText align="center" mt="16px" font_size="14px">
-                        <Localize translate_text={second_text} />
+                        <Localize translate_text={texts.second} />
                     </StyledText>
 
                     <AvailablePlatforms
-                        dmt5
-                        derivx={!is_eu}
-                        deriv_ez={!is_eu}
-                        deriv_ctrader={!is_eu}
+                        dmt5={platforms.dmt5}
+                        derivx={platforms.derivx}
+                        deriv_ez={platforms.deriv_ez}
+                        deriv_ctrader={platforms.deriv_ctrader}
                     />
                 </Descriptions>
 

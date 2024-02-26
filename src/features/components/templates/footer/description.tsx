@@ -19,7 +19,7 @@ export const DescriptionContentROW = () => {
             </Text>
 
             <Text size="sm">
-                <Localize translate_text="_t_Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission._t_" />
+                <Localize translate_text="_t_Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission._t_" />
             </Text>
 
             <Text size="sm">
@@ -108,11 +108,15 @@ export const DescriptionContentCPA = () => {
             </Text>
 
             <Text size="sm">
-                <Localize translate_text="_t_Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission._t_" />
+                <Localize translate_text="_t_Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission._t_" />
             </Text>
 
             <Text size="sm">
-                <Localize translate_text="_t_Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines. The holding company for these subsidiaries is Deriv.com Limited, with the registration number 71479 and the registered address at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_" />
+                <Localize translate_text="_t_Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines._t_" />
+            </Text>
+
+            <Text size="sm">
+                <Localize translate_text="_t_Deriv.com Limited, a company registered in Guernsey, is the holding company for these entities._t_" />
             </Text>
 
             <Text size="sm" className="pt-general-lg">

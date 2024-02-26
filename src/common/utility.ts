@@ -13,6 +13,7 @@ import {
     domains,
     eu_domains,
 } from './constants'
+import { getThirdPartyFlags } from './third-party-flags'
 import { localize } from 'components/localization'
 import { ProductLinkGenerator } from 'features/components/atoms/link/external'
 
@@ -459,8 +460,9 @@ export const getP2PCookie = () => {
 }
 
 export const isFeatureEnabled = (featurePath) => {
+    console.log(' in fucntion ==>', getThirdPartyFlags())
     const pathParts = featurePath.split('.')
-    let currentFeature = featuresConfig
+    let currentFeature = getThirdPartyFlags()
 
     for (const part of pathParts) {
         if (currentFeature[part] === undefined) {

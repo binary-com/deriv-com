@@ -16,7 +16,7 @@ module.exports = {
         "linkedin": true,
         "telegram": true
     },
-    "trustpilot": true,
+    "trustpilot": false,
     "live_pricing": true,
     "deriv_go_management_board": true,
     "GTM": true,
@@ -48,5 +48,6 @@ module.exports = {
         "android": true,
         "app_store": true,
         "app_gallery": true
-    }
+    },
+    "test": true
 }

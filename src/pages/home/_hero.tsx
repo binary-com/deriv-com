@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import VerticalCarousel from './_vertical-carousel'
@@ -65,9 +65,14 @@ const HeroHeader = ({ text }: { text: TString }) => {
 }
 
 const Hero = ({ is_ppc }: HeroProps) => {
-    const { is_region_loading, is_eu, is_row } = useRegion()
+    const { is_region_loading, is_eu } = useRegion()
     const [is_logged_in, is_auth_checked] = useAuthCheck()
     const handleSignup = useHandleSignup()
+    const [show_eu_content, setShowEuContent] = useState(false)
+
+    useEffect(() => {
+        if (is_eu) setShowEuContent(true)
+    }, [is_eu])
 
     return (
         <HeroWrapper>
@@ -134,10 +139,10 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             min_height="auto"
                             weight="normal"
                         >
-                            {is_eu && (
+                            {show_eu_content && (
                                 <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                             )}
-                            {is_row && (
+                            {!show_eu_content && (
                                 <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                             )}
                         </Header>

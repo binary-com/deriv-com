@@ -54,7 +54,7 @@ const swap_free_pairs: TMarketContent = {
         {
             id: 'swap-free-pairs',
             title: '_t_Swap-free pairs_t_',
-            component: <SwapFreePairs />,
+            instruments: <SwapFreePairs />,
         },
     ],
 }

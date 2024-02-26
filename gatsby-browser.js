@@ -1,5 +1,4 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv-com/analytics'
@@ -22,13 +21,6 @@ import './static/css/google-fonts.css'
 import '@deriv-com/blocks/style.css';
 
 const is_browser = typeof window !== 'undefined'
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
-}
 
 const checkDomain = () => {
     return eval(

@@ -19,6 +19,8 @@ import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TMarket, TSimpleStepContent } from 'pages/markets/static/content/_types'
+import { TSmartContent } from 'types/generics'
+import useVisibleContent from 'components/hooks/use-visible-content'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -27,32 +29,65 @@ type CryptocurrenciesProps = {
     simple_step_content: TSimpleStepContent[]
 }
 
-const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    const { is_eu } = useRegion()
-    const { is_deriv_go } = usePlatformQueryParam()
+type MarketConfig = {
+    is_eu: boolean
+}
 
-    const crypto_content: TMarket[] = [
-        {
+type SmartMarketItem = TSmartContent<TMarket, MarketConfig>
+
+const crypto_content: SmartMarketItem[] = [
+    {
+        id: 0,
+        data: {
             src: Leverage,
-            text: is_eu ? '_t_1:2 leverage_t_' : '_t_1:100 leverage_t_',
+            text: '_t_1:100 leverage_t_',
             alt: '_t_1 to 100 leverage_t_',
         },
-        {
+        visibility: {
+            is_eu: false,
+        },
+    },
+    {
+        id: 1,
+        data: {
+            src: Leverage,
+            text: '_t_1:2 leverage_t_',
+            alt: '_t_1 to 100 leverage_t_',
+        },
+        visibility: {
+            is_eu: true,
+        },
+    },
+    {
+        id: 2,
+        data: {
             src: TightSpread,
             text: '_t_Tight spreads_t_',
             alt: '_t_tight spreads_t_',
         },
-        {
+    },
+    {
+        id: 3,
+        data: {
             src: CryptoPairs,
             text: '_t_30+ crypto pairs_t_',
             alt: '_t_Crypto currency pairs_t_',
         },
-        {
+    },
+    {
+        id: 4,
+        data: {
             src: ZeroCommission,
             text: '_t_Zero commission_t_',
             alt: '_t_zero commission_t_',
         },
-    ]
+    },
+]
+
+const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
+    const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
+    const visible_items = useVisibleContent({ content: crypto_content, config: { is_eu } })
 
     return (
         <>
@@ -84,11 +119,18 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 </LinkButton.Primary>
             </Flex.Box>
             <FullWidthMultiColumn header="_t_Why trade cryptocurrencies on Deriv_t_">
-                {crypto_content.map(({ alt, src, text }) => (
+                {visible_items.map((item) => (
                     <StyledBox
-                        key={text}
-                        text={text}
-                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
+                        key={item.id}
+                        text={item.data.text}
+                        icon={
+                            <img
+                                width="48px"
+                                height="48px"
+                                src={item.data.src}
+                                alt={localize(item.data.alt)}
+                            />
+                        }
                     ></StyledBox>
                 ))}
             </FullWidthMultiColumn>

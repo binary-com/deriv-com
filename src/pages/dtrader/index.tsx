@@ -118,8 +118,8 @@ export default WithIntl()(Dtrader)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
-        title="_t_Deriv trader | Online trading platform | Deriv_t_"
-        description="_t_Deriv trader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
+        title="_t_Deriv Trader | Online trading platform | Deriv_t_"
+        description="_t_Deriv Trader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
         meta_attributes={meta_attributes}
         pageContext={pageContext}
     />

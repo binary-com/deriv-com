@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Card } from './_partner-card'
 import { TRAP } from './_table'
-import { Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
-import { Text } from 'components/elements'
-import { Button } from 'components/form'
+import { Header, Text } from 'components/elements'
+import { Button, LinkButton } from 'components/form'
 import { TAlignSelf } from 'features/types'
 
 type PointerProps = {
@@ -17,6 +17,10 @@ type FormulaTopWrapperProps = {
 
 type FlexProps = {
     align_self?: TAlignSelf
+}
+
+type StyledLinkButtonProps = {
+    id?: string
 }
 
 export const FormulaBottomWrapper = styled(Flex)`
@@ -307,5 +311,85 @@ export const StyledCalculatedButton = styled(Button)`
 
     @media ${device.tabletL} {
         font-size: 1.4rem;
+    }
+`
+
+export const StyledHeader = styled(Header)`
+    white-space: pre-line;
+    width: 100%;
+    max-width: 70rem;
+    margin-bottom: 4rem;
+    @media ${device.tabletS} {
+        font-size: 40px;
+        text-align: start;
+    }
+`
+
+export const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
+    border-radius: 4px;
+    @media ${device.tabletS} {
+        font-size: 14px;
+        padding: 12px 10px;
+        white-space: nowrap;
+    }
+    @media ${device.mobileL} {
+        font-size: 12px;
+    }
+`
+
+export const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+`
+
+export const SubtitleHeader = styled(Header)`
+    width: 1170px;
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        font-size: 16px;
+        text-align: justify;
+    }
+`
+export const SectionContainerWrapper = styled(SectionContainer)`
+    padding: 4rem;
+    @media ${device.tabletL} {
+        padding: 0;
+    }
+`
+
+export const StyledContainer = styled(Container)`
+    width: 100%;
+    direction: ltr;
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+`
+export const NumberWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 32.8rem;
+    @media ${device.tabletL} {
+        padding: 15px;
+        width: auto;
+    }
+    @media ${device.mobileS} {
+        padding: 10px;
+        width: auto;
+    }
+`
+
+export const StyledNumberText = styled(Text)`
+    padding-top: 8px;
+    @media ${device.tabletL} {
+        padding-top: 0;
+        margin: 12px 0;
     }
 `

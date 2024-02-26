@@ -7,8 +7,8 @@ const useAuthCheck = () => {
     const checkCookieInterval = useRef<NodeJS.Timer>()
 
     useEffect(() => {
-        setLoggedIn(isLoggedIn())
         setIsAuthChecked(true)
+        setLoggedIn(isLoggedIn())
         checkCookieInterval.current = setInterval(() => setLoggedIn(isLoggedIn()), 800)
         return () => clearInterval(checkCookieInterval.current)
     }, [])

@@ -65,7 +65,7 @@ const MarketTab = () => {
                         ),
                 )}
             </ContainerWrapper>
-            <AvailablePlatform selected_market={selected_market} />
+            <AvailablePlatform />
             <TradingSpecificationTable market={selected_market} />
         </>
     )

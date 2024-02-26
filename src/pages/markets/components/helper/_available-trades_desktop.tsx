@@ -201,12 +201,18 @@ const AvailableTradesDesktop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_non_eu } = useRegion()
-    const params = new URLSearchParams(isBrowser() && location.search)
+    const { is_eu } = useRegion()
     const [tab, setTab] = useState('cfds')
+    const params = new URLSearchParams(isBrowser() && location.search)
+    const [show_digital_options, setShowDigitalOptions] = useState(true)
+
     useEffect(() => {
         setTab(params.get('tab') || 'cfds')
     }, [params])
+
+    useEffect(() => {
+        if (is_eu) setShowDigitalOptions(false)
+    }, [is_eu])
 
     const { is_deriv_go } = usePlatformQueryParam()
 
@@ -224,7 +230,7 @@ const AvailableTradesDesktop = ({
                             <Card name="CFDs" display_name="_t_CFDs_t_" active_tab={tab} />
                         </Link>
                     )}
-                    {is_non_eu && DigitalOptions && (
+                    {show_digital_options && DigitalOptions && (
                         <Link
                             to={
                                 is_deriv_go

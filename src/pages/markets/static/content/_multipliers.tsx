@@ -33,7 +33,7 @@ export const forex_multiplier_eu: TMarketContent = {
     content: [
         {
             title: '_t_Major pairs_t_',
-            component: <MajorPairs />,
+            instruments: <MajorPairs />,
         },
     ],
 }
@@ -48,7 +48,7 @@ export const forex_multiplier: TMarketContent = {
         {
             id: 'major-pairs',
             title: '_t_Major pairs_t_',
-            component: <MajorPairs />,
+            instruments: <MajorPairs />,
         },
     ],
 }
@@ -64,13 +64,13 @@ export const basket_multiplier: TMarketContent = {
         {
             id: 'commodities-basket',
             title: '_t_Commodities Basket_t_',
-            component: <BasketIndicesCommodities />,
+            instruments: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
             id: 'forex-basket',
             title: '_t_Forex Basket_t_',
-            component: <BasketIndicesCfds />,
+            instruments: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
         },
     ],
@@ -86,26 +86,26 @@ export const synthetic_multiplier: TMarketContent = {
         {
             id: 'continuous-indices',
             title: '_t_Continuous indices_t_',
-            component: <ContinuousIndices />,
+            instruments: <ContinuousIndices />,
             details: <ContinuousIndicesDetails />,
         },
         {
             id: 'crash-boom',
             title: '_t_Crash/Boom_t_',
             mobile_title: '_t_Crash/Boom_t_',
-            component: <CrashBoomMultipliers />,
+            instruments: <CrashBoomMultipliers />,
             details: <CrashBoomMultipliersDetails />,
         },
         {
             id: 'jump-indices',
             title: '_t_Jump indices_t_',
-            component: <JumpIndices />,
+            instruments: <JumpIndices />,
             details: <JumpIndicesDetails />,
         },
         {
             id: 'step-indices',
             title: '_t_Step indices_t_',
-            component: <StepIndices />,
+            instruments: <StepIndices />,
             details: <StepIndicesDetails />,
         },
     ],
@@ -125,14 +125,14 @@ export const synthetic_multiplier_eu: TMarketContent = {
         {
             title: '_t_Continuous indices_t_',
             id: 'continuous-indices',
-            component: <VolatilityIndicesEU />,
+            instruments: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },
         {
             id: 'crash-boom',
             title: '_t_Crash/Boom_t_',
             mobile_title: '_t_Crash/Boom_t_',
-            component: <CrashBoomEU />,
+            instruments: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
         },
     ],
@@ -150,7 +150,7 @@ export const crypto_multiplier: TMarketContent = {
         {
             id: 'crypto-pairs',
             title: '_t_Crypto pairs_t_',
-            component: <CryptocurrenciesMultipliers />,
+            instruments: <CryptocurrenciesMultipliers />,
             details: <CryptocurrenciesDetails />,
         },
     ],

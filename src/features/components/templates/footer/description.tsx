@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { Localize } from 'components/localization'
@@ -141,15 +141,12 @@ export const DescriptionContentCPA = () => {
 export const DescriptionContent = () => {
     const { is_eu, is_cpa_plan } = useRegion()
     const { exitRef } = useFloatingCtaContext()
-    return (
-        <div ref={exitRef}>
-            {is_eu ? (
-                <DescriptionContentEU />
-            ) : is_cpa_plan ? (
-                <DescriptionContentCPA />
-            ) : (
-                <DescriptionContentROW />
-            )}
-        </div>
-    )
+    const [content, setContent] = useState(<DescriptionContentROW />)
+
+    useEffect(() => {
+        if (is_eu) setContent(<DescriptionContentEU />)
+        if (is_cpa_plan) setContent(<DescriptionContentCPA />)
+    }, [is_eu, is_cpa_plan])
+
+    return <div ref={exitRef}>{content}</div>
 }

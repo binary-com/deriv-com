@@ -9,8 +9,8 @@ import { Localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
+import { useShowEuContent } from 'components/hooks/use-show-eu-content'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
@@ -34,13 +34,12 @@ const StyledHeader = styled(Header)`
 `
 
 const ResponsibleTrading = () => {
-    const { is_eu, is_non_eu } = useRegion()
-    const HeroBackground = is_eu ? EuBackground : NoneEuBackground
+    const show_eu_content = useShowEuContent()
 
     return (
         <Layout>
             <Section>
-                <Hero background_image={HeroBackground}>
+                <Hero background_image={show_eu_content ? EuBackground : NoneEuBackground}>
                     <Container>
                         <Flex direction="column">
                             <StyledHeader
@@ -54,10 +53,10 @@ const ResponsibleTrading = () => {
                                 <Localize translate_text="_t_Secure and responsible trading_t_" />
                             </StyledHeader>
                             <Text align="center" max_width="79.2rem" m="0 auto" color="white">
-                                {is_eu && (
+                                {show_eu_content && (
                                     <Localize translate_text="_t_Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines._t_" />
                                 )}
-                                {is_non_eu && (
+                                {!show_eu_content && (
                                     <Localize translate_text="_t_Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading._t_" />
                                 )}
                             </Text>

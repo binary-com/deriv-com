@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useRegion from 'components/hooks/use-region'
 import { Flex } from 'components/containers'
@@ -8,10 +8,6 @@ import { Localize, LocalizedLink, localize } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { TString } from 'types/generics'
-
-type AvailablePlatformProps = {
-    selected_market: string
-}
 
 const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
@@ -64,13 +60,18 @@ type TextProps = {
 
 const StyledText = styled(Header)<TextProps>`
     text-wrap: ${(props) => props.textWrap};
+    text-align: center;
 `
-const available_on: TString = '_t_Available on_t_'
 const deriv_mt5 = 'Deriv MT5'
 const deriv_x = 'Deriv X'
 
-const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
+const AvailablePlatform = () => {
     const { is_row } = useRegion()
+    const [show_row_content, setShowRowContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_row) setShowRowContent(false)
+    }, [is_row])
 
     return (
         <>
@@ -82,7 +83,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                         </StyledText>
                     </FlexContainer>
 
-                    {is_row ? (
+                    {show_row_content ? (
                         <>
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">

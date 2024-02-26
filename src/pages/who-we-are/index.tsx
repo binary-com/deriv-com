@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { TWhoWeAre } from './_types'
@@ -54,6 +54,12 @@ const AboutUs = ({ data }: TWhoWeAre) => {
         our_locations,
         banner,
     } = data?.strapiWhoWeArePage || {}
+    const [show_eu_content, setShowEuContent] = useState(false)
+
+    useEffect(() => {
+        if (is_eu) setShowEuContent(true)
+    }, [is_eu])
+
     return (
         <Layout>
             <Hero hero={hero} />
@@ -66,7 +72,7 @@ const AboutUs = ({ data }: TWhoWeAre) => {
                 subtitle="_t_We are proud to be recognised as a Great Place to Work™ and certified Platinum in Investors in People._t_"
             />
             <OurPrinciples our_principles={our_principles} />
-            {is_eu ? null : <AwardBanner title="_t_Our awards_t_" />}
+            {show_eu_content ? null : <AwardBanner title="_t_Our awards_t_" />}
             <OurLeadership our_leadership={our_leadership} />
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
             <ImageMarquee slider_medias={slider_medias} />

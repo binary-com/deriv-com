@@ -43,20 +43,7 @@ const Regulatory = () => {
                     <Hero.ContentLess
                         className="bg-solid-slate-75 px-800 md:px-1200"
                         title={<Localize translate_text="_t_Regulatory information_t_" />}
-                        description={
-                            <>
-                                <Text className="text-center">
-                                    {localize(
-                                        `_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements._t_`,
-                                    )}
-                                </Text>
-                                <Text className="text-center">
-                                    {localize(
-                                        `_t_Here are our subsidiary companies with their respective registration and licensing information._t_`,
-                                    )}
-                                </Text>
-                            </>
-                        }
+                        description={<></>}
                     ></Hero.ContentLess>
                 </div>
             </div>
@@ -424,11 +411,9 @@ const Regulatory = () => {
                             />
                         </Text>
                         <Text>
-                            {localize(`_t_Clients in the rest of the world (except for certain countries such
-                                as the USA, Canada, and Hong Kong) who wish to trade CFDs on
-                                financial instruments (via MT5 Financial accounts) and derived
-                                indices (via MT5 Derived accounts) can have Deriv MT5 accounts under
-                                Deriv (BVI) Ltd._t_`)}
+                            {localize(
+                                `_t_Clients in the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments (via MT5 Financial accounts) and derived indices (via MT5 Derived accounts) can have Deriv MT5 accounts under Deriv (BVI) Ltd._t_`,
+                            )}
                         </Text>
                     </ContentText>
 
@@ -481,10 +466,9 @@ const Regulatory = () => {
                         title="Deriv.com Limited"
                     >
                         <Text>
-                            {localize(`_t_Deriv.com Limited is the holding company for the above
-                                    subsidiaries with the registration number 71479 and the
-                                    registered address is located at 2nd Floor, 1 Cornet Street, St
-                                    Peter Port, Guernsey, GY1 1BZ.)_t_`)}
+                            {localize(
+                                `_t_Deriv.com Limited is the holding company for the above subsidiaries with the registration number 71479 and the registered address is located at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_`,
+                            )}
                         </Text>
                     </ContentText>
 

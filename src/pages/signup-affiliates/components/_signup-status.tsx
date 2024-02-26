@@ -98,8 +98,8 @@ const CloseButton = styled.img`
     }
 `
 
-const user_name = localize('_t_User name_t_')
-const web_site = localize('_t_Website url_t_')
+const user_name = localize('_t_Username*_t_')
+const web_site = localize('_t_Website/social media URL*_t_')
 
 const AffiliateSignupStatus = ({
     signup_status,
@@ -108,8 +108,8 @@ const AffiliateSignupStatus = ({
     setAffiliateAccount,
     onSubmit,
 }: SignUpStatusProps) => {
-    const [username_error, setUsernameError] = useState<string>()
-    const [website_url_error, setWebsiteUrlError] = useState<string>()
+    const [username_error, setUsernameError] = useState<string>(' ')
+    const [website_url_error, setWebsiteUrlError] = useState<string>(' ')
     const is_rtl = useIsRtl()
 
     const handleStateChange = useCallback(
@@ -142,7 +142,7 @@ const AffiliateSignupStatus = ({
     const handleTryAgain = useCallback(() => {
         setSignupStatus('loading')
         onSubmit()
-    }, [signup_status])
+    }, [signup_status, onSubmit])
 
     return (
         <>
@@ -230,6 +230,23 @@ const AffiliateSignupStatus = ({
                     <Background />
                 </ProgressModal>
             )}
+            {signup_status == 'unhandled error' && (
+                <ProgressModal>
+                    <Modal is_rtl={is_rtl}>
+                        <Image src={Failed} alt="email" width="100" height="100" />
+                        <Header type="subtitle-1" align="center">
+                            <Localize translate_text="_t_Signup failed_t_" />
+                        </Header>
+                        <Header type="paragraph-1" align="center" weight="normal">
+                            <Localize translate_text="_t_Something went wrong. Please check your details and try again._t_" />
+                        </Header>
+                        <StyledButton secondary onClick={handleIssue}>
+                            <Localize translate_text="_t_Try again_t_" />
+                        </StyledButton>
+                    </Modal>
+                    <Background />
+                </ProgressModal>
+            )}
             {signup_status == 'Username not available' && (
                 <ProgressModal>
                     <Modal is_rtl={is_rtl}>
@@ -256,7 +273,11 @@ const AffiliateSignupStatus = ({
                             handleError={() => handleStateChange({ field: 'username' })}
                             required
                         />
-                        <StyledButton secondary onClick={handleTryAgain}>
+                        <StyledButton
+                            disabled={!!username_error}
+                            secondary
+                            onClick={handleTryAgain}
+                        >
                             <Localize translate_text="_t_Change username_t_" />
                         </StyledButton>
                     </Modal>
@@ -283,7 +304,11 @@ const AffiliateSignupStatus = ({
                             handleError={() => handleStateChange({ field: 'website_url' })}
                             required
                         />
-                        <StyledButton secondary onClick={handleTryAgain}>
+                        <StyledButton
+                            disabled={!!website_url_error}
+                            secondary
+                            onClick={handleTryAgain}
+                        >
                             <Localize translate_text="_t_Change website url_t_" />
                         </StyledButton>
                     </Modal>

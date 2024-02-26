@@ -43,7 +43,6 @@ export const MainNavigationButtons = () => {
             >
                 {`Trader's Hub`}
             </Button>
-
             <Button
                 variant="secondary"
                 colorStyle="black"
@@ -55,7 +54,6 @@ export const MainNavigationButtons = () => {
             >
                 <Localize translate_text="_t_Log in_t_" />
             </Button>
-
             <Button
                 size="lg"
                 onClick={handleSignup}
@@ -65,7 +63,6 @@ export const MainNavigationButtons = () => {
             >
                 <Localize translate_text="_t_Open demo account_t_" />
             </Button>
-
             {/*
                 for gatsby only, so gatsby rendered version have the script which immediately renders correct button
                 while it's not impacting hydrated versions
@@ -73,11 +70,10 @@ export const MainNavigationButtons = () => {
                 so there would be visible delay if it would be in gatsby-ssr
                 still there might be micro flickering, but it should be completely marginal if ever visible
             */}
-            {!isRealDevice && (
-                <div
-                    style={{ display: 'none' }}
-                    dangerouslySetInnerHTML={{
-                        __html: `
+            <div
+                style={{ display: 'none' }}
+                dangerouslySetInnerHTML={{
+                    __html: `
                     <script>
                         (function() {
                             const isLoggedIn = document?.cookie.split(';').some(function(item) { return item.trim().startsWith('client_information='); });
@@ -94,10 +90,8 @@ export const MainNavigationButtons = () => {
                         })();
                     </script>
                 `,
-                    }}
-                ></div>
-            )}
-
+                }}
+            ></div>
             <MobileNavToggle data-cy="hamburger-menu" />
         </div>
     )

@@ -1,4 +1,5 @@
 import React, { ReactNode, useMemo } from 'react'
+import { Analytics } from '@deriv-com/analytics'
 import { CardSlider, LiveMarketContent } from '@deriv-com/components'
 import {
     MarketForexAudusdIcon,
@@ -34,7 +35,7 @@ import { percentToDecimal, swiperOption } from '../utils'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { Localize, is_rtl } from 'components/localization'
+import { is_rtl, Localize } from 'components/localization'
 
 const IconsMapper = {
     // Forex Icons
@@ -88,7 +89,7 @@ const LiveMarketCard = <T extends MarketName>({
     children: ReactNode
 }) => {
     const [is_logged_in] = useAuthCheck()
-    const handleSignup = useHandleSignup()
+    const handleSignup = useHandleSignup(false, true)
 
     const { data } = useLiveData(market)
 
@@ -109,8 +110,26 @@ const LiveMarketCard = <T extends MarketName>({
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
             mid: data[key].mid,
-            onClickBuyButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
-            onClickSellButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
+            onClickBuyButton: is_logged_in
+                ? handleRedirectToTradersHub
+                : () => {
+                      Analytics?.trackEvent('deriv_com_liveprice_cta', {
+                          action: 'click',
+                          button: 'buy',
+                          instrument: data[key].sym,
+                      })
+                      handleSignup()
+                  },
+            onClickSellButton: is_logged_in
+                ? handleRedirectToTradersHub
+                : () => {
+                      Analytics?.trackEvent('deriv_com_liveprice_cta', {
+                          action: 'click',
+                          button: 'sell',
+                          instrument: data[key].sym,
+                      })
+                      handleSignup()
+                  },
             bidContent: <Localize translate_text="_t_Bid_t_" />,
             askContent: <Localize translate_text="_t_Ask_t_" />,
             spreadContent: <Localize translate_text="_t_Spread_t_" />,

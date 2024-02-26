@@ -53,7 +53,7 @@ const PopUpMenu = () => {
                 <ModalCard>
                     {!is_password && (
                         <ResidenceForm
-                            residence_list={residence_list}
+                            residence_list={residence_list && residence_list}
                             handleNext={() => setIsPassword(true)}
                             selected_value={selected_value}
                             setSelectedValue={setSelectedValue}

@@ -3,7 +3,7 @@ import { signup_wrapper, static_nav_logo } from '../signup-academy/signup.module
 import Layout from 'features/components/templates/layout'
 import PopUpMenu from './pop-up-menu'
 import NavTemplate from 'features/components/templates/navigation/template'
-import LogoImage from 'images/common/deriv-academy.svg'
+import LogoImage from 'images/common/derivacademy.svg'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
 

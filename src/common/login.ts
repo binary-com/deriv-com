@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie'
-import { useEffect, useState } from 'react'
 import { isStorageSupported } from './storage'
 import { getCookiesFields, getCookiesObject, getDataLink, getDataObjFromCookies } from './cookies'
 import { getAppId } from './websocket/config'

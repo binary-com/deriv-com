@@ -73,8 +73,8 @@ jobs:
                   restore-keys: |
                       master-cache-public-replica
                   path: |
-                      .cache
-                      public
+                      sites/row/.cache
+                      sites/row/public
 
             - name: Install Dependencies
               uses: "./.github/actions/npm_install_from_cache"

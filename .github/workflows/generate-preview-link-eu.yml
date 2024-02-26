@@ -1,4 +1,4 @@
-name: Generate preview link for row
+name: Generate preview link for eu
 
 on:
     pull_request_target:
@@ -73,8 +73,8 @@ jobs:
                   restore-keys: |
                       master-cache-public-replica
                   path: |
-                      .cache
-                      public
+                      sites/eu/.cache
+                      sites/eu/public
 
             - name: Install Dependencies
               uses: "./.github/actions/npm_install_from_cache"

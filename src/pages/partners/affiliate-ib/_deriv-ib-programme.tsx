@@ -227,7 +227,7 @@ const DerivIBProgramme = () => {
             setActiveTab(tabName)
         }
     }
-    const deriv_mt5_name: String = 'Deriv MT5'
+    const deriv_mt5_name = 'Deriv MT5'
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">
@@ -383,7 +383,7 @@ const ib_dmt5_synthetic: DMT5Type = {
             class_name: 'volatility-indices',
         },
         {
-            title: '_t_Step index_t_',
+            title: '_t_Step Index_t_',
             headerHeight: '6.4rem',
             assets: [
                 {
@@ -495,7 +495,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                 {
                     title: '_t_Step Index_t_',
                     details:
-                        '_t_A deal for 2 lots of the Step index for a price of USD 500,000 will pay out USD 10 in commission based on the following formula:_t_',
+                        '_t_A deal for 2 lots of the Step Index for a price of USD 500,000 will pay out USD 10 in commission based on the following formula:_t_',
                     icon: 'derived_step',
                     iconAlt: '_t_Step Index_t_',
                 },
@@ -631,7 +631,7 @@ const ib_dmt5_swapFree: DMT5Type = {
             class_name: 'volatility-indices',
         },
         {
-            title: '_t_Step index_t_',
+            title: '_t_Step Index_t_',
             headerHeight: '6.4rem',
             assets: [
                 {
@@ -1078,7 +1078,7 @@ const ib_dx: DMT5Type = {
             class_name: 'volatility-indices',
         },
         {
-            title: '_t_Step index_t_',
+            title: '_t_Step Index_t_',
             headerHeight: '6.4rem',
             assets: [
                 {

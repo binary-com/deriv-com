@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, FlexGridContainer, SectionContainer } from 'components/containers'
 import { Card, CardLink, Header, LocalizedLinkText, NavCard, Text } from 'components/elements'
@@ -184,7 +184,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }: DMT
         <Card
             cover_background="var(--color-green)"
             cover_content="_t_Discover Deriv MT5 now_t_"
-            title='Deriv MT5'
+            title="Deriv MT5"
             Icon={() => (
                 <StyledDmt5
                     src={DMT5}
@@ -268,20 +268,24 @@ export const OtherPlatform = ({
 }: OtherPlatformProps) => {
     const excludetoLowerCase = exclude.toLowerCase()
     const { is_row, is_eu } = useRegion()
+    const [header_text, setHeaderText] = useState<TString>('_t_Check out our other platforms_t_')
+    const [show_row_content, setShowRowContent] = useState(true)
 
-    const getHeaderText = () => (
-        <>
-            {is_eu && <Localize translate_text="_t_Check out our other platform_t_" />}
-            {is_row && <Localize translate_text="_t_Check out our other platforms_t_" />}
-        </>
-    )
+    useEffect(() => {
+        if (is_eu) setHeaderText('_t_Check out our other platform_t_')
+        if (!is_row) setShowRowContent(false)
+    }, [is_eu, is_row])
 
     return (
         <SectionContainer padding="0">
             {is_nav ? null : (
                 <HeaderWrapper>
                     <Header as="h3" type="section-title" align="center">
-                        {header ? <Localize translate_text={header} /> : getHeaderText()}
+                        {header ? (
+                            <Localize translate_text={header} />
+                        ) : (
+                            <Localize translate_text={header_text} />
+                        )}
                     </Header>
                     {subHeader && (
                         <Header
@@ -299,9 +303,9 @@ export const OtherPlatform = ({
             )}
             <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
                 {excludetoLowerCase !== 'dtrader' && <TraderCard />}
-                {is_row && <>{excludetoLowerCase !== 'dbot' && <BotCard />}</>}
+                {show_row_content && <>{excludetoLowerCase !== 'dbot' && <BotCard />}</>}
                 {excludetoLowerCase !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-                {is_row && <>{excludetoLowerCase !== 'derivx' && <DerivXCard />}</>}
+                {show_row_content && <>{excludetoLowerCase !== 'derivx' && <DerivXCard />}</>}
             </StyledFlexGridContainer>
         </SectionContainer>
     )
@@ -460,7 +464,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 />
                             )}
                             content="_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_"
-                            title='Deriv GO'
+                            title="Deriv GO"
                             onClick={onClick}
                             to="/deriv-go/"
                         />

@@ -7,6 +7,7 @@ export type TAvailableLiveMarkets =
     | 'etfs'
     | 'cryptocurrency'
     | 'commodities'
+    | 'indices'
 
 export type TInstrumentData = {
     symbol?: string

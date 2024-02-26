@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text, Ul, Li } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -374,6 +374,12 @@ export const AsianIndicesDetails = () => (
 
 export const EuropeanIndicesDetails = () => {
     const { is_row } = useRegion()
+    const [show_row_content, setShowRowContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_row) setShowRowContent(false)
+    }, [is_row])
+
     return (
         <DetailsContainer>
             <Text>
@@ -397,7 +403,7 @@ export const EuropeanIndicesDetails = () => {
                     components={[<strong key={0} />]}
                 />
             </Text>
-            {is_row && (
+            {show_row_content && (
                 <Text>
                     <Localize
                         translate_text="_t_<0>Netherlands 25</0> follows the stock performance of the 25 most traded companies in the Netherlands._t_"

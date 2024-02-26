@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Commodities from '../components/markets/_commodities'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_commodities } from '../static/content/_commodities'
@@ -8,21 +8,24 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
+import { TString } from 'types/generics'
 
 const CommoditiesPage = () => {
-    const { is_row } = useRegion()
+    const { is_eu } = useRegion()
+    const [description, setDescription] = useState<TString>(
+        '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_',
+    )
 
-    const hero_description = is_row
-        ? '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_'
-        : '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_'
+    useEffect(() => {
+        if (is_eu)
+            setDescription(
+                '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_',
+            )
+    }, [is_eu])
 
     return (
         <Layout type="noNav" padding_top="0">
-            <DerivedFXHero
-                title="_t_Commodities_t_"
-                description={hero_description}
-                is_commodities
-            />
+            <DerivedFXHero title="_t_Commodities_t_" description={description} is_commodities />
             <Commodities simple_step_content={simple_step_content_commodities} />
             <SignupPublic />
         </Layout>

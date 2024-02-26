@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import MainRowNavigation from '../navigation/main-nav'
 import Layout from 'features/components/templates/layout'
-import { start_trading_data, why_trade_options_data } from './data'
 import MainFooter from 'features/components/templates/footer'
 import StartTrading from 'features/components/templates/start-trading'
 import WhyTradeOptions from 'features/components/templates/why-trade-options'
@@ -14,6 +13,7 @@ interface OptionsLayoutProps {
     heading: TString
     description: TString
     is_coming_soon?: boolean
+    has_content_block?: boolean
 }
 
 const OptionsLayout = ({
@@ -21,6 +21,7 @@ const OptionsLayout = ({
     description,
     children,
     is_coming_soon = false,
+    has_content_block = false,
 }: OptionsLayoutProps) => {
     return (
         <Layout>
@@ -30,10 +31,9 @@ const OptionsLayout = ({
                 heading={heading}
                 description={description}
                 is_coming_soon={is_coming_soon}
+                has_content_block={has_content_block}
             />
             {children}
-            <WhyTradeOptions data={why_trade_options_data} />
-            <StartTrading data={start_trading_data} />
             <MainFooter />
         </Layout>
     )

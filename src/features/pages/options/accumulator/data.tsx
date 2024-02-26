@@ -1,41 +1,73 @@
-import PayoutWin from 'images/svg/trade-types/options/accumulator/payout_win.svg'
-import PayoutKnockedOut from 'images/svg/trade-types/options/accumulator/payout_knocked_out.svg'
+import React from 'react'
+import { CardContent } from '@deriv-com/components'
 import {
-    OptionContentAvailability,
-    OptionContentItemData,
-    OptionsFAQDataItem,
-} from 'features/components/templates/options-content/type'
-import {
-    allOptionsMarkets,
-    allOptionsTradePlatforms,
-} from 'features/components/organisms/available-markets-platforms/data'
+    IllustrativePayoutIcon,
+    IllustrativeMinimalCapitalIcon,
+    IllustrativeSupport247Icon,
+    IllustrativePaidProgrammeIcon,
+    // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/Illustrative'
+import Image from 'features/components/atoms/image'
+import TickDuration from 'images/svg/options/tick_duration.svg'
+import { Localize } from 'components/localization'
+import { OptionsFAQDataItem } from 'features/components/templates/options-content/type'
 
-export const accumulatorOptionsContentItems: OptionContentItemData[] = [
+export const accumulatorCards: CardContent[] = [
     {
-        type: 'single',
-        images: [
-            {
-                src: PayoutWin,
-                alt: '_t_A chart illustrating an accumulators contract payout_t_',
-            },
-            {
-                src: PayoutKnockedOut,
-                alt: '_t_A chart illustrating a terminated accumulators contract_t_',
-            },
-        ],
-        texts: [
-            '_t_Accumulator options allow you to express your view on the range of movement of an index. With accumulators, your payout will grow exponentially as long as the current spot price remains within a predefined range from the previous spot price._t_',
-            '_t_The size of the predefined range depends on the growth rate and the chosen index when opening the contract. You can set the growth rate at 1%, 2%, 3%, 4%, or 5%. A higher growth rate means a narrower range, and vice versa._t_',
-            '_t_Your payout will grow exponentially based on the chosen growth rate for each small movement (tick) in the spot price, as long as the current spot price remains within the range. The payout can continue to grow until either the maximum number of ticks or the maximum payout is reached._t_',
-            '_t_You can manually close the contract any time before the price touches or breaches either the upper or lower range. By doing so, you will receive the current accumulated payout, which is the sum of your initial stake and profit. However, if the current spot price touches or moves outside the range, the contract is terminated, and you lose the accumulated payout._t_',
-        ],
+        id: 1,
+        header: <Localize translate_text="_t_Controlled Risk_t_" />,
+        description: (
+            <Localize translate_text="_t_Potential loss is limited to the initial amount you decide to trade._t_" />
+        ),
+        icon: <IllustrativePayoutIcon width="48" height="48" />,
+        color: 'gray',
+        align: 'start',
+        size: 'md',
     },
-]
-
-export const accumulatorMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
-
-export const accumulatorPlatforms: OptionContentAvailability[] = [
-    allOptionsTradePlatforms.deriv_trader,
+    {
+        id: 2,
+        header: <Localize translate_text="_t_30-260 tick duration_t_" />,
+        description: (
+            <Localize translate_text="_t_Fast-paced action with durations up to 260 ticks._t_" />
+        ),
+        icon: <Image src={TickDuration} width="48" height="48" />,
+        color: 'gray',
+        align: 'start',
+        size: 'md',
+    },
+    {
+        id: 3,
+        header: <Localize translate_text="_t_1-5% growth rate_t_" />,
+        description: (
+            <Localize translate_text="_t_Choose your growth rate to tailor risk/reward. _t_" />
+        ),
+        icon: <IllustrativeMinimalCapitalIcon width="48" height="48" />,
+        color: 'gray',
+        align: 'start',
+        size: 'md',
+    },
+    {
+        id: 4,
+        header: <Localize translate_text="_t_Practise with demo_t_" />,
+        description: (
+            <Localize translate_text="_t_Hone your strategies risk-free with a demo account._t_" />
+        ),
+        icon: <IllustrativePaidProgrammeIcon width="48" height="48" />,
+        color: 'gray',
+        align: 'start',
+        size: 'md',
+    },
+    {
+        id: 5,
+        header: <Localize translate_text="_t_24/7 support_t_" />,
+        description: (
+            <Localize translate_text="_t_Get round-the-clock assistance from our Customer Support team._t_" />
+        ),
+        icon: <IllustrativeSupport247Icon width="48" height="48" />,
+        color: 'gray',
+        align: 'start',
+        size: 'md',
+    },
 ]
 
 export const accumulatorFAQ: OptionsFAQDataItem[] = [

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavTemplate from '../template'
 import { static_nav_logo, static_nav_logo_academy } from './static-nav.module.scss'
 import Link from 'features/components/atoms/link'
@@ -9,8 +9,14 @@ import { isBrowser } from 'common/utility'
 
 const StaticNav = () => {
     const url = isBrowser() && window.location.href
-    const is_academy = isBrowser() && url.includes('academy')
-    const image = is_academy ? AcademyLogoImage : LogoImage
+    const academy = isBrowser() && url.includes('academy')
+    const [is_academy, setIsAcademy] = useState(false)
+    useEffect(() => {
+        // setIsAcademy(true)
+        if (academy) {
+            setIsAcademy(true)
+        }
+    }, [])
 
     return (
         <NavTemplate
@@ -19,7 +25,7 @@ const StaticNav = () => {
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/' }}>
                     <Image
-                        src={image}
+                        src={is_academy ? AcademyLogoImage : LogoImage}
                         className={is_academy ? static_nav_logo_academy : static_nav_logo}
                     />
                 </Link>

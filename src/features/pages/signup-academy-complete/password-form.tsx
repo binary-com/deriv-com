@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
+import { PasswordInput } from '@deriv-com/ui'
 import { trading_btn, signup_form_line } from './signup-academy.module.scss'
-import AcademyPasswordInput from './academy-input'
-import { academy_validation } from './password-validation'
+import { passwordRegex } from './password-validation'
 import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -16,26 +16,18 @@ type AcademyPasswordFormProps = {
 
 const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const [password, setPassword] = useState('')
-    // const [form_errors, setFormErrors] = useState('')
-    const [submit_status, setSubmitStatus] = useState('')
-    const [form_errors, setFormErrors] = useState({ text: '', is_warning: false })
+    const [submit_status, setSubmitStatus] = useState()
 
     const GoTrading = styled(Button)`
         border-radius: 4px;
     `
+    const validPassword = (value: string) => passwordRegex.isPasswordValid.test(value)
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         const { value } = e.target
-
         setPassword(value)
-        const error_msg = academy_validation?.password(value) || { text: '', is_warning: false }
-        setFormErrors(error_msg)
     }, [])
-
-    const handleError = () => {
-        setFormErrors({ text: '', is_warning: false })
-    }
 
     const params = new URLSearchParams(isBrowser() && location.search)
     const codeValue = params.get('code')
@@ -74,20 +66,15 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
             </Typography.Paragraph>
 
             <Flex.Item>
-                <AcademyPasswordInput
-                    id="dm-password"
-                    name="password"
-                    type="password"
+                <PasswordInput
+                    className="z-10 text-body-sm"
+                    isFullWidth
                     label="Create a password"
-                    value={password}
-                    error_or_warning={form_errors}
-                    placeholder="Create a password"
-                    password_icon={true}
                     onChange={handleInput}
-                    handleError={() => handleError()}
+                    value={password}
                 />
             </Flex.Item>
-            <Typography.Paragraph size="xs" align="center" pb="12x">
+            <Typography.Paragraph size="xs" align="center" pt="12x" pb="12x">
                 <Localize
                     translate_text={localize(
                         '_t_Strong passwords contain at least 8 characters. combine uppercase and lowercase letters, numbers, and symbols._t_',
@@ -97,10 +84,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
 
             <Flex.Item className={signup_form_line} />
             <div className={trading_btn} onClick={GetDerivAcademy}>
-                <GoTrading
-                    secondary
-                    disabled={(form_errors?.text && !form_errors?.is_warning) || !password}
-                >
+                <GoTrading secondary disabled={!validPassword(password) || !password}>
                     <Localize translate_text="_t_Go to Deriv Academy_t_" />
                 </GoTrading>
             </div>

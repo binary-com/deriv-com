@@ -20,7 +20,7 @@ export const affiliate_validation_regex = {
         value.trim().length >= 2 &&
         value.length <= 69,
     postal_code: (value: string) =>
-        /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()) || value.trim() == '' || value.trim() == null,
+        /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()) || value.trim() == '',
     company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value),
     url: (value: string) => /^[\w_@./:#&+-]+(?:\.[\w]{2,})$/.test(value),
     non_empty_string: (value: string) => /^\S.*$/.test(value),

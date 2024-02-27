@@ -56,3 +56,8 @@
     animation: slideRtl 40s linear infinite !important;
 }
 /* Patch End */
+@media (min-width: 1232px){
+.min-\[1232px\]\:px-general-none {
+    padding-left: var(--semantic-spacing-general-none);
+    padding-right: var(--semantic-spacing-general-none);
+}}

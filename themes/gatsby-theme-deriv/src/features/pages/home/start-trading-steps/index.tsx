@@ -2,11 +2,12 @@ import React from 'react'
 import { Features } from '@deriv-com/blocks'
 import { EUCards, RowCards } from './data'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const StartTradingSteps = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+
     return (
         <Features.Card
             hasPadding
@@ -19,7 +20,7 @@ const StartTradingSteps = () => {
             }
             cols="three"
             variant="ContentTop"
-            cards={is_eu ? EUCards : RowCards}
+            cards={region === 'eu' ? EUCards : RowCards}
         />
     )
 }

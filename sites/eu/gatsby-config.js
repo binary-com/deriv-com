@@ -5,7 +5,7 @@ module.exports = {
       {
         resolve: `gatsby-theme-deriv`,
         options: {
-          isEUPage: true,
+          region: 'eu',
           buildDirPath: path.resolve(__dirname, "..", "..", "sites", "eu", 'public/index.html')
         }
       }

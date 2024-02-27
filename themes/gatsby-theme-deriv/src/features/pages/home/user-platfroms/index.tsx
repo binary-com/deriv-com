@@ -4,7 +4,7 @@ import { CardsContainer } from '@deriv-com/components'
 import { RowCards, platformTabs, EUCards } from './data'
 import { FilterKeyType } from './type'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const getTabContent = (tabId: FilterKeyType) => {
     if (tabId === 'All') {
@@ -17,9 +17,9 @@ const getTabContent = (tabId: FilterKeyType) => {
 const tabs = platformTabs.map(({ content }) => ({ content }))
 
 const UserFriendlyPlatforms = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
-    if (is_eu) {
+    if (region === 'eu') {
         return (
             <PlatformBlock.Card
                 className="bg-background-primary-base"
@@ -32,26 +32,27 @@ const UserFriendlyPlatforms = () => {
             />
         )
     }
-
-    return (
-        <PlatformBlock.Tab
-            className="bg-background-primary-base"
-            tabId="platformtab"
-            header={
-                <Localize translate_text="_t_User-friendly trading platforms, on any device_t_" />
-            }
-            tabs={tabs}
-        >
-            {platformTabs.map((item, i) => (
-                <CardsContainer
-                    variant="ContentBottom"
-                    cards={getTabContent(item.tabId)}
-                    cols="three"
-                    key={i}
-                />
-            ))}
-        </PlatformBlock.Tab>
-    )
+    if (region == 'row') {
+        return (
+            <PlatformBlock.Tab
+                className="bg-background-primary-base"
+                tabId="platformtab"
+                header={
+                    <Localize translate_text="_t_User-friendly trading platforms, on any device_t_" />
+                }
+                tabs={tabs}
+            >
+                {platformTabs.map((item, i) => (
+                    <CardsContainer
+                        variant="ContentBottom"
+                        cards={getTabContent(item.tabId)}
+                        cols="three"
+                        key={i}
+                    />
+                ))}
+            </PlatformBlock.Tab>
+        )
+    }
 }
 
 export default UserFriendlyPlatforms

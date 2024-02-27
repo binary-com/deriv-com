@@ -16,7 +16,6 @@ import Description from './description'
 import { Localize, get_lang_direction } from 'components/localization'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -24,7 +23,6 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
-    const [is_mounted] = usePageLoaded()
     const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
@@ -51,7 +49,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                             <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                         </Heading.H1>
-                        {is_mounted && <Description />}
+                        <Description />
                         <TradersHubCtaButton
                             className={clsx('mt-general-2xl', hero_content_btn)}
                             variant="primary"
@@ -59,7 +57,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             ref={entryRef}
                         />
                     </div>
-                    {is_mounted && <HeroAwardImages />}
+                    <HeroAwardImages />
                     <HeroImage />
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>

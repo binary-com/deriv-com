@@ -14,10 +14,13 @@ import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
+    const { region } = useBuildVariant()
+    
 
     useEffect(() => {
         const current_path = getLocationPathname()

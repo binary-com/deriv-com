@@ -3,8 +3,8 @@ import { Footer } from '@deriv-com/blocks'
 import { Heading } from '@deriv/quill-design'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const RowImage = (
     <StaticImage
@@ -31,9 +31,10 @@ const EUImage = (
 )
 
 const CTA = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+
     return (
-        <Footer.CTABlock padding image={is_eu ? EUImage : RowImage}>
+        <Footer.CTABlock padding image={region === 'eu' ? EUImage : RowImage}>
             <div className="flex h-full flex-col items-start gap-gap-3xl lg:justify-center justify-end">
                 <Heading.H2 className="text-solid-slate-50 sm:max-w-[320px] max-w-[260px] xl:max-w-[480px]">
                     <Localize translate_text="_t_Join over 2.5 million online traders_t_" />

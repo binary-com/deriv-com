@@ -15,12 +15,17 @@ const FastPaymentSection = lazy(() => import('./fast-payment'))
 const LiveMarketSection = lazy(() => import('./live-pricing-migration'))
 const TradeTypeSection = lazy(() => import('./trade-type'))
 const UserFriendlyPlatforms = lazy(() => import('./user-platfroms'))
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 
-const HomePage = () => {
+type PageProps = {
+    region: BuildVariantContextType['region']
+}
+
+const HomePage = ({ region }: PageProps) => {
     useOpenLiveChat(true)
 
     return (
-        <QuillLayout>
+        <QuillLayout region={region}>
             <MainRowNavigation />
             <PageLayout>
                 <HomeHero />

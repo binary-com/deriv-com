@@ -13,11 +13,14 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import GatsbySharedLink from 'features/components/quill/shared-link'
+import BuildVariantProvider from 'features/contexts/build-variant/build-variant.provider'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     hide_layout_overlay?: boolean
     children: ReactNode
+    region: BuildVariantContextType['region']
 }
 
 if (isBrowser()) {
@@ -30,6 +33,7 @@ const Layout = ({
     is_ppc = false,
     is_ppc_redirect = false,
     hide_layout_overlay = false,
+    region = 'row',
 }: LayoutProps) => {
     const { has_platform } = usePlatformQueryParam()
 
@@ -67,9 +71,11 @@ const Layout = ({
                     onLangSelect={onLanguageChange}
                     activeLanguage={activeLang}
                 >
-                    <main className={main_wrapper}>{children}</main>
-                    <BrowserUpdateAlert />
-                    {!hide_layout_overlay && <LayoutOverlay />}
+                    <BuildVariantProvider region={region}>
+                        <main className={main_wrapper}>{children}</main>
+                        <BrowserUpdateAlert />
+                        {!hide_layout_overlay && <LayoutOverlay />}
+                    </BuildVariantProvider>
                 </LanguageProvider>
             </PpcProvider>
         </SharedLinkProvider>

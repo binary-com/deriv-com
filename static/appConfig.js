@@ -16,8 +16,8 @@ module.exports = {
         "linkedin": true,
         "telegram": true
     },
-    "trustpilot": false,
-    "live_pricing": true,
+    "trustpilot": true,
+    "live_pricing": false,
     "deriv_go_management_board": true,
     "GTM": true,
     "hotjar": true,

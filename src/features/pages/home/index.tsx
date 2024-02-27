@@ -12,6 +12,7 @@ import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
 import { isFeatureEnabled } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 const FastPaymentSection = lazy(() => import('./fast-payment'))
 const LiveMarketSection = lazy(() => import('./live-pricing-migration'))
 const TradeTypeSection = lazy(() => import('./trade-type'))
@@ -19,16 +20,18 @@ const UserFriendlyPlatforms = lazy(() => import('./user-platfroms'))
 
 const HomePage = () => {
     useOpenLiveChat(true)
+    const isTrustpilot = useThirdPartyFlags('trustpilot')
+    const isLivePricing = useThirdPartyFlags('live_pricing')
 
     return (
         <QuillLayout>
             <MainRowNavigation />
             <PageLayout>
                 <HomeHero />
-                {isFeatureEnabled('trustpilot') && <TrustpilotSection />}
+                {isTrustpilot && <TrustpilotSection />}
                 <StatSection />
                 <TwentyYearsStrong />
-                {isFeatureEnabled('live_pricing') && (
+                {isLivePricing && (
                     <Suspense
                         fallback={<div className="h-[695px] md:h-[638.5px] lg:h-[811.78px]" />}
                     >

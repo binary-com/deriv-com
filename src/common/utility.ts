@@ -461,6 +461,7 @@ export const getP2PCookie = () => {
 
 export const isFeatureEnabled = (featurePath) => {
     console.log(' in fucntion ==>', getThirdPartyFlags())
+
     const pathParts = featurePath.split('.')
     let currentFeature = getThirdPartyFlags()
 

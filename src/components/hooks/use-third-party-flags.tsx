@@ -8,10 +8,9 @@ const thirdPartyFlagsConfig = {
     databaseURL: 'https://deriv-static-staging.firebaseio.com',
 }
 
-const useThirdPartyFlags = () => {
+const useThirdPartyFlags = (featurePath) => {
     const [data, setData] = useState(featuresConfig)
-    const [error, setError] = useState(featuresConfig)
-    // const { is_eu } = useRegion()
+    const [feature, setFeature] = useState(null)
 
     useEffect(() => {
         const app = initializeApp(thirdPartyFlagsConfig, 'thirdPartyFlagsConfig')
@@ -25,14 +24,26 @@ const useThirdPartyFlags = () => {
                 setData(snapshot.val())
             },
             (error) => {
-                console.log(error)
-                setError(featuresConfig)
+                console.error(error)
             },
         )
         return flagsData
-    }, [data, error])
+    }, [])
 
-    return [error, data]
+    useEffect(() => {
+        const pathParts = featurePath.split('.')
+        let currentFeature = data
+
+        for (const part of pathParts) {
+            if (currentFeature[part] === undefined) {
+                return // Feature path does not exist
+            }
+            currentFeature = currentFeature[part]
+        }
+        setFeature(Boolean(currentFeature))
+    }, [data, featurePath])
+
+    return feature
 }
 
 export default useThirdPartyFlags

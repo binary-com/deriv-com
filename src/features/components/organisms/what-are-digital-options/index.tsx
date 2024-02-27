@@ -2,6 +2,7 @@ import React from 'react'
 import { Hero } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
 import { LabelPairedGrid2CaptionBoldIcon } from '@deriv/quill-icons/LabelPaired'
+import { v4 as uuidv4 } from 'uuid'
 import { Text, Heading, Button } from '@deriv/quill-design'
 import { Localize } from 'components/localization'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
@@ -33,7 +34,7 @@ const WhatAreDigitalOptions = ({
     const isRealDevice = isBrowser()
     const renderSignupButton = isRealDevice && !is_logged_in
     const renderTradershubButton = isRealDevice && is_logged_in
-    const uniq = `navbuttons_uniq_class_${Math.random().toString(36).substr(2, 9)}`
+    const uniq = `navbuttons_uniq_class_${uuidv4()}`
 
     return (
         <div className="max-w-[816px] mx-auto px-800">

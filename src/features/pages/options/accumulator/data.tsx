@@ -15,15 +15,16 @@ import { OptionsFAQDataItem } from 'features/components/templates/options-conten
 export const accumulatorCards: CardContent[] = [
     {
         id: 1,
-        header: <Localize translate_text="_t_Controlled Risk_t_" />,
+        header: <Localize translate_text="_t_1-5% growth rate_t_" />,
         description: (
-            <Localize translate_text="_t_Potential loss is limited to the initial amount you decide to trade._t_" />
+            <Localize translate_text="_t_Choose your growth rate to tailor risk/reward. _t_" />
         ),
-        icon: <IllustrativePayoutIcon width="48" height="48" />,
+        icon: <IllustrativeMinimalCapitalIcon width="48" height="48" />,
         color: 'gray',
         align: 'start',
         size: 'md',
     },
+
     {
         id: 2,
         header: <Localize translate_text="_t_45-230 tick duration_t_" />,
@@ -37,11 +38,11 @@ export const accumulatorCards: CardContent[] = [
     },
     {
         id: 3,
-        header: <Localize translate_text="_t_1-5% growth rate_t_" />,
+        header: <Localize translate_text="_t_Controlled Risk_t_" />,
         description: (
-            <Localize translate_text="_t_Choose your growth rate to tailor risk/reward. _t_" />
+            <Localize translate_text="_t_Potential loss is limited to the initial amount you decide to trade._t_" />
         ),
-        icon: <IllustrativeMinimalCapitalIcon width="48" height="48" />,
+        icon: <IllustrativePayoutIcon width="48" height="48" />,
         color: 'gray',
         align: 'start',
         size: 'md',

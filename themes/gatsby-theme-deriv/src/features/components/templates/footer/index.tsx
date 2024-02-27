@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Footer } from '@deriv-com/blocks'
-import { qtMerge } from '@deriv/quill-design'
+import { qtJoin } from '@deriv/quill-design'
 import {
     EuFooterNavData,
     RowFooterNavData,
@@ -17,10 +17,11 @@ import { getLocationPathname } from 'common/utility'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 export const MainFooter = () => {
-    const [is_career, setIsCareer] = useState(false)
     const { is_eu, is_cpa_plan } = useRegion()
-    const { region } = useBuildVariant()
-    
+    const [is_career, setIsCareer] = useState(false)
+    const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
+    const [warn_text, setWarnText] = useState(warnText)
+    const [nav_data, setNavData] = useState(RowFooterNavData)
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -29,22 +30,23 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const socialButtons = is_career
-        ? socialButtonsCareers
-        : is_eu
-        ? socialButtonsEU
-        : socialButtonsROW
+    useEffect(() => {
+        const region_buttons = is_eu ? socialButtonsEU : socialButtonsROW
+        setSocialButtons(is_career ? socialButtonsCareers : region_buttons)
+        if (is_eu) setNavData(EuFooterNavData)
+        setWarnText(!is_eu && !is_cpa_plan ? warnText : null)
+    }, [is_eu, is_cpa_plan, is_career])
 
     return (
         <Footer.FooterBlock
-            warningText={!is_eu && !is_cpa_plan ? warnText : null}
-            socialButtons={socialButtons}
+            warningText={warn_text}
+            socialButtons={social_buttons}
             banner={DerivGoBanner}
             awards={IIPAward}
             descriptionContent={DescriptionContent}
-            className={qtMerge((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
+            className={qtJoin((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Footer.MainNavContent items={is_eu ? EuFooterNavData : RowFooterNavData} cols="six" />
+            <Footer.MainNavContent items={nav_data} cols="six" />
         </Footer.FooterBlock>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AvailablePlatforms from '../helper/_available-platforms'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
@@ -15,6 +15,11 @@ type MultipliersProps = {
 
 const Multipliers = ({ market_content }: MultipliersProps) => {
     const { is_eu } = useRegion()
+    const [show_eu_content, setShowEuContent] = useState(false)
+
+    useEffect(() => {
+        if (is_eu) setShowEuContent(true)
+    }, [is_eu])
 
     return (
         <SectionContainer padding="4rem 0 8rem">
@@ -29,7 +34,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                     <Localize translate_text="_t_Instruments available for multipliers trading_t_" />
                 </StyledText>
                 <MarketInstruments market_content={market_content} />
-                {is_eu &&
+                {show_eu_content &&
                     market_content.eu_content?.map((text) => (
                         <Text key={text} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
                             <Localize translate_text={text} />

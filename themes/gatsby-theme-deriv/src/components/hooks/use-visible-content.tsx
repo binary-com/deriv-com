@@ -1,4 +1,6 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import isEqual from 'lodash.isequal'
+import { useUpdateEffect } from 'usehooks-ts'
 import { TSmartContent } from 'types/generics'
 
 export interface IUseVisibleContent<T extends TSmartContent<unknown, object>> {
@@ -27,7 +29,23 @@ function useVisibleContent<T extends TSmartContent<unknown, object>>({
         return filterVisibleContent(content, config)
     }, [content, config])
 
-    return visible_items
+    const prevVisibleItemsRef = useRef<T[]>([])
+    const [items, setItems] = useState<T[]>([])
+
+    useEffect(() => {
+        setItems(visible_items)
+        prevVisibleItemsRef.current = visible_items
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useUpdateEffect(() => {
+        if (!isEqual(prevVisibleItemsRef.current, visible_items)) {
+            setItems(visible_items)
+            prevVisibleItemsRef.current = visible_items
+        }
+    }, [visible_items])
+
+    return items
 }
 
 export default useVisibleContent

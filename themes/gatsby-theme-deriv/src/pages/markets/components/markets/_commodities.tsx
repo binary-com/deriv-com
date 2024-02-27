@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import AvailableTrades from '../helper/_available-trades'
 import commodities from '../../static/content/_commodities'
@@ -25,29 +25,29 @@ type CommoditiesProps = {
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
     const { is_eu } = useRegion()
+    const [show_digital_options, setShowDigitalOptions] = useState(true)
+
+    useEffect(() => {
+        if (is_eu) setShowDigitalOptions(false)
+    }, [is_eu])
 
     simple_step_content[1].text =
         '_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_'
 
     return (
         <>
-            {is_eu ? (
-                <AvailableTrades
-                    CFDs={<CFDs market_content={commodities_cfds} />}
-                    display_title="_t_Commodity trades available on Deriv_t_"
-                />
-            ) : (
-                <AvailableTrades
-                    CFDs={<CFDs market_content={commodities_cfds} />}
-                    DigitalOptions={
+            <AvailableTrades
+                CFDs={<CFDs market_content={commodities_cfds} />}
+                DigitalOptions={
+                    show_digital_options && (
                         <DigitalOptions
                             market_name="commodities"
                             options_list={commodities_options}
                         />
-                    }
-                    display_title="_t_Commodity trades available on Deriv_t_"
-                />
-            )}
+                    )
+                }
+                display_title="_t_Commodity trades available on Deriv_t_"
+            />
             <Flex.Box
                 direction="col"
                 container="fluid"

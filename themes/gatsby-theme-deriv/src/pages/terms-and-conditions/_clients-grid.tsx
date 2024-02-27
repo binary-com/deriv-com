@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -27,7 +27,12 @@ type Link = {
 }
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
-    const { is_non_eu, is_eu } = useRegion()
+    const { is_eu } = useRegion()
+    const [links, setLinks] = useState(non_eu_links)
+
+    useEffect(() => {
+        if (is_eu) setLinks(eu_links)
+    }, [is_eu, eu_links])
 
     return (
         <GridCol>
@@ -40,24 +45,14 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
             <Text lh="1.55">
                 <Localize translate_text={content} />
             </Text>
-            {is_non_eu &&
-                non_eu_links?.map((link) => (
-                    <Cta key={link.url}>
-                        <img src={PDF} alt={localize('_t_pdf icon black_t_')} />
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                            <Localize translate_text={link.title} />
-                        </a>
-                    </Cta>
-                ))}
-            {is_eu &&
-                eu_links?.map((link, index) => (
-                    <Cta key={index}>
-                        <img src={PDF} alt={localize('_t_pdf icon black_t_')} />
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                            <Localize translate_text={link.title} />
-                        </a>
-                    </Cta>
-                ))}
+            {links?.map((link) => (
+                <Cta key={link.url}>
+                    <img src={PDF} alt={localize('_t_pdf icon black_t_')} />
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                        <Localize translate_text={link.title} />
+                    </a>
+                </Cta>
+            ))}
         </GridCol>
     )
 }

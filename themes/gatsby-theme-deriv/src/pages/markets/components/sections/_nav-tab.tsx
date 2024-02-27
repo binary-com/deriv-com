@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -123,12 +123,17 @@ const NavTab = ({ route_from }: TNavTab) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
     const { is_deriv_go } = usePlatformQueryParam()
+    const [tabs, setTabs] = useState(tab_list)
+
+    useEffect(() => {
+        if (is_eu) setTabs(tab_list_eu)
+    }, [is_eu])
 
     return (
         <TabsContainer>
             {!is_deriv_go && (
                 <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : tab_list).map(({ route_to, tab_name, title }) => {
+                    {tabs.map(({ route_to, tab_name, title }) => {
                         return (
                             <StyledLink to={route_to} key={tab_name}>
                                 <TabButton selected={route_from == tab_name}>

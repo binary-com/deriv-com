@@ -1,4 +1,4 @@
-name: Generate preview link for row
+name: Generate preview link for ROW (Rest Of the World)
 
 on:
     pull_request_target:

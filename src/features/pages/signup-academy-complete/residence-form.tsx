@@ -60,6 +60,7 @@ const ResidenceForm = ({
             ...prevState,
             country: country,
         }))
+
         if (is_country_disabled) {
             setErrors(true)
         } else {
@@ -90,7 +91,7 @@ const ResidenceForm = ({
             ),
         },
     ]
-    console.log(residence_list)
+
     return (
         <Flex.Box direction="col" align="start" padding="12x">
             <Typography.Paragraph weight="bold">
@@ -112,6 +113,9 @@ const ResidenceForm = ({
                                         mb="5px"
                                         onChange={(country) => handleSelection(country)}
                                         style={{ marginTop: '16px' }}
+                                        onClearInput={() =>
+                                            setSelectedValue({ ...selected_value, country: '' })
+                                        }
                                     />
                                     {errors && (
                                         <Typography.Paragraph
@@ -146,6 +150,9 @@ const ResidenceForm = ({
                                             }))
                                         }}
                                         style={{ marginTop: '16px' }}
+                                        onClearInput={() =>
+                                            setSelectedValue({ ...selected_value, citizenship: '' })
+                                        }
                                     />
                                     <Typography.Paragraph size="small" padding_inline="8x">
                                         <Localize translate_text={item.placeholder_message} />

@@ -78,10 +78,12 @@ const DropdownSearch = ({
     onChange,
     selected_item,
     is_alternate_style,
+    onClearInput,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
+    const [has_input, setHasInput] = useState(false)
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
 
@@ -99,6 +101,7 @@ const DropdownSearch = ({
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
         toggleListVisibility(e)
+        onClearInput?.()
     }
 
     const handleSelectItem = (option: SelectedType, handled_error: FormikErrorsType) => {
@@ -115,6 +118,7 @@ const DropdownSearch = ({
                       const regex = new RegExp(input_value, 'gi')
                       return !!regex.test(String(i.name))
                   })
+
         setDropdownItems(filtered_items)
         toggleListVisibility(e)
         if (e.key !== 'Escape') {

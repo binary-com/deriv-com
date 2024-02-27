@@ -3,7 +3,7 @@ import { Features, AccordionBlock } from '@deriv-com/blocks'
 import { Text } from '@deriv/quill-design'
 import * as styles from './accumulators_faq.module.scss'
 import { accumulatorCards } from './data'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import OptionsLayout from 'features/components/templates/options-layout'
 
 const AccumulatorsOptions = () => {
@@ -39,7 +39,9 @@ const AccumulatorsOptions = () => {
                                                 </Text>
                                             )
                                         },
-                                        title: 'What markets can I trade with accumulator options?',
+                                        title: localize(
+                                            '_t_What markets can I trade with accumulator options?_t_',
+                                        ),
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -50,7 +52,9 @@ const AccumulatorsOptions = () => {
                                                 </Text>
                                             )
                                         },
-                                        title: 'Can I open multiple accumulator contracts at the same time?',
+                                        title: localize(
+                                            '_t_Can I open multiple accumulator contracts at the same time?_t_',
+                                        ),
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -61,7 +65,9 @@ const AccumulatorsOptions = () => {
                                                 </Text>
                                             )
                                         },
-                                        title: 'Can I change my growth rate after opening the contract?',
+                                        title: localize(
+                                            '_t_Can I change my growth rate after opening the contract?_t_',
+                                        ),
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -77,7 +83,9 @@ const AccumulatorsOptions = () => {
                                                 </div>
                                             )
                                         },
-                                        title: 'Can I open an accumulator contract at any time?',
+                                        title: localize(
+                                            '_t_Can I open an accumulator contract at any time?_t_',
+                                        ),
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -88,7 +96,9 @@ const AccumulatorsOptions = () => {
                                                 </Text>
                                             )
                                         },
-                                        title: 'Can I close an accumulator contract at any time?',
+                                        title: localize(
+                                            '_t_Can I close an accumulator contract at any time?_t_',
+                                        ),
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -107,7 +117,9 @@ const AccumulatorsOptions = () => {
                                                 </div>
                                             )
                                         },
-                                        title: 'Is the accumulated payout correlated with the direction of the underlying index?',
+                                        title: localize(
+                                            '_t_Is the accumulated payout correlated with the direction of the underlying index?_t_',
+                                        ),
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -118,7 +130,9 @@ const AccumulatorsOptions = () => {
                                                 </Text>
                                             )
                                         },
-                                        title: 'Are accumulators available as a trade type on Deriv Bot?',
+                                        title: localize(
+                                            '_t_Are accumulators available as a trade type on Deriv Bot?_t_',
+                                        ),
                                     },
                                 ],
                             ],

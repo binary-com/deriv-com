@@ -203,6 +203,21 @@ const BuildPage = (page, actions) => {
             isPermanent: true,
         })
     }
+    if (is_academy) {
+        console.log('academy')
+        createRedirect({
+            fromPath: `/academy-signup/`,
+            toPath: `/en/academy-signup/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/academy-signup`,
+            toPath: `/en/academy-signup`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
 
     const is_english = process.env.GATSBY_LANGUAGE === 'en'
 
@@ -374,6 +389,13 @@ const BuildPage = (page, actions) => {
             })
         }
         if (is_academy) {
+            console.log('academy')
+            createRedirect({
+                fromPath: `/${lang}/academy-signup/`,
+                toPath: `/en/academy-signup/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
             createRedirect({
                 fromPath: `/${lang}/academy-signup`,
                 toPath: `/en/academy-signup`,
@@ -381,6 +403,7 @@ const BuildPage = (page, actions) => {
                 isPermanent: true,
             })
         }
+
         return current_page
     })
 }

@@ -28,6 +28,7 @@
             ],
             "rules": {
                 "@typescript-eslint/explicit-module-boundary-types": "off",
+                "import/no-named-as-default": "off",
                 "deprecation/deprecation": "warn"
             },
             "parserOptions": {

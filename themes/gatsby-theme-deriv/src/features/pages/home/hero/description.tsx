@@ -5,7 +5,7 @@ import { hero_content_text } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
-const Description = () => { 
+const Description = () => {
     const { region } = useBuildVariant()
     if (region === 'eu') {
         return (

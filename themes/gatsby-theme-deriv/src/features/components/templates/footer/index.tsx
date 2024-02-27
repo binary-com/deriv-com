@@ -12,11 +12,11 @@ import {
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
-import useRegion from 'components/hooks/use-region'
-import { getLocationPathname } from 'common/utility'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import { getLocationPathname } from 'common/utility'
+import useRegion from 'components/hooks/use-region'
 
-export const MainFooter = () => {
+const MainFooter = () => {
     const { is_eu, is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)

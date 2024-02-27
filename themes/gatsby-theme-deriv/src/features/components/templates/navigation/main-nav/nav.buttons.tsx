@@ -12,7 +12,7 @@ import { isBrowser } from 'common/utility'
 import usePpc from 'features/hooks/use-ppc'
 import './nav.buttons.scss'
 
-export const MainNavigationButtons = () => {
+const MainNavigationButtons = () => {
     const [is_logged_in] = useAuthCheck()
     const { is_ppc_redirect } = usePpc()
     const isRealDevice = isBrowser()

@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import isEqual from 'lodash.isequal'
-import { useUpdateEffect } from 'usehooks-ts'
 import { ObjectPropType, TSmartContent } from 'types/generics'
 
 export interface IUseDynamicVisibleContent<T extends TSmartContent<unknown, object>> {
@@ -29,12 +28,17 @@ function useDynamicVisibleContent<T extends TSmartContent<unknown, object>>({
     config,
     content,
 }: IUseDynamicVisibleContent<T>): T[] {
+    const prevVisibleItemsRef = useRef<T[]>([])
+    const [items, setItems] = useState<T[]>([])
+    const isFirst = useRef(true)
+
+    useEffect(() => {
+        isFirst.current = true;
+    }, []);
+
     const visible_items = useMemo(() => {
         return filterDynamicVisibleContent(content, config)
     }, [content, config])
-
-    const prevVisibleItemsRef = useRef<T[]>([])
-    const [items, setItems] = useState<T[]>([])
 
     useEffect(() => {
         setItems(visible_items)
@@ -42,8 +46,8 @@ function useDynamicVisibleContent<T extends TSmartContent<unknown, object>>({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    useUpdateEffect(() => {
-        if (!isEqual(prevVisibleItemsRef.current, visible_items)) {
+    useEffect(() => {
+        if (!isFirst && !isEqual(prevVisibleItemsRef.current, visible_items)) {
             setItems(visible_items)
             prevVisibleItemsRef.current = visible_items
         }

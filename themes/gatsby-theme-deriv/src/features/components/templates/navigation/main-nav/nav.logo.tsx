@@ -3,7 +3,7 @@ import { CustomLink } from '@deriv-com/components'
 // eslint-disable-next-line import/no-unresolved
 import { BrandDerivWordmarkCoralIcon } from '@deriv/quill-icons/Logo'
 
-export const MainNavigationLogo = () => {
+const MainNavigationLogo = () => {
     return (
         <CustomLink href={'/'} data-cy="deriv-logo" aria-label="deriv logo label">
             <BrandDerivWordmarkCoralIcon width={73} height={24} />

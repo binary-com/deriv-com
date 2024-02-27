@@ -50,7 +50,7 @@ jobs:
             - name: Post Cloudflare Pages Preview comment
               uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
               with:
-                  header: Cloudflare Pages Preview Comment
+                  header: Cloudflare Pages ROW Preview Comment
                   number: ${{github.event.pull_request.user.login}}
                   message: ${{steps.generate_action_url.outputs.comment}}
                   recreate: true

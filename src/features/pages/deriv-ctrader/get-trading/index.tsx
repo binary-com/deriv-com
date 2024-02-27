@@ -17,6 +17,7 @@ import { ctrader_android_url, ctrader_traders_hub_url, ctrader_windows_url } fro
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
 import { isFeatureEnabled } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -49,26 +50,29 @@ const Wrapper = styled.div`
 const DerivCtraderApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
+    const ctrader_apps_windows = useThirdPartyFlags('ctrader_apps.windows')
+    const ctrader_apps_android = useThirdPartyFlags('ctrader_apps.android')
+    const ctrader_apps_web_browser = useThirdPartyFlags('ctrader_apps.web_browser')
 
     const items: TDownloadColumnItem[] = [
         {
             text: 'Google Play',
             icon: AndroidIcon,
             link: ctrader_android_url,
-            visibility: isFeatureEnabled('ctrader_apps.android'),
+            visibility: ctrader_apps_android,
         },
         {
             text: `Web Browser`,
             icon: BrowserIcon,
             link: ctrader_traders_hub_url,
             smallText: `_t_Via Trader's Hub_t_`,
-            visibility: isFeatureEnabled('ctrader_apps.web_browser'),
+            visibility: ctrader_apps_web_browser,
         },
         {
             text: 'Windows',
             icon: WindowsIcon,
             link: ctrader_windows_url,
-            visibility: isFeatureEnabled('ctrader_apps.windows'),
+            visibility: ctrader_apps_windows,
         },
     ]
 

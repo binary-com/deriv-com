@@ -1,20 +1,27 @@
 module.exports = {
     "chat": {
         "live_chat": true,
-        "whatsapp_chat": true
+        "whatsapp_chat": false
     },
     "career_social_media_icons": {
-        "facebook": true,
+        "facebook": false,
         "instagram": true,
         "linkedin": true
     },
-    "normal_social_media_icons": {
+    "row_social_media_icons": {
         "facebook": true,
         "instagram": true,
         "twitter": true,
-        "youtube": true,
+        "youtube": false,
         "linkedin": true,
         "telegram": true
+    },
+    "eu_social_media_icons": {
+        "facebook": true,
+        "instagram": false,
+        "twitter": true,
+        "youtube": true,
+        "linkedin": true
     },
     "trustpilot": true,
     "live_pricing": false,
@@ -22,13 +29,13 @@ module.exports = {
     "GTM": true,
     "hotjar": true,
     "google_signup": true,
-    "apple_signup": true,
+    "apple_signup": false,
     "facebook_signup": true,
     "mt5_apps": {
         "android": true,
         "app_store": true,
         "app_gallery": true,
-        "web_browser": true,
+        "web_browser": false,
         "windows": true,
         "mac_os": true,
         "linux": true
@@ -36,18 +43,17 @@ module.exports = {
     "deriv_x_apps": {
         "android": true,
         "app_store": true,
-        "app_gallery": true,
+        "app_gallery": false,
         "web_browser": true
     },
     "ctrader_apps": {
         "android": true,
-        "web_browser": true,
+        "web_browser": false,
         "windows": true
     },
     "deriv_go_apps": {
         "android": true,
-        "app_store": true,
+        "app_store": false,
         "app_gallery": true
-    },
-    "test": true
+    }
 }

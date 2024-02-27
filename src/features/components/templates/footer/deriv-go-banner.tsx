@@ -9,13 +9,16 @@ import derivGoQR from 'images/common/migration/footer/deriv-go-qr.svg'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { isFeatureEnabled } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 export const DerivGoBanner = () => {
     const { is_row } = useRegion()
-    const showQR =
-        isFeatureEnabled('deriv_go_apps.app_gallery') &&
-        isFeatureEnabled('deriv_go_apps.android') &&
-        isFeatureEnabled('deriv_go_apps.app_store')
+
+    const deriv_go_apps_app_gallery = useThirdPartyFlags('deriv_go_apps.app_gallery')
+    const deriv_go_apps_android = useThirdPartyFlags('deriv_go_apps.android')
+    const deriv_go_apps_app_store = useThirdPartyFlags('deriv_go_apps.app_store')
+
+    const showQR = deriv_go_apps_app_gallery && deriv_go_apps_android && deriv_go_apps_app_store
     const [show_content, setShowContent] = useState(true)
 
     useEffect(() => {

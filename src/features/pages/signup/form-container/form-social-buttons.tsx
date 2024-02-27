@@ -10,7 +10,8 @@ import AppleLogo from 'images/svg/signup_apple_icon.svg'
 import FacebookLogo from 'images/svg/signup_fb_icon.svg'
 import GoogleLogo from 'images/svg/google_logo.svg'
 import { Localize } from 'components/localization'
-import { isBrowser, isFeatureEnabled } from 'common/utility'
+import { isBrowser } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const FormSocialButtons = () => {
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
@@ -18,10 +19,13 @@ const FormSocialButtons = () => {
         form_source: isBrowser() && window.location.hostname,
         form_name: 'default_diel_deriv',
     }
+    const google_signup = useThirdPartyFlags('google_signup')
+    const facebook_signup = useThirdPartyFlags('facebook_signup')
+    const apple_signup = useThirdPartyFlags('apple_signup')
 
     return (
         <>
-            {isFeatureEnabled('google_signup') && (
+            {google_signup && (
                 <Button.Secondary
                     outlined
                     id="dm-signup-google"
@@ -41,7 +45,7 @@ const FormSocialButtons = () => {
                     </Flex.Box>
                 </Button.Secondary>
             )}
-            {isFeatureEnabled('facebook_signup') && (
+            {facebook_signup && (
                 <Button.Base
                     className={signup_fb_btn}
                     id="dm-signup-facebook"
@@ -66,7 +70,7 @@ const FormSocialButtons = () => {
                     </Flex.Box>
                 </Button.Base>
             )}
-            {isFeatureEnabled('apple_signup') && (
+            {apple_signup && (
                 <Button.Base
                     className={signup_apple_btn}
                     textcolor="white"

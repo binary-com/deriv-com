@@ -13,6 +13,7 @@ import { WithIntl } from 'components/localization'
 import { ContentType } from 'pages/landing/_types'
 import { TGatsbyHead } from 'features/types'
 import { isFeatureEnabled } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const items: ContentType[] = [
     {
@@ -55,6 +56,7 @@ const derivGoPortalData: TPortal = {
 const DerivGo = () => {
     const { is_row } = useRegion()
     const [is_loaded, setLoaded] = useState(false)
+    const deriv_go_management_board = useThirdPartyFlags('deriv_go_management_board')
 
     useEffect(() => {
         setLoaded(true)
@@ -69,9 +71,7 @@ const DerivGo = () => {
                     <WhyTradeDerivGo />
                     <DerivGoContent reverse P2P={items} />
                     <StartDerivGo />
-                    {isFeatureEnabled('deriv_go_management_board') && (
-                        <Roadmap portal={derivGoPortalData} />
-                    )}
+                    {deriv_go_management_board && <Roadmap portal={derivGoPortalData} />}
                     <FooterBanner />
                     <OtherApps />
                 </Layout>

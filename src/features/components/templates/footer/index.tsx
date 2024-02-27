@@ -15,6 +15,7 @@ import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 export const MainFooter = () => {
     const { is_eu, is_cpa_plan } = useRegion()
@@ -30,20 +31,31 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
-    const filterSocialIcons = (iconsData) => {
-        return iconsData.filter((item) => item.visibility)
+    const filterSocialIcons = (flagsData, mainData) => {
+        return mainData.filter((item) => flagsData?.[item['aria-label']])
     }
-    const socialIconROW = filterSocialIcons(socialButtonsROW)
-    const socialIconEU = filterSocialIcons(socialButtonsEU)
-    const socialIconCareer = filterSocialIcons(socialButtonsCareers)
 
-    const socialButtons = is_career ? socialIconCareer : is_eu ? socialIconEU : socialIconROW
+    const career_social_media_icons = useThirdPartyFlags('career_social_media_icons')
+    const row_social_media_icons = useThirdPartyFlags('row_social_media_icons')
+    const eu_social_media_icons = useThirdPartyFlags('eu_social_media_icons')
+
     useEffect(() => {
-        const region_buttons = is_eu ? socialButtonsEU : socialButtonsROW
-        setSocialButtons(is_career ? socialButtonsCareers : region_buttons)
+        const socialIconROW = filterSocialIcons(row_social_media_icons, socialButtonsROW)
+        const socialIconEU = filterSocialIcons(eu_social_media_icons, socialButtonsEU)
+        const socialIconCareer = filterSocialIcons(career_social_media_icons, socialButtonsCareers)
+
+        const region_buttons = is_eu ? socialIconEU : socialIconROW
+        setSocialButtons(is_career ? socialIconCareer : region_buttons)
         if (is_eu) setNavData(EuFooterNavData)
         setWarnText(!is_eu && !is_cpa_plan ? warnText : null)
-    }, [is_eu, is_cpa_plan, is_career])
+    }, [
+        is_eu,
+        is_cpa_plan,
+        is_career,
+        career_social_media_icons,
+        row_social_media_icons,
+        eu_social_media_icons,
+    ])
 
     return (
         <Footer.FooterBlock

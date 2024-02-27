@@ -15,7 +15,7 @@ import {
     deriv_go_ios_url,
     deriv_go_playstore_url,
 } from 'common/constants'
-import { isFeatureEnabled } from 'common/utility'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const sharedClasses =
     'flex items-center justify-center gap-gap-md p-general-sm rounded-[4px] border-solid border-xs border-opacity-black-100'
@@ -23,9 +23,12 @@ const sharedClasses =
 const DownloadBadges = () => {
     const { is_appgallery_supported, is_ios_supported, is_appgallery_and_ios_supported } =
         useRegion()
+    const deriv_go_apps_app_gallery = useThirdPartyFlags('deriv_go_apps.app_gallery')
+    const deriv_go_apps_android = useThirdPartyFlags('deriv_go_apps.android')
+    const deriv_go_apps_app_store = useThirdPartyFlags('deriv_go_apps.app_store')
     return (
         <div className="flex flex-col gap-gap-md max-lg:flex-1">
-            {isFeatureEnabled('deriv_go_apps.app_gallery') &&
+            {deriv_go_apps_app_gallery &&
                 is_appgallery_supported &&
                 is_appgallery_and_ios_supported && (
                     <CustomLink
@@ -43,7 +46,7 @@ const DownloadBadges = () => {
                         />
                     </CustomLink>
                 )}
-            {isFeatureEnabled('deriv_go_apps.android') && (
+            {deriv_go_apps_android && (
                 <CustomLink
                     href={deriv_go_playstore_url}
                     target="_blank"
@@ -59,24 +62,18 @@ const DownloadBadges = () => {
                     />
                 </CustomLink>
             )}
-            {isFeatureEnabled('deriv_go_apps.app_store') &&
-                is_ios_supported &&
-                is_appgallery_and_ios_supported && (
-                    <CustomLink
-                        href={deriv_go_ios_url}
-                        target="_blank"
-                        className={clsx(sharedClasses)}
-                    >
-                        <LabelPairedAppleLgIcon fill="#000000b8" />
-                        <StaticImage
-                            src="../../../../images/common/migration/footer/download-appstore.png"
-                            alt={localize('_t_download on the app store_t_')}
-                            formats={['webp', 'auto']}
-                            width={90}
-                            placeholder="none"
-                        />
-                    </CustomLink>
-                )}
+            {deriv_go_apps_app_store && is_ios_supported && is_appgallery_and_ios_supported && (
+                <CustomLink href={deriv_go_ios_url} target="_blank" className={clsx(sharedClasses)}>
+                    <LabelPairedAppleLgIcon fill="#000000b8" />
+                    <StaticImage
+                        src="../../../../images/common/migration/footer/download-appstore.png"
+                        alt={localize('_t_download on the app store_t_')}
+                        formats={['webp', 'auto']}
+                        width={90}
+                        placeholder="none"
+                    />
+                </CustomLink>
+            )}
         </div>
     )
 }

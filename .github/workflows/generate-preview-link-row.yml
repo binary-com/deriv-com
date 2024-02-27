@@ -9,9 +9,9 @@ on:
 env:
     NODE_OPTIONS: '--max-old-space-size=8192'
 
-# concurrency:
-#     group: cloudflare-pages-build-${{github.head_ref}}
-#     cancel-in-progress: true
+concurrency:
+    group: cloudflare-row-pages-build-${{github.head_ref}}
+    cancel-in-progress: true
 
 jobs:
     build_row_to_cloudflare_pages:

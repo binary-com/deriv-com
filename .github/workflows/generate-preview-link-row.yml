@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
     build_row_to_cloudflare_pages:
-        runs-on: Ubuntu-latest
+        runs-on: Runner_16cores
         permissions:
           checks: write
           pull-requests: write

@@ -15,9 +15,9 @@ import { TGatsbyHead } from 'features/types'
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 
 const meta_attributes: TMetaAttributes = {
-    og_title: '_t_DTrader | Online Trading Platform | Deriv.com_t_',
+    og_title: '_t_Deriv Trader | Online Trading Platform | Deriv.com_t_',
     og_description:
-        '_t_DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices._t_',
+        '_t_Deriv Trader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices._t_',
 }
 
 const items: TDNumbersItem[] = [

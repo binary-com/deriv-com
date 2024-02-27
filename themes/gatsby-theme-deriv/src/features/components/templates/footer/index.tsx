@@ -17,11 +17,12 @@ import { getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 
 const MainFooter = () => {
-    const { is_eu, is_cpa_plan } = useRegion()
+    const {region} = useBuildVariant();
+    const { is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
-    const [nav_data, setNavData] = useState(RowFooterNavData)
+    const region_buttons = region === "eu" ? socialButtonsEU : socialButtonsROW
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -31,11 +32,9 @@ const MainFooter = () => {
     }, [])
 
     useEffect(() => {
-        const region_buttons = is_eu ? socialButtonsEU : socialButtonsROW
         setSocialButtons(is_career ? socialButtonsCareers : region_buttons)
-        if (is_eu) setNavData(EuFooterNavData)
-        setWarnText(!is_eu && !is_cpa_plan ? warnText : null)
-    }, [is_eu, is_cpa_plan, is_career])
+        setWarnText(region !== "eu" && !is_cpa_plan ? warnText : null)
+    }, [region_buttons, region, is_cpa_plan, is_career])
 
     return (
         <Footer.FooterBlock
@@ -44,9 +43,9 @@ const MainFooter = () => {
             banner={DerivGoBanner}
             awards={IIPAward}
             descriptionContent={DescriptionContent}
-            className={qtJoin((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
+            className={qtJoin((region === "eu" || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Footer.MainNavContent items={nav_data} cols="six" />
+            <Footer.MainNavContent items={region === "eu" ? EuFooterNavData : RowFooterNavData} cols="six" />
         </Footer.FooterBlock>
     )
 }

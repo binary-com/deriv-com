@@ -15,6 +15,7 @@ const FastPaymentSection: React.FC = () => {
             ? '!animate-[40s_slide_linear_infinite] rtl:!animate-[40s_slideRtl_linear_infinite]'
             : '!animate-[100s_slide_linear_infinite] rtl:!animate-[100s_slideRtl_linear_infinite]'
         : ''
+        
     return (
         <div ref={ref}>
             <FastPayment

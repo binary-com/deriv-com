@@ -7,6 +7,7 @@ import useBuildVariant from 'features/hooks/use-build-variant'
 
 const Description = () => {
     const { region } = useBuildVariant()
+    
     if (region === 'eu') {
         return (
             <Text

@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Features } from '@deriv-com/blocks'
 import { EUCards, RowCards } from './data'
 import { Localize } from 'components/localization'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import useBuildVariant from 'features/hooks/use-build-variant'
-import useRegion from 'components/hooks/use-region'
 
 const StartTradingSteps = () => {
-    const { is_eu } = useRegion()
-    const [cards, setCards] = useState(RowCards)
-
-    useEffect(() => {
-        if (is_eu) setCards(EUCards)
-    }, [is_eu])
+    const {region} = useBuildVariant()
 
     return (
         <Features.Card
@@ -26,7 +20,7 @@ const StartTradingSteps = () => {
             }
             cols="three"
             variant="ContentTop"
-            cards={cards}
+            cards={region === "eu" ? EUCards : RowCards}
         />
     )
 }

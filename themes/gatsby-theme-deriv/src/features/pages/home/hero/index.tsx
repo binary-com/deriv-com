@@ -16,6 +16,7 @@ import Description from './description'
 import { Localize, get_lang_direction } from 'components/localization'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -23,6 +24,7 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
+    const { region } = useBuildVariant()
     const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
@@ -57,7 +59,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             ref={entryRef}
                         />
                     </div>
-                    <HeroAwardImages />
+                    {region == 'row' && <HeroAwardImages /> }
                     <HeroImage />
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>

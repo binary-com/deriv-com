@@ -1,10 +1,10 @@
-import React, { MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react'
+import React, { MutableRefObject, ReactNode, useEffect, useRef, useState, createContext } from 'react'
 import { type FirebaseApp, initializeApp } from 'firebase/app'
 import { getDatabase, ref, onValue, Database, type DatabaseReference } from 'firebase/database'
 import { initialLiveMarketData } from '../utils'
 import { LiveMarketRawData } from './types'
 import { firebaseConfig } from 'common/constants'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type LiveMarketType = {
     liveData: LiveMarketRawData
@@ -12,15 +12,15 @@ export type LiveMarketType = {
     dbRef: MutableRefObject<DatabaseReference>
 }
 
-export const LiveMarketContext = React.createContext<LiveMarketType>({
+export const LiveMarketContext = createContext<LiveMarketType>({
     liveData: initialLiveMarketData,
     dbRef: null,
 })
 
 const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
+    const { region } = useBuildVariant()
     const [liveData, setLiveData] = useState<LiveMarketRawData>(initialLiveMarketData)
     const [liveError, setLiveError] = useState({})
-    const { is_eu } = useRegion()
     const firebaseAppRef = useRef<FirebaseApp>()
     const firebaseDbRef = useRef<Database>()
     const commoditiesRef = useRef<DatabaseReference>()
@@ -31,7 +31,7 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
     }, [])
 
     useEffect(() => {
-        commoditiesRef.current = ref(firebaseDbRef.current, is_eu ? 'eu/mkt' : 'row/mkt')
+        commoditiesRef.current = ref(firebaseDbRef.current, region === "eu" ? 'eu/mkt' : 'row/mkt')
         const unsubscribe = onValue(
             commoditiesRef.current,
             (snapshot) => {
@@ -42,7 +42,7 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
             },
         )
         return unsubscribe
-    }, [is_eu])
+    }, [region])
 
     return (
         <LiveMarketContext.Provider

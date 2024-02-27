@@ -3,12 +3,8 @@ import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import { hero_content_award_img, hero_content_award_img_rtl } from './styles.module.scss'
 import { get_lang_direction, localize } from 'components/localization'
-import useBuildVariant from 'features/hooks/use-build-variant'
+
 const HeroAwardImages = () => {
-    const { region } = useBuildVariant()
-
-    if (region == 'eu') return null
-
     return (
         <div
             className={clsx(

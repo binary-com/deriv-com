@@ -12,8 +12,9 @@ const formatStatesList = (states) => {
     }
 
     return states?.map(
-        ({ text }) =>
+        ({ text, value }) =>
             typeof text !== undefined && {
+                symbol: value,
                 name: text,
                 display_name: text,
             },

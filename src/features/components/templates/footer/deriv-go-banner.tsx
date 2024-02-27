@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CaptionText, Heading, Text } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
 import { DerivProductDerivGoBrandLightLogoHorizontalIcon } from '@deriv/quill-icons/Logo'
@@ -16,10 +16,16 @@ export const DerivGoBanner = () => {
         isFeatureEnabled('deriv_go_apps.app_gallery') &&
         isFeatureEnabled('deriv_go_apps.android') &&
         isFeatureEnabled('deriv_go_apps.app_store')
+    const [show_content, setShowContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_row) setShowContent(false)
+    }, [is_row])
+
     const deriv_go = 'Deriv GO'
     return (
         <div className="flex flex-col gap-gap-lg">
-            {is_row && (
+            {show_content && (
                 <div className="flex lg:flex-col gap-gap-lg rounded-[16px] border-solid border-xs border-opacity-black-100 p-general-md">
                     <div className="flex flex-col gap-gap-md max-lg:flex-1 max-lg:justify-center">
                         <div className="flex flex-col gap-gap-md">

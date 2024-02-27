@@ -9,8 +9,8 @@ import Layout from 'components/layout/layout'
 import { Localize, WithIntl, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
-import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
+import { useShowEuContent } from 'components/hooks/use-show-eu-content'
 
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -18,8 +18,8 @@ const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const CFD = () => {
-    const { is_eu } = useRegion()
-    const content = is_eu ? cfd_content : cfd_content.concat(non_eu_cfd_content)
+    const show_eu_content = useShowEuContent()
+    const content = show_eu_content ? cfd_content : cfd_content.concat(non_eu_cfd_content)
 
     return (
         <Layout>
@@ -43,8 +43,10 @@ const CFD = () => {
                 {content.map(({ alt, src, text, title }) => (
                     <StyledBox
                         key={alt}
-                        item_title={typeof title === 'function' ? title({ is_eu }) : title}
-                        text={typeof text === 'function' ? text({ is_eu }) : text}
+                        item_title={
+                            typeof title === 'function' ? title({ is_eu: show_eu_content }) : title
+                        }
+                        text={typeof text === 'function' ? text({ is_eu: show_eu_content }) : text}
                         icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                     />
                 ))}

@@ -22,7 +22,7 @@ const MarketInstruments = ({
         <MarketsWrapper>
             {content?.map(
                 ({
-                    component,
+                    instruments,
                     title,
                     col,
                     details,
@@ -52,7 +52,6 @@ const MarketInstruments = ({
                                             />
                                         </Title>
                                     </Col>
-
                                     {template == 2 ? (
                                         <LatestMarketsList
                                             has_right_border
@@ -63,12 +62,12 @@ const MarketInstruments = ({
                                             gap={gap}
                                             gap_mobile={gap_mobile}
                                         >
-                                            {component}
+                                            {instruments}
                                         </LatestMarketsList>
                                     ) : template == 3 ? (
-                                        <DerivedMarketsList>{component}</DerivedMarketsList>
+                                        <DerivedMarketsList>{instruments}</DerivedMarketsList>
                                     ) : (
-                                        <MarketsList has_right_border>{component}</MarketsList>
+                                        <MarketsList has_right_border>{instruments}</MarketsList>
                                     )}
                                 </Row>
                             )}
@@ -98,11 +97,11 @@ const MarketInstruments = ({
                                     gap_mobile={gap_mobile}
                                     {...markets_list}
                                 >
-                                    {component}
+                                    {instruments}
                                 </LatestMarketsList>
                             ) : (
                                 <MarketsList {...markets_list} gap="16px">
-                                    {component}
+                                    {instruments}
                                 </MarketsList>
                             )}
                         </Row>

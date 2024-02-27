@@ -86,7 +86,7 @@ const WhatAreDigitalOptions = ({
                             className="w-full md:!w-auto"
                             onClick={clickToScrollHandler}
                         >
-                            Read FAQs
+                            <Localize translate_text="_t_Read FAQs_t_" />
                         </Button>
                     </div>
                 )}

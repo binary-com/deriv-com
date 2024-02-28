@@ -50,7 +50,6 @@ const BuildPage = (page, actions) => {
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
     const is_options = /options/g.test(page.path)
-    const is_academy = /academy-signup/g.test(page.path)
 
     if (is_careers) {
         createRedirect({
@@ -199,21 +198,6 @@ const BuildPage = (page, actions) => {
         createRedirect({
             fromPath: `/trade-types/options`,
             toPath: `/trade-types/options/digital-options/up-and-down/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
-    if (is_academy) {
-        console.log('academy')
-        createRedirect({
-            fromPath: `/academy-signup/`,
-            toPath: `/en/academy-signup/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/academy-signup`,
-            toPath: `/en/academy-signup`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -384,21 +368,6 @@ const BuildPage = (page, actions) => {
             createRedirect({
                 fromPath: `/${lang}/trade-types/options`,
                 toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
-        if (is_academy) {
-            console.log('academy')
-            createRedirect({
-                fromPath: `/${lang}/academy-signup/`,
-                toPath: `/en/academy-signup/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/academy-signup`,
-                toPath: `/en/academy-signup`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

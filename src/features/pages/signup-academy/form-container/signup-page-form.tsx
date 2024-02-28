@@ -1,5 +1,5 @@
 import React from 'react'
-import { link_text } from '../signup.module.scss'
+import { link_text, btn_signup } from '../signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
 import Button from 'features/components/atoms/button'
@@ -57,7 +57,7 @@ const SignUpPageForm = () => {
                     />
                 </Input.Checkbox>
             </Flex.Item>
-            <Button.Primary fluid disabled={is_button_disabled}>
+            <Button.Primary fluid disabled={is_button_disabled} className={btn_signup}>
                 <Localize translate_text="_t_Create account_t_" />
             </Button.Primary>
         </Flex.Box>

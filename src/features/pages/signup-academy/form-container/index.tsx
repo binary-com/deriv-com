@@ -65,7 +65,7 @@ const SignUpFormContainer = () => {
 
             <Typography.Paragraph align="center">
                 <Localize
-                    translate_text="_t_Already have an account? <0>Log in</0>_t_"
+                    translate_text="_t_Already have a Deriv account?? <0>Log in</0>_t_"
                     components={[
                         <Typography.Paragraph
                             as="span"

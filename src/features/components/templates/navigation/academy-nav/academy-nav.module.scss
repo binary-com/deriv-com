@@ -3,4 +3,9 @@
 .static_nav_logo {
     inline-size: 19.9rem;
     block-size: 3.19rem;
+
+    @include breakpoints(tablet) {
+        inline-size: 19.9rem;
+        block-size: 3.19rem;
+    }
 }

@@ -39,7 +39,6 @@ const useThirdPartyFlags = (featurePath) => {
                 return // Feature path does not exist
             }
             currentFeature = currentFeature[part]
-            console.log('currentFeature ==>', part, currentFeature)
         }
         if (typeof currentFeature === 'object') {
             setFeature(currentFeature)

@@ -8,11 +8,12 @@ import TalkToUs from './_talk-to-us'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { isFeatureEnabled, sanitize } from 'common/utility'
+import { sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const Section = styled.section`
     padding: 8rem 0;
@@ -90,6 +91,7 @@ const SearchCrossIcon = styled.img`
 const SearchSection = () => {
     const [search_value, setSearchValue] = useState('')
     const search_input_ref = useRef(null)
+    const isLiveChat = useThirdPartyFlags('chat.live_chat')
 
     useEffect(() => {
         if (search_input_ref.current) {
@@ -171,7 +173,7 @@ const SearchSection = () => {
                             />
                         )}
                     </SearchForm>
-                    {isFeatureEnabled('chat.live_chat') && <TalkToUs />}
+                    {isLiveChat && <TalkToUs />}
 
                     {has_search_value && (
                         <SearchResult

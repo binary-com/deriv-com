@@ -6,7 +6,6 @@ import { wrapper_ltr, wrapper_rtl } from './styles.module.scss'
 import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
-import { isFeatureEnabled } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 

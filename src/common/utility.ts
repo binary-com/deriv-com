@@ -3,7 +3,6 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import language_config from '../../i18n-config'
-import featuresConfig from '../../static/appConfig'
 import {
     deriv_cookie_domain,
     deriv_app_languages,
@@ -13,7 +12,6 @@ import {
     domains,
     eu_domains,
 } from './constants'
-import { getThirdPartyFlags } from './third-party-flags'
 import { localize } from 'components/localization'
 import { ProductLinkGenerator } from 'features/components/atoms/link/external'
 
@@ -457,20 +455,4 @@ export const updateURLAsPerUserLanguage = () => {
 export const getP2PCookie = () => {
     const p2p_validity = Cookies.get('is_p2p_disabled')
     return p2p_validity
-}
-
-export const isFeatureEnabled = (featurePath) => {
-    console.log(' in fucntion ==>', getThirdPartyFlags())
-
-    const pathParts = featurePath.split('.')
-    let currentFeature = getThirdPartyFlags()
-
-    for (const part of pathParts) {
-        if (currentFeature[part] === undefined) {
-            return false // Feature path does not exist
-        }
-        currentFeature = currentFeature[part]
-    }
-
-    return Boolean(currentFeature)
 }

@@ -12,7 +12,6 @@ import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { ContentType } from 'pages/landing/_types'
 import { TGatsbyHead } from 'features/types'
-import { isFeatureEnabled } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const items: ContentType[] = [

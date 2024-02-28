@@ -12,7 +12,6 @@ import TrustpilotSection from './trustpilot'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
-import { isFeatureEnabled } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 const FastPaymentSection = loadable(() => import('./fast-payment'))
 const LiveMarketSection = loadable(() => import('./live-pricing-migration'))

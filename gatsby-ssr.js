@@ -3,7 +3,6 @@ import { Partytown } from '@builder.io/partytown/react'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import './src/components/localization/config'
 import GlobalProvider from './src/store/global-provider'
-import { isFeatureEnabled } from './src/common/utility'
 
 export const wrapRootElement = ({ element }) => {
     return <GlobalProvider>{element}</GlobalProvider>

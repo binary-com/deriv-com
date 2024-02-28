@@ -8,7 +8,6 @@ import { footer_qr_box } from './styles.module.scss'
 import derivGoQR from 'images/common/migration/footer/deriv-go-qr.svg'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import { isFeatureEnabled } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 export const DerivGoBanner = () => {

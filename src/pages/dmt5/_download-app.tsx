@@ -29,7 +29,6 @@ import {
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { isFeatureEnabled } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`

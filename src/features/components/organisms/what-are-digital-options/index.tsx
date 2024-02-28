@@ -37,61 +37,60 @@ const WhatAreDigitalOptions = ({
     const uniq = `navbuttons_uniq_class_${uuidv4()}`
 
     return (
-        <div className="max-w-[816px] mx-auto px-800">
-            <Hero.ContentLess
-                description={
-                    <Text className="leading-6">
-                        <Localize translate_text={description} />
-                    </Text>
-                }
-                title={
-                    <Heading>
-                        <Localize translate_text={heading} />
-                    </Heading>
-                }
-            >
-                {is_coming_soon && (
-                    <Label text="_t_Available on Demo accounts only_t_" bgcolor="blue" />
-                )}
-                {has_content_block && (
-                    <div
-                        className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
-                        id={uniq}
+        <Hero.ContentLess
+            className="px-800"
+            description={
+                <Text className="leading-6">
+                    <Localize translate_text={description} />
+                </Text>
+            }
+            title={
+                <Heading>
+                    <Localize translate_text={heading} />
+                </Heading>
+            }
+        >
+            {is_coming_soon && (
+                <Label text="_t_Available on Demo accounts only_t_" bgcolor="blue" />
+            )}
+            {has_content_block && (
+                <div
+                    className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
+                    id={uniq}
+                >
+                    <Button
+                        size="lg"
+                        onClick={handleRedirectToTradersHub}
+                        icon={LabelPairedGrid2CaptionBoldIcon}
+                        iconPosition="start"
+                        className={`navbuttons_tradershub ${uniq} ${
+                            renderTradershubButton ? '' : 'navbuttons_tradershub--hidden'
+                        }`}
                     >
-                        <Button
-                            size="lg"
-                            onClick={handleRedirectToTradersHub}
-                            icon={LabelPairedGrid2CaptionBoldIcon}
-                            iconPosition="start"
-                            className={`navbuttons_tradershub ${uniq} ${
-                                renderTradershubButton ? '' : 'navbuttons_tradershub--hidden'
-                            }`}
-                        >
-                            {`Trader's Hub`}
-                        </Button>
+                        {`Trader's Hub`}
+                    </Button>
 
-                        <Button
-                            size="lg"
-                            onClick={handleSignup}
-                            className={`w-full md:!w-auto navbuttons_login ${uniq} ${
-                                renderSignupButton ? '' : 'navbuttons_login--hidden'
-                            }`}
-                        >
-                            <Localize translate_text="_t_Open demo account_t_" />
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="secondary"
-                            colorStyle="black"
-                            className="w-full md:!w-auto"
-                            onClick={clickToScrollHandler}
-                        >
-                            <Localize translate_text="_t_Read FAQs_t_" />
-                        </Button>
-                    </div>
-                )}
-            </Hero.ContentLess>
-        </div>
+                    <Button
+                        size="lg"
+                        onClick={handleSignup}
+                        className={`w-full md:!w-auto navbuttons_login ${uniq} ${
+                            renderSignupButton ? '' : 'navbuttons_login--hidden'
+                        }`}
+                    >
+                        <Localize translate_text="_t_Open demo account_t_" />
+                    </Button>
+                    <Button
+                        size="lg"
+                        variant="secondary"
+                        colorStyle="black"
+                        className="w-full md:!w-auto"
+                        onClick={clickToScrollHandler}
+                    >
+                        <Localize translate_text="_t_Read FAQs_t_" />
+                    </Button>
+                </div>
+            )}
+        </Hero.ContentLess>
     )
 }
 

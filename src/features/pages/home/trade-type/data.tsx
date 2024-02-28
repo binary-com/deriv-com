@@ -9,7 +9,9 @@ export const RowCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_" />
         ),
-        icon: <img src="/new-homepage/cfds-lg.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img src="/new-homepage/cfds-lg.svg" alt="cfd" width={48} height={48} loading="lazy" />
+        ),
         align: 'start',
         color: 'light',
         size: 'md',
@@ -25,7 +27,15 @@ export const RowCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake._t_" />
         ),
-        icon: <img src="/new-homepage/options-lg.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/options-lg.svg"
+                alt="options"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         align: 'start',
         color: 'light',
         size: 'md',
@@ -41,7 +51,15 @@ export const RowCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_" />
         ),
-        icon: <img src="/new-homepage/multipliers-lg.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/multipliers-lg.svg"
+                alt="multipliers"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         align: 'start',
         color: 'light',
         size: 'md',
@@ -60,7 +78,9 @@ export const EUCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_" />
         ),
-        icon: <img src="/new-homepage/cfds-lg.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img src="/new-homepage/cfds-lg.svg" alt="cfds" width={48} height={48} loading="lazy" />
+        ),
         align: 'start',
         color: 'light',
         size: 'md',
@@ -76,7 +96,15 @@ export const EUCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_" />
         ),
-        icon: <img src="/new-homepage/multipliers-lg.svg" width={48} height={48} loading="lazy" />,
+        icon: (
+            <img
+                src="/new-homepage/multipliers-lg.svg"
+                alt="multipliers"
+                width={48}
+                height={48}
+                loading="lazy"
+            />
+        ),
         align: 'start',
         color: 'light',
         size: 'md',

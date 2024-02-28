@@ -45,7 +45,7 @@ module.exports = {
     },
     th: {
         path: 'th',
-        display_name: 'Thai',
+        display_name: 'ไทย',
         short_name: 'TH',
         affiliate_lang: 12,
     },
@@ -107,5 +107,11 @@ module.exports = {
         display_name: 'සිංහල',
         short_name: 'SI',
         affiliate_lang: 17,
+    },
+    sw: {
+        path: 'sw',
+        display_name: 'Kiswahili',
+        short_name: 'SW',
+        affiliate_lang: 18,
     },
 }

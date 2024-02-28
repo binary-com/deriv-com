@@ -12,7 +12,6 @@ import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
-import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { TGatsbyHead } from 'features/types'
@@ -38,7 +37,6 @@ const Th = styled.th`
         /* stylelint-disable-next-line value-no-vendor-prefix */
         position: -webkit-sticky;
         left: -5px; /* required */
-        background-color: var(--color-white);
         z-index: 2;
         width: 128px;
         padding: 16px 0 16px 16px;
@@ -56,7 +54,7 @@ const Th = styled.th`
 const StyledTable = styled.table<StyledTableType>`
     border-collapse: collapse;
     width: 110.4rem;
-    margin: ${(props) => (props.has_note ? '0 auto 2.4rem' : '0 auto')};
+    margin: ${(props) => (props.has_note ? '16px auto 2.4rem' : '0 auto')};
 `
 
 const Thead = styled.thead`
@@ -77,6 +75,12 @@ const Tr = styled.tr`
 const BoldText = styled(Text)`
     font-weight: bold;
 `
+const DescriptionText = styled(Text)`
+    padding-bottom: 16px;
+    padding-top: 8px;
+    margin-left: -15px;
+`
+
 const Notes = styled.div`
     position: absolute;
     width: 100%;
@@ -91,6 +95,15 @@ const OuterDiv = styled.div`
 const InnerDiv = styled.div`
     overflow-x: auto;
     overflow-y: visible;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50px;
+        width: 140rem;
+        border-top: 2px solid var(--color-grey-2);
+    }
 `
 const DesktopWrapper = styled.div`
     display: block;
@@ -110,7 +123,7 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_p2p_allowed_country, is_eu } = useRegion()
+    const { is_p2p_allowed_country, is_eu, is_region_loading } = useRegion()
     const [is_mobile] = useBrowserResize(992)
     const { data, send } = useWS('crypto_config')
     const [payment_method_data, setPaymentMethodData] = useState(payment_data)
@@ -153,23 +166,23 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     }, [data, is_eu])
 
     const content_style = {
-        borderRadius: '8px',
         background: 'var(--color-white)',
-        boxShadow: '-2px 6px 15px 0px rgba(195, 195, 195, 0.31)',
+        boxShadow: 'rgba(195, 195, 195, 0.31) 1px 20px 15px 0px',
     }
 
     const header_style = is_mobile
         ? {
-              borderRadius: '6px',
+              borderBottom: 'none',
               padding: '28px 16px',
               height: '80px',
           }
         : {
-              borderRadius: '6px',
+              borderBottom: 'none',
+              boxShadow: 'rgba(195, 195, 195, 0.31) 1px 15px 15px 0px',
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
-    if (!isBrowser()) {
+    if (is_region_loading) {
         return <DotLoader />
     }
     return (
@@ -184,8 +197,10 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     : {
                           padding: '0 48px 24px',
                           position: 'relative',
+                          borderBottom: 'none',
                           background: 'var(--color-white)',
                           paddingBottom: pdata.note ? '5rem' : '3.8rem',
+                          boxShadow: 'rgba(195, 195, 195, 0.31) 0px 20px 15px 0px',
                       }
                 if (pdata.is_row && is_eu) {
                     return []
@@ -228,8 +243,49 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
     const parse_to_integer = parseInt('2')
 
+    let displayString = ''
+
+    if (!pd || !pd.name) {
+        return null
+    }
+    switch (pd.name) {
+        case '_t_Credit & debit cards_t_':
+            displayString = 'Make deposits via cards easily.'
+            break
+        case '_t_Online banking_t_':
+            displayString = '_t_Send and receive payments directly from your bank account._t_'
+            break
+        case '_t_Mobile payments_t_':
+            displayString = '_t_Pay on the go with your phone for instant convenience._t_'
+            break
+        case '_t_E-wallets_t_':
+            displayString = '_t_Benefit from quick and secure Deriv payments with your e-wallet._t_'
+            break
+        case '_t_Cryptocurrencies_t_':
+            displayString = '_t_Make payments with top cryptocurrencies._t_'
+            break
+        case '_t_On-ramp / Off-ramp_t_':
+            displayString =
+                '_t_Send crypto directly to your Deriv account, get credited in fiat._t_'
+            break
+        case '_t_Voucher_t_':
+            displayString =
+                '_t_A convenient way to make payments without cards or bank accounts._t_'
+            break
+        case '_t_Deriv P2P_t_':
+            displayString =
+                '_t_Fund your account securely through our peer-to-peer deposit and withdrawal service._t_'
+            break
+        default:
+            displayString = ''
+            break
+    }
+
     return (
         <>
+            <DescriptionText>
+                {displayString ? <Localize translate_text={displayString} /> : null}
+            </DescriptionText>
             <OuterDiv>
                 <InnerDiv>
                     <StyledTable has_note={!!pd.note}>
@@ -377,7 +433,7 @@ const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
         <Flex.Box container="fluid" direction="col" id="payment-list">
             <DisplayAccordion locale={locale} />
             <Typography.Paragraph size="small" pb="16x" md={{ pb: '40x' }}>
-                <Localize translate_text="_t_We aim to process your deposits and withdrawals within 24 hours. However, please note that these processing times and limits are estimates and may vary due to reasons outside our control. We make every effort to provide you with a speedy and seamless experience._t_" />
+                <Localize translate_text="_t_We're committed to processing your transactions as quickly as possible. Deposits are processed instantly, while withdrawals might take up to 1 business day. The time for funds to reach you after withdrawal depends on your bank or payment provider._t_" />
             </Typography.Paragraph>
         </Flex.Box>
     )

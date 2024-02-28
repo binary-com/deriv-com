@@ -4,7 +4,6 @@ import { PaymentProps } from './_payment-data'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import Chevron from 'images/svg/custom/chevron-thick.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { TString } from 'types/generics'
 
@@ -13,24 +12,6 @@ type ExpandListType = {
     is_fiat_onramp?: boolean
 }
 
-const StyledButton = styled(Button)`
-    padding: 6px 16px;
-    width: 112px;
-`
-const StyledChevron = styled.img<ExpandListType>`
-    height: 16px;
-    width: 16px;
-    margin: 26px 0 32px;
-    transform: ${(props) => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
-    transition: transform 0.25s ease-out;
-`
-const StyledPDF = styled.img`
-    height: 32px;
-    width: 32px;
-`
-const ExpandedContent = styled.td`
-    text-align: start;
-`
 const Tr = styled.tr<ExpandListType>`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
@@ -198,31 +179,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     </Withdrawal>
                 )}
                 {payment_data.reference_link && <Td>{payment_data.reference_link}</Td>}
-                {payment_data.description && (
-                    <HoverTd onClick={toggleExpand}>
-                        <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />
-                    </HoverTd>
-                )}
             </Tr>
-            {payment_data.description && (
-                <Tr>
-                    <ExpandedContent colSpan={8}>
-                        <Description is_expanded={is_expanded}>
-                            <StyledText is_expanded={is_expanded}>
-                                <Localize translate_text={payment_data.description} />
-                            </StyledText>
-                            {payment_data.url && (
-                                <StyledButton
-                                    onClick={() => window.open(payment_data.url, '_blank')}
-                                    tertiary
-                                >
-                                    <Localize translate_text="_t_Learn more_t_" />
-                                </StyledButton>
-                            )}
-                        </Description>
-                    </ExpandedContent>
-                </Tr>
-            )}
         </>
     )
 }

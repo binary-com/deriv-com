@@ -42,8 +42,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'ALGORAND',
                 swf_icon: true,
@@ -59,8 +59,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'AVALANCHE',
                 swf_icon: true,
@@ -76,8 +76,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.07,
             swap_short: -0.07,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'BAT',
                 swf_icon: true,
@@ -93,8 +93,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'BCHNEW',
                 swf_icon: true,
@@ -110,8 +110,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.05,
             swap_short: -0.05,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'BNBUSD',
                 swf_icon: true,
@@ -127,8 +127,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'BTCETH',
                 swf_icon: true,
@@ -144,8 +144,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'BTCLTC',
                 swf_icon: true,
@@ -161,8 +161,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'BTCUSD',
                 dl_icon: true,
@@ -179,8 +179,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'DOGUSD',
                 swf_icon: true,
@@ -196,8 +196,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'DOTUSD',
                 swf_icon: true,
@@ -213,8 +213,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'DSHUSD1',
                 swf_icon: true,
@@ -230,8 +230,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'EOSUSD1',
                 swf_icon: true,
@@ -247,8 +247,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.07,
             swap_short: -0.07,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'ETCUSD',
                 swf_icon: true,
@@ -264,8 +264,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'ETHUSD',
                 dl_icon: true,
@@ -282,8 +282,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'FILUSD',
                 swf_icon: true,
@@ -299,8 +299,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'IOTUSD',
                 swf_icon: true,
@@ -316,8 +316,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'LNKUSD',
                 swf_icon: true,
@@ -333,8 +333,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'LTCUSD',
                 swf_icon: true,
@@ -350,8 +350,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'MKRUSD',
                 swf_icon: true,
@@ -367,8 +367,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'MTCUSD',
                 swf_icon: true,
@@ -384,8 +384,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'NEOUSD',
                 swf_icon: true,
@@ -401,8 +401,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'OMGUSD',
                 swf_icon: true,
@@ -418,8 +418,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'SOLUSD',
                 swf_icon: true,
@@ -435,8 +435,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'TRXUSD',
                 swf_icon: true,
@@ -452,8 +452,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.06,
             swap_short: -0.06,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'UNIUSD',
                 swf_icon: true,
@@ -469,8 +469,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'XLMUSD',
                 swf_icon: true,
@@ -486,8 +486,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.03,
             swap_short: -0.03,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'XMRUSD',
                 swf_icon: true,
@@ -503,8 +503,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'XRPUSD1',
                 swf_icon: true,
@@ -520,8 +520,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'XTZUSD',
                 swf_icon: true,
@@ -537,8 +537,8 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
-          {
+        },
+        {
             instrument: {
                 symbol: 'ZECUSD',
                 swf_icon: true,
@@ -554,505 +554,505 @@ const crypto_specification: TSpecification = {
             swap_long: -0.04,
             swap_short: -0.04,
             trading_hours: 'Sun 00:00 - Sat 23:59',
-          },
+        },
     ],
     eu_data: [
-                    {
-              instrument: {
+        {
+            instrument: {
                 symbol: 'ADAUSD',
                 instrument: 'ADA/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 100,
-              minimum_spread: 0.0005,
-              target_spread: 0.00071,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 100,
+            minimum_spread: 0.0005,
+            target_spread: 0.00071,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'ALGORAND',
                 instrument: 'ALG/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 500,
-              minimum_spread: 0.0003,
-              target_spread: 0.0005,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 500,
+            minimum_spread: 0.0003,
+            target_spread: 0.0005,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'AVALANCHE',
                 instrument: 'AVA/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.5,
-              minimum_spread: 0.03,
-              target_spread: 0.05,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.07",
-              swap_short: "-0.07",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.5,
+            minimum_spread: 0.03,
+            target_spread: 0.05,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.07',
+            swap_short: '-0.07',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'BAT',
                 instrument: 'BAT/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 500,
-              minimum_spread: 0.00027,
-              target_spread: 0.00039,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 500,
+            minimum_spread: 0.00027,
+            target_spread: 0.00039,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'BCHUSD',
                 instrument: 'BCH/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 0.3915,
-              target_spread: 0.498,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.05",
-              swap_short: "-0.05",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.3915,
+            target_spread: 0.498,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.05',
+            swap_short: '-0.05',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'BNBUSD',
                 instrument: 'BNB/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 0.251,
-              target_spread: 0.286,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.251,
+            target_spread: 0.286,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'BTCETH',
                 instrument: 'BTC/ETH',
             },
-              contract_size: 1,
-              base_currency: 'ETH',
-              minimum_size: 0.01,
-              minimum_spread: 0.03947,
-              target_spread: 0.06288,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'ETH',
+            minimum_size: 0.01,
+            minimum_spread: 0.03947,
+            target_spread: 0.06288,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'BTCLTC',
                 instrument: 'BTC/LTC',
             },
-              contract_size: 1,
-              base_currency: 'LTC',
-              minimum_size: 0.01,
-              minimum_spread: 1.17698,
-              target_spread: 1.8562,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'LTC',
+            minimum_size: 0.01,
+            minimum_spread: 1.17698,
+            target_spread: 1.8562,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'BTCUSD',
                 instrument: 'BTC/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.01,
-              minimum_spread: 30.67,
-              target_spread: 32.917,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.01,
+            minimum_spread: 30.67,
+            target_spread: 32.917,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'DOGUSD',
                 instrument: 'DOG/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1500,
-              minimum_spread: 0.00009,
-              target_spread: 0.00013,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1500,
+            minimum_spread: 0.00009,
+            target_spread: 0.00013,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'DOTUSD',
                 instrument: 'DOT/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1,
-              minimum_spread: 0.007,
-              target_spread: 0.01,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1,
+            minimum_spread: 0.007,
+            target_spread: 0.01,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'DSHUSD',
                 instrument: 'DSH/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 0.032,
-              target_spread: 0.048,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.032,
+            target_spread: 0.048,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'EOSUSD',
                 instrument: 'EOS/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 100,
-              minimum_spread: 0.00155,
-              target_spread: 0.00219,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.07",
-              swap_short: "-0.07",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 100,
+            minimum_spread: 0.00155,
+            target_spread: 0.00219,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.07',
+            swap_short: '-0.07',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'ETCUSD',
                 instrument: 'ETC/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1,
-              minimum_spread: 0.022,
-              target_spread: 0.028,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1,
+            minimum_spread: 0.022,
+            target_spread: 0.028,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'ETHUSD',
                 instrument: 'ETH/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 2.0761,
-              target_spread: 2.12688,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 2.0761,
+            target_spread: 2.12688,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'FILUSD',
                 instrument: 'FIL/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1,
-              minimum_spread: 0.03,
-              target_spread: 0.04,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1,
+            minimum_spread: 0.03,
+            target_spread: 0.04,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'IOTUSD',
                 instrument: 'IOT/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 500,
-              minimum_spread: 0.0003,
-              target_spread: 0.0007,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 500,
+            minimum_spread: 0.0003,
+            target_spread: 0.0007,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'LNKUSD',
                 instrument: 'LNK/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1,
-              minimum_spread: 0.012,
-              target_spread: 0.015,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1,
+            minimum_spread: 0.012,
+            target_spread: 0.015,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'LTCUSD',
                 instrument: 'LTC/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 0.06259,
-              target_spread: 0.06826,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.06259,
+            target_spread: 0.06826,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'MKRUSD',
                 instrument: 'MKR/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.01,
-              minimum_spread: 1.78,
-              target_spread: 2.41,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.01,
+            minimum_spread: 1.78,
+            target_spread: 2.41,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'MTCUSD',
                 instrument: 'MTC/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 100,
-              minimum_spread: 0.0006,
-              target_spread: 0.00078,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 100,
+            minimum_spread: 0.0006,
+            target_spread: 0.00078,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'NEOUSD',
                 instrument: 'NEO/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1,
-              minimum_spread: 0.03,
-              target_spread: 0.05,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1,
+            minimum_spread: 0.03,
+            target_spread: 0.05,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'OMGUSD',
                 instrument: 'OMG/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 10,
-              minimum_spread: 0.003,
-              target_spread: 0.005,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 10,
+            minimum_spread: 0.003,
+            target_spread: 0.005,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'SOLUSD',
                 instrument: 'SOL/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.5,
-              minimum_spread: 0.073,
-              target_spread: 0.095,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.5,
+            minimum_spread: 0.073,
+            target_spread: 0.095,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'TRXUSD',
                 instrument: 'TRX/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1500,
-              minimum_spread: 0.00016,
-              target_spread: 0.00031,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.06",
-              swap_short: "-0.06",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1500,
+            minimum_spread: 0.00016,
+            target_spread: 0.00031,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.06',
+            swap_short: '-0.06',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'UNIUSD',
                 instrument: 'UNI/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1,
-              minimum_spread: 0.0058,
-              target_spread: 0.0075,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1,
+            minimum_spread: 0.0058,
+            target_spread: 0.0075,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'XLMUSD',
                 instrument: 'XLM/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 1000,
-              minimum_spread: 0.00012,
-              target_spread: 0.00015,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.03",
-              swap_short: "-0.03",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 1000,
+            minimum_spread: 0.00012,
+            target_spread: 0.00015,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.03',
+            swap_short: '-0.03',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'XMRUSD',
                 instrument: 'XMR/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 0.156,
-              target_spread: 0.354,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.156,
+            target_spread: 0.354,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'XRPUSD',
                 instrument: 'XRP/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 500,
-              minimum_spread: 0.0005,
-              target_spread: 0.0008,
-              max_effective_leverage: 2,
-              margin_requirement: "50.00",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 500,
+            minimum_spread: 0.0005,
+            target_spread: 0.0008,
+            max_effective_leverage: 2,
+            margin_requirement: '50.00',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'XTZUSD',
                 instrument: 'XTZ/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 10,
-              minimum_spread: 0.00275,
-              target_spread: 0.00497,
-              max_effective_leverage: 60,
-              margin_requirement: "1.67",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },
-            {
-              instrument: {
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 10,
+            minimum_spread: 0.00275,
+            target_spread: 0.00497,
+            max_effective_leverage: 60,
+            margin_requirement: '1.67',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+        {
+            instrument: {
                 symbol: 'ZECUSD',
                 instrument: 'ZEC/USD',
             },
-              contract_size: 1,
-              base_currency: 'USD',
-              minimum_size: 0.1,
-              minimum_spread: 0.03,
-              target_spread: 0.045,
-              max_effective_leverage: 60,
-              margin_requirement: "1.67",
-              swap_long: "-0.04",
-              swap_short: "-0.04",
-              trading_hours: 'Sun 00:00 - Sat 23:59',
-            },        
+            contract_size: 1,
+            base_currency: 'USD',
+            minimum_size: 0.1,
+            minimum_spread: 0.03,
+            target_spread: 0.045,
+            max_effective_leverage: 60,
+            margin_requirement: '1.67',
+            swap_long: '-0.04',
+            swap_short: '-0.04',
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
     ],
 }
 export default crypto_specification

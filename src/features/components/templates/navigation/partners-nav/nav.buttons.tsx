@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MobileNavToggle } from '@deriv-com/blocks'
 import { Button } from '@deriv/quill-design'
 import { getLocationPathname } from 'common/utility'
@@ -52,18 +52,21 @@ const PaymentAgentButtons = () => {
 const PartnersNavButtons = () => {
     const { is_eu } = useRegion()
     const path_name = getLocationPathname()
+    const [show_affiliate_btns, setShowAffiliateBtns] = useState(false)
+    const [show_payment_btns, setShowPaymentBtns] = useState(false)
 
-    const affiliate_buttons = useMemo(() => {
-        return !path_name ? null : path_name.includes('affiliate-ib') ? (
-            <AffiliateButtons />
-        ) : path_name.includes('payment-agent') && !is_eu ? (
-            <PaymentAgentButtons />
-        ) : null
+    useEffect(() => {
+        setShowAffiliateBtns(!path_name ? null : path_name.includes('affiliate-ib'))
+    }, [path_name])
+
+    useEffect(() => {
+        setShowPaymentBtns(path_name.includes('payment-agent') && !is_eu)
     }, [is_eu, path_name])
 
     return (
         <div className="flex items-center gap-gap-md">
-            {affiliate_buttons}
+            {show_affiliate_btns && <AffiliateButtons />}
+            {show_payment_btns && <PaymentAgentButtons />}
             <MobileNavToggle />
         </div>
     )

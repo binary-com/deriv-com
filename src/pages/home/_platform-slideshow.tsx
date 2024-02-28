@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useMemo, useRef, ReactNode } from 'react'
+import React, { useState, useEffect, useRef, ReactNode } from 'react'
 import styled from 'styled-components'
-import { StaticImage } from 'gatsby-plugin-image'
+import { eu_images, row_images } from './_data'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
-import { localize } from 'components/localization'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -37,91 +36,12 @@ const SlideContainer = styled(Flex)`
 
 const PlatformSlideshow = () => {
     const [active_index, setActiveIndex] = useState(0)
-    const { is_row, is_eu, is_region_loading } = useRegion()
+    const { is_eu, is_region_loading } = useRegion()
+    const [slide_images, setSlideImages] = useState(row_images)
 
-    const slide_images = useMemo(() => {
-        if (is_row)
-            return [
-                {
-                    key: 'hero1',
-                    image: (
-                        <StaticImage
-                            src="../../images/common/home/hero_platform1.png"
-                            alt={localize('_t_mobile app deriv go_t_')}
-                            formats={['avif', 'webp', 'auto']}
-                            quality={36}
-                            loading="eager"
-                            placeholder="none"
-                        />
-                    ),
-                },
-                {
-                    key: 'hero2',
-                    image: (
-                        <StaticImage
-                            src="../../images/common/home/hero_platform2.png"
-                            alt={localize('_t_laptop dtrader_t_')}
-                            formats={['avif', 'webp', 'auto']}
-                            quality={44}
-                            placeholder="none"
-                        />
-                    ),
-                },
-                {
-                    key: 'hero3',
-                    image: (
-                        <StaticImage
-                            src="../../images/common/home/hero_platform3.png"
-                            alt={localize('_t_laptop mt5_t_')}
-                            formats={['avif', 'webp', 'auto']}
-                            quality={38}
-                            placeholder="none"
-                        />
-                    ),
-                },
-                {
-                    key: 'hero4',
-                    image: (
-                        <StaticImage
-                            src="../../images/common/home/hero_platform4.png"
-                            alt={localize('_t_laptop deriv x_t_')}
-                            formats={['avif', 'webp', 'auto']}
-                            quality={44}
-                            placeholder="none"
-                        />
-                    ),
-                },
-            ]
-
-        if (is_eu)
-            return [
-                {
-                    key: 'hero1_eu',
-                    image: (
-                        <StaticImage
-                            src="../../images/common/home/hero_platform1_eu.png"
-                            alt={localize('_t_laptop dtrader eu_t_')}
-                            formats={['avif', 'webp', 'auto']}
-                            quality={44}
-                            loading="eager"
-                            placeholder="none"
-                        />
-                    ),
-                },
-                {
-                    key: 'hero2_eu',
-                    image: (
-                        <StaticImage
-                            src="../../images/common/home/hero_platform2_eu.png"
-                            alt={localize('_t_laptop dmt5 eu_t_')}
-                            formats={['avif', 'webp', 'auto']}
-                            quality={38}
-                            placeholder="none"
-                        />
-                    ),
-                },
-            ]
-    }, [is_eu, is_row])
+    useEffect(() => {
+        if (is_eu) setSlideImages(eu_images)
+    }, [is_eu])
 
     const intervalRef = useRef(null)
 

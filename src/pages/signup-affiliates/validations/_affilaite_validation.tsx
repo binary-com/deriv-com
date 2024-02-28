@@ -95,7 +95,6 @@ const phoneValidation = (input: string) => {
     }
 }
 const passwordValidation = (input: string) => {
-    console.log('==', affiliate_validation_regex.password(input))
     if (!input) return localize('_t_Password is required_t_')
     else if (input.length < 8 || input.length > 50)
         return localize('_t_You should enter 8-50 characters._t_')

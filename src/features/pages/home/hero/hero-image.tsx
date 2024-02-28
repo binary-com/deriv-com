@@ -7,10 +7,10 @@ const HeroImage = () => {
     return (
         <div className={clsx('absolute inset-50 flex items-end -z-100', hero_img)}>
             <StaticImage
-                src="../../../../images/migration/home/person_hero.png"
+                src="../../../../images/migration/home/person_hero.webp"
                 alt="hero image"
                 placeholder="none"
-                formats={['auto', 'png']}
+                formats={['auto', 'webp']}
                 loading="eager"
             />
         </div>

@@ -41,6 +41,7 @@ export class ApiManager {
     public init(lang?: string) {
         if (!this.ready) {
             if (!this.socket) {
+                console.log('WS connecting...')
                 const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
                 const socket_url = getSocketURL()
                 const app_id = getAppId()
@@ -51,10 +52,12 @@ export class ApiManager {
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
             this.socket.addEventListener('open', () => {
+                console.log('WS connected.')
                 this.setReadyState(this?.socket?.readyState)
             })
 
             this.socket.addEventListener('close', () => {
+                console.log('WS closed')
                 this.derivApi.disconnect()
                 this.ready = null
                 this.setReadyState(null)
@@ -64,12 +67,14 @@ export class ApiManager {
     }
 
     public reconnectIfNotConnected(lang?: string): Promise<void> {
+        console.log('WS reconnecting....')
         return new Promise((resolve, reject) => {
             if (this?.socket?.readyState !== 1) {
                 this.socket = null
                 this.ready = null
                 this.init(lang)
                 this?.socket?.addEventListener?.('open', () => {
+                    console.log('WS connected using reconnect method.')
                     resolve()
                 })
             } else {

@@ -1,4 +1,4 @@
-name: Generate ROW preview link
+name: Generate EU preview link
 
 on:
     pull_request_target:
@@ -10,11 +10,11 @@ env:
     NODE_OPTIONS: '--max-old-space-size=8192'
 
 concurrency:
-    group: cloudflare-row-pages-build-${{github.head_ref}}
+    group: cloudflare-eu-pages-build-${{github.head_ref}}
     cancel-in-progress: true
 
 jobs:
-    build_row_to_cloudflare_pages:
+    build_eu_to_cloudflare_pages:
         runs-on: Runner_16cores
         permissions:
           checks: write
@@ -41,8 +41,8 @@ jobs:
                       const comment = [
                           '| Name | Result |',
                           '| :--- | :------ |',
-                          `| **ROW Build status**  | Building 🔨 |`,
-                          `| **ROW Action URL**  | [Visit Action](${action_url}) |`,
+                          `| **EU Build status**  | Building 🔨 |`,
+                          `| **EU Action URL**  | [Visit Action](${action_url}) |`,
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
@@ -50,7 +50,7 @@ jobs:
             - name: Post Cloudflare Pages Preview comment
               uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
               with:
-                  header: Cloudflare Pages ROW Preview Comment
+                  header: Cloudflare Pages EU Preview Comment
                   number: ${{github.event.pull_request.user.login}}
                   message: ${{steps.generate_action_url.outputs.comment}}
                   recreate: true
@@ -73,8 +73,8 @@ jobs:
                   restore-keys: |
                       master-cache-public-replica
                   path: |
-                      sites/row/.cache
-                      sites/row/public
+                      sites/eu/.cache
+                      sites/eu/public
 
             - name: Install Dependencies
               uses: "./.github/actions/npm_install_from_cache"
@@ -92,7 +92,7 @@ jobs:
                   GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
                   GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
 
-              run: npm run build:row
+              run: npm run build:eu
 
             - name: Retrieve PR information
               env:
@@ -115,9 +115,9 @@ jobs:
                   echo "Installing Wrangler CLI"
                   npm i -g wrangler
                   echo "Deploying build to Cloudflare Pages"
-                  directory='sites/row/public'
+                  directory='sites/eu/public'
                   projectName='deriv-com-preview-links'
-                  branch=row-$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
+                  branch=eu-$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
                   cf_preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   preview_url=https://$branch.deriv-com-preview-links.pages.dev
@@ -143,9 +143,9 @@ jobs:
                           `**Preview Link**: ${preview_url}`,
                           '| Name | Result |',
                           '| :--- | :------ |',
-                          `| **ROW Build status**  | Completed ✅ |`,
-                          `| **ROW Preview URL**  | [Visit Preview](${preview_url}) |`,
-                          `| **ROW Action URL**  | [Visit Action](${action_url}) |`,
+                          `| **EU Build status**  | Completed ✅ |`,
+                          `| **EU Preview URL**  | [Visit Preview](${preview_url}) |`,
+                          `| **EU Action URL**  | [Visit Action](${action_url}) |`,
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
@@ -160,8 +160,8 @@ jobs:
                       const comment = [
                         '| Name | Result |',
                         '| :--- | :------ |',
-                        `| **ROW Build status**  | Failed ❌ |`,
-                        `| **ROW Action URL**  | [Visit Action](${action_url}) |`,
+                        `| **EU Build status**  | Failed ❌ |`,
+                        `| **EU Action URL**  | [Visit Action](${action_url}) |`,
                         ''
                       ].join('\n')
                       core.setOutput("comment", comment);

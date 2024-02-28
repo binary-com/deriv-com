@@ -1,9 +1,9 @@
 import React from 'react'
+import NavTemplate from '../template'
 import { static_nav_logo } from './academy-nav.module.scss'
+import LogoImage from 'images/common/deriv_academy.svg'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
-import NavTemplate from 'features/components/templates/navigation/template'
-import LogoImage from 'images/common/derivacademy.svg'
 
 const AcademyNav = () => {
     return (

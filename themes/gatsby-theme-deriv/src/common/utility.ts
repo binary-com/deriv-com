@@ -395,10 +395,7 @@ export const useCallbackRef = (callback: () => void) => {
 
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
-export const isEuDomain = () => {
-    console.log("==>", getSubdomain())
-    return !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
-}
+export const isEuDomain = () => !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
     
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 

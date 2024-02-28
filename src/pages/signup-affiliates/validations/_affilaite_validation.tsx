@@ -86,7 +86,7 @@ const phoneValidation = (input: string) => {
     if (!input) {
         return localize('_t_Mobile number is required_t_')
     } else if (
-        input.length < 8 ||
+        input.length < 9 ||
         input.length > 13 ||
         !affiliate_validation_regex.non_empty_string(input)
     ) {

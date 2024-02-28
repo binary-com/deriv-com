@@ -26,8 +26,6 @@ module.exports = {
     "trustpilot": true,
     "live_pricing": false,
     "deriv_go_management_board": true,
-    "GTM": true,
-    "hotjar": true,
     "google_signup": true,
     "apple_signup": false,
     "facebook_signup": true,

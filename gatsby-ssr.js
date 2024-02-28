@@ -39,7 +39,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
         />,
 
         // GTM setup
-        isFeatureEnabled("GTM") &&
         (gtmTrackingId && (
             <script
                 key="gtm-script"
@@ -48,7 +47,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
                 src={`https://www.googletagmanager.com/gtm.js?id=${gtmTrackingId}`}
             ></script>
         )),
-        isFeatureEnabled("GTM") &&
         (gtmTrackingId && (
             <script
                 key="gtm-script"
@@ -59,7 +57,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
         )),
 
         // Hotjar setup
-        isFeatureEnabled("hotjar") &&
         (hotjarId && (
             <script
                 key="hotjar-script"

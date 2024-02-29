@@ -61,10 +61,10 @@ const DropdownInput = styled.input<DropdownInputProps>`
         !props.is_alternate_style &&
         css`
             @media ${device.tabletL} {
-                font-size: 1.4rem;
+                font-size: 1.75rem;
             }
             @media ${device.mobileL} {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
         `}
 `
@@ -83,7 +83,6 @@ const DropdownSearch = ({
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-    const [has_input, setHasInput] = useState(false)
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
 
@@ -118,7 +117,6 @@ const DropdownSearch = ({
                       const regex = new RegExp(input_value, 'gi')
                       return !!regex.test(String(i.name))
                   })
-
         setDropdownItems(filtered_items)
         toggleListVisibility(e)
         if (e.key !== 'Escape') {
@@ -153,6 +151,7 @@ const DropdownSearch = ({
                         value={input_value}
                         is_active={is_open}
                         is_alternate_style={is_alternate_style}
+                        placeholder={label}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>

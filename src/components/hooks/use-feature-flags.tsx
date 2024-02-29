@@ -16,17 +16,18 @@ const useFeatureFlags = (featureKey) => {
         const flagsData = onValue(
             remoteConfigRef,
             (snapshot) => {
-                setData(snapshot.val())
+                const firebaseData = snapshot.val()
+                setData(firebaseData)
             },
             (error) => {
                 console.error(error)
             },
         )
-        return flagsData
+        return () => flagsData()
     }, [])
 
     useEffect(() => {
-        const featureValue = featuresConfig[featureKey]
+        const featureValue = data[featureKey]
         setFeature(featureValue === undefined ? null : Boolean(featureValue))
     }, [data, featureKey])
 

@@ -8,10 +8,18 @@ const fs = require('fs')
 const glob = require('glob')
 const translated_keys = require('../themes/gatsby-theme-deriv/src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
-const strap_data_row = require('../sites/row/public/page-data/404/page-data.json')
-const strap_data_eu = require('../sites/eu/public/page-data/404/page-data.json')
+const strap_data_row = path.resolve(__dirname, '../sites/row/public/page-data/404/page-data.json')
+const strap_data_eu = path.resolve(__dirname, '../sites/eu/public/page-data/404/page-data.json')
 
-const strap_data = [strap_data_row, strap_data_eu]
+const strap_data_paths = [strap_data_row, strap_data_eu]
+
+let strap_data = []
+
+strap_data_paths.forEach((data_path) => {
+    if(fs.existsSync(data_path)){
+        strap_data.push(require(data_path))
+    }
+})
 
 /*
 (_t_)                     = the capturing group for prefix "_t_"
@@ -114,7 +122,7 @@ function extractTranslations() {
 
             strap_data.forEach(item => {
                 if(item){
-                    messages.push(getStrapiStrings(item.result.data.strapiWhoWeArePage))
+                    messages.push(...getStrapiStrings(item?.result?.data?.strapiWhoWeArePage))
                 }
             })
 
@@ -122,7 +130,6 @@ function extractTranslations() {
             const untranslated = []
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {
-
                 const key = getKeyHash(messages[i])
                 messages_json[key] = messages[i];
 

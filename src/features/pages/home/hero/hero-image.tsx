@@ -5,12 +5,12 @@ import { hero_img } from './styles.module.scss'
 
 const HeroImage = () => {
     return (
-        <div className={clsx('absolute inset-50 flex items-end -z-100', hero_img)}>
+        <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
             <StaticImage
-                src="../../../../images/migration/home/man_hero.webp"
+                src="../../../../images/migration/home/hero_human.png"
                 alt="hero image"
                 placeholder="none"
-                formats={['auto', 'webp']}
+                formats={['auto', 'png']}
                 loading="eager"
             />
         </div>

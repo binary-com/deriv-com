@@ -10,13 +10,15 @@ setTimeout(() => {
         document.getElementById(newHash).classList.add('active-tab')
     }
     var tabs = ['fx', 'der', 'etfs', 'stk', 'cry', 'com']
-    tabs.map((tabId) => {
-        document.getElementById(tabId).addEventListener('click', function () {
-            onTabChange(tabId)
+    setTimeout(() => {
+        tabs.map((tabId) => {
+            document.getElementById(tabId).addEventListener('click', function () {
+                onTabChange(tabId)
+            })
         })
-    })
-    document.getElementById('#' + hash).classList.add('active-cards')
-    document.getElementById(hash).classList.add('active-tab')
+        document.getElementById('#' + hash).classList.add('active-cards')
+        document.getElementById(hash).classList.add('active-tab')
+    }, 500)
 
     var upIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     upIcon.setAttribute('width', '24')

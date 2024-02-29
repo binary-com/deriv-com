@@ -71,6 +71,69 @@ export const accumulatorCards: CardContent[] = [
     },
 ]
 
+export const mobileCards: CardContent[] = [
+    {
+        id: 1,
+        header: <Localize translate_text="_t_1-5% growth rate_t_" />,
+        description: (
+            <Localize translate_text="_t_Choose your growth rate to tailor risk/reward. _t_" />
+        ),
+        size: 'md',
+        color: 'gray',
+        align: 'start',
+        icon: <IllustrativeMinimalCapitalIcon width="48" height="48" />,
+        className: 'h-full',
+    },
+    {
+        id: 2,
+        header: <Localize translate_text="_t_45-230 tick duration_t_" />,
+        description: (
+            <Localize translate_text="_t_Fast-paced action with durations up to 230 ticks._t_" />
+        ),
+        size: 'md',
+        color: 'gray',
+        align: 'start',
+        icon: <Image src={TickDuration} width="48" height="48" />,
+        className: 'h-full',
+    },
+    {
+        id: 3,
+        header: <Localize translate_text="_t_Controlled Risk_t_" />,
+        description: (
+            <Localize translate_text="_t_Potential loss is limited to the initial amount you decide to trade._t_" />
+        ),
+        size: 'md',
+        color: 'gray',
+        align: 'start',
+        icon: <IllustrativePayoutIcon width="48" height="48" />,
+        className: 'h-full',
+    },
+    {
+        id: 4,
+        header: <Localize translate_text="_t_Practise with demo_t_" />,
+        description: (
+            <Localize translate_text="_t_Hone your strategies risk-free with a demo account._t_" />
+        ),
+        size: 'md',
+        color: 'gray',
+        align: 'start',
+        icon: <IllustrativePaidProgrammeIcon width="48" height="48" />,
+        className: 'h-full',
+    },
+    {
+        id: 5,
+        header: <Localize translate_text="_t_24/7 support_t_" />,
+        description: (
+            <Localize translate_text="_t_Get round-the-clock assistance from our Customer Support team._t_" />
+        ),
+        size: 'md',
+        color: 'gray',
+        align: 'start',
+        icon: <IllustrativeSupport247Icon width="48" height="48" />,
+        className: 'h-full',
+    },
+]
+
 export const accumulatorFAQ: OptionsFAQDataItem[] = [
     {
         id: 1,

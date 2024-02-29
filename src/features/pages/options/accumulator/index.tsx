@@ -2,9 +2,23 @@ import React from 'react'
 import { Features, AccordionBlock } from '@deriv-com/blocks'
 import { Text } from '@deriv/quill-design'
 import * as styles from './accumulators_faq.module.scss'
-import { accumulatorCards } from './data'
-import { Localize, localize } from 'components/localization'
+import { accumulatorCards, mobileCards } from './data'
+import { Localize, localize, is_rtl } from 'components/localization'
 import OptionsLayout from 'features/components/templates/options-layout'
+
+interface SwiperOption {
+    spaceBetween: number
+    slidesPerView: number | 'auto'
+    reverseDirection: true
+    freeMode: true
+}
+
+const swiperOption: SwiperOption = {
+    spaceBetween: 16,
+    slidesPerView: 'auto',
+    reverseDirection: true,
+    freeMode: true,
+}
 
 const AccumulatorsOptions = () => {
     return (
@@ -15,6 +29,7 @@ const AccumulatorsOptions = () => {
                 has_content_block
             >
                 <Features.Card
+                    className="hidden lg:block"
                     title={
                         <Localize translate_text="_t_Why trade accumulator options on Deriv_t_" />
                     }
@@ -23,6 +38,23 @@ const AccumulatorsOptions = () => {
                     }
                     cols="three"
                     cards={accumulatorCards}
+                />
+                <Features.ContentSlider
+                    className="lg:hidden"
+                    title={
+                        <Localize translate_text="_t_Why trade accumulator options on Deriv_t_" />
+                    }
+                    description={
+                        <Localize translate_text="_t_Looking for a fast-paced, strategic and potentially explosive way to trade?_t_" />
+                    }
+                    cardSliderProps={{
+                        swiperData: swiperOption,
+                        slideClasses: 'max-w-[296px] !h-auto !mr-gap-none !ml-gap-none',
+                        className: 'w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg ',
+                        variant: 'ContentLeft',
+                        cards: mobileCards,
+                        dir: is_rtl() ? 'rtl' : 'ltr',
+                    }}
                 />
                 <div id="faqs">
                     <AccordionBlock

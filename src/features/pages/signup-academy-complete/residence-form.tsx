@@ -127,7 +127,11 @@ const ResidenceForm = ({
                                         </Typography.Paragraph>
                                     )}
                                     {!errors && (
-                                        <Typography.Paragraph size="small" padding_inline="8x">
+                                        <Typography.Paragraph
+                                            size="small"
+                                            padding_inline="8x"
+                                            textcolor="light-grey"
+                                        >
                                             <Localize translate_text={item.placeholder_message} />
                                         </Typography.Paragraph>
                                     )}
@@ -154,7 +158,11 @@ const ResidenceForm = ({
                                             setSelectedValue({ ...selected_value, citizenship: '' })
                                         }
                                     />
-                                    <Typography.Paragraph size="small" padding_inline="8x">
+                                    <Typography.Paragraph
+                                        size="small"
+                                        padding_inline="8x"
+                                        textcolor="light-grey"
+                                    >
                                         <Localize translate_text={item.placeholder_message} />
                                     </Typography.Paragraph>
                                 </>

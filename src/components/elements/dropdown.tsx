@@ -286,6 +286,7 @@ export const StyledLabel = styled.label<DropdownStyledProps>`
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.8rem;
+    margin-top: 3px;
 
     ${(props) =>
         !props.is_alternate_style &&
@@ -293,10 +294,12 @@ export const StyledLabel = styled.label<DropdownStyledProps>`
             @media ${device.tabletL} {
                 font-size: 1.65rem;
                 top: 1.4rem;
+                margin-top: 0px;
             }
             @media ${device.mobileL} {
                 font-size: 1.5rem;
                 top: 1.6rem;
+                margin-top: 0px;
             }
         `}
 

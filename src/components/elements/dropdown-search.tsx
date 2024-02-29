@@ -61,10 +61,10 @@ const DropdownInput = styled.input<DropdownInputProps>`
         !props.is_alternate_style &&
         css`
             @media ${device.tabletL} {
-                font-size: 1.75rem;
+                font-size: 1.4rem;
             }
             @media ${device.mobileL} {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
         `}
 `
@@ -153,7 +153,6 @@ const DropdownSearch = ({
                         value={input_value}
                         is_active={is_open}
                         is_alternate_style={is_alternate_style}
-                        placeholder={label}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>

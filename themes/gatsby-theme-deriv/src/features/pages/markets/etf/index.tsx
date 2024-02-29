@@ -14,11 +14,15 @@ import MainRowNavigation from 'features/components/templates/navigation/main-nav
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
 import MainFooter from 'features/components/templates/footer'
-
-const ETFMarket = () => {
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
+type PageProps = {
+    region: BuildVariantContextType['region']
+}
+const ETFMarket = ({ region }: PageProps) => {
+    console.log("region2 ===>",region)
     const { is_deriv_go } = usePlatformQueryParam()
     return (
-        <Layout>
+        <Layout region={region}>
             {!is_deriv_go && (
                 <div className="fixed z-[4] w-full">
                     <MainRowNavigation />

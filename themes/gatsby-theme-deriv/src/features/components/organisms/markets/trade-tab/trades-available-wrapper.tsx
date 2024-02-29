@@ -7,8 +7,8 @@ import { TString } from 'types/generics'
 import TabMenu from 'features/components/templates/tabs/menu'
 import Icon from 'features/components/atoms/icon'
 import Link from 'features/components/atoms/link'
-import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 interface TradesAvailableWrapperProps {
     header?: TString
@@ -17,14 +17,13 @@ interface TradesAvailableWrapperProps {
 
 const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
     const [current_tab, setCurrentTab] = useState('_t_CFDs_t_')
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const available_trade_items = useVisibleContent({
         content: item.trade_items,
         config: {
-            is_eu,
+            is_eu: region === 'eu' ? true : false,
         },
     })
-
     return (
         <Flex.Box direction="col" gap="10x" md={{ gap: '20x' }} align="center" justify="center">
             <TabMenu

@@ -20,7 +20,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_You earn USD 100 when a referred client successfully deposits a one-time or cumulative total of USD 100 into their Deriv account._t_" />
+                            <Localize translate_text="_t_You earn 100 USD when a referred client successfully deposits a one-time or cumulative total of 100 USD into their Deriv account._t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_This plan is available exclusively for EU-based clients. Please note that according to regulations, you cannot have clients who reside in Portugal or Spain._t_" />
@@ -33,10 +33,10 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A referred client based in the EU deposits USD 100 in one transaction_t_" />
+                            <Localize translate_text="_t_A referred client based in the EU deposits 100 USD in one transaction_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned: USD 100_t_" />
+                            <Localize translate_text="_t_Total commission earned: 100 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -46,13 +46,13 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A referred client based in the EU deposits USD 50 in one transaction. Commission = USD 0_t_" />
+                            <Localize translate_text="_t_A referred client based in the EU deposits 50 USD in one transaction. Commission = 0 USD_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_The same EU client deposits USD 50 in another transaction_t_" />
+                            <Localize translate_text="_t_The same EU client deposits 50 USD in another transaction_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned: USD 100_t_" />
+                            <Localize translate_text="_t_Total commission earned: 100 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -62,10 +62,10 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A referred client based in the EU deposits USD 200 in one transaction._t_" />
+                            <Localize translate_text="_t_A referred client based in the EU deposits 200 USD in one transaction._t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned: USD 100_t_" />
+                            <Localize translate_text="_t_Total commission earned: 100 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>

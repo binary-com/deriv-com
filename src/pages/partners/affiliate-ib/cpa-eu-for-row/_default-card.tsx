@@ -17,7 +17,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 <CPAContent>
                     <Header as="p" type="paragraph-1" weight="normal">
                         <Localize
-                            translate_text="_t_You earn <0>USD 100</0> when your new referred client deposits and trades a total amount of <0>USD 100</0> or its equivalent into their Deriv account, either in one deposit or cumulatively._t_"
+                            translate_text="_t_You earn <0>USD 100</0> when your new referred client deposits a total amount of <0>USD 100</0> or its equivalent into their Deriv account, either in one deposit or cumulatively._t_"
                             components={[<strong key={0} />]}
                         />
                     </Header>

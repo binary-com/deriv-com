@@ -6,8 +6,13 @@ import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const AwardBanner = ({ title }: AwardProps) => {
+    const {region} = useBuildVariant()
+
+    if(region === "eu") return null
+    
     return (
         <Container.Fluid margin_block="36x">
             <Flex.Box

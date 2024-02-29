@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { ReactNode, Ref, useCallback } from 'react'
+import React, { ReactNode, Ref, useCallback, useContext, useEffect, useState } from 'react'
 import loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
@@ -24,6 +24,8 @@ import useLangSwitcher from 'features/components/molecules/language-switcher/use
 import { langItemsROW } from 'features/components/templates/layout/data'
 import PartnersNav from 'features/components/templates/navigation/partners-nav'
 import GatsbySharedLink from 'features/components/quill/shared-link'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
+import BuildVariantProvider from 'features/contexts/build-variant/build-variant.provider'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -34,6 +36,7 @@ type LayoutProps = {
     padding_top?: string
     type?: string
     show_footer?: boolean
+    region: BuildVariantContextType['region']
 }
 
 type MainType = {
@@ -100,19 +103,20 @@ const Layout = ({
     padding_top,
     type = 'default',
     show_footer = true,
+    region = 'row',
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const [show_modal, toggleModal, closeModal] = useModal()
-    const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
+    const [modal_payload, setModalPayload] = useState({} as ModalPayloadType)
     const { has_platform } = usePlatformQueryParam()
 
     const is_static = type === 'static'
 
     const lang_direction = useLangDirection()
-    const { locale } = React.useContext(LocaleContext)
+    const { locale } = useContext(LocaleContext)
     const formatted_lang = locale.replace('_', '-')
 
-    React.useEffect(() => {
+    useEffect(() => {
         document.body.dir = lang_direction
         document.documentElement.lang = formatted_lang
     }, [lang_direction, formatted_lang])
@@ -145,31 +149,33 @@ const Layout = ({
                     onLangSelect={onLanguageChange}
                     activeLanguage={activeLang}
                 >
-                    {Navs[type]}
-                    <LocationProvider
-                        has_mounted={is_mounted}
-                        toggleModal={toggleModal}
-                        setModalPayload={setModalPayload}
-                    >
-                        <div className="styled-layout">
-                            <Main padding_top={padding_top} type={type} is_static={is_static}>
-                                {children}
-                            </Main>
-                            <EURedirect
-                                toggle={toggleModal}
-                                is_open={show_modal}
-                                closeModal={closeModal}
-                                to={modal_payload.to}
-                                target={modal_payload.target}
-                                rel={modal_payload.rel}
-                                ref={modal_payload.ref}
-                                aria_label={modal_payload.aria_label}
-                            />
-                            <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                            <LayoutOverlay is_ppc={is_ppc} />
-                        </div>
-                    </LocationProvider>
-                    {show_footer && <RebrandingFooter />}
+                    <BuildVariantProvider region={region}>
+                        {Navs[type]}
+                        <LocationProvider
+                            has_mounted={is_mounted}
+                            toggleModal={toggleModal}
+                            setModalPayload={setModalPayload}
+                        >
+                            <div className="styled-layout">
+                                <Main padding_top={padding_top} type={type} is_static={is_static}>
+                                    {children}
+                                </Main>
+                                <EURedirect
+                                    toggle={toggleModal}
+                                    is_open={show_modal}
+                                    closeModal={closeModal}
+                                    to={modal_payload.to}
+                                    target={modal_payload.target}
+                                    rel={modal_payload.rel}
+                                    ref={modal_payload.ref}
+                                    aria_label={modal_payload.aria_label}
+                                />
+                                <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
+                                <LayoutOverlay is_ppc={is_ppc} />
+                            </div>
+                        </LocationProvider>
+                        {show_footer && <RebrandingFooter />}
+                    </BuildVariantProvider>
                 </LanguageProvider>
             </PpcProvider>
         </SharedLinkProvider>

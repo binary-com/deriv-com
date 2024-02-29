@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback } from 'react'
+import React, { ReactNode, useCallback, useContext, useEffect } from 'react'
 import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
 import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
 import BrowserUpdateAlert from '../browser-update-alert'
@@ -39,10 +39,10 @@ const QuillLayout = ({
     const { has_platform } = usePlatformQueryParam()
 
     const lang_direction = useLangDirection()
-    const { locale } = React.useContext(LocaleContext)
+    const { locale } = useContext(LocaleContext)
     const formatted_lang = locale.replace('_', '-')
 
-    React.useEffect(() => {
+    useEffect(() => {
         document.body.dir = lang_direction
         document.documentElement.lang = formatted_lang
     }, [lang_direction, formatted_lang])

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { TWhoWeAre } from './_types'
@@ -19,7 +19,6 @@ import AwardBannerEu from 'features/components/templates/banners/award-banners/a
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import useRegion from 'components/hooks/use-region'
 import { WithIntl } from 'components/localization'
 
 const StartSeparator = styled.div`
@@ -42,8 +41,10 @@ const EndSeparator = styled.div`
     }
 `
 
-const AboutUs = ({ data }: TWhoWeAre) => {
-    const { is_eu } = useRegion()
+type AboutUsProps = TGatsbyHead & TWhoWeAre
+
+const AboutUs = ({ data, pageContext }: AboutUsProps) => {
+    const {region} = pageContext
     const {
         hero,
         our_values,
@@ -54,14 +55,9 @@ const AboutUs = ({ data }: TWhoWeAre) => {
         our_locations,
         banner,
     } = data?.strapiWhoWeArePage || {}
-    const [show_eu_content, setShowEuContent] = useState(false)
-
-    useEffect(() => {
-        if (is_eu) setShowEuContent(true)
-    }, [is_eu])
 
     return (
-        <Layout>
+        <Layout region={region}>
             <Hero hero={hero} />
             <MakeTrading hero={hero} />
             <StartSeparator />
@@ -72,7 +68,7 @@ const AboutUs = ({ data }: TWhoWeAre) => {
                 subtitle="_t_We are proud to be recognised as a Great Place to Work™ and certified Platinum in Investors in People._t_"
             />
             <OurPrinciples our_principles={our_principles} />
-            {show_eu_content ? null : <AwardBanner title="_t_Our awards_t_" />}
+            <AwardBanner title="_t_Our awards_t_" />
             <OurLeadership our_leadership={our_leadership} />
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
             <ImageMarquee slider_medias={slider_medias} />

@@ -491,7 +491,7 @@ export const EuFooterNavData: FooterItems[] = [
 ]
 
 export const warnText = (
-    <Localize translate_text="_t_CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how these products work and whether you can afford to risk losing your money._t_" />
+    <Localize translate_text="_t_The products offered on our website are complex derivative products that carry a significant risk of potential loss. CFDs are complex instruments with a high risk of losing money rapidly due to leverage. You should consider whether you understand how these products work and whether you can afford to take the high risk of losing your money._t_" />
 )
 
 export const socialButtonsROW = [

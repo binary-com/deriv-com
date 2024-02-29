@@ -4,12 +4,12 @@
 .next_btn {
     display: flex;
     justify-content: flex-end;
-    padding-block: 2.4rem;
+    padding-top: 1.6rem;
 }
 
 .trading_btn {
     display: flex;
-    justify-content: center;
+    padding-top: 1.6rem;
     @include breakpoints(tablet) {
         justify-content: flex-end;
         padding-top: 2.4rem;

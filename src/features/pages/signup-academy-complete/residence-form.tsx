@@ -17,14 +17,16 @@ export const InputGroup = styled.div`
 export const InputWrapper = styled.ul`
     width: 100%;
     line-height: 10px;
-
-    @media ${device.tabletL} {
-        inline-size: 95%;
-        margin-bottom: 0;
-    }
 `
 export const NextButton = styled(Button)`
     border-radius: 4px;
+    font-family: 'Ubuntu';
+    text-align: center;
+    height: 40px;
+    width: 65px;
+    @media ${device.tablet} {
+        width: 100%;
+    }
 `
 type CountryType = {
     name: string
@@ -93,7 +95,7 @@ const ResidenceForm = ({
     ]
 
     return (
-        <Flex.Box direction="col" align="start" padding="12x">
+        <Flex.Box direction="col" align="start" padding="8x" md={{ padding: '12x' }}>
             <Typography.Paragraph weight="bold">
                 <Localize translate_text="_t_Select your country and citizenship:_t_" />
             </Typography.Paragraph>
@@ -130,7 +132,7 @@ const ResidenceForm = ({
                                         <Typography.Paragraph
                                             size="small"
                                             padding_inline="8x"
-                                            textcolor="light-grey"
+                                            textcolor="gray-shade"
                                         >
                                             <Localize translate_text={item.placeholder_message} />
                                         </Typography.Paragraph>
@@ -161,7 +163,7 @@ const ResidenceForm = ({
                                     <Typography.Paragraph
                                         size="small"
                                         padding_inline="8x"
-                                        textcolor="light-grey"
+                                        textcolor="gray-shade"
                                     >
                                         <Localize translate_text={item.placeholder_message} />
                                     </Typography.Paragraph>

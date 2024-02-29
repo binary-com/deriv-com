@@ -9,6 +9,7 @@ import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
 import apiManager from 'common/websocket'
+import device from 'themes/device'
 
 type AcademyPasswordFormProps = {
     residence: string
@@ -20,6 +21,12 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
 
     const GoTrading = styled(Button)`
         border-radius: 4px;
+        font-family: 'Ubuntu';
+        text-align: center;
+
+        @media ${device.tabletL} {
+            width: 100%;
+        }
     `
     const validPassword = (value: string) => passwordRegex.isPasswordValid.test(value)
 
@@ -60,8 +67,8 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     }
 
     return (
-        <Flex.Box direction="col" padding="12x">
-            <Typography.Paragraph weight="bold" pb="12x" align="center">
+        <Flex.Box direction="col" md={{ padding: '12x' }} padding="8x">
+            <Typography.Paragraph weight="bold" pb="12x" align="center" textcolor="black">
                 <Localize translate_text="_t_Keep your account secure with a password_t_" />
             </Typography.Paragraph>
 
@@ -74,7 +81,13 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                     value={password}
                 />
             </Flex.Item>
-            <Typography.Paragraph size="xs" align="center" pt="12x" pb="12x">
+            <Typography.Paragraph
+                size="xs"
+                align="center"
+                pt="12x"
+                padding_inline="8x"
+                md={{ pb: '12x', padding_inline: '0x' }}
+            >
                 <Localize
                     translate_text={localize(
                         '_t_Strong passwords contain at least 8 characters. combine uppercase and lowercase letters, numbers, and symbols._t_',

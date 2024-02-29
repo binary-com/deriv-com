@@ -7,10 +7,12 @@ import {
     IllustrativePaidProgrammeIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustrative'
+import { StaticImage } from 'gatsby-plugin-image'
 import Image from 'features/components/atoms/image'
 import TickDuration from 'images/svg/options/tick_duration.svg'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { OptionsFAQDataItem } from 'features/components/templates/options-content/type'
+import Link from 'features/components/atoms/link'
 
 export const accumulatorCards: CardContent[] = [
     {
@@ -68,6 +70,67 @@ export const accumulatorCards: CardContent[] = [
         color: 'gray',
         align: 'start',
         size: 'md',
+    },
+]
+
+export const accumulatorOptionsVideoCard: CardContent[] = [
+    {
+        id: 1,
+        header: <Localize translate_text="_t_Watch: Accumulator options in action_t_" />,
+        description: (
+            <Localize translate_text="_t_Check out our quick video walkthrough of how to trade accumulators on Deriv Trader._t_" />
+        ),
+        content: (
+            <Link
+                target="_blank"
+                url={{
+                    type: 'non-company',
+                    href: 'https://blog.deriv.com/videos/how-to-trade-accumulator-options-on-deriv-trader/',
+                }}
+            >
+                <StaticImage
+                    src="../../../../images/common/trade-types/accumulator-video-bg.png"
+                    alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
+                    loading="lazy"
+                    formats={['webp', 'auto']}
+                    quality={100}
+                    style={{ position: 'relative' }}
+                    className="cursor-pointer"
+                />
+            </Link>
+        ),
+        size: 'md',
+        align: 'start',
+        color: 'gray',
+        link: {
+            content: <Localize translate_text="_t_Learn more_t_" />,
+            href: 'https://blog.deriv.com/videos/how-to-trade-accumulator-options-on-deriv-trader/',
+            descriptiveText: 'How to trade accumulator options on deriv trader',
+        },
+    },
+    {
+        id: 2,
+        header: <Localize translate_text="_t_Read: Guide to trading accumulator options_t_" />,
+        description: (
+            <Localize translate_text="_t_Open your first accumulator options trade with our step-by-step guide._t_" />
+        ),
+        content: (
+            <StaticImage
+                src="../../../../images/common/trade-types/accumulator-video-bg.png"
+                alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
+                loading="lazy"
+                formats={['webp', 'auto']}
+                quality={100}
+            />
+        ),
+        size: 'md',
+        align: 'start',
+        color: 'gray',
+        link: {
+            content: <Localize translate_text="_t_Learn more_t_" />,
+            href: 'https://blog.deriv.com/posts/a-guide-to-accumulator-options-trading-on-deriv/',
+            descriptiveText: 'A guide to accumulator options trading on deriv',
+        },
     },
 ]
 

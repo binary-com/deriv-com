@@ -195,3 +195,7 @@ export const bannerTypes = {
 export const firebaseConfig = {
     databaseURL: 'https://deriv-static-pricingfeedv2.firebaseio.com',
 }
+
+export const thirdPartyFlagsConfig = {
+    databaseURL: 'https://app-config-staging.firebaseio.com',
+}

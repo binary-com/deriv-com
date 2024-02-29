@@ -22,8 +22,8 @@ const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
     const { visibilityPercentage } = useFloatingCtaContext()
     const [is_mounted] = usePageLoaded()
-    const live_chat = useFeatureFlags('live_chat')
-    const whatsapp_chat = useFeatureFlags('whatsapp_chat')
+    const live_chat = useFeatureFlags('cs_chat_livechat')
+    const whatsapp_chat = useFeatureFlags('cs_chat_whatsapp')
 
     return (
         <div

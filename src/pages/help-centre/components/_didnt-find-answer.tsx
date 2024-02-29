@@ -77,8 +77,8 @@ const ButtonWrapper = styled.div`
 
 const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
-    const live_chat = useFeatureFlags('live_chat')
-    const whatsapp_chat = useFeatureFlags('whatsapp_chat')
+    const live_chat = useFeatureFlags('cs_chat_livechat')
+    const whatsapp_chat = useFeatureFlags('cs_chat_whatsapp')
 
     const openChatWindow = () => LC_API.open_chat_window()
     const openWhatsappUrl = () => window.open(whatsapp_url, '_blank')

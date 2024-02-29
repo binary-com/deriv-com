@@ -91,7 +91,7 @@ const SearchCrossIcon = styled.img`
 const SearchSection = () => {
     const [search_value, setSearchValue] = useState('')
     const search_input_ref = useRef(null)
-    const live_chat = useFeatureFlags('live_chat')
+    const live_chat = useFeatureFlags('cs_chat_livechat')
 
     useEffect(() => {
         if (search_input_ref.current) {

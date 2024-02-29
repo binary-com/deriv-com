@@ -15,8 +15,8 @@ const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 5000))
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
     const [is_mounted] = usePageLoaded()
-    const live_chat = useFeatureFlags('live_chat')
-    const whatsapp_chat = useFeatureFlags('whatsapp_chat')
+    const live_chat = useFeatureFlags('cs_chat_livechat')
+    const whatsapp_chat = useFeatureFlags('cs_chat_whatsapp')
     return (
         <Flex.Box
             id="overlay-container"

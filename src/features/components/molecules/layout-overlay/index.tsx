@@ -6,6 +6,7 @@ import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import useFeatureFlags from 'components/hooks/use-feature-flags'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
@@ -14,7 +15,8 @@ const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 5000))
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
     const [is_mounted] = usePageLoaded()
-
+    const live_chat = useFeatureFlags('live_chat')
+    const whatsapp_chat = useFeatureFlags('whatsapp_chat')
     return (
         <Flex.Box
             id="overlay-container"
@@ -35,8 +37,8 @@ const LayoutOverlay = () => {
                     <CookieBanner />
                 </Flex.Box>
                 <Flex.Box direction="col">
-                    <LiveChatButton />
-                    <WhatsappButton />
+                    {live_chat && <LiveChatButton />}
+                    {whatsapp_chat && <WhatsappButton />}
                 </Flex.Box>
             </Flex.Box>
             {is_mounted && <CfdWarningBanner />}

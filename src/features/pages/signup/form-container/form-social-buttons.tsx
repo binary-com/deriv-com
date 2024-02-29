@@ -24,8 +24,6 @@ const FormSocialButtons = () => {
     const facebook_signup = useFeatureFlags('facebook_signup')
     const apple_signup = useFeatureFlags('apple_signup')
 
-    console.log('google_signup', google_signup)
-    console.log('facebook_signup', facebook_signup)
     return (
         <>
             {google_signup && (

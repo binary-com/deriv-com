@@ -11,7 +11,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { handleGetTrading } from 'components/custom/utils'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
-import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import MarketNav from 'features/components/templates/navigation/market-nav'
 import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
 
 type ContainerProps = {
@@ -205,7 +205,7 @@ export const DerivedFXHero = ({
         <>
             {!is_deriv_go && (
                 <div className="fixed z-[4] w-full">
-                    <MainRowNavigation />
+                    <MarketNav />
                     <div className="pt-[8rem]">
                         <MarketBottomNav />
                     </div>

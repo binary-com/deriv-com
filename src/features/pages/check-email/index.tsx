@@ -7,12 +7,12 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import MainFooter from 'features/components/templates/footer'
-import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import MainNav from 'features/components/templates/navigation/main-nav'
 
 const CheckEmailContainer = () => {
     return (
         <Layout>
-            <MainRowNavigation />
+            <MainNav />
             <Flex.Box
                 justify="center"
                 align="center"

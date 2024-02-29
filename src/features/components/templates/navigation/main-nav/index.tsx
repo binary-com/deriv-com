@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { NavigationBlock } from '@deriv-com/blocks'
-import MainNavigationButtons from './nav.buttons'
-import MainNavigationLogo from './nav.logo'
-import { mainEuNavItems, mainRowNavItems } from './data'
-import useRegion from 'components/hooks/use-region'
+import NavTemplate from '../template'
+import MainNavButtons from './nav.buttons'
+import { main_nav_logo } from './nav.module.scss'
+import { mainItems } from './data'
+import Image from 'features/components/atoms/image'
+import LogoImage from 'images/common/rebranding_logo.svg'
+import Link from 'features/components/atoms/link'
 
-const MainRowNavigation = () => {
-    const { is_eu } = useRegion()
-    const [items, setItems] = useState(mainRowNavItems)
-
-    useEffect(() => {
-        if (is_eu) setItems(mainEuNavItems)
-    }, [is_eu])
-
+const MainNav = () => {
     return (
-        <NavigationBlock
-            renderButtons={MainNavigationButtons}
-            renderLogo={MainNavigationLogo}
-            items={items}
-        />
+        <NavTemplate
+            renderLogo={() => (
+                <Link url={{ type: 'internal', to: '/' }} aria-label="deriv logo link">
+                    <Image src={LogoImage} alt="deriv-logo" className={main_nav_logo} />
+                </Link>
+            )}
+            items={mainItems}
+        >
+            <MainNavButtons />
+        </NavTemplate>
     )
 }
 
-export default MainRowNavigation
+export default MainNav

@@ -197,5 +197,5 @@ export const firebaseConfig = {
 }
 
 export const thirdPartyFlagsConfig = {
-    databaseURL: 'https://deriv-static-staging.firebaseio.com',
+    databaseURL: 'https://deriv-static-staging-simplified.firebaseio.com',
 }

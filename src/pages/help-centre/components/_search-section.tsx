@@ -13,6 +13,7 @@ import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/help/search.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
+import useFeatureFlags from 'components/hooks/use-feature-flags'
 
 const Section = styled.section`
     padding: 8rem 0;
@@ -90,6 +91,7 @@ const SearchCrossIcon = styled.img`
 const SearchSection = () => {
     const [search_value, setSearchValue] = useState('')
     const search_input_ref = useRef(null)
+    const live_chat = useFeatureFlags('live_chat')
 
     useEffect(() => {
         if (search_input_ref.current) {
@@ -171,8 +173,7 @@ const SearchSection = () => {
                             />
                         )}
                     </SearchForm>
-                    <TalkToUs />
-
+                    {live_chat && <TalkToUs />}
                     {has_search_value && (
                         <SearchResult
                             has_searched_question={has_search_value && has_searched_question}

@@ -7,6 +7,7 @@ import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import useFeatureFlags from 'components/hooks/use-feature-flags'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
@@ -21,6 +22,8 @@ const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
     const { visibilityPercentage } = useFloatingCtaContext()
     const [is_mounted] = usePageLoaded()
+    const live_chat = useFeatureFlags('live_chat')
+    const whatsapp_chat = useFeatureFlags('whatsapp_chat')
 
     return (
         <div
@@ -50,8 +53,8 @@ const LayoutOverlay = () => {
                         )}px`,
                     }}
                 >
-                    <LiveChatButton />
-                    <WhatsappButton />
+                    {live_chat && <LiveChatButton />}
+                    {whatsapp_chat && <WhatsappButton />}
                 </div>
             </div>
             {is_mounted && <CfdWarningBanner />}

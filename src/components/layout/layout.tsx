@@ -34,6 +34,7 @@ type LayoutProps = {
     padding_top?: string
     type?: string
     show_footer?: boolean
+    show_cfd_banner4aff?: boolean
 }
 
 type MainType = {
@@ -100,6 +101,7 @@ const Layout = ({
     padding_top,
     type = 'default',
     show_footer = true,
+    show_cfd_banner4aff,
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -166,7 +168,10 @@ const Layout = ({
                                 aria_label={modal_payload.aria_label}
                             />
                             <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                            <LayoutOverlay is_ppc={is_ppc} />
+                            <LayoutOverlay
+                                is_ppc={is_ppc}
+                                show_cfd_banner4aff={show_cfd_banner4aff}
+                            />
                         </div>
                     </LocationProvider>
                     {show_footer && <RebrandingFooter />}

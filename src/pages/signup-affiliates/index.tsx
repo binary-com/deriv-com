@@ -145,7 +145,7 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <Layout type="affiliates" padding_top="7" show_footer={false}>
+        <Layout type="affiliates" padding_top="7" show_footer={false} show_cfd_banner4aff={false}>
             <ParentWrapper pop_up_opened={!!signup_status}>
                 <AtomicContainer.Fluid dir="row">
                     <StyledContainer>

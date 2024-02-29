@@ -11,7 +11,7 @@ const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 50
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
 const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 5000))
 
-const LayoutOverlay = () => {
+const LayoutOverlay = ({ show_cfd_banner4aff = true }: { show_cfd_banner4aff?: boolean }) => {
     const is_rtl = useIsRtl()
     const [is_mounted] = usePageLoaded()
 
@@ -39,7 +39,7 @@ const LayoutOverlay = () => {
                     <WhatsappButton />
                 </Flex.Box>
             </Flex.Box>
-            {is_mounted && <CfdWarningBanner />}
+            {is_mounted && show_cfd_banner4aff && <CfdWarningBanner />}
         </Flex.Box>
     )
 }

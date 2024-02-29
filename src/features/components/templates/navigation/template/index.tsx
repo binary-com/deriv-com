@@ -191,25 +191,23 @@ const NavTemplate = ({
                                                                                     }
                                                                                 />
                                                                             )}
+
                                                                             <Link
                                                                                 url={
                                                                                     sectionItem.data
                                                                                         .url
                                                                                 }
+                                                                                className={
+                                                                                    styles.section_title
+                                                                                }
                                                                             >
-                                                                                <span
-                                                                                    className={
-                                                                                        styles.section_title
+                                                                                <Localize
+                                                                                    translate_text={
+                                                                                        sectionItem
+                                                                                            .data
+                                                                                            .title
                                                                                     }
-                                                                                >
-                                                                                    <Localize
-                                                                                        translate_text={
-                                                                                            sectionItem
-                                                                                                .data
-                                                                                                .title
-                                                                                        }
-                                                                                    />
-                                                                                </span>
+                                                                                />
                                                                             </Link>
                                                                         </div>
                                                                     ),
@@ -228,14 +226,13 @@ const NavTemplate = ({
                                                     key={subItem.id}
                                                     className={styles.single_column_item}
                                                 >
-                                                    <Link url={subItem.data.url}>
-                                                        <span
-                                                            className={styles.single_column_title}
-                                                        >
-                                                            <Localize
-                                                                translate_text={subItem.data.title}
-                                                            />
-                                                        </span>
+                                                    <Link
+                                                        url={subItem.data.url}
+                                                        className={styles.single_column_title}
+                                                    >
+                                                        <Localize
+                                                            translate_text={subItem.data.title}
+                                                        />
                                                     </Link>
                                                 </div>
                                             ))}

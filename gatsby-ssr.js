@@ -15,8 +15,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
     const hotjarId = process.env.GATSBY_HOTJAR_ID || ''
 
     setHeadComponents([
-        <script async key="live-price-script" type="text/javascript" src="/live-price.js" />,
-
         <link
             key="preconnect-gstatic"
             rel="preconnect"
@@ -87,5 +85,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
                 }}
             />
         ),
+
+        <script async key="live-price-script" type="text/javascript" src="/live-price.js" />,
     ])
 }

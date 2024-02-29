@@ -43,7 +43,7 @@
     top: 100%;
     left: 0;
     background-color: #fff;
-    padding: 10px;
+    padding: 20px 0 0 10px;
     display: flex;
     flex-direction: column;
 }
@@ -68,6 +68,7 @@
 
 .submenu_title,
 .single_column_title {
+    inline-size: 100px;
     font-weight: bold;
     color: #333;
     margin-right: 10px; /* add margin between title and icon */
@@ -94,6 +95,7 @@
 }
 
 .section_title {
+    inline-size: 100px;
     font-weight: bold;
     color: #333;
     margin-right: 10px; /* add margin between title and icon */

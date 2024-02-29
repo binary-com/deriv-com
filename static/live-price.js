@@ -98,5 +98,5 @@ setTimeout(() => {
             })
     }
 
-    setInterval(fetchData, 1000)
+    setInterval(fetchData, 5000)
 }, 500)

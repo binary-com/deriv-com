@@ -1,4 +1,4 @@
-name: Generate preview link for eu
+name: Generate EU preview link
 
 on:
     pull_request_target:
@@ -117,10 +117,10 @@ jobs:
                   echo "Deploying build to Cloudflare Pages"
                   directory='sites/eu/public'
                   projectName='deriv-com-preview-links'
-                  branch=$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
+                  branch=eu-$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
                   cf_preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
-                  preview_url=https://eutestlink-$branch.deriv-com-preview-links.pages.dev
+                  preview_url=https://$branch.deriv-com-preview-links.pages.dev
                   cat log.txt
                   if grep -q "Deployment complete" log.txt; then
                     echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"

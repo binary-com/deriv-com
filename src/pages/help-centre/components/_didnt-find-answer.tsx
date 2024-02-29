@@ -90,22 +90,20 @@ const DidntFindYourAnswerBanner = () => {
                 <Localize translate_text="_t_Didn’t find your answer? We can help._t_" />
             </Text>
 
-            {is_livechat_interactive && (
-                <ButtonWrapper>
-                    {isLiveChat && (
-                        <ChatButton secondary onClick={openChatWindow}>
-                            <Localize translate_text="_t_Chat_t_" />
-                        </ChatButton>
-                    )}
+            <ButtonWrapper>
+                {isLiveChat && is_livechat_interactive && (
+                    <ChatButton secondary onClick={openChatWindow}>
+                        <Localize translate_text="_t_Chat_t_" />
+                    </ChatButton>
+                )}
 
-                    {isWhatsappChat && (
-                        <WhatsAppButton onClick={openWhatsappUrl}>
-                            <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
-                            <Localize translate_text="_t_WhatsApp_t_" />
-                        </WhatsAppButton>
-                    )}
-                </ButtonWrapper>
-            )}
+                {isWhatsappChat && is_livechat_interactive && (
+                    <WhatsAppButton onClick={openWhatsappUrl}>
+                        <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
+                        <Localize translate_text="_t_WhatsApp_t_" />
+                    </WhatsAppButton>
+                )}
+            </ButtonWrapper>
         </DidntFindYourAnswerWrapper>
     )
 }

@@ -42,6 +42,7 @@
         "gatsby-plugin-html-minifier": "^2.0.0",
         "gatsby-plugin-image": "3.11.0",
         "gatsby-plugin-manifest": "^5.12.3",
+        "gatsby-plugin-no-javascript-utils": "^0.13.1",
         "gatsby-plugin-robots-txt": "^1.8.0",
         "gatsby-plugin-sass": "^6.12.3",
         "gatsby-plugin-sharp": "^5.12.3",

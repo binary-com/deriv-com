@@ -17,7 +17,7 @@ import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import AffiliateNav from 'features/components/templates/navigation/affiliates-nav'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
-import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import MainNav from 'features/components/templates/navigation/main-nav'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
@@ -68,13 +68,13 @@ if (isBrowser()) {
 
 const Navs = {
     noNav: null,
-    default: <MainRowNavigation />,
+    default: <MainNav />,
     static: <StaticNav />,
     interim: <StaticNav />,
 
     partners: <PartnersNav />,
 
-    markets: <MainRowNavigation />,
+    markets: <MainNav />,
 
     security: <BugBountyNav />,
 
@@ -88,7 +88,7 @@ const Navs = {
 
     careers: <CareerNav />,
 
-    'payment-methods': <MainRowNavigation />,
+    'payment-methods': <MainNav />,
 
     affiliates: <AffiliateNav />,
 }

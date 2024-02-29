@@ -1,821 +1,626 @@
-import React from 'react'
-import { NavLinkItems } from '@deriv-com/providers'
-import {
-    IllustrativeCfdsIcon,
-    IllustrativeDerivedIcon,
-    IllustrativeMultipliersIcon,
-    IllustrativeOptionsIcon,
-    IllustrativeForexIcon,
-    IllustrativeStocksAndIndicesIcon,
-    IllustrativeCommoditiesIcon,
-    IllustrativeCryptocurrenciesIcon,
-    IllustrativeEtfIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Illustrative'
-import {
-    DerivProductDerivBotBrandDarkLogoHorizontalIcon,
-    DerivProductDerivGoBrandDarkLogoHorizontalIcon,
-    DerivProductDerivTraderBrandDarkLogoHorizontalIcon,
-    DerivProductDerivXBrandDarkLogoIcon,
-    PartnersProductDerivCtraderBrandDarkLogoHorizontalIcon,
-    PartnersProductDerivMt5BrandDarkLogoHorizontalIcon,
-    PartnersProductSmarttraderBrandDarkLogoIcon,
-    PartnersProductBinaryBotBrandDarkLogoHorizontalIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Logo'
-import { Localize } from 'components/localization'
+import { NavItems } from '../types'
+import DerivcTrader from 'images/svg/custom/rebranding/deriv-ctrader-icon.svg'
+import BinaryBot from 'images/svg/custom/rebranding/binarybot-icon.svg'
+import DerivX from 'images/svg/custom/rebranding/deriv-x-icon.svg'
+import CFD from 'images/svg/custom/rebranding/cfds-icon.svg'
+import Multipliers from 'images/svg/custom/rebranding/multipliers-icon.svg'
+import Options from 'images/svg/custom/rebranding/options-icon.svg'
+import Smarttrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
+import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
+import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
+import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
+import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import Commodities from 'images/svg/custom/rebranding/commodities-icon.svg'
+import Cryptocurrencies from 'images/svg/custom/rebranding/cryptocurrencies-icon.svg'
+import DerivedFX from 'images/svg/custom/rebranding/derived-fx-icon.svg'
+import Forex from 'images/svg/custom/rebranding/forex-icon.svg'
+import ETF from 'images/svg/custom/rebranding/etf-icon.svg'
+import StockIndices from 'images/svg/custom/rebranding/stock-indices-icon.svg'
 
-export const mainRowNavItems: NavLinkItems = {
-    trade: {
+export const mainItems: NavItems = [
+    {
         id: 0,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Trade_t_" />,
-        columns: [
-            {
-                id: 0,
-                header: {
-                    text: <Localize translate_text="_t_Trade types_t_" />,
-                    type: 'text',
+        data: {
+            title: '_t_Trade_t_',
+            type: 'multi-column',
+            content: [
+                {
+                    id: 0,
+                    data: {
+                        title: '_t_Trade types_t_',
+                        section: [
+                            {
+                                id: 0,
+                                data: {
+                                    aria_label: 'Deriv Trader',
+                                    icon: {
+                                        src: DTrader,
+                                        alt: 'Dtrader trading platform',
+                                    },
+                                    content:
+                                        '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
+                                    title: '_t_Deriv Trader_t_',
+                                    url: { type: 'internal', to: '/dtrader/' },
+                                },
+                                visibility: {
+                                    is_eu: true,
+                                    is_ppc: false,
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 1,
+                                data: {
+                                    aria_label: 'CFDs',
+                                    icon: {
+                                        src: CFD,
+                                        alt: 'CFDs trade type',
+                                    },
+                                    content:
+                                        '_t_Trade with leverage and tight spreads for better returns on successful trades._t_',
+                                    title: '_t_CFDs_t_',
+                                    url: { type: 'internal', to: '/trade-types/cfds/' },
+                                },
+                                visibility: {
+                                    is_ppc: false,
+                                },
+                            },
+                            {
+                                id: 2,
+                                data: {
+                                    aria_label: 'Options',
+                                    icon: {
+                                        src: Options,
+                                        alt: 'Options trade type',
+                                    },
+                                    content:
+                                        '_t_Earn a range of payouts without risking more than your initial stake._t_',
+                                    title: '_t_Options_t_',
+                                    url: {
+                                        type: 'internal',
+                                        to: '/trade-types/options/digital-options/up-and-down/',
+                                    },
+                                },
+                                visibility: {
+                                    is_ppc: false,
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 3,
+                                data: {
+                                    aria_label: 'Multipliers',
+                                    icon: {
+                                        src: Multipliers,
+                                        alt: 'Multipliers trade type',
+                                    },
+                                    content:
+                                        '_t_Get the upside of CFDs without the downside of losing more than your stake._t_',
+                                    title: '_t_Multipliers_t_',
+                                    url: { type: 'internal', to: '/trade-types/multiplier/' },
+                                },
+                                visibility: {
+                                    is_ppc: false,
+                                },
+                            },
+                        ],
+                    },
                 },
-                items: [
-                    {
-                        id: 0,
-                        href: '/trade-types/cfds',
-                        text: <Localize translate_text="_t_CFDs_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeCfdsIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range  of markets._t_" />
-                        ),
+                {
+                    id: 1,
+                    data: {
+                        title: '_t_Trading platforms_t_',
+                        section: [
+                            {
+                                id: 0,
+                                data: {
+                                    aria_label: 'Deriv MT5',
+                                    icon: {
+                                        src: DMT5,
+                                        alt: 'Deriv MT5 trading platform',
+                                    },
+                                    content:
+                                        '_t_Trade on Deriv MT5, the all-in-one CFD trading platform._t_',
+                                    title: '_t_Deriv MT5_t_',
+                                    url: ({ is_ppc_redirect }) => ({
+                                        type: 'internal',
+                                        to: is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/',
+                                    }),
+                                },
+                                visibility: {},
+                            },
+                            {
+                                id: 1,
+                                data: {
+                                    aria_label: 'Derivx',
+                                    icon: {
+                                        src: DerivX,
+                                        alt: 'Deriv X trading paltform',
+                                    },
+                                    content:
+                                        '_t_A highly customisable and easy-to-use CFD trading platform._t_',
+                                    title: '_t_Deriv X_t_',
+                                    url: { type: 'internal', to: '/derivx/' },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 2,
+                                data: {
+                                    aria_label: 'SmartTrader',
+                                    icon: {
+                                        src: Smarttrader,
+                                        alt: 'SmartTrader trading platform',
+                                    },
+                                    content:
+                                        '_t_Trade the world’s markets with our popular user-friendly platform._t_',
+                                    title: '_t_SmartTrader_t_',
+                                    url: {
+                                        type: 'company',
+                                        url_name: 'smart_trader',
+                                        target: '_blank',
+                                    },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 3,
+                                data: {
+                                    aria_label: 'Deriv Trader',
+                                    icon: {
+                                        src: DTrader,
+                                        alt: 'Deriv trader trading platform',
+                                    },
+                                    content:
+                                        '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
+                                    title: '_t_Deriv Trader_t_',
+                                    url: { type: 'internal', to: '/dtrader/' },
+                                },
+                                visibility: {
+                                    is_eu: true,
+                                },
+                            },
+                            {
+                                id: 4,
+                                data: {
+                                    aria_label: 'Deriv cTrader',
+                                    icon: {
+                                        src: DerivcTrader,
+                                        alt: 'Deriv cTrader trading platform',
+                                    },
+                                    content:
+                                        '_t_An intuitive, multi-asset CFD trading platform with copy trading and custom indicators._t_',
+                                    title: '_t_Deriv cTrader_t_',
+                                    url: { type: 'internal', to: '/deriv-ctrader/' },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                        ],
                     },
-                    {
-                        id: 1,
-                        href: '/trade-types/options',
-                        text: <Localize translate_text="_t_Options_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeOptionsIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/trade-types/multiplier',
-                        text: <Localize translate_text="_t_Multipliers_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeMultipliersIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_" />
-                        ),
-                    },
-                ],
-            },
-            {
-                id: 1,
-                header: {
-                    text: <Localize translate_text="_t_Trading platforms_t_" />,
-                    type: 'text',
                 },
-                items: [
-                    {
-                        id: 0,
-                        href: '/dmt5',
-                        text: 'Deriv MT5',
-                        type: 'direct',
-                        icon: (
-                            <PartnersProductDerivMt5BrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
-                        ),
-                    },
-                    {
-                        id: 1,
-                        href: '/derivx',
-                        text: <Localize translate_text="_t_Deriv X_t_" />,
-                        type: 'direct',
-                        icon: <DerivProductDerivXBrandDarkLogoIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_User-friendly and customisable CFDs platform._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/deriv-ctrader',
-                        text: <Localize translate_text="_t_Deriv cTrader_t_" />,
-                        type: 'direct',
-                        icon: (
-                            <PartnersProductDerivCtraderBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Fast CFDs platform with inbuilt copy trading._t_" />
-                        ),
-                    },
-                    {
-                        id: 3,
-                        href: 'https://smarttrader.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_SmartTrader_t_" />,
-                        type: 'direct',
-                        icon: (
-                            <PartnersProductSmarttraderBrandDarkLogoIcon width={24} height={24} />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Options trading platform with easy navigation._t_" />
-                        ),
-                        target: '_blank',
-                    },
-                ],
-            },
-            {
-                id: 2,
-                header: {
-                    text: null,
-                    type: 'text',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/dtrader',
-                        text: <Localize translate_text="_t_Deriv Trader_t_" />,
-                        type: 'direct',
-                        icon: (
-                            <DerivProductDerivTraderBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
-                        ),
-                    },
-                    {
-                        id: 1,
-                        href: '/deriv-go',
-                        text: 'Deriv GO',
-                        type: 'direct',
-                        icon: (
-                            <DerivProductDerivGoBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Mobile app for multipliers trading on the go._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/dbot',
-                        text: <Localize translate_text="_t_Deriv Bot_t_" />,
-                        type: 'direct',
-                        icon: (
-                            <DerivProductDerivBotBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Automated trading. No coding required._t_" />
-                        ),
-                    },
-                    {
-                        id: 3,
-                        href: 'https://bot.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Binary Bot_t_" />,
-                        type: 'direct',
-                        icon: (
-                            <PartnersProductBinaryBotBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Options trading platform with easy navigation._t_" />
-                        ),
-                        target: '_blank',
-                    },
-                ],
-            },
-        ],
-    },
-    markets: {
-        id: 1,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Markets_t_" />,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/markets/forex',
-                        text: <Localize translate_text="_t_Forex_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeForexIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Major, minor, and exotic  currency pairs._t_" />
-                        ),
-                    },
-                    {
-                        id: 1,
-                        href: '/markets/synthetic',
-                        text: <Localize translate_text="_t_Derived indices_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeDerivedIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Indices simulating real-world markets with 24/7 trading._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/markets/stock',
-                        text: <Localize translate_text="_t_Stocks & indices_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Leading company stocks and top global indices._t_" />
-                        ),
-                    },
-                ],
-            },
-            {
-                id: 1,
-                items: [
-                    {
-                        id: 0,
-                        href: '/markets/commodities',
-                        text: <Localize translate_text="_t_Commodities_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeCommoditiesIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_World markets including precious metals and energies._t_" />
-                        ),
-                    },
-                    {
-                        id: 1,
-                        href: '/markets/cryptocurrencies',
-                        text: <Localize translate_text="_t_Cryptocurrencies_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeCryptocurrenciesIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_The world’s most popular digital currencies._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/markets/exchange-traded-funds',
-                        text: <Localize translate_text="_t_Exchange-traded funds (ETFs)_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeEtfIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Diverse exchange-traded funds for broad market exposure._t_" />
-                        ),
-                    },
-                ],
-            },
-        ],
-    },
-    'about-us': {
-        id: 2,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_About us_t_" />,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/who-we-are',
-                        text: <Localize translate_text="_t_Who we are_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/regulatory',
-                        text: <Localize translate_text="_t_Regulatory information_t_" />,
-                        type: 'direct',
-                        isDesktopNavOnly: true,
-                    },
-                    {
-                        id: 2,
-                        href: '/why-choose-us',
-                        text: <Localize translate_text="_t_Why choose us_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: '/partners',
-                        text: <Localize translate_text="_t_Partnership programmes_t_" />,
-                        type: 'direct',
-                    },
-                ],
-            },
-            {
-                id: 1,
-                items: [
-                    {
-                        id: 0,
-                        href: '/contact_us',
-                        text: <Localize translate_text="_t_Contact us_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/careers',
-                        text: <Localize translate_text="_t_Careers_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: 'https://derivlife.com', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Deriv Life_t_" />,
-                        type: 'direct',
-                        external: true,
-                        target: '_blank',
-                    },
-                ],
-            },
-        ],
-    },
-    resources: {
-        id: 3,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Resources_t_" />,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/help-centre',
-                        text: <Localize translate_text="_t_Help centre_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: 'https://community.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Community_t_" />,
-                        type: 'direct',
-                        external: true,
-                        target: '_blank',
-                    },
-                    {
-                        id: 2,
-                        href: '/trader-tools',
-                        text: <Localize translate_text="_t_Traders' tools_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: '/payment-methods',
-                        text: <Localize translate_text="_t_Payment methods_t_" />,
-                        type: 'direct',
-                    },
-                ],
-            },
-            {
-                id: 1,
-                items: [
-                    {
-                        id: 0,
-                        href: '/dmt5-trading-signals',
-                        text: <Localize translate_text="_t_Deriv MT5 signals_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: 'https://deriv.statuspage.io/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Status page_t_" />,
-                        type: 'direct',
-                        isMobileNavOnly: true,
-                    },
-                    {
-                        id: 2,
-                        href: 'https://blog.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Deriv Blog_t_" />,
-                        type: 'direct',
-                        external: true,
-                        target: '_blank',
-                    },
-                ],
-            },
-        ],
-    },
-    legal: {
-        id: 4,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Legal_t_" />,
-        isMobileNavOnly: true,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/regulatory',
-                        text: <Localize translate_text="_t_Regulatory information_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/terms-and-conditions',
-                        text: <Localize translate_text="_t_Terms & conditions_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: '/responsible',
-                        text: <Localize translate_text="_t_Secure & responsible trading_t_" />,
-                        type: 'direct',
-                    },
-                ],
-            },
-        ],
-    },
-    partners: {
-        id: 5,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Partners_t_" />,
-        isMobileNavOnly: true,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/partners/deriv-prime',
-                        text: <Localize translate_text="_t_Deriv Prime_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/partners/affiliate-ib',
-                        text: <Localize translate_text="_t_Affiliates and IBs_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: '/partners/payment-agent',
-                        text: <Localize translate_text="_t_Payment agents_t_" />,
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: 'https://api.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_API_t_" />,
-                        type: 'direct',
-                    },
-                ],
-            },
-        ],
-    },
-}
+                {
+                    id: 3,
+                    data: {
+                        section: [
+                            {
+                                id: 0,
+                                data: {
+                                    aria_label: 'Dtrader',
+                                    icon: {
+                                        src: DTrader,
+                                        alt: 'Dtrader trading platform',
+                                    },
+                                    content:
+                                        '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
+                                    title: '_t_Deriv Trader_t_',
+                                    url: { type: 'internal', to: '/dtrader/' },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 1,
+                                data: {
+                                    aria_label: 'Deriv GO',
+                                    icon: {
+                                        src: DerivGo,
+                                        alt: 'Deriv GO mobile trading app',
+                                    },
+                                    content:
+                                        '_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_',
+                                    title: '_t_Deriv GO_t_',
 
-export const mainEuNavItems: NavLinkItems = {
-    trade: {
-        id: 0,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Trade_t_" />,
-        columns: [
-            {
-                id: 0,
-                header: {
-                    text: <Localize translate_text="_t_Trade types_t_" />,
-                    type: 'text',
+                                    url: { type: 'internal', to: '/deriv-go/' },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 2,
+                                data: {
+                                    aria_label: 'Deriv Bot',
+                                    icon: {
+                                        src: DerivBot,
+                                        alt: 'Deriv Bot Automated trading',
+                                    },
+                                    content:
+                                        '_t_Automated trading at your fingertips. No coding needed._t_',
+                                    title: '_t_Deriv Bot_t_',
+
+                                    url: { type: 'internal', to: '/dbot/' },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                            {
+                                id: 3,
+                                data: {
+                                    aria_label: 'Binary Bot',
+                                    icon: {
+                                        src: BinaryBot,
+                                        alt: 'Binary bot for creating trading bot',
+                                    },
+                                    content:
+                                        '_t_Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users._t_',
+                                    title: '_t_Binary Bot_t_',
+                                    url: {
+                                        type: 'company',
+                                        url_name: 'binary_bot',
+                                        target: '_blank',
+                                    },
+                                },
+                                visibility: {
+                                    is_row: true,
+                                },
+                            },
+                        ],
+                    },
+                    visibility: {
+                        is_row: true,
+                    },
                 },
-                items: [
-                    {
-                        id: 0,
-                        href: '/trade-types/cfds',
-                        text: <Localize translate_text="_t_CFDs_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeCfdsIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range  of markets._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/trade-types/multiplier',
-                        text: <Localize translate_text="_t_Multipliers_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeMultipliersIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_" />
-                        ),
-                    },
-                ],
-            },
-            {
-                id: 1,
-                header: {
-                    text: <Localize translate_text="_t_Trading platforms_t_" />,
-                    type: 'text',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/dmt5',
-                        text: 'Deriv MT5',
-                        type: 'direct',
-                        icon: (
-                            <PartnersProductDerivMt5BrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
-                        ),
-                    },
-                    {
-                        id: 1,
-                        href: '/dtrader',
-                        text: <Localize translate_text="_t_Deriv Trader_t_" />,
-                        type: 'direct',
-                        icon: (
-                            <DerivProductDerivTraderBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description: (
-                            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
-                        ),
-                    },
-                ],
-            },
-        ],
+            ],
+        },
     },
-    markets: {
+    {
         id: 1,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Markets_t_" />,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/markets/forex',
-                        text: <Localize translate_text="_t_Forex_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeForexIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Major, minor, and exotic  currency pairs._t_" />
-                        ),
+        data: {
+            title: '_t_Markets_t_',
+            type: 'multi-column',
+            content: [
+                {
+                    id: 0,
+                    data: {
+                        section: [
+                            {
+                                id: 0,
+                                data: {
+                                    aria_label: 'Forex',
+                                    icon: {
+                                        src: Forex,
+                                        alt: 'Forex',
+                                    },
+                                    content:
+                                        '_t_Trade the world’s largest financial market with popular forex pairs._t_',
+                                    title: '_t_Forex_t_',
+                                    url: { type: 'internal', to: '/markets/forex/' },
+                                },
+                            },
+                            {
+                                id: 1,
+                                data: {
+                                    aria_label: 'Derived indices',
+                                    icon: {
+                                        src: DerivedFX,
+                                        alt: 'Synthetic indices',
+                                    },
+                                    content: ({ is_eu }) => {
+                                        return is_eu
+                                            ? '_t_Enjoy trading asset prices derived from simulated markets._t_'
+                                            : '_t_Enjoy trading asset prices derived from real-world or simulated markets._t_'
+                                    },
+                                    title: '_t_Derived indices_t_',
+                                    url: { type: 'internal', to: '/markets/synthetic/' },
+                                },
+                            },
+                            {
+                                id: 2,
+                                data: {
+                                    aria_label: 'Stocks & indices',
+                                    icon: {
+                                        src: StockIndices,
+                                        alt: 'Stocks & indices',
+                                    },
+                                    content:
+                                        '_t_Predict broader market trends and diversify your risk with stocks & indices._t_',
+                                    title: '_t_Stocks & indices_t_',
+                                    url: { type: 'internal', to: '/markets/stock/' },
+                                },
+                            },
+                        ],
+                        no_divider: true,
+                        no_title: true,
                     },
-                    {
-                        id: 1,
-                        href: '/markets/synthetic',
-                        text: <Localize translate_text="_t_Derived indices_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeDerivedIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Indices simulating real-world markets with 24/7 trading._t_" />
-                        ),
+                },
+                {
+                    id: 1,
+                    data: {
+                        section: [
+                            {
+                                id: 3,
+                                data: {
+                                    aria_label: 'Commodities',
+                                    icon: {
+                                        src: Commodities,
+                                        alt: 'Commodities',
+                                    },
+                                    content:
+                                        "_t_Trade natural resources that are central to the world's economy._t_",
+                                    title: '_t_Commodities_t_',
+                                    url: { type: 'internal', to: '/markets/commodities/' },
+                                },
+                            },
+                            {
+                                id: 4,
+                                data: {
+                                    aria_label: 'Cryptocurrencies',
+                                    icon: {
+                                        src: Cryptocurrencies,
+                                        alt: 'Cryptocurrencies',
+                                    },
+                                    content:
+                                        '_t_Trade with leverage on the price movement of popular crypto-fiat pairs._t_',
+                                    title: '_t_Cryptocurrencies_t_',
+                                    url: { type: 'internal', to: '/markets/cryptocurrencies/' },
+                                },
+                            },
+                            {
+                                id: 3,
+                                data: {
+                                    aria_label: 'Exchange-traded funds (ETFs)',
+                                    icon: {
+                                        src: ETF,
+                                        alt: 'Exchange-traded funds (ETFs)',
+                                    },
+                                    content:
+                                        '_t_Diversify your portfolio and enjoy low-cost intraday trading with ETFs._t_',
+                                    title: '_t_Exchange-traded funds (ETFs)_t_',
+                                    url: {
+                                        type: 'internal',
+                                        to: '/markets/exchange-traded-funds/',
+                                    },
+                                },
+                            },
+                        ],
+                        no_divider: true,
+                        no_title: true,
                     },
-                    {
-                        id: 2,
-                        href: '/markets/stock',
-                        text: <Localize translate_text="_t_Stocks & indices_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Leading company stocks and top global indices._t_" />
-                        ),
-                    },
-                ],
-            },
-            {
-                id: 1,
-                items: [
-                    {
-                        id: 0,
-                        href: '/markets/commodities',
-                        text: <Localize translate_text="_t_Commodities_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeCommoditiesIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_World markets including precious metals and energies._t_" />
-                        ),
-                    },
-                    {
-                        id: 1,
-                        href: '/markets/cryptocurrencies',
-                        text: <Localize translate_text="_t_Cryptocurrencies_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeCryptocurrenciesIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_The world’s most popular digital currencies._t_" />
-                        ),
-                    },
-                    {
-                        id: 2,
-                        href: '/markets/exchange-traded-funds',
-                        text: <Localize translate_text="_t_Exchange-traded funds (ETFs)_t_" />,
-                        type: 'direct',
-                        icon: <IllustrativeEtfIcon width={24} height={24} />,
-                        description: (
-                            <Localize translate_text="_t_Diverse exchange-traded funds for broad market exposure._t_" />
-                        ),
-                    },
-                ],
-            },
-        ],
+                },
+            ],
+        },
     },
-    'about-us': {
+    {
         id: 2,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_About us_t_" />,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/who-we-are',
-                        text: <Localize translate_text="_t_Who we are_t_" />,
-                        type: 'direct',
+        data: {
+            title: '_t_About us_t_',
+            type: 'single-column',
+            content: [
+                {
+                    id: 0,
+                    data: {
+                        title: '_t_Who we are_t_',
+                        url: { type: 'internal', to: '/who-we-are/' },
                     },
-                    {
-                        id: 1,
-                        href: '/regulatory',
-                        text: <Localize translate_text="_t_Regulatory information_t_" />,
-                        type: 'direct',
-                        isDesktopNavOnly: true,
+                },
+                {
+                    id: 1,
+                    data: {
+                        title: '_t_Regulatory information_t_',
+                        url: { type: 'internal', to: '/regulatory/' },
                     },
-                    {
-                        id: 2,
-                        href: '/why-choose-us',
-                        text: <Localize translate_text="_t_Why choose us_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 2,
+                    data: {
+                        title: '_t_Why choose us_t_',
+                        url: { type: 'internal', to: '/why-choose-us/' },
                     },
-                    {
-                        id: 3,
-                        href: '/partners',
-                        text: <Localize translate_text="_t_Partnership programmes_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 3,
+                    data: {
+                        title: '_t_Partnership programmes_t_',
+                        url: { type: 'internal', to: '/partners/' },
                     },
-                ],
-            },
-            {
-                id: 1,
-                items: [
-                    {
-                        id: 0,
-                        href: '/contact_us',
-                        text: <Localize translate_text="_t_Contact us_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 4,
+                    data: {
+                        title: '_t_Contact us_t_',
+                        url: { type: 'internal', to: '/contact_us/' },
                     },
-                    {
-                        id: 1,
-                        href: '/careers',
-                        text: <Localize translate_text="_t_Careers_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 5,
+                    data: {
+                        title: '_t_Careers_t_',
+                        url: { type: 'internal', to: '/careers/' },
                     },
-                    {
-                        id: 2,
-                        href: 'https://derivlife.com', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Deriv Life_t_" />,
-                        type: 'direct',
-                        external: true,
-                        target: '_blank',
+                },
+                {
+                    id: 6,
+                    data: {
+                        url: { type: 'company', url_name: 'derivlife', target: '_blank' },
+                        title: '_t_Deriv life_t_',
                     },
-                ],
-            },
-        ],
+                },
+            ],
+        },
+        visibility: {
+            is_mobile: false,
+        },
     },
-    resources: {
+    {
         id: 3,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Resources_t_" />,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/help-centre',
-                        text: <Localize translate_text="_t_Help centre_t_" />,
-                        type: 'direct',
+        data: {
+            title: '_t_Resources_t_',
+            type: 'single-column',
+            content: [
+                {
+                    id: 0,
+                    data: {
+                        title: '_t_Help centre_t_',
+                        url: { type: 'internal', to: '/help-centre/' },
                     },
-                    {
-                        id: 1,
-                        href: 'https://community.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Community_t_" />,
-                        type: 'direct',
-                        external: true,
-                        target: '_blank',
+                },
+                {
+                    id: 1,
+                    data: {
+                        title: '_t_Community_t_',
+                        url: { type: 'company', url_name: 'community', target: '_blank' },
                     },
-                    {
-                        id: 2,
-                        href: '/trader-tools',
-                        text: <Localize translate_text="_t_Traders' tools_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 2,
+                    data: {
+                        title: '_t_Traders’ tools_t_',
+                        url: { type: 'internal', to: '/trader-tools/' },
                     },
-                    {
-                        id: 3,
-                        href: '/payment-methods',
-                        text: <Localize translate_text="_t_Payment methods_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 3,
+                    data: {
+                        title: '_t_Payment methods_t_',
+                        url: { type: 'internal', to: '/payment-methods/' },
                     },
-                ],
-            },
-            {
-                id: 1,
-                items: [
-                    {
-                        id: 0,
-                        href: '/dmt5-trading-signals',
-                        text: <Localize translate_text="_t_Deriv MT5 signals_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 4,
+                    data: {
+                        title: '_t_Deriv MT5 Signals_t_',
+                        url: { type: 'internal', to: '/dmt5-trading-signals/#signal-subscriber/' },
                     },
-                    {
-                        id: 1,
-                        href: 'https://deriv.statuspage.io/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Status page_t_" />,
-                        type: 'direct',
-                        isMobileNavOnly: true,
+                },
+                {
+                    id: 5,
+                    data: {
+                        title: '_t_Status page_t_',
+                        url: {
+                            type: 'non-company',
+                            href: 'https://deriv.statuspage.io',
+                            show_eu_modal: true,
+                        },
                     },
-                    {
-                        id: 2,
-                        href: 'https://blog.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_Deriv Blog_t_" />,
-                        type: 'direct',
-                        external: true,
-                        target: '_blank',
+                    visibility: {
+                        is_mobile: true,
                     },
-                ],
-            },
-        ],
+                },
+                {
+                    id: 6,
+                    data: {
+                        title: '_t_Deriv Blog_t_',
+                        url: { type: 'company', url_name: 'blog', target: '_blank' },
+                    },
+                },
+            ],
+        },
     },
-    legal: {
+    {
         id: 4,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Legal_t_" />,
-        isMobileNavOnly: true,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/regulatory',
-                        text: <Localize translate_text="_t_Regulatory information_t_" />,
-                        type: 'direct',
+        data: {
+            title: '_t_Legal_t_',
+            type: 'single-column',
+            content: [
+                {
+                    id: 0,
+                    data: {
+                        title: '_t_Regulatory information_t_',
+                        url: { type: 'internal', to: '/regulatory/' },
                     },
-                    {
-                        id: 1,
-                        href: '/terms-and-conditions',
-                        text: <Localize translate_text="_t_Terms & conditions_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 1,
+                    data: {
+                        title: '_t_Terms and conditions_t_',
+                        url: { type: 'internal', to: '/terms-and-conditions/#clients' },
                     },
-                    {
-                        id: 2,
-                        href: '/responsible',
-                        text: <Localize translate_text="_t_Secure & responsible trading_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 2,
+                    data: {
+                        title: '_t_Secure and responsible trading_t_',
+                        url: { type: 'internal', to: '/responsible/' },
                     },
-                ],
-            },
-        ],
+                },
+            ],
+        },
+        visibility: {
+            is_mobile: true,
+        },
     },
-    partners: {
+    {
         id: 5,
-        type: 'nav-dropdown',
-        text: <Localize translate_text="_t_Partners_t_" />,
-        isMobileNavOnly: true,
-        columns: [
-            {
-                id: 0,
-                items: [
-                    {
-                        id: 0,
-                        href: '/partners/deriv-prime',
-                        text: <Localize translate_text="_t_Deriv Prime_t_" />,
-                        type: 'direct',
+        data: {
+            title: '_t_Partners_t_',
+            type: 'single-column',
+            content: [
+                {
+                    id: 0,
+                    data: {
+                        title: '_t_Deriv Prime_t_',
+                        url: { type: 'internal', to: '/partners/deriv-prime/' },
                     },
-                    {
-                        id: 1,
-                        href: '/partners/affiliate-ib',
-                        text: <Localize translate_text="_t_Affiliates_t_" />,
-                        type: 'direct',
+                },
+                {
+                    id: 1,
+                    data: {
+                        title: '_t_Affiliates and IBs_t_',
+                        url: { type: 'internal', to: '/partners/affiliate-ib/' },
                     },
-                    {
-                        id: 3,
-                        href: 'https://api.deriv.com/', //need to update target/type in link component
-                        text: <Localize translate_text="_t_API_t_" />,
-                        type: 'direct',
+                    visibility: {
+                        is_row: true,
                     },
-                ],
-            },
-        ],
+                },
+                {
+                    id: 2,
+                    data: {
+                        title: '_t_Affiliates_t_',
+                        url: { type: 'internal', to: '/partners/affiliate-ib/' },
+                    },
+                    visibility: {
+                        is_eu: true,
+                    },
+                },
+                {
+                    id: 3,
+                    data: {
+                        title: '_t_Payment agents_t_',
+                        url: { type: 'internal', to: '/partners/payment-agent/' },
+                    },
+                    visibility: {
+                        is_row: true,
+                    },
+                },
+                {
+                    id: 4,
+                    data: {
+                        title: '_t_API_t_',
+                        url: { type: 'company', url_name: 'api', target: '_blank' },
+                    },
+                },
+            ],
+        },
+        visibility: {
+            is_mobile: true,
+        },
     },
-}
+]

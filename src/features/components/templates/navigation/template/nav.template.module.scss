@@ -18,3 +18,89 @@
     inset-block-start: -184px;
     position: absolute;
 }
+
+.navbar {
+    font-family: 'Arial', sans-serif;
+}
+
+.main_menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu_item {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.submenu,
+.single_column {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_item:hover .submenu,
+.menu_item:hover .single_column {
+    display: flex; /* changed to flex to allow for row/column layout */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submenu_item,
+.single_column_item {
+    margin-bottom: 10px;
+    display: none; /* hide content by default */
+}
+
+.menu_item:hover .submenu_item,
+.menu_item:hover .single_column_item {
+    display: flex; /* show content on hover */
+    align-items: center; /* align content and icon in a row */
+}
+
+.submenu_title,
+.single_column_title {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px; /* add margin between title and icon */
+}
+
+.submenu_icon,
+.single_column_icon {
+    width: 24px; /* set the width of the icon as needed */
+    height: 24px; /* set the height of the icon as needed */
+    margin-right: 10px; /* add margin between title and icon */
+}
+
+/* Additional styles for section content */
+.section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px; /* add margin between sections */
+}
+
+.section_item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.section_title {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px; /* add margin between title and icon */
+}
+
+.section_icon {
+    width: 24px; /* set the width of the icon as needed */
+    height: 24px; /* set the height of the icon as needed */
+    margin-right: 10px; /* add margin between title and icon */
+}

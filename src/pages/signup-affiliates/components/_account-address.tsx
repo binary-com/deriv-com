@@ -99,7 +99,6 @@ const AccountAddress = ({
                 form_data.state?.name &&
                 form_data.city &&
                 form_data.street &&
-                form_data.postal_code &&
                 !form_errors.country_error_msg &&
                 !form_errors.state_error_msg &&
                 !form_errors.city_error_msg &&

@@ -122,7 +122,8 @@ function extractTranslations() {
 
             strap_data.forEach(item => {
                 if(item){
-                    messages.push(...getStrapiStrings(item?.result?.data?.strapiWhoWeArePage))
+                    const strapi_messgaes = getStrapiStrings(item?.result?.data?.strapiWhoWeArePage) || []
+                    messages.push(...strapi_messgaes)
                 }
             })
 

@@ -8,6 +8,7 @@ import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
 import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import { whatsapp_url } from 'common/constants'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const DidntFindYourAnswerWrapper = styled.div`
     background: var(--color-black);
@@ -79,6 +80,8 @@ const DidntFindYourAnswerBanner = () => {
 
     const openChatWindow = () => LC_API.open_chat_window()
     const openWhatsappUrl = () => window.open(whatsapp_url, '_blank')
+    const isLiveChat = useThirdPartyFlags('chat.live_chat')
+    const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
 
     return (
         <DidntFindYourAnswerWrapper>
@@ -87,18 +90,20 @@ const DidntFindYourAnswerBanner = () => {
                 <Localize translate_text="_t_Didn’t find your answer? We can help._t_" />
             </Text>
 
-            {is_livechat_interactive && (
-                <ButtonWrapper>
+            <ButtonWrapper>
+                {isLiveChat && is_livechat_interactive && (
                     <ChatButton secondary onClick={openChatWindow}>
                         <Localize translate_text="_t_Chat_t_" />
                     </ChatButton>
+                )}
 
+                {isWhatsappChat && is_livechat_interactive && (
                     <WhatsAppButton onClick={openWhatsappUrl}>
                         <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
                         <Localize translate_text="_t_WhatsApp_t_" />
                     </WhatsAppButton>
-                </ButtonWrapper>
-            )}
+                )}
+            </ButtonWrapper>
         </DidntFindYourAnswerWrapper>
     )
 }

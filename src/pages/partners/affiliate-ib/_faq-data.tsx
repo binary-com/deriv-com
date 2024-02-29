@@ -123,7 +123,7 @@ const AffiliateGeneral = () => {
                 </li>
                 <li>
                     <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-                        <Localize translate_text="_t_A dedicated account manager to help you with any questions_t_" />
+                        <Localize translate_text="_t_A dedicated country manager to help you with any questions_t_" />
                     </Header>
                 </li>
                 <li>
@@ -351,7 +351,7 @@ const AffiliateReferralTools = () => (
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
-                translate_text="_t_If you like certain tools to be customised to your site requirements, please contact our support team via <0>live chat</0> or reach out to your account manager._t_"
+                translate_text="_t_If you like certain tools to be customised to your site requirements, please contact our support team via <0>live chat</0> or reach out to your country manager._t_"
                 components={[<LiveChatLinkText text="_t_live chat_t_" key={0} />]}
             />
         </Header>
@@ -359,7 +359,7 @@ const AffiliateReferralTools = () => (
             <Localize translate_text="_t_Can I offer prospective clients an incentive to sign up to Deriv using my affiliate link?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_Yes, you can. You will need to notify your account manager if you wish to do so._t_" />
+            <Localize translate_text="_t_Yes, you can. You will need to notify your country manager if you wish to do so._t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize translate_text="_t_Do keep in mind that we do not allow unauthorised incentives, gifts, and payments to encourage client signups. Payment will be withheld if any suspicions or activity of this conduct is discovered._t_" />
@@ -403,7 +403,10 @@ const MAGeneral = () => (
             </li>
             <li>
                 <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-                    <Localize translate_text="_t_Make a request through your country manager_t_" />
+                    <Localize
+                        translate_text="_t_Make a request through our <0>live chat</0> or to your respective country manager to apply._t_"
+                        components={[<LiveChatLinkText text="_t_live chat_t_" key={0} />]}
+                    />
                 </Header>
             </li>
         </StyledUl>
@@ -456,6 +459,11 @@ const IBGeneral = () => (
                     <Localize translate_text="_t_Have a real Deriv account_t_" />
                 </Header>
             </li>
+            <li>
+                <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                    <Localize translate_text="_t_Have a real Derived MT5 account_t_" />
+                </Header>
+            </li>
         </StyledUl>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
@@ -499,7 +507,7 @@ const IBGeneral = () => (
             <Localize translate_text="_t_Is there a minimum amount if I want to transfer my funds from one platform to another?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_There is a minimum of USD 0.01 if you would like to transfer funds to another platform._t_" />
+            <Localize translate_text="_t_There is a minimum of 0.01 USD if you would like to transfer funds to another platform._t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="16px">
             <Localize translate_text="_t_How and when will I receive my Deriv IB commissions?_t_" />

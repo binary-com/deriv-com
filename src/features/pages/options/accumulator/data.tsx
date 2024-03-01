@@ -89,7 +89,7 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
                 }}
             >
                 <StaticImage
-                    src="../../../../images/common/trade-types/accumulator-video-bg.png"
+                    src="../../../../images/common/trade-types/accumulator-video-bg-1.png"
                     alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
                     loading="lazy"
                     formats={['webp', 'auto']}
@@ -116,7 +116,7 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
         ),
         content: (
             <StaticImage
-                src="../../../../images/common/trade-types/accumulator-video-bg.png"
+                src="../../../../images/common/trade-types/accumulator-video-bg-2.png"
                 alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
                 loading="lazy"
                 formats={['webp', 'auto']}

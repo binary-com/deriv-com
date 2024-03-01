@@ -13,6 +13,7 @@ import { BuildVariantContextType } from 'features/contexts/build-variant/build-v
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import MainFooter from 'features/components/templates/footer'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 const FastPaymentSection = loadable(() => import('./fast-payment'))
 const LiveMarketSection = loadable(() => import('./live-pricing-migration'))
 const TradeTypeSection = loadable(() => import('./trade-type'))
@@ -24,18 +25,22 @@ type PageProps = {
 
 const HomePage = ({ region }: PageProps) => {
     useOpenLiveChat(true)
+    const isTrustpilot = useThirdPartyFlags('trustpilot')
+    const isLivePricing = useThirdPartyFlags('live_pricing')
 
     return (
         <QuillLayout region={region}>
             <MainRowNavigation />
             <PageLayout>
                 <HomeHero />
-                <TrustpilotSection />
+                {isTrustpilot && <TrustpilotSection />}
                 <StatSection />
                 <TwentyYearsStrong />
-                <LiveMarketSection
-                    fallback={<div className="h-[695px] md:h-[638.5px] lg:h-[811.78px]" />}
-                />
+                {isLivePricing && (
+                    <LiveMarketSection
+                        fallback={<div className="h-[695px] md:h-[638.5px] lg:h-[811.78px]" />}
+                    />
+                )}
                 <UserFriendlyPlatforms
                     fallback={<div className="h-[1805px] md:h-[1007.5px] lg:h-[999px]" />}
                 />

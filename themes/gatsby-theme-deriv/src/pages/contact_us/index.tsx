@@ -11,6 +11,7 @@ import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const Offices = Loadable(() => import('./_offices'))
 const Affiliates = Loadable(() => import('./_affiliates'))
@@ -45,6 +46,7 @@ const ContactUs = ({ data, pageContext }: ContactUsProps) => {
     /* redirect livechat for en to open live chat popup */
     /* set true to allow redirection for other lang also*/
     useOpenLiveChat(true)
+    const isLiveChat = useThirdPartyFlags('chat.live_chat')
 
     return (
         <Layout region={region}>
@@ -60,7 +62,7 @@ const ContactUs = ({ data, pageContext }: ContactUsProps) => {
             </SectionContainer>
             <ContactWays support_section={support_section} />
             <Offices our_offices={our_offices} office_address={office_address} />
-            <Affiliates business_partnership={business_partnership} />
+            {isLiveChat && <Affiliates business_partnership={business_partnership} />}
         </Layout>
     )
 }

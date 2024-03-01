@@ -6,8 +6,9 @@ import { isBrowser } from 'common/utility'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const NotFound = () => {
-    return isBrowser() && <PageNotFound />
+const NotFound = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return isBrowser() && <PageNotFound region={region} />
 }
 
 export const query = graphql`

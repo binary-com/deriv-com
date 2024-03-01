@@ -41,10 +41,13 @@ jobs:
                   echo "branch_name=$(cat ./pr/BRANCHNAME)" >> $GITHUB_OUTPUT
                   echo "user_name=$(cat ./pr/USERNAME)" >> $GITHUB_OUTPUT
                   echo "draft=$(cat ./pr/DRAFT)" >> $GITHUB_OUTPUT
+<<<<<<< HEAD
                   
             - name: pr_info_debug 🔍
               run: |
                echo "PR Draft value ={{ $steps.pr_information.outputs.draft }}--"
+=======
+>>>>>>> 7cb6d745bd (Quill pr 3317 setup monorep config (#7215))
 
             - name: Checkout external repository with Cypress tests
               uses: actions/checkout@v4
@@ -53,7 +56,11 @@ jobs:
 
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
+<<<<<<< HEAD
               if: "contains(steps.pr_information.outputs.draft, 'false')"
+=======
+              if: (!steps.pr_information.outputs.draft)
+>>>>>>> 7cb6d745bd (Quill pr 3317 setup monorep config (#7215))
               uses: cypress-io/github-action@v6
               with:
                   # Records to Cypress Cloud
@@ -76,7 +83,11 @@ jobs:
 
             - name: Set comments message
               id: set_msg
+<<<<<<< HEAD
               if: always() && contains(steps.pr_information.outputs.draft, 'false')
+=======
+              if: always() && (!steps.pr_information.outputs.draft)
+>>>>>>> 7cb6d745bd (Quill pr 3317 setup monorep config (#7215))
               run: |
                   # Using shell script to conditionally set the message
                   if [[ "${{ job.status }}" == "success" ]]; then
@@ -86,7 +97,11 @@ jobs:
                   fi
 
             - name: Leave comment
+<<<<<<< HEAD
               if: always() && contains(steps.pr_information.outputs.draft, 'false')
+=======
+              if: always() && (!steps.pr_information.outputs.draft)
+>>>>>>> 7cb6d745bd (Quill pr 3317 setup monorep config (#7215))
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Smoke tests status update

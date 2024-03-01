@@ -40,7 +40,7 @@ export type TLiveMarketTableProps = {
 const forex_note: TString =
     '_t_<0>Note:</0> There is a daily break during weekdays between 21:00-21:05 (GMT)_t_'
 const row_disclaimer: TString =
-    '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions. Certain offerings and specifications may vary depending on your country of residence, regulated jurisdiction, and individual trading circumstances._t_'
+    "_t_Information is updated monthly and may not represent today's trading conditions. Offerings can differ by location, jurisdiction, and trade scenario._t_"
 const eu_disclaimer: TString =
     '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions._t_'
 
@@ -111,10 +111,18 @@ const DisclaimerText = styled(Header)`
 
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
-    const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
-    const [markets_data, setMarketsData] = useState(specification_data)
-    const [filtered_data, setFilteredData] = useState(specification_data)
+    const [markets_data, setMarketsData] = useState(forex_specification.data)
+    const [filtered_data, setFilteredData] = useState(forex_specification.data)
+    const [disclaimer, setDisclaimer] = useState(row_disclaimer)
     const is_rtl = useIsRtl()
+
+    useEffect(() => {
+        if (is_eu) {
+            setMarketsData(forex_specification.eu_data)
+            setFilteredData(forex_specification.eu_data)
+            setDisclaimer(eu_disclaimer)
+        }
+    }, [is_eu])
 
     useEffect(() => {
         market_specification.map((specification) => {
@@ -125,6 +133,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             }
         })
     }, [market])
+
     const [search_value, setSearchValue] = useState('')
     const [globalFilter, setGlobalFilter] = useState('')
     const [sorting, setSorting] = React.useState<SortingState>([])
@@ -266,11 +275,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             </TableContainer>
 
             <DisclaimerText as="p">
-                {is_eu ? (
-                    <Localize translate_text={eu_disclaimer} />
-                ) : (
-                    <Localize translate_text={row_disclaimer} />
-                )}
+                <Localize translate_text={disclaimer} />
             </DisclaimerText>
         </>
     )

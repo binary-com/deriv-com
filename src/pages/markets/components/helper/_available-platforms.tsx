@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import DerivcTrader from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
@@ -94,6 +94,13 @@ const AvailablePlatforms = ({
     m_top,
 }: AvailablePlatformsProps) => {
     const { is_eu } = useRegion()
+    const [show_derivx, setShowDerivX] = useState(true)
+
+    useEffect(() => {
+        if (is_eu) setShowDerivX(false)
+    }, [is_eu])
+    const deriv_mt5_name = 'Deriv MT5'
+    const deriv_go_name = 'Deriv GO'
 
     return (
         <Flex
@@ -117,9 +124,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DMT5} width="24" height="24" />
-                            <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv MT5_t_" />
-                            </Text>
+                            <Text ml="0.4rem">{deriv_mt5_name}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -153,7 +158,7 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
-                {derivx && !is_eu && (
+                {derivx && show_derivx && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivX} width="25" height="25" />
@@ -167,9 +172,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/deriv-go/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivGo} width="24" height="24" />
-                            <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv GO_t_" />
-                            </Text>
+                            <Text ml="0.4rem">{deriv_go_name}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

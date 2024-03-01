@@ -8,11 +8,9 @@ import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useContactForm from 'features/hooks/use-contact-form'
 import { TTypographyColor } from 'features/types'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const ContactFormGetInTouch = () => {
     const { contact_us_form, on_submit, form_state } = useContactForm()
-    const { is_mobile } = useBreakpoints()
 
     const {
         register,
@@ -140,7 +138,7 @@ const ContactFormGetInTouch = () => {
                 </Flex.Box>
                 <Flex.Item>
                     <Typography.Paragraph
-                        className={'visible-phone-only'}
+                        className={'at-visible-phone-only'}
                         size={'xs'}
                         textcolor={get_form_bottom_message?.color}
                     >
@@ -148,7 +146,7 @@ const ContactFormGetInTouch = () => {
                     </Typography.Paragraph>
 
                     <Typography.Paragraph
-                        className={'visible-larger-than-phone'}
+                        className={'at-visible-larger-than-phone'}
                         size={'small'}
                         textcolor={get_form_bottom_message?.color}
                     >

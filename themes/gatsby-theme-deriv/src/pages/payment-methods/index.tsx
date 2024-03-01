@@ -15,6 +15,7 @@ import useWS from 'components/hooks/useWS'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { TGatsbyHead } from 'features/types'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -123,7 +124,8 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_p2p_allowed_country, is_eu, is_region_loading } = useRegion()
+    const {region} = useBuildVariant()
+    const { is_p2p_allowed_country, is_region_loading } = useRegion()
     const [is_mobile] = useBrowserResize(992)
     const { data, send } = useWS('crypto_config')
     const [payment_method_data, setPaymentMethodData] = useState(payment_data)
@@ -136,7 +138,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     useEffect(() => {
         // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
 
-        if (is_eu) {
+        if (region === "eu") {
             setPaymentMethodData(
                 payment_method_data.filter((payment_method) => payment_method.is_eu),
             )
@@ -163,7 +165,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                 setPaymentMethodData(updated_payment_data)
             }
         }
-    }, [data, is_eu])
+    }, [data, region])
 
     const content_style = {
         background: 'var(--color-white)',
@@ -202,16 +204,16 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           paddingBottom: pdata.note ? '5rem' : '3.8rem',
                           boxShadow: 'rgba(195, 195, 195, 0.31) 0px 20px 15px 0px',
                       }
-                if (pdata.is_row && is_eu) {
+                if (pdata.is_row && region === "eu") {
                     return []
                 }
-                if (pdata.is_eu && !is_eu) {
+                if (pdata.is_eu && region !== "eu") {
                     return []
                 }
-                if (pdata.is_crypto && is_eu) {
+                if (pdata.is_crypto && region === "eu") {
                     return []
                 }
-                if (pdata.is_fiat_onramp && is_eu) {
+                if (pdata.is_fiat_onramp && region === "eu") {
                     return []
                 } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
                     return null
@@ -439,10 +441,12 @@ const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
     )
 }
 
-const PaymentMethods = () => {
+const PaymentMethods = ({ pageContext }: TGatsbyHead) => {
     const { is_p2p_allowed_country } = useRegion()
+    const { region } = pageContext
+
     return (
-        <Layout>
+        <Layout region={region}>
             <Flex.Box
                 direction="col"
                 container="fluid"

@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 // SVG
 import Hand from 'images/svg/partners/hand-icon.svg'
 import Lamp from 'images/svg/partners/lamp-icon.svg'
 import HiddenFee from 'images/svg/partners/hidden-fee-icon.svg'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const Wrapper = styled(Flex)`
     flex-wrap: wrap;
@@ -41,7 +41,8 @@ const Card = styled(Flex)`
     }
 `
 const WhyChooseUs = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+
     return (
         <SectionContainer background="grey-4">
             <Container direction="column">
@@ -73,7 +74,7 @@ const WhyChooseUs = () => {
                             <Localize translate_text="_t_No charges or hidden fees_t_" />
                         </Header>
                         <Text>
-                            {is_eu ? (
+                            {region === "eu" ? (
                                 <Localize translate_text="_t_Deriv partnership programme is free to join. There are absolutely no charges or hidden fees to worry about._t_" />
                             ) : (
                                 <Localize translate_text="_t_All Deriv partnership programmes are free to join. There are absolutely no charges or hidden fees to worry about._t_" />

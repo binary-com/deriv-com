@@ -9,8 +9,9 @@ import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
 import { ReactComponent as PartnerDerivPrime } from 'images/svg/partners/deriv-prime.svg'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ClientCardProps = {
     first?: boolean
@@ -115,8 +116,8 @@ type contentType = {
 }
 
 const PartnershipOpportunities = () => {
-    const { is_row, is_eu } = useRegion()
-    const content_data: contentType = is_eu
+    const { region } = useBuildVariant()
+    const content_data: contentType = region === "eu"
         ? {
               partnership_title: '_t_Partnership opportunity_t_',
               affiliate_title: '_t_Affiliate programme_t_',
@@ -138,7 +139,7 @@ const PartnershipOpportunities = () => {
                 </StyledMainHeader>
             </Container>
             <ClientCardWrapper>
-                <ClientCard to="/partners/deriv-prime/" first is_row={is_row}>
+                <ClientCard to="/partners/deriv-prime/" first is_row={region === "row"}>
                     <Flex ai="center" height="auto" mb="0.8rem">
                         <StyledHeader as="h4">
                             <Localize translate_text="_t_Deriv Prime_t_" />
@@ -149,7 +150,7 @@ const PartnershipOpportunities = () => {
                         <Localize translate_text="_t_Specialised institutional and prime brokerage solution for the world's most popular financial assets, has zero set-up costs, and is easy to integrate._t_" />
                     </StyledText>
                 </ClientCard>
-                <ClientCard to="/partners/affiliate-ib/" fourth is_row={is_row}>
+                <ClientCard to="/partners/affiliate-ib/" fourth is_row={region === "row"}>
                     <Flex ai="center" height="auto" mb="0.8rem">
                         <StyledHeader as="h4">
                             <Localize translate_text={content_data.affiliate_title} />
@@ -160,8 +161,8 @@ const PartnershipOpportunities = () => {
                         <Localize translate_text={content_data.affiliate_text} />
                     </StyledText>
                 </ClientCard>
-                {is_row && (
-                    <ClientCard to="/partners/payment-agent/" second is_row={is_row}>
+                {region === "row" && (
+                    <ClientCard to="/partners/payment-agent/" second is_row={region === "row"}>
                         <Flex ai="center" height="auto" mb="0.8rem">
                             <StyledHeader as="h4">
                                 <Localize translate_text="_t_Payment agents_t_" />
@@ -180,7 +181,7 @@ const PartnershipOpportunities = () => {
                     external
                     rel="noopener noreferrer"
                     third
-                    is_row={is_row}
+                    is_row={region === "row"}
                 >
                     <Flex ai="center" height="auto" mb="0.8rem">
                         <StyledHeader as="h4">

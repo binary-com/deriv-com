@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const query = graphql`
     {
@@ -33,14 +33,8 @@ const ImageWrapper = styled.div`
 `
 
 const AboutDeriv = () => {
+    const { region } = useBuildVariant()
     const data = useStaticQuery(query)
-    const { is_eu, is_region_loading } = useRegion()
-    const [platform_content, setPlatformContent] = useState(data.deriv_platform)
-
-    useEffect(() => {
-        if (is_eu) setPlatformContent(data.deriv_platform_eu)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [is_eu])
 
     return (
         <Container direction="column">
@@ -50,14 +44,12 @@ const AboutDeriv = () => {
                 </Header>
             </Mobile>
             <WrapContainer mb="8rem">
-                {!is_region_loading ? (
-                    <ImageWrapper>
-                        <QueryImage
-                            data={platform_content}
-                            alt={localize('_t_Deriv.com on laptop and mobile_t_')}
-                        />
-                    </ImageWrapper>
-                ) : null}
+                <ImageWrapper>
+                    <QueryImage
+                        data={region === "eu" ? data.deriv_platform : data.deriv_platform_eu}
+                        alt={localize('_t_Deriv.com on laptop and mobile_t_')}
+                    />
+                </ImageWrapper>
 
                 <Flex direction="column" ml="2.4rem" max_width="69rem">
                     <Desktop>

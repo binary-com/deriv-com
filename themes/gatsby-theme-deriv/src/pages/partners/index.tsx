@@ -17,9 +17,10 @@ const meta_attributes: TMetaAttributes = {
         '_t_Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees._t_',
 }
 
-const Partner = () => {
+const Partner = ({ pageContext }: TGatsbyHead) => {
+    const {region} = pageContext
     return (
-        <Layout type="partners" padding_top="8">
+        <Layout region={region} type="partners" padding_top="8">
             <Hero />
             <AboutDeriv />
             <DerivNumber />

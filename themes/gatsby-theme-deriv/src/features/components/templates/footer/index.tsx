@@ -24,6 +24,7 @@ const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
+    const region_buttons = region === "eu" ? socialButtonsEU : socialButtonsROW
 
     useEffect(() => {
         const current_path = getLocationPathname()

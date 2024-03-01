@@ -14,11 +14,13 @@ import MainRowNavigation from 'features/components/templates/navigation/main-nav
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
 import MainFooter from 'features/components/templates/footer'
+import { TPageContext } from 'features/types'
 
-const ETFMarket = () => {
+const ETFMarket = ({ region }: TPageContext) => {
     const { is_deriv_go } = usePlatformQueryParam()
+    console.log("region ==", region)
     return (
-        <Layout>
+        <Layout region={region}>
             {!is_deriv_go && (
                 <div className="fixed z-[4] w-full">
                     <MainRowNavigation />
@@ -43,7 +45,7 @@ const ETFMarket = () => {
             <CheckTrading />
             <WhyTrade />
             <Steps />
-            <OtherMarketsSlider current_market="etfs" />
+            <OtherMarketsSlider current_market="etfs"/>
             <SignupPublic />
             <MainFooter />
         </Layout>

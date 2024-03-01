@@ -23,7 +23,7 @@ export const NextButton = styled(Button)`
     font-family: 'Ubuntu';
     text-align: center;
     height: 40px;
-    width: 65px;
+
     @media ${device.tablet} {
         width: 100%;
     }

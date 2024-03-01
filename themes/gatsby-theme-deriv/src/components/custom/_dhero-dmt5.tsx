@@ -14,6 +14,7 @@ import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
 import { localize } from 'components/localization'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -129,6 +130,7 @@ const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const { region } = useBuildVariant()
     const { is_eu } = useRegion()
     const is_rtl = useIsRtl()
 
@@ -174,7 +176,7 @@ const DCommonBanner = () => {
                     >
                         <ImageWrapper>
                             <ImageStyle>
-                                {is_eu ? (
+                                {region === "eu" ? (
                                     <StaticImage
                                         src="../../images/common/dmt5/banner_image_eu.png"
                                         loading="eager"

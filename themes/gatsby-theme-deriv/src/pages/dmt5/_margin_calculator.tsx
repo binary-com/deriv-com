@@ -6,9 +6,9 @@ import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'com
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type CalculatorProps = {
     children?: React.ReactNode
@@ -193,8 +193,8 @@ const CalculatorCard = ({
     name,
     text,
 }: CalculatorProps) => {
+    const { region } = useBuildVariant()
     const data = useStaticQuery(query)
-    const { is_eu } = useRegion()
 
     return (
         <StyledCardContainer>
@@ -207,14 +207,14 @@ const CalculatorCard = ({
             <ImageWrapper>
                 <Desktop>
                     <QueryImage
-                        data={is_eu ? data['eu_' + image_name] : data[image_name]}
+                        data={region === "eu" ? data['eu_' + image_name] : data[image_name]}
                         alt={localize(image_alt)}
                     />
                 </Desktop>
                 <Mobile>
                     <QueryImage
                         data={
-                            is_eu
+                            region === "eu"
                                 ? data['eu_' + image_name + '_mobile']
                                 : data[image_name + '_mobile']
                         }
@@ -251,6 +251,7 @@ const calculators: CalculatorProps[] = [
 ]
 
 const MarginCalculator = () => {
+    const { region } = useBuildVariant()
     const lang_direction = useLangDirection()
 
     const settings: CarouselProps = {
@@ -275,8 +276,6 @@ const MarginCalculator = () => {
         },
     }
 
-    const { is_eu } = useRegion()
-
     return (
         <StyledSectionContainer>
             <StyledContainer>
@@ -286,7 +285,7 @@ const MarginCalculator = () => {
                             <Localize translate_text="_t_Take control of your trades on Deriv MT5_t_" />
                         </MainHeader>
                         <StyledText>
-                            {is_eu && (
+                            {region === "eu" && (
                                 <Localize
                                     translate_text="_t_Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour._t_"
                                     components={[
@@ -300,7 +299,7 @@ const MarginCalculator = () => {
                                     ]}
                                 />
                             )}
-                            {!is_eu && (
+                            {region !== "eu" && (
                                 <Localize
                                     translate_text="_t_Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour._t_"
                                     components={[

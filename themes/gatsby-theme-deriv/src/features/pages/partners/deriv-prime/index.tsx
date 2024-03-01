@@ -12,10 +12,11 @@ import AvailableInstruments from './available-instruments'
 import Hero from './hero'
 import PrimeNav from 'features/components/templates/navigation/partners-nav/prime-nav'
 import MainFooter from 'features/components/templates/footer'
+import { BuildVariantType } from 'features/types'
 
-const DerivPrime = () => {
+const DerivPrime = ({ region }: BuildVariantType) => {
     return (
-        <Layout>
+        <Layout region={region}>
             <PrimeNav />
             <Hero />
             <Potential />

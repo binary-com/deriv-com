@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { MobileNavToggle, NavigationBlock } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
 import { SubBrandDerivPrimeBrandLightIcon } from '@deriv/quill-icons/Logo'
@@ -6,9 +6,9 @@ import { Button } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
 import { partnersEUItems, partnersItems } from './data'
 import TopNavigation from './top-navigation'
-import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const PrimeNavButtons = () => {
     return (
@@ -36,12 +36,7 @@ const PrimeNavButtons = () => {
 }
 
 const PrimeNav = () => {
-    const { is_eu } = useRegion()
-    const [items, setItems] = useState(partnersItems)
-
-    useEffect(() => {
-        if (is_eu) setItems(partnersEUItems)
-    }, [is_eu])
+    const { region } = useBuildVariant()
 
     return (
         <NavigationBlock
@@ -52,7 +47,7 @@ const PrimeNav = () => {
                     <SubBrandDerivPrimeBrandLightIcon width={118} height={24} />
                 </CustomLink>
             )}
-            items={items}
+            items={region === "row" ? partnersItems : partnersEUItems}
         />
     )
 }

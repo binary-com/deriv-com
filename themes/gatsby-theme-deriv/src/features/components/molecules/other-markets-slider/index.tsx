@@ -9,9 +9,9 @@ import Typography from 'features/components/atoms/typography'
 import Card from 'features/components/atoms/card'
 import './other-markets-slider.scss'
 import Container from 'features/components/atoms/container'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type OtherMarketSliderProps = {
     current_market?: MarketPageType
@@ -24,12 +24,12 @@ const OtherMarketsSlider = ({
     title,
     available_markets = null,
 }: OtherMarketSliderProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const slider_items = useDynamicVisibleContent({
         content: available_markets || other_markets_items,
         config: {
             current_market: (market_page) => market_page !== current_market,
-            is_eu: (item_is_eu) => item_is_eu === undefined || is_eu === item_is_eu,
+            is_eu: (item_is_eu) => item_is_eu === undefined || (region === "eu") === item_is_eu,
         },
     })
     const is_no_linkAvailable = !!available_markets?.length

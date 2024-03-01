@@ -5,8 +5,8 @@ import { faq_schema } from 'features/pages/partners/deriv-prime/browse-our-faq/_
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const DerivPrimePage = () => {
-    return <DerivPrime />
+const DerivPrimePage = ({ pageContext }: TGatsbyHead) => {
+    return <DerivPrime region={pageContext.region} />
 }
 
 export default WithIntl()(DerivPrimePage)

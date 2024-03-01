@@ -1,6 +1,5 @@
 import React from 'react'
 import { connectivity_items } from './data'
-import { item_container } from './styles.module.scss'
 import ConnectivityReliabilityItem from './connectivity-reliability-item'
 import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardContent } from '@deriv-com/components'
+import { CardContent, CustomLink } from '@deriv-com/components'
 import {
     IllustrativePayoutIcon,
     IllustrativeMinimalCapitalIcon,
@@ -8,11 +8,9 @@ import {
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustrative'
 import { StaticImage } from 'gatsby-plugin-image'
-import Image from 'features/components/atoms/image'
 import TickDuration from 'images/svg/options/tick_duration.svg'
 import { Localize, localize } from 'components/localization'
 import { OptionsFAQDataItem } from 'features/components/templates/options-content/type'
-import Link from 'features/components/atoms/link'
 
 export const accumulatorCards: CardContent[] = [
     {
@@ -33,7 +31,7 @@ export const accumulatorCards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Fast-paced action with durations up to 230 ticks._t_" />
         ),
-        icon: <Image src={TickDuration} width="48" height="48" />,
+        icon: <img src={TickDuration} width="48" height="48" />,
         color: 'gray',
         align: 'start',
         size: 'md',
@@ -81,12 +79,9 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
             <Localize translate_text="_t_Check out our quick video walkthrough of how to trade accumulators on Deriv Trader._t_" />
         ),
         content: (
-            <Link
+            <CustomLink
                 target="_blank"
-                url={{
-                    type: 'non-company',
-                    href: 'https://blog.deriv.com/videos/how-to-trade-accumulator-options-on-deriv-trader/',
-                }}
+                href="https://blog.deriv.com/videos/how-to-trade-accumulator-options-on-deriv-trader/"
             >
                 <StaticImage
                     src="../../../../images/common/trade-types/accumulator-video-bg-1.png"
@@ -97,7 +92,7 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
                     style={{ position: 'relative' }}
                     className="cursor-pointer"
                 />
-            </Link>
+            </CustomLink>
         ),
         size: 'md',
         align: 'start',
@@ -156,7 +151,7 @@ export const mobileCards: CardContent[] = [
         size: 'md',
         color: 'gray',
         align: 'start',
-        icon: <Image src={TickDuration} width="48" height="48" />,
+        icon: <img src={TickDuration} width="48" height="48" />,
         className: 'h-full',
     },
     {

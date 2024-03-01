@@ -12,7 +12,7 @@ import DBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type AvailablePlatformsProps = {
     dmt5?: boolean
@@ -93,12 +93,12 @@ const AvailablePlatforms = ({
     tablet_direction,
     m_top,
 }: AvailablePlatformsProps) => {
-    const { is_eu } = useRegion()
     const [show_derivx, setShowDerivX] = useState(true)
+    const { region } = useBuildVariant()
 
     useEffect(() => {
-        if (is_eu) setShowDerivX(false)
-    }, [is_eu])
+        if (region === 'eu') setShowDerivX(false)
+    }, [region])
     const deriv_mt5_name = 'Deriv MT5'
     const deriv_go_name = 'Deriv GO'
 

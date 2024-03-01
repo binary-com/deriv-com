@@ -8,9 +8,11 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const ForexPage = () => {
+const ForexPage = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
+    console.log("region main ==", region)
     return (
-        <Layout type="noNav" padding_top="0">
+        <Layout type="noNav" padding_top="0" region={region}>
             <DerivedFXHero
                 title="_t_Forex_t_"
                 description="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_"

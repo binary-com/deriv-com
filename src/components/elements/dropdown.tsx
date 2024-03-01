@@ -442,6 +442,7 @@ export type DropdownProps = {
     value?: string
     disabled?: boolean
     autocomplete?: string
+    placeholder?: string
     mb?: string
     is_alternate_style?: boolean
     onClearInput?: () => void

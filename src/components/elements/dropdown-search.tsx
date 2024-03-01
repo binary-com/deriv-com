@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
+import { Placeholder } from 'gatsby-plugin-image'
 import {
     Arrow,
     BottomLabel,
@@ -41,6 +42,7 @@ const DropdownInput = styled.input<DropdownInputProps>`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
     ${(props) =>
         props.has_short_name &&
         css`
@@ -79,6 +81,7 @@ const DropdownSearch = ({
     selected_item,
     is_alternate_style,
     onClearInput,
+    placeholder,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -151,7 +154,7 @@ const DropdownSearch = ({
                         value={input_value}
                         is_active={is_open}
                         is_alternate_style={is_alternate_style}
-                        placeholder={label}
+                        placeholder={placeholder}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>

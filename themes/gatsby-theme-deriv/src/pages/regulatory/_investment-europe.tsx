@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import { Box, Europe, StyledHeader, StyledLinkText } from './_style'
@@ -13,8 +13,27 @@ import {
 import { Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/regulatory/europe-map.svg'
+import useBuildVariant from 'features/hooks/use-build-variant'
+import useRegion from 'components/hooks/use-region'
+import InitialLoader from 'components/elements/dot-loader'
 
 const InvestmentEurope = ({ language }: { language: string }) => {
+    const {region} = useBuildVariant()
+    const { is_cpa_plan, is_region_loading } = useRegion()
+    const [is_row_cpa, setIsRowCpa] = useState(true)
+
+    useEffect(() => {
+        if (region === "row" || is_cpa_plan) {
+            setIsRowCpa(false)
+        } else {
+            setIsRowCpa(true)
+        }
+    }, [region, is_cpa_plan])
+
+    if(is_region_loading) <InitialLoader/>
+
+    if(!is_row_cpa) return null;
+
     return (
         <>
             <SectionContainer padding="8rem 0 0">

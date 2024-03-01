@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     DesktopWrapper,
     MobileWrapper,
@@ -9,8 +9,24 @@ import {
 import { Localize } from 'components/localization'
 import { CssGridColumn } from 'components/containers'
 import { Text } from 'components/elements'
+import useBuildVariant from 'features/hooks/use-build-variant'
+import useRegion from 'components/hooks/use-region'
 
 const InfoRowCpa = () => {
+    const {region} = useBuildVariant()
+    const { is_cpa_plan } = useRegion()
+    const [is_row_cpa, setIsRowCpa] = useState(true)
+
+    useEffect(() => {
+        if (region === "row" || is_cpa_plan) {
+            setIsRowCpa(false)
+        } else {
+            setIsRowCpa(true)
+        }
+    }, [region, is_cpa_plan])
+
+    if(is_row_cpa) return null;
+    
     return (
         <>
             <ResponsiveGrid align="flex-start">

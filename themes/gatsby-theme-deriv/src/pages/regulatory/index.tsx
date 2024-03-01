@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import FinancialCommission from './_financial_commission'
 import { RegulatoryProps } from './_type'
 import {
@@ -34,25 +34,12 @@ import TFC from 'images/common/regulatory/tfc.svg'
 import SVG from 'images/svg/regulatory/svg.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { TGatsbyHead } from 'features/types'
-import useRegion from 'components/hooks/use-region'
-import InitialLoader from 'components/elements/dot-loader'
 
 type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
 
 const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
     const {region} = pageContext;
     const { is_mobile } = useBreakpoints()
-    const { is_row, is_cpa_plan, is_region_loading } = useRegion()
-    const [is_row_cpa, setIsRowCpa] = useState(true)
-    const investment_euroupe = is_row_cpa ? <InvestmentEurope language={language} /> : null
-
-    useEffect(() => {
-        if (is_row || is_cpa_plan) {
-            setIsRowCpa(false)
-        } else {
-            setIsRowCpa(true)
-        }
-    }, [is_row, is_cpa_plan])
 
     return (
         <Layout region={region}>
@@ -83,7 +70,7 @@ const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
                 </GridContainer>
             </SectionContainer>
 
-            {is_region_loading ? <InitialLoader /> : investment_euroupe}
+            <InvestmentEurope language={language} />
 
             <SectionContainer padding="0 0 4rem" mt={is_mobile ? '0' : '8rem'}>
                 <SmallContainer>
@@ -95,7 +82,7 @@ const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr"
                     >
-                        {!is_row_cpa && <InfoRowCpa />}
+                        <InfoRowCpa />
 
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>

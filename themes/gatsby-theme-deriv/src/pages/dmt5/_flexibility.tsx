@@ -8,8 +8,8 @@ import SwapFreeIcon from 'images/svg/dmt5/swap-free-platform.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ContentType = {
     header: TString
@@ -127,8 +127,8 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_eu } = useRegion()
-    const chosen_content = is_eu ? eucontent : content
+    const { region } = useBuildVariant()
+    const chosen_content = region === "eu" ? eucontent : content
 
     return (
         <Section>
@@ -142,7 +142,7 @@ const Flexibility = () => {
             >
                 <Localize
                     translate_text={
-                        is_eu
+                        region === "eu"
                             ? '_t_Flexibility with multiple markets_t_'
                             : '_t_Focused accounts for a focused strategy_t_'
                     }
@@ -151,8 +151,8 @@ const Flexibility = () => {
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {
                     return (
-                        ((is_eu && item.show_eu) ||
-                            (!is_eu && !item.show_eu) ||
+                        ((region === "eu" && item.show_eu) ||
+                            (region !== "eu" && !item.show_eu) ||
                             item.show_always) && (
                             <ClientCard key={idx}>
                                 {item.icon}

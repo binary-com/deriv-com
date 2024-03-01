@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import DNumber from 'components/custom/_dnumbers'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 // TO-DO (REBRANDING) Replace this component with NumberSection.
 type NumbersContentType = {
@@ -40,14 +40,9 @@ const numbers_content_eu: NumbersContentType[] = [
 ]
 
 const Numbers = () => {
-    const { is_eu } = useRegion()
-    const [contents, setContents] = useState(numbers_content)
+    const { region } =  useBuildVariant()
 
-    useEffect(() => {
-        if (is_eu) setContents(numbers_content_eu)
-    }, [is_eu])
-
-    return <DNumber items={contents} justify="space-around" />
+    return <DNumber items={region === "row" ? numbers_content : numbers_content_eu} justify="space-around" />
 }
 
 export default Numbers

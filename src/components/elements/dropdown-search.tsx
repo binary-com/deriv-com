@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Placeholder } from 'gatsby-plugin-image'
 import {
     Arrow,
     BottomLabel,
@@ -86,8 +85,13 @@ const DropdownSearch = ({
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen, closeFocus] =
         useDropdown(onChange)
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        !is_open && inputRef.current.blur()
+    }, [is_open])
 
     // Auto select default value
     useEffect(() => {
@@ -144,6 +148,7 @@ const DropdownSearch = ({
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
+                        ref={inputRef}
                         tabIndex={0}
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}

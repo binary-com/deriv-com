@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
@@ -189,6 +188,7 @@ const StyledName = styled(Text)`
     order: 0;
     flex-grow: 0;
 `
+
 const CountryCard = ({
     country_name,
     continent,
@@ -219,16 +219,6 @@ const CountryCard = ({
             </StyledDiv>
         </CountryCardWrapper>
     )
-}
-
-CountryCard.propTypes = {
-    city_name: PropTypes.string,
-    country_name: PropTypes.string,
-    Icon: PropTypes.string,
-    img_alt: PropTypes.string,
-    img_data: PropTypes.object,
-    link: PropTypes.string,
-    open_positions: PropTypes.number,
 }
 
 const query = graphql`
@@ -299,7 +289,8 @@ const query = graphql`
     }
 `
 
-const Locations = () => {
+const Locations = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
     const images = useStaticQuery(query)
 
     const continents = Object.keys(allContinents)
@@ -317,7 +308,7 @@ const Locations = () => {
     }
 
     return (
-        <Layout type="careers">
+        <Layout region={region} type="careers">
             <Hero />
             <StyledSectionContainer direction="column" padding="80px 16px">
                 <Header

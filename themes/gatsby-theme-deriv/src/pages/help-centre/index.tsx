@@ -11,13 +11,14 @@ import { WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TGatsbyHead } from 'features/types'
 
-const HelpCentre = () => {
+const HelpCentre = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const { is_deriv_go } = usePlatformQueryParam()
     const general_questions = getQuestionsBySection(GENERAL)
     const platforms_questions = getQuestionsBySection(PLATFORMS)
 
     return (
-        <Layout>
+        <Layout region={region}>
             <SearchSection />
 
             <Container align="start" justify="flex-start" direction="column">

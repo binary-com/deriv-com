@@ -35,7 +35,10 @@ const StyledText = styled(Text)`
     }
 `
 
-const ContactUs = ({ data }: TContactUs) => {
+type ContactUsProps = TContactUs & TGatsbyHead
+
+const ContactUs = ({ data, pageContext }: ContactUsProps) => {
+    const {region} = pageContext
     const { hero, support_section, our_offices, office_address, business_partnership } =
         data?.strapiContactUs || {}
 
@@ -44,7 +47,7 @@ const ContactUs = ({ data }: TContactUs) => {
     useOpenLiveChat(true)
 
     return (
-        <Layout>
+        <Layout region={region}>
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd="column">
                     <Header align="center" as="h1" type="display-title">

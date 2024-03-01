@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Container, SectionContainer, Desktop, Mobile } from 'components/containers'
@@ -119,19 +118,6 @@ const MobileSingleImage = styled.div`
         border-radius: 10px;
     }
 `
-
-const ImageSlide = ({ img_path, img_alt }) => {
-    return (
-        <ImageWrapper>
-            <img src={img_path} alt={img_alt} loading="lazy" />
-        </ImageWrapper>
-    )
-}
-
-ImageSlide.propTypes = {
-    img_alt: PropTypes.string,
-    img_path: PropTypes.string,
-}
 
 const LifeAtDerivCarousel = () => {
     return (

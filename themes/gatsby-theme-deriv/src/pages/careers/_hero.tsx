@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import Container from './_layout-components/_career_container'
@@ -75,7 +75,7 @@ const StyledLinkButton = styled(LinkButton)`
 `
 
 const Hero = () => {
-    const { has_mounted } = React.useContext(LocationContext)
+    const { has_mounted } = useContext(LocationContext)
 
     return (
         <BackgroundImageWrapper dark_background>

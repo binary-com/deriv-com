@@ -59,12 +59,13 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
-const WhyChooseUs = () => {
+const WhyChooseUs = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
     const { is_latam, is_africa } = useRegion()
     const handleSignup = useHandleSignup()
 
     return (
-        <Layout>
+        <Layout region={region}>
             <Section>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Carousel, CarouselProps, Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -85,7 +84,14 @@ const StyledImg = styled.img`
     height: 100%;
 `
 
-const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
+type EmployeeSlideProps = {
+    img_alt: string
+    img_path: string
+    name: string
+    quote: string
+}
+
+const EmployeeSlide = ({ quote, img_path, img_alt, name }: EmployeeSlideProps) => {
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>
@@ -104,14 +110,6 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
             </EmployeeCard>
         </Flex>
     )
-}
-
-EmployeeSlide.propTypes = {
-    img_alt: PropTypes.string,
-    img_path: PropTypes.string,
-    name: PropTypes.string,
-    quote: PropTypes.string,
-    title: PropTypes.string,
 }
 
 const ahmad = {

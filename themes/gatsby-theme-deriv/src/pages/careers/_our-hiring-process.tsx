@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { CSSProperties } from 'react'
 import styled, { css } from 'styled-components'
 import { zoho_url } from 'common/constants'
 // SVG
@@ -14,7 +13,7 @@ import { Text, Header, LinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import TipIcon from 'images/svg/careers/career-tip.svg'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 8rem 0 5rem 0;
@@ -110,7 +109,13 @@ const StyledContainer = styled(Container)`
     align-items: center;
 `
 
-const TipsCard = ({ content, right, style }) => (
+type TipsCardProps = {
+    content: string
+    right?: boolean
+    style: CSSProperties
+}
+
+const TipsCard = ({ content, right, style }: TipsCardProps) => (
     <StyledTipsCard direction="column" right={right} style={style}>
         <Flex direction="row" mb="1.3rem" jc="flex-start">
             <TipsRounded src={TipIcon} alt="career1" />
@@ -148,7 +153,13 @@ const ProcessWrapper = styled(Flex)`
     }
 `
 
-const Process = ({ title, description, style }) => (
+type ProcessProps = {
+    description: string,
+    style: CSSProperties,
+    title: string,
+}
+
+const Process = ({ title, description, style }: ProcessProps) => (
     <ProcessWrapper direction="column" style={style}>
         <SecondaryHeader as="h2" type="page-title">
             {title}
@@ -294,7 +305,7 @@ const StyledLinkText = styled(LinkText)`
 `
 
 const OurHiringProcess = () => {
-    const { is_eu } = useRegion()
+    const {region} = useBuildVariant();
     return (
         <StyledSectionContainer>
             <Container direction="column">
@@ -401,7 +412,7 @@ const OurHiringProcess = () => {
                     See all jobs
                 </StyledLinkButton>
             </StyledContainer>
-            {is_eu && (
+            {region === "eu" && (
                 <Container>
                     <StyledText mt="8rem">
                         Please read this
@@ -420,18 +431,6 @@ const OurHiringProcess = () => {
             )}
         </StyledSectionContainer>
     )
-}
-
-Process.propTypes = {
-    description: PropTypes.string,
-    style: PropTypes.object,
-    title: PropTypes.string,
-}
-
-TipsCard.propTypes = {
-    content: PropTypes.string,
-    right: PropTypes.bool,
-    style: PropTypes.object,
 }
 
 export default OurHiringProcess

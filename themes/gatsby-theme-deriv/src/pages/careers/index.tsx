@@ -18,17 +18,20 @@ const meta_attributes = {
     og_description: 'Join our incredible team where your growth is just as important as ours.',
 }
 
-const Careers = () => (
-    <Layout type="careers">
-        <Hero />
-        <WhoWeLookFor />
-        <JoinYourTeam />
-        <OurValues />
-        <LifeAtDerivCarousel />
-        <EmployeeTestimonial />
-        <OurHiringProcess />
-    </Layout>
-)
+const Careers = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
+    return(
+        <Layout region={region} type="careers">
+            <Hero />
+            <WhoWeLookFor />
+            <JoinYourTeam />
+            <OurValues />
+            <LifeAtDerivCarousel />
+            <EmployeeTestimonial />
+            <OurHiringProcess />
+        </Layout>
+    )
+}
 
 export default WithIntl()(Careers)
 

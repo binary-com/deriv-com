@@ -109,4 +109,10 @@ export const langItemsROW: LangItems = {
         shortName: 'SW',
         affiliateLang: 18,
     },
+    mn: {
+        path: 'mn',
+        displayName: 'монгол',
+        shortName: 'MN',
+        affiliateLang: 19,
+    },
 }

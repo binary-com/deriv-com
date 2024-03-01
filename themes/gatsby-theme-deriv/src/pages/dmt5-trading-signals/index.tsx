@@ -98,7 +98,8 @@ const Separator = styled.div`
     background-color: var(--color-grey-21);
 `
 
-const DMT5TradingSignals = () => {
+const DMT5TradingSignals = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [active_tab, setActiveTab] = useTabStateQuery(['signal-subscriber', 'signal-provider'])
     const [is_mounted] = usePageLoaded() //needs to fix bug with hightlight of the 1st loading
     const [signal_subscriber, signal_provider] = [
@@ -107,7 +108,7 @@ const DMT5TradingSignals = () => {
     ]
 
     return (
-        <Layout>
+        <Layout region={region}>
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">

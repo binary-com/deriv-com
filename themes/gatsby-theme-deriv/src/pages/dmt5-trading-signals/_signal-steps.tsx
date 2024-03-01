@@ -9,6 +9,7 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { localize } from 'components/localization'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TContent = {
     header: TString
@@ -215,13 +216,13 @@ type SignalStepsProps = {
 }
 
 const SignalSteps = ({ active_tab }: SignalStepsProps) => {
+    const { region } = useBuildVariant()
     const data = useStaticQuery(query)
     const [is_mounted] = usePageLoaded() // needed to fix tab highlighting not being rerendered during first load
     const [signal_subscriber, signal_provider] = [
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
     ]
-    const { is_eu } = useRegion()
 
     return (
         <>
@@ -239,7 +240,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 <Tabs.Panel
                                     label={subscriber.step_one_header}
                                     description={
-                                        is_eu
+                                        region === "eu"
                                             ? subscriber.step_one_text_eu
                                             : subscriber.step_one_text
                                     }

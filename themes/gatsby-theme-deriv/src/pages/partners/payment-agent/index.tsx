@@ -23,30 +23,23 @@ const meta_attributes: TMetaAttributes = {
         '_t_Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!_t_',
 }
 
-const PaymentAgent = () => {
-    const { is_row, is_p2p_allowed_country } = useRegion()
+const PaymentAgent = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    const { is_p2p_allowed_country } = useRegion()
+
+    if(region !== "row") return <PageNotFound region={region} />
 
     return (
-        <>
-            {is_row ? (
-                <Layout type="partners" padding_top="8">
-                    <Hero />
-                    <TapInto />
-                    <YourControl />
-                    <WhoCanApply />
-                    {is_p2p_allowed_country && <P2PBanner />}
-                    {is_row && <PremiumPaymentAgent />}
-                    <Divider />
-                    <Faq />
-                </Layout>
-            ) : (
-                <PageNotFound
-                    pageContext={{
-                        locale: '',
-                    }}
-                />
-            )}
-        </>
+        <Layout region={region} type="partners" padding_top="8">
+            <Hero />
+            <TapInto />
+            <YourControl />
+            <WhoCanApply />
+            {is_p2p_allowed_country && <P2PBanner />}
+            {region === "row" && <PremiumPaymentAgent />}
+            <Divider />
+            <Faq />
+        </Layout>
     )
 }
 

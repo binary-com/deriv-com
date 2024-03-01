@@ -3,17 +3,15 @@ import Loadable from '@loadable/component'
 import { faq_schema } from './_faq-schema'
 import AffiliateIbHero from './_affiliate-ib-hero'
 import Numbers from './_numbers'
+import PrimeAndVolume from './_prime-and-volume'
 import Layout from 'components/layout/layout'
 import { SEO, TMetaAttributes } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
-import useRegion from 'components/hooks/use-region'
 
 const WhyUs = Loadable(() => import('./_why-us'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply'))
 const DerivAffiliateProgramme = Loadable(() => import('./_deriv-affiliate-programme'))
-const DerivIBProgramme = Loadable(() => import('./_deriv-ib-programme'))
-const MinimumVolume = Loadable(() => import('./_minimum-volume'))
 const MoreReason = Loadable(() => import('./_more-reason'))
 const Faq = Loadable(() => import('./_faq'))
 const PartnerCTA = Loadable(() => import('./_partner-cta'))
@@ -24,20 +22,15 @@ const meta_attributes: TMetaAttributes = {
         '_t_Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider._t_',
 }
 
-const AffiliateIb = () => {
-    const { is_eu } = useRegion()
+const AffiliateIb = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
 
     return (
-        <Layout type="partners" padding_top="8">
+        <Layout region={region} type="partners" padding_top="8">
             <AffiliateIbHero />
             <Numbers />
             <DerivAffiliateProgramme />
-            {!is_eu && (
-                <>
-                    <DerivIBProgramme />
-                    <MinimumVolume />
-                </>
-            )}
+            <PrimeAndVolume/>
             <WhyUs />
             <WhoCanAplly />
             <MoreReason />

@@ -13,7 +13,7 @@ import { Localize, localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import { TString } from 'types/generics'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const FaqHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -139,7 +139,8 @@ const StyledAccordionWrapper = styled(AccordionWrapper)`
     }
 `
 const Faq = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+
     return (
         <RelativeContainer>
             <FaqHeader as="h2" size="4.8rem" align="center">
@@ -173,7 +174,7 @@ const Faq = () => {
                     })}
                 </Accordion>
             </StyledAccordionWrapper>
-            {!is_eu && (
+            {region !== "eu"  && (
                 <>
                     <FaqSubHeader
                         as="h3"

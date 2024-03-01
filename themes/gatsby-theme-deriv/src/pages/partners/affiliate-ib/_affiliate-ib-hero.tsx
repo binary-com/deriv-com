@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Hero from './_hero'
 import { StyledHeader, StyledLinkButton } from './_style'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const AffiliateIbHero = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const { affiliate_signup_link } = useAffiliateSignupLink()
-    const [banner_btn, setBannerBtn] = useState<TString>('_t_Sign up as our affiliate and IB_t_')
-
-    useEffect(() => {
-        if (is_eu) setBannerBtn('_t_Sign up as our affiliate_t_')
-    }, [is_eu])
+    const banner_btn: TString = region === "row" ? '_t_Sign up as our affiliate and IB_t_' : '_t_Sign up as our affiliate_t_'
 
     return (
         <Hero>

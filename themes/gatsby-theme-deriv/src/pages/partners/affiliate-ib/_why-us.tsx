@@ -6,7 +6,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type WhyUsType = {
     title: TString
@@ -15,10 +15,6 @@ export type WhyUsType = {
     image_alt: TString
     only_row?: boolean
 }[]
-
-type WhyUsProps = {
-    items: WhyUsType
-}
 
 type RowProps = {
     flex_direction?: string
@@ -114,9 +110,9 @@ type contentType = {
 
 const WhyUs = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
-    const content_data: contentType = is_eu
+    const content_data: contentType = region === "eu"
         ? {
               payout_title: '_t_Zero charges with prompt monthly payouts_t_',
               payout_text:
@@ -140,7 +136,7 @@ const WhyUs = () => {
         {
             title: content_data.payout_title,
             subtitle: content_data.payout_text,
-            image_name: is_eu ? 'daily_ib_commission_eu' : 'daily_ib_commission',
+            image_name: region === "eu" ? 'daily_ib_commission_eu' : 'daily_ib_commission',
             image_alt: '_t_Check your daily IB commission_t_',
         },
         {
@@ -152,7 +148,7 @@ const WhyUs = () => {
         },
     ]
 
-    const why_partner_data = is_eu
+    const why_partner_data = region === "eu"
         ? why_partner_with_us_items.filter((item) => !item.only_row)
         : why_partner_with_us_items
 

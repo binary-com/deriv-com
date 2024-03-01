@@ -11,8 +11,8 @@ import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
-import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ApplyNowProps = {
     mt_mobile?: string
@@ -101,7 +101,7 @@ const StyledSignupBtnWrap = styled.div`
 `
 
 const DerivAffiliateProgramme = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const { affiliate_signup_link } = useAffiliateSignupLink()
 
     return (
@@ -112,7 +112,7 @@ const DerivAffiliateProgramme = () => {
                         <Localize translate_text="_t_Deriv Affiliate Programme_t_" />
                     </Header>
                     <SubtitleHeader as="p" type="sub-section-title" align="center" weight="normal">
-                        {is_eu ? (
+                        {region === "eu" ? (
                             <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from your referred client’s deposits._t_" />
                         ) : (
                             <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader, Deriv Bot, and SmartTrader._t_" />
@@ -120,13 +120,13 @@ const DerivAffiliateProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <ComissionPlanContainer>
-                    {!is_eu && (
+                    {region !== "eu" && (
                         <StyledHeader as="h3" type="main-paragraph">
                             <Localize translate_text="_t_Choose a commission plan:_t_" />
                         </StyledHeader>
                     )}
                     <StyledCardWrapper>
-                        {!is_eu && (
+                        {region !== "eu" && (
                             <>
                                 <RevenueShareCard />
                                 <TurnoverCard />
@@ -134,7 +134,7 @@ const DerivAffiliateProgramme = () => {
                                 <MasterAffilateCard />
                             </>
                         )}
-                        {is_eu && <CpaEuCard />}
+                        {region === "eu" && <CpaEuCard />}
                     </StyledCardWrapper>
                     <StyledSignupBtnWrap>
                         <ApplyNow

@@ -16,7 +16,8 @@ concurrency:
 jobs:
     build_row_to_cloudflare_pages:
         runs-on: Ubuntu-latest
-        if: contains(github.head_ref, 'multiple-build')
+        # To be removed once released in production
+        if: contains(github.event.pull_request.head.ref, 'multiple-build')
         permissions:
           checks: write
           pull-requests: write

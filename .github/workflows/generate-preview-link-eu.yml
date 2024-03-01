@@ -16,7 +16,7 @@ concurrency:
 jobs:
     build_eu_to_cloudflare_pages:
         runs-on: Ubuntu-latest
-        if: contains(github.head_ref, 'multiple-build')
+        if: contains(github.event.pull_request.head.ref, 'multiple-build')
         permissions:
           checks: write
           pull-requests: write

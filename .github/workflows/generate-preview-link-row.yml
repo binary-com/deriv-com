@@ -15,7 +15,8 @@ concurrency:
 
 jobs:
     build_row_to_cloudflare_pages:
-        runs-on: Runner_16cores
+        runs-on: Ubuntu-latest
+        if: contains(github.head_ref, 'multiple-build')
         permissions:
           checks: write
           pull-requests: write

@@ -2,7 +2,6 @@ import React from 'react'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import { Box, Europe, StyledHeader, StyledLinkText } from './_style'
-import { RegulatoryProps } from './_type'
 import { Header } from 'components/elements'
 import {
     CssGrid,
@@ -15,7 +14,7 @@ import { Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/regulatory/europe-map.svg'
 
-const InvestmentEurope = ({ locale }: { locale: RegulatoryProps }) => {
+const InvestmentEurope = ({ language }: { language: string }) => {
     return (
         <>
             <SectionContainer padding="8rem 0 0">
@@ -78,7 +77,7 @@ const InvestmentEurope = ({ locale }: { locale: RegulatoryProps }) => {
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
                 <SmallContainer fd="column" id="regulatory-list">
-                    <DocumentAccordion locale={locale} />
+                    <DocumentAccordion language={language} />
                 </SmallContainer>
             </SectionContainer>
         </>

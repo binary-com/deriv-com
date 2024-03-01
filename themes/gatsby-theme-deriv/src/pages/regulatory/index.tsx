@@ -37,11 +37,14 @@ import { TGatsbyHead } from 'features/types'
 import useRegion from 'components/hooks/use-region'
 import InitialLoader from 'components/elements/dot-loader'
 
-const Regulatory = (locale: RegulatoryProps) => {
+type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
+
+const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
+    const {region} = pageContext;
     const { is_mobile } = useBreakpoints()
     const { is_row, is_cpa_plan, is_region_loading } = useRegion()
     const [is_row_cpa, setIsRowCpa] = useState(true)
-    const investment_euroupe = is_row_cpa ? <InvestmentEurope locale={locale} /> : null
+    const investment_euroupe = is_row_cpa ? <InvestmentEurope language={language} /> : null
 
     useEffect(() => {
         if (is_row || is_cpa_plan) {
@@ -52,7 +55,7 @@ const Regulatory = (locale: RegulatoryProps) => {
     }, [is_row, is_cpa_plan])
 
     return (
-        <Layout>
+        <Layout region={region}>
             <SectionContainer>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">

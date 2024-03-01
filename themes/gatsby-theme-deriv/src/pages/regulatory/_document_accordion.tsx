@@ -7,7 +7,7 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 
-type DocumentAccordionProps = { locale: { language: string } }
+type DocumentAccordionProps = { language: string }
 
 const FlexText = styled(LinkText)`
     width: 26%;
@@ -80,7 +80,7 @@ const RTS27_28 = () => (
     </EdgeFlex>
 )
 
-const DocumentAccordion = (locale: DocumentAccordionProps) => {
+const DocumentAccordion = ({language}: DocumentAccordionProps) => {
     const content_style = {
         background: 'var(--color-white)',
         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
@@ -97,8 +97,8 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
         marginBottom: '2.4rem',
         width: '100%',
     }
-
-    const selected_language = locale.locale.language || 'en'
+    
+    const selected_language = language || 'en'
     const supported_languages = ['es', 'it', 'pl', 'pt']
 
     const is_supported_language = (language: string) => supported_languages.includes(language)

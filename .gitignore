@@ -64,6 +64,10 @@ typings/
 # gatsby files
 .cache/
 public
+sites/row/.cache
+sites/row/public
+sites/eu/.cache
+sites/eu/public
 
 # Mac files
 .DS_Store

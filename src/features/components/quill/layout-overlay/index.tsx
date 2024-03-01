@@ -6,6 +6,7 @@ import { wrapper_ltr, wrapper_rtl } from './styles.module.scss'
 import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
@@ -20,6 +21,8 @@ function calculatePercentageOfNumber(percentage: number, number: number) {
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
     const { visibilityPercentage } = useFloatingCtaContext()
+    const isLiveChat = useThirdPartyFlags('chat.live_chat')
+    const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
     const [is_mounted] = usePageLoaded()
 
     return (
@@ -50,8 +53,8 @@ const LayoutOverlay = () => {
                         )}px`,
                     }}
                 >
-                    <LiveChatButton />
-                    <WhatsappButton />
+                    {isLiveChat && <LiveChatButton />}
+                    {isWhatsappChat && <WhatsappButton />}
                 </div>
             </div>
             {is_mounted && <CfdWarningBanner />}

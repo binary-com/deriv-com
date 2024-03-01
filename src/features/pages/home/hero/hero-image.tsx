@@ -5,7 +5,7 @@ import { hero_img } from './styles.module.scss'
 
 const HeroImage = () => {
     return (
-        <div className={clsx('absolute inset-50 flex items-end -z-1', hero_img)}>
+        <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
             <StaticImage
                 src="../../../../images/migration/home/feb-human.png"
                 alt="hero image"

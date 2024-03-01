@@ -1,6 +1,6 @@
 import React from 'react'
 import { Features, AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
-import { Text , FluidContainer } from '@deriv/quill-design'
+import { Text, FluidContainer } from '@deriv/quill-design'
 import {
     DerivProductDerivTraderBrandLightLogoHorizontalIcon,
     IllustrativeDerivedIcon,
@@ -82,8 +82,6 @@ const AccumulatorsOptions = () => {
                                         allowFullScreen
                                     ></Box>
                                 </div>
-
-                                <script src="https://player.vimeo.com/api/player.js"></script>
                             </div>
                             <div className="flex flex-col w-full md:w-1/2 gap-gap-md">
                                 <div className="flex flex-row gap-gap-md">

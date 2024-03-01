@@ -53,7 +53,7 @@ jobs:
 
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
-              if: (contains(steps.pr_information.outputs.draft, 'false'))
+              if: "contains(steps.pr_information.outputs.draft, 'false')"
               uses: cypress-io/github-action@v6
               with:
                   # Records to Cypress Cloud
@@ -76,7 +76,7 @@ jobs:
 
             - name: Set comments message
               id: set_msg
-              if: always() && (contains(steps.pr_information.outputs.draft, 'false'))
+              if: always() && contains(steps.pr_information.outputs.draft, 'false')
               run: |
                   # Using shell script to conditionally set the message
                   if [[ "${{ job.status }}" == "success" ]]; then
@@ -86,7 +86,7 @@ jobs:
                   fi
 
             - name: Leave comment
-              if: always() && (contains(steps.pr_information.outputs.draft, 'false'))
+              if: always() && contains(steps.pr_information.outputs.draft, 'false')
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Smoke tests status update

@@ -24,6 +24,17 @@ const ThingsInMind = () => {
                 <Text mb="3.2rem">
                     <Localize translate_text="_t_With or without a stop loss, if the market moves against your prediction causing your losses to reach the stop out price, your position will automatically close. The stop out price is the price where your net loss equals your initial stake. This feature ensures your contract is closed automatically once your loss meets or exceeds a certain percentage of your stake.  On Deriv Trader, directly beneath your stake amount, you can see the exact stop out percentage, which adjusts based on the multiplier you select._t_" />
                 </Text>
+                {!is_eu && (
+                    <>
+                        <Header as="h4" mb="0.8rem" type="sub-section-title">
+                            <Localize translate_text="_t_Multipliers on Crash and Boom_t_" />
+                        </Header>
+                        <Text mb="3.2rem">
+                            <Localize translate_text="_t_Deal cancellation isn’t available for Crash and Boom indices. The stop-out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop-out percentage is shown below your stake on Deriv Trader and varies according to your chosen multiplier._t_" />
+                        </Text>
+                    </>
+                )}
+
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_You can’t use stop loss and deal cancellation features at the same time._t_" />
                 </Header>

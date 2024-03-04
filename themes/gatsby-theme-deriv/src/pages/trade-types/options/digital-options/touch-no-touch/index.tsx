@@ -3,17 +3,16 @@ import TouchNoTouchDigitalOptionsPage from 'features/pages/options/digital/touch
 import { faq_schema } from 'features/pages/options/digital/touch-no-touch/_faq-schema'
 import { WithIntl } from 'components/localization'
 import ProtectedRoute from 'features/components/molecules/protected-route'
-import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const TouchNoTouchDigitalOptions = () => {
-    const { is_row, is_region_loading } = useRegion()
+const TouchNoTouchDigitalOptions = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
         <ProtectedRoute
-            is_page_visible={is_row}
-            component={<TouchNoTouchDigitalOptionsPage />}
-            is_loading={is_region_loading}
+            region={region}
+            is_page_visible={region === "row"}
+            component={<TouchNoTouchDigitalOptionsPage region={region}/>}
         />
     )
 }

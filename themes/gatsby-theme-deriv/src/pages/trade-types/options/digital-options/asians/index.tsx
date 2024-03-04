@@ -3,17 +3,16 @@ import ProtectedRoute from 'features/components/molecules/protected-route'
 import { WithIntl } from 'components/localization'
 import AsiansDigitalOptionsPage from 'features/pages/options/digital/asians'
 import { faq_schema } from 'features/pages/options/digital/asians/_faq-schema'
-import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const DigitalOptionsAsians = () => {
-    const { is_row, is_region_loading } = useRegion()
+const DigitalOptionsAsians = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
         <ProtectedRoute
-            is_page_visible={is_row}
-            component={<AsiansDigitalOptionsPage />}
-            is_loading={is_region_loading}
+            region={region}
+            is_page_visible={region === "row"}
+            component={<AsiansDigitalOptionsPage region={region}/>}
         />
     )
 }

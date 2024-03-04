@@ -142,14 +142,14 @@ const Layout = ({
         )
     }
     return (
-        <SharedLinkProvider DerivLink={GatsbySharedLink}>
-            <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-                <LanguageProvider
-                    langItems={langItemsROW}
-                    onLangSelect={onLanguageChange}
-                    activeLanguage={activeLang}
-                >
-                    <BuildVariantProvider region={region}>
+        <BuildVariantProvider region={region}>
+            <SharedLinkProvider DerivLink={GatsbySharedLink}>
+                <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+                    <LanguageProvider
+                        langItems={langItemsROW}
+                        onLangSelect={onLanguageChange}
+                        activeLanguage={activeLang}
+                    >
                         {Navs[type]}
                         <LocationProvider
                             has_mounted={is_mounted}
@@ -175,10 +175,10 @@ const Layout = ({
                             </div>
                         </LocationProvider>
                         {show_footer && <RebrandingFooter />}
-                    </BuildVariantProvider>
-                </LanguageProvider>
-            </PpcProvider>
-        </SharedLinkProvider>
+                    </LanguageProvider>
+                </PpcProvider>
+            </SharedLinkProvider>
+        </BuildVariantProvider>
     )
 }
 

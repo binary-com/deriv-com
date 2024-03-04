@@ -44,11 +44,12 @@ const DP2P_CONTENT: ContentType[] = [
     },
 ]
 
-const ForexTrading = () => {
+const ForexTrading = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
 
     return (
-        <Layout type="landing-page" is_ppc_redirect>
+        <Layout type="landing-page" is_ppc_redirect region={region}>
             {is_mounted && (
                 <>
                     <Hero

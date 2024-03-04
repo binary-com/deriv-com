@@ -12,11 +12,13 @@ import OptionsContent from 'features/components/templates/options-content'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import OptionsFaq from 'features/components/templates/options-faq'
 import Flex from 'features/components/atoms/flex-box'
+import { BuildVariantType } from 'features/types'
 
-const AccumulatorsOptions = () => {
+const AccumulatorsOptions = ({region}: BuildVariantType) => {
     return (
         <>
             <OptionsLayout
+                region={region}
                 heading="_t_What are accumulator options?_t_"
                 description="_t_Accumulator options allow you to predict whether the current spot price remains within a predefined range from the previous spot price._t_"
             >

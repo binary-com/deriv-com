@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { PasswordInput } from '@deriv-com/ui'
 import { trading_btn, signup_form_line } from './signup-academy-complete.module.scss'
 import { passwordRegex } from './password-validation'
 import { isBrowser } from 'common/utility'
@@ -10,6 +9,8 @@ import { Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
 import apiManager from 'common/websocket'
 import device from 'themes/device'
+// eslint-disable-next-line import/order
+import { PasswordInput } from '@deriv-com/ui'
 
 type AcademyPasswordFormProps = {
     residence: string

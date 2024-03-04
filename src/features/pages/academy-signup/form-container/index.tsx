@@ -1,11 +1,11 @@
 import React from 'react'
 import { Analytics } from '@deriv-com/analytics'
 import {
-    signup_form_container,
+    form_container,
     link_text,
-    sign_up_header,
-    sign_up_content,
-    signup_login_redirect,
+    header,
+    content,
+    login_redirect,
 } from '../signup-academy.module.scss'
 import SignUpPageForm from './signup-page-form'
 import Flex from 'features/components/atoms/flex-box'
@@ -32,9 +32,9 @@ const SignUpFormContainer = () => {
                 basis: '6-12',
                 padding: '20x',
             }}
-            className={signup_form_container}
+            className={form_container}
         >
-            <Typography.Heading className={sign_up_header}>
+            <Typography.Heading className={header}>
                 <Localize translate_text="_t_Sign up_t_" />
             </Typography.Heading>
 
@@ -45,7 +45,7 @@ const SignUpFormContainer = () => {
                 />
             </Typography.Paragraph>
             <SignUpPageForm />
-            <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
+            <Typography.Paragraph textcolor="secondary" className={content}>
                 <Localize
                     translate_text="_t_By clicking “Create account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy policy</0>._t_"
                     components={[
@@ -71,7 +71,7 @@ const SignUpFormContainer = () => {
                             as="span"
                             textcolor="brand"
                             key={0}
-                            className={signup_login_redirect}
+                            className={login_redirect}
                             onClick={(event) => {
                                 event.preventDefault()
                                 Analytics?.trackEvent('ce_virtual_signup_form', {

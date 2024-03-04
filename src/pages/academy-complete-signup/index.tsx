@@ -2,7 +2,7 @@ import React from 'react'
 import { TGatsbyHead } from 'features/types'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import SignupCompleteAcademy from 'features/pages/signup-academy-complete'
+import SignupCompleteAcademy from 'features/pages/academy-complete'
 
 const CompleteSignupPage = () => {
     return <SignupCompleteAcademy />

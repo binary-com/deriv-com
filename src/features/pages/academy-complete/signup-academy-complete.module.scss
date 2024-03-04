@@ -1,6 +1,15 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
+.wrapper {
+    min-block-size: calc(100svh - 7rem);
+}
+
+.nav_logo {
+    inline-size: 19.9rem;
+    block-size: 3.19rem;
+}
+
 .next_btn {
     display: flex;
     justify-content: flex-end;

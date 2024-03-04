@@ -1,5 +1,5 @@
 import React from 'react'
-import SignUpAcademy from 'features/pages/signup-academy'
+import SignUpAcademy from 'features/pages/academy-signup'
 import { TGatsbyHead } from 'features/types'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'

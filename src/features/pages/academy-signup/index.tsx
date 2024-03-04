@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Analytics } from '@deriv-com/analytics'
 import Layout from 'features/components/templates/layout'
-import { signup_wrapper } from './signup-academy.module.scss'
+import { wrapper } from './signup-academy.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'
 import AcademyNav from 'features/components/templates/navigation/academy-nav'
@@ -30,7 +30,7 @@ const SignUpAcademy = () => {
                     align: 'center',
                     gap: '16x',
                 }}
-                className={signup_wrapper}
+                className={wrapper}
                 pt="30x"
             >
                 <SignUpContent />

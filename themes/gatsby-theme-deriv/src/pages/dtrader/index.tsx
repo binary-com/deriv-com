@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Loadable from '@loadable/component'
 import DtraderEasySteps from './_steps_section'
 import DtraderGetApps from './_get-app-section'
@@ -8,7 +8,6 @@ import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import DHero from 'components/custom/_dhero'
 import DNumber, { TDNumbersItem } from 'components/custom/_dnumbers'
-import useRegion from 'components/hooks/use-region'
 import { TradingType } from 'components/custom/_dtrading'
 import { TGatsbyHead } from 'features/types'
 
@@ -82,36 +81,23 @@ const trading_eu: TradingType[] = [
     },
 ]
 
-const Dtrader = () => {
-    const { is_eu, is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
+const Dtrader = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
 
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
-
-    if (is_loaded) {
-        return (
-            <Layout>
-                <DHero
-                    join_us_for_free
-                    is_live_demo
-                    image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
-                />
-                {is_row && <DNumber items={items} justify="space-around" />}
-                {is_eu && <DNumber items={itemsEU} justify="space-around" />}
-
-                <DtraderEasySteps />
-                {is_row && <DTrading trading={trading} spacing={1} />}
-                {is_eu && <DTrading trading={trading_eu} spacing={1} />}
-
-                <DtraderGetApps />
-                {is_row && <OurPlatforms />}
-            </Layout>
-        )
-    }
-
-    return <React.Fragment></React.Fragment>
+    return (
+        <Layout region={region}>
+            <DHero
+                join_us_for_free
+                is_live_demo
+                image_name={region === "eu" ? 'dtrader_eu' : 'dtrader'}
+            />
+            <DNumber items={region === "row" ? items : itemsEU} justify="space-around" />
+            <DtraderEasySteps />
+            <DTrading trading={region === "row" ? trading : trading_eu} spacing={1} />
+            <DtraderGetApps />
+            {region === "row" && <OurPlatforms />}
+        </Layout>
+    )
 }
 
 export default WithIntl()(Dtrader)

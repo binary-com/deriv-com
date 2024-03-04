@@ -12,9 +12,9 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { Container } from 'components/containers'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type DHeroProps = {
     is_live_demo?: boolean
@@ -157,7 +157,7 @@ const StyledContainer = styled(Container)`
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
-    const { is_eu } = useRegion()
+    const {region} = useBuildVariant()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -217,7 +217,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                     <Shape angle={is_mobile ? 101 : 193} width="60%">
                         <ImageWrapper>
                             <ImageStyle>
-                                {is_eu ? (
+                                {region === "eu" ? (
                                     <StaticImage
                                         src="../../images/common/dtrader/hero-image-eu.png"
                                         loading="eager"

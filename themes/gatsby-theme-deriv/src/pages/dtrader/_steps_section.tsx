@@ -1,16 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import StepperView from 'components/custom/_stepper_view'
-import device, { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
+import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { LinkButton } from 'components/form'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { QueryImage } from 'components/elements'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const query = graphql`
     query {
@@ -66,18 +65,8 @@ const GotoLiveWrapper = styled.div`
 `
 
 const DtraderEasySteps = () => {
-    const [is_mobile, setMobile] = useState(false)
-    const { is_row } = useRegion()
+    const { region } = useBuildVariant()
     const { is_mobile_or_tablet } = useBreakpoints()
-
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }
-
-    useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-        window.addEventListener('resize', handleResizeWindow)
-    })
 
     const data = useStaticQuery(query)
 
@@ -87,7 +76,7 @@ const DtraderEasySteps = () => {
                 title: () => '_t_Select an asset_t_',
                 image: () => (
                     <QueryImage
-                        data={data[is_row ? 'step_1' : 'step_1_eu']}
+                        data={data[region === "row" ? 'step_1' : 'step_1_eu']}
                         alt={localize('_t_Select an asset_t_')}
                     />
                 ),
@@ -96,7 +85,7 @@ const DtraderEasySteps = () => {
                 title: () => '_t_Monitor the chart_t_',
                 image: () => (
                     <QueryImage
-                        data={data[is_row ? 'step_2' : 'step_2_eu']}
+                        data={data[region === "row" ? 'step_2' : 'step_2_eu']}
                         alt={localize('_t_Monitor the chart_t_')}
                     />
                 ),
@@ -105,13 +94,13 @@ const DtraderEasySteps = () => {
                 title: () => '_t_Place a trade_t_',
                 image: () => (
                     <QueryImage
-                        data={data[is_row ? 'step_3' : 'step_3_eu']}
+                        data={data[region === "row" ? 'step_3' : 'step_3_eu']}
                         alt={localize('_t_Place a trade_t_')}
                     />
                 ),
             },
         ],
-        [data, is_row],
+        [data, region],
     )
 
     return (

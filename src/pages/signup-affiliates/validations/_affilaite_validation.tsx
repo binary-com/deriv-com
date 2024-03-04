@@ -19,7 +19,8 @@ export const affiliate_validation_regex = {
         /^[\p{L}\p{Nd}'.,:;()\\x{b0}@#/-][\p{L}\p{Nd}\s'.,:;()\\x{b0}@#/-]{0,68}$/u.test(value) &&
         value.trim().length >= 2 &&
         value.length <= 69,
-    postal_code: (value: string) => /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()),
+    postal_code: (value: string) =>
+        /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()) || value.trim() == '',
     company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value),
     url: (value: string) => /^[\w_@./:#&+-]+(?:\.[\w]{2,})$/.test(value),
     non_empty_string: (value: string) => /^\S.*$/.test(value),
@@ -107,15 +108,8 @@ const passwordValidation = (input: string) => {
     }
 }
 const postcodeValidation = (input: string) => {
-    if (!input) return localize('_t_Postcode is required_t_')
-    else if (input.length < 2 || input.length > 10) {
-        return localize('_t_You should enter 2-10 numbers, characters._t_')
-    } else if (
-        !affiliate_validation_regex.postal_code(input) ||
-        !affiliate_validation_regex.non_empty_string(input)
-    ) {
-        return localize('_t_Please enter a valid postcode with Latin characters._t_')
-    }
+    if (!affiliate_validation_regex.postal_code(input))
+        return localize('_t_Please enter a valid postcode with 2-10 Latin characters._t_')
 }
 const streetValidation = (input: string) => {
     if (!input) return localize('_t_Street is required_t_')

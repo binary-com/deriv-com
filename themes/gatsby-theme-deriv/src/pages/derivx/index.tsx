@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Hero from './_hero'
 import WhatIsDeriv from './_what-is-derivx'
 import SellingPoints from './_selling-points'
@@ -10,36 +10,26 @@ import PageNotFound from 'features/pages/404'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
 
-const DerivX = () => {
-    const { is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
+const DerivX = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
 
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
-
-    if (is_loaded) {
-        if (is_row) {
-            return (
-                <Layout>
-                    <Hero />
-                    <SellingPoints />
-                    <WhatIsDeriv />
-                    <WhyTradeDerivX />
-                    <StartDerivX />
-                    <DerivXGetApp />
-                    <OurPlatforms />
-                </Layout>
-            )
-        }
-
-        return <PageNotFound />
+    if (region === "row") {
+        return (
+            <Layout region={region}>
+                <Hero />
+                <SellingPoints />
+                <WhatIsDeriv />
+                <WhyTradeDerivX />
+                <StartDerivX />
+                <DerivXGetApp />
+                <OurPlatforms />
+            </Layout>
+        )
     }
 
-    return <React.Fragment></React.Fragment>
+    return <PageNotFound  region={region}/>
 }
 
 export default WithIntl()(DerivX)

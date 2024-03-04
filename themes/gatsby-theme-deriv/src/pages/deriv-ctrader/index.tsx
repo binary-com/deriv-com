@@ -1,16 +1,14 @@
 import React from 'react'
 import PageNotFound from '../404'
 import DerivCTrader from 'features/pages/deriv-ctrader'
-import useRegion from 'components/hooks/use-region'
 import { WithIntl, localize } from 'components/localization'
 import SEO from 'components/containers/seo'
 import { TGatsbyHead } from 'features/types'
 
-const CTraderPage = () => {
-    const { is_row } = useRegion()
-    if (is_row) {
-        return <DerivCTrader />
-    }
+const CTraderPage = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    
+    if (region === "row") return <DerivCTrader region={region} />
     return <PageNotFound />
 }
 

@@ -7,6 +7,11 @@ import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import { TString } from 'types/generics'
+import { cpa_plan_countries } from 'common/country-base'
+
+type AccountAddressProps = WizardStepProps<'account_address'> & {
+    setIsCpaPlanAff: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 const AccountAddress = ({
     is_individual,
@@ -14,7 +19,8 @@ const AccountAddress = ({
     residence_list,
     updateData,
     onValidate,
-}: WizardStepProps<'account_address'>) => {
+    setIsCpaPlanAff,
+}: AccountAddressProps) => {
     const [form_data, setFormData] = useState(affiliate_account.account_address)
     const [form_errors, setFormErrors] = useState({
         country_error_msg: affiliate_validation['country'](form_data['country']) ?? '',
@@ -35,6 +41,9 @@ const AccountAddress = ({
             form_data.state?.name &&
             changed_country !== form_data.country
         ) {
+            setIsCpaPlanAff(
+                form_data.country ? cpa_plan_countries.includes(form_data.country.symbol) : false,
+            )
             setFormErrors({
                 ...form_errors,
                 state_error_msg: 'State is not valid for this country',

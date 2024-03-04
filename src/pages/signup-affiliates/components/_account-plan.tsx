@@ -9,7 +9,7 @@ import Revenue from 'images/svg/signup-affiliates/revenue.svg'
 import Turnover from 'images/svg/signup-affiliates/turnover.svg'
 import CPA from 'images/svg/signup-affiliates/cpa.svg'
 
-const getPlans = (is_eu: boolean, is_cpa_plan: boolean): AccountCardProps[] => {
+const getPlans = (is_eu: boolean, is_cpa_plan_aff: boolean): AccountCardProps[] => {
     const plans: AccountCardProps[] = [
         {
             value: 2,
@@ -26,7 +26,7 @@ const getPlans = (is_eu: boolean, is_cpa_plan: boolean): AccountCardProps[] => {
                 "_t_Earn based on each contract's payout probability or client's trade. <0>Learn more</>_t_",
         },
     ]
-    if (is_eu || is_cpa_plan) {
+    if (is_eu || is_cpa_plan_aff) {
         plans.push({
             value: 6,
             icon: CPA,
@@ -38,15 +38,20 @@ const getPlans = (is_eu: boolean, is_cpa_plan: boolean): AccountCardProps[] => {
     return plans
 }
 
+type AccountPlanProps = WizardStepProps<'account_plan'> & {
+    is_cpa_plan_aff: boolean
+}
+
 const AccountPlan = ({
     affiliate_account,
     updateData,
     onValidate,
-}: WizardStepProps<'account_plan'>) => {
+    is_cpa_plan_aff,
+}: AccountPlanProps) => {
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)
-    const { is_eu, is_cpa_plan } = useRegion()
+    const { is_eu } = useRegion()
     const is_rtl = useIsRtl()
-    const plans = getPlans(is_eu, is_cpa_plan)
+    const plans = getPlans(is_eu, is_cpa_plan_aff)
 
     useEffect(() => {
         updateData(account_plan)

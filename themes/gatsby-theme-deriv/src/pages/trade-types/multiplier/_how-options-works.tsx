@@ -10,7 +10,7 @@ import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const OptionGrid = styled(Grid)`
     grid-gap: 2.4rem;
@@ -55,7 +55,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const HowOptionsWorks = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
     return (
         <StyledSectionContainer padding="8rem 0 4rem">
@@ -127,7 +127,7 @@ const HowOptionsWorks = () => {
                         label="_t_1. Market_t_"
                         description="_t_Choose an asset from the list of markets offered on Deriv._t_"
                     >
-                        {is_eu ? (
+                        {region === "eu" ? (
                             <StaticImage
                                 src="../../../images/common/trade-types/multiplier-market-eu-new.png"
                                 alt={localize('_t_Select market to trade_t_')}
@@ -154,12 +154,12 @@ const HowOptionsWorks = () => {
                         tabID="trade-type-tab"
                         label="_t_2. Trade type_t_"
                         description={
-                            is_eu
+                            region === "eu"
                                 ? "_t_Choose 'Multipliers'_t_"
                                 : '_t_Choose ‘Multipliers’ from the list of trade types._t_'
                         }
                     >
-                        {is_eu ? (
+                        {region === "eu" ? (
                             <StaticImage
                                 src="../../../images/common/trade-types/multiplier-trade-type-eu.png"
                                 alt={localize('_t_Selecting multiplier_t_')}
@@ -202,12 +202,12 @@ const HowOptionsWorks = () => {
                         tabID="multiplier-value-tab"
                         label="_t_4. Multiplier value_t_"
                         description={
-                            is_eu
+                            region === "eu"
                                 ? '_t_Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 30. Your loss will never be more than your stake._t_'
                                 : '_t_Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount._t_'
                         }
                     >
-                        {is_eu ? (
+                        {region === "eu" ? (
                             <StaticImage
                                 src="../../../images/common/trade-types/multiplier-value-eu.png"
                                 alt={localize('_t_Enter multiplier value_t_')}
@@ -271,7 +271,7 @@ const HowOptionsWorks = () => {
                         tabID="deal-cancellation-tab"
                         label="_t_7. Deal cancellation_t_"
                         description={
-                            is_eu
+                            region === "eu"
                                 ? "_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service. Deal cancellation isn't available for Crash and Boom indices or cryptocurrency pairs._t_"
                                 : '_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service._t_'
                         }

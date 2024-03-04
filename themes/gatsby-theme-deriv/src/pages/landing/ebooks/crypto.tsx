@@ -51,13 +51,14 @@ const query = graphql`
     }
 `
 
-const StocksEbook = ({ language }: StocksEbookProps) => {
+const StocksEbook = ({ language, pageContext }: StocksEbookProps) => {
+    const { region } = pageContext
     const ebook_languages = ['es', 'fr', 'pt']
     const ebook_image = ebook_languages.includes(language) ? `_${language}` : ''
 
     const data = useStaticQuery(query)
     return (
-        <Layout type="landing-page" is_ppc_redirect>
+        <Layout type="landing-page" is_ppc_redirect region={region}>
             <Hero
                 authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
                 authorName="_t_Vince Stanzione._t_"

@@ -4,7 +4,6 @@ import language_config from '../../../../../i18n-config.js'
 import { TypographyLinkProps } from '../typography/link'
 import Typography from '../typography'
 import Alert from '../alert'
-import useRegion from 'components/hooks/use-region'
 import { ExternalLinkType, ExternalURLNames } from 'features/types'
 import { localized_link_url } from 'common/constants'
 import {
@@ -13,7 +12,7 @@ import {
     getThaiExcludedLocale,
     TradersHubURL,
 } from 'common/utility'
-import useBuildVariant from 'features/hooks/use-build-variant/index.js'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type ProductLinkGenerator = (config: {
     language: string

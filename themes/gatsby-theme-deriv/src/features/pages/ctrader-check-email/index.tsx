@@ -7,10 +7,11 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
+import { BuildVariantType } from 'features/types'
 
-const CtraderCheckEmail = () => {
+const CtraderCheckEmail = ({region}: BuildVariantType) => {
     return (
-        <Layout hide_layout_overlay>
+        <Layout hide_layout_overlay region={region}>
             <CtraderWrapper>
                 <Flex.Box
                     justify="center"

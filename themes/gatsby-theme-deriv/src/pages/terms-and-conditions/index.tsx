@@ -12,9 +12,10 @@ const Section = styled(SectionContainer)`
     background-color: transparent;
 `
 
-const TermsAndConditions = () => {
+const TermsAndConditions = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
-        <Layout>
+        <Layout region={region}>
             <Section>
                 <Container>
                     <Flex direction="column" ai="center" mb="8rem">

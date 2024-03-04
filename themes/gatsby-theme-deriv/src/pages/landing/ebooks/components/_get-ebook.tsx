@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import Login, { TSocialProvider } from 'common/login'
@@ -16,7 +16,7 @@ import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
 import apiManager from 'common/websocket'
 import Link from 'features/components/atoms/link'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type GetEbookProps = {
     color?: string
@@ -176,13 +176,13 @@ const EmailImage = styled.img`
 `
 
 const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: GetEbookProps) => {
-    const [is_checked, setChecked] = React.useState(false)
-    const [email, setEmail] = React.useState('')
-    const [is_submitting, setIsSubmitting] = React.useState(false)
-    const [submit_status, setSubmitStatus] = React.useState('')
-    const [email_error_msg, setEmailErrorMsg] = React.useState('')
-    const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
-    const { is_eu } = useRegion()
+    const [is_checked, setChecked] = useState(false)
+    const [email, setEmail] = useState('')
+    const [is_submitting, setIsSubmitting] = useState(false)
+    const [submit_status, setSubmitStatus] = useState('')
+    const [email_error_msg, setEmailErrorMsg] = useState('')
+    const [submit_error_msg, setSubmitErrorMsg] = useState('')
+    const { region } = useBuildVariant()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -271,7 +271,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
             })
     }
 
-    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
+    const security_pdf_link = `/tnc${region === "eu" ? '/eu' : ''}/security-and-privacy.pdf`
 
     return submit_status === 'success' ? (
         <ResponseWrapper>

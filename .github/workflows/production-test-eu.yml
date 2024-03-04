@@ -1,11 +1,11 @@
-name: Release Production
+name: Release Production EU
 
 on:
-    push:
-        tags:
-            - 'production*'
-        paths-ignore:
-            - '**.md'
+  push:
+      branches:
+          - multiple-build-region
+      paths-ignore:
+          - '**.md'
 
 env:
     GATSBY_CPU_COUNT: 16
@@ -51,7 +51,7 @@ jobs:
             - run: npm ci
             - run: npm run format
             - run: npm run test
-            - run: npm run build
+            - run: npm run build:eu
 
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
@@ -70,13 +70,14 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy public --project-name=row-deriv-com-pages --branch=main
+                  command: pages deploy public --project-name=eu-deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
-              run: echo "New website - http://cf-pages-row-deriv-com.deriv.com"
+              run: echo "New website - http://cf-pages-eu-deriv-com.deriv.com"
             - name: upload-artifact
               uses: actions/upload-artifact@v4
               with:    
                 name: production
                 path: public
                 retention-days: 5
+

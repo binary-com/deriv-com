@@ -13,6 +13,7 @@ import { isBrowser } from 'common/utility'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import Label from 'features/components/atoms/label'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 
 interface WhatAreDigitalOptionsProps {
     heading: TString
@@ -58,27 +59,7 @@ const WhatAreDigitalOptions = ({
                     className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
                     id={uniq}
                 >
-                    <Button
-                        size="lg"
-                        onClick={handleRedirectToTradersHub}
-                        icon={LabelPairedGrid2CaptionBoldIcon}
-                        iconPosition="start"
-                        className={`navbuttons_tradershub ${uniq} ${
-                            renderTradershubButton ? '' : 'navbuttons_tradershub--hidden'
-                        }`}
-                    >
-                        {`Trader's Hub`}
-                    </Button>
-
-                    <Button
-                        size="lg"
-                        onClick={handleSignup}
-                        className={`w-full md:!w-auto navbuttons_login ${uniq} ${
-                            renderSignupButton ? '' : 'navbuttons_login--hidden'
-                        }`}
-                    >
-                        <Localize translate_text="_t_Open demo account_t_" />
-                    </Button>
+                    <TradersHubCtaButton />
                     <Button
                         size="lg"
                         variant="secondary"

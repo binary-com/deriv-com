@@ -10,15 +10,16 @@ import useRegion from 'components/hooks/use-region'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import { ctrader_login, brand_name } from 'common/constants'
 import { getLanguage } from 'common/utility'
+import { BuildVariantType } from 'features/types'
 
-const CtraderSignup = () => {
+const CtraderSignup = ({region}: BuildVariantType) => {
     const { is_eu } = useRegion()
 
     const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
     getLanguage()
 
     return (
-        <Layout hide_layout_overlay>
+        <Layout hide_layout_overlay region={region}>
             <CtraderWrapper>
                 <Flex.Box className={form_style} direction="col" gap="8x">
                     <Typography.Heading size="small" pt="25x">

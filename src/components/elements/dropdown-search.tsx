@@ -85,7 +85,7 @@ const DropdownSearch = ({
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen, closeFocus] =
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
     const inputRef = useRef(null)
 

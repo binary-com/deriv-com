@@ -5,9 +5,9 @@ import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const BannerWrapper = styled(Flex)`
     overflow: hidden;
@@ -154,8 +154,8 @@ const FooterBanner = ({
     small_title,
     title,
 }: FooterBannerProps) => {
-    const { is_eu } = useRegion()
-    const stocks_display = is_eu ? 'stocks_banner_eu' : 'stocks_banner'
+    const { region } = useBuildVariant()
+    const stocks_display = region === "eu" ? 'stocks_banner_eu' : 'stocks_banner'
 
     return (
         <BannerWrapper>

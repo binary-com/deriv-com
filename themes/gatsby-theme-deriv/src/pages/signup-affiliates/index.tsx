@@ -46,7 +46,8 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const AffiliateSignup = () => {
+const AffiliateSignup = ({ pageContext }: TGatsbyHead) => {
+    const { region } =  pageContext
     const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
@@ -145,7 +146,7 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <Layout type="affiliates" padding_top="7" show_footer={false}>
+        <Layout type="affiliates" padding_top="7" show_footer={false} region={region}>
             <ParentWrapper pop_up_opened={!!signup_status}>
                 <AtomicContainer.Fluid dir="row">
                     <StyledContainer>

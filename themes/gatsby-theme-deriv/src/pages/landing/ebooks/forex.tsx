@@ -10,7 +10,7 @@ import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 
-export type StocksEbookProps = {
+export type StocksEbookProps = TGatsbyHead & {
     language: string
 }
 
@@ -49,8 +49,8 @@ const query = graphql`
     }
 `
 
-const ForexEbook = (props: StocksEbookProps) => {
-    const { language } = props
+const ForexEbook = ({language, pageContext}: StocksEbookProps) => {
+    const { region } = pageContext
     let lng = language
     if (lng != 'es') {
         lng = 'en'
@@ -58,7 +58,7 @@ const ForexEbook = (props: StocksEbookProps) => {
     const data = useStaticQuery(query)
 
     return (
-        <Layout type="landing-page" is_ppc_redirect>
+        <Layout type="landing-page" is_ppc_redirect region={region}>
             <HeaderSection
                 mainHeaderImage={data[`forex_ebook_img_${lng}`]}
                 imgWidth={601}

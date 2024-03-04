@@ -12,14 +12,14 @@ import HowToStartCTrader from './how-to-start'
 import CTraderPlatformBanner from './platform-banner'
 import OtherPlatforms from './other-platforms'
 import MainFooter from 'features/components/templates/footer/'
-import { WithIntl } from 'components/localization'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { BuildVariantType } from 'features/types'
 
-const DerivCTrader = () => {
+const DerivCTrader = ({region}: BuildVariantType) => {
     const is_ctrader = false
 
     return (
-        <Layout>
+        <Layout region={region}>
             <MainRowNavigation />
             <CTraderHero />
             <CTraderNumbers />
@@ -28,11 +28,7 @@ const DerivCTrader = () => {
             <CTraderTradeFeatures />
             <CopyTrading />
             <HowToStartCTrader />
-            {is_ctrader && (
-                <>
-                    <CTraderPlatformBanner />
-                </>
-            )}
+            {is_ctrader &&  <CTraderPlatformBanner />}
             <DerivCtraderApp />
             <OtherPlatforms />
             <BrowseOurFaq />
@@ -41,4 +37,4 @@ const DerivCTrader = () => {
     )
 }
 
-export default WithIntl()(DerivCTrader)
+export default DerivCTrader

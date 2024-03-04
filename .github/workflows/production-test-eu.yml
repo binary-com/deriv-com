@@ -64,7 +64,7 @@ jobs:
                   command: pages deploy public --project-name=eu-deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
-              run: echo "New website - http://cf-pages-eu-deriv-com.deriv.com"
+              run: echo "New website - http://row-deriv-com-pages.pages.dev"
             - name: upload-artifact
               uses: actions/upload-artifact@v4
               with:    

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getLanguage, getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const social_media_urls = {
     twitter: {
@@ -44,13 +45,13 @@ type TSocialMediaUrl = {
 }
 
 export const useSocialMediaUrl = (): TSocialMediaUrl => {
+    const { region } = useBuildVariant()
     const [social_media, setSocialMedia] = useState<TSocialMediaUrl>({
         fb_url: '',
         instagram_url: '',
         twitter_url: '',
         linkedin_url: '',
     })
-    const { is_eu } = useRegion()
     const language = getLanguage()
     const current_path = getLocationPathname()
     const is_career_page = current_path === '/careers/'
@@ -59,7 +60,7 @@ export const useSocialMediaUrl = (): TSocialMediaUrl => {
         const special_language_url = special_language_urls[language]?.[type]
         const current_url = is_career_page
             ? social_media_urls[type]?.url_career
-            : (is_eu && social_media_urls[type].eu_url) || social_media_urls[type].non_eu_url
+            : (region === "eu" && social_media_urls[type].eu_url) || social_media_urls[type].non_eu_url
         return { [type]: special_language_url || current_url }
     })
 

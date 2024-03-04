@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { Header } from './typography'
 import { LocalizedLinkText } from 'components/elements'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const OffCanvasMenuCareer = styled.section<OffCanvasMenuWrapperCareerProps>`
     position: fixed;
@@ -41,7 +41,7 @@ type OffCanvasMenuWrapperCareerProps = {
 }
 
 export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const canvas = useRef<HTMLDivElement>()
 
     const handleArrowClick = () => {
@@ -65,7 +65,7 @@ export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProp
         <OffCanvasMenuCareer
             is_canvas_menu_open={props.is_canvas_menu_open}
             ref={canvas}
-            is_eu={is_eu}
+            is_eu={region === "eu"}
         >
             <OffCanvasMenuContainer>
                 <LocalizedLinkText to="/careers/" onClick={handleArrowClick} p="10px">

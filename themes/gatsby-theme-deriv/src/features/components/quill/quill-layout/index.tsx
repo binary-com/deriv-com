@@ -65,29 +65,29 @@ const QuillLayout = ({
     }
 
     return (
-        <SharedLinkProvider DerivLink={GatsbySharedLink}>
-            <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-                <LanguageProvider
-                    langItems={langItemsROW}
-                    onLangSelect={onLanguageChange}
-                    activeLanguage={activeLang}
-                >
-                    <BreakpointProvider>
-                        <ThemeProvider theme="light">
-                            <FloatingCtaProvider>
-                                <BuildVariantProvider region={region}>
+        <BuildVariantProvider region={region}>
+            <SharedLinkProvider DerivLink={GatsbySharedLink}>
+                <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+                    <LanguageProvider
+                        langItems={langItemsROW}
+                        onLangSelect={onLanguageChange}
+                        activeLanguage={activeLang}
+                    >
+                        <BreakpointProvider>
+                            <ThemeProvider theme="light">
+                                <FloatingCtaProvider>
                                     <main className="relative max-w-[256rem] mx-auto">
                                         {children}
                                     </main>
                                     <BrowserUpdateAlert />
                                     {!hide_layout_overlay && <LayoutOverlay />}
-                                </BuildVariantProvider>
-                            </FloatingCtaProvider>
-                        </ThemeProvider>
-                    </BreakpointProvider>
-                </LanguageProvider>
-            </PpcProvider>
-        </SharedLinkProvider>
+                                </FloatingCtaProvider>
+                            </ThemeProvider>
+                        </BreakpointProvider>
+                    </LanguageProvider>
+                </PpcProvider>
+            </SharedLinkProvider>
+        </BuildVariantProvider>
     )
 }
 

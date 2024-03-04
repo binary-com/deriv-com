@@ -15,7 +15,8 @@ concurrency:
 
 jobs:
     build_eu_to_cloudflare_pages:
-        runs-on: Runner_16cores
+        runs-on: Ubuntu-latest
+        if: contains(github.event.pull_request.head.ref, 'multiple-build')
         permissions:
           checks: write
           pull-requests: write
@@ -117,7 +118,7 @@ jobs:
                   echo "Deploying build to Cloudflare Pages"
                   directory='sites/eu/public'
                   projectName='deriv-com-preview-links'
-                  branch=eutestlink-$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
+                  branch=eu-$(echo "$HEAD_BRANCH" | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
                   cf_preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   preview_url=https://$branch.deriv-com-preview-links.pages.dev

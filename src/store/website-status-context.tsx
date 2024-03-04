@@ -14,10 +14,13 @@ type WebsiteStatusContextType = {
 }
 
 export const WebsiteStatusContext = createContext<WebsiteStatusContextType>(null)
+let statusDataPromise = null
+let statusDataPromiseResolve = null
 
 export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) => {
     const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
-    const { data, send } = useWS(WEBSITE_STATUS_COUNTRY_KEY)
+    const { data: wsData, send } = useWS(WEBSITE_STATUS_COUNTRY_KEY)
+    const [data, setData] = useState(null)
     const [days_from_today, setDaysFromToday] = useState(null)
 
     useEffect(() => {
@@ -30,8 +33,20 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     })
 
     useEffect(() => {
-        send()
-    }, [send])
+        if (wsData) {
+            setData(wsData)
+            statusDataPromiseResolve(wsData)
+        } else if (!statusDataPromise) {
+            statusDataPromise = new Promise((resolve) => {
+                statusDataPromiseResolve = resolve
+            })
+            send()
+        } else if (statusDataPromise) {
+            statusDataPromise.then((data) => {
+                setData(data)
+            })
+        }
+    }, [send, wsData])
 
     useEffect(() => {
         if (data) {

@@ -2,17 +2,7 @@ import React, { useState, useEffect, useRef, ReactNode } from 'react'
 import styled from 'styled-components'
 import { eu_images, row_images } from './_data'
 import { Flex } from 'components/containers'
-import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
-
-const ImagePlaceHolder = styled.div`
-    width: 690px;
-
-    @media ${device.tablet} {
-        width: 100%;
-        height: 360px;
-    }
-`
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const ImageWrapper = styled.div<{ $is_hidden: boolean }>`
     opacity: ${({ $is_hidden }) => ($is_hidden ? '0' : '1')};
@@ -35,13 +25,9 @@ const SlideContainer = styled(Flex)`
 `
 
 const PlatformSlideshow = () => {
+    const { region } = useBuildVariant()
     const [active_index, setActiveIndex] = useState(0)
-    const { is_eu, is_region_loading } = useRegion()
-    const [slide_images, setSlideImages] = useState(row_images)
-
-    useEffect(() => {
-        if (is_eu) setSlideImages(eu_images)
-    }, [is_eu])
+    const slide_images = region === "row" ? row_images : eu_images
 
     const intervalRef = useRef(null)
 
@@ -60,10 +46,6 @@ const PlatformSlideshow = () => {
 
         return () => clearInterval(intervalRef.current)
     }, [slide_images])
-
-    if (is_region_loading) {
-        return <ImagePlaceHolder />
-    }
 
     return (
         <SlideContainer

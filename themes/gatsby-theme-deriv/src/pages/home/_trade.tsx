@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -52,15 +52,10 @@ type TradeProps = {
 }
 
 const Trade = ({ is_ppc_redirect }: TradeProps) => {
-    const { is_non_eu } = useRegion()
+    const { region } = useBuildVariant()
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = useState(null)
-    const [show_non_eu_content, setShowNonEuContent] = useState(true)
-
-    useEffect(() => {
-        if (!is_non_eu) setShowNonEuContent(false)
-    }, [is_non_eu])
 
     return (
         <StyledSection>
@@ -108,7 +103,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             >
                                 <TraderCard />
                             </div>
-                            {show_non_eu_content && (
+                            {region !== "eu" && (
                                 <div
                                     onMouseEnter={() => setSelected(platforms.bot)}
                                     onMouseLeave={() => setSelected('')}

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, FlexGridContainer, SectionContainer } from 'components/containers'
 import { Card, CardLink, Header, LocalizedLinkText, NavCard, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
@@ -36,6 +35,7 @@ import Smarttrader from 'images/svg/custom/smarttrader.svg'
 import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type CardProps = {
     is_selected?: boolean
@@ -266,15 +266,9 @@ export const OtherPlatform = ({
     is_nav,
     is_ppc_redirect,
 }: OtherPlatformProps) => {
+    const { region } = useBuildVariant()
     const excludetoLowerCase = exclude.toLowerCase()
-    const { is_row, is_eu } = useRegion()
-    const [header_text, setHeaderText] = useState<TString>('_t_Check out our other platforms_t_')
-    const [show_row_content, setShowRowContent] = useState(true)
-
-    useEffect(() => {
-        if (is_eu) setHeaderText('_t_Check out our other platform_t_')
-        if (!is_row) setShowRowContent(false)
-    }, [is_eu, is_row])
+    const header_text = region === "row" ? '_t_Check out our other platforms_t_' : '_t_Check out our other platform_t_'
 
     return (
         <SectionContainer padding="0">
@@ -303,16 +297,16 @@ export const OtherPlatform = ({
             )}
             <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
                 {excludetoLowerCase !== 'dtrader' && <TraderCard />}
-                {show_row_content && <>{excludetoLowerCase !== 'dbot' && <BotCard />}</>}
+                {region === "row" && <>{excludetoLowerCase !== 'dbot' && <BotCard />}</>}
                 {excludetoLowerCase !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-                {show_row_content && <>{excludetoLowerCase !== 'derivx' && <DerivXCard />}</>}
+                {region === "row" && <>{excludetoLowerCase !== 'derivx' && <DerivXCard />}</>}
             </StyledFlexGridContainer>
         </SectionContainer>
     )
 }
 
 export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformProps) => {
-    const { is_row, is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
     const getDtraderText = () => (
         <NavCard
@@ -355,7 +349,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             onClick={onClick}
                             to="/trade-types/cfds/"
                         />
-                        {is_row && (
+                        {region === "row" && (
                             <NavCard
                                 aria_label="Options"
                                 Icon={() => (
@@ -409,7 +403,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
-                {is_row && (
+                {region === "row" && (
                     <>
                         <NavCard
                             aria_label="Derivx"
@@ -446,9 +440,9 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                         />
                     </>
                 )}
-                {is_eu && <>{getDtraderText()}</>}
+                {region === "eu" && <>{getDtraderText()}</>}
             </Flex>
-            {is_row && (
+            {region === "row" && (
                 <>
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <EmptySpace />
@@ -513,7 +507,8 @@ const derived_text_row: TString =
     '_t_Enjoy trading asset prices derived from real-world or simulated markets._t_'
 
 export const NavMarket = ({ onClick }: NavMarketProps) => {
-    const { is_eu } = useRegion()
+    const {region} = useBuildVariant()
+
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <NavCard
@@ -536,7 +531,7 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                         height="32"
                     />
                 )}
-                content={is_eu ? derived_text_eu : derived_text_row}
+                content={region === "eu" ? derived_text_eu : derived_text_row}
                 title="_t_Derived_t_"
                 onClick={onClick}
                 to="/markets/synthetic/"

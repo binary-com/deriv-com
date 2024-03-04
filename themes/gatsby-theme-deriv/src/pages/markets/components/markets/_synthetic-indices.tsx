@@ -29,15 +29,8 @@ type StockIndicesProps = {
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_deriv_go } = usePlatformQueryParam()
     const { region } = useBuildVariant()
-    const [cfds, setCfds] = useState(synthetic_cfds)
-    const [multiplier, setMultiplier] = useState(synthetic_multiplier)
-
-    useEffect(() => {
-        if (region === 'eu') {
-            setCfds(synthetic_cfds_eu)
-            setMultiplier(synthetic_multiplier_eu)
-        }
-    }, [region])
+    const cfds = region === 'eu' ? synthetic_cfds_eu : synthetic_cfds
+    const multiplier = region === 'eu' ? synthetic_multiplier_eu : synthetic_multiplier
 
     return (
         <div>

@@ -373,12 +373,8 @@ export const AsianIndicesDetails = () => (
 )
 
 export const EuropeanIndicesDetails = () => {
-    const [show_row_content, setShowRowContent] = useState(true)
     const { region } = useBuildVariant()
-
-    useEffect(() => {
-        if (region === 'eu') setShowRowContent(false)
-    }, [region])
+    const show_row_content = region === 'eu' ? false : true
 
     return (
         <DetailsContainer>

@@ -27,19 +27,11 @@ type ForexProps = {
 
 const Forex = ({ simple_step_content }: ForexProps) => {
     const { region } = useBuildVariant()
-    const [content, setContent] = useState(forex_content)
-    const [cfds, setCfds] = useState(forex_cfds)
-    const [show_digital_options, setShowDigitalOptions] = useState(true)
-    const [multiplier, setMultiplier] = useState(forex_multiplier)
 
-    useEffect(() => {
-        if (region === 'eu') {
-            setContent(forex_content_eu)
-            setCfds(forex_cfds_eu)
-            setShowDigitalOptions(false)
-            setMultiplier(forex_multiplier_eu)
-        }
-    }, [region])
+    const content = region === 'eu' ? forex_content_eu : forex_content
+    const cfds = region === 'eu' ? forex_cfds_eu : forex_cfds
+    const show_digital_options = region === 'eu' ? false : true
+    const multiplier = region === 'eu' ? forex_multiplier_eu : forex_multiplier
 
     return (
         <>

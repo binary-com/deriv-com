@@ -93,12 +93,10 @@ const AvailablePlatforms = ({
     tablet_direction,
     m_top,
 }: AvailablePlatformsProps) => {
-    const [show_derivx, setShowDerivX] = useState(true)
+    
     const { region } = useBuildVariant()
+    const show_derivx = region === 'row' ? true : false
 
-    useEffect(() => {
-        if (region === 'eu') setShowDerivX(false)
-    }, [region])
     const deriv_mt5_name = 'Deriv MT5'
     const deriv_go_name = 'Deriv GO'
 

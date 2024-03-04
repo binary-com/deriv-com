@@ -25,12 +25,8 @@ type CommoditiesProps = {
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
     const { region } = useBuildVariant()
-    const [show_digital_options, setShowDigitalOptions] = useState(true)
-
-    useEffect(() => {
-        if (region === 'eu') setShowDigitalOptions(false)
-    }, [region])
-
+    const show_digital_options = region === 'row' ? true : false
+    
     simple_step_content[1].text =
         '_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_'
 

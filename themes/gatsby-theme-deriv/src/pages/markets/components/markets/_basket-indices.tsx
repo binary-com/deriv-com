@@ -15,10 +15,10 @@ import { Localize, localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
-import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -28,10 +28,10 @@ type BasketIndicesProps = {
 }
 
 const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
-    const { is_eu, is_row } = useRegion()
+    const { region } = useBuildVariant()
     return (
         <>
-            {is_row && (
+            {region === 'row' && (
                 <>
                     <TradeDetails description="_t_Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility._t_" />
                     <AvailableTrades
@@ -69,7 +69,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         </LinkButton.Primary>
                     </Flex.Box>
                     <FullWidthMultiColumn header="_t_Why trade baskets on Deriv_t_">
-                        {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
+                        {(region === 'row' ? basket_indices_content : basket_indices_content_eu).map(
                             ({ alt, src, text }) => (
                                 <StyledBox
                                     key={text}
@@ -94,7 +94,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                     <OtherMarketsSlider current_market="synthetic" />
                 </>
             )}
-            {is_eu && <PageNotFound />}
+            {region === 'eu' && <PageNotFound region={region}/>}
         </>
     )
 }

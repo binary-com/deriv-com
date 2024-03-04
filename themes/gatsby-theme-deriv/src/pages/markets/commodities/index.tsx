@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Commodities from '../components/markets/_commodities'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_commodities } from '../static/content/_commodities'
@@ -6,23 +6,13 @@ import SignupPublic from 'features/components/templates/signup/with-banner'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
-import { TString } from 'types/generics'
 
 const CommoditiesPage = ({pageContext}: TGatsbyHead) => {
-    const { is_eu } = useRegion()
     const {region} = pageContext
-    const [description, setDescription] = useState<TString>(
-        '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_',
-    )
-
-    useEffect(() => {
-        if (region === 'eu')
-            setDescription(
-                '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_',
-            )
-    }, [region])
+    const description = region === 'eu'?
+    '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_':
+    '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_'
 
     return (
         <Layout type="noNav" padding_top="0" region={region}>

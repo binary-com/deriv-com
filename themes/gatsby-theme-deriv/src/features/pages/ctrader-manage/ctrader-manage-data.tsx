@@ -14,7 +14,7 @@ type ParagraphType = {
 
 type CtraderManageDataType = { [page: string]: CtraderManageProps }
 
-export type CtraderManageProps = {
+export type CtraderManageProps =  {
     title: TString
     paragraph: ParagraphType
     steps?: ParagraphType[]

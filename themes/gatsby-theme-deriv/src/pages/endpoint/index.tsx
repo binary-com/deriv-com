@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Form, Formik } from 'formik'
 import device from 'themes/device'
@@ -95,10 +95,11 @@ const endpointValidation = (values: ValuesType) => {
     return errors
 }
 
-const Endpoint = () => {
+const Endpoint = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
-    const [reset_loading, setResetLoading] = React.useState(false)
+    const [reset_loading, setResetLoading] = useState(false)
     const { website_status, setWebsiteStatus } = useWebsiteStatus()
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
@@ -141,7 +142,7 @@ const Endpoint = () => {
     }
 
     return (
-        <Layout type="static" padding_top="0">
+        <Layout type="static" padding_top="0" region={region}>
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     Change API endpoint

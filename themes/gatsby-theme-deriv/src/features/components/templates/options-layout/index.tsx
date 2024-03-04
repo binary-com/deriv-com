@@ -8,8 +8,9 @@ import WhyTradeOptions from 'features/components/templates/why-trade-options'
 import { TString } from 'types/generics'
 import OptionsTopTab from 'features/components/organisms/options-top-tab'
 import WhatAreDigitalOptions from 'features/components/organisms/what-are-digital-options'
+import { BuildVariantType } from 'features/types'
 
-interface OptionsLayoutProps {
+interface OptionsLayoutProps extends BuildVariantType{
     children?: ReactNode
     heading: TString
     description: TString
@@ -21,9 +22,10 @@ const OptionsLayout = ({
     description,
     children,
     is_coming_soon = false,
+    region
 }: OptionsLayoutProps) => {
     return (
-        <Layout>
+        <Layout region={region}>
             <MainRowNavigation />
             <OptionsTopTab />
             <WhatAreDigitalOptions

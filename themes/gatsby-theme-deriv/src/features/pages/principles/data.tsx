@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { CardContent } from '@deriv-com/components'
 import {
     StandaloneCircleOneRegularIcon,
@@ -8,15 +8,7 @@ import {
     StandaloneCircleFiveRegularIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons'
-import { StaticImage } from 'gatsby-plugin-image'
 import { Localize } from 'components/localization'
-
-export type ContentImageType = {
-    id: number
-    header?: ReactNode
-    description?: ReactNode
-    image?: ReactNode
-}
 
 export const ReliableSteps: CardContent[] = [
     {
@@ -250,72 +242,5 @@ export const ResponsibleSteps: CardContent[] = [
         size: 'sm',
         align: 'start',
         color: 'gray',
-    },
-]
-
-export const ContentImage: ContentImageType[] = [
-    {
-        id: 1,
-        header: <Localize translate_text="_t_Be reliable_t_" />,
-        description: (
-            <Localize translate_text="_t_We provide secure and robust systems so you can trade with confidence. Whether settling contracts promptly, processing transactions efficiently, or offering responsive 24/7 customer support, we strive to be reliable at every step of your trading experience._t_" />
-        ),
-        image: (
-            <StaticImage
-                src="../../../images/migration/principle/reliable.png"
-                alt="hero bg image"
-                placeholder="none"
-                formats={['auto', 'webp']}
-                loading="eager"
-            />
-        ),
-    },
-    {
-        id: 2,
-        header: <Localize translate_text="_t_Be fair_t_" />,
-        description: (
-            <Localize translate_text="_t_We champion equal treatment for everyone, which is why we're dedicated to providing transparent and unbiased services. We’re here to resolve your concerns with integrity and provide competitive prices with no hidden fees or access restrictions._t_" />
-        ),
-        image: (
-            <StaticImage
-                src="../../../images/migration/principle/fair.png"
-                alt="hero bg image"
-                placeholder="none"
-                formats={['auto', 'webp']}
-                loading="eager"
-            />
-        ),
-    },
-    {
-        id: 3,
-        header: <Localize translate_text="_t_Be transparent_t_" />,
-        description: (
-            <Localize translate_text="_t_We provide clear, accessible information about our platforms and processes so we can build trust and strong client relationships. Through detailed product descriptions and open communication, we aim to make it easier for you to make informed trading decisions._t_" />
-        ),
-        image: (
-            <StaticImage
-                src="../../../images/migration/principle/transparent.png"
-                alt="hero bg image"
-                placeholder="none"
-                formats={['auto', 'webp']}
-                loading="eager"
-            />
-        ),
-    },
-    {
-        id: 4,
-        header: <Localize translate_text="_t_Be responsible_t_" />,
-        description: (
-            <Localize translate_text="_t_We build our services and platforms on a foundation of trust, honesty, and ethical practices. By proactively implementing policies and controls to prevent unlawful activities, we ensure a fair and secure environment for our trading community._t_" />
-        ),
-        image: (
-            <StaticImage
-                src="../../../images/migration/principle/responsible.png"
-                alt="hero bg image"
-                placeholder="none"
-                formats={['auto', 'webp']}
-                loading="eager"
-            />
-        ),
     },
 ]

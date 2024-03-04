@@ -8,14 +8,15 @@ import { Localize } from 'components/localization'
 import SignupImage from 'images/common/sign-up/response-email.png'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
+import { BuildVariantType } from 'features/types'
 
-type SignupProps = {
+type SignupProps = BuildVariantType & {
     email?: string
 }
 
-const SignUpSuccessContainer = ({ email }: SignupProps) => {
+const SignUpSuccessContainer = ({ email, region }: SignupProps) => {
     return (
-        <Layout>
+        <Layout region={region}>
             <StaticNav />
             <Flex.Box
                 container="fluid"

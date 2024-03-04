@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -15,6 +15,7 @@ import BugBountyRow from 'images/svg/terms/bug-bounty-row.svg'
 import IG from 'images/svg/terms/important-guidelines.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ColProps = {
     Icon: string
@@ -67,25 +68,23 @@ const BusinessGrid = () => {
     const payment_agents_url = `/tnc/[ES]_business-partners-payment-agents-R23_12_1.pdf`
     const api_user_url = `/tnc/[ES]_business-partners-api-user-R23_12_1.pdf`
     const bug_bounty_url = `/tnc/[ES]_business-partners-bug-bounty-R23_12_1.pdf`
+    
+    const { region } = useBuildVariant()
     const { is_row } = useRegion()
     const language = getLanguage()
-    const [show_row_content, setShowRowContent] = useState(true)
-    const general_terms_url_region = is_row
+
+    const general_terms_url_region = region === "row"
         ? '/tnc/business-partners-general-terms.pdf'
         : '/tnc/business-partners-general-terms-eu.pdf'
-    const affiliate_brokers_url_region = is_row
+    const affiliate_brokers_url_region = region === "row"
         ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
         : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
-    const api_user_url_region = is_row
+    const api_user_url_region = region === "row"
         ? '/tnc/business-partners-api-user.pdf'
         : '/tnc/business-partners-api-user-eu.pdf'
-    const bug_bounty_url_region = is_row
+    const bug_bounty_url_region = region === "row"
         ? '/tnc/business-partners-bug-bounty.pdf'
         : '/tnc/business-partners-bug-bounty-eu.pdf'
-
-    useEffect(() => {
-        if (!is_row) setShowRowContent(false)
-    }, [is_row])
 
     return (
         <StyledContainer>
@@ -117,7 +116,7 @@ const BusinessGrid = () => {
                 />
 
                 <PartnersGuidePdf />
-                {show_row_content && (
+                {region === "row" && (
                     <Col
                         Icon={PA}
                         title="_t_Payment agents_t_"
@@ -131,14 +130,14 @@ const BusinessGrid = () => {
                     />
                 )}
                 <Col
-                    Icon={show_row_content ? APIROW : API}
+                    Icon={region === "row" ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
                     url={is_row && language === 'es' ? api_user_url : api_user_url_region}
                     link_title="_t_API users_t_"
                 />
                 <Col
-                    Icon={show_row_content ? BugBountyRow : BugBounty}
+                    Icon={region === "row" ? BugBountyRow : BugBounty}
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
                     url={is_row && language === 'es' ? bug_bounty_url : bug_bounty_url_region}

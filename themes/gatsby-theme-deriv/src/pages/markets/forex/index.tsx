@@ -10,7 +10,6 @@ import { TGatsbyHead } from 'features/types'
 
 const ForexPage = ({pageContext}: TGatsbyHead) => {
     const {region} = pageContext
-    console.log("region main ==", region)
     return (
         <Layout type="noNav" padding_top="0" region={region}>
             <DerivedFXHero

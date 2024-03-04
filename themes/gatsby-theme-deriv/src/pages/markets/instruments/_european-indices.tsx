@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import Symbol from '../components/helper/_symbol'
 import { stocks_european_indices } from '../static/content/_market-symbols'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const stocks_european_indices_eu_endpoint = stocks_european_indices.filter((cfds) => {
     return cfds?.eu === true
 })
 const EuropeanIndices = () => {
-    const { is_eu } = useRegion()
     const [content, setContent] = useState(stocks_european_indices)
+    const { region } = useBuildVariant()
 
     useEffect(() => {
-        if (is_eu) setContent(stocks_european_indices_eu_endpoint)
-    }, [is_eu])
+        if (region === 'eu') setContent(stocks_european_indices_eu_endpoint)
+    }, [region])
 
     return (
         <>

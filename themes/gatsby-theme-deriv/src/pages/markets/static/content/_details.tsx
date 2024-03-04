@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text, Ul, Li } from 'components/elements'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TEuropeDetailsProps = {
     custom_index: number
@@ -373,12 +373,12 @@ export const AsianIndicesDetails = () => (
 )
 
 export const EuropeanIndicesDetails = () => {
-    const { is_row } = useRegion()
     const [show_row_content, setShowRowContent] = useState(true)
+    const { region } = useBuildVariant()
 
     useEffect(() => {
-        if (!is_row) setShowRowContent(false)
-    }, [is_row])
+        if (region === 'eu') setShowRowContent(false)
+    }, [region])
 
     return (
         <DetailsContainer>

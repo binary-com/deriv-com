@@ -6,7 +6,6 @@ import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import { Header } from 'components/elements'
 import { TMarketContent } from 'pages/markets/static/content/_types'
 import { TString } from 'types/generics'
@@ -31,7 +30,6 @@ interface TextsType {
 }
 
 const CFDs = ({ market_content }: CFDProps) => {
-    const { is_eu } = useRegion()
     const { region } = useBuildVariant()
 
     const [texts, setTexts] = useState<TextsType>({

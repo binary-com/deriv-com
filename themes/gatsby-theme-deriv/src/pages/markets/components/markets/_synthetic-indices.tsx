@@ -14,11 +14,11 @@ import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 
@@ -27,17 +27,17 @@ type StockIndicesProps = {
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
-    const { is_eu } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
+    const { region } = useBuildVariant()
     const [cfds, setCfds] = useState(synthetic_cfds)
     const [multiplier, setMultiplier] = useState(synthetic_multiplier)
 
     useEffect(() => {
-        if (is_eu) {
+        if (region === 'eu') {
             setCfds(synthetic_cfds_eu)
             setMultiplier(synthetic_multiplier_eu)
         }
-    }, [is_eu])
+    }, [region])
 
     return (
         <div>

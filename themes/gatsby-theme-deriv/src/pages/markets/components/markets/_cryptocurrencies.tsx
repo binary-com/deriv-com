@@ -11,7 +11,6 @@ import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import useRegion from 'components/hooks/use-region'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
@@ -21,6 +20,7 @@ import OtherMarketsSlider from 'features/components/molecules/other-markets-slid
 import { TMarket, TSimpleStepContent } from 'pages/markets/static/content/_types'
 import { TSmartContent } from 'types/generics'
 import useVisibleContent from 'components/hooks/use-visible-content'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -85,9 +85,9 @@ const crypto_content: SmartMarketItem[] = [
 ]
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const { is_deriv_go } = usePlatformQueryParam()
-    const visible_items = useVisibleContent({ content: crypto_content, config: { is_eu } })
+    const visible_items = useVisibleContent({ content: crypto_content, config: { is_eu : region === 'eu' ? true : false } })
 
     return (
         <>

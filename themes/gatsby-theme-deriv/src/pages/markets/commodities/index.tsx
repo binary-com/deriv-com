@@ -10,21 +10,22 @@ import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
 import { TString } from 'types/generics'
 
-const CommoditiesPage = () => {
+const CommoditiesPage = ({pageContext}: TGatsbyHead) => {
     const { is_eu } = useRegion()
+    const {region} = pageContext
     const [description, setDescription] = useState<TString>(
         '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_',
     )
 
     useEffect(() => {
-        if (is_eu)
+        if (region === 'eu')
             setDescription(
                 '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_',
             )
-    }, [is_eu])
+    }, [region])
 
     return (
-        <Layout type="noNav" padding_top="0">
+        <Layout type="noNav" padding_top="0" region={region}>
             <DerivedFXHero title="_t_Commodities_t_" description={description} is_commodities />
             <Commodities simple_step_content={simple_step_content_commodities} />
             <SignupPublic />

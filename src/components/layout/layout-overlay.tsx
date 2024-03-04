@@ -5,6 +5,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 import CfdWarningBanner from 'features/components/molecules/layout-overlay/cfd-warning-banner'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const LiveChat = Loadable(() => import('./livechat'))
 const WhatsApp = Loadable(() => import('./whatsapp'))
@@ -22,11 +23,13 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
 
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
+    const isLiveChat = useThirdPartyFlags('chat.live_chat')
+    const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
 
     return (
         <OverlayContainer is_rtl={is_rtl} id="overlay-container">
-            <LiveChat />
-            <WhatsApp />
+            {isLiveChat && <LiveChat />}
+            {isWhatsappChat && <WhatsApp />}
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
             <CfdWarningBanner />
         </OverlayContainer>

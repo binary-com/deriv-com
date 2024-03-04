@@ -23,8 +23,8 @@ const PING_INTERVAL = 30000
 export class ApiManager {
     private socket: WebSocket
     public derivApi: TDerivApi
-    private pingInterval: NodeJS.Timer
     private ready: boolean
+    public static readyState: number
 
     public static instance: ApiManager
     public static getInstance() {
@@ -32,6 +32,10 @@ export class ApiManager {
             ApiManager.instance = new ApiManager()
         }
         return ApiManager.instance
+    }
+
+    private setReadyState(state: number) {
+        ApiManager.readyState = state
     }
 
     public init(lang?: string) {
@@ -43,11 +47,35 @@ export class ApiManager {
                 const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
 
                 this.socket = new WebSocket(websocket_connection_url)
+                this.setReadyState(this.socket?.readyState)
             }
             this.derivApi = new DerivAPIBasic({ connection: this.socket })
-            this.registerKeepAlive()
+            this.socket.addEventListener('open', () => {
+                this.setReadyState(this?.socket?.readyState)
+            })
+
+            this.socket.addEventListener('close', () => {
+                this.derivApi.disconnect()
+                this.ready = null
+                this.setReadyState(null)
+            })
             this.ready = true
         }
+    }
+
+    public reconnectIfNotConnected(lang?: string): Promise<void> {
+        return new Promise((resolve, reject) => {
+            if (this?.socket?.readyState !== 1) {
+                this.socket = null
+                this.ready = null
+                this.init(lang)
+                this?.socket?.addEventListener?.('open', () => {
+                    resolve()
+                })
+            } else {
+                resolve()
+            }
+        })
     }
 
     public augmentedSend<T extends TSocketEndpointNames>(
@@ -70,25 +98,6 @@ export class ApiManager {
         return this.derivApi.authorize({ authorize: token })
     }
 
-    private registerKeepAlive() {
-        if (this.pingInterval) {
-            clearInterval(this.pingInterval)
-        }
-        this.socket.addEventListener('open', () => {
-            this.pingInterval = setInterval(() => {
-                this.socket.send(JSON.stringify({ ping: 1 }))
-            }, PING_INTERVAL)
-        })
-
-        this.socket.addEventListener('close', () => {
-            clearInterval(this.pingInterval)
-        })
-
-        this.socket.addEventListener('error', () => {
-            clearInterval(this.pingInterval)
-        })
-    }
-
     public reset(language: string) {
         const socket_url = getSocketURL()
         const app_id = getAppId()
@@ -99,7 +108,6 @@ export class ApiManager {
 
         this.socket = new WebSocket(websocket_connection_url)
         this.derivApi = new DerivAPIBasic({ connection: this.socket })
-        this.registerKeepAlive()
     }
 }
 let apiManager: ApiManager

@@ -32,6 +32,7 @@ import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
@@ -110,33 +111,32 @@ const DisclaimerText = styled(Header)`
 `
 
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const [markets_data, setMarketsData] = useState(forex_specification.data)
     const [filtered_data, setFilteredData] = useState(forex_specification.data)
-    const [disclaimer, setDisclaimer] = useState(row_disclaimer)
+    const disclaimer = region === "row" ? row_disclaimer : eu_disclaimer;
     const is_rtl = useIsRtl()
 
     useEffect(() => {
-        if (is_eu) {
+        if (region === "eu") {
             setMarketsData(forex_specification.eu_data)
             setFilteredData(forex_specification.eu_data)
-            setDisclaimer(eu_disclaimer)
         }
-    }, [is_eu])
+    }, [region])
 
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {
-                const specification_data = is_eu ? specification.eu_data : specification.data
+                const specification_data = region === "eu" ? specification.eu_data : specification.data
                 setMarketsData(specification_data)
                 setFilteredData(specification_data)
             }
         })
-    }, [market])
+    }, [market, region])
 
     const [search_value, setSearchValue] = useState('')
     const [globalFilter, setGlobalFilter] = useState('')
-    const [sorting, setSorting] = React.useState<SortingState>([])
+    const [sorting, setSorting] = useState<SortingState>([])
     const columns = useLiveColumns(market)
 
     const table = useReactTable({

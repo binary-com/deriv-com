@@ -4,8 +4,9 @@ import CheckEmailContainer from 'features/pages/check-email'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const CheckEmail = () => {
-    return <CheckEmailContainer />
+const CheckEmail = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <CheckEmailContainer region={region}/>
 }
 
 export default WithIntl()(CheckEmail)

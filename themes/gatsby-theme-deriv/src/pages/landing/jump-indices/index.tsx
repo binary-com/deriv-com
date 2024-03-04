@@ -8,9 +8,10 @@ import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
 
-const JumpIndices = () => {
+const JumpIndices = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
-        <Layout type="static">
+        <Layout type="static" region={region}>
             <DHero />
             <DBanner />
             <JumpSection />

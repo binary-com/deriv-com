@@ -1,0 +1,83 @@
+name: Release Production
+
+on:
+    push:
+        tags:
+            - 'production*'
+        paths-ignore:
+            - '**.md'
+
+env:
+    GATSBY_CPU_COUNT: 16
+    GATSBY_ENV: production
+    NODE_OPTIONS: '--max_old_space_size=7168'
+    GATSBY_DATADOG_APPLICATION_ID: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
+    GATSBY_DATADOG_CLIENT_TOKEN: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
+    GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
+    GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+    GATSBY_GROWTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GROWTHBOOK_DECRYPTION_KEY }}
+    GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+    GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+    GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
+    GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
+    GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+
+jobs:
+    release-production:
+        timeout-minutes: 40
+        runs-on: Runner_16cores
+        environment: production
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18.x'
+                  cache: 'npm'
+
+            - name: Set version env variable
+              run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+            - name: Create npmrc file
+              shell: bash
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+
+            - name: Setup install read-only token for deriv-com org
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
+
+            - run: npm ci
+            - run: npm run format
+            - run: npm run test
+            - run: npm run build:eu
+
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                  path: public/storybook
+
+            - uses: olegtarasov/get-tag@v2.1
+              id: tagName
+            - run: echo $GIT_TAG_NAME > public/version.txt
+
+              # For using same tag for staging and production we need to uncomment these two below lines:
+              # with:
+              #   tagRegex: "production(.*)"
+            - name: Deploy to Cloudflare ☁️
+              uses: cloudflare/wrangler-action@2.0.0
+              with:
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages deploy public --project-name=eu-deriv-com-pages --branch=main
+
+            - name: Cloudflare production link ✨
+              run: echo "New website - http://cf-pages-eu-deriv-com.deriv.com"
+            - name: upload-artifact
+              uses: actions/upload-artifact@v4
+              with:    
+                name: production
+                path: public
+                retention-days: 5
+

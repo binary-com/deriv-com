@@ -6,7 +6,6 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import Forex from 'images/svg/trade-types/forex.svg'
 import ETFs from 'images/svg/markets/etfs.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
@@ -14,6 +13,7 @@ import Commodities from 'images/svg/trade-types/commodities.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TAvailableMarkets = {
     name: string
@@ -132,7 +132,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const AvailableMarkets = () => {
-    const { is_eu, is_row } = useRegion()
+    const { region } = useBuildVariant()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -142,7 +142,7 @@ const AvailableMarkets = () => {
                 </Header>
             </SmallContainer>
             {/* TODO: refactor to make it more DRY */}
-            {is_row && (
+            {region === "row" && (
                 <MarketsCarousel>
                     {available_markets.map(
                         ({
@@ -170,7 +170,7 @@ const AvailableMarkets = () => {
                                                 </StyledText>
                                             </MobileCardHeader>
                                             <StyledDescription>
-                                                {is_eu && eu_description ? (
+                                                {region !== "row" && eu_description ? (
                                                     <Localize translate_text={eu_description} />
                                                 ) : (
                                                     <Localize translate_text={description} />
@@ -188,7 +188,7 @@ const AvailableMarkets = () => {
                     )}
                 </MarketsCarousel>
             )}
-            {is_eu && (
+            {region === "eu" && (
                 <MarketsCarousel>
                     {eu_available_markets.map(
                         ({
@@ -217,7 +217,7 @@ const AvailableMarkets = () => {
                                                 </StyledText>
                                             </MobileCardHeader>
                                             <StyledDescription>
-                                                {is_eu && eu_description ? (
+                                                {region === "eu" && eu_description ? (
                                                     <Localize translate_text={eu_description} />
                                                 ) : (
                                                     <Localize translate_text={description} />

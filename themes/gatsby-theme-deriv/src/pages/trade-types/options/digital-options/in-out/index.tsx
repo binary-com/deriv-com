@@ -3,17 +3,16 @@ import { WithIntl } from 'components/localization'
 import InOutDigitalOptionsPage from 'features/pages/options/digital/in-out'
 import { faq_schema } from 'features/pages/options/digital/in-out/_faq-schema'
 import ProtectedRoute from 'features/components/molecules/protected-route'
-import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const DigitalOptionsInOut = () => {
-    const { is_row, is_region_loading } = useRegion()
+const DigitalOptionsInOut = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
         <ProtectedRoute
-            is_page_visible={is_row}
-            component={<InOutDigitalOptionsPage />}
-            is_loading={is_region_loading}
+            region={region}
+            is_page_visible={region === "row"}
+            component={<InOutDigitalOptionsPage region={region}/>}
         />
     )
 }

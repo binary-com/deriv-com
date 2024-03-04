@@ -40,7 +40,8 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
-const ResetPassword = () => {
+const ResetPassword = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [apiError, setApiError] = useState<string | null>('')
     const initialValues: EmailType = { email: '' }
 
@@ -88,7 +89,7 @@ const ResetPassword = () => {
     }
 
     return (
-        <Layout type="static" padding_top="0">
+        <Layout type="static" padding_top="0" region={region}>
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     <Localize translate_text="_t_Reset password_t_" />

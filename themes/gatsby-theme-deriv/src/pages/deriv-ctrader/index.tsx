@@ -9,7 +9,7 @@ const CTraderPage = ({ pageContext }: TGatsbyHead) => {
     const { region } = pageContext
     
     if (region === "row") return <DerivCTrader region={region} />
-    return <PageNotFound />
+    return <PageNotFound pageContext={pageContext} />
 }
 
 export default WithIntl()(CTraderPage)

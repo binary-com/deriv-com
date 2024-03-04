@@ -7,10 +7,11 @@ import OptionsFaq from 'features/components/templates/options-faq'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
+import { BuildVariantType } from 'features/types'
 
-const LookbacksDigitalOptionsPage = () => {
+const LookbacksDigitalOptionsPage = ({region}: BuildVariantType) => {
     return (
-        <DigitalOptionsLayout>
+        <DigitalOptionsLayout region={region}>
             <Flex.Box container="fluid" justify="center">
                 <Typography.Paragraph pb="20x" pt="15x" align="center" md={{ pt: '0x' }}>
                     <Localize translate_text="_t_Lookbacks allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract._t_" />

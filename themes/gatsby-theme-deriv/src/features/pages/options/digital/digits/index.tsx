@@ -9,10 +9,11 @@ import AvailableMarketPlatforms from 'features/components/organisms/available-ma
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
+import { BuildVariantType } from 'features/types'
 
-const DigitDigitalOptionsPage = () => {
+const DigitDigitalOptionsPage = ({region}: BuildVariantType) => {
     return (
-        <DigitalOptionsLayout>
+        <DigitalOptionsLayout region={region}>
             <OptionsContent items={digits_content_items} />
             <AvailableMarketPlatforms
                 markets={digit_options_markets}

@@ -6,7 +6,7 @@ import {
     sign_up_header,
     sign_up_content,
     signup_login_redirect,
-} from '../signup.module.scss'
+} from '../signup-academy.module.scss'
 import SignUpPageForm from './signup-page-form'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'

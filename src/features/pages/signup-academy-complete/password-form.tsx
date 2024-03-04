@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { PasswordInput } from '@deriv-com/ui'
-import { trading_btn, signup_form_line } from './signup-academy.module.scss'
+import { trading_btn, signup_form_line } from './signup-academy-complete.module.scss'
 import { passwordRegex } from './password-validation'
 import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'

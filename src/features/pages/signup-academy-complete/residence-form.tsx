@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { next_btn } from './signup-academy.module.scss'
+import { next_btn } from './signup-academy-complete.module.scss'
 import { DropdownSearch } from 'components/elements'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'

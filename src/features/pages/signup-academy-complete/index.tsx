@@ -1,5 +1,5 @@
 import React from 'react'
-import { signup_wrapper, static_nav_logo } from '../signup-academy/signup.module.scss'
+import { signup_wrapper, static_nav_logo } from '../signup-academy/signup-academy.module.scss'
 import Layout from 'features/components/templates/layout'
 import PopUpMenu from './pop-up-menu'
 import NavTemplate from 'features/components/templates/navigation/template'

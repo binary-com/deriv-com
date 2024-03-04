@@ -1,5 +1,5 @@
 import React from 'react'
-import { signup_content } from './signup.module.scss'
+import { signup_content } from './signup-academy.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'

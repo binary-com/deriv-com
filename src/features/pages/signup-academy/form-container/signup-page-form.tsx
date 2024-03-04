@@ -1,5 +1,5 @@
 import React from 'react'
-import { link_text, btn_signup } from '../signup.module.scss'
+import { link_text, btn_signup } from '../signup-academy.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
 import Button from 'features/components/atoms/button'

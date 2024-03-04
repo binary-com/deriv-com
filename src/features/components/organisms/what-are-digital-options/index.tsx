@@ -1,16 +1,10 @@
 import React from 'react'
 import { Hero } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
-import { LabelPairedGrid2CaptionBoldIcon } from '@deriv/quill-icons/LabelPaired'
 import { v4 as uuidv4 } from 'uuid'
 import { Text, Heading, Button } from '@deriv/quill-design'
 import { Localize } from 'components/localization'
-import { handleRedirectToTradersHub } from 'components/custom/utils'
 import { TString } from 'types/generics'
-import usePpc from 'features/hooks/use-ppc'
-import useAuthCheck from 'components/hooks/use-auth-check'
-import { isBrowser } from 'common/utility'
-import useHandleSignup from 'components/hooks/use-handle-signup'
 import Label from 'features/components/atoms/label'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
@@ -28,13 +22,7 @@ const WhatAreDigitalOptions = ({
     is_coming_soon,
     has_content_block,
 }: WhatAreDigitalOptionsProps) => {
-    const { is_ppc_redirect } = usePpc()
     const clickToScrollHandler = useScrollToElement('faqs', -100)
-    const [is_logged_in] = useAuthCheck()
-    const handleSignup = useHandleSignup(is_ppc_redirect)
-    const isRealDevice = isBrowser()
-    const renderSignupButton = isRealDevice && !is_logged_in
-    const renderTradershubButton = isRealDevice && is_logged_in
     const uniq = `navbuttons_uniq_class_${uuidv4()}`
 
     return (

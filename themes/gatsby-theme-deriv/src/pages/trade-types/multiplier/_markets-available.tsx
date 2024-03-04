@@ -8,8 +8,8 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TAvailableMarkets = {
     name: string
@@ -86,7 +86,7 @@ const eu_available_markets = available_markets.filter(
 )
 
 const MarketsAvailable = () => {
-    const { is_eu, is_row } = useRegion()
+    const { region } = useBuildVariant()
 
     return (
         <SectionContainer background="white" padding="8rem 0" position="relative">
@@ -96,7 +96,7 @@ const MarketsAvailable = () => {
                 </Header>
             </SmallContainer>
             {/* TODO: refactor to make it more DRY */}
-            {is_row && (
+            {region === "row" && (
                 <MarketsCarousel>
                     {available_markets.map(
                         ({ description, img_alt, img_src, learn_more_path, name, text }) => {
@@ -132,7 +132,7 @@ const MarketsAvailable = () => {
                 </MarketsCarousel>
             )}
 
-            {is_eu && (
+            {region === "eu" && (
                 <MarketsCarousel>
                     {eu_available_markets.map(
                         ({ eu_description, img_alt, img_src, learn_more_path, name, text }) => {

@@ -4489,6 +4489,7 @@
   "-693343501": "Set deal cancellation time",
   "-488118247": "8. Purchase your contract",
   "-1061315047": "Start trading multipliers on Deriv",
+  "-1643713470": "With or without a stop loss in place, we will close your position if the market moves against your prediction and your loss reaches the stop out price. The stop out price is the price at which your net loss is equal to your stake.",
   "-1088149692": "This is to protect you from losing your money when using deal cancellation. With deal cancellation, you are allowed to reclaim your full stake amount if you cancel your contract within an hour of opening the position. Stop loss, on the other hand, will close your contract at a loss if the market moves against your position. However, once the deal cancellation expires, you can set a stop loss level on the open contract.",
   "-976479290": "You can’t use stop loss and deal cancellation features at the same time.",
   "-993588400": "You can’t use take profit and deal cancellation features at the same time.",

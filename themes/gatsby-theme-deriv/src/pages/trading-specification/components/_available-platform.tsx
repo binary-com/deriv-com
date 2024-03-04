@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import useRegion from 'components/hooks/use-region'
 import { Flex } from 'components/containers'
 import DerivMT5 from 'images/common/markets/mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
-import { Localize, LocalizedLink, localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
-import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
@@ -66,12 +65,7 @@ const deriv_mt5 = 'Deriv MT5'
 const deriv_x = 'Deriv X'
 
 const AvailablePlatform = () => {
-    const { is_row } = useRegion()
-    const [show_row_content, setShowRowContent] = useState(true)
-
-    useEffect(() => {
-        if (!is_row) setShowRowContent(false)
-    }, [is_row])
+    const { region } = useBuildVariant()
 
     return (
         <>
@@ -83,7 +77,7 @@ const AvailablePlatform = () => {
                         </StyledText>
                     </FlexContainer>
 
-                    {show_row_content ? (
+                    {region === "row" ? (
                         <>
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">

@@ -123,7 +123,8 @@ const Spinner = () => (
     </StyledSpinner>
 )
 
-const UnsubscribePage = () => {
+const UnsubscribePage = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState()
     const [data, setData] = useState()
@@ -155,7 +156,7 @@ const UnsubscribePage = () => {
     }, [binary_user_id, checksum])
 
     return (
-        <Layout>
+        <Layout region={region}>
             {loading ? (
                 <UnsubscribeWrapper>
                     <Spinner />

@@ -9,13 +9,14 @@ import Typography from 'features/components/atoms/typography'
 import Image from 'features/components/atoms/image'
 import CtraderSuccessImage from 'images/common/ctrader/ctrader-success.png'
 import LinkButton from 'features/components/atoms/link-button'
+import { BuildVariantType } from 'features/types'
 
-const CtraderLoginSuccess = () => {
+const CtraderLoginSuccess = ({region}: BuildVariantType) => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const token = url_params.get('token')
 
     return (
-        <Layout hide_layout_overlay>
+        <Layout hide_layout_overlay region={region}>
             <CtraderWrapper>
                 <Flex.Box
                     as="div"

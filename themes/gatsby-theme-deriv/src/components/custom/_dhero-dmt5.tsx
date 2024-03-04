@@ -131,7 +131,6 @@ const DCommonBanner = () => {
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const { region } = useBuildVariant()
-    const { is_eu } = useRegion()
     const is_rtl = useIsRtl()
 
     return (

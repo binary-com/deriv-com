@@ -3,14 +3,14 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const ThingsInMind = () => {
-    const { is_eu } = useRegion()
-    const deal_cancellation_text = is_eu
+    const { region } = useBuildVariant()
+    const deal_cancellation_text = region === "eu"
         ? "_t_Deal cancellation isn't available for Crash and Boom indices or cryptocurrency pairs. The stop out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop out percentage is shown below your stake on Deriv Trader and varies according to your chosen multiplier._t_"
         : '_t_Deal cancellation isn’t available for Crash and Boom indices. The stop-out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop-out percentage is shown below your stake on Deriv Trader and varies according to your chosen multiplier._t_'
-    const protect_text = is_eu
+    const protect_text = region === "eu"
         ? '_t_This is to protect you from losing your money when using deal cancellation. With deal cancellation, you are allowed to reclaim your full stake amount (minus a small fee) if you cancel your contract within an hour of opening the position. Stop loss, on the other hand, will close your contract at a loss if the market moves against your position. However, once the deal cancellation expires, you can set a stop loss level on the open contract._t_'
         : '_t_This is to protect you from losing your money when using deal cancellation. With deal cancellation, you are allowed to reclaim your full stake amount if you cancel your contract within an hour of opening the position. Stop loss, on the other hand, will close your contract at a loss if the market moves against your position. However, once the deal cancellation expires, you can set a stop loss level on the open contract._t_'
 

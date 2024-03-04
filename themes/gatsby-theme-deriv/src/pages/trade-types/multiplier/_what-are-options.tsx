@@ -9,7 +9,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -133,7 +133,7 @@ const query = graphql`
 
 const WhatAreOptions = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
     return (
         <>
@@ -148,7 +148,7 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainerHead>
             <SmallContainer direction="column" ai="flex-start">
-                {is_eu ? (
+                {region === "eu" ? (
                     <Flex fd="column">
                         <Row mb="2rem">
                             <RowColumn isHeader>
@@ -354,8 +354,8 @@ const WhatAreOptions = () => {
                     ({ alt, item_title, src, text, item_title_eu, text_eu }) => (
                         <StyledBox
                             key={item_title || item_title_eu}
-                            item_title={is_eu ? item_title_eu : item_title}
-                            text={is_eu ? text_eu : text}
+                            item_title={region === "eu" ? item_title_eu : item_title}
+                            text={region === "eu" ? text_eu : text}
                             icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                         ></StyledBox>
                     ),

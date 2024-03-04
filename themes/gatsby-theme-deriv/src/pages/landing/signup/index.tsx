@@ -55,7 +55,8 @@ const StyledGraph = styled.img`
     }
 `
 
-const NewSignup = () => {
+const NewSignup = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
 
@@ -68,7 +69,7 @@ const NewSignup = () => {
     }
 
     return (
-        <Layout type="static" padding_top="0" is_ppc>
+        <Layout type="static" padding_top="0" is_ppc region={region}>
             <Wrapper>
                 {submit_state !== 'success' && (
                     <Content>

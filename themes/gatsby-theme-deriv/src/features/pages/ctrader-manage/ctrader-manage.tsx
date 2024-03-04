@@ -6,6 +6,9 @@ import LinkButton from 'features/components/atoms/link-button'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
+import { BuildVariantType } from 'features/types'
+
+type CtraderManagePageProps =  CtraderManageProps & BuildVariantType
 
 const CtraderManage = ({
     title,
@@ -15,9 +18,10 @@ const CtraderManage = ({
     paragraph,
     button_url,
     button_text,
-}: CtraderManageProps) => {
+    region
+}: CtraderManagePageProps) => {
     return (
-        <Layout hide_layout_overlay>
+        <Layout hide_layout_overlay region={region}>
             <CtraderWrapper>
                 <Flex.Box
                     gap="10x"

@@ -9,10 +9,12 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
+import { BuildVariantType } from 'features/types'
 
-const TurboOptions = () => {
+const TurboOptions = ({region}: BuildVariantType) => {
     return (
         <OptionsLayout
+            region={region}
             heading="_t_What are turbo options?_t_"
             description="_t_Turbo options allow you to earn a potentially high payout if your market predictions are right and if the spot price does not touch or breach a predetermined barrier._t_"
         >

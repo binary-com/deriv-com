@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
 import Banner from './_banner'
 import OtherApps from './_other-apps'
@@ -7,7 +7,6 @@ import WhyTradeDerivGo from './_why-trade-deriv-go'
 import PageNotFound from 'features/pages/404'
 import { SEO } from 'components/containers'
 import Roadmap, { TPortal } from 'components/elements/roadmap'
-import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { ContentType } from 'pages/landing/_types'
@@ -52,35 +51,26 @@ const derivGoPortalData: TPortal = {
     link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',
 }
 
-const DerivGo = () => {
-    const { is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
+const DerivGo = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const deriv_go_management_board = useThirdPartyFlags('deriv_go_management_board')
 
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
-
-    if (is_loaded) {
-        if (is_row) {
-            return (
-                <Layout>
-                    <Banner />
-                    <WhatIsDerivGo />
-                    <WhyTradeDerivGo />
-                    <DerivGoContent reverse P2P={items} />
-                    <StartDerivGo />
-                    {deriv_go_management_board && <Roadmap portal={derivGoPortalData} />}
-                    <FooterBanner />
-                    <OtherApps />
-                </Layout>
-            )
-        }
-
-        return <PageNotFound />
+    if (region === "row") {
+        return (
+            <Layout region={region}>
+                <Banner />
+                <WhatIsDerivGo />
+                <WhyTradeDerivGo />
+                <DerivGoContent reverse P2P={items} />
+                <StartDerivGo />
+                {deriv_go_management_board && <Roadmap portal={derivGoPortalData} />}
+                <FooterBanner />
+                <OtherApps />
+            </Layout>
+        )
     }
 
-    return <React.Fragment></React.Fragment>
+    return <PageNotFound region={region} />
 }
 
 export default WithIntl()(DerivGo)

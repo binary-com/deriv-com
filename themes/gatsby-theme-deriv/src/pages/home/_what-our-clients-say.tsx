@@ -6,8 +6,8 @@ import { Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import Quote from 'images/svg/testimonials/quote.svg'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 declare global {
     interface Window {
@@ -223,7 +223,7 @@ const ClientSlide = ({ quote, name }: ClientSideProps) => (
 )
 
 const WhatOurClientsSay = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const ref = useRef()
 
     useEffect(() => {
@@ -294,7 +294,7 @@ const WhatOurClientsSay = () => {
                         >
                             <Carousel>
                                 {(
-                                    (is_eu && filtered_testimonial(unavailable_testimonial_eu)) ||
+                                    (region === "eu" && filtered_testimonial(unavailable_testimonial_eu)) ||
                                     testimonial_slides
                                 ).map(({ name, quote }) => (
                                     <ClientSlide key={name} quote={quote} name={name} />

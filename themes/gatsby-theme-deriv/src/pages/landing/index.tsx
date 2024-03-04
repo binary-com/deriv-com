@@ -31,9 +31,10 @@ const simple_step_content: TSimpleStepContent[] = [
     },
 ]
 
-const Home = () => {
+const Home = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
-        <Layout is_ppc_redirect is_ppc>
+        <Layout is_ppc_redirect is_ppc region={region}>
             <Hero is_ppc />
             <Desktop>
                 <Trade is_ppc_redirect />

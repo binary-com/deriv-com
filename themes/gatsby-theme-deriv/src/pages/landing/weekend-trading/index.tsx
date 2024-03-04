@@ -44,9 +44,10 @@ const DP2P_CONTENT: ContentType[] = [
     },
 ]
 
-const WeekenLP = () => {
+const WeekenLP = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
-        <Layout type="landing-page" is_ppc_redirect>
+        <Layout type="landing-page" is_ppc_redirect region={region}>
             <Hero />
             <IconTextRow />
             <ImageTextSwitching reverse P2P={DP2P_CONTENT} />

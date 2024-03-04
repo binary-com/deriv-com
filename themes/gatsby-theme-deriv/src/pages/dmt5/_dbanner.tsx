@@ -12,7 +12,7 @@ import { handleGetTrading } from 'components/custom/utils'
 import { TString } from 'types/generics'
 
 type DBannerProps = {
-    image_alt: TString
+    image_alt?: TString
     title: TString
     data?: string
     is_ppc?: boolean

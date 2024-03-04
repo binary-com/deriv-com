@@ -24,7 +24,8 @@ const query = graphql`
     }
 `
 
-const DMT5 = () => {
+const DMT5 = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [is_mobile, setMobile] = useState(false)
 
     useEffect(() => {
@@ -40,7 +41,7 @@ const DMT5 = () => {
     const data = useStaticQuery(query)
 
     return (
-        <Layout is_ppc_redirect>
+        <Layout is_ppc_redirect region={region}>
             <DHero
                 title="_t_Deriv MT5 (DMT5)_t_"
                 content="_t_Trade 24/7 on forex, stocks, synthetic indices, and commodities_t_"

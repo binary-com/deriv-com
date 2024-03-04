@@ -3,10 +3,14 @@ import OptionsLayout from '../options-layout'
 import { AvailableDigitalOptionsData } from './data'
 import Flex from 'features/components/atoms/flex-box'
 import AvailableOptions from 'features/components/organisms/available-options'
+import { BuildVariantType } from 'features/types'
 
-const DigitalOptionsLayout = ({ children }: React.PropsWithChildren<unknown>) => {
+type DigitalOptionsLayoutProps = React.PropsWithChildren<unknown> & BuildVariantType
+
+const DigitalOptionsLayout = ({ children, region }: DigitalOptionsLayoutProps) => {
     return (
         <OptionsLayout
+            region={region}
             heading="_t_What are digital options?_t_"
             description="_t_Digital options allow you to predict the outcome from two possible results and earn a fixed payout if your prediction is correct._t_"
         >

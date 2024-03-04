@@ -4,10 +4,10 @@ import { SmallContainer } from '../components/_style'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import Button from 'components/custom/_button'
 import { StepperView } from 'components/elements'
-import useRegion from 'components/hooks/use-region'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const ButtonContainer = styled.div`
     margin-left: -1rem;
@@ -17,19 +17,19 @@ const StepperContainer = styled.div`
 `
 
 const StartTrading = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const [is_mobile] = useBrowserResize()
     const handleSignup = useHandleSignup()
     const CfdItems: { title: TString; subtitle: TString }[] = [
         {
             title: '_t_Practise_t_',
-            subtitle: is_eu
+            subtitle: region === "eu"
                 ? '_t_Open a demo CFDs account and practise with an unlimited amount of virtual funds._t_'
                 : '_t_Open a demo Deriv MT5, Deriv X, or Deriv cTrader account and practise with an unlimited amount of virtual funds._t_',
         },
         {
             title: '_t_Trade_t_',
-            subtitle: is_eu
+            subtitle: region === "eu"
                 ? '_t_Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital._t_'
                 : '_t_Trade with a real Deriv MT5, Deriv X, or Deriv cTrader account and get access to high leverage to trade positions larger than your existing capital._t_',
         },

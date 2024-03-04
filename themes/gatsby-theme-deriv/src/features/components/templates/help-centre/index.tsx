@@ -6,11 +6,11 @@ import { getLocationPathname } from 'common/utility'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
 import useVisibleContent from 'components/hooks/use-visible-content'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const HelpCentreSocialIcons = () => {
+    const { region } = useBuildVariant()
     const [is_career, setIsCareer] = useState(false)
-    const { is_eu } = useRegion()
     const { i18n } = useTranslation()
     const { language } = i18n
 
@@ -23,7 +23,7 @@ const HelpCentreSocialIcons = () => {
 
     const config = {
         is_career_page: is_career,
-        is_eu,
+        is_eu: region === "eu",
         is_ar: language === 'ar',
         is_es: language === 'es',
     }

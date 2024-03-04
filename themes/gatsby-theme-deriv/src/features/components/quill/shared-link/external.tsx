@@ -1,15 +1,15 @@
 import React, { ComponentProps, useState } from 'react'
 import Alert from '../alert'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type ExternalLinkProps = ComponentProps<'a'> & {
     show_eu_modal?: boolean
 }
 
 const ExternalLink = ({ href, onClick, target, show_eu_modal, ...rest }: ExternalLinkProps) => {
+    const { region } = useBuildVariant()
     const [is_redirect_modal_visible, setIsRedirectModalVisible] = useState(false)
-    const { is_eu } = useRegion()
-    const show_modal = is_eu && show_eu_modal
+    const show_modal = region === "eu" && show_eu_modal
 
     const handleCancel = () => {
         setIsRedirectModalVisible(false)

@@ -10,17 +10,17 @@ import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
 import { dictionary } from '@zxcvbn-ts/language-common'
 import clsx from 'clsx'
 import { Input } from './Input'
-import { calculateScore, isPasswordValid } from './PasswordUtils'
+import { calculateScore, isPasswordValid } from './password-utils'
 import {
     TScore,
     passwordErrorMessage,
     passwordKeys,
     passwordRegex,
     warningMessages,
-} from './PasswordConstants'
-import { EyeIcon, EyeIconSlash } from './PasswordIcon'
-import { PasswordMeter } from './PasswordMeter'
-import './PasswordInput.scss'
+} from './password-constants'
+import { EyeIcon, EyeIconSlash } from './password-icon'
+import { PasswordMeter } from './password-meter'
+import './password-input.scss'
 
 export const validatePassword = (password: string) => {
     const score = calculateScore(password)

@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
-import { TScore } from './PasswordConstants'
-import './PasswordMeter.scss'
+import { TScore } from './password-constants'
+import './password-meter.scss'
 
 type PasswordMeterProps = {
     score: TScore

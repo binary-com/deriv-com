@@ -1,4 +1,4 @@
-import { passwordRegex, passwordValues } from './PasswordConstants'
+import { passwordRegex, passwordValues } from './password-constants'
 
 export const validPassword = (value: string) => passwordRegex.isPasswordValid.test(value)
 

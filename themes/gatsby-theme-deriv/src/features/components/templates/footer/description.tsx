@@ -165,10 +165,10 @@ export const DescriptionContent = () => {
     const { region } = useBuildVariant()
     const { is_cpa_plan } = useRegion()
     const { exitRef } = useFloatingCtaContext()
-    const [content, setContent] = useState(<DescriptionContentROW />)
+    const descriptionContent = (region === "row" && <DescriptionContentROW />) || (region === "eu" && <DescriptionContentEU />);
+    const [content, setContent] = useState(descriptionContent)
 
     useEffect(() => {
-        if (region === "eu") setContent(<DescriptionContentEU />)
         if (is_cpa_plan) setContent(<DescriptionContentCPA />)
     }, [region, is_cpa_plan])
 

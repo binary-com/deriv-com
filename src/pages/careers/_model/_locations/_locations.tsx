@@ -21,6 +21,7 @@ import {
     address_hongkong,
     address_reading,
     address_berlin,
+    address_london,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -874,7 +875,7 @@ export const london: LocationsType = {
     country: 'UK',
     flagIcon: UKFlagIcon,
     thumbnail: 'thumbnail_reading',
-    address: address_reading,
+    address: address_london,
     first_p:
         'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
     first_img: 'living_in_reading',

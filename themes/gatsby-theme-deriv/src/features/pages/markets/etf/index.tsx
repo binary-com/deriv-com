@@ -18,7 +18,6 @@ import { TPageContext } from 'features/types'
 
 const ETFMarket = ({ region }: TPageContext) => {
     const { is_deriv_go } = usePlatformQueryParam()
-    console.log("region ==", region)
     return (
         <Layout region={region}>
             {!is_deriv_go && (

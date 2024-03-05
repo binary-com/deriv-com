@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { getLanguage, getLocationPathname } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 const social_media_urls = {

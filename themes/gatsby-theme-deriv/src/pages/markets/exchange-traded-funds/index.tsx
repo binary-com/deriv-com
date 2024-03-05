@@ -4,8 +4,9 @@ import ETFMarket from 'features/pages/markets/etf'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const ETFMarketPage = () => {
-    return <ETFMarket />
+const ETFMarketPage = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
+    return <ETFMarket region={region}/>
 }
 
 export default WithIntl()(ETFMarketPage)

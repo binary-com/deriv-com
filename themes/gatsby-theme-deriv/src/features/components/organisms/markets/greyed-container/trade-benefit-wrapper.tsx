@@ -6,8 +6,8 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
-import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 interface TradeBenefitWrapperProps {
     data: BenefitTradeTypeItem[]
@@ -15,8 +15,8 @@ interface TradeBenefitWrapperProps {
 }
 
 const TradeBenefitWrapper = ({ data, header }: TradeBenefitWrapperProps) => {
-    const { is_eu } = useRegion()
-    const visible_trade_benefits = useVisibleContent({ content: data, config: { is_eu } })
+    const { region } = useBuildVariant()
+    const visible_trade_benefits = useVisibleContent({ content: data, config: { is_eu: region === 'eu' ? true : false } })
     return (
         <Container.Fixed
             as="section"

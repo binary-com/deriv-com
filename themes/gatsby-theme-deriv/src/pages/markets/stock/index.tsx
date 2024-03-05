@@ -8,9 +8,10 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const StocksAndIndicesPage = () => {
+const StocksAndIndicesPage = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
     return (
-        <Layout type="noNav" padding_top="0">
+        <Layout type="noNav" padding_top="0" region={region}>
             <DerivedFXHero
                 title="_t_Stocks & indices_t_"
                 description="_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_"

@@ -11,10 +11,10 @@ import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -24,13 +24,9 @@ type CommoditiesProps = {
 }
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
-    const { is_eu } = useRegion()
-    const [show_digital_options, setShowDigitalOptions] = useState(true)
-
-    useEffect(() => {
-        if (is_eu) setShowDigitalOptions(false)
-    }, [is_eu])
-
+    const { region } = useBuildVariant()
+    const show_digital_options = region === 'row' ? true : false
+    
     simple_step_content[1].text =
         '_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_'
 

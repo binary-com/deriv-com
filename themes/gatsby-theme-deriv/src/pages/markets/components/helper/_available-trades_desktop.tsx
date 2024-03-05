@@ -5,11 +5,11 @@ import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { isBrowser } from 'common/utility'
 import { TString } from 'types/generics'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type CardProps = {
     active_tab: string
@@ -201,18 +201,14 @@ const AvailableTradesDesktop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const [tab, setTab] = useState('cfds')
     const params = new URLSearchParams(isBrowser() && location.search)
-    const [show_digital_options, setShowDigitalOptions] = useState(true)
+    const show_digital_options = region === 'row' ? true : false
 
     useEffect(() => {
         setTab(params.get('tab') || 'cfds')
     }, [params])
-
-    useEffect(() => {
-        if (is_eu) setShowDigitalOptions(false)
-    }, [is_eu])
 
     const { is_deriv_go } = usePlatformQueryParam()
 

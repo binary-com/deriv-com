@@ -47,7 +47,6 @@ jobs:
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
-
             - name: Post Cloudflare Pages Preview comment
               uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
               with:
@@ -76,7 +75,6 @@ jobs:
                   path: |
                       sites/eu/.cache
                       sites/eu/public
-
             - name: Install Dependencies
               uses: "./.github/actions/npm_install_from_cache"
 
@@ -105,7 +103,6 @@ jobs:
                   echo "$EVENT_NUMBER" > .pr/NR
                   echo "$EVENT_USERNAME" > .pr/USERNAME
                   echo "$HEAD_REF" > .pr/BRANCHNAME
-
             - name: Publish to Cloudflare Pages
               id: publish-to-pages
               env:
@@ -130,7 +127,6 @@ jobs:
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1
                   fi
-
             - name: 'Generate preview link comment'
               if: success()
               id: generate_preview_url

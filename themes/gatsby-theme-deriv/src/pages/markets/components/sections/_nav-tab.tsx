@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/_types'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const TabsContainer = styled(Flex)`
     justify-content: center;
@@ -120,14 +120,10 @@ const tab_list_eu: TTabList[] = [
 ]
 
 const NavTab = ({ route_from }: TNavTab) => {
-    const { is_eu } = useRegion()
     const ref = useRef(null)
     const { is_deriv_go } = usePlatformQueryParam()
-    const [tabs, setTabs] = useState(tab_list)
-
-    useEffect(() => {
-        if (is_eu) setTabs(tab_list_eu)
-    }, [is_eu])
+    const { region } = useBuildVariant()
+    const tabs = region === 'eu' ? tab_list_eu : tab_list
 
     return (
         <TabsContainer>

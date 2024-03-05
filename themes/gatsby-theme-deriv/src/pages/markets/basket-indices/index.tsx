@@ -9,18 +9,21 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const BasketPage = () => (
-    <Layout type="noNav" padding_top="0">
-        <DerivedFXHero
-            title="_t_Derived_t_"
-            description="_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_"
-            is_derived_row
-        />
-        <NavTab route_from="basket-indices" />
-        <BasketIndices simple_step_content={simple_step_content_basket} />
-        <SignupPublic />
-    </Layout>
-)
+const BasketPage = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
+    return  (
+        <Layout type="noNav" padding_top="0" region={region}>
+            <DerivedFXHero
+                title="_t_Derived_t_"
+                description="_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_"
+                is_derived_row={region === 'row'}
+            />
+            <NavTab route_from="basket-indices" />
+            <BasketIndices simple_step_content={simple_step_content_basket} />
+            <SignupPublic />
+        </Layout>
+    )
+}
 
 export default WithIntl()(BasketPage)
 

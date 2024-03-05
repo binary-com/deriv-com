@@ -12,11 +12,11 @@ import { StyledBox } from '../../static/style/_markets-style'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
-import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -26,20 +26,12 @@ type ForexProps = {
 }
 
 const Forex = ({ simple_step_content }: ForexProps) => {
-    const { is_eu } = useRegion()
-    const [content, setContent] = useState(forex_content)
-    const [cfds, setCfds] = useState(forex_cfds)
-    const [show_digital_options, setShowDigitalOptions] = useState(true)
-    const [multiplier, setMultiplier] = useState(forex_multiplier)
+    const { region } = useBuildVariant()
 
-    useEffect(() => {
-        if (is_eu) {
-            setContent(forex_content_eu)
-            setCfds(forex_cfds_eu)
-            setShowDigitalOptions(false)
-            setMultiplier(forex_multiplier_eu)
-        }
-    }, [is_eu])
+    const content = region === 'eu' ? forex_content_eu : forex_content
+    const cfds = region === 'eu' ? forex_cfds_eu : forex_cfds
+    const show_digital_options = region === 'eu' ? false : true
+    const multiplier = region === 'eu' ? forex_multiplier_eu : forex_multiplier
 
     return (
         <>

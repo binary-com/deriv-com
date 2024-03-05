@@ -8,9 +8,10 @@ import { SEO } from 'components/containers'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import { TGatsbyHead } from 'features/types'
 
-const CryptocurrenciesPage = () => {
+const CryptocurrenciesPage = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
     return (
-        <Layout type="noNav" padding_top="0">
+        <Layout type="noNav" padding_top="0" region={region}>
             <DerivedFXHero
                 title="_t_Cryptocurrencies_t_"
                 description="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of the world's most popular cryptocurrencies._t_"

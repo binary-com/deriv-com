@@ -47,12 +47,12 @@ const WhatAreDigitalOptions = ({
                     className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
                     id={uniq}
                 >
-                    <TradersHubCtaButton />
+                    <TradersHubCtaButton className="w-full md:!w-auto" size="lg" />
                     <Button
                         size="lg"
                         variant="secondary"
                         colorStyle="black"
-                        className="w-full md:!w-auto"
+                        className="w-full md:!w-auto hover:!bg-solid-slate-50 sm:hover:!bg-opacity-black-100"
                         onClick={clickToScrollHandler}
                     >
                         <Localize translate_text="_t_Read FAQs_t_" />

@@ -60,6 +60,8 @@ const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigal
 
 const address_berlin = ['Kemperplatz 1 Mitte D, 10785 Berlin, Germany']
 
+const address_london = ['First Floor, 68 - 72 Leonard Street, London, EC2A 4QX']
+
 export {
     address_asuncion,
     address_cyberjaya,
@@ -67,6 +69,7 @@ export {
     address_dubai,
     address_ipoh,
     address_labuan,
+    address_london,
     address_malta,
     address_ciudad,
     address_melaka,

@@ -6,16 +6,13 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
-import useRegion from 'components/hooks/use-region'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import { ctrader_login, brand_name } from 'common/constants'
 import { getLanguage } from 'common/utility'
 import { BuildVariantType } from 'features/types'
 
 const CtraderSignup = ({region}: BuildVariantType) => {
-    const { is_eu } = useRegion()
-
-    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
+    const security_pdf_link = `/tnc${region === "eu" ? '/eu' : ''}/security-and-privacy.pdf`
     getLanguage()
 
     return (

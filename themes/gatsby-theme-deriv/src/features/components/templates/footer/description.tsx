@@ -170,7 +170,7 @@ export const DescriptionContent = () => {
 
     useEffect(() => {
         if (is_cpa_plan) setContent(<DescriptionContentCPA />)
-    }, [region, is_cpa_plan])
+    }, [is_cpa_plan])
 
     return <div ref={exitRef}>{content}</div>
 }

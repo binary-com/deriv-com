@@ -13,18 +13,16 @@ import {
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
-import useBuildVariant from 'features/hooks/use-build-variant'
-import { getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
+import { getLocationPathname } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
-const MainFooter = () => {
-    const {region} = useBuildVariant();
-    const { is_cpa_plan } = useRegion()
+export const MainFooter = () => {
+    const { is_eu, is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
-    const region_buttons = region === "eu" ? socialButtonsEU : socialButtonsROW
+    const [nav_data, setNavData] = useState(RowFooterNavData)
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -46,11 +44,12 @@ const MainFooter = () => {
         const socialIconEU = filterSocialIcons(eu_social_media_icons, socialButtonsEU)
         const socialIconCareer = filterSocialIcons(career_social_media_icons, socialButtonsCareers)
 
-        const region_buttons = region === "eu" ? socialIconEU : socialIconROW
+        const region_buttons = is_eu ? socialIconEU : socialIconROW
         setSocialButtons(is_career ? socialIconCareer : region_buttons)
-        setWarnText(region !== "eu" && !is_cpa_plan ? warnText : null)
+        if (is_eu) setNavData(EuFooterNavData)
+        setWarnText(!is_eu && !is_cpa_plan ? warnText : null)
     }, [
-        region,
+        is_eu,
         is_cpa_plan,
         is_career,
         career_social_media_icons,
@@ -65,9 +64,9 @@ const MainFooter = () => {
             banner={DerivGoBanner}
             awards={IIPAward}
             descriptionContent={DescriptionContent}
-            className={qtJoin((region === "eu" || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
+            className={qtJoin((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Footer.MainNavContent items={region === "eu" ? EuFooterNavData : RowFooterNavData} cols="six" />
+            <Footer.MainNavContent items={nav_data} cols="six" />
         </Footer.FooterBlock>
     )
 }

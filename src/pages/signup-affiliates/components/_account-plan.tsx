@@ -54,7 +54,6 @@ const AccountPlan = ({
         updateData(account_plan)
         onValidate(!!account_plan)
     }, [account_plan])
-    console.log('==> ', ' cpa:', is_cpa_plan_aff)
     return (
         <MainWrapper>
             <StyledHeader

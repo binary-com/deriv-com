@@ -7,7 +7,7 @@ import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import { TString } from 'types/generics'
-import { cpa_plan_countries , eu_countries } from 'common/country-base'
+import { cpa_plan_countries, eu_countries } from 'common/country-base'
 
 type AccountAddressProps = WizardStepProps<'account_address'> & {
     setIsCpaPlanAff: React.Dispatch<React.SetStateAction<boolean>>
@@ -41,22 +41,16 @@ const AccountAddress = ({
             form_data.state?.name &&
             changed_country !== form_data.country
         ) {
-            setIsCpaPlanAff(
-                form_data.country
-                    ? cpa_plan_countries.includes(changed_country.symbol) |
-                          eu_countries.includes(changed_country.symbol)
-                    : false,
-            )
             setFormErrors({
                 ...form_errors,
                 state_error_msg: 'State is not valid for this country',
             })
         }
-        console.log(
-            '==>',
-            changed_country.symbol,
-            cpa_plan_countries.includes(changed_country.symbol) |
-                eu_countries.includes(changed_country.symbol),
+        setIsCpaPlanAff(
+            changed_country
+                ? cpa_plan_countries.includes(changed_country.symbol) ||
+                      eu_countries.includes(changed_country.symbol)
+                : false,
         )
 
         setFormData({ ...form_data, country: changed_country })

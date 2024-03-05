@@ -66,7 +66,7 @@ export const MainFooter = () => {
             descriptionContent={DescriptionContent}
             className={qtJoin((region === "eu" || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Footer.MainNavContent items={region === "row" ? RowFooterNavData : EuFooterNavData} cols="six" />
+            <Footer.MainNavContent items={region === "eu" ? EuFooterNavData : RowFooterNavData} cols="six" />
         </Footer.FooterBlock>
     )
 }

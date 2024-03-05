@@ -14,7 +14,6 @@ import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import BugBountyRow from 'images/svg/terms/bug-bounty-row.svg'
 import IG from 'images/svg/terms/important-guidelines.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
-import useRegion from 'components/hooks/use-region'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ColProps = {
@@ -70,7 +69,6 @@ const BusinessGrid = () => {
     const bug_bounty_url = `/tnc/[ES]_business-partners-bug-bounty-R23_12_1.pdf`
     
     const { region } = useBuildVariant()
-    const { is_row } = useRegion()
     const language = getLanguage()
 
     const general_terms_url_region = region === "row"
@@ -100,7 +98,7 @@ const BusinessGrid = () => {
                     Icon={General}
                     title="_t_General terms of use_t_"
                     content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
-                    url={is_row && language === 'es' ? general_terms_url : general_terms_url_region}
+                    url={region === "row" && language === 'es' ? general_terms_url : general_terms_url_region}
                     link_title="_t_General terms of use_t_"
                 />
                 <Col
@@ -108,7 +106,7 @@ const BusinessGrid = () => {
                     title="_t_Affiliates & introducing brokers (IBs)_t_"
                     content="_t_Additional terms for our affiliates and introducing brokers_t_"
                     url={
-                        is_row && language === 'es'
+                        region === "row" && language === 'es'
                             ? affiliate_brokers_url
                             : affiliate_brokers_url_region
                     }
@@ -122,7 +120,7 @@ const BusinessGrid = () => {
                         title="_t_Payment agents_t_"
                         content="_t_Additional terms for our payment agents_t_"
                         url={
-                            is_row && language === 'es'
+                            region === "row" && language === 'es'
                                 ? payment_agents_url
                                 : '/tnc/business-partners-payment-agents.pdf'
                         }
@@ -133,14 +131,14 @@ const BusinessGrid = () => {
                     Icon={region === "row" ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
-                    url={is_row && language === 'es' ? api_user_url : api_user_url_region}
+                    url={region === "row" && language === 'es' ? api_user_url : api_user_url_region}
                     link_title="_t_API users_t_"
                 />
                 <Col
                     Icon={region === "row" ? BugBountyRow : BugBounty}
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
-                    url={is_row && language === 'es' ? bug_bounty_url : bug_bounty_url_region}
+                    url={region === "row" && language === 'es' ? bug_bounty_url : bug_bounty_url_region}
                     link_title="_t_Bug Bounty Program_t_"
                 />
             </StyledGrid>

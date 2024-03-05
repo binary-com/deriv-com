@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react'
 import NavigationCard from '../../../molecules/nav-card'
-import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import usePpc from 'features/hooks/use-ppc'
 import { NavConfig, SmartNavContent } from 'features/components/templates/navigation/types'

@@ -12,6 +12,7 @@ import { useUserBrowser } from 'components/hooks/use-user-browser'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useRegion from 'components/hooks/use-region'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TProps = {
     bannerType: string
@@ -134,12 +135,13 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
 `
 
 const BannerAlert = ({ bannerType }: TProps) => {
+    const {region} = useBuildVariant()
     const cookie = useCookieBanner()
     const cookie_browser_update = new CookieStorage(cookie_key)
     const [is_visible, setIsVisible] = useState(false)
     const { is_outdated } = useUserBrowser(browsers_minimum_required_version)
     const is_rtl = useIsRtl()
-    const { is_eu, is_cpa_plan } = useRegion()
+    const { is_cpa_plan } = useRegion()
     const { is_mobile } = useBreakpoints()
 
     //cookie banner
@@ -219,7 +221,7 @@ const BannerAlert = ({ bannerType }: TProps) => {
                     </Flex>
                 </Wrapper>
                 {/* //tablet && cfd conditions we need to add broweser banner in top of CFD banner     */}
-                {(is_eu || is_cpa_plan) && is_mobile ? (
+                {(region === "eu" || is_cpa_plan) && is_mobile ? (
                     <Wrapper
                         visible={is_visible}
                         width={cookieBannerProps.width}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, onValue } from 'firebase/database'
-// import useRegion from 'components/hooks/use-region'
 import featuresConfig from '../../../static/appConfig'
 
 const thirdPartyFlagsConfig = {

@@ -9,7 +9,6 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Google from 'images/svg/custom/google.svg'
-import useRegion from 'components/hooks/use-region'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 type SignupNewProps = {

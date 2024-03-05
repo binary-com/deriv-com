@@ -16,13 +16,14 @@ import { DescriptionContent } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export const MainFooter = () => {
-    const { is_eu, is_cpa_plan } = useRegion()
+    const { region } = useBuildVariant()
+    const { is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
-    const [nav_data, setNavData] = useState(RowFooterNavData)
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -44,12 +45,11 @@ export const MainFooter = () => {
         const socialIconEU = filterSocialIcons(eu_social_media_icons, socialButtonsEU)
         const socialIconCareer = filterSocialIcons(career_social_media_icons, socialButtonsCareers)
 
-        const region_buttons = is_eu ? socialIconEU : socialIconROW
+        const region_buttons = region === "eu" ? socialIconEU : socialIconROW
         setSocialButtons(is_career ? socialIconCareer : region_buttons)
-        if (is_eu) setNavData(EuFooterNavData)
-        setWarnText(!is_eu && !is_cpa_plan ? warnText : null)
+        setWarnText(region !== "eu" && !is_cpa_plan ? warnText : null)
     }, [
-        is_eu,
+        region,
         is_cpa_plan,
         is_career,
         career_social_media_icons,
@@ -64,9 +64,9 @@ export const MainFooter = () => {
             banner={DerivGoBanner}
             awards={IIPAward}
             descriptionContent={DescriptionContent}
-            className={qtJoin((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
+            className={qtJoin((region === "eu" || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Footer.MainNavContent items={nav_data} cols="six" />
+            <Footer.MainNavContent items={region === "row" ? RowFooterNavData : EuFooterNavData} cols="six" />
         </Footer.FooterBlock>
     )
 }

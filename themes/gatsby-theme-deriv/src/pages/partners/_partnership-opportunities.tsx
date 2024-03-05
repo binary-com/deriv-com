@@ -10,7 +10,6 @@ import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partn
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
 import { ReactComponent as PartnerDerivPrime } from 'images/svg/partners/deriv-prime.svg'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ClientCardProps = {

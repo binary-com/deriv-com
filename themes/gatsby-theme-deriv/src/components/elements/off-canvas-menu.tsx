@@ -52,7 +52,7 @@ import Story from 'images/svg/menu/story.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type OffCanvasMenuWrapperProps = {
     closeOffCanvasMenu?: () => void
@@ -156,7 +156,7 @@ const derived_text_row: TString =
     '_t_Enjoy trading asset prices derived from real-world<br/> or simulated markets._t_'
 
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
-    const { is_row } = useRegion()
+    const { region } = useBuildVariant()
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -198,7 +198,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         to="/trade-types/cfds/"
                                     />
                                 </Flex>
-                                {is_row && (
+                                {region === "row" && (
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
@@ -257,7 +257,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        {is_row && (
+                        {region === "row" && (
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -295,7 +295,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        {is_row && (
+                        {region === "row" && (
                             <>
                                 <Flex mb="2rem">
                                     <NavCard
@@ -410,7 +410,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         height="32"
                                     />
                                 )}
-                                content={is_row ? derived_text_row : derived_text_eu}
+                                content={region === "row" ? derived_text_row : derived_text_eu}
                                 title="_t_Derived_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/synthetic/"
@@ -767,7 +767,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Localize translate_text="_t_Affiliates and IBs_t_" />
                             </span>
                         </StyledLink>
-                        {is_row && (
+                        {region === "row" && (
                             <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                                 <div>
                                     <img
@@ -825,7 +825,7 @@ type OffCanvasMenuPartnerProps = {
 
 export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
     const canvas = useRef<HTMLDivElement>()
-    const { is_row } = useRegion()
+    const { region } = useBuildVariant()
     const is_rtl = useIsRtl()
 
     const handleArrowClick = () => {
@@ -865,7 +865,7 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
                         <Localize translate_text="_t_Affiliates and IBs_t_" />
                     </span>
                 </StyledLink>
-                {is_row && (
+                {region === "row" && (
                     <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                         <div>
                             <img

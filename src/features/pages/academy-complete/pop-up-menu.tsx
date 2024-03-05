@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ResidenceForm from './residence-form'
-import PasswordForm from './password-form'
+import PasswordForm from './password/password-form'
 import device from 'themes/device'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 

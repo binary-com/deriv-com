@@ -65,9 +65,10 @@ const tools: ToolsType = [
     },
 ]
 
-const TraderTools = () => {
+const TraderTools = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
-        <Layout>
+        <Layout region={region}>
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
     WhyTrader,
     StartTrader,
@@ -14,7 +14,6 @@ import DHero from 'components/custom/_dhero-dmt5'
 import Layout from 'components/layout/layout'
 import { SEO, TMetaAttributes } from 'components/containers'
 import { WithIntl } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
 
 const meta_attributes: TMetaAttributes = {
@@ -23,32 +22,23 @@ const meta_attributes: TMetaAttributes = {
         '_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_',
 }
 
-const DMT5 = () => {
-    const { is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
+const DMT5 = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
 
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
-
-    if (is_loaded) {
-        return (
-            <Layout>
-                <DHero />
-                <Numbers />
-                <WhatIsTrader />
-                <WhyTrader />
-                <StartTrader />
-                <MarginCalculator />
-                <Flexibility />
-                <SwapFreeTrading />
-                <DownloadApp />
-                {is_row && <OtherPlatforms />}
-            </Layout>
-        )
-    }
-
-    return <React.Fragment></React.Fragment>
+    return (
+        <Layout region={region}>
+            <DHero />
+            <Numbers />
+            <WhatIsTrader />
+            <WhyTrader />
+            <StartTrader />
+            <MarginCalculator />
+            <Flexibility />
+            <SwapFreeTrading />
+            <DownloadApp />
+            {region === "row" && <OtherPlatforms />}
+        </Layout>
+    )
 }
 
 export default WithIntl()(DMT5)

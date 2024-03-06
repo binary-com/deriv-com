@@ -9,10 +9,11 @@ import AvailableMarketPlatforms from 'features/components/organisms/available-ma
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
+import { BuildVariantType } from 'features/types'
 
-const HighAndLowDigitalOptionsPage = () => {
+const HighAndLowDigitalOptionsPage = ({region}: BuildVariantType) => {
     return (
-        <DigitalOptionsLayout>
+        <DigitalOptionsLayout region={region}>
             <OptionsContent items={high_and_low_content_items} />
             <AvailableMarketPlatforms
                 markets={high_and_low_markets}

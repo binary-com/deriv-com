@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const sharedClasses = 'inline font-bold underline hover:text-typography-prominent'
 
@@ -161,14 +162,15 @@ export const DescriptionContentCPA = () => {
 }
 
 export const DescriptionContent = () => {
-    const { is_eu, is_cpa_plan } = useRegion()
+    const { region } = useBuildVariant()
+    const { is_cpa_plan } = useRegion()
     const { exitRef } = useFloatingCtaContext()
-    const [content, setContent] = useState(<DescriptionContentROW />)
+    const descriptionContent = (region === "row" && <DescriptionContentROW />) || (region === "eu" && <DescriptionContentEU />);
+    const [content, setContent] = useState(descriptionContent)
 
     useEffect(() => {
-        if (is_eu) setContent(<DescriptionContentEU />)
         if (is_cpa_plan) setContent(<DescriptionContentCPA />)
-    }, [is_eu, is_cpa_plan])
+    }, [is_cpa_plan])
 
     return <div ref={exitRef}>{content}</div>
 }

@@ -12,15 +12,16 @@ import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import Image from 'features/components/atoms/image'
+import { BuildVariantType } from 'features/types'
 
-const CtraderSignupCredentials = () => {
+const CtraderSignupCredentials = ({region}: BuildVariantType) => {
     const [show_check_email, setShowCheckEmail] = useState(true)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const email = url_params.get('email')?.replaceAll(' ', '+')
     const [residence_list] = useResidenceList()
 
     return (
-        <Layout hide_layout_overlay>
+        <Layout hide_layout_overlay region={region}>
             <CtraderWrapper>
                 <Flex.Box
                     as="div"

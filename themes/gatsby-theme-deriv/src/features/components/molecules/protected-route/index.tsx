@@ -1,27 +1,22 @@
 import React from 'react'
-import Layout from 'features/components/templates/layout'
 import PageNotFound from 'features/pages/404'
-import InitialLoader from 'components/elements/dot-loader'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 
 interface ProtectedRouteProps {
-    is_page_visible: boolean
+    region: BuildVariantContextType["region"]
     component: React.ReactNode
-    is_loading: boolean
+    is_page_visible: boolean
 }
 
 const ProtectedRoute = ({
     is_page_visible,
     component,
-    is_loading = false,
+    region
 }: ProtectedRouteProps) => {
-    return is_loading ? (
-        <Layout>
-            <InitialLoader />
-        </Layout>
-    ) : is_page_visible ? (
+    return is_page_visible ? (
         <>{component}</>
     ) : (
-        <PageNotFound />
+        <PageNotFound region={region}/>
     )
 }
 

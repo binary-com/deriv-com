@@ -7,10 +7,10 @@ import TwentyFourSeven from 'images/svg/dmt5/twenty-four-seven.svg'
 import SwapFree from 'images/svg/dmt5/swap-free-icon.svg'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
-import useRegion from 'components/hooks/use-region'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import BoxStyledFlex, { TItem } from 'components/custom/_box-styled-flex'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const card_data: TItem[] = [
     {
@@ -78,7 +78,8 @@ const StyledHeader = styled(Header)`
 `
 
 const WhyTrader = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
@@ -86,8 +87,8 @@ const WhyTrader = () => {
             </StyledHeader>
             <CardContainer>
                 <BoxStyledFlex
-                    items={is_eu ? card_data : card_data.concat(non_eu_card_data)}
-                    containerWidth={is_eu ? '1200px' : '900px'}
+                    items={region === "eu" ? card_data : card_data.concat(non_eu_card_data)}
+                    containerWidth={region === "eu" ? '1200px' : '900px'}
                 />
             </CardContainer>
         </Section>

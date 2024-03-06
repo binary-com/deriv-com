@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Symbol from '../components/helper/_symbol'
 import {
     volatility_indices,
     volatility_indices_c_trader,
     volatility_indices_trade_type_eu,
 } from '../static/content/_market-symbols'
-import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import dclsx from 'features/utils/dclsx'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const VolatilityIndices = () => {
-    const { is_eu } = useRegion()
-    const [show_eu_content, setShowEuContent] = useState(false)
-
-    useEffect(() => {
-        if (is_eu) setShowEuContent(true)
-    }, [is_eu])
+    const { region } = useBuildVariant()
 
     return (
         <>
-            {show_eu_content ? (
+            {region === "eu" ? (
                 <>
                     {volatility_indices_trade_type_eu.map((symbol, index) => (
                         <Symbol key={index} src={symbol.src} text={symbol.text} />

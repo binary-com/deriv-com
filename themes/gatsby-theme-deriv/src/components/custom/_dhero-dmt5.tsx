@@ -9,11 +9,11 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import Shape from 'components/custom/_hero-shape'
-import useRegion from 'components/hooks/use-region'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
 import { localize } from 'components/localization'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -129,7 +129,7 @@ const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const is_rtl = useIsRtl()
 
     return (
@@ -174,7 +174,7 @@ const DCommonBanner = () => {
                     >
                         <ImageWrapper>
                             <ImageStyle>
-                                {is_eu ? (
+                                {region === "eu" ? (
                                     <StaticImage
                                         src="../../images/common/dmt5/banner_image_eu.png"
                                         loading="eager"

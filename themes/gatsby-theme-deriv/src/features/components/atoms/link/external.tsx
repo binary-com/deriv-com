@@ -4,7 +4,6 @@ import language_config from '../../../../../i18n-config.js'
 import { TypographyLinkProps } from '../typography/link'
 import Typography from '../typography'
 import Alert from '../alert'
-import useRegion from 'components/hooks/use-region'
 import { ExternalLinkType, ExternalURLNames } from 'features/types'
 import { localized_link_url } from 'common/constants'
 import {
@@ -13,6 +12,7 @@ import {
     getThaiExcludedLocale,
     TradersHubURL,
 } from 'common/utility'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export type ProductLinkGenerator = (config: {
     language: string
@@ -65,15 +65,14 @@ export interface ExternalLinkProps extends TypographyLinkProps {
 
 const ExternalLink = ({ url, onClick, link_target, link_rel, ...rest }: ExternalLinkProps) => {
     const [is_redirect_modal_visible, setIsRedirectModalVisible] = useState(false)
-
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
     const { i18n } = useTranslation()
     const { language } = i18n
     const locale = i18n.language ?? 'en'
     const { affiliate_lang } = language_config[locale]
 
-    const show_modal = is_eu && url?.type === 'non-company' && url?.show_eu_modal
+    const show_modal = region === "eu" && url?.type === 'non-company' && url?.show_eu_modal
 
     const href = useMemo(() => {
         if (url.type === 'company') {

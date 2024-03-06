@@ -14,7 +14,7 @@ import {
     replaceLocale,
 } from 'common/utility'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type InternalLinkProps = {
     aria_label?: string
@@ -231,12 +231,12 @@ const ExternalLink = ({
     type,
     ...props
 }: ExternalLinkProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
     const url = replaceLocale(getURLFormat(type, locale, to, affiliate_lang))
     const show_modal =
-        is_eu &&
+        region === "eu" &&
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&

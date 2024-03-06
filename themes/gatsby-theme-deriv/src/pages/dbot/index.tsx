@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Loadable from '@loadable/component'
 import DCommonBanner from './_hero'
 import PageNotFound from 'features/pages/404'
@@ -6,7 +6,6 @@ import { SEO, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import DNumber, { TDNumbersItem } from 'components/custom/_dnumbers'
-import useRegion from 'components/hooks/use-region'
 import { TradingType } from 'components/custom/_dtrading'
 import { TGatsbyHead } from 'features/types'
 
@@ -75,33 +74,23 @@ const trading: TradingType[] = [
     },
 ]
 
-const Dbot = () => {
-    const { is_eu, is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
+const Dbot = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
 
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
+    if(region === "eu") return <PageNotFound region={region} />
 
-    if (is_loaded) {
+    if (region === "row") {
         return (
-            <>
-                {is_row && (
-                    <Layout>
-                        <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
-                        <DNumber items={items} justify="space-around" />
-                        <DBotEasySteps />
-                        <DTrading trading={trading} />
-                        <DBotGetApp />
-                        <OurPlatforms />
-                    </Layout>
-                )}
-                {is_eu && <PageNotFound />}
-            </>
+            <Layout region={region}>
+                <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
+                <DNumber items={items} justify="space-around" />
+                <DBotEasySteps />
+                <DTrading trading={trading} />
+                <DBotGetApp />
+                <OurPlatforms />
+            </Layout>
         )
     }
-
-    return <React.Fragment></React.Fragment>
 }
 
 export default WithIntl()(Dbot)

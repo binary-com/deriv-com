@@ -4,7 +4,7 @@ import { TListStyle, TList } from '../data/_data-types'
 import ImageCard from './_image-card'
 import TranslationComponents from './_translation-components'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TStyledList = {
     list_style: TListStyle
@@ -41,7 +41,8 @@ const List = ({
     items,
     size,
 }: TList) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+    
     return (
         <StyledList list_style={list_style} padding_left={padding_left || '5rem'}>
             {items.map(
@@ -53,7 +54,7 @@ const List = ({
                     img,
                 }) => {
                     const text =
-                        is_eu && eu_translation_text !== undefined
+                    region === "eu" && eu_translation_text !== undefined
                             ? eu_translation_text
                             : translation_text
                     return (

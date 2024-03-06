@@ -7,14 +7,14 @@ import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
 import Layout from 'components/layout/layout'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { StyledLink } from 'components/elements'
 import { Container } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { BuildVariantType } from 'features/types'
 
-type TQuestionsTemplate = {
+type TQuestionsTemplate = BuildVariantType & {
     data: TQuestionsData
 }
 
@@ -22,13 +22,12 @@ const ContactContainer = styled.div`
     margin-top: 4rem;
 `
 
-const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
+const QuestionsTemplate = ({ data, region }: TQuestionsTemplate) => {
     const { platform, has_platform } = usePlatformQueryParam()
     const is_rtl = useIsRtl()
     const { questions, category } = data
     const filtered_questions = useFilteredQuestions(questions)
     const { is_deriv_go } = usePlatformQueryParam()
-    const { is_eu } = useRegion()
     const [is_mounted] = usePageLoaded()
 
     React.useEffect(() => {
@@ -38,7 +37,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     if (!is_mounted) return null
 
     return (
-        <Layout>
+        <Layout region={region}>
             <Container align="start" justify="flex-start" direction="column">
                 <StyledLink
                     to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
@@ -59,7 +58,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                             <AnswerCard
                                 key={label}
                                 question={question}
-                                answer={typeof answer == 'function' ? answer({ is_eu }) : answer}
+                                answer={typeof answer == 'function' ? answer({ is_eu: region === "eu" }) : answer}
                                 label={label}
                                 renderProp={renderProp}
                                 margin={margin}

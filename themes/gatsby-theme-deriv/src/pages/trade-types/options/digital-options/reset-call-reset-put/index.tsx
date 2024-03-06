@@ -2,18 +2,17 @@ import React from 'react'
 import ResetCallOptionsPage from 'features/pages/options/digital/reset-call'
 import { faq_schema } from 'features/pages/options/digital/reset-call/_faq-schema'
 import { WithIntl } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import ProtectedRoute from 'features/components/molecules/protected-route'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const ResetCallDigitalOptions = () => {
-    const { is_row, is_region_loading } = useRegion()
+const ResetCallDigitalOptions = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
         <ProtectedRoute
-            is_page_visible={is_row}
-            component={<ResetCallOptionsPage />}
-            is_loading={is_region_loading}
+            region={region}
+            is_page_visible={region === "row"}
+            component={<ResetCallOptionsPage region={region}/>}
         />
     )
 }

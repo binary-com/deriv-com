@@ -13,18 +13,17 @@ import {
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
-import useBuildVariant from 'features/hooks/use-build-variant'
-import { getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
+import { getLocationPathname } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
-const MainFooter = () => {
-    const {region} = useBuildVariant();
+export const MainFooter = () => {
+    const { region } = useBuildVariant()
     const { is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
-    const region_buttons = region === "eu" ? socialButtonsEU : socialButtonsROW
 
     useEffect(() => {
         const current_path = getLocationPathname()

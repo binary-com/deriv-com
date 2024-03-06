@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import VerticalCarousel from './_vertical-carousel'
@@ -14,6 +14,7 @@ import { Localize, localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
 import { handleGetTrading } from 'components/custom/utils'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type HeroProps = {
     is_ppc?: boolean
@@ -65,14 +66,10 @@ const HeroHeader = ({ text }: { text: TString }) => {
 }
 
 const Hero = ({ is_ppc }: HeroProps) => {
-    const { is_region_loading, is_eu } = useRegion()
+    const { region } = useBuildVariant()
+    const { is_region_loading } = useRegion()
     const [is_logged_in, is_auth_checked] = useAuthCheck()
     const handleSignup = useHandleSignup()
-    const [show_eu_content, setShowEuContent] = useState(false)
-
-    useEffect(() => {
-        if (is_eu) setShowEuContent(true)
-    }, [is_eu])
 
     return (
         <HeroWrapper>
@@ -139,10 +136,10 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             min_height="auto"
                             weight="normal"
                         >
-                            {show_eu_content && (
+                            {region === "eu" && (
                                 <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                             )}
-                            {!show_eu_content && (
+                            {region !== "eu" && (
                                 <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                             )}
                         </Header>

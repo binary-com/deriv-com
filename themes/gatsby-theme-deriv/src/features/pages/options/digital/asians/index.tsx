@@ -4,10 +4,11 @@ import AvailableMarketPlatforms from 'features/components/organisms/available-ma
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
+import { BuildVariantType } from 'features/types'
 
-const AsiansDigitalOptionsPage = () => {
+const AsiansDigitalOptionsPage = ({region}: BuildVariantType) => {
     return (
-        <DigitalOptionsLayout>
+        <DigitalOptionsLayout region={region}>
             <OptionsContent items={asiansContentItems} />
             <AvailableMarketPlatforms markets={asiansMarkets} platforms={asiansPlatforms} />
             <OptionsFaq faqs={asiansFAQ} />

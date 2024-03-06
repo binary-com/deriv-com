@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Carousel, CarouselProps, Header, ImageWithDireciton, Text } from 'components/elements'
@@ -10,10 +10,10 @@ import Cryptocurrencies from 'images/svg/markets/cryptocurrencies.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import DerivedFX from 'images/svg/markets/derived-fx.svg'
-import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type MarketType = {
     id: string
@@ -239,9 +239,9 @@ const StyledCarousel = styled.div`
 `
 
 const Card = ({ market }: CardProps) => {
-    const [button_visibility, setButtonVisibility] = React.useState('false')
+    const [button_visibility, setButtonVisibility] = useState('false')
     const Icon = markets_type[market].icon
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
     return (
         <StyledFlex
@@ -265,7 +265,7 @@ const Card = ({ market }: CardProps) => {
             <Text size="16px" mt="0.8rem">
                 <Localize
                     translate_text={
-                        is_eu ? markets_type[market].content_eu : markets_type[market]?.content
+                        region === "eu" ? markets_type[market].content_eu : markets_type[market]?.content
                     }
                 />
             </Text>
@@ -304,7 +304,7 @@ const MobileCard = ({ market }: CardProps) => {
 }
 
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
     const eu_markets = [
         '',
@@ -316,7 +316,7 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
         '',
     ]
 
-    const filteredMarkets = (is_eu ? eu_markets : markets).filter((market) => market !== except)
+    const filteredMarkets = (region === "eu" ? eu_markets : markets).filter((market) => market !== except)
     const lang_direction = useLangDirection()
 
     const settings: CarouselProps = {

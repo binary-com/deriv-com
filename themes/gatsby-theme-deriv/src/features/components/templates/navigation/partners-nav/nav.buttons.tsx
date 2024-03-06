@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { MobileNavToggle } from '@deriv-com/blocks'
 import { Button } from '@deriv/quill-design'
 import { getLocationPathname } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
 import { Localize, LocalizedLink } from 'components/localization'
 import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const AffiliateButtons = () => {
     const { affiliate_signup_link } = useAffiliateSignupLink()
@@ -50,7 +50,7 @@ const PaymentAgentButtons = () => {
 }
 
 const PartnersNavButtons = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const path_name = getLocationPathname()
     const [show_affiliate_btns, setShowAffiliateBtns] = useState(false)
     const [show_payment_btns, setShowPaymentBtns] = useState(false)
@@ -60,8 +60,8 @@ const PartnersNavButtons = () => {
     }, [path_name])
 
     useEffect(() => {
-        setShowPaymentBtns(path_name.includes('payment-agent') && !is_eu)
-    }, [is_eu, path_name])
+        setShowPaymentBtns(path_name.includes('payment-agent') && region !== "eu")
+    }, [region, path_name])
 
     return (
         <div className="flex items-center gap-gap-md">

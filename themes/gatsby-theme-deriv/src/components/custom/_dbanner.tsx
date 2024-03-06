@@ -10,8 +10,8 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type DBannerProps = {
     background_pattern?: string
@@ -133,8 +133,8 @@ const StyledHeader = styled(Header)`
 `
 
 const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
+    const { region } = useBuildVariant()
     const handleSignup = useHandleSignup()
-    const { is_eu, is_row } = useRegion()
     const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
 
@@ -142,14 +142,14 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
         <Wrapper>
             <ImageContainer>
                 <ImageWrapper ai="center">
-                    {is_row && (
+                    {region === "row" && (
                         <QueryImage
                             data={data['deriv_platform']}
                             alt={localize(image_alt)}
                             width="100%"
                         />
                     )}
-                    {is_eu && (
+                    {region === "eu" && (
                         <QueryImage
                             data={data['deriv_platform_eu']}
                             alt={localize(image_alt)}

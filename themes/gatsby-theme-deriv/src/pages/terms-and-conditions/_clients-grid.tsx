@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -10,8 +10,8 @@ import Security from 'images/svg/terms/security-privacy-tc.svg'
 import Risk from 'images/svg/terms/risk-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import BFX from 'images/svg/terms/bfx-tc.svg'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type ColProps = {
     Icon: string
@@ -27,12 +27,8 @@ type Link = {
 }
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
-    const { is_eu } = useRegion()
-    const [links, setLinks] = useState(non_eu_links)
-
-    useEffect(() => {
-        if (is_eu) setLinks(eu_links)
-    }, [is_eu, eu_links])
+    const { region } = useBuildVariant()
+    const links = region === "eu" ? eu_links : non_eu_links
 
     return (
         <GridCol>

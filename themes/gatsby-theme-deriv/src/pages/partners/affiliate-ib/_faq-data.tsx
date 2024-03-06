@@ -4,8 +4,8 @@ import { Localize, LocalizedLink } from 'components/localization'
 import { Header, LinkText, LiveChatLinkText, Text } from 'components/elements'
 import { affiliate_reset_password_link, deriv_api_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
 import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type StyledLinkProps = {
     href: string
@@ -46,7 +46,7 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
 `
 
 const AffiliateGeneral = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const { affiliate_signup_link } = useAffiliateSignupLink()
 
     return (
@@ -54,7 +54,7 @@ const AffiliateGeneral = () => {
             <Header as="p" type="paragraph-1" mt="16px">
                 <Localize translate_text="_t_What is the Deriv Affiliate Programme?_t_" />
             </Header>
-            {is_eu ? (
+            {region === "eu" ? (
                 <>
                     <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                         <Localize translate_text="_t_The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade with Deriv._t_" />
@@ -104,7 +104,7 @@ const AffiliateGeneral = () => {
                 <Localize translate_text="_t_By joining our affiliate programme, you’ll benefit from:_t_" />
             </Header>
             <StyledUl>
-                {!is_eu && (
+                {region !== "eu" && (
                     <li>
                         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                             <Localize translate_text="_t_Multiple income opportunities_t_" />
@@ -135,7 +135,7 @@ const AffiliateGeneral = () => {
             <Header as="p" type="paragraph-1" mt="16px">
                 <Localize translate_text="_t_What type of commission plan do you offer?_t_" />
             </Header>
-            {is_eu ? (
+            {region === "eu" ? (
                 <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                     <Localize translate_text="_t_We have the following commission plan:_t_" />
                 </Header>
@@ -145,7 +145,7 @@ const AffiliateGeneral = () => {
                 </Header>
             )}
             <StyledUl>
-                {!is_eu && (
+                {region !== "eu" && (
                     <>
                         <li>
                             <Header as="p" type="paragraph-1" mt="8px" weight="normal">
@@ -165,7 +165,7 @@ const AffiliateGeneral = () => {
                     </Header>
                 </li>
             </StyledUl>
-            {is_eu ? (
+            {region === "eu" ? (
                 <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                     <Localize
                         translate_text="_t_<0>Scroll up on this page for more information on the commission plan.</0>_t_"
@@ -240,7 +240,7 @@ const AffiliateGeneral = () => {
             <Header as="p" type="paragraph-1" mt="16px">
                 <Localize translate_text="_t_What is a referred client?_t_" />
             </Header>
-            {is_eu ? (
+            {region === "eu" ? (
                 <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                     <Localize translate_text="_t_A referred client is a client who signed up to Deriv using your tracking link and made a deposit into their account. As an affiliate, you’ll receive commissions based on the successful deposits of your referred client._t_" />
                 </Header>

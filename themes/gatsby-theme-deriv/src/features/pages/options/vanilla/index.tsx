@@ -9,10 +9,12 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
+import { BuildVariantType } from 'features/types'
 
-const VanillaOptions = () => {
+const VanillaOptions = ({region}: BuildVariantType) => {
     return (
         <OptionsLayout
+            region={region}
             heading="_t_What are vanilla options?_t_"
             description="_t_Vanilla options allow you to express a bullish or bearish view on an underlying asset by purchasing either a Call or a Put option. You can earn a potentially high payout if your predictions are right within a timed contract and based on market conditions._t_"
         >

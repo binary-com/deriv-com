@@ -3,7 +3,6 @@ import * as styles from './blade-shape-banner.module.scss'
 import { BannerType } from './types'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
-import FlexBox from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
@@ -31,20 +30,20 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                 md={{ direction: 'row', align: 'center' }}
             >
                 <Flex.Box direction={'col'} align={'center'} basis="full" md={{ basis: '7-12' }}>
-                    <FlexBox.Box
+                    <Flex.Box
                         direction={'col'}
                         align={'center'}
                         md={{ direction: 'row', align: 'start' }}
                     >
-                        <FlexBox.Item mt={'7x'} pb={'8x'}>
+                        <Flex.Item mt={'7x'} pb={'8x'}>
                             <Image
                                 src={data.information.icon}
                                 alt="_t_banner information_t_"
                                 width={is_mobile ? 48 : 64}
                                 height={is_mobile ? 48 : 64}
                             />
-                        </FlexBox.Item>
-                        <FlexBox.Box
+                        </Flex.Item>
+                        <Flex.Box
                             className={styles.heading_box}
                             direction={'col'}
                             align={'start'}
@@ -60,7 +59,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                 <Localize translate_text={data.information.heading} />
                             </Typography.Heading>
                             {data?.extra_info && (
-                                <FlexBox.Box
+                                <Flex.Box
                                     direction={'row'}
                                     align={'start'}
                                     mt={'8x'}
@@ -77,10 +76,10 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                             components={[<strong key={0} />]}
                                         />
                                     </Typography.Paragraph>
-                                </FlexBox.Box>
+                                </Flex.Box>
                             )}
-                        </FlexBox.Box>
-                    </FlexBox.Box>
+                        </Flex.Box>
+                    </Flex.Box>
                 </Flex.Box>
                 <Flex.Box
                     direction={'col'}
@@ -90,7 +89,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                     md={{ basis: '5-12', align: 'end' }}
                 >
                     <div className={styles.download_col}>
-                        <FlexBox.Box
+                        <Flex.Box
                             className={styles.qr_box}
                             align={'center'}
                             padding={'12x'}
@@ -105,7 +104,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                 width={64}
                                 height={64}
                             />
-                            <FlexBox.Box direction={'col'}>
+                            <Flex.Box direction={'col'}>
                                 <Typography.Paragraph textcolor={'white'}>
                                     <Localize translate_text={data.scan_box.heading_one} />
                                 </Typography.Paragraph>
@@ -118,8 +117,8 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                         }
                                     />
                                 </Typography.Heading>
-                            </FlexBox.Box>
-                        </FlexBox.Box>
+                            </Flex.Box>
+                        </Flex.Box>
                         <Flex.Box wrap={'wrap'} justify={'start'} pl={'12x'}>
                             {data.os_apps
                                 .filter((item) => is_appgallery_supported || item.id !== 2)

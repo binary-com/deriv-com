@@ -9,11 +9,11 @@ import device from 'themes/device'
 import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import * as icons from 'components/elements/symbols'
-import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
 import swf from 'images/svg/trading-specification/swf.svg'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TableRowProps = {
     bg?: string
@@ -239,15 +239,10 @@ type TTableCellGroup = {
     market?: TAvailableLiveMarkets
 }
 export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
-    const { is_row } = useRegion()
+    const { region } = useBuildVariant()
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
-    const [show_row_content, setShowRowContent] = useState(true)
-
-    useEffect(() => {
-        if (!is_row) setShowRowContent(false)
-    }, [is_row])
 
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
@@ -278,7 +273,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {show_row_content ? (
+                {region === "row" ? (
                     <>
                         {dl_icon && getStyledImg('24px', dl, 'dl')}
                         {swf_icon && getStyledImg('30px', swf, 'swf')}

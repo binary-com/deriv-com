@@ -8,7 +8,8 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const SignupSuccess = () => {
+const SignupSuccess = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [registeredEmail, setRegisteredEmail] = useState('')
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
@@ -32,7 +33,7 @@ const SignupSuccess = () => {
         }
     }, [])
 
-    return <SignUpSuccessContainer email={registeredEmail} />
+    return <SignUpSuccessContainer email={registeredEmail} region={region}/>
 }
 
 export default WithIntl()(SignupSuccess)

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import clsx from 'clsx'
-import { hero_img } from './styles.module.scss'
+import { hero_img, hero_img_eu } from './styles.module.scss'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 const HeroImage = () => {
@@ -22,7 +22,7 @@ const HeroImage = () => {
     }
     if (region === 'eu') {
         return (
-            <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
+            <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_new_eu.png"
                     alt="hero image"

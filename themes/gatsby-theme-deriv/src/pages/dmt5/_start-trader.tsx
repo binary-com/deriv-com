@@ -8,8 +8,8 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import useRegion from 'components/hooks/use-region'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type TabProps = {
     active?: boolean
@@ -158,6 +158,7 @@ const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
 `
 
 const StartTrader = () => {
+    const { region } = useBuildVariant()
     const { is_mobile_or_tablet } = useBreakpoints()
 
     const data = useStaticQuery(query)
@@ -170,7 +171,6 @@ const StartTrader = () => {
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup()
 
-    const { is_eu } = useRegion()
     const isDemo = tab === 'Demo'
     const isReal = tab === 'Real'
 
@@ -370,8 +370,8 @@ const StartTrader = () => {
         [data, is_mobile_or_tablet, handleLogin],
     )
 
-    const demo = is_eu ? eu_demo : row_demo
-    const real = is_eu ? eu_real : row_real
+    const demo = region === "eu" ? eu_demo : row_demo
+    const real = region === "eu" ? eu_real : row_real
 
     return (
         <Section>

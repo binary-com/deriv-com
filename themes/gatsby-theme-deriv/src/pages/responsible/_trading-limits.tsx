@@ -5,7 +5,7 @@ import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -79,7 +79,7 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
-    const { is_non_eu, is_eu } = useRegion()
+    const { region } = useBuildVariant()
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -146,7 +146,7 @@ const TradingLimits = () => {
                             <Localize translate_text="_t_How trading limits and self-exclusion work_t_" />
                         </StyledHeader>
                         <div>
-                            {is_non_eu && (
+                            {region !== "eu" && (
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -161,7 +161,7 @@ const TradingLimits = () => {
                                     </TimelineTick>
                                 </Text>
                             )}
-                            {is_eu && (
+                            {region === "eu" && (
                                 <Box ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -199,7 +199,7 @@ const TradingLimits = () => {
                             )}
                         </div>
                         <div>
-                            {is_non_eu && (
+                            {region !== "eu" && (
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="_t_If you wish to reduce or remove the self-exclusion period, contact <0>Customer Support</0>._t_"

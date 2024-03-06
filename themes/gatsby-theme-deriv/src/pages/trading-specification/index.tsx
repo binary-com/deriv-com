@@ -13,9 +13,10 @@ const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
 `
 
-const TradingSpecification = () => {
+const TradingSpecification = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     return (
-        <Layout>
+        <Layout region={region}>
             <SectionContainer padding={'8rem 0 0 0'}>
                 <StyledHeader type="heading-2" as="p" align="center">
                     <Localize translate_text="_t_Trading specifications for CFDs_t_" />

@@ -8,6 +8,7 @@ import useRegion from 'components/hooks/use-region'
 import Revenue from 'images/svg/signup-affiliates/revenue.svg'
 import Turnover from 'images/svg/signup-affiliates/turnover.svg'
 import CPA from 'images/svg/signup-affiliates/cpa.svg'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 const getPlans = (is_eu: boolean, is_cpa_plan: boolean): AccountCardProps[] => {
     const plans: AccountCardProps[] = [
@@ -43,10 +44,11 @@ const AccountPlan = ({
     updateData,
     onValidate,
 }: WizardStepProps<'account_plan'>) => {
+    const { region } = useBuildVariant()
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)
-    const { is_eu, is_cpa_plan } = useRegion()
+    const { is_cpa_plan } = useRegion()
     const is_rtl = useIsRtl()
-    const plans = getPlans(is_eu, is_cpa_plan)
+    const plans = getPlans(region === "eu", is_cpa_plan)
 
     useEffect(() => {
         updateData(account_plan)

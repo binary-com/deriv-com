@@ -1,17 +1,15 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { isMobile } from 'react-device-detect'
 import { TAnswer } from '../data/_data-types'
 import ImageCard from './_image-card'
 import TranslationComponents from './_translation-components'
 import List from './_list'
-import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type AnswerCardType = {
     label: string
@@ -38,7 +36,7 @@ export const Wrapper = styled.div`
 `
 
 const AnswerCard = ({ question, answer, renderProp, margin, flex }: AnswerCardType) => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
     const { is_mobile } = useBreakpoints()
 
     return (
@@ -59,7 +57,7 @@ const AnswerCard = ({ question, answer, renderProp, margin, flex }: AnswerCardTy
                     size,
                 }) => {
                     const text =
-                        is_eu && eu_translation_text ? eu_translation_text : translation_text
+                    region === "eu" && eu_translation_text ? eu_translation_text : translation_text
                     const component =
                         translation_components && TranslationComponents(translation_components)
 

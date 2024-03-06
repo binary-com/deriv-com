@@ -6,7 +6,6 @@ import Layout from 'components/layout/layout'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import { size } from 'themes/device'
-import useRegion from 'components/hooks/use-region'
 import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
@@ -132,9 +131,9 @@ const blueChips: ContentType[] = [
     },
 ]
 
-const Stocks = () => {
+const Stocks = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [is_mobile, setMobile] = useState(false)
-    const { is_row } = useRegion()
 
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
@@ -146,10 +145,10 @@ const Stocks = () => {
     }, [])
 
     const data = useStaticQuery(query)
-    const display_items = is_row ? WhyTradeWithUsArr : WhyTradeWithUsArr_eu
+    const display_items = region === "row" ? WhyTradeWithUsArr : WhyTradeWithUsArr_eu
 
     return (
-        <Layout is_ppc_redirect>
+        <Layout is_ppc_redirect region={region}>
             <HeaderSection />
             <Desktop>
                 <DTrading trading={trading} setWidth="486px" reverse={false} contentMargin="24px" />
@@ -167,7 +166,7 @@ const Stocks = () => {
                 background_pattern={is_mobile ? '' : BackgroundFooterStocksPattern}
                 title="_t_All this is available on our Deriv MT5 platform_t_"
                 small_title={
-                    is_row
+                    region === "row"
                         ? '_t_Enjoy high leverage and low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love._t_'
                         : '_t_Enjoy low spreads on our Deriv MT5 platform, now offering a range of stocks and stock indices from the brands you love._t_'
                 }

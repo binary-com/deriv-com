@@ -64,21 +64,21 @@ const Layout = ({
     }
 
     return (
-        <SharedLinkProvider DerivLink={GatsbySharedLink}>
-            <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-                <LanguageProvider
-                    langItems={langItemsROW}
-                    onLangSelect={onLanguageChange}
-                    activeLanguage={activeLang}
-                >
-                    <BuildVariantProvider region={region}>
+        <BuildVariantProvider region={region}>
+            <SharedLinkProvider DerivLink={GatsbySharedLink}>
+                <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+                    <LanguageProvider
+                        langItems={langItemsROW}
+                        onLangSelect={onLanguageChange}
+                        activeLanguage={activeLang}
+                    >
                         <main className={main_wrapper}>{children}</main>
                         <BrowserUpdateAlert />
                         {!hide_layout_overlay && <LayoutOverlay />}
-                    </BuildVariantProvider>
-                </LanguageProvider>
-            </PpcProvider>
-        </SharedLinkProvider>
+                    </LanguageProvider>
+                </PpcProvider>
+            </SharedLinkProvider>
+        </BuildVariantProvider>
     )
 }
 

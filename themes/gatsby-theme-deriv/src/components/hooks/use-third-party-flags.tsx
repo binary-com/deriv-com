@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, onValue } from 'firebase/database'
-// import useRegion from 'components/hooks/use-region'
 import featuresConfig from '../../../static/appConfig'
 
 const thirdPartyFlagsConfig = {
-    databaseURL: 'https://app-config-staging.firebaseio.com',
+    databaseURL: 'https://app-config-prod.firebaseio.com',
 }
 
 const useThirdPartyFlags = (featurePath) => {

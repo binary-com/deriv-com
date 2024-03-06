@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useState, useEffect } from 'react'
+import React, { ReactNode, useContext, useState, useEffect, createContext } from 'react'
 import {
     NavItem,
     SmartMultiColumnItems,
@@ -6,8 +6,8 @@ import {
     SmartSingleItem,
 } from '../../types'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 interface NavContextProps {
     is_menu_open: boolean
@@ -15,7 +15,7 @@ interface NavContextProps {
     link_items?: SmartSingleItem[]
     drop_items?: (SmartSingleColumnItems | SmartMultiColumnItems)[]
 }
-export const NavContext = React.createContext<NavContextProps>({ is_menu_open: false })
+export const NavContext = createContext<NavContextProps>({ is_menu_open: false })
 
 interface NavProviderProps extends NavContextProps {
     children: ReactNode
@@ -31,8 +31,8 @@ export const isSingleItem = (item: NavItem): item is SmartSingleItem => {
 }
 
 export const NavProvider = ({ is_menu_open, onCloseMenu, children, items }: NavProviderProps) => {
+    const { region } = useBuildVariant()
     const { is_mobile_or_tablet } = useBreakpoints()
-    const { is_eu, is_row } = useRegion()
     const [link_items, setLinkItems] = useState<SmartSingleItem[]>([])
     const [drop_items, setDropItems] = useState<(SmartSingleColumnItems | SmartMultiColumnItems)[]>(
         [],
@@ -40,7 +40,7 @@ export const NavProvider = ({ is_menu_open, onCloseMenu, children, items }: NavP
 
     const visible_items = useVisibleContent({
         content: items,
-        config: { is_mobile: is_mobile_or_tablet, is_eu, is_row },
+        config: { is_mobile: is_mobile_or_tablet, is_eu: region === "eu", is_row: region === "row" },
     })
 
     useEffect(() => {

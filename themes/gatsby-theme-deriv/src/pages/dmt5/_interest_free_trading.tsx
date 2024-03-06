@@ -4,11 +4,11 @@ import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type CheckedTextProps = {
     content: TString
@@ -152,8 +152,8 @@ const CheckedText = ({ content }: CheckedTextProps) => (
 )
 
 const InterestFreeTrading = () => {
-    const { is_eu } = useRegion()
-    const commission = is_eu
+    const { region } = useBuildVariant()
+    const commission = region === "eu"
         ? '_t_Enjoy zero commission trading on all assets._t_'
         : '_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived indices and financial assets._t_'
 

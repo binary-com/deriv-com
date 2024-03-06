@@ -9,7 +9,7 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Google from 'images/svg/custom/google.svg'
-import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 type SignupNewProps = {
     autofocus?: boolean
@@ -157,7 +157,7 @@ const SignupNew = ({
     is_submitting,
 }: SignupNewProps) => {
     const [is_checked, setChecked] = useState(false)
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -209,7 +209,7 @@ const SignupNew = ({
                     components={[
                         <StyledLocalizedLink
                             key={0}
-                            to={`/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`}
+                            to={`/tnc${region === "eu" ? '/eu' : ''}/security-and-privacy.pdf`}
                             size="1.2rem"
                             color="red"
                             rel="noopener noreferrer"

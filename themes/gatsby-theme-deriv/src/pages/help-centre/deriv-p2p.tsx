@@ -5,16 +5,15 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 import ProtectedRoute from 'features/components/molecules/protected-route'
-import useRegion from 'components/hooks/use-region'
 
-const DerivP2P = () => {
-    const { is_eu, is_region_loading } = useRegion()
+const DerivP2P = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
 
     return (
         <ProtectedRoute
-            is_page_visible={!is_eu}
-            component={<QuestionsTemplate data={deriv_p2p} />}
-            is_loading={is_region_loading}
+            is_page_visible={region !== "eu"}
+            region={region}
+            component={<QuestionsTemplate data={deriv_p2p} region={region} />}
         />
     )
 }

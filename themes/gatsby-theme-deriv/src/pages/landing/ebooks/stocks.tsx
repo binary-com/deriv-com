@@ -29,10 +29,11 @@ const query = graphql`
     }
 `
 
-const StocksEbook = () => {
+const StocksEbook = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const data = useStaticQuery(query)
     return (
-        <Layout type="landing-page" is_ppc_redirect>
+        <Layout type="landing-page" is_ppc_redirect region={region}>
             <HeaderSection
                 mainHeaderImage={data['stocks_ebook_img']}
                 imgWidth={557}

@@ -8,10 +8,11 @@ import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import MainFooter from 'features/components/templates/footer'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { BuildVariantType } from 'features/types'
 
-const CheckEmailContainer = () => {
+const CheckEmailContainer = ({region}: BuildVariantType) => {
     return (
-        <Layout>
+        <Layout region={region}>
             <MainRowNavigation />
             <Flex.Box
                 justify="center"

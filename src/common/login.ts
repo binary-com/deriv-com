@@ -2,12 +2,15 @@ import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
 import { getCookiesFields, getCookiesObject, getDataLink, getDataObjFromCookies } from './cookies'
 import { getAppId } from './websocket/config'
-import { redirectToTradingPlatform } from './utility'
+import { isBrowser, redirectToTradingPlatform } from './utility'
 import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
 
 const Login = (() => {
+    const url = isBrowser() && window.location.href
+    const is_academy = isBrowser() && url.includes('academy')
+
     const redirectToLogin = () => {
         if (isStorageSupported(sessionStorage)) {
             window.location.href = loginUrl()
@@ -31,9 +34,17 @@ const Login = (() => {
 
         const sub_url = redirectToTradingPlatform()
 
-        return server_url && /qa/.test(server_url)
-            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
-            : `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
+        if (is_academy) {
+            if (server_url && /qa/.test(server_url)) {
+                return `https://${server_url}/oauth2/authorize?app_id=37228&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
+            }
+            return `${oauth_url}/oauth2/authorize?app_id=37228&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
+        } else {
+            if (server_url && /qa/.test(server_url)) {
+                return `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
+            }
+            return `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
+        }
     }
 
     const initOneAll = (provider: TSocialProvider, utm_content?: string): void => {

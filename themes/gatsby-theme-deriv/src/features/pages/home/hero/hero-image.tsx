@@ -9,7 +9,7 @@ const HeroImage = () => {
     
     if (region === 'row') {
         return (
-            <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
+            <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_new.png"
                     alt="hero image"
@@ -22,7 +22,7 @@ const HeroImage = () => {
     }
     if (region === 'eu') {
         return (
-            <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
+            <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_new_eu.png"
                     alt="hero image"

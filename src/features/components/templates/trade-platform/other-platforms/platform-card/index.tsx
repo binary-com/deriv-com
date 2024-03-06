@@ -21,7 +21,6 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
             padding="12x"
             gap="8x"
             align="start"
-            mb="8x"
             className={platform_card}
         >
             <Image src={icon} alt={localize('_t_icon_t_')} width={48} height={48} />

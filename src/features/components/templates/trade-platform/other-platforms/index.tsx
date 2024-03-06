@@ -7,6 +7,8 @@ import {
     slider_button,
     slider_button_prev,
     slider_button_next,
+    swiper_wrapper,
+    platform_section,
 } from './styles.module.scss'
 import { PlatformType } from './types'
 import PlatformCard from './platform-card'
@@ -27,7 +29,7 @@ interface PropsType extends FlexBoxProps<'section'> {
 
 const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
     return (
-        <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }} {...rest}>
+        <Container.Fixed as="section" padding_block="20x" className={platform_section} {...rest}>
             <Container.Fluid>
                 <Typography.Heading as="h2" align="center" size="large" mb="8x" md={{ mb: '40x' }}>
                     <Localize translate_text={heading} />
@@ -57,9 +59,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                                 },
                             },
                         }}
-                        className={dclsx(
-                            'at-padding-inline-5x at-padding-bottom-20x md-at-padding-bottom-10x',
-                        )}
+                        className={swiper_wrapper}
                     >
                         {data.map((slide) => (
                             <SwiperSlide key={slide.id} className={swiper_slide}>

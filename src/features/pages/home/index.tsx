@@ -19,7 +19,6 @@ import MainFooter from 'features/components/templates/footer'
 
 const HomePage = () => {
     useOpenLiveChat(true)
-    console.log()
 
     return (
         <QuillLayout>

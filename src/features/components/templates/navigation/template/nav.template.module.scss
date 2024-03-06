@@ -47,6 +47,9 @@
     display: flex;
     flex-direction: column;
 }
+.submenu_content {
+    display: flex;
+}
 
 .menu_item:hover .submenu,
 .menu_item:hover .single_column {
@@ -63,6 +66,7 @@
 .menu_item:hover .submenu_item,
 .menu_item:hover .single_column_item {
     display: flex; /* show content on hover */
+    flex-direction: column;
     align-items: center; /* align content and icon in a row */
 }
 

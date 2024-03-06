@@ -16,8 +16,7 @@ const LiveMarketSection = () => {
                 <a
                     data-w-tab="Forex"
                     id="fx"
-                    className="platforms_tab-link-2 w-inline-block w-tab-link"
-                    href="#fx"
+                    className="platforms_tab-link-2 w-inline-block w-tab-link active-tab"
                     role="tab"
                     aria-controls="w-tabs-0-data-w-pane-0"
                     aria-selected="true"
@@ -28,7 +27,6 @@ const LiveMarketSection = () => {
                     data-w-tab="Derived indices"
                     id="der"
                     className="platforms_tab-link-2 w-inline-block w-tab-link"
-                    href="#der"
                     role="tab"
                     aria-controls="w-tabs-0-data-w-pane-1"
                     aria-selected="false"
@@ -39,7 +37,6 @@ const LiveMarketSection = () => {
                     data-w-tab="ETFs"
                     id="etfs"
                     className="platforms_tab-link-2 w-inline-block w-tab-link"
-                    href="#etfs"
                     role="tab"
                     aria-controls="w-tabs-0-data-w-pane-2"
                     aria-selected="false"
@@ -50,7 +47,6 @@ const LiveMarketSection = () => {
                     data-w-tab="Stocks and indices"
                     id="stk"
                     className="platforms_tab-link-2 w-inline-block w-tab-link"
-                    href="#stk"
                     role="tab"
                     aria-controls="w-tabs-0-data-w-pane-3"
                     aria-selected="false"
@@ -61,7 +57,6 @@ const LiveMarketSection = () => {
                     data-w-tab="Cryptocurrencies"
                     id="cry"
                     className="platforms_tab-link-2 w-inline-block w-tab-link"
-                    href="#cry"
                     role="tab"
                     aria-controls="w-tabs-0-data-w-pane-4"
                     aria-selected="false"
@@ -72,7 +67,6 @@ const LiveMarketSection = () => {
                     data-w-tab="Commodities"
                     id="com"
                     className="platforms_tab-link-2 w-inline-block w-tab-link"
-                    href="#com"
                     role="tab"
                     aria-controls="w-tabs-0-data-w-pane-5"
                     aria-selected="false"
@@ -83,7 +77,7 @@ const LiveMarketSection = () => {
             <div className="tabs-live-markets_content w-tab-content">
                 <div
                     data-w-tab="Forex"
-                    className="platforms_tab-pane w-tab"
+                    className="platforms_tab-pane w-tab active-cards"
                     id="#fx"
                     role="tabpanel"
                     aria-labelledby="fx"
@@ -166,18 +160,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae0c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae0d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread fx">
-                                                    0.00006
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae0c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae0d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread fx">
+                                                0.00006
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -259,18 +253,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae2c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae2d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread fx">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae2c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae2d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread fx">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -352,18 +346,16 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae4c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae4d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread fx">
-                                                    0.013
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae4c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae4d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread fx">0.013</div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -445,18 +437,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae6c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae6d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread fx">
-                                                    0.00007
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae6c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae6d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread fx">
+                                                0.00007
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -543,18 +535,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask der">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae90-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae91-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread der">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae90-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94ae91-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread der">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -627,18 +619,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask der">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94aeb0-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aeb1-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread der">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94aeb0-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aeb1-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread der">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -711,18 +703,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask der">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94aed0-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aed1-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread der">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94aed0-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aed1-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread der">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -795,18 +787,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask der">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94aef0-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aef1-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread der">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94aef0-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aef1-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread der">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -895,18 +887,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94af14-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af15-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread etfs">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94af14-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af15-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread etfs">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -981,18 +973,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94af34-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af35-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread etfs">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94af34-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af35-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread etfs">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1067,18 +1059,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94af54-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af55-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread etfs">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94af54-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af55-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread etfs">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1153,18 +1145,18 @@ const LiveMarketSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94af74-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af75-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread etfs">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94af74-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af75-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread etfs">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1251,18 +1243,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask stk">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94af98-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af99-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread stk">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94af98-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94af99-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread stk">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1335,18 +1327,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask stk">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94afb8-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94afb9-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread stk">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94afb8-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94afb9-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread stk">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1419,18 +1411,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask stk">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94afd8-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94afd9-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread stk">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94afd8-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94afd9-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread stk">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1503,18 +1495,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask stk">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94aff8-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aff9-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread stk">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94aff8-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94aff9-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread stk">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1601,18 +1593,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask cry">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b01c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b01d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread cry">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b01c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b01d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread cry">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1685,18 +1677,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask cry">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b03c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b03d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread cry">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b03c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b03d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread cry">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1769,18 +1761,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask cry">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b05c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b05d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread cry">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b05c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b05d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread cry">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1853,18 +1845,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask cry">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b07c-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b07d-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread cry">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b07c-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b07d-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread cry">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -1951,18 +1943,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask com">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0a0-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0a1-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread com">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0a0-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0a1-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread com">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -2035,18 +2027,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask com">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0c0-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0c1-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread com">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0c0-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0c1-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread com">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -2119,18 +2111,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask com">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0e0-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0e1-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread com">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0e0-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b0e1-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread com">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"
@@ -2203,18 +2195,18 @@ const LiveMarketSection = () => {
                                                 <div className="bid-numbers_text ask com">1.07</div>
                                             </div>
                                         </div>
-                                        <div className="live-markets_content-bottom">
-                                            <div
-                                                id="w-node-_844059e7-ed44-85c8-9f12-461acb94b100-87269e0a"
-                                                className="content_spread"
-                                            >
-                                                <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b101-87269e0a">
-                                                    Spread
-                                                </div>
-                                                <div className="text-weight-bold spread com">
-                                                    0.00005
-                                                </div>
+                                        <div
+                                            id="w-node-_844059e7-ed44-85c8-9f12-461acb94b100-87269e0a"
+                                            className="content_spread"
+                                        >
+                                            <div id="w-node-_844059e7-ed44-85c8-9f12-461acb94b101-87269e0a">
+                                                Spread
                                             </div>
+                                            <div className="text-weight-bold spread com">
+                                                0.00005
+                                            </div>
+                                        </div>
+                                        <div className="live-markets_content-bottom">
                                             <a
                                                 href="#"
                                                 className="button-6 is-secondary is-small is-purchase w-button"

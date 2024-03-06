@@ -6,10 +6,11 @@
   margin-bottom: 2rem;
 }
 .tabs_component-live-markets {
+  display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 0;
-  display: flex;
+  background-color: #f6f7f8;
 }
 .w-tabs {
   position: relative;
@@ -45,17 +46,14 @@
 }
 .platforms_tab-link-2.active-tab {
   color: #000;
-  background-color: transparent;
+  border-bottom-color: rgb(0, 0, 0,  1);
   border-style: none none solid;
-  border-color: #000;
   border-bottom-width: 2px;
 }
 .w-tab-link {
   vertical-align: top;
   text-align: left;
   cursor: pointer;
-  color: #222;
-  background-color: #ddd;
   padding: 9px 30px;
   text-decoration: none;
   display: inline-block;
@@ -103,6 +101,7 @@
   flex: 1;
   justify-content: space-between;
   display: flex;
+  font-size: 16px;
 }
 .live-markets_content-top-2 {
   width: 100%;
@@ -154,4 +153,28 @@
   justify-content: flex-end;
   align-items: center;
   display: flex;
+}
+.content_spread {
+  display: flex;
+}
+.spread {
+  font-weight: 700;
+  margin-left: 1rem;
+}
+.is-purchase{
+  color: #00bb86;
+  border: 1px solid #00bb86;
+}
+.is-sell{
+  color: #de0040;
+  border: 1px solid #de0040;
+}
+.w-button {
+  line-height: inherit;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  padding: 9px 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }

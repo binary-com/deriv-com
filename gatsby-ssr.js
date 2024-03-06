@@ -85,7 +85,8 @@ export const onRenderBody = ({ setHeadComponents }) => {
                 }}
             />
         ),
+        // <script type="module" key="custom-script" src="/live-price.js" />,
 
-        <script async key="live-price-script" type="text/javascript" src="/live-price.js" />,
+        <script async key="live-price-script" type="module" src="/live-price.js" />,
     ])
 }

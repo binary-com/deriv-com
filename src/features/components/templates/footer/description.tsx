@@ -36,24 +36,6 @@ export const DescriptionContentROW = () => {
                     components={[
                         <a
                             className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
-                            key={0}
-                            target="_blank"
-                        />,
-                        <a
-                            className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
-                            key={1}
-                            target="_blank"
-                        />,
-                        <a
-                            className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_(V)_Ltd.pdf"
-                            key={2}
-                            target="_blank"
-                        />,
-                        <a
-                            className={clsx(sharedClasses)}
                             href="/terms-and-conditions/#clients"
                             key={0}
                         />,
@@ -148,7 +130,7 @@ export const DescriptionContentCPA = () => {
                         />,
                         <a
                             className={clsx(sharedClasses)}
-                            href="/tnc/eu/risk-disclosure.pdf"
+                            href="/tnc/risk-disclosure.pdf"
                             key={1}
                             target="_blank"
                         />,

@@ -46,7 +46,7 @@ export const Modal = styled.div<{ is_rtl?: boolean }>`
         inline-size: 100vw;
         block-size: 100svh;
         overflow: scroll;
-        padding-block-end: 150px;
+        padding-block-end: 70px;
     }
 `
 const Container = styled.div`

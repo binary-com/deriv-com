@@ -852,45 +852,6 @@ export const hongkong: LocationsType = {
     has_iframe: true,
 }
 
-export const london: LocationsType = {
-    name: 'london',
-    hero_image: (
-        <StaticImage
-            src="../../../../images/common/careers/reading.jpg"
-            alt={localize('_t_Deriv’s Reading office at United Kingdom_t_')}
-            formats={['avif', 'webp', 'auto']}
-            loading="eager"
-        />
-    ),
-    job_location: 'London',
-    continent: 'europe',
-    display_continent: 'Europe',
-    link: '/careers/locations/london/',
-    display_name: 'London',
-    display_thumbnail_name: 'London',
-    display_title_name: 'London',
-    img_alt: 'Deriv’s London office at United Kingdom ',
-    map_office_name: 'Technologies Ltd',
-    country: 'UK',
-    flagIcon: UKFlagIcon,
-    thumbnail: 'thumbnail_reading',
-    address: address_reading,
-    first_p:
-        'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
-    first_img: 'living_in_reading',
-    first_img_alt: 'Working at Deriv Technologies Ltd',
-    grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
-    grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
-    map: 'ChIJlfOm_xebdkgRgITDVJhzsMw',
-    map_text:
-        'Nestled in the heart of the city near Liverpool Street, Deriv Technologies Ltd is the core of our Compliance, Legal, Tax, and Internal Audit teams. Our London base is at the forefront of driving regulatory excellence, helping to fulfil Deriv’s principles of providing transparent and reliable trading services.',
-    google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
-    badge: 'reading_great_place_to_work_badge',
-    badge_alt: 'Reading Great Place to Work 2023 Certification Badge',
-    has_iframe: true,
-    has_map: true,
-}
-
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -912,7 +873,6 @@ export const all_offices: LocationsType[] = [
     ciudad,
     georgetown,
     roadtown,
-    london,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -935,7 +895,6 @@ export const locations = {
     hongkong: `${hongkong.display_name}, ${hongkong.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
-    london: `${london.display_name}, ${london.country}`,
 }
 
 export const allContinents = {

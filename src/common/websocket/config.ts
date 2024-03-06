@@ -69,7 +69,8 @@ const isStaging = () => isBrowser() && domain_config.staging.hostname === window
 const isBeta = () => isBrowser() && domain_config.beta.hostname === window.location.hostname
 const isLive = () => isProduction() || isStaging() || isBeta()
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
-
+const url = isBrowser() && window.location.href
+const is_academy = isBrowser() && url.includes('academy')
 const getAppId = (): null | number | string => {
     let app_id = null
     const user_app_id = '' // you can insert Application ID of your registered application here
@@ -83,24 +84,28 @@ const getAppId = (): null | number | string => {
 
         const config_app_id = window.localStorage.getItem('config.app_id')
 
-        if (url_app_id) {
-            app_id = url_app_id
-        } else if (config_app_id) {
-            app_id = config_app_id
-        } else if (isStaging()) {
-            window.localStorage.removeItem('config.default_app_id')
-            app_id = domain_config.staging.app_id
-        } else if (isBeta()) {
-            window.localStorage.removeItem('config.default_app_id')
-            app_id = domain_config.beta.app_id
-        } else if (user_app_id.length) {
-            window.localStorage.setItem('config.default_app_id', user_app_id) // it's being used in endpoint chrome extension - please do not remove
-            app_id = user_app_id
-        } else if (isLocalHost()) {
-            app_id = domain_config.local.app_id
+        if (is_academy) {
+            app_id = 37228
         } else {
-            window.localStorage.removeItem('config.default_app_id')
-            app_id = isProduction() ? prod_app_id : domain_config.test.app_id
+            if (url_app_id) {
+                app_id = url_app_id
+            } else if (config_app_id) {
+                app_id = config_app_id
+            } else if (isStaging()) {
+                window.localStorage.removeItem('config.default_app_id')
+                app_id = domain_config.staging.app_id
+            } else if (isBeta()) {
+                window.localStorage.removeItem('config.default_app_id')
+                app_id = domain_config.beta.app_id
+            } else if (user_app_id.length) {
+                window.localStorage.setItem('config.default_app_id', user_app_id) // it's being used in endpoint chrome extension - please do not remove
+                app_id = user_app_id
+            } else if (isLocalHost()) {
+                app_id = domain_config.local.app_id
+            } else {
+                window.localStorage.removeItem('config.default_app_id')
+                app_id = isProduction() ? prod_app_id : domain_config.test.app_id
+            }
         }
     }
     return app_id

@@ -176,6 +176,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_What markets can I trade with accumulator options?_t_',
                                         ),
+                                        id: 'what-markets-can-i-trade-with-accumulator-options',
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -189,6 +190,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_Can I open multiple accumulator contracts at the same time?_t_',
                                         ),
+                                        id: 'can-i-open-multiple-accumulator-contracts-at-the-same-time',
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -202,6 +204,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_Can I change my growth rate after opening the contract?_t_',
                                         ),
+                                        id: 'can-i-change-my-growth-rate-after-opening-the-contract',
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -220,6 +223,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_Can I open an accumulator contract at any time?_t_',
                                         ),
+                                        id: 'can-i-open-an-accumulator-contract-at-any-time',
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -233,6 +237,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_Can I close an accumulator contract at any time?_t_',
                                         ),
+                                        id: 'can-i-close-an-accumulator-contract-at-any-time',
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -254,6 +259,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_Is the accumulated payout correlated with the direction of the underlying index?_t_',
                                         ),
+                                        id: 'is-the-accumulated-payout-correlated-with-the-direction-of-the-underlying-index',
                                     },
                                     {
                                         className: `${styles.accordion_border}`,
@@ -267,6 +273,7 @@ const AccumulatorsOptions = () => {
                                         title: localize(
                                             '_t_Are accumulators available as a trade type on Deriv Bot?_t_',
                                         ),
+                                        id: 'are-accumulators-available-as-a-trade-type-on-deriv-bot',
                                     },
                                 ],
                             ],

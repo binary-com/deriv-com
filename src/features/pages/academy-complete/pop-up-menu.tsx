@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ResidenceForm from './residence-form'
-import PasswordForm from './password/password-form'
+import PasswordForm from './password/academy-password-form'
 import device from 'themes/device'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 
@@ -53,7 +53,7 @@ const PopUpMenu = () => {
                 <ModalCard>
                     {!is_password && (
                         <ResidenceForm
-                            residence_list={residence_list && residence_list}
+                            residence_list={residence_list}
                             handleNext={() => setIsPassword(true)}
                             selected_value={selected_value}
                             setSelectedValue={setSelectedValue}

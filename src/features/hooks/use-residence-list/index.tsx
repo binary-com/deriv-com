@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import useWS from 'components/hooks/useWS'
 
 export type ResidenceType = {

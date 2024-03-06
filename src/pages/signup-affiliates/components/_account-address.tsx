@@ -3,6 +3,7 @@ import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import affiliate_validation from '../validations/_affilaite_validation'
+import { isPostalCodeRequired } from '../utils/_utils'
 import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
@@ -24,6 +25,7 @@ const AccountAddress = ({
             form_data.street && (affiliate_validation['street'](form_data['street']) ?? ''),
         postal_code_error_msg:
             form_data.postal_code &&
+            isPostalCodeRequired(form_data['country'] as string) &&
             (affiliate_validation['postal_code'](form_data['postal_code']) ?? ''),
     })
     const [states_list] = useStatesList(form_data.country?.symbol)
@@ -88,7 +90,9 @@ const AccountAddress = ({
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
-            label: localize('_t_Postal/Zip code*_t_'),
+            label: isPostalCodeRequired
+                ? localize('_t_Postal/Zip code*_t_')
+                : localize('_t_Postal/Zip code_t_'),
         },
     ]
 
@@ -122,6 +126,12 @@ const AccountAddress = ({
         }
     }, [])
 
+    const handleInput2 = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+
+        setFormData((prev) => ({ ...prev, [name]: value }))
+    }, [])
+
     const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
@@ -147,6 +157,38 @@ const AccountAddress = ({
                                 onChange={item.handler}
                                 style={{ marginTop: '16px' }}
                             />
+                        )
+                    } else if (item.name === 'postal_code') {
+                        return (
+                            <li key={item.id}>
+                                {isPostalCodeRequired ? (
+                                    <AffiliateInput
+                                        id={item.id}
+                                        name={item.name}
+                                        type={item.type}
+                                        value={form_data[item.name]}
+                                        error={form_errors[`${item.name}_error_msg`]}
+                                        label={item.label}
+                                        placeholder={item.label}
+                                        onChange={handleInput}
+                                        onBlur={handleInput}
+                                        handleError={() => handleError(item)}
+                                    />
+                                ) : (
+                                    <AffiliateInput
+                                        id={item.id}
+                                        name={item.name}
+                                        type={item.type}
+                                        value={form_data[item.name]}
+                                        error={form_errors[`${item.name}_error_msg`]}
+                                        label={item.label}
+                                        placeholder={item.label}
+                                        onChange={handleInput}
+                                        onBlur={handleInput}
+                                        handleError={() => handleError(item)}
+                                    />
+                                )}
+                            </li>
                         )
                     } else {
                         return (

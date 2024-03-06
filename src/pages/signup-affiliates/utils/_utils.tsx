@@ -1,12 +1,7 @@
 import { Analytics, TEvents } from '@deriv-com/analytics'
 import { SubmitTypes } from '../_types'
 
-export const Submit = ({
-    is_online,
-    affiliate_account,
-    setSignupStatus,
-    affiliateSend,
-}: SubmitTypes) => {
+const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }: SubmitTypes) => {
     if (!is_online) {
         setSignupStatus('lost connection')
         Analytics?.trackEvent('ce_partner_account_signup_form', {
@@ -56,7 +51,7 @@ export const Submit = ({
         })
 }
 
-export const trackEvent = ({
+const trackEvent = ({
     action,
     email,
     partner_signup_error_message,
@@ -76,3 +71,14 @@ export const trackEvent = ({
         ...(partner_signup_error_message && { partner_signup_error_message }),
     })
 }
+
+const NO_POSTAL_CODE_COUNTRIES = 'af' || 'pk'
+
+const isPostalCodeRequired = (country_name: string) => {
+    if (country_name === NO_POSTAL_CODE_COUNTRIES) {
+        return false
+    }
+    return true
+}
+
+export { isPostalCodeRequired, trackEvent, Submit }

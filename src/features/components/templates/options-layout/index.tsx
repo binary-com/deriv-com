@@ -26,24 +26,26 @@ const OptionsLayout = ({
     const { ctaBottom, visibilityPercentage } = useFloatingCtaContext()
 
     return (
-        <Layout>
-            <MainRowNavigation />
-            <OptionsTopTab />
-            <WhatAreDigitalOptions
-                heading={heading}
-                description={description}
-                is_coming_soon={is_coming_soon}
-                has_content_block={has_content_block}
-            />
-            {children}
-            <MainFooter />
+        <>
+            <Layout>
+                <MainRowNavigation />
+                <OptionsTopTab />
+                <WhatAreDigitalOptions
+                    heading={heading}
+                    description={description}
+                    is_coming_soon={is_coming_soon}
+                    has_content_block={has_content_block}
+                />
+                {children}
+                <MainFooter />
+            </Layout>
             <FloatingCta
                 style={{
                     transform: `translateY(${visibilityPercentage - 100}%)`,
                     bottom: `${-68 + ctaBottom}px`,
                 }}
             />
-        </Layout>
+        </>
     )
 }
 

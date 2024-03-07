@@ -324,6 +324,10 @@ import STOCKSVISA from 'images/svg/symbols/markets-stocks-and-indices/american-s
 import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
 import STOCKSWALTDISNEY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import STOCKSZOOM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
+import STEPINDICIESMT5_2 from 'images/svg/symbols/step_index2_mt5.svg'
+import STEPINDICIESMT5_5 from 'images/svg/symbols/step_index5_mt5.svg'
+import STEPINDICIESCTRDER_3 from 'images/svg/symbols/step_index3_ctrader.svg'
+import STEPINDICIESCTRDER_4 from 'images/svg/symbols/step_index4_ctrader.svg'
 import TERRA from 'images/svg/symbols/terra.svg'
 import ZINCUSD from 'images/svg/symbols/zinc-usd.svg'
 import ZM from 'images/svg/symbols/zm.svg'
@@ -695,6 +699,10 @@ export {
     TERRA,
     STOCKSSWISS20,
     STOCKSHONGKONG50,
+    STEPINDICIESMT5_2,
+    STEPINDICIESMT5_5,
+    STEPINDICIESCTRDER_3,
+    STEPINDICIESCTRDER_4,
     ZINCUSD,
     ZM,
     BNB,

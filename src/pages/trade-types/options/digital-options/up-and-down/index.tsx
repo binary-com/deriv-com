@@ -23,7 +23,9 @@ const DigitalOptions = () => {
 export default WithIntl()(DigitalOptions)
 
 export const Head = ({ pageContext }: TGatsbyHead) => {
-    const canonicalUrl = `${window.location.origin}/trade-types/options/digital-options/up-and-down`
+    const canonicalUrl = isBrowser()
+        ? `${window.location.origin}/trade-types/options/digital-options/up-and-down`
+        : null
 
     return (
         <SEO
@@ -32,7 +34,7 @@ export const Head = ({ pageContext }: TGatsbyHead) => {
             pageContext={pageContext}
         >
             <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            isBrowser() && <link rel="canonical" href={canonicalUrl} />
+            <link rel="canonical" href={canonicalUrl} />
         </SEO>
     )
 }

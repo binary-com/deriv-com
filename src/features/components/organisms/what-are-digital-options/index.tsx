@@ -8,6 +8,8 @@ import { TString } from 'types/generics'
 import Label from 'features/components/atoms/label'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
+import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import FloatingCta from 'features/pages/home/hero/floating-cta'
 
 interface WhatAreDigitalOptionsProps {
     heading: TString
@@ -24,6 +26,7 @@ const WhatAreDigitalOptions = ({
 }: WhatAreDigitalOptionsProps) => {
     const clickToScrollHandler = useScrollToElement('faqs', -100)
     const uniq = `navbuttons_uniq_class_${uuidv4()}`
+    const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
         <Hero.ContentLess
@@ -47,7 +50,7 @@ const WhatAreDigitalOptions = ({
                     className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
                     id={uniq}
                 >
-                    <TradersHubCtaButton />
+                    <TradersHubCtaButton ref={entryRef} className="w-full md:!w-auto" size="lg" />
                     <Button
                         size="lg"
                         variant="secondary"

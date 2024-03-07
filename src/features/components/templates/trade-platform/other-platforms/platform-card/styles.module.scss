@@ -13,6 +13,8 @@
     transform: translate(-50%, 50%);
     bottom: 0;
     transition: opacity 0.25s ease 0s;
+    width: max-content;
+    max-width: 200px;
     @include breakpoints(tablet){
         opacity: 0;
     }

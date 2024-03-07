@@ -169,7 +169,6 @@ export const synthetic_cfds: TMarketContent = {
 
 export const synthetic_cfds_eu: TMarketContent = {
     has_global_accordion: true,
-    // template: 3,
     markets_list: {
         col: 3,
         tablet_col: 3,

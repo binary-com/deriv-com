@@ -6,11 +6,9 @@
     inset-block-start: 0;
     inset-inline-start: 0;
 }
-
 .nav_container {
     block-size: 7rem;
 }
-
 .no_nav {
     background-color: $color-black;
     inline-size: 100%;
@@ -18,25 +16,21 @@
     inset-block-start: -184px;
     position: absolute;
 }
-
 .navbar {
     font-size: 14px;
     font-family: 'Arial', sans-serif;
 }
-
 .main_menu {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .menu_item {
     display: inline-block;
     position: relative;
     margin-right: 20px;
     cursor: pointer;
 }
-
 .submenu,
 .single_column {
     display: none;
@@ -45,69 +39,63 @@
     left: 0;
     background-color: #fff;
     padding: 20px 0 0 10px;
-    display: flex;
     flex-direction: column;
 }
 .submenu_content {
     display: flex;
+    inline-size: fit-content;
 }
-
 .menu_item:hover .submenu,
 .menu_item:hover .single_column {
     display: flex; /* changed to flex to allow for row/column layout */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .submenu_item,
 .single_column_item {
     margin-bottom: 10px;
     display: none; /* hide content by default */
+    inline-size: 200px;
 }
-
 .menu_item:hover .submenu_item,
 .menu_item:hover .single_column_item {
-    display: flex; /* show content on hover */
+    display: flex;
     flex-direction: column;
-    align-items: center; /* align content and icon in a row */
+    align-items: center;
 }
-
 .submenu_title,
 .single_column_title {
     inline-size: 100px;
     font-weight: bold;
     color: #333;
-    margin-right: 10px; /* add margin between title and icon */
+    margin-right: 10px;
+    white-space: nowrap;
 }
-
 .submenu_icon,
 .single_column_icon {
-    width: 24px; /* set the width of the icon as needed */
-    height: 24px; /* set the height of the icon as needed */
-    margin-right: 10px; /* add margin between title and icon */
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
-
-/* Additional styles for section content */
 .section {
     display: flex;
     flex-direction: column;
-    margin-top: 10px; /* add margin between sections */
+    margin-top: 10px;
+    margin-left: 4px;
 }
-
 .section_item {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
-
 .section_title {
     inline-size: 100px;
     font-weight: bold;
     color: #333;
-    margin-right: 10px; /* add margin between title and icon */
+    margin-right: 10px;
 }
-
 .section_icon {
-    width: 24px; /* set the width of the icon as needed */
-    height: 24px; /* set the height of the icon as needed */
-    margin-right: 10px; /* add margin between title and icon */
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }

@@ -34,7 +34,8 @@
   position: relative;
 }
 .active-cards {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 .platforms_tab-link-2 {
   height: 3rem;

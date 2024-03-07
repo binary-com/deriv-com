@@ -142,7 +142,6 @@ const LiveMarketCard = <T extends MarketName>({
     return (
         <>
             <CardSlider
-                id={market}
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
                 slideClasses="max-w-[296px] !mr-gap-none !ml-gap-none"

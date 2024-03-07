@@ -34,7 +34,7 @@ export const Head = ({ pageContext }: TGatsbyHead) => {
             pageContext={pageContext}
         >
             <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            <link rel="canonical" href={canonicalUrl} />
+            {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
         </SEO>
     )
 }

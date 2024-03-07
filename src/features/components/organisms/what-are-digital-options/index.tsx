@@ -47,7 +47,7 @@ const WhatAreDigitalOptions = ({
                     className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
                     id={uniq}
                 >
-                    <TradersHubCtaButton className="w-full md:!w-auto" size="lg" />
+                    <TradersHubCtaButton />
                     <Button
                         size="lg"
                         variant="secondary"

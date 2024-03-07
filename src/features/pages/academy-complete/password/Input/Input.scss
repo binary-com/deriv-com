@@ -1,0 +1,128 @@
+$disabled_color: #d6dadb;
+$inactive_color: #999999;
+$active_color: #85acb0;
+$success_color: #4bb4b3;
+$warning_color: #ffad3a;
+$error_field: #ec3f3f;
+$border: 1px solid;
+
+.deriv-input__container {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 328px;
+
+    &--full {
+        width: 100%;
+    }
+}
+
+.deriv-input {
+    display: inline-flex;
+    position: relative;
+    border-radius: 4px;
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    border: $border;
+
+    &--general {
+        border-color: $disabled_color;
+        &:hover {
+            border-color: $inactive_color;
+        }
+        &:focus-within {
+            border-color: $active_color;
+        }
+    }
+    &--error {
+        border-color: $error_field;
+    }
+    &--success {
+        border-color: $success_color;
+    }
+    &--active {
+        border-color: $active_color;
+    }
+    &--disabled {
+        border-color: $disabled_color;
+    }
+
+    &__field {
+        width: 100%;
+        outline: none;
+        &::placeholder {
+            visibility: hidden;
+        }
+        &:focus,
+        &:not(:placeholder-shown) {
+            & ~ label {
+                font-size: 10px;
+                transform: translate(0, -50%);
+                background-color: #ffffff;
+                padding: 0px 4px;
+                height: fit-content;
+            }
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        padding: 0;
+        left: 16px;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        transition: all 0.15s ease-out;
+        font-size: 14px;
+        &--general {
+            color: $inactive_color;
+        }
+        &--error {
+            color: $error_field;
+        }
+        &--success {
+            color: $success_color;
+        }
+        &--active {
+            color: $active_color;
+        }
+
+        &--disabled {
+            color: $disabled_color;
+        }
+    }
+
+    &__right-content {
+        margin-left: 16px;
+    }
+}
+
+.deriv-input--general .deriv-input__field:disabled + .deriv-input__label,
+.deriv-input--error .deriv-input__field:disabled + .deriv-input__label,
+.deriv-input--success .deriv-input__field:disabled + .deriv-input__label {
+    color: $disabled_color;
+}
+
+.deriv-input--general .deriv-input__field:focus + .deriv-input__label {
+    color: $active_color;
+}
+
+.deriv-input--error .deriv-input__field:focus + .deriv-input__label {
+    color: $error_field;
+}
+
+.deriv-input--success .deriv-input__field:focus + .deriv-input__label {
+    color: $success_color;
+}
+
+.deriv-input__helper-message {
+    padding: 2px 0 0 16px;
+    height: 20px;
+    width: 100%;
+}

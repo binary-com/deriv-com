@@ -10,8 +10,8 @@
     background: var(--color-grey-45);   
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: -16px;
+    transform: translate(-50%, 50%);
+    bottom: 0;
     transition: opacity 0.25s ease 0s;
     @include breakpoints(tablet){
         opacity: 0;

@@ -1,12 +1,6 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 
-.platform_section {
-    @media only screen and (min-width: 992px){
-        padding-block-start: 8rem;
-        padding-block-end: 6rem;
-    }
-}
 .slider_wrapper {
     max-inline-size: 97.5rem;
     margin-inline: auto;
@@ -19,9 +13,10 @@
 
 }
 .swiper_wrapper {
-    padding-block-end: 2rem !important;
-    padding-inline: 1rem !important;
     margin-inline: -1rem !important;
+    padding-block-end: 3rem !important;
+    padding-inline: 1rem !important;
+    margin-block-end: -3rem !important;
 }
 .swiper_slide {
     align-self: stretch;

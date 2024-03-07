@@ -22,10 +22,12 @@ const DigitalOptions = () => {
 
 export default WithIntl()(DigitalOptions)
 
-export const Head = ({ pageContext }: TGatsbyHead) => {
+export const Head = ({ pageContext, ...rest }: TGatsbyHead) => {
     const canonicalUrl = isBrowser()
         ? `${window.location.origin}/trade-types/options/digital-options/up-and-down`
         : null
+
+    console.log('==>', { pageContext, rest })
 
     return (
         <SEO

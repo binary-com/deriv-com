@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Script } from 'gatsby'
+import { Analytics } from '@deriv-com/analytics'
 import FloatingButton from '../floating-button'
 import LiveChatIC from 'images/svg/layout/chat-normal.svg'
 import LiveChatHover from 'images/svg/layout/chat-hover.svg'
@@ -115,7 +116,13 @@ const LiveChatButton = () => {
             {is_livechat_interactive ? (
                 <FloatingButton
                     className="gtm-deriv-livechat"
-                    onClick={() => LC_API.current.open_chat_window()}
+                    onClick={() => {
+                        LC_API.current.open_chat_window()
+                        Analytics.trackEvent('ce_widget_usage_form', {
+                            action: 'click',
+                            widget_name: 'livechat',
+                        })
+                    }}
                 >
                     {(has_hover) => (
                         <img

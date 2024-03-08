@@ -9,7 +9,7 @@ import Image from 'features/components/atoms/image'
 import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
 import dclsx from 'features/utils/dclsx'
 
-const SignUpContentContainer = () => {
+const SignUpContent = () => {
     const growthbook_feature_flag__latam_signup_human_element_visible = useGrowthbookFeatureFlag({
         featureFlag: 'latam-signup-human-element',
     })
@@ -115,4 +115,4 @@ const SignUpContentContainer = () => {
     )
 }
 
-export default SignUpContentContainer
+export default SignUpContent

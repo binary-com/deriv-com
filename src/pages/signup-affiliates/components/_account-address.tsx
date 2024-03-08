@@ -146,6 +146,7 @@ const AccountAddress = ({
                                 error={form_errors[`${item.name}_error_msg`]}
                                 onChange={item.handler}
                                 style={{ marginTop: '16px' }}
+                                placeholder={localize(`_t_${item.label}_t_`)}
                             />
                         )
                     } else {

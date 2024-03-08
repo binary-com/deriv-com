@@ -68,12 +68,14 @@ const WhatAreDigitalOptions = ({
                     </div>
                 )}
             </Hero.ContentLess>
-            <FloatingCta
-                style={{
-                    transform: `translateY(${visibilityPercentage - 100}%)`,
-                    bottom: `${-68 + ctaBottom}px`,
-                }}
-            />
+            {has_content_block && (
+                <FloatingCta
+                    style={{
+                        transform: `translateY(${visibilityPercentage - 100}%)`,
+                        bottom: `${-68 + ctaBottom}px`,
+                    }}
+                />
+            )}
         </>
     )
 }

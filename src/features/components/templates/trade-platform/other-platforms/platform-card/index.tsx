@@ -46,14 +46,13 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
                 padding_inline="8x"
                 size="medium"
                 weight="bold"
+                font_family="UBUNTU"
             >
                 <Localize translate_text="_t_Learn more_t_" />
                 <Image
                     src={Arrow}
                     alt={localize('_t_Arrow_t_')}
-                    className={dclsx('at-margin-left-1x', is_rtl && rtl_arrow_icon)}
-                    width={10}
-                    height={10}
+                    className={dclsx('at-margin-left-4x', is_rtl && rtl_arrow_icon)}
                 />
             </Link>
         </Flex.Box>

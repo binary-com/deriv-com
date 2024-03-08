@@ -614,7 +614,7 @@ export const london: LocationsType = {
     map: 'ChIJlfOm_xebdkgRgITDVJhzsMw',
     map_text:
         'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
-    google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
+    google_map_link: 'https://maps.app.goo.gl/FrLLyhvMWw6B7qGW7',
     badge: 'reading_great_place_to_work_badge',
     badge_alt: 'London Great Place to Work 2023 Certification Badge',
     has_iframe: true,

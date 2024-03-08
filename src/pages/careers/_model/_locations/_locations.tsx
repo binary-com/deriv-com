@@ -584,10 +584,18 @@ export const reading: LocationsType = {
 
 export const london: LocationsType = {
     name: 'london',
+    // hero_image: (
+    //     <StaticImage
+    //         src="../../../../images/common/careers/london.jpg"
+    //         alt={localize('_t_Deriv’s London office at United Kingdom_t_')}
+    //         formats={['avif', 'webp', 'auto']}
+    //         loading="eager"
+    //     />
+    // ),
     hero_image: (
         <StaticImage
-            src="../../../../images/common/careers/london.jpg"
-            alt={localize('_t_Deriv’s London office at United Kingdom_t_')}
+            src="../../../../images/common/careers/vanuatu.png"
+            alt={localize('_t_Vanuatu alt img_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
         />

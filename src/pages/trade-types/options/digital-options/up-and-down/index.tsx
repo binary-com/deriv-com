@@ -19,16 +19,9 @@ const DigitalOptions = () => {
         />
     )
 }
-
 export default WithIntl()(DigitalOptions)
 
 export const Head = ({ pageContext, ...rest }: TGatsbyHead) => {
-    const canonicalUrl = isBrowser()
-        ? `${window.location.origin}/trade-types/options/digital-options/up-and-down`
-        : null
-
-    console.log('==>', { pageContext, rest })
-
     return (
         <SEO
             title="_t_Up/Down | Digital options contract | Deriv_t_"
@@ -36,7 +29,6 @@ export const Head = ({ pageContext, ...rest }: TGatsbyHead) => {
             pageContext={pageContext}
         >
             <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
         </SEO>
     )
 }

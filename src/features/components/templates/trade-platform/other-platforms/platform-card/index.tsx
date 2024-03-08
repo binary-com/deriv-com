@@ -40,11 +40,11 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
                     'at-flex',
                     'at-align-items-center',
                     'at-justify-center',
+                    'text-100',
                 )}
                 textcolor="brand"
                 padding_block="4x"
                 padding_inline="8x"
-                size="medium"
                 weight="bold"
                 font_family="UBUNTU"
             >

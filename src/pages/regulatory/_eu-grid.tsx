@@ -53,7 +53,7 @@ const countries = [
     { href: '/regulatory/countries/Greece.pdf', icon: <FlagGreeceIcon />, text: '_t_Greece_t_' },
     { href: '/regulatory/countries/Hungary.pdf', icon: <FlagHungaryIcon />, text: '_t_Hungary_t_' },
     { href: '/regulatory/countries/Italy.pdf', icon: <FlagItalyIcon />, text: '_t_Italy_t_' },
-    { href: '/regulatory/countries/Ireland.pdf', icon: <FlagIrelandIcon />, text: '_t_Ireland_t_' },
+    { href: '', icon: <FlagIrelandIcon />, text: '_t_Ireland_t_' },
     { href: '/regulatory/countries/Latvia.pdf', icon: <FlagLatviaIcon />, text: '_t_Latvia_t_' },
     {
         href: '/regulatory/countries/Lithuania.pdf',
@@ -95,14 +95,25 @@ const EUgrid = () => {
     return (
         <div className={styles.eu_grid}>
             {countries.map((country, index) => (
-                <CustomLink key={index} href={country.href} className="inline">
-                    <div className={styles.country_container}>
-                        {country.icon && <div className={styles.icon}>{country.icon}</div>}
-                        <Text className="text-base">
-                            <Localize translate_text={country.text} />
-                        </Text>
-                    </div>
-                </CustomLink>
+                <div key={index} className="inline">
+                    {country.href ? (
+                        <a href={country.href} target="_blank" rel="noreferrer">
+                            <div className={styles.country_container}>
+                                {country.icon && <div className={styles.icon}>{country.icon}</div>}
+                                <Text className="text-base text-solid-slate-1400 leading-200 text-75">
+                                    <Localize translate_text={country.text} />
+                                </Text>
+                            </div>
+                        </a>
+                    ) : (
+                        <div className={styles.country_container}>
+                            {country.icon && <div className={styles.icon}>{country.icon}</div>}
+                            <Text className="text-base text-solid-slate-1400 leading-200 text-75">
+                                <Localize translate_text={country.text} />
+                            </Text>
+                        </div>
+                    )}
+                </div>
             ))}
         </div>
     )

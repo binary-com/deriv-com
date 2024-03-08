@@ -30,7 +30,7 @@ const DocumentAccordion = () => {
                         >
                             <div className="flex items-center">
                                 <img src={PDFIcon} alt="pdf icon black" className="pr-400" />
-                                <Text>
+                                <Text className="text-solid-slate-1400">
                                     <Localize translate_text={data.title} />
                                 </Text>
                             </div>
@@ -56,7 +56,7 @@ const DocumentAccordion = () => {
                         >
                             <div className="flex items-center">
                                 <img src={PDFIcon} alt="pdf icon black" className="pr-400" />
-                                <Text>
+                                <Text className="text-solid-slate-1400">
                                     <Localize translate_text={data.title} />
                                 </Text>
                             </div>

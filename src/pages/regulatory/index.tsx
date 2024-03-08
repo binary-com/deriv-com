@@ -25,7 +25,7 @@ const Regulatory = () => {
             <div className="bg-solid-slate-75">
                 <FluidContainer>
                     <Breadcrumbs
-                        className="py-general-md"
+                        className="py-general-md leading-200 text-75"
                         links={[
                             {
                                 content: 'Home',
@@ -59,8 +59,8 @@ const Regulatory = () => {
             {!is_region_loading ? (
                 is_row || is_cpa_plan ? null : (
                     <>
-                        <Hero.ContentLess>
-                            <div className="max-w-[1232px] mx-auto">
+                        <Hero.ContentLess className=" !pb-50">
+                            <div className="max-w-[1232px] mx-auto  px-800 md:px-1200">
                                 <Heading.H1 className="text-[28px] lg:text-[48px] text-center pb-800">
                                     Deriv Investments (Europe) Limited
                                 </Heading.H1>
@@ -82,10 +82,11 @@ const Regulatory = () => {
                                     <Localize translate_text="_t_Here are the EU countries with access to Deriv.com through EU passporting rights._t_" />
                                 </Text>
 
-                                <BlockWrapper>
+                                <BlockWrapper className="flex items-center py-2400">
                                     <EUgrid />
                                 </BlockWrapper>
                                 <AccordionBlock
+                                    className=" py-1600 px-800 md:!px-50 md:!py-2400"
                                     content={{
                                         data: [
                                             [
@@ -107,7 +108,7 @@ const Regulatory = () => {
                                                                                 alt="pdf icon black"
                                                                                 className="pr-400"
                                                                             />
-                                                                            <Text>
+                                                                            <Text className="text-solid-slate-1400">
                                                                                 <Localize translate_text="_t_Financial Disclosures Annual Report 2022_t_" />
                                                                             </Text>
                                                                         </div>
@@ -195,18 +196,11 @@ const Regulatory = () => {
                         >
                             <Text className="text-start pb-800">
                                 <Localize
-                                    translate_text="_t_Deriv (FX) Ltd (Company No. LL13394), incorporated on the 18th January 2017, is registered in the Federal Territory of Labuan (Malaysia) with its registered office located at Unit No. 3A-16, Level 3A, Labuan Times Square, Jalan Merdeka, 87000, Federal Territory of Labuan, Malaysia. Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority (<0>view licence</0>) and is a member of the <1>Labuan Fintech Association</1>._t_"
+                                    translate_text="_t_Deriv (FX) Ltd (Company No. LL13394), incorporated on the 18th January 2017, is registered in the Federal Territory of Labuan (Malaysia) with its registered office located at Unit No. 3A-16, Level 3A, Labuan Times Square, Jalan Merdeka, 87000, Federal Territory of Labuan, Malaysia. Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority (<0>view licence</0>) and is a member of the Labuan Fintech Association._t_"
                                     components={[
                                         <a
                                             key={0}
                                             href="/regulatory/Deriv_(FX)_Ltd.pdf"
-                                            className="underline text-typography-default inline text-base"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        />,
-                                        <a
-                                            key={1}
-                                            href="https://www.labuanfintech.org/"
                                             className="underline text-typography-default inline text-base"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -252,7 +246,7 @@ const Regulatory = () => {
                         >
                             <Text className="text-start">
                                 <Localize
-                                    translate_text="_t_Deriv (V) Ltd (Company No. 014556), incorporated on the 17th February 2016, is registered in the Republic of Vanuatu with its registered office located at 1276, Govant Building, Kumul Highway, Port Vila, Republic of Vanuatu. Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission (<0>view licence</0>) and is a member of the <1>Financial Markets Association</1>._t_"
+                                    translate_text="_t_Deriv (V) Ltd (Company No. 014556), incorporated on the 17th February 2016, is registered in the Republic of Vanuatu with its registered office located at 1276, Govant Building, Kumul Highway, Port Vila, Republic of Vanuatu. Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission (<0>view licence</0>) and is a <1>member</1> of the Financial Markets Association._t_"
                                     components={[
                                         <a
                                             key={0}
@@ -305,7 +299,7 @@ const Regulatory = () => {
 
                         <ContentText
                             className="max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
-                            title="The Financial Commission"
+                            title="_t_The Financial Commission_t_"
                         >
                             <Text className="text-start pb-800">
                                 <Localize
@@ -377,18 +371,11 @@ const Regulatory = () => {
                     >
                         <Text className="text-start">
                             <Localize
-                                translate_text="_t_Deriv (FX) Ltd (Company No. LL13394), incorporated on the 18th January 2017, is registered in the Federal Territory of Labuan (Malaysia) with its registered office located at Unit No. 3A-16, Level 3A, Labuan Times Square, Jalan Merdeka, 87000, Federal Territory of Labuan, Malaysia. Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority (<0>view licence</0>) and is a member of the <1>Labuan Fintech Association</1>._t_"
+                                translate_text="_t_Deriv (FX) Ltd (Company No. LL13394), incorporated on the 18th January 2017, is registered in the Federal Territory of Labuan (Malaysia) with its registered office located at Unit No. 3A-16, Level 3A, Labuan Times Square, Jalan Merdeka, 87000, Federal Territory of Labuan, Malaysia. Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority (<0>view licence</0>) and is a member of the Labuan Fintech Association._t_"
                                 components={[
                                     <a
                                         key={0}
                                         href="/regulatory/Deriv_(FX)_Ltd.pdf"
-                                        className="underline text-typography-default inline text-base"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <a
-                                        key={1}
-                                        href="https://www.labuanfintech.org/"
                                         className="underline text-typography-default inline text-base"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -427,12 +414,12 @@ const Regulatory = () => {
                     </ContentText>
 
                     <ContentText
-                        className=" max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
+                        className=" max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200 !gap-800"
                         title="Deriv (V) Ltd"
                     >
                         <Text className="text-start">
                             <Localize
-                                translate_text="_t_Deriv (V) Ltd (Company No. 014556), incorporated on the 17th February 2016, is registered in the Republic of Vanuatu with its registered office located at 1276, Govant Building, Kumul Highway, Port Vila, Republic of Vanuatu. Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission (<0>view licence</0>) and is a member of the <1>Financial Markets Association</1>._t_"
+                                translate_text="_t_Deriv (V) Ltd (Company No. 014556), incorporated on the 17th February 2016, is registered in the Republic of Vanuatu with its registered office located at 1276, Govant Building, Kumul Highway, Port Vila, Republic of Vanuatu. Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission (<0>view licence</0>) and is a <1>member</1> of the Financial Markets Association._t_"
                                 components={[
                                     <a
                                         key={0}
@@ -483,7 +470,7 @@ const Regulatory = () => {
 
                     <ContentText
                         className=" max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
-                        title="The Financial Commission"
+                        title={localize(`_t_The Financial Commission_t_`)}
                     >
                         <Text className="text-start">
                             <Localize
@@ -516,8 +503,6 @@ const Regulatory = () => {
                     </ContentText>
                 </>
             ) : null}
-
-            <Divider />
         </Layout>
     )
 }

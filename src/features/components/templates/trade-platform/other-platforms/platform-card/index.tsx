@@ -1,7 +1,7 @@
 import React from 'react'
 import { PlatformType } from '../types'
 import { platform_card, platform_link, rtl_arrow_icon } from './styles.module.scss'
-import { Localize, localize } from 'components/localization'
+import { LocaleContext, Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
@@ -15,6 +15,7 @@ type PlatformProps = {
 }
 
 const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProps) => {
+    const { locale } = React.useContext(LocaleContext)
     const is_rtl = useIsRtl()
     return (
         <Flex.Box
@@ -29,7 +30,7 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
             <Typography.Heading as="h3" size="xxs">
                 {heading}
             </Typography.Heading>
-            <Typography.Paragraph>
+            <Typography.Paragraph mb={locale === 'tr' ? '8x' : '0x'}>
                 <Localize translate_text={paragraph} />
             </Typography.Paragraph>
             <Link

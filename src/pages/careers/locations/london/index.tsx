@@ -9,26 +9,14 @@ import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        living_in_melaka: file(relativePath: { eq: "careers/living_in_melaka.png" }) {
+        living_in_reading: file(relativePath: { eq: "careers/living_in_reading.jpg" }) {
             ...fadeIn
         }
-        melaka_grid_1: file(relativePath: { eq: "careers/melaka_grid_1.png" }) {
+        reading_grid_3: file(relativePath: { eq: "careers/reading_grid_3.jpg" }) {
             ...fadeIn
         }
-        melaka_grid_2: file(relativePath: { eq: "careers/melaka_grid_2.png" }) {
-            ...fadeIn
-        }
-        melaka_grid_3: file(relativePath: { eq: "careers/melaka_grid_3.png" }) {
-            ...fadeIn
-        }
-        melaka_grid_4: file(relativePath: { eq: "careers/melaka_grid_4.png" }) {
-            ...fadeIn
-        }
-        map_melaka: file(relativePath: { eq: "careers/maps/map-melaka.png" }) {
-            ...fadeIn
-        }
-        malaysia_great_place_to_work_badge: file(
-            relativePath: { eq: "careers/malaysia_great_place_to_work_badge.png" }
+        reading_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/reading_great_place_to_work_badge.png" }
         ) {
             ...fadeIn
         }

@@ -603,7 +603,7 @@ export const london: LocationsType = {
     map_office_name: 'Technologies Ltd',
     country: 'UK',
     flagIcon: UKFlagIcon,
-    thumbnail: 'thumbnail_reading',
+    thumbnail: 'thumbnail_london',
     address: address_london,
     first_p:
         'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',

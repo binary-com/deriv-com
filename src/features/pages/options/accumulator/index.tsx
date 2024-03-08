@@ -10,7 +10,7 @@ import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './da
 import AccumulatorOptions from 'images/svg/trade-types/accumulator-options.svg'
 import Typography from 'features/components/atoms/typography'
 import { Localize, localize, is_rtl } from 'components/localization'
-import OptionsLayout from 'features/components/templates/options-layout'
+import OptionsLayout from 'features/components/quill/options-layout'
 import Box from 'features/components/atoms/box'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import Link from 'features/components/atoms/link'

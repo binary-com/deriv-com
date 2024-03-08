@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import MainRowNavigation from '../navigation/main-nav'
-import Layout from 'features/components/templates/layout'
+import MainRowNavigation from '../../templates/navigation/main-nav'
+import Layout from '../quill-layout'
 import MainFooter from 'features/components/templates/footer'
 import { TString } from 'types/generics'
 import OptionsTopTab from 'features/components/organisms/options-top-tab'

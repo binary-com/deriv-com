@@ -29,40 +29,52 @@ const WhatAreDigitalOptions = ({
     const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
-        <Hero.ContentLess
-            className="px-800"
-            description={
-                <Text className="leading-6">
-                    <Localize translate_text={description} />
-                </Text>
-            }
-            title={
-                <Heading>
-                    <Localize translate_text={heading} />
-                </Heading>
-            }
-        >
-            {is_coming_soon && (
-                <Label text="_t_Available on Demo accounts only_t_" bgcolor="blue" />
-            )}
-            {has_content_block && (
-                <div
-                    className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
-                    id={uniq}
-                >
-                    <TradersHubCtaButton ref={entryRef} className="w-full md:!w-auto" size="lg" />
-                    <Button
-                        size="lg"
-                        variant="secondary"
-                        colorStyle="black"
-                        className="w-full md:!w-auto hover:!bg-solid-slate-50 sm:hover:!bg-opacity-black-100"
-                        onClick={clickToScrollHandler}
+        <>
+            <Hero.ContentLess
+                className="px-800"
+                description={
+                    <Text className="leading-6">
+                        <Localize translate_text={description} />
+                    </Text>
+                }
+                title={
+                    <Heading>
+                        <Localize translate_text={heading} />
+                    </Heading>
+                }
+            >
+                {is_coming_soon && (
+                    <Label text="_t_Available on Demo accounts only_t_" bgcolor="blue" />
+                )}
+                {has_content_block && (
+                    <div
+                        className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
+                        id={uniq}
                     >
-                        <Localize translate_text="_t_Read FAQs_t_" />
-                    </Button>
-                </div>
-            )}
-        </Hero.ContentLess>
+                        <TradersHubCtaButton
+                            ref={entryRef}
+                            className="w-full md:!w-auto"
+                            size="lg"
+                        />
+                        <Button
+                            size="lg"
+                            variant="secondary"
+                            colorStyle="black"
+                            className="w-full md:!w-auto hover:!bg-solid-slate-50 sm:hover:!bg-opacity-black-100"
+                            onClick={clickToScrollHandler}
+                        >
+                            <Localize translate_text="_t_Read FAQs_t_" />
+                        </Button>
+                    </div>
+                )}
+            </Hero.ContentLess>
+            <FloatingCta
+                style={{
+                    transform: `translateY(${visibilityPercentage - 100}%)`,
+                    bottom: `${-68 + ctaBottom}px`,
+                }}
+            />
+        </>
     )
 }
 

@@ -21,7 +21,7 @@ const DigitalOptions = () => {
 }
 export default WithIntl()(DigitalOptions)
 
-export const Head = ({ pageContext, ...rest }: TGatsbyHead) => {
+export const Head = ({ pageContext }: TGatsbyHead) => {
     return (
         <SEO
             title="_t_Up/Down | Digital options contract | Deriv_t_"

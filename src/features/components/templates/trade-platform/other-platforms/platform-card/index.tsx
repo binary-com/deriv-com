@@ -1,6 +1,6 @@
 import React from 'react'
 import { PlatformType } from '../types'
-import { platform_card, platform_link } from './styles.module.scss'
+import { platform_card, platform_link, rtl_arrow_icon } from './styles.module.scss'
 import { Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
@@ -8,12 +8,14 @@ import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import dclsx from 'features/utils/dclsx'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type PlatformProps = {
     data: Omit<PlatformType, 'id'>
 }
 
 const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProps) => {
+    const is_rtl = useIsRtl()
     return (
         <Flex.Box
             direction="col"
@@ -41,14 +43,14 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
                 textcolor="brand"
                 padding_block="4x"
                 padding_inline="8x"
-                size="small"
+                size="medium"
                 weight="bold"
             >
                 <Localize translate_text="_t_Learn more_t_" />
                 <Image
                     src={Arrow}
                     alt={localize('_t_Arrow_t_')}
-                    className={dclsx('at-margin-left-1x')}
+                    className={dclsx('at-margin-left-1x', is_rtl && rtl_arrow_icon)}
                     width={10}
                     height={10}
                 />

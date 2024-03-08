@@ -586,7 +586,7 @@ export const london: LocationsType = {
     name: 'london',
     hero_image: (
         <StaticImage
-            src="../../../../images/common/careers/reading.jpg"
+            src="../../../../images/common/careers/london.jpg"
             alt={localize('_t_Deriv’s London office at United Kingdom_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
@@ -606,17 +606,17 @@ export const london: LocationsType = {
     thumbnail: 'thumbnail_london',
     address: address_london,
     first_p:
-        'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
-    first_img: 'living_in_reading',
+        'Nestled in the heart of the city near Liverpool Street, Deriv Technologies Ltd is the core of our Compliance, Legal, Tax, and Internal Audit teams. Our London base is at the forefront of driving regulatory excellence, helping to fulfil Deriv’s principles of providing transparent and reliable trading services.',
+    first_img: 'living_in_london',
     first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     map: 'ChIJlfOm_xebdkgRgITDVJhzsMw',
     map_text:
-        'Nestled in the heart of the city near Liverpool Street, Deriv Technologies Ltd is the core of our Compliance, Legal, Tax, and Internal Audit teams. Our London base is at the forefront of driving regulatory excellence, helping to fulfil Deriv’s principles of providing transparent and reliable trading services.',
+        'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
     google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
     badge: 'reading_great_place_to_work_badge',
-    badge_alt: 'Reading Great Place to Work 2023 Certification Badge',
+    badge_alt: 'London Great Place to Work 2023 Certification Badge',
     has_iframe: true,
     has_map: true,
 }

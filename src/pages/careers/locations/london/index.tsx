@@ -9,7 +9,7 @@ import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        living_in_reading: file(relativePath: { eq: "careers/living_in_reading.jpg" }) {
+        living_in_london: file(relativePath: { eq: "careers/living_in_london.jpg" }) {
             ...fadeIn
         }
         reading_grid_3: file(relativePath: { eq: "careers/reading_grid_3.jpg" }) {

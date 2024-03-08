@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Symbol from '../components/helper/_symbol'
 import { drift_switch_indices } from '../static/content/_market-symbols'
 import { Localize } from 'components/localization'
@@ -8,9 +8,14 @@ import useRegion from 'components/hooks/use-region'
 
 const DriftSwitchIndices = () => {
     const { is_row } = useRegion()
+    const [show_row_content, setRowContent] = useState(true)
+
+    useEffect(() => {
+        !is_row && setRowContent(false)
+    }, [is_row])
     return (
         <>
-            {is_row && (
+            {show_row_content && (
                 <>
                     <Typography.Paragraph
                         mb="4x"

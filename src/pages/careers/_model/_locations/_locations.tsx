@@ -587,7 +587,7 @@ export const london: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/reading.jpg"
-            alt={localize('_t_Deriv’s Reading office at United Kingdom_t_')}
+            alt={localize('_t_Deriv’s London office at United Kingdom_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
@@ -898,6 +898,7 @@ export const all_offices: LocationsType[] = [
     cyprus,
     guernsey,
     berlin,
+    london,
     reading,
     cyberjaya,
     ipoh,
@@ -917,6 +918,7 @@ export const all_offices: LocationsType[] = [
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
     reading: `${reading.display_name}, ${reading.country}`,
+    london: `${london.display_name}, ${london.country}`,
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,

@@ -3,6 +3,10 @@
     display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
 
+        @media (min-width: 525px) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
         @media (min-width: 768px) {
             grid-template-columns: repeat(5, minmax(0, 1fr));
         }
@@ -13,8 +17,6 @@
     }
 
     .icon {
-        width: 36px;
-        height: 31px;
         margin-right: 8px;
     }
 
@@ -29,3 +31,29 @@
     .accordion_border{
         border-bottom: 2px solid #F6F7F8 ;
     }
+
+    .text_alignment {
+        text-align: center;
+
+        @media (min-width: 768px) {
+          text-align: start;
+        }
+
+        @media (min-width: 1024px) {
+          text-align: center;
+        }
+      }
+
+      .text_alignment_with_padding {
+        @extend .text_alignment;
+        padding-bottom: 16px;
+      }
+
+      .heading_alignment {
+        @extend .text_alignment;
+        padding-bottom: 16px;
+        font-size: 28px;
+        @media (min-width: 1024px) {
+              font-size: 48px;
+         }
+      }

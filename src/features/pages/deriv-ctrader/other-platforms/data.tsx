@@ -33,22 +33,22 @@ export const carousel_data: PlatformType[] = [
     },
     {
         id: 3,
-        icon: DGoIcon,
-        heading: 'Deriv Go',
-        paragraph: '_t_Our best trading experience on your mobile._t_',
-        link: {
-            type: 'internal',
-            to: '/deriv-go/',
-        },
-    },
-    {
-        id: 4,
         icon: DxIcon,
         heading: 'Deriv X',
         paragraph: '_t_The CFD trading platform to fit your style._t_',
         link: {
             type: 'internal',
             to: '/derivx/',
+        },
+    },
+    {
+        id: 4,
+        icon: DGoIcon,
+        heading: 'Deriv Go',
+        paragraph: '_t_Our best trading experience on your mobile._t_',
+        link: {
+            type: 'internal',
+            to: '/deriv-go/',
         },
     },
     {

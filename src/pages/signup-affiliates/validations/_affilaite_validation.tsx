@@ -105,7 +105,7 @@ const passwordValidation = (input: string) => {
 }
 const postcodeValidation = (input: string) => {
     if (!affiliate_validation_regex.postal_code(input))
-        return localize('_t_Please enter a valid postcode with 2-10 Latin characters._t_')
+        return localize('_t_You should enter 2-10 numbers, characters._t_')
 }
 const streetValidation = (input: string) => {
     if (!input) return localize('_t_Street is required_t_')

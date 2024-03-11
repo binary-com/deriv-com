@@ -61,10 +61,10 @@ const Regulatory = () => {
                     <>
                         <Hero.ContentLess className=" !pb-50">
                             <div className="max-w-[1232px] mx-auto  px-800 md:px-1200">
-                                <Heading.H1 className="text-[28px] lg:text-[48px] text-center pb-800">
+                                <Heading.H1 className={styles.heading_alignment}>
                                     Deriv Investments (Europe) Limited
                                 </Heading.H1>
-                                <Text className="text-center pb-800">
+                                <Text className={styles.text_alignment_with_padding}>
                                     <Localize
                                         translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (<0>view licence</0>). It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights._t_"
                                         components={[
@@ -78,11 +78,11 @@ const Regulatory = () => {
                                         ]}
                                     />
                                 </Text>
-                                <Text className="text-center">
+                                <Text className={styles.text_alignment}>
                                     <Localize translate_text="_t_Here are the EU countries with access to Deriv.com through EU passporting rights._t_" />
                                 </Text>
 
-                                <BlockWrapper className="flex items-center py-2400">
+                                <BlockWrapper className="flex items-start md:items-center py-1600 lg:py-2400">
                                     <EUgrid />
                                 </BlockWrapper>
                                 <AccordionBlock
@@ -166,7 +166,7 @@ const Regulatory = () => {
                                                                                     alt="pdf icon black"
                                                                                     className="pr-400"
                                                                                 />
-                                                                                <Text>
+                                                                                <Text className="text-solid-slate-1400">
                                                                                     <Localize
                                                                                         translate_text={
                                                                                             document.text

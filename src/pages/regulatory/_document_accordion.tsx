@@ -18,7 +18,7 @@ const DocumentAccordion = () => {
             <div className="grid grid-cols-1 md:grid-cols-4">
                 {kid_data.map((data, idx) => (
                     <div key={idx} className="flex flex-row mb-800 mr-800">
-                        <CustomLink
+                        <a
                             target="_blank"
                             className="underline inline text-base"
                             rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const DocumentAccordion = () => {
                                     <Localize translate_text={data.title} />
                                 </Text>
                             </div>
-                        </CustomLink>
+                        </a>
                     </div>
                 ))}
             </div>
@@ -42,7 +42,7 @@ const DocumentAccordion = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 mt-800">
                 {kid_data_multiplier.map((data, idx) => (
                     <div key={idx} className="flex flex-row mb-800 mr-800">
-                        <CustomLink
+                        <a
                             key={idx}
                             target="_blank"
                             className="underline inline text-base"
@@ -52,7 +52,6 @@ const DocumentAccordion = () => {
                                     ? selected_language + '/'
                                     : ''
                             }${data.ref}`}
-                            m="1.6rem 2.4rem"
                         >
                             <div className="flex items-center">
                                 <img src={PDFIcon} alt="pdf icon black" className="pr-400" />
@@ -60,7 +59,7 @@ const DocumentAccordion = () => {
                                     <Localize translate_text={data.title} />
                                 </Text>
                             </div>
-                        </CustomLink>
+                        </a>
                     </div>
                 ))}
             </div>

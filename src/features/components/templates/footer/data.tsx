@@ -44,7 +44,7 @@ export const RowFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 5,
-                        href: '/contact_us',
+                        href: '/contact-us',
                         text: <Localize translate_text="_t_Contact us_t_" />,
                     },
                     { id: 6, href: '/careers', text: <Localize translate_text="_t_Careers_t_" /> },
@@ -302,7 +302,7 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 5,
-                        href: '/contact_us',
+                        href: '/contact-us',
                         text: <Localize translate_text="_t_Contact us_t_" />,
                     },
                     { id: 6, href: '/careers', text: <Localize translate_text="_t_Careers_t_" /> },

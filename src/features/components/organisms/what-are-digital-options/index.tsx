@@ -31,7 +31,7 @@ const WhatAreDigitalOptions = ({
     return (
         <>
             <Hero.ContentLess
-                className="px-800"
+                className="px-800  md:px-1200"
                 description={
                     <Text className="leading-6">
                         <Localize translate_text={description} />

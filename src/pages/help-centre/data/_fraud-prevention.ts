@@ -57,7 +57,7 @@ const fraud_prevention: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://deriv.com/contact_us/?is_livechat_open=true',
+                                        to: 'https://deriv.com/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -108,7 +108,7 @@ const fraud_prevention: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: 'https://deriv.com/contact_us/?is_livechat_open=true',
+                            to: 'https://deriv.com/contact-us/?is_livechat_open=true',
                         },
                     ],
                 },
@@ -280,7 +280,7 @@ const fraud_prevention: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: 'https://deriv.com/contact_us/?is_livechat_open=true',
+                            to: 'https://deriv.com/contact-us/?is_livechat_open=true',
                         },
                     ],
                 },
@@ -328,7 +328,7 @@ const fraud_prevention: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://deriv.com/contact_us/?is_livechat_open=true',
+                                        to: 'https://deriv.com/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -361,7 +361,7 @@ const fraud_prevention: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https://deriv.com/contact_us/?is_livechat_open=true',
+                                        to: 'https://deriv.com/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },

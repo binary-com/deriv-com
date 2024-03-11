@@ -13,7 +13,7 @@ const getNavigationMap = (type: string) => {
                     'regulatory',
                     'why-choose-us',
                     'partners',
-                    'contact_us',
+                    'contact-us',
                     'careers',
                     'who-we-are',
                 ],

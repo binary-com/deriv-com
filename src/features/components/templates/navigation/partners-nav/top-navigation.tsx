@@ -12,7 +12,7 @@ export const TopNavigation = () => {
             <CustomLink href="/who-we-are" className={clsx(sharedClasses)}>
                 Who we are
             </CustomLink>
-            <CustomLink href="/contact_us" className={clsx(sharedClasses)}>
+            <CustomLink href="/contact-us" className={clsx(sharedClasses)}>
                 Contact us
             </CustomLink>
         </div>

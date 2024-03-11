@@ -118,7 +118,9 @@ const AccumulatorsOptions = () => {
                                         size="medium"
                                         font_family="UBUNTU"
                                     >
-                                        <Localize translate_text="_t_Derived indices_t_" />
+                                        <Text>
+                                            <Localize translate_text="_t_Derived indices_t_" />
+                                        </Text>
                                     </Link>
                                 </div>
                             </div>
@@ -139,7 +141,9 @@ const AccumulatorsOptions = () => {
                                         size="medium"
                                         font_family="UBUNTU"
                                     >
-                                        <Localize translate_text="_t_Deriv Trader_t_" />
+                                        <Text>
+                                            <Localize translate_text="_t_Deriv Trader_t_" />
+                                        </Text>
                                     </Link>
                                 </div>
                             </div>

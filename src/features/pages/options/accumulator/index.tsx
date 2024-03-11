@@ -1,6 +1,6 @@
 import React from 'react'
 import { Features, AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
-import { Text, FluidContainer } from '@deriv/quill-design'
+import { Text, FluidContainer, Heading } from '@deriv/quill-design'
 import {
     DerivProductDerivTraderBrandLightLogoHorizontalIcon,
     IllustrativeDerivedIcon,
@@ -8,7 +8,6 @@ import {
 import * as styles from './accumulators_faq.module.scss'
 import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
 import AccumulatorOptions from 'images/svg/trade-types/accumulator-options.svg'
-import Typography from 'features/components/atoms/typography'
 import { Localize, localize, is_rtl } from 'components/localization'
 import OptionsLayout from 'features/components/quill/options-layout'
 import Box from 'features/components/atoms/box'
@@ -91,24 +90,24 @@ const AccumulatorsOptions = () => {
                                         width="32"
                                         height="32"
                                     />
-                                    <Typography.Heading size={'xs'}>
+                                    <Heading.H3>
                                         <Localize translate_text="_t_Accumulator_t_" />
-                                    </Typography.Heading>
+                                    </Heading.H3>
                                 </div>
 
-                                <Typography.Paragraph size={'medium'}>
+                                <Text>
                                     <Localize translate_text="_t_With accumulator options, your payout grows exponentially as long as the current market spot price stays within a set range from the previous spot price. Choose between 1-5% growth rate - a higher growth rate means a narrower range for your price movements and higher risk. With volatility indices, you can also choose the volatility of your market._t_" />
-                                </Typography.Paragraph>
-                                <Typography.Paragraph size={'medium'}>
+                                </Text>
+                                <Text>
                                     <Localize translate_text="_t_Secure your gains with manual or automatic profit-taking. With durations of up to 230 ticks, accumulator options are ideal for those looking for fast-paced, strategic trades while balancing risk and reward._t_" />
-                                </Typography.Paragraph>
+                                </Text>
                             </div>
                         </div>
                         <div className="flex max-lg:flex-col justify-between gap-gap-xl">
                             <div className="flex flex-col w-full md:w-1/2 gap-gap-xl">
-                                <Typography.Heading size={'xs'}>
+                                <Heading.H3>
                                     <Localize translate_text="_t_Markets available_t_" />
-                                </Typography.Heading>
+                                </Heading.H3>
                                 <div className="flex gap-gap-md">
                                     <IllustrativeDerivedIcon fill="#000000" iconSize="sm" />
                                     <Link
@@ -124,9 +123,9 @@ const AccumulatorsOptions = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col w-full md:w-1/2 gap-gap-xl">
-                                <Typography.Heading size={'xs'}>
+                                <Heading.H3>
                                     <Localize translate_text="_t_Trade on_t_" />
-                                </Typography.Heading>
+                                </Heading.H3>
                                 <div className="flex gap-gap-md">
                                     <DerivProductDerivTraderBrandLightLogoHorizontalIcon
                                         height="24px"

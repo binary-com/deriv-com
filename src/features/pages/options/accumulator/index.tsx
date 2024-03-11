@@ -5,6 +5,7 @@ import {
     DerivProductDerivTraderBrandLightLogoHorizontalIcon,
     IllustrativeDerivedIcon,
 } from '@deriv/quill-icons'
+import { CustomLink } from '@deriv-com/components'
 import * as styles from './accumulators_faq.module.scss'
 import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
 import AccumulatorOptions from 'images/svg/trade-types/accumulator-options.svg'
@@ -12,7 +13,6 @@ import { Localize, localize, is_rtl } from 'components/localization'
 import OptionsLayout from 'features/components/quill/options-layout'
 import Box from 'features/components/atoms/box'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
-import Link from 'features/components/atoms/link'
 
 interface SwiperOption {
     spaceBetween: number
@@ -108,43 +108,25 @@ const AccumulatorsOptions = () => {
                                 <Heading.H3>
                                     <Localize translate_text="_t_Markets available_t_" />
                                 </Heading.H3>
-                                <div className="flex gap-gap-md">
+                                <div className="flex gap-gap-md items-center">
                                     <IllustrativeDerivedIcon fill="#000000" iconSize="sm" />
-                                    <Link
-                                        url={{
-                                            type: 'internal',
-                                            to: '/markets/synthetic/',
-                                        }}
-                                        size="medium"
-                                        font_family="UBUNTU"
-                                    >
-                                        <Text>
-                                            <Localize translate_text="_t_Derived indices_t_" />
-                                        </Text>
-                                    </Link>
+                                    <CustomLink href={'/markets/synthetic/'} size="md">
+                                        <Localize translate_text="_t_Derived indices_t_" />
+                                    </CustomLink>
                                 </div>
                             </div>
                             <div className="flex flex-col w-full md:w-1/2 gap-gap-xl">
                                 <Heading.H3>
                                     <Localize translate_text="_t_Trade on_t_" />
                                 </Heading.H3>
-                                <div className="flex gap-gap-md">
+                                <div className="flex gap-gap-md items-center">
                                     <DerivProductDerivTraderBrandLightLogoHorizontalIcon
                                         height="24px"
                                         width="24px"
                                     />
-                                    <Link
-                                        url={{
-                                            type: 'internal',
-                                            to: '/dtrader/',
-                                        }}
-                                        size="medium"
-                                        font_family="UBUNTU"
-                                    >
-                                        <Text>
-                                            <Localize translate_text="_t_Deriv Trader_t_" />
-                                        </Text>
-                                    </Link>
+                                    <CustomLink href={'/dtrader/'} size="md">
+                                        <Localize translate_text="_t_Deriv Trader_t_" />
+                                    </CustomLink>
                                 </div>
                             </div>
                         </div>

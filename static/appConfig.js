@@ -23,6 +23,13 @@ module.exports = {
         "youtube": true,
         "linkedin": true
     },
+    "cpa_social_media_icons": {
+        "facebook": true,
+        "instagram": true,
+        "twitter": true,
+        "youtube": true,
+        "linkedin": true
+    },
     "trustpilot": true,
     "live_pricing": true,
     "deriv_go_management_board": true,

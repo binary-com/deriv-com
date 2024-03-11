@@ -321,7 +321,7 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/contact_us',
+                        href: '/contact-us',
                         text: <Localize translate_text="_t_Contact us_t_" />,
                         type: 'direct',
                     },
@@ -670,7 +670,7 @@ export const mainEuNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/contact_us',
+                        href: '/contact-us',
                         text: <Localize translate_text="_t_Contact us_t_" />,
                         type: 'direct',
                     },

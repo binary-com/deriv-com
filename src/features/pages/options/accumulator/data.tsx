@@ -101,6 +101,7 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: 'https://blog.deriv.com/videos/how-to-trade-accumulator-options-on-deriv-trader/',
             descriptiveText: 'How to trade accumulator options on deriv trader',
+            target: '_blank',
         },
     },
     {
@@ -125,6 +126,7 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: 'https://blog.deriv.com/posts/a-guide-to-accumulator-options-trading-on-deriv/',
             descriptiveText: 'A guide to accumulator options trading on deriv',
+            target: '_blank',
         },
     },
 ]

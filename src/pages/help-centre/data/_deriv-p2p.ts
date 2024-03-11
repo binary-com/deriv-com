@@ -107,7 +107,7 @@ const deriv_p2p: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: '/contact_us?is_livechat_open=true',
+                                        to: '/contact-us?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -270,7 +270,7 @@ const deriv_p2p: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: '/contact_us/?is_livechat_open=true',
+                                        to: '/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -281,7 +281,7 @@ const deriv_p2p: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: '/contact_us/?is_livechat_open=true',
+                                        to: '/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -529,7 +529,7 @@ const deriv_p2p: TQuestionsData = {
                     translation_text:
                         '_t_If you encounter any issues with a transaction on Deriv P2P, first try to resolve it with the trader you’re dealing with. If they’re not willing to help, please let us know via <0>live chat</0>, and we’ll help you resolve it._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                     ],
                 },
                 {

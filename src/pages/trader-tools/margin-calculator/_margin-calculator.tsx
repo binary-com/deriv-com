@@ -229,7 +229,6 @@ const MarginCalculator = () => {
                                                 selected_item={values.symbol}
                                                 onBlur={handleBlur}
                                                 disabled={is_loading}
-                                                placeholder={localize('_t_Symbol_t_')}
                                             />
                                             <InputGroup>
                                                 <Field

@@ -18,23 +18,14 @@ const formatResidenceList = ({
     }
     return residences
         .filter(({ text: name }) => !restricted.includes(name))
-        .map(
-            ({
-                text: display_name,
-                text: name,
-                value: symbol,
-                phone_idd: prefix,
-                disabled: disabled,
-            }) => {
-                return {
-                    name,
-                    display_name,
-                    symbol,
-                    prefix,
-                    disabled,
-                }
-            },
-        )
+        .map(({ text: display_name, text: name, value: symbol, phone_idd: prefix }) => {
+            return {
+                name,
+                display_name,
+                symbol,
+                prefix,
+            }
+        })
 }
 
 export const useResidenceList = ({
@@ -43,7 +34,6 @@ export const useResidenceList = ({
     restricted_countries?: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
 } = {}) => {
     const { send, data } = useWS('residence_list')
-
     useEffect(() => {
         send()
     }, [send])

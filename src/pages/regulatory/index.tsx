@@ -299,7 +299,7 @@ const Regulatory = () => {
 
                         <ContentText
                             className="max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
-                            title="_t_The Financial Commission_t_"
+                            title={localize(`_t_The Financial Commission_t_`)}
                         >
                             <Text className="text-start pb-800">
                                 <Localize
@@ -414,7 +414,7 @@ const Regulatory = () => {
                     </ContentText>
 
                     <ContentText
-                        className=" max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200 !gap-800"
+                        className=" max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"
                         title="Deriv (V) Ltd"
                     >
                         <Text className="text-start">

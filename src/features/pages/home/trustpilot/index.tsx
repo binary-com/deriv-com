@@ -1,10 +1,10 @@
 import React from 'react'
 import { SocialProof } from '@deriv-com/blocks'
-import { Analytics } from '@deriv-com/analytics'
 import { StaticImage } from 'gatsby-plugin-image'
 import { TPilotDataProps } from '@deriv-com/components'
 import truspilotData from '../../../../data/trustpilot.json'
 import { Localize } from 'components/localization'
+import widgetEvent from 'common/tracking-functions/widget'
 
 const TrustpilotSection = () => {
     const { numberOfReviews, trustScore, stars }: TPilotDataProps = truspilotData
@@ -39,10 +39,7 @@ const TrustpilotSection = () => {
                 />
             }
             onClick={() => {
-                Analytics.trackEvent('ce_widget_usage_form', {
-                    action: 'click',
-                    widget_name: 'trustpilot',
-                })
+                widgetEvent('trustpilot')
             }}
         />
     )

@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Script } from 'gatsby'
-import { Analytics } from '@deriv-com/analytics'
 import FloatingButton from '../floating-button'
 import LiveChatIC from 'images/svg/layout/chat-normal.svg'
 import LiveChatHover from 'images/svg/layout/chat-hover.svg'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import widgetEvent from 'common/tracking-functions/widget'
 
 const LiveChatButton = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
@@ -118,10 +118,7 @@ const LiveChatButton = () => {
                     className="gtm-deriv-livechat"
                     onClick={() => {
                         LC_API.current.open_chat_window()
-                        Analytics.trackEvent('ce_widget_usage_form', {
-                            action: 'click',
-                            widget_name: 'livechat',
-                        })
+                        widgetEvent('livechat')
                     }}
                 >
                     {(has_hover) => (

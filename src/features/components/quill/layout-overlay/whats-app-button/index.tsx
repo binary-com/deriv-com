@@ -1,7 +1,7 @@
 import React from 'react'
-import { Analytics } from '@deriv-com/analytics'
 import FloatingButton from '../floating-button'
 import { whatsapp_url } from 'common/constants'
+import widgetEvent from 'common/tracking-functions/widget'
 import WhatsAppIcon from 'images/svg/layout/normal.svg'
 import WhatsAppHover from 'images/svg/layout/hover.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -12,10 +12,7 @@ const WhatsappButton = () => {
     return (
         <FloatingButton
             onClick={() => {
-                Analytics.trackEvent('ce_widget_usage_form', {
-                    action: 'click',
-                    widget_name: 'whatsapp',
-                })
+                widgetEvent('whatsapp')
                 window.open(whatsapp_url, '_blank')
             }}
         >

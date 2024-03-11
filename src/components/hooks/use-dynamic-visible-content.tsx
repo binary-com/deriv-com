@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import isEqual from 'lodash.isequal'
 import { useUpdateEffect } from 'usehooks-ts'
 import { ObjectPropType, TSmartContent } from 'types/generics'
 
@@ -43,10 +42,8 @@ function useDynamicVisibleContent<T extends TSmartContent<unknown, object>>({
     }, [])
 
     useUpdateEffect(() => {
-        if (!isEqual(prevVisibleItemsRef.current, visible_items)) {
-            setItems(visible_items)
-            prevVisibleItemsRef.current = visible_items
-        }
+        setItems(visible_items)
+        prevVisibleItemsRef.current = visible_items
     }, [visible_items])
 
     return items

@@ -19,7 +19,7 @@ const DesktopText = ({ loss_percent }: TextProps) => {
                     </Text>
                 </FluidContainer>
             </Section>
-            <div className="w-full sm:h-[104px] min-[952px]:h-[82px]" />
+            <div className="w-full sm:h-[126px] min-[708px]:h-[104px] min-[952px]:h-[82px]" />
         </div>
     )
 }

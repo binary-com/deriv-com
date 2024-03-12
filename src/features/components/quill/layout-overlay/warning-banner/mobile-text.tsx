@@ -43,7 +43,12 @@ const MobileText = ({ loss_percent }: TextProps) => {
                     </button>
                 </FluidContainer>
             </Section>
-            <div className={qtJoin('w-full', expanded ? 'h-[184px]' : 'h-[94px]')}></div>
+            <div
+                className={qtJoin(
+                    'w-full',
+                    expanded ? 'h-[184px]' : 'h-[94px] min-[402px]:h-[76px]',
+                )}
+            ></div>
         </div>
     )
 }

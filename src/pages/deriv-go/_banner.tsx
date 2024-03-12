@@ -11,7 +11,7 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
-
+import { mobileOSDetect } from 'common/os-detect'
 //TODO: (deriv-rebranding) to make the content section reusable .
 
 const ImageWrapper = styled.div`
@@ -110,18 +110,6 @@ const DHero = () => {
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
 
-    const getMobileOperatingSystem = () => {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera
-
-        if (/android/i.test(userAgent)) {
-            return 'android'
-        }
-
-        if (/iPad|iPhone|iPod|Mac/.test(userAgent) && !window.MSStream) {
-            return 'ios'
-        }
-    }
-
     const handleGetTradingDesktop = () => {
         const targetComponent = document.getElementById('target-component')
         if (targetComponent) {
@@ -130,19 +118,21 @@ const DHero = () => {
     }
 
     const handleGetTradingMobile = () => {
-        const os = getMobileOperatingSystem()
+        const os = mobileOSDetect()
 
         switch (os) {
-            case 'android':
+            case 'Android':
                 window.open('https://play.google.com/store/apps/details?id=com.deriv.app', '_blank')
                 break
-            case 'ios':
+            case 'iOS':
                 window.open(
                     'https://apps.apple.com/my/app/deriv-go-online-trading-app/id1550561298',
                     '_blank',
                 )
 
                 break
+            case 'Huawei':
+                window.open('https://appgallery.huawei.com/app/C103801913', '_blank')
         }
     }
 

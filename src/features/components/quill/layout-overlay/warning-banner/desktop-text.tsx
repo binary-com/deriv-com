@@ -4,7 +4,7 @@ import { Localize } from 'components/localization'
 
 const DesktopText = () => {
     return (
-        <>
+        <div className="hidden sm:!block">
             <Section className="bg-solid-slate-700 py-general-sm fixed left-general-none top-general-none w-full z-10">
                 <FluidContainer>
                     <Text className="text-solid-slate-50" size="sm">
@@ -13,7 +13,7 @@ const DesktopText = () => {
                 </FluidContainer>
             </Section>
             <div className="w-full h-[82px]" />
-        </>
+        </div>
     )
 }
 

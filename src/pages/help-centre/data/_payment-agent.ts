@@ -208,7 +208,7 @@ const payment_agent: TQuestionsData = {
                     translation_text:
                         '_t_To change your payment method, please contact us via <0>live chat</0>._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                     ],
                 },
             ],

@@ -32,26 +32,8 @@ export const DescriptionContentROW = () => {
 
             <Text size="sm" className="pt-general-lg">
                 <Localize
-                    translate_text="_t_Make sure to read our <0>Terms and conditions</0>, <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please note that the information on this website does not constitute investment advice._t_"
+                    translate_text="_t_Make sure to read our <0>Terms and Conditions</0>, <1>Risk Disclosure</1>, and <2>Secure and Responsible Trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                     components={[
-                        <a
-                            className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
-                            key={0}
-                            target="_blank"
-                        />,
-                        <a
-                            className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
-                            key={1}
-                            target="_blank"
-                        />,
-                        <a
-                            className={clsx(sharedClasses)}
-                            href="/regulatory/Deriv_(V)_Ltd.pdf"
-                            key={2}
-                            target="_blank"
-                        />,
                         <a
                             className={clsx(sharedClasses)}
                             href="/terms-and-conditions/#clients"
@@ -89,7 +71,7 @@ export const DescriptionContentEU = () => {
             </Text>
             <Text size="sm" className="pt-general-lg">
                 <Localize
-                    translate_text="_t_Make sure to read our <0>Terms and conditions</0>, <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice. The value of investments may go down as well as up._t_"
+                    translate_text="_t_Make sure to read our <0>Terms and Conditions</0>, <1>Risk Disclosure</1>, and <2>Secure and Responsible Trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice. The value of investments may go down as well as up._t_"
                     components={[
                         <a
                             className={clsx(sharedClasses)}
@@ -139,7 +121,7 @@ export const DescriptionContentCPA = () => {
 
             <Text size="sm" className="pt-general-lg">
                 <Localize
-                    translate_text="_t_Make sure to read our <0>Terms and conditions</0>, <1>Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
+                    translate_text="_t_Make sure to read our <0>Terms and Conditions</0>, <1>Risk Disclosure</1>, and <2>Secure and Responsible Trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                     components={[
                         <a
                             className={clsx(sharedClasses)}
@@ -148,7 +130,7 @@ export const DescriptionContentCPA = () => {
                         />,
                         <a
                             className={clsx(sharedClasses)}
-                            href="/tnc/eu/risk-disclosure.pdf"
+                            href="/tnc/risk-disclosure.pdf"
                             key={1}
                             target="_blank"
                         />,

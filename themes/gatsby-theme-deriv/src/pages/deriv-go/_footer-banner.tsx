@@ -19,10 +19,6 @@ import {
     deriv_go_ios_url,
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
-<<<<<<< HEAD:themes/gatsby-theme-deriv/src/pages/deriv-go/_footer-banner.tsx
-=======
-import { localize } from 'components/localization'
->>>>>>> master:src/pages/deriv-go/_footer-banner.tsx
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`

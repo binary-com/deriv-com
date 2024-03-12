@@ -478,7 +478,7 @@ const dmt5: TQuestionsData = {
                     translation_text:
                         "_t_If you need a statement for a more extended period, contact us via <0>live chat</0>, and we'll help you with it._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                     ],
                     has_margin_top: true,
                 },

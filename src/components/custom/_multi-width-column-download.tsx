@@ -11,6 +11,7 @@ export type TDownloadColumnItem = {
     icon: string
     link: string
     smallText?: TString
+    visibility?: boolean
 }
 
 type TDownloadColumn = {
@@ -75,50 +76,58 @@ const StyledItemsWrapper = styled.div`
 `
 
 const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDownloadColumn) => {
+    const renderableItems = items.filter((item) => item.visibility)
+    const containsHiddenItem = items.some((item) => !item.visibility)
+    const isAllItemsAreHidden = items.every((item) => !item.visibility)
+
     return (
         <Flex ai="center">
-            <DownloadAppWrapper is_rtl={is_rtl}>
-                <QRScanBox>
-                    <img
-                        width="64px"
-                        height="64px"
-                        src={QRImage}
-                        alt={localize('_t_Deriv GO QR_t_')}
-                    />
-                    <div>
-                        <StyledHeading as="p" weight="100">
-                            <Localize translate_text={QRHeading1} />
-                        </StyledHeading>
-                        <StyledHeading as="h5" weight="700">
-                            <Localize translate_text={QRHeading2} />
-                        </StyledHeading>
-                    </div>
-                </QRScanBox>
-                <DownloadAppOsLinks>
-                    <StyledItemsWrapper>
-                        {items.map(({ icon, link, text, smallText }) => (
-                            <StyledItems key={text}>
-                                <StyledOsIcon src={icon} alt={localize('_t_OS icon_t_')} />
-                                <AppButton
-                                    external
-                                    to={link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {smallText && (
-                                        <StyledItemSmallText as="p" weight="400">
-                                            <Localize translate_text={smallText} />
-                                        </StyledItemSmallText>
-                                    )}
-                                    <StyledItemText as="p" weight="700">
-                                        {text}
-                                    </StyledItemText>
-                                </AppButton>
-                            </StyledItems>
-                        ))}
-                    </StyledItemsWrapper>
-                </DownloadAppOsLinks>
-            </DownloadAppWrapper>
+            {!isAllItemsAreHidden && (
+                <DownloadAppWrapper is_rtl={is_rtl}>
+                    <QRScanBox>
+                        <img
+                            width="64px"
+                            height="64px"
+                            src={QRImage}
+                            alt={localize('_t_Deriv GO QR_t_')}
+                        />
+                        <div>
+                            <StyledHeading as="p" weight="100">
+                                <Localize translate_text={QRHeading1} />
+                            </StyledHeading>
+                            {!containsHiddenItem && (
+                                <StyledHeading as="h5" weight="700">
+                                    <Localize translate_text={QRHeading2} />
+                                </StyledHeading>
+                            )}
+                        </div>
+                    </QRScanBox>
+                    <DownloadAppOsLinks>
+                        <StyledItemsWrapper>
+                            {renderableItems.map(({ icon, link, text, smallText }) => (
+                                <StyledItems key={text}>
+                                    <StyledOsIcon src={icon} alt={localize('_t_OS icon_t_')} />
+                                    <AppButton
+                                        external
+                                        to={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {smallText && (
+                                            <StyledItemSmallText as="p" weight="400">
+                                                <Localize translate_text={smallText} />
+                                            </StyledItemSmallText>
+                                        )}
+                                        <StyledItemText as="p" weight="700">
+                                            {text}
+                                        </StyledItemText>
+                                    </AppButton>
+                                </StyledItems>
+                            ))}
+                        </StyledItemsWrapper>
+                    </DownloadAppOsLinks>
+                </DownloadAppWrapper>
+            )}
         </Flex>
     )
 }

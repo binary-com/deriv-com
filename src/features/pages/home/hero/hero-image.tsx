@@ -12,6 +12,7 @@ const HeroImage = () => {
                 placeholder="none"
                 formats={['auto', 'webp']}
                 loading="eager"
+                quality={80}
             />
         </div>
     )

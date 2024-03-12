@@ -8,9 +8,16 @@ import { footer_qr_box } from './styles.module.scss'
 import derivGoQR from 'images/common/migration/footer/deriv-go-qr.svg'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 export const DerivGoBanner = () => {
     const { is_row } = useRegion()
+
+    const deriv_go_apps_app_gallery = useThirdPartyFlags('deriv_go_apps.app_gallery')
+    const deriv_go_apps_android = useThirdPartyFlags('deriv_go_apps.android')
+    const deriv_go_apps_app_store = useThirdPartyFlags('deriv_go_apps.app_store')
+
+    const showQR = deriv_go_apps_app_gallery && deriv_go_apps_android && deriv_go_apps_app_store
     const [show_content, setShowContent] = useState(true)
 
     useEffect(() => {
@@ -35,24 +42,26 @@ export const DerivGoBanner = () => {
                                 <Localize translate_text="_t_Trade multipliers on our mobile app._t_" />
                             </Text>
                         </div>
-                        <div className="block max-sm:hidden">
-                            <div
-                                className={clsx(
-                                    footer_qr_box,
-                                    'flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm',
-                                )}
-                            >
-                                <img
-                                    src={derivGoQR}
-                                    height={64}
-                                    width={64}
-                                    alt={localize('_t_download deriv-go_t_')}
-                                />
-                                <CaptionText className="text-typography-default text-center">
-                                    <Localize translate_text="_t_Scan to download_t_" />
-                                </CaptionText>
+                        {showQR && (
+                            <div className="block max-sm:hidden">
+                                <div
+                                    className={clsx(
+                                        footer_qr_box,
+                                        'flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm',
+                                    )}
+                                >
+                                    <img
+                                        src={derivGoQR}
+                                        height={64}
+                                        width={64}
+                                        alt={localize('_t_download deriv-go_t_')}
+                                    />
+                                    <CaptionText className="text-typography-default text-center">
+                                        <Localize translate_text="_t_Scan to download_t_" />
+                                    </CaptionText>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                     <DownloadBadges />
                 </div>

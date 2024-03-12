@@ -1,5 +1,6 @@
 import React from 'react'
 import mt5Icon from '../../images/svg/deriv-go/mt5.svg'
+import ctIcon from '../../images/svg/ctrader/light-ctrader-logo.svg'
 import dtIcon from '../../images/svg/deriv-go/dt-icosn.svg'
 import dxIcon from '../../images/svg/custom/rebranding/deriv-x-icon.svg'
 import dbIcon from '../../images/svg/deriv-go/db-icon.svg'
@@ -13,16 +14,22 @@ const carouselData: TRenderableData[] = [
         link: '/dmt5/',
     },
     {
-        icon: dxIcon,
-        heading: 'Deriv X',
-        paragraph: '_t_The CFD trading platform to fit your style._t_',
-        link: '/derivx/',
+        icon: ctIcon,
+        heading: 'Deriv cTrader',
+        paragraph: '_t_Fast CFDs platform with inbuilt copy trading._t_',
+        link: '/deriv-ctrader/',
     },
     {
         icon: dtIcon,
         heading: 'Deriv Trader',
         paragraph: '_t_Our flagship app for trading options and multipliers._t_',
         link: '/dtrader/',
+    },
+    {
+        icon: dxIcon,
+        heading: 'Deriv X',
+        paragraph: '_t_The CFD trading platform to fit your style._t_',
+        link: '/derivx/',
     },
     {
         icon: dbIcon,

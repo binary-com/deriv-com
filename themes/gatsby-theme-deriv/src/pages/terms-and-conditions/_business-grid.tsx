@@ -67,8 +67,12 @@ const BusinessGrid = () => {
     const payment_agents_url = `/tnc/[ES]_business-partners-payment-agents-R23_12_1.pdf`
     const api_user_url = `/tnc/[ES]_business-partners-api-user-R23_12_1.pdf`
     const bug_bounty_url = `/tnc/[ES]_business-partners-bug-bounty-R23_12_1.pdf`
+<<<<<<< HEAD:themes/gatsby-theme-deriv/src/pages/terms-and-conditions/_business-grid.tsx
     
     const { region } = useBuildVariant()
+=======
+    const { is_row } = useRegion()
+>>>>>>> master:src/pages/terms-and-conditions/_business-grid.tsx
     const language = getLanguage()
 
     const general_terms_url_region = region === "row"

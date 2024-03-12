@@ -1,6 +1,11 @@
 import React from 'react'
 import mt5Icon from '../../images/svg/dtrader/mt5.svg'
 import goIcon from '../../images/svg/custom/rebranding/deriv-go-icon.svg'
+<<<<<<< HEAD:themes/gatsby-theme-deriv/src/pages/dtrader/_our-platforms.tsx
+=======
+import ctIcon from '../../images/svg/ctrader/light-ctrader-logo.svg'
+import ezIcon from '../../images/svg/dtrader/ez-icon.svg'
+>>>>>>> master:src/pages/dtrader/_our-platforms.tsx
 import dxIcon from '../../images/svg/custom/rebranding/deriv-x-icon.svg'
 import dbIcon from '../../images/svg/dtrader/db-icon.svg'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
@@ -13,16 +18,22 @@ const carouselData: TRenderableData[] = [
         link: '/dmt5/',
     },
     {
-        icon: goIcon,
-        heading: 'Deriv GO',
-        paragraph: '_t_Our best trading experience on your mobile._t_',
-        link: '/deriv-go/',
+        icon: ctIcon,
+        heading: 'Deriv cTrader',
+        paragraph: '_t_Fast CFDs platform with inbuilt copy trading._t_',
+        link: '/deriv-ctrader/',
     },
     {
         icon: dxIcon,
         heading: 'Deriv X',
         paragraph: '_t_The CFD trading platform to fit your style._t_',
         link: '/derivx/',
+    },
+    {
+        icon: goIcon,
+        heading: 'Deriv GO',
+        paragraph: '_t_Our best trading experience on your mobile._t_',
+        link: '/deriv-go/',
     },
     {
         icon: dbIcon,

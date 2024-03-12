@@ -635,7 +635,7 @@ export const NavCompany = ({ onClick }: NavCompanyProps) => (
             )}
             title="_t_Contact us_t_"
             onClick={onClick}
-            to="/contact_us/"
+            to="/contact-us/"
         />
         <CardLink
             Icon={() => <img src={Career} alt={localize('_t_careers_t_')} width="24" height="24" />}

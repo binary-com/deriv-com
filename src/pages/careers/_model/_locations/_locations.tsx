@@ -611,7 +611,7 @@ export const london: LocationsType = {
     first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
-    map: 'ChIJlfOm_xebdkgRgITDVJhzsMw',
+    map: 'ChIJA8ZM6a8cdkgRn_SA0vQHDks',
     map_text:
         'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
     google_map_link: 'https://maps.app.goo.gl/FrLLyhvMWw6B7qGW7',

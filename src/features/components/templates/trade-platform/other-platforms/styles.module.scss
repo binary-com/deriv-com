@@ -1,5 +1,6 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
+
 .slider_wrapper {
     max-inline-size: 97.5rem;
     margin-inline: auto;
@@ -9,10 +10,20 @@
     @include breakpoints(tablet){
         max-inline-size: 107.5rem;
     }
-
+    .swiper-pagination{
+        position: relative;
+        inset: auto;
+        margin-top: 23px;
+    }
+}
+.swiper_wrapper {
+    padding-block-end: 3.5rem !important;
+    margin-block-end: -3.5rem !important;
+    padding-inline: 1rem !important;
+    margin-inline: -1rem !important;
 }
 .swiper_slide {
-    height: 100% !important;
+    align-self: stretch;
 }
 .slider_button {
     background-color: transparent;

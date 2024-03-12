@@ -7,12 +7,10 @@ import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/custom/utils'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
-import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -112,6 +110,42 @@ const DHero = () => {
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
 
+    const getMobileOperatingSystem = () => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera
+
+        if (/android/i.test(userAgent)) {
+            return 'android'
+        }
+
+        if (/iPad|iPhone|iPod|Mac/.test(userAgent) && !window.MSStream) {
+            return 'ios'
+        }
+    }
+
+    const handleGetTradingDesktop = () => {
+        const targetComponent = document.getElementById('target-component')
+        if (targetComponent) {
+            targetComponent.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    }
+
+    const handleGetTradingMobile = () => {
+        const os = getMobileOperatingSystem()
+
+        switch (os) {
+            case 'android':
+                window.open('https://play.google.com/store/apps/details?id=com.deriv.app', '_blank')
+                break
+            case 'ios':
+                window.open(
+                    'https://apps.apple.com/my/app/deriv-go-online-trading-app/id1550561298',
+                    '_blank',
+                )
+
+                break
+        }
+    }
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
@@ -130,7 +164,9 @@ const DHero = () => {
                         <BannerButtonWrapper>
                             {is_logged_in ? (
                                 <CreateAccountButton
-                                    onClick={handleGetTrading}
+                                    onClick={
+                                        is_mobile ? handleGetTradingMobile : handleGetTradingDesktop
+                                    }
                                     label="_t_Get Trading_t_"
                                     primary
                                     mobileFullWidth

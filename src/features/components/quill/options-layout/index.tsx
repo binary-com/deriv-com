@@ -4,7 +4,7 @@ import Layout from '../quill-layout'
 import MainFooter from 'features/components/templates/footer'
 import { TString } from 'types/generics'
 import OptionsTopTab from 'features/components/organisms/options-top-tab'
-import WhatAreDigitalOptions from 'features/components/organisms/what-are-digital-options'
+import WhatAreDigitalOptions from 'features/components/organisms/what-are-digital-options/accumulator'
 
 interface OptionsLayoutProps {
     children?: ReactNode
@@ -25,7 +25,7 @@ const OptionsLayout = ({
         <>
             <Layout>
                 <MainRowNavigation />
-                <OptionsTopTab />
+                <OptionsTopTab is_breadcrumb />
                 <WhatAreDigitalOptions
                     heading={heading}
                     description={description}

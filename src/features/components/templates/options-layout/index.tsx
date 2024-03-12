@@ -22,25 +22,21 @@ const OptionsLayout = ({
     description,
     children,
     is_coming_soon = false,
-    has_content_block = false,
 }: OptionsLayoutProps) => {
     return (
-        <>
-            <Layout>
-                <MainRowNavigation />
-                <OptionsTopTab />
-                <WhatAreDigitalOptions
-                    heading={heading}
-                    description={description}
-                    is_coming_soon={is_coming_soon}
-                    has_content_block={has_content_block}
-                />
-                {children}
-                <WhyTradeOptions data={why_trade_options_data} />
-                <StartTrading data={start_trading_data} />
-                <MainFooter />
-            </Layout>
-        </>
+        <Layout>
+            <MainRowNavigation />
+            <OptionsTopTab />
+            <WhatAreDigitalOptions
+                heading={heading}
+                description={description}
+                is_coming_soon={is_coming_soon}
+            />
+            {children}
+            <WhyTradeOptions data={why_trade_options_data} />
+            <StartTrading data={start_trading_data} />
+            <MainFooter />
+        </Layout>
     )
 }
 

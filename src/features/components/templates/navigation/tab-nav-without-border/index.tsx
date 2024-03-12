@@ -24,9 +24,13 @@ SwiperCore.use([Navigation])
 
 interface NavigationTabWithoutBorderType {
     tab_data: OptionNavigationType[]
+    is_breadcrumb: boolean
 }
 
-const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
+const NavigationTabWithoutBorder = ({
+    tab_data,
+    is_breadcrumb,
+}: NavigationTabWithoutBorderType) => {
     const pathname = getLocationPathname()
     const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
@@ -47,19 +51,22 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
     return (
         <Container.Fluid pt="25x">
-            <Breadcrumbs
-                className="py-general-md mt-600 ml-400"
-                links={[
-                    {
-                        content: 'Home',
-                        href: '/',
-                    },
-                    {
-                        content: 'Options',
-                        href: '/trade-types/options',
-                    },
-                ]}
-            />
+            {is_breadcrumb && (
+                <Breadcrumbs
+                    className="py-general-md mt-600 ml-400"
+                    links={[
+                        {
+                            content: 'Home',
+                            href: '/',
+                        },
+                        {
+                            content: 'Options',
+                            href: '/trade-types/options',
+                        },
+                    ]}
+                />
+            )}
+
             <Flex.Box
                 padding_block="10x"
                 gap="6x"

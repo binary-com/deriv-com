@@ -88,7 +88,7 @@ const AccountAddress = ({
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
-            label: localize('_t_Postal/Zip code_t_'),
+            label: localize('_t_Postal/Zip codes_t_'),
         },
     ]
 

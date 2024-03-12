@@ -4,7 +4,11 @@ import { FluidContainer, Section, Text, qtJoin } from '@deriv/quill-design'
 import { LabelPairedChevronDownMdRegularIcon } from '@deriv/quill-icons/LabelPaired'
 import { Localize } from 'components/localization'
 
-const MobileText = () => {
+type TextProps = {
+    loss_percent: number
+}
+
+const MobileText = ({ loss_percent }: TextProps) => {
     const [expanded, setExpanded] = useState(false)
 
     const toggleExpansion = () => {
@@ -17,11 +21,17 @@ const MobileText = () => {
                 <FluidContainer>
                     {expanded ? (
                         <Text className="text-solid-slate-50 text-50 leading-100">
-                            <Localize translate_text="_t_The products offered on our website are complex derivative products that carry a significant risk of potential loss. CFDs are complex instruments with a high risk of losing money rapidly due to leverage. 70.1% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how these products work and whether you can afford to take the high risk of losing your money._t_" />
+                            <Localize
+                                translate_text="_t_The products offered on our website are complex derivative products that carry a significant risk of potential loss. CFDs are complex instruments with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how these products work and whether you can afford to take the high risk of losing your money._t_"
+                                values={{ loss_percent }}
+                            />
                         </Text>
                     ) : (
                         <Text className="text-solid-slate-50 text-50 leading-100">
-                            <Localize translate_text="_t_70.1% of retail investor accounts lose 100ey when trading CFDs with Deriv. Ensure you understand the high risk of loss before trading._t_" />
+                            <Localize
+                                translate_text="_t_{{loss_percent}}% of retail investor accounts lose 100ey when trading CFDs with Deriv. Ensure you understand the high risk of loss before trading._t_"
+                                values={{ loss_percent }}
+                            />
                         </Text>
                     )}
                     <button

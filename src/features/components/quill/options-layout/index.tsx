@@ -25,7 +25,7 @@ const OptionsLayout = ({
         <>
             <Layout>
                 <MainRowNavigation />
-                <OptionsTopTab is_breadcrumb />
+                <OptionsTopTab />
                 <WhatAreDigitalOptions
                     heading={heading}
                     description={description}

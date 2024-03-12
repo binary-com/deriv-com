@@ -20,7 +20,7 @@ const account: TQuestionsData = {
                             type: 'link',
                             to: `${deriv_app_url}/account/personal-details`,
                         },
-                        { key: 1, type: 'link', to: '/contact_us/?is_livechat' },
+                        { key: 1, type: 'link', to: '/contact-us/?is_livechat' },
                     ],
                 },
             ],
@@ -36,7 +36,7 @@ const account: TQuestionsData = {
                     translation_text:
                         '_t_<0>Contact us via live chat</0> to get help with changing your account currency._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat' },
                     ],
                 },
             ],
@@ -77,7 +77,7 @@ const account: TQuestionsData = {
                 {
                     translation_text: '_t_Need help? Please <0>contact us via live chat.</0>_t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat' },
                     ],
                     has_margin_top: true,
                 },
@@ -130,7 +130,7 @@ const account: TQuestionsData = {
                                 translation_text:
                                     '_t_<0>Contact us via live chat</0> and we’ll help you change the currency of your account._t_',
                                 translation_components: [
-                                    { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                                    { key: 0, type: 'link', to: '/contact-us/?is_livechat' },
                                 ],
                             },
                         ],
@@ -192,7 +192,7 @@ const account: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/contact_us/?is_livechat_open=true',
+                            to: '/contact-us/?is_livechat_open=true',
                         },
                     ],
                 },
@@ -236,7 +236,7 @@ const account: TQuestionsData = {
                     has_margin_top: true,
                     translation_components: [
                         { key: 0, type: 'link', to: '/tnc/general-terms.pdf' },
-                        { key: 1, type: 'link', to: '/contact_us/?is_livechat' },
+                        { key: 1, type: 'link', to: '/contact-us/?is_livechat' },
                     ],
                 },
             ],
@@ -389,7 +389,7 @@ const account: TQuestionsData = {
                     translation_text:
                         "_t_Yes. <0>Contact us via live chat</0>, and we'll help you through it. We'll need the following information:_t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat' },
                     ],
                     list: {
                         list_style: 'disc',
@@ -499,14 +499,14 @@ const account: TQuestionsData = {
                     eu_translation_text:
                         "_t_If you're residing in the EU, <0>contact us via live chat</0>, and we'll help you with it._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                     ],
                 },
                 {
                     translation_text:
                         '_t_If you reside in any other country, you can adjust or remove your limits on the <1>Self-exclusion</1> page. If you’re unable to change your limits, <0>let us know via live chat</0>._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                         { key: 1, type: 'link', to: `${deriv_app_url}/account/self-exclusion` },
                     ],
                     eu_translation_text: '_t_ _t_',
@@ -523,7 +523,7 @@ const account: TQuestionsData = {
                     translation_text:
                         "_t_You may reactivate your account by <1>logging in</1> with your email address and password. If you're unable to do so, please <0>contact us via live chat</0>, and we'll help you further._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                         {
                             key: 1,
                             type: 'link',
@@ -748,7 +748,7 @@ const account: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/contact_us/?is_livechat_open=true',
+                            to: '/contact-us/?is_livechat_open=true',
                         },
                     ],
                 },

@@ -37,6 +37,21 @@
     }
 }
 .hero_img{
+    right: -72px;
+    width: 60vh;
+    @media only screen and (min-width: 601px){
+        margin-inline-start: auto;
+        left: auto;
+        right: -172px;
+    }
+    @media only screen and (min-width: 1024px){
+        width: 60vh;
+        right: -48px;
+    }
+}
+
+// Todo: update with the commented one after multi build PR merged
+.hero_img_eu {
     right: -60px;
     width: 53vh;
     @media only screen and (min-width: 601px){
@@ -50,23 +65,25 @@
         right: -48px;
     }
 }
-.hero_img_eu {
-    right: -72px;
-    width: 65vh;
-    @media only screen and (min-width: 601px){
-        margin-inline-start: auto;
-        left: auto;
-        right: -172px;
-    }
-    @media only screen and (min-width: 1024px){
-        width: 67vh;
-        right: -48px;
-    }
-    @media only screen and (min-width: 1920px){
-        width: 70vh;
-        right: -28%;
-    }
-}
+
+// .hero_img_eu {
+//     right: -72px;
+//     width: 65vh;
+//     @media only screen and (min-width: 601px){
+//         margin-inline-start: auto;
+//         left: auto;
+//         right: -172px;
+//     }
+//     @media only screen and (min-width: 1024px){
+//         width: 67vh;
+//         right: -48px;
+//     }
+//     @media only screen and (min-width: 1920px){
+//         width: 70vh;
+//         right: -28%;
+//     }
+// }
+
 .hero_content_award_img {
     margin-inline: auto;
     gap: 10px;

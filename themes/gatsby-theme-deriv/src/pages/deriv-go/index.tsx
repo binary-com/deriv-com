@@ -51,6 +51,7 @@ const derivGoPortalData: TPortal = {
     link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',
 }
 
+<<<<<<< HEAD:themes/gatsby-theme-deriv/src/pages/deriv-go/index.tsx
 const DerivGo = ({ pageContext }: TGatsbyHead) => {
     const { region } = pageContext
     const deriv_go_management_board = useThirdPartyFlags('deriv_go_management_board')
@@ -68,6 +69,34 @@ const DerivGo = ({ pageContext }: TGatsbyHead) => {
                 <OtherApps />
             </Layout>
         )
+=======
+const DerivGo = () => {
+    const { is_row } = useRegion()
+    const [is_loaded, setLoaded] = useState(false)
+    const deriv_go_management_board = useThirdPartyFlags('deriv_go_management_board')
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
+
+    if (is_loaded) {
+        if (is_row) {
+            return (
+                <Layout>
+                    <Banner />
+                    <WhatIsDerivGo />
+                    <WhyTradeDerivGo />
+                    <DerivGoContent reverse P2P={items} />
+                    <StartDerivGo />
+                    {deriv_go_management_board && <Roadmap portal={derivGoPortalData} />}
+                    <FooterBanner />
+                    <OtherApps />
+                </Layout>
+            )
+        }
+
+        return <PageNotFound />
+>>>>>>> master:src/pages/deriv-go/index.tsx
     }
 
     return <PageNotFound region={region} />

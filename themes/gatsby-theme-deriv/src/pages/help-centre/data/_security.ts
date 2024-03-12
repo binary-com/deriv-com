@@ -52,7 +52,7 @@ const security: TQuestionsData = {
                     translation_text:
                         "_t_Please <0>contact us via live chat</0> immediately, and we'll help to disable 2FA on your account. When you have a new phone, please <1>re-enable 2FA</1>._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                         {
                             key: 1,
                             type: 'link',
@@ -174,7 +174,7 @@ const security: TQuestionsData = {
                                     {
                                         key: 1,
                                         type: 'link',
-                                        to: '/contact_us/?is_livechat_open=true',
+                                        to: '/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -185,7 +185,7 @@ const security: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: '/contact_us/?is_livechat_open=true',
+                                        to: '/contact-us/?is_livechat_open=true',
                                     },
                                 ],
                             },

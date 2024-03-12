@@ -205,7 +205,7 @@ const TradingLimits = () => {
                                         translate_text="_t_If you wish to reduce or remove the self-exclusion period, contact <0>Customer Support</0>._t_"
                                         components={[
                                             <LocalizedLinkText
-                                                to="/contact_us/"
+                                                to="/contact-us/"
                                                 color="red"
                                                 key={0}
                                             />,

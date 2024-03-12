@@ -7,8 +7,9 @@ import SignUpFormContainer from './form-container'
 import AcademyNav from 'features/components/templates/navigation/academy-nav'
 import Flex from 'features/components/atoms/flex-box'
 import { isBrowser } from 'common/utility'
+import { BuildVariantType } from 'features/types'
 
-const SignUpAcademy = () => {
+const SignUpAcademy = ({region}: BuildVariantType) => {
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
         form_name: 'default_diel_deriv',
@@ -19,7 +20,7 @@ const SignUpAcademy = () => {
     }, [])
 
     return (
-        <Layout>
+        <Layout region={region}>
             <AcademyNav />
 
             <Flex.Box

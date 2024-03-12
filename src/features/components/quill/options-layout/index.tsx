@@ -1,10 +1,7 @@
 import React, { ReactNode } from 'react'
-import MainRowNavigation from '../navigation/main-nav'
-import Layout from 'features/components/templates/layout'
-import { start_trading_data, why_trade_options_data } from './data'
+import MainRowNavigation from '../../templates/navigation/main-nav'
+import Layout from '../quill-layout'
 import MainFooter from 'features/components/templates/footer'
-import StartTrading from 'features/components/templates/start-trading'
-import WhyTradeOptions from 'features/components/templates/why-trade-options'
 import { TString } from 'types/generics'
 import OptionsTopTab from 'features/components/organisms/options-top-tab'
 import WhatAreDigitalOptions from 'features/components/organisms/what-are-digital-options'
@@ -36,8 +33,6 @@ const OptionsLayout = ({
                     has_content_block={has_content_block}
                 />
                 {children}
-                <WhyTradeOptions data={why_trade_options_data} />
-                <StartTrading data={start_trading_data} />
                 <MainFooter />
             </Layout>
         </>

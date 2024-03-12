@@ -1,0 +1,24 @@
+$inactive_color: #999999;
+$success_color: #4bb4b3;
+$warning_color: #ffad3a;
+$error_field: #ec3f3f;
+
+.deriv-helper-message {
+    font-size: 12px;
+    line-height: 1;
+    font-style: normal;
+    font-weight: 400;
+    color: $inactive_color;
+    &--general {
+        color: $inactive_color;
+    }
+    &--success {
+        color: $success_color;
+    }
+    &--warning {
+        color: $warning_color;
+    }
+    &--error {
+        color: $error_field;
+    }
+}

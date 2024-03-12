@@ -1,0 +1,35 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.wrapper {
+    min-block-size: calc(100svh - 7rem);
+}
+
+.nav_logo {
+    inline-size: 19.9rem;
+    block-size: 3.19rem;
+}
+
+.next_btn {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1.6rem;
+}
+
+.trading_btn {
+    display: flex;
+    padding-top: 1.6rem;
+    @include breakpoints(tablet) {
+        justify-content: flex-end;
+        padding-top: 2.4rem;
+    }
+}
+
+.signup_form_line {
+    block-size: 1px;
+    background-color: $color-grey-7;
+    display: none;
+    @include breakpoints(tablet) {
+        display: block;
+    }
+}

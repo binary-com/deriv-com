@@ -1,0 +1,47 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.wrapper {
+    min-block-size: calc(100svh - 7rem);
+}
+
+.form_container {
+    @include breakpoints(tablet) {
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.form_line {
+    block-size: 1px;
+    background-color: $color-grey-7;
+}
+
+.header {
+    font-size: 24px;
+}
+
+.content {
+    font-size: 12px;
+}
+
+.login_redirect {
+    cursor: pointer;
+}
+
+.link_text {
+    text-decoration: underline;
+    &:hover {
+        text-decoration-color: #000000;
+        color: $text-color-primary;
+    }
+}
+.nav_logo {
+    inline-size: 19.9rem;
+    block-size: 3.19rem;
+}
+.content_new {
+    max-width: 44rem;
+}
+.btn_signup {
+    text-align: center;
+}

@@ -58,136 +58,130 @@ const Regulatory = () => {
             {!is_region_loading ? (
                 is_row || is_cpa_plan ? null : (
                     <>
-                        <Hero.ContentLess className=" !pb-50">
-                            <div className="max-w-[1232px] mx-auto  px-800 md:px-1200">
-                                <Heading.H1 className={styles.heading_alignment}>
-                                    Deriv Investments (Europe) Limited
-                                </Heading.H1>
-                                <Text className={styles.text_alignment_with_padding}>
-                                    <Localize
-                                        translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (<0>view licence</0>). It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights._t_"
-                                        components={[
-                                            <a
-                                                key={0}
-                                                href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
-                                                className="underline text-typography-default inline text-base"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                </Text>
-                                <Text className={styles.text_alignment}>
-                                    <Localize translate_text="_t_Here are the EU countries with access to Deriv.com through EU passporting rights._t_" />
-                                </Text>
-
-                                <BlockWrapper className="flex items-start md:items-center py-1600 lg:py-2400">
-                                    <EUgrid />
-                                </BlockWrapper>
-                                <AccordionBlock
-                                    className=" py-1600 px-800 md:!px-50 md:!py-2400"
-                                    content={{
-                                        data: [
-                                            [
-                                                {
-                                                    className: `${styles.accordion_border}`,
-                                                    content: function noRefCheck() {
-                                                        return (
-                                                            <>
-                                                                <div className="justify-start">
-                                                                    <a
-                                                                        href="/regulatory/Financial_Disclosures_Annual_Report_2022.pdf"
-                                                                        className="underline text-typography-default inline text-base"
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
-                                                                    >
-                                                                        <div className="flex items-center">
-                                                                            <img
-                                                                                src={PDFIcon}
-                                                                                alt="pdf icon black"
-                                                                                className="pr-400"
-                                                                            />
-                                                                            <Text className="text-solid-slate-1400">
-                                                                                <Localize translate_text="_t_Financial Disclosures Annual Report 2022_t_" />
-                                                                            </Text>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                            </>
-                                                        )
-                                                    },
-                                                    divider: 'bottom',
-                                                    title: localize(
-                                                        '_t_Financial disclosure report_t_',
-                                                    ),
-                                                },
-
-                                                {
-                                                    className: `${styles.accordion_border}`,
-                                                    content: function noRefCheck() {
-                                                        return (
-                                                            <div>
-                                                                <DocumentAccordion />
-                                                            </div>
-                                                        )
-                                                    },
-                                                    title: localize(
-                                                        '_t_Key information documents_t_',
-                                                    ),
-                                                },
-                                                {
-                                                    className: `${styles.accordion_border}`,
-                                                    content: function noRefCheck() {
-                                                        const regulatoryDocuments = [
-                                                            {
-                                                                href: '/regulatory/RTS28-2022.pdf',
-                                                                text: '_t_RTS28 2022_t_',
-                                                            },
-                                                            {
-                                                                href: '/regulatory/RTS28-2021.pdf',
-                                                                text: '_t_RTS28 2021_t_',
-                                                            },
-                                                        ]
-                                                        return (
-                                                            <div className="flex lg:flex-row items-start justify-start flex-col">
-                                                                {regulatoryDocuments.map(
-                                                                    (document, index) => (
-                                                                        <a
-                                                                            key={index}
-                                                                            href={document.href}
-                                                                            className="underline text-typography-default inline text-base mb-800 mr-800"
-                                                                            target="_blank"
-                                                                            rel="noopener noreferrer"
-                                                                        >
-                                                                            <div className="flex items-center">
-                                                                                <img
-                                                                                    src={PDFIcon}
-                                                                                    alt="pdf icon black"
-                                                                                    className="pr-400"
-                                                                                />
-                                                                                <Text className="text-solid-slate-1400">
-                                                                                    <Localize
-                                                                                        translate_text={
-                                                                                            document.text
-                                                                                        }
-                                                                                    />
-                                                                                </Text>
-                                                                            </div>
-                                                                        </a>
-                                                                    ),
-                                                                )}
-                                                            </div>
-                                                        )
-                                                    },
-                                                    title: 'RTS',
-                                                },
-                                            ],
-                                        ],
-                                    }}
-                                    variant="Flush"
+                        <div className="max-w-[1232px] mx-auto py-2400 md:py-3600 px-800 md:px-1200">
+                            <Heading.H1 className={styles.heading_alignment}>
+                                Deriv Investments (Europe) Limited
+                            </Heading.H1>
+                            <Text className={styles.text_alignment_with_padding}>
+                                <Localize
+                                    translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (<0>view licence</0>). It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights._t_"
+                                    components={[
+                                        <a
+                                            key={0}
+                                            href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
+                                            className="underline text-typography-default inline text-base"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
                                 />
-                            </div>
-                        </Hero.ContentLess>
+                            </Text>
+                            <Text className={styles.text_alignment}>
+                                <Localize translate_text="_t_Here are the EU countries with access to Deriv.com through EU passporting rights._t_" />
+                            </Text>
+
+                            <BlockWrapper className="flex items-start md:items-center !pt-1600 !pb-50 lg:!pt-2400">
+                                <EUgrid />
+                            </BlockWrapper>
+                        </div>
+                        <AccordionBlock
+                            className=" py-1600 px-800 md:!px-50 md:!py-2400"
+                            content={{
+                                data: [
+                                    [
+                                        {
+                                            className: `${styles.accordion_border}`,
+                                            content: function noRefCheck() {
+                                                return (
+                                                    <>
+                                                        <div className="justify-start">
+                                                            <a
+                                                                href="/regulatory/Financial_Disclosures_Annual_Report_2022.pdf"
+                                                                className="underline text-typography-default inline text-base"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                                <div className="flex items-center">
+                                                                    <img
+                                                                        src={PDFIcon}
+                                                                        alt="pdf icon black"
+                                                                        className="pr-400"
+                                                                    />
+                                                                    <Text className="text-solid-slate-1400">
+                                                                        <Localize translate_text="_t_Financial Disclosures Annual Report 2022_t_" />
+                                                                    </Text>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </>
+                                                )
+                                            },
+                                            divider: 'bottom',
+                                            title: localize('_t_Financial disclosure report_t_'),
+                                        },
+
+                                        {
+                                            className: `${styles.accordion_border}`,
+                                            content: function noRefCheck() {
+                                                return (
+                                                    <div>
+                                                        <DocumentAccordion />
+                                                    </div>
+                                                )
+                                            },
+                                            title: localize('_t_Key information documents_t_'),
+                                        },
+                                        {
+                                            className: `${styles.accordion_border}`,
+                                            content: function noRefCheck() {
+                                                const regulatoryDocuments = [
+                                                    {
+                                                        href: '/regulatory/RTS28-2022.pdf',
+                                                        text: '_t_RTS28 2022_t_',
+                                                    },
+                                                    {
+                                                        href: '/regulatory/RTS28-2021.pdf',
+                                                        text: '_t_RTS28 2021_t_',
+                                                    },
+                                                ]
+                                                return (
+                                                    <div className="flex lg:flex-row items-start justify-start flex-col">
+                                                        {regulatoryDocuments.map(
+                                                            (document, index) => (
+                                                                <a
+                                                                    key={index}
+                                                                    href={document.href}
+                                                                    className="underline text-typography-default inline text-base mb-800 mr-800"
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                >
+                                                                    <div className="flex items-center">
+                                                                        <img
+                                                                            src={PDFIcon}
+                                                                            alt="pdf icon black"
+                                                                            className="pr-400"
+                                                                        />
+                                                                        <Text className="text-solid-slate-1400">
+                                                                            <Localize
+                                                                                translate_text={
+                                                                                    document.text
+                                                                                }
+                                                                            />
+                                                                        </Text>
+                                                                    </div>
+                                                                </a>
+                                                            ),
+                                                        )}
+                                                    </div>
+                                                )
+                                            },
+                                            title: 'RTS',
+                                        },
+                                    ],
+                                ],
+                            }}
+                            variant="Flush"
+                        />
 
                         <ContentText
                             className="max-w-[816px] mx-auto bg-background-primary-container max-sm:px-800 max-lg:px-1200"

@@ -388,7 +388,7 @@ const PipCalculator = () => {
                             <StyledLinkButton
                                 secondary
                                 external
-                                type={traders_hub}
+                                to={traders_hub}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

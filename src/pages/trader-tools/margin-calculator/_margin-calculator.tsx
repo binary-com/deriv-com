@@ -550,7 +550,7 @@ const MarginCalculator = () => {
                             <StyledLinkButton
                                 tertiary
                                 external
-                                type={traders_hub}
+                                to={traders_hub}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

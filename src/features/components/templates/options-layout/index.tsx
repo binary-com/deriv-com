@@ -14,6 +14,7 @@ interface OptionsLayoutProps {
     heading: TString
     description: TString
     is_coming_soon?: boolean
+    has_content_block?: boolean
 }
 
 const OptionsLayout = ({

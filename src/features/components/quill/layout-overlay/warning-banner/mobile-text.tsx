@@ -29,7 +29,7 @@ const MobileText = ({ loss_percent }: TextProps) => {
                     ) : (
                         <Text className="text-solid-slate-50 text-50 leading-100">
                             <Localize
-                                translate_text="_t_{{loss_percent}}% of retail investor accounts lose 100ey when trading CFDs with Deriv. Ensure you understand the high risk of loss before trading._t_"
+                                translate_text="_t_{{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv. Ensure you understand the high risk of loss before trading._t_"
                                 values={{ loss_percent }}
                             />
                         </Text>

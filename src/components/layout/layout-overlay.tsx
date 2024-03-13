@@ -31,7 +31,6 @@ const LayoutOverlay = () => {
             {isLiveChat && <LiveChat />}
             {isWhatsappChat && <WhatsApp />}
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
-            <WarningBanner />
         </OverlayContainer>
     )
 }

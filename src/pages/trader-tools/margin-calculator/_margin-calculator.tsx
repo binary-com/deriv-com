@@ -72,6 +72,7 @@ import {
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import useWS from 'components/hooks/useWS'
+import { traders_hub } from 'common/constants'
 
 const MarginCalculator = () => {
     const { data, is_loading, send } = useWS('active_symbols')
@@ -549,7 +550,7 @@ const MarginCalculator = () => {
                             <StyledLinkButton
                                 tertiary
                                 external
-                                type="mt5"
+                                type={traders_hub}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

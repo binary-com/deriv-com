@@ -56,7 +56,8 @@ export const useTabStateQuery = (tab_list, has_no_query = false, starting_index 
     useEffect(() => {
         const handlePopState = () => {
             const newLocationHash = getLocationHash()
-            if (newLocationHash !== active_tab) {
+            console.log(newLocationHash, 'www', active_tab, 'www')
+            if (newLocationHash && newLocationHash !== active_tab) {
                 setActiveTab(newLocationHash)
             }
         }

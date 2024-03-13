@@ -1,5 +1,6 @@
 import React from 'react'
 import { MT5Icon, DTIcon, EZIcon, DGoIcon, DBIcon } from '../../images/svg/deriv-x'
+import ctIcon from '../../images/svg/ctrader/light-ctrader-logo.svg'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const carouselData: TRenderableData[] = [
@@ -8,6 +9,12 @@ const carouselData: TRenderableData[] = [
         heading: 'Deriv MT5',
         paragraph: '_t_The all-in-one CFD trading platform._t_',
         link: '/dmt5/',
+    },
+    {
+        icon: ctIcon,
+        heading: 'Deriv cTrader',
+        paragraph: '_t_Fast CFDs platform with inbuilt copy trading._t_',
+        link: '/deriv-ctrader/',
     },
     {
         icon: DTIcon,

@@ -272,7 +272,7 @@ const HowOptionsWorks = () => {
                         label="_t_7. Deal cancellation_t_"
                         description={
                             is_eu
-                                ? "_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service. Deal cancellation isn't available for Crash and Boom indices or cryptocurrency pairs._t_"
+                                ? '_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service. Deal cancellation is only available for volatility indices._t_'
                                 : '_t_This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service._t_'
                         }
                     >

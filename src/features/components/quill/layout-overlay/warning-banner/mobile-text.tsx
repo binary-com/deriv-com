@@ -46,7 +46,7 @@ const MobileText = ({ loss_percent }: TextProps) => {
             <div
                 className={qtJoin(
                     'w-full',
-                    expanded ? 'h-[184px]' : 'h-[94px] min-[402px]:h-[76px]',
+                    expanded ? 'h-[184px] min-[402px]:h-[148px]' : 'h-[94px] min-[402px]:h-[76px]',
                 )}
             ></div>
         </div>

@@ -24,6 +24,7 @@ import useLangSwitcher from 'features/components/molecules/language-switcher/use
 import { langItemsROW } from 'features/components/templates/layout/data'
 import PartnersNav from 'features/components/templates/navigation/partners-nav'
 import GatsbySharedLink from 'features/components/quill/shared-link'
+import WarningBanner from 'features/components/quill/layout-overlay/warning-banner'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -145,6 +146,7 @@ const Layout = ({
                     onLangSelect={onLanguageChange}
                     activeLanguage={activeLang}
                 >
+                    <WarningBanner />
                     {Navs[type]}
                     <LocationProvider
                         has_mounted={is_mounted}

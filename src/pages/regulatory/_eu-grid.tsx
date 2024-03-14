@@ -100,7 +100,7 @@ const EUgrid = () => {
                         <a href={country.href} target="_blank" rel="noreferrer">
                             <div className={styles.country_container}>
                                 {country.icon && <div className={styles.icon}>{country.icon}</div>}
-                                <Text className="text-base text-solid-slate-1400 leading-200 text-75 underline lg:!no-underline">
+                                <Text className="text-base text-solid-slate-1400 leading-200 text-75 underline lg:!no-underline lg:hover:!underline">
                                     <Localize translate_text={country.text} />
                                 </Text>
                             </div>
@@ -108,7 +108,7 @@ const EUgrid = () => {
                     ) : (
                         <div className={styles.country_container}>
                             {country.icon && <div className={styles.icon}>{country.icon}</div>}
-                            <Text className="text-base text-solid-slate-1400 leading-200 text-75 underline lg:!no-underline">
+                            <Text className="text-base text-solid-slate-1400 leading-200 text-75 ">
                                 <Localize translate_text={country.text} />
                             </Text>
                         </div>

@@ -41,7 +41,7 @@ const Regulatory = () => {
             {!is_region_loading ? (
                 is_row || is_cpa_plan ? null : (
                     <>
-                        <div className="max-w-[1232px] mx-auto py-2400 md:py-3600 px-800 md:px-1200">
+                        <div className="max-w-[1232px] mx-auto py-2400 md:py-3600 px-800 md:px-1200 lg:px-50">
                             <Heading.H1 className={styles.heading_alignment}>
                                 Deriv Investments (Europe) Limited
                             </Heading.H1>

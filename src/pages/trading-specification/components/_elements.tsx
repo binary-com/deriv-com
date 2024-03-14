@@ -64,21 +64,21 @@ export const TableRow = styled.tr<TableRowProps>`
     padding: 10px;
     gap: 40px;
     th {
-        width: 8.6rem;
+        width: 7.3rem;
     }
     th: nth-child(1) {
         width: 180px;
     }
-    th: nth-child(11) {
+    th: nth-child(12) {
         width: 160px;
     }
     td {
-        width: 8.6rem;
+        width: 7.3rem;
     }
     td: nth-child(1) {
         width: 180px;
     }
-    td: nth-child(11) {
+    td: nth-child(12) {
         width: 190px;
     }
 
@@ -97,7 +97,7 @@ export const TableRow = styled.tr<TableRowProps>`
         td: nth-child(1) {
             width: 168px;
         }
-        td: nth-child(11) {
+        td: nth-child(12) {
             width: 190px;
         }
     }
@@ -242,6 +242,11 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
+    const [show_row_content, setShowRowContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_row) setShowRowContent(false)
+    }, [is_row])
 
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
@@ -272,7 +277,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {is_row ? (
+                {show_row_content ? (
                     <>
                         {dl_icon && getStyledImg('24px', dl, 'dl')}
                         {swf_icon && getStyledImg('30px', swf, 'swf')}

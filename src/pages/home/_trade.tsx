@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { TraderCard, BotCard } from 'components/custom/other-platforms'
@@ -52,7 +52,12 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
     const { is_non_eu } = useRegion()
     const data = useStaticQuery(query)
     // one option always has to be selected
-    const [selected, setSelected] = React.useState(null)
+    const [selected, setSelected] = useState(null)
+    const [show_non_eu_content, setShowNonEuContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_non_eu) setShowNonEuContent(false)
+    }, [is_non_eu])
 
     return (
         <StyledSection>
@@ -94,7 +99,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             >
                                 <TraderCard />
                             </div>
-                            {is_non_eu && (
+                            {show_non_eu_content && (
                                 <div
                                     onMouseEnter={() => setSelected(platforms.bot)}
                                     onMouseLeave={() => setSelected('')}

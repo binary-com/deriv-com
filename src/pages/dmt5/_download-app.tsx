@@ -29,21 +29,7 @@ import {
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-
-const items: TDownloadColumnItem[] = [
-    { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
-    { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
-    { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
-    {
-        text: 'Web Browser',
-        icon: BrowserIcon,
-        link: dmt5_web_browser_url,
-        smallText: '_t_Use it on your_t_',
-    },
-    { text: 'Windows', icon: WinIcon, link: dmt5_windows },
-    { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
-    { text: 'Linux', icon: LinuxIcon, link: dmt5_linux_url },
-]
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -84,6 +70,59 @@ const DerivMT5GetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
 
+    const mt5_apps_android = useThirdPartyFlags('mt5_apps.android')
+    const mt5_apps_app_store = useThirdPartyFlags('mt5_apps.app_store')
+    const mt5_apps_app_gallery = useThirdPartyFlags('mt5_apps.app_gallery')
+    const mt5_apps_web_browser = useThirdPartyFlags('mt5_apps.web_browser')
+    const mt5_apps_windows = useThirdPartyFlags('mt5_apps.windows')
+    const mt5_apps_mac_os = useThirdPartyFlags('mt5_apps.mac_os')
+    const mt5_apps_linux = useThirdPartyFlags('mt5_apps.linux')
+
+    const items: TDownloadColumnItem[] = [
+        {
+            text: 'Google Play',
+            icon: AndroidIcon,
+            link: dmt5_android_url,
+            visibility: mt5_apps_android,
+        },
+        {
+            text: 'App Store',
+            icon: AppleIcon,
+            link: dmt5_ios_url,
+            visibility: mt5_apps_app_store,
+        },
+        {
+            text: 'AppGallery',
+            icon: AppGalleryIcon,
+            link: dmt5_app_gallery_url,
+            visibility: mt5_apps_app_gallery,
+        },
+        {
+            text: 'Web Browser',
+            icon: BrowserIcon,
+            link: dmt5_web_browser_url,
+            smallText: '_t_Use it on your_t_',
+            visibility: mt5_apps_web_browser,
+        },
+        {
+            text: 'Windows',
+            icon: WinIcon,
+            link: dmt5_windows,
+            visibility: mt5_apps_windows,
+        },
+        {
+            text: 'macOS',
+            icon: MacIcon,
+            link: dmt5_mac_app_url,
+            visibility: mt5_apps_mac_os,
+        },
+        {
+            text: 'Linux',
+            icon: LinuxIcon,
+            link: dmt5_linux_url,
+            visibility: mt5_apps_linux,
+        },
+    ]
     return (
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
@@ -95,12 +134,7 @@ const DerivMT5GetApp = () => {
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img
-                    src={dmt5Logo}
-                    alt={localize('_t_Deriv MT5 logo_t_')}
-                    width="64px"
-                    height="64px"
-                />
+                <img src={dmt5Logo} alt="Deriv MT5" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv MT5_t_"

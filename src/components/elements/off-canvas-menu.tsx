@@ -309,7 +309,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                             />
                                         )}
                                         content="_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_"
-                                        title="_t_Deriv GO_t_"
+                                        title="Deriv GO"
                                         onClick={handleArrowClick}
                                         to="/deriv-go/"
                                     />
@@ -512,7 +512,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Localize translate_text="_t_Why choose us_t_" />
                             </span>
                         </StyledLink>
-                        <StyledLink to="/contact_us/" onClick={handleArrowClick}>
+                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
                             <div>
                                 <img
                                     src={Contact}

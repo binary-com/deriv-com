@@ -64,13 +64,6 @@ const Wizard = ({
                 }}
                 onValidate={setNextBtnEnabled}
             />
-            <AccountPlan
-                affiliate_account={affiliate_account}
-                updateData={(value: AffiliateAccountTypes['account_plan']): void => {
-                    updateAffiliateValues<'account_plan'>(value, 'account_plan')
-                }}
-                onValidate={setNextBtnEnabled}
-            />
             <AccountAddress
                 affiliate_account={affiliate_account}
                 is_individual={is_individual}
@@ -85,6 +78,13 @@ const Wizard = ({
                 is_individual={is_individual}
                 updateData={(value: AffiliateAccountTypes['account_details']): void => {
                     updateAffiliateValues<'account_details'>(value, 'account_details')
+                }}
+                onValidate={setNextBtnEnabled}
+            />
+            <AccountPlan
+                affiliate_account={affiliate_account}
+                updateData={(value: AffiliateAccountTypes['account_plan']): void => {
+                    updateAffiliateValues<'account_plan'>(value, 'account_plan')
                 }}
                 onValidate={setNextBtnEnabled}
             />

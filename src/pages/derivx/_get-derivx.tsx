@@ -7,7 +7,7 @@ import AndroidIcon from '../../images/svg/android-icon.svg'
 import BrowserIcon from '../../images/svg/browser-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
 import { DerivXLogo } from 'images/svg/deriv-x'
-import DerivXQR from 'images/common/deriv-x/derivxQR.png'
+import DerivXQR from 'images/svg/deriv-x/derivxQR.svg'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
@@ -22,6 +22,7 @@ import {
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -55,18 +56,40 @@ const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
     const { is_appgallery_supported } = useRegion()
+    const deriv_x_apps_android = useThirdPartyFlags('deriv_x_apps.android')
+    const deriv_x_apps_app_store = useThirdPartyFlags('deriv_x_apps.app_store')
+    const deriv_x_apps_app_gallery = useThirdPartyFlags('deriv_x_apps.app_gallery')
+    const deriv_x_apps_web_browser = useThirdPartyFlags('deriv_x_apps.web_browser')
 
     const items: TDownloadColumnItem[] = [
-        { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
-        { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
+        {
+            text: 'Google Play',
+            icon: AndroidIcon,
+            link: derivx_android_url,
+            visibility: deriv_x_apps_android,
+        },
+        {
+            text: 'App Store',
+            icon: AppleIcon,
+            link: derivx_ios_url,
+            visibility: deriv_x_apps_app_store,
+        },
         ...(is_appgallery_supported
-            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url }]
+            ? [
+                  {
+                      text: 'AppGallery',
+                      icon: AppGalleryIcon,
+                      link: derivx_huawei_url,
+                      visibility: deriv_x_apps_app_gallery,
+                  },
+              ]
             : []),
         {
             text: 'Web Browser',
             icon: BrowserIcon,
             link: derivx_app_url,
             smallText: '_t_Use it on your_t_',
+            visibility: deriv_x_apps_web_browser,
         },
     ]
 

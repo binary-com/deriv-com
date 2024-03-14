@@ -26,7 +26,7 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
     const commoditiesRef = useRef<DatabaseReference>()
 
     useEffect(() => {
-        firebaseAppRef.current = initializeApp(firebaseConfig)
+        firebaseAppRef.current = initializeApp(firebaseConfig, 'firebaseConfig')
         firebaseDbRef.current = getDatabase(firebaseAppRef.current)
     }, [])
 

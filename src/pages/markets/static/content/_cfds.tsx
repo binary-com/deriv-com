@@ -192,11 +192,7 @@ export const synthetic_cfds_eu: TMarketContent = {
             title: '_t_Volatility indices_t_',
             instruments: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
-            single_markets_list: {
-                col: 2,
-                tablet_col: 2,
-                mobile_col: 2,
-            },
+            content_template: 3,
         },
         {
             id: 'crash-boom',
@@ -204,11 +200,7 @@ export const synthetic_cfds_eu: TMarketContent = {
             mobile_title: '_t_Crash/Boom_t_',
             instruments: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
-            single_markets_list: {
-                col: 2,
-                tablet_col: 2,
-                mobile_col: 2,
-            },
+            content_template: 3,
         },
     ],
 }

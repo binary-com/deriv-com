@@ -1,6 +1,25 @@
 import { Analytics, TEvents } from '@deriv-com/analytics'
 import { SubmitTypes } from '../_types'
 
+const customSlugify = (text: string): string => {
+    const charMap: { [key: string]: string } = {
+        ə: 'e',
+        '(': ' ',
+        ')': ' ',
+        // Add other special characters and their mappings here if needed
+    }
+    return text
+        .toString()
+        .split('')
+        .map((char) => charMap[char] || char)
+        .join('')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .replace(/'/g, '')
+        .replace(/--+/g, '-')
+}
+
 export const Submit = ({
     is_online,
     affiliate_account,
@@ -22,7 +41,7 @@ export const Submit = ({
             country: affiliate_account.account_address.country.symbol,
             address_city: affiliate_account.account_address.city.trim(),
             address_postcode: affiliate_account.account_address.postal_code.trim(),
-            address_state: affiliate_account.account_address.state.symbol,
+            address_state: customSlugify(affiliate_account.account_address.state.name),
             address_street: affiliate_account.account_address.street.trim(),
             first_name: affiliate_account.account_details.first_name.trim(),
             last_name: affiliate_account.account_details.last_name.trim(),

@@ -159,14 +159,6 @@ const Tabs = ({
     const ref = useRef(null)
 
     useEffect(() => {
-        return () => {
-            if (window.location.hash) {
-                window.history.replaceState(null, '', window.location.pathname)
-            }
-        }
-    }, [])
-
-    useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
     }, [active_tab, tab_list])
 

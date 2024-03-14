@@ -51,7 +51,6 @@ import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { traders_hub } from 'common/constants'
 
 const PipCalculator = () => {
     const [tab, setTab] = useState('Synthetic')
@@ -388,7 +387,7 @@ const PipCalculator = () => {
                             <StyledLinkButton
                                 secondary
                                 external
-                                to={traders_hub}
+                                type="mt5"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

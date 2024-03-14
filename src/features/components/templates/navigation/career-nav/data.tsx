@@ -12,7 +12,7 @@ export const career_nav_items: NavLinkItems = {
     trade: {
         id: 1,
         type: 'direct',
-        href: '/careers/locations/#europe',
+        href: '/careers/locations',
         text: <Localize translate_text="_t_Locations_t_" />,
     },
 }

@@ -7,7 +7,6 @@ import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import { traders_hub } from 'common/constants'
 
 type HowToProps = {
     active_tab: 'signal-subscriber' | 'signal-provider'
@@ -86,7 +85,8 @@ const HowTo = ({ active_tab }: HowToProps) => {
                     <DMT5Button
                         secondary
                         external
-                        to={traders_hub}
+                        type="mt5"
+                        to=""
                         target="_blank"
                         rel="noopener noreferrer"
                     >

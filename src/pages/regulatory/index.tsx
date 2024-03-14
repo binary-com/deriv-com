@@ -1,7 +1,6 @@
 import React from 'react'
 import { Hero, AccordionBlock, BlockWrapper, ContentText } from '@deriv-com/blocks'
 import { Text, Heading, FluidContainer } from '@deriv/quill-design'
-import { Breadcrumbs } from '@deriv-com/components'
 import * as styles from './eu_grid.module.scss'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
@@ -22,22 +21,6 @@ const Regulatory = () => {
     return (
         <Layout>
             <div className="bg-solid-slate-75">
-                <FluidContainer>
-                    <Breadcrumbs
-                        className="py-general-md leading-200 text-75"
-                        links={[
-                            {
-                                content: 'Home',
-                                href: '/',
-                            },
-                            {
-                                content: 'Regulatory information',
-                                href: '/regulatory',
-                            },
-                        ]}
-                    />
-                </FluidContainer>
-
                 <div className="max-w-[816px] mx-auto">
                     <Hero.ContentLess
                         className="bg-solid-slate-75 px-800 md:px-1200"

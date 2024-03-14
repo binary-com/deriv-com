@@ -46,7 +46,7 @@ export const langItemsROW: LangItems = {
     },
     th: {
         path: 'th',
-        displayName: 'Thai',
+        displayName: 'ไทย',
         shortName: 'TH',
         affiliateLang: 12,
     },
@@ -102,5 +102,11 @@ export const langItemsROW: LangItems = {
         displayName: 'සිංහල',
         shortName: 'SI',
         affiliateLang: 17,
+    },
+    sw: {
+        path: 'sw',
+        displayName: 'Kiswahili',
+        shortName: 'SW',
+        affiliateLang: 18,
     },
 }

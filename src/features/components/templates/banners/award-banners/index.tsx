@@ -1,5 +1,5 @@
 import React from 'react'
-import { awardImagesRow, awardImagesEu } from './data'
+import { awardImagesRow } from './data'
 import { AwardProps } from './awardProps'
 import * as styles from './award-banner.module.scss'
 import Container from 'features/components/atoms/container'

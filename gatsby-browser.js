@@ -1,5 +1,4 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv-com/analytics'
@@ -22,13 +21,6 @@ import './static/css/google-fonts.css'
 import '@deriv-com/blocks/style.css';
 
 const is_browser = typeof window !== 'undefined'
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
-}
 
 const checkDomain = () => {
     return eval(
@@ -99,11 +91,19 @@ export const onClientEntry = () => {
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
+    const utm_data = JSON?.parse(
+        Cookies?.get('utm_data') ||
+            `{"utm_source":"common","utm_medium":"common","utm_campaign":"common"}`,
+    )
     Analytics?.setAttributes({
-        country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
-        user_language: Cookies.get('user_language') || getLanguage(),
+        country: Cookies?.get('clients_country') || Cookies?.getJSON('website_status'),
+        user_language: Cookies?.get('user_language') || getLanguage(),
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
+        utm_source: utm_data?.['utm_source'],
+        utm_medium: utm_data?.['utm_medium'],
+        utm_campaign: utm_data?.['utm_campaign'],
+        is_authorised: !!Cookies?.get('client_information'),
     })
     //datadog
     const dd_options = {

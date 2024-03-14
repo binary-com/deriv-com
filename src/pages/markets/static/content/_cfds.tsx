@@ -52,12 +52,12 @@ export const commodities_cfds: TMarketContent = {
         {
             id: 'metals',
             title: '_t_Metals_t_',
-            component: <Metals />,
+            instruments: <Metals />,
         },
         {
             id: 'energy',
             title: '_t_Energy_t_',
-            component: <Energy />,
+            instruments: <Energy />,
         },
     ],
 }
@@ -72,22 +72,22 @@ export const forex_cfds: TMarketContent = {
         {
             id: 'major-pairs',
             title: '_t_Major pairs_t_',
-            component: <MajorPairs />,
+            instruments: <MajorPairs />,
         },
         {
             id: 'minor-pairs',
             title: '_t_Minor pairs_t_',
-            component: <MinorPairs />,
+            instruments: <MinorPairs />,
         },
         {
             id: 'exotic-pairs',
             title: '_t_Exotic pairs_t_',
-            component: <ExoticPairs />,
+            instruments: <ExoticPairs />,
         },
         {
             id: 'micro-pairs',
             title: '_t_Micro pairs_t_',
-            component: <MicroPairs />,
+            instruments: <MicroPairs />,
         },
     ],
 }
@@ -102,12 +102,12 @@ export const forex_cfds_eu: TMarketContent = {
         {
             id: 'major-pairs',
             title: '_t_Major pairs_t_',
-            component: <MajorPairs />,
+            instruments: <MajorPairs />,
         },
         {
             id: 'minor-pairs',
             title: '_t_Minor pairs_t_',
-            component: <MinorPairs />,
+            instruments: <MinorPairs />,
         },
     ],
 }
@@ -124,44 +124,44 @@ export const synthetic_cfds: TMarketContent = {
         {
             id: 'drift-switch-indices',
             title: '_t_Drift switching indices_t_',
-            component: <DriftSwitchIndices />,
+            instruments: <DriftSwitchIndices />,
             details: <DriftSwitchDetails />,
         },
         {
             id: 'dex-indices',
             title: '_t_DEX indices_t_',
-            component: <DexIndices />,
+            instruments: <DexIndices />,
             details: <DexIndicesDetails />,
         },
         {
             id: 'volatility-indices',
             title: '_t_Volatility indices_t_',
-            component: <VolatilityIndices />,
+            instruments: <VolatilityIndices />,
             details: <VolatilityIndicesDetails />,
         },
         {
             id: 'crash-boom',
             title: '_t_Crash/Boom_t_',
             mobile_title: '_t_Crash/Boom_t_',
-            component: <CrashBoom />,
+            instruments: <CrashBoom />,
             details: <CrashBoomDetails />,
         },
         {
             id: 'jump-indices',
             title: '_t_Jump indices_t_',
-            component: <JumpIndices is_cfd />,
+            instruments: <JumpIndices is_cfd />,
             details: <JumpIndicesDetails />,
         },
         {
             id: 'step-indices',
             title: '_t_Step indices_t_',
-            component: <StepIndices is_cfd />,
+            instruments: <StepIndices is_cfd />,
             details: <StepIndicesDetails />,
         },
         {
             id: 'range-break-indices',
             title: '_t_Range break indices_t_',
-            component: <RangeBreak />,
+            instruments: <RangeBreak />,
             details: <RangeBreakIndicesDetails />,
         },
     ],
@@ -169,25 +169,38 @@ export const synthetic_cfds: TMarketContent = {
 
 export const synthetic_cfds_eu: TMarketContent = {
     has_global_accordion: true,
-    template: 3,
     markets_list: {
-        col: 2,
-        tablet_col: 2,
+        col: 3,
+        tablet_col: 3,
         mobile_col: 2,
     },
     content: [
         {
+            id: 'drift-switch-indices',
+            title: '_t_Drift switching indices_t_',
+            instruments: <DriftSwitchIndices />,
+            details: <DriftSwitchDetails />,
+        },
+        {
+            id: 'dex-indices',
+            title: '_t_DEX indices_t_',
+            instruments: <DexIndices />,
+            details: <DexIndicesDetails />,
+        },
+        {
             id: 'volatility-indices',
             title: '_t_Volatility indices_t_',
-            component: <VolatilityIndicesEU />,
+            instruments: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
+            content_template: 3,
         },
         {
             id: 'crash-boom',
             title: '_t_Crash/Boom_t_',
             mobile_title: '_t_Crash/Boom_t_',
-            component: <CrashBoomEU />,
+            instruments: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
+            content_template: 3,
         },
     ],
 }
@@ -200,7 +213,7 @@ export const stock_cfds: TMarketContent = {
             title: '_t_American <0></0>indices_t_',
             title_components: [<br key={0} />],
             mobile_title: '_t_American indices_t_',
-            component: <AmericanIndices />,
+            instruments: <AmericanIndices />,
             details: <AmericasDetails />,
             col: 3,
             tablet_col: 2,
@@ -213,7 +226,7 @@ export const stock_cfds: TMarketContent = {
             title: '_t_Asian <0></0>indices_t_',
             title_components: [<br key={0} />],
             mobile_title: '_t_Asian indices_t_',
-            component: <AsianIndices />,
+            instruments: <AsianIndices />,
             details: <AsianIndicesDetails />,
             col: 3,
             tablet_col: 2,
@@ -226,7 +239,7 @@ export const stock_cfds: TMarketContent = {
             title: '_t_European <0></0>indices_t_',
             title_components: [<br key={0} />],
             mobile_title: '_t_European indices_t_',
-            component: <EuropeanIndices />,
+            instruments: <EuropeanIndices />,
             details: <EuropeanIndicesDetails />,
             col: 3,
             tablet_col: 2,
@@ -237,7 +250,7 @@ export const stock_cfds: TMarketContent = {
         {
             id: 'stocks',
             title: '_t_Stocks_t_',
-            component: <AmericanStocks />,
+            instruments: <AmericanStocks />,
             col: 3,
             tablet_col: 2,
             mobile_col: 2,
@@ -260,7 +273,7 @@ export const crypto_cfds: TMarketContent = {
         {
             id: 'crypto-pairs',
             title: '_t_Crypto pairs_t_',
-            component: <CryptocurrenciesCFDs />,
+            instruments: <CryptocurrenciesCFDs />,
         },
     ],
 }
@@ -276,13 +289,13 @@ export const basket_cfds: TMarketContent = {
         {
             id: 'commodities-basket',
             title: '_t_Commodities Basket_t_',
-            component: <BasketIndicesCommodities />,
+            instruments: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
             id: 'forex-basket',
             title: '_t_Forex Basket_t_',
-            component: <BasketIndicesCfds />,
+            instruments: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
         },
     ],
@@ -299,7 +312,7 @@ export const derived_fx_cfds: TMarketContent = {
         {
             id: 'cfds-derived-fx',
             title: '_t_Derived FX_t_',
-            component: <DerivedCFDs />,
+            instruments: <DerivedCFDs />,
             details: <DerivedCFDsDetails />,
         },
     ],

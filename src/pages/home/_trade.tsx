@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms'
+import { TraderCard, BotCard } from 'components/custom/other-platforms'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -41,9 +41,6 @@ const query = graphql`
         dbot_trade: file(relativePath: { eq: "home/dbot_trade_home.png" }) {
             ...fadeIn
         }
-        dmt5_trade: file(relativePath: { eq: "home/dmt5_trade_home.png" }) {
-            ...fadeIn
-        }
     }
 `
 
@@ -55,7 +52,12 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
     const { is_non_eu } = useRegion()
     const data = useStaticQuery(query)
     // one option always has to be selected
-    const [selected, setSelected] = React.useState(null)
+    const [selected, setSelected] = useState(null)
+    const [show_non_eu_content, setShowNonEuContent] = useState(true)
+
+    useEffect(() => {
+        if (!is_non_eu) setShowNonEuContent(false)
+    }, [is_non_eu])
 
     return (
         <StyledSection>
@@ -87,12 +89,6 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                                     alt={localize('_t_Dbot trading platform at Deriv_t_')}
                                 />
                             </ImageWrapper>
-                            <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <QueryImage
-                                    data={data['dmt5_trade']}
-                                    alt={localize('_t_DMT5 trading platform at Deriv_t_')}
-                                />
-                            </ImageWrapper>
                         </ImageContainer>
                     </div>
                     <div style={{ width: '100%', maxWidth: '38.4rem' }}>
@@ -103,7 +99,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             >
                                 <TraderCard />
                             </div>
-                            {is_non_eu && (
+                            {show_non_eu_content && (
                                 <div
                                     onMouseEnter={() => setSelected(platforms.bot)}
                                     onMouseLeave={() => setSelected('')}
@@ -111,12 +107,6 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                                     <BotCard />
                                 </div>
                             )}
-                            <div
-                                onMouseEnter={() => setSelected(platforms.mt5)}
-                                onMouseLeave={() => setSelected('')}
-                            >
-                                <DMT5Card is_ppc_redirect={is_ppc_redirect} />
-                            </div>
                         </CssGrid>
                     </div>
                 </Flex>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -62,13 +62,30 @@ const PartnersGuidePdf = () => {
 }
 
 const BusinessGrid = () => {
-    const general_terms_url = `/tnc/business-partners-general-terms-es.pdf`
-    const affiliate_brokers_url = `/tnc/business-partners-affiliates-and-introducing-brokers-es.pdf`
-    const payment_agents_url = `/tnc/business-partners-payment-agents-es.pdf`
-    const api_user_url = `/tnc/business-partners-api-user-es.pdf`
-    const bug_bounty_url = `/tnc/business-partners-bug-bounty-es.pdf`
+    const general_terms_url = `/tnc/[ES]_business-partners-general-terms-of-use-R23_12_1.pdf`
+    const affiliate_brokers_url = `/tnc/[ES]_business-partners-affiliates-and-introducing-brokers-R23_12_1.pdf`
+    const payment_agents_url = `/tnc/[ES]_business-partners-payment-agents-R23_12_1.pdf`
+    const api_user_url = `/tnc/[ES]_business-partners-api-user-R23_12_1.pdf`
+    const bug_bounty_url = `/tnc/[ES]_business-partners-bug-bounty-R23_12_1.pdf`
     const { is_row } = useRegion()
     const language = getLanguage()
+    const [show_row_content, setShowRowContent] = useState(true)
+    const general_terms_url_region = is_row
+        ? '/tnc/business-partners-general-terms.pdf'
+        : '/tnc/business-partners-general-terms-eu.pdf'
+    const affiliate_brokers_url_region = is_row
+        ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
+        : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+    const api_user_url_region = is_row
+        ? '/tnc/business-partners-api-user.pdf'
+        : '/tnc/business-partners-api-user-eu.pdf'
+    const bug_bounty_url_region = is_row
+        ? '/tnc/business-partners-bug-bounty.pdf'
+        : '/tnc/business-partners-bug-bounty-eu.pdf'
+
+    useEffect(() => {
+        if (!is_row) setShowRowContent(false)
+    }, [is_row])
 
     return (
         <StyledContainer>
@@ -84,13 +101,7 @@ const BusinessGrid = () => {
                     Icon={General}
                     title="_t_General terms of use_t_"
                     content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
-                    url={
-                        is_row && language === 'es'
-                            ? general_terms_url
-                            : is_row
-                            ? '/tnc/business-partners-general-terms.pdf'
-                            : '/tnc/business-partners-general-terms-eu.pdf'
-                    }
+                    url={is_row && language === 'es' ? general_terms_url : general_terms_url_region}
                     link_title="_t_General terms of use_t_"
                 />
                 <Col
@@ -100,15 +111,13 @@ const BusinessGrid = () => {
                     url={
                         is_row && language === 'es'
                             ? affiliate_brokers_url
-                            : is_row
-                            ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
-                            : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+                            : affiliate_brokers_url_region
                     }
                     link_title="_t_Affiliates & introducing brokers (IBs)_t_"
                 />
 
                 <PartnersGuidePdf />
-                {is_row && (
+                {show_row_content && (
                     <Col
                         Icon={PA}
                         title="_t_Payment agents_t_"
@@ -122,29 +131,17 @@ const BusinessGrid = () => {
                     />
                 )}
                 <Col
-                    Icon={is_row ? APIROW : API}
+                    Icon={show_row_content ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
-                    url={
-                        is_row && language === 'es'
-                            ? api_user_url
-                            : is_row
-                            ? '/tnc/business-partners-api-user.pdf'
-                            : '/tnc/business-partners-api-user-eu.pdf'
-                    }
+                    url={is_row && language === 'es' ? api_user_url : api_user_url_region}
                     link_title="_t_API users_t_"
                 />
                 <Col
-                    Icon={is_row ? BugBountyRow : BugBounty}
+                    Icon={show_row_content ? BugBountyRow : BugBounty}
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
-                    url={
-                        is_row && language === 'es'
-                            ? bug_bounty_url
-                            : is_row
-                            ? '/tnc/business-partners-bug-bounty.pdf'
-                            : '/tnc/business-partners-bug-bounty-eu.pdf'
-                    }
+                    url={is_row && language === 'es' ? bug_bounty_url : bug_bounty_url_region}
                     link_title="_t_Bug Bounty Program_t_"
                 />
             </StyledGrid>

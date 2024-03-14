@@ -117,7 +117,7 @@ const DHero = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivGOLogo} alt={localize('_t_Deriv Go_t_')} />
+                        <StyledTradingLogin src={DerivGOLogo} alt="Deriv Go" />
                         <CommonHeaderSection
                             title="_t_A trading platform for on-the-go traders_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}

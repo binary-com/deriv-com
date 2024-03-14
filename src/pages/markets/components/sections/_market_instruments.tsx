@@ -35,6 +35,7 @@ const MarketInstruments = ({
                     padding,
                     tablet_col,
                     title_components,
+                    content_template = template,
                 }) =>
                     has_global_accordion || details ? (
                         <MarketsAccordion
@@ -42,7 +43,9 @@ const MarketInstruments = ({
                             id={id}
                             renderTitle={() => (
                                 <Row is_accordion_row>
-                                    <Col full_width={template == 2 || template == 3}>
+                                    <Col
+                                        full_width={content_template == 2 || content_template == 3}
+                                    >
                                         <Title>
                                             <Localize
                                                 translate_text={
@@ -52,7 +55,7 @@ const MarketInstruments = ({
                                             />
                                         </Title>
                                     </Col>
-                                    {template == 2 ? (
+                                    {content_template == 2 ? (
                                         <LatestMarketsList
                                             has_right_border
                                             col={col}
@@ -64,7 +67,7 @@ const MarketInstruments = ({
                                         >
                                             {instruments}
                                         </LatestMarketsList>
-                                    ) : template == 3 ? (
+                                    ) : content_template == 3 ? (
                                         <DerivedMarketsList>{instruments}</DerivedMarketsList>
                                     ) : (
                                         <MarketsList has_right_border>{instruments}</MarketsList>
@@ -86,7 +89,7 @@ const MarketInstruments = ({
                                     />
                                 </Title>
                             </Col>
-                            {template == 2 ? (
+                            {content_template == 2 ? (
                                 <LatestMarketsList
                                     col={col}
                                     tablet_col={tablet_col}

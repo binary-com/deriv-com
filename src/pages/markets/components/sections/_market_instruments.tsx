@@ -35,6 +35,7 @@ const MarketInstruments = ({
                     padding,
                     tablet_col,
                     title_components,
+                    single_markets_list,
                 }) =>
                     has_global_accordion || details ? (
                         <MarketsAccordion
@@ -100,7 +101,7 @@ const MarketInstruments = ({
                                     {instruments}
                                 </LatestMarketsList>
                             ) : (
-                                <MarketsList {...markets_list} gap="16px">
+                                <MarketsList {...(single_markets_list || markets_list)} gap="16px">
                                     {instruments}
                                 </MarketsList>
                             )}

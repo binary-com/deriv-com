@@ -34,6 +34,11 @@ type TContent = {
     flex?: boolean
     gap_mobile?: string
     mobile_template?: true
+    single_markets_list?: {
+        col: number
+        tablet_col?: number
+        mobile_col?: number
+    }
 }
 
 export type TMarketContent = {

@@ -52,8 +52,6 @@ const AffiliateSignup = () => {
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
-    console.log(Analytics?.getFeatureValue('tracking-buttons-config', {}))
-
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
         email: '',
         account_type: 0,
@@ -106,8 +104,6 @@ const AffiliateSignup = () => {
 
     useEffect(() => {
         const partner_signup_error_message = affiliate_api_error?.error.message
-        console.log('affiliate_api_data:', affiliate_api_data)
-        console.log('affiliate_api_error:', affiliate_api_error)
         if (affiliate_api_data) {
             trackEvent({
                 action: 'success_popup_opened',

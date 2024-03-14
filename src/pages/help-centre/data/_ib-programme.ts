@@ -20,7 +20,7 @@ const ib_programme: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: '/contact_us/?is_livechat_open=true',
+                            to: '/contact-us/?is_livechat_open=true',
                         },
                     ],
                 },
@@ -41,7 +41,7 @@ const ib_programme: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: '/contact_us/?is_livechat_open=true',
+                            to: '/contact-us/?is_livechat_open=true',
                         },
                     ],
                 },

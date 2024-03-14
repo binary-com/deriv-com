@@ -20,6 +20,7 @@ import {
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -49,13 +50,36 @@ const DerivGoGetApp = () => {
     const { is_appgallery_supported, is_ios_supported, is_appgallery_and_ios_supported } =
         useRegion()
 
+    const deriv_go_apps_app_gallery = useThirdPartyFlags('deriv_go_apps.app_gallery')
+    const deriv_go_apps_android = useThirdPartyFlags('deriv_go_apps.android')
+    const deriv_go_apps_app_store = useThirdPartyFlags('deriv_go_apps.app_store')
+
     const items: TDownloadColumnItem[] = [
-        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+        {
+            text: 'Google Play',
+            icon: AndroidIcon,
+            link: deriv_go_playstore_url,
+            visibility: deriv_go_apps_android,
+        },
         ...(is_ios_supported && is_appgallery_and_ios_supported
-            ? [{ text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url }]
+            ? [
+                  {
+                      text: 'App Store',
+                      icon: AppleIcon,
+                      link: deriv_go_ios_url,
+                      visibility: deriv_go_apps_app_store,
+                  },
+              ]
             : []),
         ...(is_appgallery_supported && is_appgallery_and_ios_supported
-            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url }]
+            ? [
+                  {
+                      text: 'AppGallery',
+                      icon: AppGalleryIcon,
+                      link: deriv_go_huaweiappgallery_url,
+                      visibility: deriv_go_apps_app_gallery,
+                  },
+              ]
             : []),
     ]
 

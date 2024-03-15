@@ -1,13 +1,12 @@
 import React from 'react'
 import { Text } from '@deriv/quill-design'
 import { kid_data, kid_data_multiplier } from './data/_kid_data'
-import { getLanguage } from 'common/utility'
 import { Divider } from 'components/elements'
 import { Localize } from 'components/localization'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 
-const DocumentAccordion = () => {
-    const selected_language = getLanguage() || 'en'
+const DocumentAccordion = (locale: DocumentAccordionProps) => {
+    const selected_language = locale.locale.language || 'en'
     const supported_languages = ['es', 'it', 'pl', 'pt']
 
     const is_supported_language = (language: string) => supported_languages.includes(language)

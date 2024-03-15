@@ -68,7 +68,6 @@ export const MainFooter = () => {
             banner={DerivGoBanner}
             awards={IIPAward}
             descriptionContent={DescriptionContent}
-            className={qtJoin((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
             <Footer.MainNavContent items={nav_data} cols="six" />
         </Footer.FooterBlock>

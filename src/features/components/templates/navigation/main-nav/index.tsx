@@ -17,7 +17,9 @@ const MainRowNavigation = () => {
 
     return (
         <NavigationBlock
-            mobileWrapClass={show_banner && 'h-calc(100dvh-94px) min-[402px]:h-calc(100dvh-76px)'}
+            mobileWrapClass={
+                show_banner && 'h-[calc(100dvh-94px)] min-[402px]:h-[calc(100dvh-76px)]'
+            }
             renderButtons={MainNavigationButtons}
             renderLogo={MainNavigationLogo}
             items={items}

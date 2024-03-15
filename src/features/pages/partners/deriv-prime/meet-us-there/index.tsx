@@ -36,7 +36,7 @@ const MeetUsThere = () => {
                         {expo_cards.map((card) => {
                             return (
                                 <Link
-                                    style={{ textDecoration: 'none' }}
+                                    style={{ textDecoration: 'none', flex: 1 }}
                                     url={{
                                         type: 'non-company',
                                         href: `${card.link}`,

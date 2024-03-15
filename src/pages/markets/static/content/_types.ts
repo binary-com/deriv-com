@@ -34,6 +34,7 @@ type TContent = {
     flex?: boolean
     gap_mobile?: string
     mobile_template?: true
+    content_template?: number
 }
 
 export type TMarketContent = {

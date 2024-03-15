@@ -20,6 +20,7 @@ export type THeaders = {
     contract_size: string | number
     base_currency: string
     minimum_size: number
+    volume_limit: number
     minimum_spread: number
     target_spread: number
     max_effective_leverage: string | number

@@ -10,6 +10,7 @@ const instrument: TString = '_t_Instrument_t_'
 const contract_size: TString = '_t_Contract size_t_'
 const base_currency: TString = '_t_Base currency_t_'
 const minimum_size: TString = '_t_Minimum size_t_'
+const volume_limit: TString = '_t_Volume limit_t_'
 const minimum_spread: TString = '_t_Minimum Spread_t_'
 const target_spread: TString = '_t_Target Spread_t_'
 const max_effective_leverage: TString = '_t_Max effective leverage_t_'
@@ -27,6 +28,8 @@ const trading_hours_tooltip: TString =
 
 const contract_size_tooltip: TString = '_t_The standardised amount of an asset in one contract._t_'
 const minimum_size_tooltip: TString = '_t_The smallest trade size allowed._t_'
+const volume_limit_tooltip: TString =
+    '_t_Total allowed volume of an open position plus pending orders, in one direction._t_'
 const minimum_spread_tooltip: TString =
     '_t_The lowest possible spread obtainable with the current trading conditions._t_'
 const target_spread_tooltip: TString =
@@ -61,6 +64,12 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('minimum_size', {
                 header: () => (
                     <TableHeaderCell text={minimum_size} toolTip={minimum_size_tooltip} />
+                ),
+                cell: (info) => <TableCell text={info.getValue()} />,
+            }),
+            liveMarketColumnHelper.accessor('volume_limit', {
+                header: () => (
+                    <TableHeaderCell text={volume_limit} toolTip={volume_limit_tooltip} />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),

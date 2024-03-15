@@ -1,5 +1,6 @@
 import React from 'react'
 import { LabelPairedCheckMdRegularIcon } from '@deriv/quill-icons'
+import { Analytics } from '@deriv-com/analytics'
 import { signup_latam_human_image, signup_latam_image_show } from './signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -16,6 +17,11 @@ const SignUpContent = () => {
 
     const growthbook_feature_flag__show_signup_content_in_bullet_point = useGrowthbookFeatureFlag({
         featureFlag: 'deriv-com-show-signup-content-bullet-point',
+    })
+
+    // eslint-disable-next-line no-console
+    console.log('debug log: growthbook_feature_flag__show_signup_content_in_bullet_point: ', {
+        growthbook_feature_flag__show_signup_content_in_bullet_point,
     })
 
     const containerStylesOverride = growthbook_feature_flag__show_signup_content_in_bullet_point

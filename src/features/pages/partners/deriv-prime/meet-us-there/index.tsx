@@ -35,46 +35,45 @@ const MeetUsThere = () => {
                     >
                         {expo_cards.map((card) => {
                             return (
-                                <>
-                                    <Link
-                                        style={{ textDecoration: 'none', flex: 1 }}
-                                        url={{
-                                            type: 'non-company',
-                                            href: `${card.link}`,
-                                            target: '_blank',
-                                        }}
+                                <Link
+                                    style={{ textDecoration: 'none', flex: 1 }}
+                                    url={{
+                                        type: 'non-company',
+                                        href: `${card.link}`,
+                                        target: '_blank',
+                                    }}
+                                    key={card.id}
+                                >
+                                    <FlexBox.Box
+                                        key={card.title}
+                                        className={styles.styled_card}
+                                        direction={'col'}
+                                        justify={'start'}
+                                        align={'start'}
+                                        radius={'8x'}
+                                        mt={'12x'}
+                                        md={{ mt: '0x' }}
                                     >
+                                        {card.image}
                                         <FlexBox.Box
-                                            key={card.title}
-                                            className={styles.styled_card}
+                                            padding="8x"
                                             direction={'col'}
-                                            justify={'start'}
-                                            align={'start'}
-                                            radius={'8x'}
-                                            mt={'12x'}
-                                            md={{ mt: '0x' }}
+                                            md={{ padding: '12x' }}
                                         >
-                                            {card.image}
-                                            <FlexBox.Box
-                                                padding="8x"
-                                                direction={'col'}
-                                                md={{ padding: '12x' }}
+                                            <Typography.Paragraph
+                                                size={'xlarge'}
+                                                weight={'bold'}
+                                                mb={'4x'}
+                                                font_family="UBUNTU"
                                             >
-                                                <Typography.Paragraph
-                                                    size={'xlarge'}
-                                                    weight={'bold'}
-                                                    mb={'4x'}
-                                                    font_family="UBUNTU"
-                                                >
-                                                    <Localize translate_text={card.title} />
-                                                </Typography.Paragraph>
-                                                <Typography.Paragraph size="small">
-                                                    <Localize translate_text={card.date} />
-                                                </Typography.Paragraph>
-                                            </FlexBox.Box>
+                                                {card.title}
+                                            </Typography.Paragraph>
+                                            <Typography.Paragraph size="small">
+                                                <Localize translate_text={card.date} />
+                                            </Typography.Paragraph>
                                         </FlexBox.Box>
-                                    </Link>
-                                </>
+                                    </FlexBox.Box>
+                                </Link>
                             )
                         })}
                     </FlexBox.Box>

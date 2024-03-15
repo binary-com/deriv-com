@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Footer } from '@deriv-com/blocks'
-import { qtJoin } from '@deriv/quill-design'
 import {
     EuFooterNavData,
     RowFooterNavData,

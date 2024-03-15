@@ -68,7 +68,7 @@ const Regulatory = () => {
                             </BlockWrapper>
                         </div>
                         <AccordionBlock
-                            className=" py-1600 px-800 md:!px-50 md:!py-2400"
+                            className=" py-1600 px-800 md:px-1200 md:!py-2400"
                             content={{
                                 data: [
                                     [
@@ -80,7 +80,7 @@ const Regulatory = () => {
                                                         <div className="justify-start">
                                                             <a
                                                                 href="/regulatory/Financial_Disclosures_Annual_Report_2022.pdf"
-                                                                className="underline text-typography-default inline text-base"
+                                                                className="underline lg:!no-underline lg:hover:!underline text-typography-default inline text-base"
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
                                                             >
@@ -134,7 +134,7 @@ const Regulatory = () => {
                                                                 <a
                                                                     key={index}
                                                                     href={document.href}
-                                                                    className="underline text-typography-default inline text-base mb-800 mr-800"
+                                                                    className="underline lg:!no-underline lg:hover:!underline text-typography-default inline text-base mb-800 mr-800"
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
                                                                 >

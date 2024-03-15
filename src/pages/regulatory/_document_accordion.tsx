@@ -19,7 +19,7 @@ const DocumentAccordion = () => {
                     <div key={idx} className="flex flex-row mb-800 mr-800">
                         <a
                             target="_blank"
-                            className="underline inline text-base"
+                            className="underline lg:!no-underline lg:hover:!underline inline text-base"
                             rel="noopener noreferrer"
                             href={`/regulatory/kid/${
                                 is_supported_language(selected_language) && !data.is_only_en
@@ -44,7 +44,7 @@ const DocumentAccordion = () => {
                         <a
                             key={idx}
                             target="_blank"
-                            className="underline inline text-base"
+                            className="underline lg:!no-underline lg:hover:!underline inline text-base"
                             rel="noopener noreferrer"
                             href={`/regulatory/kid/${
                                 is_supported_language(selected_language) && !data.is_only_en

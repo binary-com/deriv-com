@@ -8,8 +8,10 @@ import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useContactForm from 'features/hooks/use-contact-form'
 import { TTypographyColor } from 'features/types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const ContactFormGetInTouch = () => {
+    const [is_mounted] = usePageLoaded()
     const { contact_us_form, on_submit, form_state } = useContactForm()
     const [text_values, setTextValues] = useState<{ color: TTypographyColor; text: TString }>({
         color: 'gray-shade',
@@ -44,6 +46,8 @@ const ContactFormGetInTouch = () => {
             }
         setTextValues(text_values)
     }, [form_state])
+
+    if (!is_mounted) return null
 
     return (
         <Flex.Box direction="col" basis="5-12" className={get_in_touch_form_container}>

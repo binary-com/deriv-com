@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from 'features/components/templates/layout'
 import CommercialPlan from './commercial-plan'
-// import GetInTouchBanner from './get-in-touch'
+import GetInTouchBanner from './get-in-touch'
 import BrowseOurFaq from './browse-our-faq'
 import Potential from './potential'
 import WhyDerivPrime from './why-deriv-prime'
@@ -24,7 +24,7 @@ const DerivPrime = () => {
             <ConnectivityReliabilityType />
             <WhyDerivPrime />
             <PrimeNumbers />
-            {/* <GetInTouchBanner /> */}
+            <GetInTouchBanner />
             <MeetUsThere />
             <BrowseOurFaq />
             <MainFooter />

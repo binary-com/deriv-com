@@ -5,7 +5,7 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 import featuresConfig from '../../../static/appConfig'
 
 const thirdPartyFlagsConfig = {
-    databaseURL: 'https://app-config-staging.firebaseio.com',
+    databaseURL: 'https://app-config-prod.firebaseio.com',
 }
 
 const useThirdPartyFlags = (featurePath) => {

@@ -56,6 +56,7 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 import useWS from 'components/hooks/useWS'
+import { traders_hub } from 'common/constants'
 
 type FormikErrors<Values> = {
     [K in keyof Values]?: Values[K] extends string[]
@@ -482,7 +483,7 @@ const SwapCalculator = () => {
                                         <StyledLinkButton
                                             tertiary
                                             external
-                                            type="mt5"
+                                            to={traders_hub}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -731,7 +732,7 @@ const SwapCalculator = () => {
                                     <StyledLinkButton
                                         tertiary
                                         external
-                                        type="mt5"
+                                        to={traders_hub}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >

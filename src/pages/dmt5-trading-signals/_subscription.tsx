@@ -6,6 +6,7 @@ import { Localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { traders_hub } from 'common/constants'
 
 const query = graphql`
     query {
@@ -277,8 +278,7 @@ const Subscription = () => {
                 <DMT5Button
                     secondary
                     external
-                    type="mt5"
-                    to=""
+                    to={traders_hub}
                     target="_blank"
                     rel="noopener noreferrer"
                 >

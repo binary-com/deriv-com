@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { get_in_touch_form_container, get_in_touch_form } from './get-in-touch.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -8,9 +8,15 @@ import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useContactForm from 'features/hooks/use-contact-form'
 import { TTypographyColor } from 'features/types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const ContactFormGetInTouch = () => {
+    const [is_mounted] = usePageLoaded()
     const { contact_us_form, on_submit, form_state } = useContactForm()
+    const [text_values, setTextValues] = useState<{ color: TTypographyColor; text: TString }>({
+        color: 'gray-shade',
+        text: '_t_By clicking "Submit", you give your consent to be contacted by Deriv by email and telephone for marketing purposes._t_',
+    })
 
     const {
         register,
@@ -20,7 +26,7 @@ const ContactFormGetInTouch = () => {
         handleSubmit,
     } = contact_us_form
 
-    const get_form_bottom_message = useMemo(() => {
+    useEffect(() => {
         const { is_submission_fail, is_submitted } = form_state
         let text_values: { color: TTypographyColor; text: TString }
         if (!is_submission_fail && !is_submitted)
@@ -38,8 +44,10 @@ const ContactFormGetInTouch = () => {
                 color: 'brand',
                 text: '_t_Form submission error. Please submit the form again._t_',
             }
-        return text_values
+        setTextValues(text_values)
     }, [form_state])
+
+    if (!is_mounted) return null
 
     return (
         <Flex.Box direction="col" basis="5-12" className={get_in_touch_form_container}>
@@ -140,17 +148,17 @@ const ContactFormGetInTouch = () => {
                     <Typography.Paragraph
                         className={'at-visible-phone-only'}
                         size={'xs'}
-                        textcolor={get_form_bottom_message?.color}
+                        textcolor={text_values?.color}
                     >
-                        <Localize translate_text={get_form_bottom_message?.text} />
+                        <Localize translate_text={text_values?.text} />
                     </Typography.Paragraph>
 
                     <Typography.Paragraph
                         className={'at-visible-larger-than-phone'}
                         size={'small'}
-                        textcolor={get_form_bottom_message?.color}
+                        textcolor={text_values?.color}
                     >
-                        <Localize translate_text={get_form_bottom_message?.text} />
+                        <Localize translate_text={text_values?.text} />
                     </Typography.Paragraph>
                 </Flex.Item>
             </Flex.Box>

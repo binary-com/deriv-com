@@ -237,7 +237,17 @@ export const volatility_indices_c_trader: TMarketSymbol[] = [
         text: '_t_Volatility 90 (1s) Index_t_',
     },
 ]
+export const step_indices_derivx: TMarketSymbol[] = [
+    {
+        src: icons.STEPINDICIESMT5_100,
+        text: '_t_Step 100_t_',
+    },
+]
 export const step_indices_mt5: TMarketSymbol[] = [
+    {
+        src: icons.STEPINDICIESMT5_100,
+        text: '_t_Step 100_t_',
+    },
     {
         src: icons.STEPINDICIESMT5_200,
         text: '_t_Step 200_t_',

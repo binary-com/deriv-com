@@ -15,6 +15,8 @@ const swiperOption: SwiperOption = {
     reverseDirection: true,
     freeMode: true,
 }
+// const EUNote = <SectionMessage.Information />
+
 const TradingResponsibly = () => {
     return (
         <Features.ContentSlider
@@ -28,6 +30,7 @@ const TradingResponsibly = () => {
                 cards: cards,
                 dir: is_rtl() ? 'rtl' : 'ltr',
             }}
+            bottomContent={<>bottomContent</>}
         />
     )
 }

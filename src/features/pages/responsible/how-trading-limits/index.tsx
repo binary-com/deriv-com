@@ -3,7 +3,7 @@ import { Features } from '@deriv-com/blocks'
 import { Text } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
 import IconWithList from '../component/icon-list'
-import { leftImage, leftImageEU, listData } from './data'
+import { leftImage, leftImageEU, EUlistData, ROWlistData } from './data'
 import { Localize, localize } from 'components/localization'
 import { TString } from 'types/generics'
 import useRegion from 'components/hooks/use-region'
@@ -15,6 +15,7 @@ type listDataType = {
 
 const HowTradingLimits = () => {
     const { is_eu, is_row } = useRegion()
+    const listData = is_row ? ROWlistData : EUlistData
     return (
         <Features.ContentLeft
             title={localize('_t_How trading limits and self-exclusion work_t_')}

@@ -8,7 +8,7 @@ export const rightImage = () => {
             src="../../../../images/migration/responsibe-trading/trading-limits.jpg"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            alt={localize('_t_Trading limits and self-exclusion_t_')}
+            alt={localize('_t_Trading app showing your trading account limits_t_')}
             className="rounded-1200"
         />
     )
@@ -20,7 +20,7 @@ export const rightImageEU = () => {
             src="../../../../images/migration/responsibe-trading/trading-limits-eu.jpg"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            alt={localize('_t_Trading limits and self-exclusion_t_')}
+            alt={localize('_t_Trading app showing your trading account limits_t_')}
             className="rounded-1200"
         />
     )

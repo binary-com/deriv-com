@@ -1,5 +1,4 @@
 import React from 'react'
-import { Analytics } from '@deriv-com/analytics'
 import { signup_latam_human_image, signup_latam_image_show } from './signup.module.scss'
 import ExperimentalContent from './content/ExperimentalContent'
 import OriginalContent from './content/OriginalContent'
@@ -10,13 +9,15 @@ import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-fl
 import dclsx from 'features/utils/dclsx'
 
 const SignUpContent = () => {
-    const is_growthbook_ready = Analytics?.getInstances()?.ab?.GrowthBook?.ready
+    const { featureFlagValue: growthbook_feature_flag__latam_signup_human_element_visible } =
+        useGrowthbookFeatureFlag({
+            featureFlag: 'latam-signup-human-element',
+        })
 
-    const growthbook_feature_flag__latam_signup_human_element_visible = useGrowthbookFeatureFlag({
-        featureFlag: 'latam-signup-human-element',
-    })
-
-    const growthbook_feature_flag__show_signup_content_in_bullet_point = useGrowthbookFeatureFlag({
+    const {
+        isFeatureOn: growthbook_feature_is_on__show_signup_content_in_bullet_point,
+        featureFlagValue: growthbook_feature_flag__show_signup_content_in_bullet_point,
+    } = useGrowthbookFeatureFlag({
         featureFlag: 'deriv-com-show-signup-content-bullet-point',
     })
 
@@ -49,7 +50,10 @@ const SignUpContent = () => {
                 src={MaleHuman}
                 alt="LATAM male human"
             />
-            {is_growthbook_ready ? (
+            {/**
+             *  Waiting for the feature flag to be ready before rendering the content
+             */}
+            {growthbook_feature_is_on__show_signup_content_in_bullet_point ? (
                 growthbook_feature_flag__show_signup_content_in_bullet_point ? (
                     <ExperimentalContent />
                 ) : (

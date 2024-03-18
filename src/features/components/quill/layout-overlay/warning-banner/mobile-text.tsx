@@ -36,7 +36,10 @@ const MobileText = ({ loss_percent }: TextProps) => {
                     )}
                     <button
                         onClick={toggleExpansion}
-                        className="block mx-auto"
+                        className={qtJoin(
+                            'block mx-auto will-change-transform',
+                            expanded && 'rotate-180',
+                        )}
                         aria-label="Click here to expand banner text"
                     >
                         <LabelPairedChevronDownMdRegularIcon className="fill-solid-slate-50" />

@@ -10,9 +10,6 @@ const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs)
         Analytics?.getFeatureValue(featureFlag),
     )
 
-    // eslint-disable-next-line no-console
-    console.log('debug log: useGrowthbookFeatureFlag: ', {featureFlagValue, featureFlag})
-
     useEffect(() => {
         // Set the renderer for GrowthBook to update the value when the feature flag changes
         Analytics.getInstances()?.ab?.GrowthBook?.setRenderer(() => {

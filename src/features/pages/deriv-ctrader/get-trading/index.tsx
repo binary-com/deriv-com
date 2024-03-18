@@ -6,17 +6,23 @@ import WindowsIcon from '../../../../images/svg/windows-icon.svg'
 import AndroidIcon from '../../../../images/svg/android-icon.svg'
 import BrowserIcon from '../../../../images/svg/browser-icon.svg'
 import GetAppMobileBG from '../../../../images/common/getAppMobileBG.png'
-import { DerivXLogo } from 'images/svg/deriv-x'
 import DerivCtraderQR from 'images/common/ctrader/derivCtraderQR.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { ctrader_android_url, ctrader_traders_hub_url, ctrader_windows_url } from 'common/constants'
+import MacIcon from 'images/svg/mac-icon.svg'
+import {
+    ctrader_android_url,
+    ctrader_traders_hub_url,
+    ctrader_windows_url,
+    ctrader_apple_store_url,
+} from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
+import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -52,6 +58,8 @@ const DerivCtraderApp = () => {
     const ctrader_apps_windows = useThirdPartyFlags('ctrader_apps.windows')
     const ctrader_apps_android = useThirdPartyFlags('ctrader_apps.android')
     const ctrader_apps_web_browser = useThirdPartyFlags('ctrader_apps.web_browser')
+    const ctrader_apps_store = useThirdPartyFlags('ctrader_apps.app_store')
+    const ctrader_apps_mac_os = useThirdPartyFlags('ctrader_apps.mac_os')
 
     const items: TDownloadColumnItem[] = [
         {
@@ -73,6 +81,18 @@ const DerivCtraderApp = () => {
             link: ctrader_windows_url,
             visibility: ctrader_apps_windows,
         },
+        {
+            text: 'App Store',
+            icon: AppleIcon,
+            link: ctrader_apple_store_url,
+            visibility: ctrader_apps_store,
+        },
+        {
+            text: 'macOS',
+            icon: MacIcon,
+            link: ctrader_apple_store_url,
+            visibility: ctrader_apps_mac_os,
+        },
     ]
 
     return (
@@ -88,8 +108,8 @@ const DerivCtraderApp = () => {
             >
                 <ContentWrapper is_rtl={is_rtl}>
                     <img
-                        src={DerivXLogo}
-                        alt={localize('_t_Deriv X logo_t_')}
+                        src={CTraderLogo}
+                        alt={localize('_t_Ctrader logo_t_')}
                         width="64px"
                         height="64px"
                     />
@@ -110,7 +130,7 @@ const DerivCtraderApp = () => {
                     is_rtl={is_rtl}
                     QRImage={DerivCtraderQR}
                     QRHeading1="_t_Scan to download Deriv cTrader_t_"
-                    QRHeading2={'_t_Android_t_'}
+                    QRHeading2={'_t_Android & App store_t_'}
                     items={items}
                 />
             </MultiWidthColumn>

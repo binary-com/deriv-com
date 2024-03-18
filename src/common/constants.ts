@@ -133,6 +133,7 @@ export const ctrader_ios_url =
 export const ctrader_web_browser_url = 'ct.deriv.com'
 export const ctrader_traders_hub_url = ' https://app.deriv.com/appstore/traders-hub'
 export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'
+export const ctrader_apple_store_url = ' https://apps.apple.com/us/app/deriv-ctrader/id6466996509'
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const map_api_key = MAP_API_KEY
 export const mga_link_url =

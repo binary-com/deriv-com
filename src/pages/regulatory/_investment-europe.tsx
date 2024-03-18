@@ -43,6 +43,7 @@ const InvestmentEurope = ({ locale }: { locale: RegulatoryProps }) => {
                         [
                             {
                                 className: `${styles.accordion_border}`,
+                                background: 'gray',
                                 content: function noRefCheck() {
                                     return (
                                         <>
@@ -74,6 +75,8 @@ const InvestmentEurope = ({ locale }: { locale: RegulatoryProps }) => {
 
                             {
                                 className: `${styles.accordion_border}`,
+                                background: 'gray',
+
                                 content: function noRefCheck() {
                                     return (
                                         <div>
@@ -85,6 +88,7 @@ const InvestmentEurope = ({ locale }: { locale: RegulatoryProps }) => {
                             },
                             {
                                 className: `${styles.accordion_border}`,
+                                background: 'gray',
                                 content: function noRefCheck() {
                                     const regulatoryDocuments = [
                                         {

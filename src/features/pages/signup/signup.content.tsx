@@ -36,7 +36,7 @@ const SignUpContent = () => {
             {...containerStylesOverride}
         >
             {/**
-             * This is for growthbook a/b testing in the LATAM region * More info in the growthbook dashboard
+             * This is for growthbook a/b testing in the LATAM region * More info in the growthbook  dashboard
              */}
             <Image
                 className={dclsx(signup_latam_human_image, {

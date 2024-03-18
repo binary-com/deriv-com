@@ -5,7 +5,6 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
-import WarningBanner from 'features/components/quill/layout-overlay/warning-banner'
 
 const LiveChat = Loadable(() => import('./livechat'))
 const WhatsApp = Loadable(() => import('./whatsapp'))

@@ -148,7 +148,7 @@ const SEO = ({
             { property: 'og:type', content: meta_attributes?.og_type || 'website' },
             { property: 'og:locale', content: lang },
             { property: 'og:image', content: TradingImage },
-            { property: 'og:image:width', content: meta_attributes?.og_img_width || '500' },
+            { property: 'og:image:width', content: meta_attributes?.og_img_width || '600' },
             { property: 'og:image:height', content: meta_attributes?.og_img_height || '315' },
             { name: 'twitter:card', content: 'summary' },
             { name: 'twitter:creator', content: queries.site.siteMetadata.author },

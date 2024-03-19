@@ -10,7 +10,7 @@ import { localize, Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
-import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
+import LeverageBalance from 'images/svg/markets/leveragebalance.svg'
 import useRegion from 'components/hooks/use-region'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
@@ -50,7 +50,7 @@ const crypto_content: SmartMarketItem[] = [
     {
         id: 1,
         data: {
-            src: Leverage,
+            src: LeverageBalance,
             text: '_t_1:2 leverage_t_',
             alt: '_t_1 to 100 leverage_t_',
         },

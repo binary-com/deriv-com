@@ -14,7 +14,8 @@ type LearnMoreProps = {
 
 const Wrapper = styled.div<{ in_trading_platforms?: boolean }>`
     position: absolute;
-    left: ${(props) => (props.in_trading_platforms ? '9rem' : '0')};
+    left: 0;
+    right: 0;
     bottom: -2rem;
     width: auto;
     opacity: 0;

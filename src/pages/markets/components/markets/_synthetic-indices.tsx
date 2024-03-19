@@ -41,14 +41,14 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
 
     return (
         <div>
-            <TradeDetails description="_t_Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks._t_" />
+            <TradeDetails description="_t_Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks._t_" />
             <AvailableTrades
                 CFDs={<CFDs market_content={cfds} />}
                 DigitalOptions={
                     <DigitalOptions market_name="synthetics" options_list={synthetic_options} />
                 }
                 Multipliers={<Multipliers is_crypto market_content={multiplier} />}
-                display_title="_t_Synthetics trades available on Deriv_t_"
+                display_title="_t_Synthetic indices trades available on Deriv_t_"
             />
             <Flex.Box
                 direction="col"
@@ -74,7 +74,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                     </LinkButton.Primary>
                 ) : null}
             </Flex.Box>
-            <FullWidthMultiColumn header="_t_Why trade synthetics on Deriv_t_">
+            <FullWidthMultiColumn header="_t_Why trade synthetic indices on Deriv_t_">
                 {synthetic_content.map(({ alt, src, text }) => (
                     <StyledBox
                         key={text}
@@ -84,7 +84,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 ))}
             </FullWidthMultiColumn>
             <SimpleSteps
-                header="_t_Start trading synthetics on Deriv in 3 simple steps_t_"
+                header="_t_Start trading synthetic indices on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

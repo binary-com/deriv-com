@@ -95,12 +95,12 @@ const StyledLink = styled(LocalizedLink)`
 
 const tab_list: TTabList[] = [
     {
-        title: '_t_Synthetics_t_',
+        title: '_t_Synthetic indices_t_',
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/#synthetic',
     },
     {
-        title: '_t_Baskets_t_',
+        title: '_t_Basket indices_t_',
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/#basket-indices',
     },
@@ -113,7 +113,7 @@ const tab_list: TTabList[] = [
 
 const tab_list_eu: TTabList[] = [
     {
-        title: '_t_Synthetics_t_',
+        title: '_t_Synthetic indices_t_',
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/#synthetic',
     },

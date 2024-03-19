@@ -32,10 +32,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.13,
             target_spread: 0.13,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -48,10 +48,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -62,12 +62,12 @@ const etfs_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.22,
-            target_spread: 0.22,
+            target_spread: 0.23,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -3,
             swap_short: -11,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -80,10 +80,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -96,10 +96,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.12,
             target_spread: 0.12,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -3,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -112,10 +112,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.12,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -128,10 +128,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -144,10 +144,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.16,
             target_spread: 0.16,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -160,10 +160,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.12,
             target_spread: 0.12,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -176,10 +176,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -192,10 +192,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.13,
             target_spread: 0.13,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -208,10 +208,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.24,
             target_spread: 0.25,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -4,
             swap_short: -14,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -224,10 +224,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -240,10 +240,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.16,
             target_spread: 0.16,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -256,10 +256,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.13,
             target_spread: 0.13,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -2,
             swap_short: -6,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -272,10 +272,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -288,10 +288,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -304,10 +304,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -320,10 +320,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -3,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -336,10 +336,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.24,
             target_spread: 0.24,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -4,
             swap_short: -14,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -352,10 +352,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -368,10 +368,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -381,13 +381,13 @@ const etfs_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
-            minimum_spread: 0.1,
-            target_spread: 0.1,
+            minimum_spread: 0.37,
+            target_spread: 0.37,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -400,10 +400,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -416,10 +416,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.12,
             target_spread: 0.12,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -432,10 +432,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.23,
             target_spread: 0.24,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -4,
             swap_short: -12,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -448,10 +448,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.17,
             target_spread: 0.17,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -4,
             swap_short: -13,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -464,10 +464,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -480,10 +480,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.12,
             target_spread: 0.12,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -496,10 +496,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -512,10 +512,10 @@ const etfs_specification: TSpecification = {
             minimum_spread: 0.14,
             target_spread: 0.14,
             max_effective_leverage: 5,
-            margin_requirement: '20.00',
+            margin_requirement: 20.0,
             swap_long: -2,
             swap_short: -6,
-            trading_hours: 'Mon-Fri\n14:35-21:00 GMT',
+            trading_hours: 'Mon-Fri\n13:30-20:00 GMT',
         },
     ],
     eu_data: [
@@ -533,7 +533,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -549,7 +549,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -2,
             swap_short: -5,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -560,12 +560,12 @@ const etfs_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.22,
-            target_spread: 0.22,
+            target_spread: 0.23,
             max_effective_leverage: 5,
             margin_requirement: '20.00',
             swap_long: -3,
             swap_short: -11,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -581,7 +581,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -597,7 +597,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -3,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -613,7 +613,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -629,7 +629,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -645,7 +645,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -2,
             swap_short: -5,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -661,7 +661,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -677,7 +677,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -693,7 +693,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -709,7 +709,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -4,
             swap_short: -14,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -725,7 +725,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -741,7 +741,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -2,
             swap_short: -7,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -757,7 +757,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -2,
             swap_short: -6,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -773,7 +773,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -789,7 +789,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -805,7 +805,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -821,7 +821,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -3,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -837,7 +837,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -4,
             swap_short: -14,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -853,7 +853,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -869,7 +869,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -879,13 +879,13 @@ const etfs_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
-            minimum_spread: 0.1,
-            target_spread: 0.1,
+            minimum_spread: 0.37,
+            target_spread: 0.37,
             max_effective_leverage: 5,
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -901,7 +901,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -917,7 +917,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -933,7 +933,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -4,
             swap_short: -12,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -949,7 +949,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -4,
             swap_short: -13,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -965,7 +965,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -981,7 +981,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -997,7 +997,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1013,7 +1013,7 @@ const etfs_specification: TSpecification = {
             margin_requirement: '20.00',
             swap_long: -2,
             swap_short: -6,
-            trading_hours: '14:35-21:00 GMT',
+            trading_hours: '13:30-20:00 GMT',
         },
     ],
 }

@@ -10,7 +10,8 @@ export const affiliate_validation_regex = {
         value.length <= 50,
     phone: (value: string) => /^\+?\d+$/.test(value),
     username: (value: string) => /^[A-Za-z0-9_]{3,20}$/.test(value),
-    password: (value: string) => /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]{6,50}$/.test(value),
+    password: (value: string) =>
+        /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.*\W)(?!.* ).{8,50}$/.test(value),
     city: (value: string) =>
         /^[\p{L}][\p{L}\s'.-]{0,49}$/u.test(value) &&
         value.trim().length >= 2 &&
@@ -86,8 +87,8 @@ const phoneValidation = (input: string) => {
     if (!input) {
         return localize('_t_Mobile number is required_t_')
     } else if (
-        input.length < 8 ||
-        input.length > 13 ||
+        input.length < 9 ||
+        input.length > 14 ||
         !affiliate_validation_regex.non_empty_string(input)
     ) {
         return localize('_t_You should enter 8-13 numbers._t_')
@@ -95,27 +96,16 @@ const phoneValidation = (input: string) => {
 }
 const passwordValidation = (input: string) => {
     if (!input) return localize('_t_Password is required_t_')
-    else if (input.length < 8 || input.length > 50) {
+    else if (input.length < 8 || input.length > 50)
         return localize('_t_You should enter 8-50 characters._t_')
-    } else if (
-        !affiliate_validation_regex.password(input) ||
-        !affiliate_validation_regex.non_empty_string(input)
-    ) {
+    else if (!affiliate_validation_regex.password(input))
         return localize(
             '_t_Password should have lower and uppercase English letters with numbers._t_',
         )
-    }
 }
 const postcodeValidation = (input: string) => {
-    if (!input) return localize('_t_Postcode is required_t_')
-    else if (input.length < 2 || input.length > 10) {
+    if (!affiliate_validation_regex.postal_code(input))
         return localize('_t_You should enter 2-10 numbers, characters._t_')
-    } else if (
-        !affiliate_validation_regex.postal_code(input) ||
-        !affiliate_validation_regex.non_empty_string(input)
-    ) {
-        return localize('_t_Please enter a valid postcode with Latin characters._t_')
-    }
 }
 const streetValidation = (input: string) => {
     if (!input) return localize('_t_Street is required_t_')

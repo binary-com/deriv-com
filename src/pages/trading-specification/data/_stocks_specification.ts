@@ -30,12 +30,12 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'AUD',
             minimum_size: 0.1,
-            minimum_spread: 1.45,
-            target_spread: 3.75,
+            minimum_spread: 1.35,
+            target_spread: 1.4,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -141.970269,
-            swap_short: 37.81013,
+            margin_requirement: 1,
+            swap_long: -196.3,
+            swap_short: -4.5,
             trading_hours:
                 'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
         },
@@ -49,11 +49,11 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.06,
-            target_spread: 0.2,
+            target_spread: 0.16,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -70.1,
-            swap_short: 16.6,
+            margin_requirement: 1,
+            swap_long: -32.6,
+            swap_short: 11.1,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -65,12 +65,12 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
-            minimum_spread: 0.98,
-            target_spread: 1.11,
+            minimum_spread: 0.78,
+            target_spread: 0.89,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -80.769103,
-            swap_short: 18.201047,
+            margin_requirement: 1,
+            swap_long: -113.52,
+            swap_short: -8.11,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -85,9 +85,9 @@ const stocks_specification: TSpecification = {
             minimum_spread: 1.08,
             target_spread: 1.91,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -134.988696,
-            swap_short: 30.419251,
+            margin_requirement: 1,
+            swap_long: -186.94,
+            swap_short: -13.35,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -100,11 +100,11 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.1,
-            target_spread: 1.14,
+            target_spread: 1.13,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -298.1979,
-            swap_short: 67.1979,
+            margin_requirement: 1,
+            swap_long: -412.12,
+            swap_short: -29.44,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -117,13 +117,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'JPY',
             minimum_size: 10,
             minimum_spread: 3.5,
-            target_spread: 5.1,
+            target_spread: 5.02,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -226.834832,
-            swap_short: -234.498501,
+            margin_requirement: 1,
+            swap_long: -500,
+            swap_short: -500,
             trading_hours:
-                'Sun 23:00-24:00 GMT\nMon-Thur 00:00-22:00, 23:00-24:00 GMT\nFri 00:00-22:00 GMT',
+                'Sun 22:00-24:00 GMT\nMon-Thur 00:00-21:00, 22:00-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
             instrument: {
@@ -134,12 +134,12 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
-            minimum_spread: 2.6,
-            target_spread: 5.48,
+            minimum_spread: 2.4,
+            target_spread: 4.89,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -181.263516,
-            swap_short: 40.847128,
+            margin_requirement: 1,
+            swap_long: -247.13,
+            swap_short: -17.65,
             trading_hours: 'Mon-Fri 08:00-19:00 GMT',
         },
         {
@@ -152,11 +152,11 @@ const stocks_specification: TSpecification = {
             base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.76,
-            target_spread: 1.98,
+            target_spread: 2.24,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -162.575577,
-            swap_short: 57.424892,
+            margin_requirement: 1,
+            swap_long: -215.54,
+            swap_short: 14.07,
             trading_hours:
                 'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:00 GMT',
         },
@@ -171,13 +171,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.2,
-            target_spread: 0.4,
+            target_spread: 0.39,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -103.916223,
-            swap_short: 38.575806,
+            margin_requirement: 1,
+            swap_long: -136.64,
+            swap_short: 10.09,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -189,14 +189,14 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
-            minimum_spread: 0.66,
-            target_spread: 1.3,
+            minimum_spread: 1.06,
+            target_spread: 1.34,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -366.551022,
-            swap_short: 136.071161,
+            margin_requirement: 1,
+            swap_long: -483.71,
+            swap_short: 35.73,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -209,13 +209,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.7,
-            target_spread: 3.5,
+            target_spread: 3.47,
             max_effective_leverage: 100,
-            margin_requirement: '1',
-            swap_long: -820.162427,
-            swap_short: 304.460899,
+            margin_requirement: 1,
+            swap_long: -1075.53,
+            swap_short: 79.44,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
+                'Sun 20:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -229,10 +229,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.11,
             target_spread: 0.11,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -246,10 +246,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.59,
             target_spread: 0.59,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -261,12 +261,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.41,
-            target_spread: 0.48,
+            target_spread: 0.47,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -25,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -280,10 +280,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 1.21,
             target_spread: 1.25,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2.7,
             swap_short: -9.1,
-            trading_hours: 'Mon-Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -295,12 +295,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.22,
-            target_spread: 0.23,
+            target_spread: 0.22,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -311,10 +311,10 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
-            minimum_spread: 0.48,
-            target_spread: 0.49,
+            minimum_spread: 0.46,
+            target_spread: 0.5,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -3.2,
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
@@ -331,7 +331,7 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.06,
             target_spread: 0.07,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -0.036,
             swap_short: 0.002,
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
@@ -346,12 +346,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.47,
-            target_spread: 0.48,
+            target_spread: 0.49,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -3,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -365,10 +365,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.61,
             target_spread: 0.61,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -5,
             swap_short: -17,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -380,12 +380,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.8,
-            target_spread: 0.87,
+            target_spread: 0.85,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -399,10 +399,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.57,
             target_spread: 0.57,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -416,10 +416,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.17,
             target_spread: 0.17,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -433,7 +433,7 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.33,
             target_spread: 0.34,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1.062,
             swap_short: 0.062,
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
@@ -447,13 +447,13 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
-            minimum_spread: 0.78,
-            target_spread: 1.04,
+            minimum_spread: 0.77,
+            target_spread: 1.06,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -464,13 +464,13 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
-            minimum_spread: 0.67,
-            target_spread: 0.69,
+            minimum_spread: 0.66,
+            target_spread: 0.67,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -0.8,
             swap_short: -2.5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -484,10 +484,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.24,
             target_spread: 0.24,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -501,7 +501,7 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.46,
             target_spread: 0.49,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1.455,
             swap_short: 0.084,
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
@@ -516,12 +516,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.69,
-            target_spread: 0.77,
+            target_spread: 0.76,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -535,10 +535,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.23,
             target_spread: 0.23,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -552,10 +552,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.17,
             target_spread: 0.17,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -569,7 +569,7 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.07,
             target_spread: 0.07,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -0.11,
             swap_short: -0.35,
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
@@ -586,10 +586,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.63,
             target_spread: 0.63,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -6,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -603,10 +603,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.24,
             target_spread: 0.24,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -618,12 +618,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.3,
-            target_spread: 1.37,
+            target_spread: 1.35,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -635,12 +635,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.82,
-            target_spread: 1.01,
+            target_spread: 0.94,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -654,10 +654,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.14,
             target_spread: 0.14,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -671,10 +671,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.2,
             target_spread: 0.2,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -688,10 +688,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.49,
             target_spread: 0.49,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -21,
             swap_short: -70,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -703,12 +703,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.39,
-            target_spread: 1.61,
+            target_spread: 1.55,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -3,
             swap_short: -11,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -720,12 +720,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.56,
-            target_spread: 0.67,
+            target_spread: 0.66,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -3,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -739,10 +739,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.13,
             target_spread: 0.13,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -754,12 +754,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.55,
-            target_spread: 0.57,
+            target_spread: 0.58,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -773,10 +773,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.22,
             target_spread: 0.22,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -790,10 +790,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.64,
             target_spread: 0.66,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -807,10 +807,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.61,
             target_spread: 0.62,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -824,10 +824,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.21,
             target_spread: 0.21,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -839,9 +839,9 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.07,
-            target_spread: 0.08,
+            target_spread: 0.07,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -0.19,
             swap_short: 0.011,
             trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
@@ -856,12 +856,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.18,
-            target_spread: 1.38,
+            target_spread: 1.35,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -4,
             swap_short: -12,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -873,12 +873,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.86,
-            target_spread: 0.93,
+            target_spread: 0.91,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -890,12 +890,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.73,
-            target_spread: 0.83,
+            target_spread: 0.81,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -909,10 +909,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 1.1,
             target_spread: 1.12,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -924,12 +924,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.76,
-            target_spread: 2.07,
+            target_spread: 2.06,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -5,
             swap_short: -17,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -943,10 +943,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.54,
             target_spread: 0.55,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -958,12 +958,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.34,
-            target_spread: 1.45,
+            target_spread: 1.5,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -5,
             swap_short: -17,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -975,12 +975,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.57,
-            target_spread: 0.6,
+            target_spread: 0.58,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -994,10 +994,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.19,
             target_spread: 0.19,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1011,10 +1011,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.56,
             target_spread: 0.57,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1026,12 +1026,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.34,
-            target_spread: 0.36,
+            target_spread: 0.35,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1.165,
             swap_short: 0.067,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon-Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -1043,12 +1043,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.43,
-            target_spread: 0.46,
+            target_spread: 0.45,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1.036,
             swap_short: 0.06,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon-Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -1062,10 +1062,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.72,
             target_spread: 0.72,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1079,10 +1079,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.52,
             target_spread: 0.55,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1096,10 +1096,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.1,
             target_spread: 0.1,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1111,12 +1111,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.11,
-            target_spread: 1.14,
+            target_spread: 1.13,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -6,
             swap_short: -20,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1130,10 +1130,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.15,
             target_spread: 0.15,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1145,12 +1145,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.75,
-            target_spread: 0.78,
+            target_spread: 0.79,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1164,10 +1164,10 @@ const stocks_specification: TSpecification = {
             minimum_spread: 0.53,
             target_spread: 0.54,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1179,12 +1179,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.58,
-            target_spread: 0.61,
+            target_spread: 0.6,
             max_effective_leverage: 50,
-            margin_requirement: '2',
+            margin_requirement: 2,
             swap_long: -3,
             swap_short: -11,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
     ],
 
@@ -1213,8 +1213,8 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
-            minimum_spread: 0.48,
-            target_spread: 0.49,
+            minimum_spread: 0.46,
+            target_spread: 0.5,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1,
@@ -1261,8 +1261,8 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 1,
-            minimum_spread: 0.67,
-            target_spread: 0.69,
+            minimum_spread: 0.66,
+            target_spread: 0.67,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -0.8,
@@ -1310,7 +1310,7 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.07,
-            target_spread: 0.08,
+            target_spread: 0.07,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -0.19,
@@ -1326,7 +1326,7 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.34,
-            target_spread: 0.36,
+            target_spread: 0.35,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1.165,
@@ -1342,7 +1342,7 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.43,
-            target_spread: 0.46,
+            target_spread: 0.45,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1.036,
@@ -1357,12 +1357,12 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'AUD',
             minimum_size: 0.1,
-            minimum_spread: 1.45,
-            target_spread: 3.75,
+            minimum_spread: 1.35,
+            target_spread: 1.4,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -141.970269,
-            swap_short: 37.81013,
+            swap_long: -196.3,
+            swap_short: -4.5,
             trading_hours:
                 'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
         },
@@ -1374,12 +1374,12 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
-            minimum_spread: 0.98,
-            target_spread: 1.11,
+            minimum_spread: 0.78,
+            target_spread: 0.89,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -80.769103,
-            swap_short: 18.201047,
+            swap_long: -113.52,
+            swap_short: -8.11,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -1394,8 +1394,8 @@ const stocks_specification: TSpecification = {
             target_spread: 1.91,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -134.988696,
-            swap_short: 30.419251,
+            swap_long: -186.94,
+            swap_short: -13.35,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -1407,11 +1407,11 @@ const stocks_specification: TSpecification = {
             base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.1,
-            target_spread: 1.14,
+            target_spread: 1.13,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -298.1979,
-            swap_short: 67.1979,
+            swap_long: -412.12,
+            swap_short: -29.44,
             trading_hours: 'Mon-Fri 07:00-21:00 GMT',
         },
         {
@@ -1423,13 +1423,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'JPY',
             minimum_size: 10,
             minimum_spread: 3.5,
-            target_spread: 5.1,
+            target_spread: 5.02,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -226.834832,
-            swap_short: -234.498501,
+            swap_long: -500,
+            swap_short: -500,
             trading_hours:
-                'Sun 23:00-24:00 GMT\nMon-Thur 00:00-22:00, 23:00-24:00 GMT\nFri 00:00-22:00 GMT',
+                'Sun 22:00-24:00 GMT\nMon-Thur 00:00-21:00, 22:00-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
             instrument: {
@@ -1439,12 +1439,12 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'EUR',
             minimum_size: 0.1,
-            minimum_spread: 2.6,
-            target_spread: 5.48,
+            minimum_spread: 2.4,
+            target_spread: 4.89,
             max_effective_leverage: 10,
             margin_requirement: '10.00',
-            swap_long: -181.263516,
-            swap_short: 40.847128,
+            swap_long: -247.13,
+            swap_short: -17.65,
             trading_hours: 'Mon-Fri 08:00-19:00 GMT',
         },
         {
@@ -1456,13 +1456,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.76,
-            target_spread: 1.98,
+            target_spread: 2.24,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -162.575577,
-            swap_short: 57.424892,
+            swap_long: -215.54,
+            swap_short: 14.07,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:00 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1473,13 +1473,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.2,
-            target_spread: 0.4,
+            target_spread: 0.39,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -103.916223,
-            swap_short: 38.575806,
+            swap_long: -136.64,
+            swap_short: 10.09,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1489,14 +1489,14 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 0.1,
-            minimum_spread: 0.66,
-            target_spread: 1.3,
+            minimum_spread: 1.06,
+            target_spread: 1.34,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -366.551022,
-            swap_short: 136.071161,
+            swap_long: -483.71,
+            swap_short: 35.73,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1507,13 +1507,13 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.7,
-            target_spread: 3.5,
+            target_spread: 3.47,
             max_effective_leverage: 20,
             margin_requirement: '5.00',
-            swap_long: -820.162427,
-            swap_short: 304.460899,
+            swap_long: -1075.53,
+            swap_short: 79.44,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:55 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1529,7 +1529,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1545,7 +1545,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1556,12 +1556,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.41,
-            target_spread: 0.48,
+            target_spread: 0.47,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -25,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1572,12 +1572,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.22,
-            target_spread: 0.23,
+            target_spread: 0.22,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1588,12 +1588,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.47,
-            target_spread: 0.48,
+            target_spread: 0.49,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -3,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1609,7 +1609,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -5,
             swap_short: -17,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1620,12 +1620,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.8,
-            target_spread: 0.87,
+            target_spread: 0.85,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1641,7 +1641,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1657,7 +1657,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1667,13 +1667,13 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
-            minimum_spread: 0.78,
-            target_spread: 1.04,
+            minimum_spread: 0.77,
+            target_spread: 1.06,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1689,7 +1689,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1700,12 +1700,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.69,
-            target_spread: 0.77,
+            target_spread: 0.76,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1721,7 +1721,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1737,7 +1737,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1753,7 +1753,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -6,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1769,7 +1769,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1780,12 +1780,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.3,
-            target_spread: 1.37,
+            target_spread: 1.35,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1796,12 +1796,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.82,
-            target_spread: 1.01,
+            target_spread: 0.94,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1817,7 +1817,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1833,7 +1833,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1849,7 +1849,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -21,
             swap_short: -70,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1860,12 +1860,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.39,
-            target_spread: 1.61,
+            target_spread: 1.55,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -11,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1876,12 +1876,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.56,
-            target_spread: 0.67,
+            target_spread: 0.66,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1897,7 +1897,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1908,12 +1908,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.55,
-            target_spread: 0.57,
+            target_spread: 0.58,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1929,7 +1929,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1945,7 +1945,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1961,7 +1961,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1977,7 +1977,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1988,12 +1988,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.18,
-            target_spread: 1.38,
+            target_spread: 1.35,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -4,
             swap_short: -12,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2004,12 +2004,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.86,
-            target_spread: 0.93,
+            target_spread: 0.91,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2020,12 +2020,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.73,
-            target_spread: 0.83,
+            target_spread: 0.81,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2041,7 +2041,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2052,12 +2052,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.76,
-            target_spread: 2.07,
+            target_spread: 2.06,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -5,
             swap_short: -17,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2073,7 +2073,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2084,12 +2084,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.34,
-            target_spread: 1.45,
+            target_spread: 1.5,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -5,
             swap_short: -17,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2100,12 +2100,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.57,
-            target_spread: 0.6,
+            target_spread: 0.58,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2121,7 +2121,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2137,7 +2137,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2153,7 +2153,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -8,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2169,7 +2169,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -5,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2185,7 +2185,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -1,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2196,12 +2196,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.11,
-            target_spread: 1.14,
+            target_spread: 1.13,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -6,
             swap_short: -20,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2217,7 +2217,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -2,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2228,12 +2228,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.75,
-            target_spread: 0.78,
+            target_spread: 0.79,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -2,
             swap_short: -7,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2249,7 +2249,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -4,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2260,12 +2260,12 @@ const stocks_specification: TSpecification = {
             base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.58,
-            target_spread: 0.61,
+            target_spread: 0.6,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -11,
-            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
     ],
 }

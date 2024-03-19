@@ -7,6 +7,7 @@ import {
     slider_button,
     slider_button_prev,
     slider_button_next,
+    swiper_wrapper,
 } from './styles.module.scss'
 import { PlatformType } from './types'
 import PlatformCard from './platform-card'
@@ -57,9 +58,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                                 },
                             },
                         }}
-                        className={dclsx(
-                            'at-padding-inline-5x at-padding-bottom-20x md-at-padding-bottom-10x',
-                        )}
+                        className={swiper_wrapper}
                     >
                         {data.map((slide) => (
                             <SwiperSlide key={slide.id} className={swiper_slide}>

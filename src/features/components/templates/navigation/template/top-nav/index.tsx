@@ -12,7 +12,7 @@ const TopNav = () => {
             <Link size="medium" url={{ type: 'internal', to: '/who-we-are/' }} font_family="UBUNTU">
                 <Localize translate_text="_t_Who we are_t_" />
             </Link>
-            <Link size="medium" url={{ type: 'internal', to: '/contact_us/' }} font_family="UBUNTU">
+            <Link size="medium" url={{ type: 'internal', to: '/contact-us/' }} font_family="UBUNTU">
                 <Localize translate_text="_t_Contact us_t_" />
             </Link>
         </Flex.Box>

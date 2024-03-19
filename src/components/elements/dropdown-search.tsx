@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import {
     Arrow,
@@ -41,6 +41,7 @@ const DropdownInput = styled.input<DropdownInputProps>`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
     ${(props) =>
         props.has_short_name &&
         css`
@@ -78,12 +79,19 @@ const DropdownSearch = ({
     onChange,
     selected_item,
     is_alternate_style,
+    onClearInput,
+    placeholder,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
         useDropdown(onChange)
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        !is_open && inputRef.current.blur()
+    }, [is_open])
 
     // Auto select default value
     useEffect(() => {
@@ -99,6 +107,7 @@ const DropdownSearch = ({
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
         toggleListVisibility(e)
+        onClearInput?.()
     }
 
     const handleSelectItem = (option: SelectedType, handled_error: FormikErrorsType) => {
@@ -139,6 +148,7 @@ const DropdownSearch = ({
                     </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
+                        ref={inputRef}
                         tabIndex={0}
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
@@ -149,7 +159,7 @@ const DropdownSearch = ({
                         value={input_value}
                         is_active={is_open}
                         is_alternate_style={is_alternate_style}
-                        placeholder={label}
+                        placeholder={placeholder}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />
                 </Flex>

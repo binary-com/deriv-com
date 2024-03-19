@@ -6,7 +6,7 @@ import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const HeroBanner = () => {
-    const is_eu = useRegion()
+    const { is_eu } = useRegion()
     return (
         <Hero.ContentLess
             className="gap-gap-lg px-general-md bg-background-primary-base"

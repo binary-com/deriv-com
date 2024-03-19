@@ -18,7 +18,7 @@ const TradingLimits = () => {
     const app_link = 'https://app.deriv.com/account/self-exclusion'
     const { locale } = useContext(LocaleContext)
     const localizedRedirectLink = replaceLocale(getDerivAppLocalizedURL(app_link, locale))
-    const is_eu = useRegion()
+    const { is_eu } = useRegion()
     return (
         <Features.ContentRight
             title={localize('_t_Trading limits and self-exclusion_t_')}

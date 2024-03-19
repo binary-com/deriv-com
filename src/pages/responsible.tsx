@@ -12,7 +12,7 @@ const SecureAndResponsible = () => {
 export default WithIntl()(SecureAndResponsible)
 
 export const Head = ({ pageContext }: TGatsbyHead) => {
-    const is_eu = useRegion()
+    const { is_eu } = useRegion()
     const metaDescription = is_eu
         ? '_t_Our goal is to provide you with a secure and responsible trading experience. Find out how we do this and how you can set trading limits._t_'
         : '_t_Our goal is to provide you with a secure and responsible trading experience. Learn how to secure your account and set trading limits._t_'

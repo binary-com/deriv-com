@@ -1,6 +1,10 @@
 import React from 'react'
 import AccumulatorsOptions from 'features/pages/options/accumulator'
 import { faq_schema } from 'features/pages/options/accumulator/_faq-schema'
+import {
+    how_to_trade_video_schema,
+    accumulator_options_video_schema,
+} from 'features/pages/options/accumulator/_video-schema'
 import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
@@ -27,5 +31,9 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
         pageContext={pageContext}
     >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+        <script type="application/ld+json">
+            {JSON.stringify(accumulator_options_video_schema)}
+        </script>
+        <script type="application/ld+json">{JSON.stringify(how_to_trade_video_schema)}</script>
     </SEO>
 )

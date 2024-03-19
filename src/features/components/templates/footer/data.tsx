@@ -44,7 +44,7 @@ export const RowFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 5,
-                        href: '/contact_us',
+                        href: '/contact-us',
                         text: <Localize translate_text="_t_Contact us_t_" />,
                     },
                     { id: 6, href: '/careers', text: <Localize translate_text="_t_Careers_t_" /> },
@@ -302,7 +302,7 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 5,
-                        href: '/contact_us',
+                        href: '/contact-us',
                         text: <Localize translate_text="_t_Contact us_t_" />,
                     },
                     { id: 6, href: '/careers', text: <Localize translate_text="_t_Careers_t_" /> },
@@ -549,6 +549,39 @@ export const socialButtonsEU = [
     {
         icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/deriv_eu/',
+        'data-cy': 'twitter',
+        'aria-label': 'twitter',
+    },
+    {
+        icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://www.youtube.com/@deriv',
+        'data-cy': 'youtube',
+        'aria-label': 'youtube',
+    },
+    {
+        icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://www.linkedin.com/company/derivdotcom/',
+        'data-cy': 'linkedin',
+        'aria-label': 'linkedin',
+    },
+]
+
+export const socialButtonsCPA = [
+    {
+        icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://www.facebook.com/derivdotcom',
+        'data-cy': 'facebook',
+        'aria-label': 'facebook',
+    },
+    {
+        icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://www.instagram.com/deriv_official',
+        'data-cy': 'instagram',
+        'aria-label': 'instagram',
+    },
+    {
+        icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://twitter.com/derivdotcom/',
         'data-cy': 'twitter',
         'aria-label': 'twitter',
     },

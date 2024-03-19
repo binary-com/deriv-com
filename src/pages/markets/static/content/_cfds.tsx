@@ -169,18 +169,30 @@ export const synthetic_cfds: TMarketContent = {
 
 export const synthetic_cfds_eu: TMarketContent = {
     has_global_accordion: true,
-    template: 3,
     markets_list: {
-        col: 2,
-        tablet_col: 2,
+        col: 3,
+        tablet_col: 3,
         mobile_col: 2,
     },
     content: [
+        {
+            id: 'drift-switch-indices',
+            title: '_t_Drift switching indices_t_',
+            instruments: <DriftSwitchIndices />,
+            details: <DriftSwitchDetails />,
+        },
+        {
+            id: 'dex-indices',
+            title: '_t_DEX indices_t_',
+            instruments: <DexIndices />,
+            details: <DexIndicesDetails />,
+        },
         {
             id: 'volatility-indices',
             title: '_t_Volatility indices_t_',
             instruments: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
+            content_template: 3,
         },
         {
             id: 'crash-boom',
@@ -188,6 +200,7 @@ export const synthetic_cfds_eu: TMarketContent = {
             mobile_title: '_t_Crash/Boom_t_',
             instruments: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
+            content_template: 3,
         },
     ],
 }

@@ -44,6 +44,16 @@ const kid_data: kidType[] = [
         ref: 'kid_deriv_cfds_etfs.pdf',
         is_only_en: true,
     },
+    {
+        title: '_t_CFDs - Synthetics: DEX_t_',
+        ref: 'kid_deriv_cfds_dex.pdf',
+        is_only_en: true,
+    },
+    {
+        title: '_t_CFDs - Synthetics: Drift Switch Index_t_',
+        ref: 'kid_deriv_cfds_dsi.pdf',
+        is_only_en: true,
+    },
 ]
 const kid_data_multiplier = [
     {

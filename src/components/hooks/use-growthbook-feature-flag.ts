@@ -1,29 +1,22 @@
 import { useState, useEffect } from 'react'
 import { Analytics } from '@deriv-com/analytics'
 
-interface UseGrowthbookFeatureFlagArgs<T> {
+interface UseGrowthbookFeatureFlagArgs {
     featureFlag: string
-    defaultValue: T
 }
 
-const useGrowthbookFeatureFlag = <T>({
-    featureFlag,
-    defaultValue,
-}: UseGrowthbookFeatureFlagArgs<T>) => {
-    const [featureFlagValue, setFeatureFlagValue] = useState<T>(defaultValue)
+const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs) => {
+    const [featureFlagValue, setFeatureFlagValue] = useState(
+        Analytics?.getFeatureValue(featureFlag),
+    )
 
     useEffect(() => {
-        const value = (Analytics?.getFeatureValue(featureFlag, defaultValue) || defaultValue) as T
-        setFeatureFlagValue(value)
-
         // Set the renderer for GrowthBook to update the value when the feature flag changes
         Analytics.getInstances()?.ab?.GrowthBook?.setRenderer(() => {
-            const value = (Analytics?.getFeatureValue(featureFlag, defaultValue) ||
-                defaultValue) as T
-
+            const value = Analytics?.getFeatureValue(featureFlag)
             setFeatureFlagValue(value)
         })
-    }, [featureFlag, defaultValue])
+    }, [featureFlag])
 
     return featureFlagValue
 }

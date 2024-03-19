@@ -39,7 +39,7 @@ const crypto_content: SmartMarketItem[] = [
     {
         id: 0,
         data: {
-            src: Leverage,
+            src: LeverageBalance,
             text: '_t_1:100 leverage_t_',
             alt: '_t_1 to 100 leverage_t_',
         },

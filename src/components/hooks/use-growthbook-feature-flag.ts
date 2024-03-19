@@ -12,16 +12,9 @@ const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs)
 
     const isFeatureOn = useMemo(() => typeof featureFlagValue !== 'undefined', [featureFlagValue])
 
-    console.log('this is my region ? =======>', Analytics.getInstances()?.ab?.GrowthBook?.ready)
-
     useEffect(() => {
         // Set the renderer for GrowthBook to update the value when the feature flag changes
-        Analytics.getInstances()?.ab?.GrowthBook?.setRenderer(() => {
-            console.log(
-                'this is my region ? =======>',
-                Analytics.getInstances()?.ab?.GrowthBook?.ready,
-            )
-
+        Analytics?.getInstances()?.ab?.GrowthBook?.setRenderer(() => {
             const value = Analytics?.getFeatureValue(featureFlag)
             setFeatureFlagValue(value)
         })

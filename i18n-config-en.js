@@ -1,4 +1,10 @@
 module.exports = {
+    ach: {
+        path: 'ach',
+        display_name: 'Crowdin',
+        short_name: 'CR',
+        affiliate_lang: -1,
+    },
     en: {
         is_default: true,
         path: 'en',

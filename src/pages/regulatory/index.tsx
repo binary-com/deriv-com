@@ -31,21 +31,14 @@ const Regulatory = (locale: RegulatoryProps) => {
         <Layout>
             <div className="bg-solid-slate-75">
                 <div className="max-w-[816px] mx-auto">
-                    <ContentText
+                    <Hero.ContentLess
                         className="bg-solid-slate-75 px-800 md:px-1200"
                         title={
                             <Heading>
                                 <Localize translate_text="_t_Regulatory information_t_" />
                             </Heading>
                         }
-                    >
-                        <Text className="text-center">
-                            <Localize translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements._t_" />
-                        </Text>
-                        <Text className="text-center pt-800">
-                            <Localize translate_text="_t_Here are our subsidiary companies with their respective registration and licensing information._t_" />
-                        </Text>
-                    </ContentText>
+                    ></Hero.ContentLess>
                 </div>
             </div>
             {is_region_loading ? <InitialLoader /> : investment_europe}

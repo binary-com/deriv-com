@@ -254,7 +254,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 content="_t_Trade on Deriv MT5, the all-in-one CFD trading platform._t_"
                                 title="_t_Deriv MT5_t_"
                                 onClick={handleArrowClick}
-                                to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
+                                to="/dmt5"
                             />
                         </Flex>
                         {is_row && (
@@ -512,7 +512,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Localize translate_text="_t_Why choose us_t_" />
                             </span>
                         </StyledLink>
-                        <StyledLink to="/contact_us/" onClick={handleArrowClick}>
+                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
                             <div>
                                 <img
                                     src={Contact}

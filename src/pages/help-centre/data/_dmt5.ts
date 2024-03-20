@@ -160,7 +160,7 @@ const dmt5: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: `${deriv_app_url}/mt5`,
+                                        to: traders_hub,
                                     },
                                 ],
                             },
@@ -206,9 +206,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>._t_',
                     has_margin_top: true,
-                    translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
                 {
                     translation_text:
@@ -257,7 +255,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can log in to your Deriv MT5 account via the MT5 desktop app, web terminal, or mobile app. You'll need the login ID and server name from <0>your Deriv MT5 dashboard</0>. Please remember to use your Deriv MT5 password to log in to Deriv MT5._t_",
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
@@ -271,7 +269,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can log in to your Deriv MT5 account via the MT5 desktop app, web terminal, or mobile app. You'll need the login ID and server name from your <0>Deriv MT5 dashboard</0>. Please remember to use your Deriv MT5 password to log in to Deriv MT5._t_",
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
@@ -286,7 +284,7 @@ const dmt5: TQuestionsData = {
                     translation_text:
                         '_t_You can set the investor password on your <0>Deriv MT5 dashboard</0>. Click <1>Password</1> on your Deriv MT5 account, and select <1>Investor password</1> to set a new password._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: `${deriv_app_url}/mt5` },
+                        { key: 0, type: 'link', to: traders_hub },
                         { key: 0, type: 'strong' },
                     ],
                 },
@@ -302,9 +300,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text: '_t_1. Go to your <0>Deriv MT5 dashboard</0>._t_',
                     has_margin_top: true,
-                    translation_components: [
-                        { key: 0, type: 'link', to: 'https://app.deriv.com/mt5' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
                 {
                     translation_text:
@@ -326,7 +322,7 @@ const dmt5: TQuestionsData = {
                     translation_text:
                         '_t_You can find your Deriv MT5 server name on your <0>Deriv MT5 dashboard</0>. Look for <1>server</1> in between the broker name and login ID._t_',
                     translation_components: [
-                        { key: 0, type: 'link', to: `${deriv_app_url}/mt5` },
+                        { key: 0, type: 'link', to: traders_hub },
                         { key: 1, type: 'strong' },
                     ],
                 },
@@ -342,7 +338,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         '_t_You can find your Deriv MT5 server name on your <0>Deriv MT5 dashboard</0>. Click Trade on your preferred MT5 account and look for the server below the broker name._t_',
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
@@ -403,7 +399,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can't reactivate your Deriv MT5 account. Instead, you can create a new one on your Deriv <0>MT5 dashboard</0>._t_",
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
@@ -417,7 +413,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can't reactivate your Deriv MT5 account. Instead, you can create a new one on your <0>Deriv MT5 dashboard</0>._t_",
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
@@ -430,7 +426,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_No, you can't. There's a fixed default amount for each asset. The leverage applied to your account can be found on your <0>Deriv MT5 dashboard</0>._t_",
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
@@ -478,7 +474,7 @@ const dmt5: TQuestionsData = {
                     translation_text:
                         "_t_If you need a statement for a more extended period, contact us via <0>live chat</0>, and we'll help you with it._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' },
+                        { key: 0, type: 'link', to: '/contact-us/?is_livechat_open=true' },
                     ],
                     has_margin_top: true,
                 },
@@ -514,7 +510,7 @@ const dmt5: TQuestionsData = {
                 {
                     translation_text:
                         "_t_You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll deactivate it automatically. You can still create a new one in the <0>Deriv MT5 dashboard</0>._t_",
-                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/mt5` }],
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },

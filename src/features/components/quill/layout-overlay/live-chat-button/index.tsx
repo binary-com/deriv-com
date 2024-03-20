@@ -6,6 +6,7 @@ import LiveChatHover from 'images/svg/layout/chat-hover.svg'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import widgetEvent from 'common/tracking-functions/widget'
 
 const LiveChatButton = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
@@ -115,7 +116,10 @@ const LiveChatButton = () => {
             {is_livechat_interactive ? (
                 <FloatingButton
                     className="gtm-deriv-livechat"
-                    onClick={() => LC_API.current.open_chat_window()}
+                    onClick={() => {
+                        LC_API.current.open_chat_window()
+                        widgetEvent('livechat')
+                    }}
                 >
                     {(has_hover) => (
                         <img

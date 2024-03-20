@@ -57,7 +57,7 @@ const useSignupForm = (options?: TSignupFormOptions) => {
 
     const onSignup = ({ email }: FormData) => {
         Analytics?.trackEvent('ce_virtual_signup_form', {
-            action: 'email_confirmation_sent',
+            action: 'started',
             signup_provider: 'email',
             ...analyticsData,
         })

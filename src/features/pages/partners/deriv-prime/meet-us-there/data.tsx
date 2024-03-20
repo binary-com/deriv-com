@@ -6,6 +6,7 @@ import { localize } from 'components/localization'
 
 export const expo_cards: ExpoCardTypes[] = [
     {
+        id: 1,
         title: 'iFX Expo Latam',
         date: '_t_9-11 April 2024_t_',
         image: (
@@ -20,6 +21,7 @@ export const expo_cards: ExpoCardTypes[] = [
         link: 'https://latam2024.ifxexpo.com/',
     },
     {
+        id: 2,
         title: 'iFX Expo Cyprus',
         date: '_t_18-20 June 2024_t_',
         image: (
@@ -34,6 +36,7 @@ export const expo_cards: ExpoCardTypes[] = [
         link: 'https://ifxexpo.com/',
     },
     {
+        id: 3,
         title: 'Forex Expo Dubai',
         date: '_t_7-8 October 2024_t_',
         image: (

@@ -4,6 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { TPilotDataProps } from '@deriv-com/components'
 import truspilotData from '../../../../data/trustpilot.json'
 import { Localize } from 'components/localization'
+import widgetEvent from 'common/tracking-functions/widget'
 
 const TrustpilotSection = () => {
     const { numberOfReviews, trustScore, stars }: TPilotDataProps = truspilotData
@@ -37,6 +38,9 @@ const TrustpilotSection = () => {
                     className="w-[98px] h-[24px]"
                 />
             }
+            onClick={() => {
+                widgetEvent('trustpilot')
+            }}
         />
     )
 }

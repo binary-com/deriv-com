@@ -5,18 +5,17 @@ export const mobileOSDetect = () => {
     if (/windows phone/i.test(userAgent)) {
         return 'Windows Phone'
     }
-
-    if (/android/i.test(userAgent)) {
-        return 'Android'
-    }
-
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
     if (/iPad|iPhone|iPod|Mac/.test(userAgent) && !window.MSStream) {
         return 'iOS'
     }
 
-    if (/huawei/.test(userAgent)) {
-        return 'Huawei'
+    if (/android/i.test(userAgent)) {
+        if (/huawei/.test(userAgent)) {
+            return 'Huawei'
+        } else {
+            return 'Android'
+        }
     }
+
     return 'unknown'
 }

@@ -10,6 +10,7 @@ export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 export const deriv_ctrader_app_id = 36218
+export const deriv_bot_app_id = 19111
 
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
@@ -35,6 +36,7 @@ const getDomainUrl = (): string =>
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
+    else if (isBrowser() && window.location.pathname === '/dbot/') return deriv_bot_app_id
     else return deriv_com_app_id
 }
 // '-eutestlink-' regex is meant to create test link for eu countries.

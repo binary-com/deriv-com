@@ -33,15 +33,15 @@ const Regulatory = (locale: RegulatoryProps) => {
                 <div className="max-w-[816px] mx-auto">
                     <Hero.ContentLess
                         className="bg-solid-slate-75 px-800 md:px-1200"
-                        title={
-                            <Heading>
-                                <Localize translate_text="_t_Regulatory information_t_" />
-                            </Heading>
-                        }
                         description={
                             <Text className="text-center">
                                 <Localize translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements._t_" />
                             </Text>
+                        }
+                        title={
+                            <Heading>
+                                <Localize translate_text="_t_Regulatory information_t_" />
+                            </Heading>
                         }
                     >
                         <Text className="text-center pt-800">

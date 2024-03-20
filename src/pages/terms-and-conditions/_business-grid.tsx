@@ -74,8 +74,8 @@ const BusinessGrid = () => {
         ? '/tnc/business-partners-general-terms.pdf'
         : '/tnc/business-partners-general-terms-eu.pdf'
     const affiliate_brokers_url_region = is_row
-        ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
-        : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
+        ? '/tnc/business-partners-affiliates-and-introducing-brokers-R23_12_1.pdf'
+        : '/tnc/business-partners-affiliates-and-introducing-brokers-E23_11_1(1).pdf'
     const api_user_url_region = is_row
         ? '/tnc/business-partners-api-user.pdf'
         : '/tnc/business-partners-api-user-eu.pdf'

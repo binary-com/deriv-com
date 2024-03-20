@@ -12,6 +12,12 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
+import { mobileOSDetect } from 'common/os-detect'
+import {
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+    deriv_go_playstore_url,
+} from 'common/constants'
 import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
@@ -112,6 +118,35 @@ const DHero = () => {
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
 
+    const handleGetTradingDesktop = () => {
+        const targetComponent = document.getElementById('target-component')
+        if (targetComponent) {
+            targetComponent.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    }
+
+    const handleGetTradingMobile = () => {
+        const os = mobileOSDetect()
+
+        switch (os) {
+            case 'Android':
+                window.open('https://play.google.com/store/apps/details?id=com.deriv.app', '_blank')
+                window.open(deriv_go_playstore_url, '_blank')
+                break
+            case 'iOS':
+                window.open(
+                    'https://apps.apple.com/my/app/deriv-go-online-trading-app/id1550561298',
+                    '_blank',
+                )
+                window.open(deriv_go_ios_url, '_blank')
+
+                break
+            case 'Huawei':
+                window.open('https://appgallery.huawei.com/app/C103801913', '_blank')
+                window.open(deriv_go_huaweiappgallery_url, '_blank')
+        }
+    }
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
@@ -130,7 +165,9 @@ const DHero = () => {
                         <BannerButtonWrapper>
                             {is_logged_in ? (
                                 <CreateAccountButton
-                                    onClick={handleGetTrading}
+                                    onClick={
+                                        is_mobile ? handleGetTradingMobile : handleGetTradingDesktop
+                                    }
                                     label="_t_Get Trading_t_"
                                     primary
                                     mobileFullWidth

@@ -21,6 +21,7 @@ import {
     address_hongkong,
     address_reading,
     address_berlin,
+    address_london,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -581,6 +582,45 @@ export const reading: LocationsType = {
     has_map: true,
 }
 
+export const london: LocationsType = {
+    name: 'london',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/london.jpg"
+            alt={localize('_t_Deriv’s London office at United Kingdom_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
+    job_location: 'London',
+    continent: 'europe',
+    display_continent: 'Europe',
+    link: '/careers/locations/london/',
+    display_name: 'London',
+    display_thumbnail_name: 'London',
+    display_title_name: 'London',
+    img_alt: 'Deriv’s London office at United Kingdom ',
+    map_office_name: 'Technologies Ltd',
+    country: 'UK',
+    flagIcon: UKFlagIcon,
+    thumbnail: 'thumbnail_london',
+    address: address_london,
+    first_p:
+        'Nestled in the heart of the city near Liverpool Street, Deriv Technologies Ltd is the core of our Compliance, Legal, Tax, and Internal Audit teams. Our London base is at the forefront of driving regulatory excellence, helping to fulfil Deriv’s principles of providing transparent and reliable trading services.',
+    first_img: 'living_in_london',
+    first_img_alt: 'Working at Deriv Technologies Ltd',
+    grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
+    grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
+    map: 'ChIJA8ZM6a8cdkgRn_SA0vQHDks',
+    map_text:
+        'Dive deep into the intricacies of legislative trends, craft innovative tax strategies, and lead rigorous internal audits. If you are highly motivated, have an eye for detail, and have a passion for regulatory practices, come and be part of a team that ensures Deriv’s adherence to the highest standards of compliance.',
+    google_map_link: 'https://maps.app.goo.gl/FrLLyhvMWw6B7qGW7',
+    badge: 'reading_great_place_to_work_badge',
+    badge_alt: 'London Great Place to Work 2023 Certification Badge',
+    has_iframe: true,
+    has_map: true,
+}
+
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
     hero_image: (
@@ -858,6 +898,7 @@ export const all_offices: LocationsType[] = [
     cyprus,
     guernsey,
     berlin,
+    london,
     reading,
     cyberjaya,
     ipoh,
@@ -877,6 +918,7 @@ export const all_offices: LocationsType[] = [
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
     reading: `${reading.display_name}, ${reading.country}`,
+    london: `${london.display_name}, ${london.country}`,
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,

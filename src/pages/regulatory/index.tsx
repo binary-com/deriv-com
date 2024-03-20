@@ -38,6 +38,14 @@ const Regulatory = (locale: RegulatoryProps) => {
                                 <Localize translate_text="_t_Regulatory information_t_" />
                             </Heading>
                         }
+                        description={
+                            <Text>
+                                <Localize
+                                    className="text-center"
+                                    translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements._t_"
+                                />
+                            </Text>
+                        }
                     ></Hero.ContentLess>
                 </div>
             </div>

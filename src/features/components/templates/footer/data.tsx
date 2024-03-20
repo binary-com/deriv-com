@@ -606,16 +606,45 @@ export const socialButtonsCareers = [
         'data-cy': 'facebook',
         'aria-label': 'facebook',
     },
-    {
-        icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
-        href: 'https://www.instagram.com/derivcareers/',
-        'data-cy': 'instagram',
-        'aria-label': 'instagram',
-    },
+
     {
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/life/',
         'data-cy': 'linkedin',
         'aria-label': 'linkedin',
     },
+    {
+        icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://www.instagram.com/derivcareers/',
+        'data-cy': 'instagram',
+        'aria-label': 'instagram',
+    },
 ]
+
+export const specialLanguageUrls = {
+    ar: {
+        instagram: 'https://www.instagram.com/deriv_ar/',
+        twitter: 'https://twitter.com/DerivArabic',
+        facebook: 'https://www.facebook.com/derivarabic',
+    },
+    fr: {
+        instagram: 'https://www.instagram.com/deriv_french/',
+        twitter: 'https://twitter.com/DerivFrench',
+        facebook: 'https://www.facebook.com/FrenchDeriv/',
+    },
+    ru: {
+        instagram: 'https://www.instagram.com/deriv_russian/',
+        twitter: 'https://twitter.com/DerivRussian',
+        facebook: 'https://www.facebook.com/RussianDeriv',
+    },
+    es: {
+        instagram: 'https://www.instagram.com/deriv_espanol/',
+        twitter: 'https://twitter.com/derivespanol',
+        facebook: 'https://www.facebook.com/derivespanol',
+    },
+    pt: {
+        instagram: 'https://www.instagram.com/deriv_portugues/',
+        twitter: 'https://twitter.com/DerivPortugues',
+        facebook: 'https://www.facebook.com/derivportugues',
+    },
+}

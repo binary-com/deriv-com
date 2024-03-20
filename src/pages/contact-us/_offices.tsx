@@ -6,7 +6,7 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { SectionContainer, Container, Flex, Box, Desktop, Mobile } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-
+// for smoke tests checking
 type GridLayoutProps = {
     children?: React.ReactNode | React.ReactChild
     row_gap?: string

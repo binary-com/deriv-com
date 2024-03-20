@@ -16,6 +16,5 @@ export const mobileOSDetect = () => {
             return 'Android'
         }
     }
-
     return 'unknown'
 }

@@ -113,7 +113,7 @@ const LiveMarketCard = <T extends MarketName>({
             onClickBuyButton: is_logged_in
                 ? handleRedirectToTradersHub
                 : () => {
-                      Analytics?.trackEvent('deriv_com_liveprice_cta', {
+                      Analytics?.trackEvent('ce_deriv_com_liveprice_cta', {
                           action: 'click',
                           button: 'buy',
                           instrument: data[key].sym,
@@ -123,7 +123,7 @@ const LiveMarketCard = <T extends MarketName>({
             onClickSellButton: is_logged_in
                 ? handleRedirectToTradersHub
                 : () => {
-                      Analytics?.trackEvent('deriv_com_liveprice_cta', {
+                      Analytics?.trackEvent('ce_deriv_com_liveprice_cta', {
                           action: 'click',
                           button: 'sell',
                           instrument: data[key].sym,

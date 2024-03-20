@@ -10,7 +10,10 @@ const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs)
         Analytics?.getFeatureValue(featureFlag),
     )
 
-    const isFeatureOn = useMemo(() => typeof featureFlagValue !== 'undefined', [featureFlagValue])
+    const isFeatureAvailable = useMemo(
+        () => typeof featureFlagValue !== 'undefined',
+        [featureFlagValue],
+    )
 
     useEffect(() => {
         // Set the renderer for GrowthBook to update the value when the feature flag changes
@@ -20,7 +23,7 @@ const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs)
         })
     }, [featureFlag])
 
-    return { isFeatureOn, featureFlagValue }
+    return { isFeatureAvailable, featureFlagValue }
 }
 
 export default useGrowthbookFeatureFlag

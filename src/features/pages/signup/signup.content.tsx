@@ -15,7 +15,7 @@ const SignUpContent = () => {
         })
 
     const {
-        isFeatureOn: growthbook_feature_is_on__show_signup_content_in_bullet_point,
+        isFeatureAvailable: growthbook_feature_is_available__show_signup_content_in_bullet_point,
         featureFlagValue: growthbook_feature_flag__show_signup_content_in_bullet_point,
     } = useGrowthbookFeatureFlag({
         featureFlag: 'deriv-com-show-signup-content-bullet-point',
@@ -53,7 +53,7 @@ const SignUpContent = () => {
             {/**
              *  Waiting for the feature flag to be ready before rendering the content
              */}
-            {growthbook_feature_is_on__show_signup_content_in_bullet_point ? (
+            {growthbook_feature_is_available__show_signup_content_in_bullet_point ? (
                 growthbook_feature_flag__show_signup_content_in_bullet_point ? (
                     <ExperimentalContent />
                 ) : (

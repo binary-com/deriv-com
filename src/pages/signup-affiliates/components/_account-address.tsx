@@ -7,6 +7,11 @@ import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import { TString } from 'types/generics'
+import { cpa_plan_countries, eu_countries } from 'common/country-base'
+
+type AccountAddressProps = WizardStepProps<'account_address'> & {
+    setIsCpaPlanAff: React.Dispatch<React.SetStateAction<boolean>>
+}
 
 const AccountAddress = ({
     is_individual,
@@ -14,7 +19,8 @@ const AccountAddress = ({
     residence_list,
     updateData,
     onValidate,
-}: WizardStepProps<'account_address'>) => {
+    setIsCpaPlanAff,
+}: AccountAddressProps) => {
     const [form_data, setFormData] = useState(affiliate_account.account_address)
     const [form_errors, setFormErrors] = useState({
         country_error_msg: affiliate_validation['country'](form_data['country']) ?? '',
@@ -40,6 +46,13 @@ const AccountAddress = ({
                 state_error_msg: 'State is not valid for this country',
             })
         }
+        setIsCpaPlanAff(
+            changed_country
+                ? cpa_plan_countries.includes(changed_country.symbol) ||
+                      eu_countries.includes(changed_country.symbol)
+                : false,
+        )
+
         setFormData({ ...form_data, country: changed_country })
     }
     const handleState = (changed_state) => {
@@ -111,7 +124,6 @@ const AccountAddress = ({
         const { name, value } = e.target
 
         setFormData((prev) => ({ ...prev, [name]: value }))
-
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value)
             setFormErrors((errors) => ({
@@ -145,7 +157,6 @@ const AccountAddress = ({
                                 error={form_errors[`${item.name}_error_msg`]}
                                 onChange={item.handler}
                                 style={{ marginTop: '16px' }}
-                                placeholder={localize(`_t_${item.label}_t_`)}
                             />
                         )
                     } else {

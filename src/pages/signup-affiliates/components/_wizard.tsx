@@ -47,6 +47,7 @@ const Wizard = ({
         },
         [step],
     )
+    const [is_cpa_plan_aff, setIsCpaPlanAff] = useState(false)
 
     return (
         <WizardComponent
@@ -72,6 +73,7 @@ const Wizard = ({
                 }}
                 onValidate={setNextBtnEnabled}
                 residence_list={residence_list}
+                setIsCpaPlanAff={setIsCpaPlanAff}
             />
             <AccountDetails
                 affiliate_account={affiliate_account}
@@ -83,6 +85,7 @@ const Wizard = ({
             />
             <AccountPlan
                 affiliate_account={affiliate_account}
+                is_cpa_plan_aff={is_cpa_plan_aff}
                 updateData={(value: AffiliateAccountTypes['account_plan']): void => {
                     updateAffiliateValues<'account_plan'>(value, 'account_plan')
                 }}

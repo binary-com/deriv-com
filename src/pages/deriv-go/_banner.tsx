@@ -134,10 +134,10 @@ const DHero = () => {
                 break
             case 'iOS':
                 window.open(deriv_go_ios_url, '_blank')
-
                 break
             case 'Huawei':
                 window.open(deriv_go_huaweiappgallery_url, '_blank')
+                break
         }
     }
 

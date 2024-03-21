@@ -35,9 +35,13 @@ const Login = (() => {
             : ''
 
         const sub_url = redirectToTradingPlatform()
-        console.log('login ==>', sub_url)
 
         const mutated_deriv_app_id = sub_url[0] === 'bot' ? 19111 : deriv_app_id
+        console.log('login ==>', {
+            sub_url: sub_url[0],
+            mutated_deriv_app_id,
+            yy: sub_url[0] === 'bot' ? 19111 : deriv_app_id,
+        })
 
         if (is_academy) {
             if (server_url && /qa/.test(server_url)) {

@@ -49,7 +49,7 @@ jobs:
                       core.setOutput("comment", comment);
 
             - name: Post Cloudflare Pages Preview comment
-              uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   header: Cloudflare Pages EU Preview Comment
                   number: ${{github.event.pull_request.user.login}}
@@ -168,7 +168,7 @@ jobs:
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
               if: success() || failure()
-              uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   header: Cloudflare Pages Preview Comment
                   number: ${{github.event.number}}

@@ -1,4 +1,10 @@
 module.exports = {
+    ach: {
+        path: 'ach',
+        display_name: 'Crowdin',
+        short_name: 'CR',
+        affiliate_lang: -1,
+    },
     en: {
         // language for the root path e.g. for www.deriv.com
         is_default: true,

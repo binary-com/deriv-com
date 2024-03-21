@@ -130,19 +130,13 @@ const DHero = () => {
 
         switch (os) {
             case 'Android':
-                window.open('https://play.google.com/store/apps/details?id=com.deriv.app', '_blank')
                 window.open(deriv_go_playstore_url, '_blank')
                 break
             case 'iOS':
-                window.open(
-                    'https://apps.apple.com/my/app/deriv-go-online-trading-app/id1550561298',
-                    '_blank',
-                )
                 window.open(deriv_go_ios_url, '_blank')
 
                 break
             case 'Huawei':
-                window.open('https://appgallery.huawei.com/app/C103801913', '_blank')
                 window.open(deriv_go_huaweiappgallery_url, '_blank')
         }
     }

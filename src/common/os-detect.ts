@@ -12,7 +12,7 @@ export const mobileOSDetect = () => {
     }
 
     if (/android/i.test(userAgent)) {
-        if (/huawei/.test(userAgent)) {
+        if (/huawei/i.test(userAgent)) {
             return 'Huawei'
         } else {
             return 'Android'

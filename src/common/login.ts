@@ -11,6 +11,8 @@ const Login = (() => {
     const url = isBrowser() && window.location.href
     const is_academy = isBrowser() && url.includes('academy')
 
+    console.log('login ==>', url)
+
     const redirectToLogin = () => {
         if (isStorageSupported(sessionStorage)) {
             window.location.href = loginUrl()
@@ -33,6 +35,9 @@ const Login = (() => {
             : ''
 
         const sub_url = redirectToTradingPlatform()
+        console.log('login ==>', sub_url)
+
+        const mutated_deriv_app_id = sub_url[0] === 'bot' ? 19111 : deriv_app_id
 
         if (is_academy) {
             if (server_url && /qa/.test(server_url)) {
@@ -43,7 +48,7 @@ const Login = (() => {
             if (server_url && /qa/.test(server_url)) {
                 return `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
             }
-            return `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
+            return `${oauth_url}/oauth2/authorize?app_id=${mutated_deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}&platform=${sub_url}`
         }
     }
 

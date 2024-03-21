@@ -9,7 +9,7 @@ type TextProps = {
 const DesktopText = ({ loss_percent }: TextProps) => {
     return (
         <div className="hidden sm:!block">
-            <Section className="bg-solid-slate-700 py-general-sm fixed left-general-none top-general-none w-full z-[60]">
+            <Section className="bg-solid-slate-700 py-general-md fixed left-general-none top-general-none w-full z-[60]">
                 <FluidContainer>
                     <Text className="text-solid-slate-50" size="sm">
                         <Localize

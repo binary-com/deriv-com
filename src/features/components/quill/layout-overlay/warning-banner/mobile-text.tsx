@@ -17,7 +17,7 @@ const MobileText = ({ loss_percent }: TextProps) => {
 
     return (
         <div className="block sm:!hidden">
-            <Section className="bg-solid-slate-700 py-general-sm fixed left-general-none top-general-none w-full z-[60]">
+            <Section className="bg-solid-slate-700 py-general-xs fixed left-general-none top-general-none w-full z-[60]">
                 <FluidContainer>
                     {expanded ? (
                         <Text className="text-solid-slate-50 text-50 leading-100">

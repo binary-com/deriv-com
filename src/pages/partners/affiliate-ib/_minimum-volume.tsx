@@ -140,7 +140,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center" mb="24px">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="_t_A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 10. The minimum volume required to receive the minimum commission of USD 0.01 is determined using this formula:_t_" />
+                                <Localize translate_text="_t_A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per 100,000 USD turnover will pay out a commission of 10 USD. The minimum volume required to receive the minimum commission of 0.01 USD is determined using this formula:_t_" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -150,7 +150,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center">
                         <LeftWrapper>
                             <Text size="16px">
-                                <Localize translate_text="_t_A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using this formula:_t_" />
+                                <Localize translate_text="_t_A deal for 1 lot of the Volatility Index 75 for a price of 500,000 USD per 100,000 USD turnover will pay out a commission of 5 USD. The minimum volume required to receive the minimum commission of 0.01 USD is determined using this formula:_t_" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -174,7 +174,7 @@ const firstCalculatedFormula: CalculatedFormulaType = {
                     next_operator: '✕',
                 },
                 {
-                    item: 'USD 100,000)',
+                    item: '100,000 USD)',
                     description: '_t_Adjusted volume_t_',
                     next_operator: '÷',
                 },
@@ -184,7 +184,7 @@ const firstCalculatedFormula: CalculatedFormulaType = {
                 },
             ],
             result: {
-                total: '_t_<0>USD 100</0> Volume_t_',
+                total: '_t_<0>100 USD</0> Volume_t_',
                 total_components: [<ResultStrong key={0} />],
             },
         },
@@ -192,12 +192,12 @@ const firstCalculatedFormula: CalculatedFormulaType = {
             totalItem: 2,
             formula: [
                 {
-                    item: 'USD 100',
+                    item: '100 USD',
                     description: '_t_Volume_t_',
                     next_operator: '÷',
                 },
                 {
-                    item: 'USD 50,000',
+                    item: '50,000 USD',
                     description: '_t_Spot price_t_',
                 },
             ],
@@ -221,7 +221,7 @@ const secondCalculatedFormula: CalculatedFormulaType = {
                     next_operator: '✕',
                 },
                 {
-                    item: 'USD 100,000)',
+                    item: '100,000 USD)',
                     description: '_t_Adjusted volume_t_',
                     next_operator: '÷',
                 },
@@ -231,7 +231,7 @@ const secondCalculatedFormula: CalculatedFormulaType = {
                 },
             ],
             result: {
-                total: '_t_<0>USD 200</0> Volume_t_',
+                total: '_t_<0>200 USD</0> Volume_t_',
                 total_components: [<ResultStrong key={0} />],
             },
         },
@@ -239,12 +239,12 @@ const secondCalculatedFormula: CalculatedFormulaType = {
             totalItem: 2,
             formula: [
                 {
-                    item: 'USD 200',
+                    item: '200 USD',
                     description: '_t_Volume_t_',
                     next_operator: '÷',
                 },
                 {
-                    item: 'USD 500,000',
+                    item: '500,000 USD',
                     description: '_t_Spot price_t_',
                 },
             ],

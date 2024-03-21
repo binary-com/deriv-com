@@ -32,7 +32,6 @@ module.exports = {
     },
     "trustpilot": true,
     "live_pricing": true,
-    "deriv_go_management_board": true,
     "google_signup": true,
     "apple_signup": true,
     "facebook_signup": true,

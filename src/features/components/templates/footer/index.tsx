@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import {
     EuFooterNavData,
@@ -7,6 +8,7 @@ import {
     socialButtonsEU,
     socialButtonsROW,
     socialButtonsCPA,
+    specialLanguageUrls,
     warnText,
 } from './data'
 // import { socialIconROW, socialIconEU, socialIconCareer } from './validate-social-icons-data'
@@ -17,12 +19,22 @@ import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
+const overrideWithLang = (buttons, lang) =>
+    buttons.map((button) =>
+        lang in specialLanguageUrls
+            ? button['aria-label'] in specialLanguageUrls[lang]
+                ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                : button
+            : button,
+    )
+
 export const MainFooter = () => {
-    const { is_eu, is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
+    const { is_eu, is_cpa_plan } = useRegion()
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
     const [nav_data, setNavData] = useState(RowFooterNavData)
+    const lang = Cookies.get('user_language') || 'en'
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -47,7 +59,8 @@ export const MainFooter = () => {
         const socialIconCPA = filterSocialIcons(cpa_social_media_icons, socialButtonsCPA)
 
         const region_buttons = is_eu ? socialIconEU : is_cpa_plan ? socialIconCPA : socialIconROW
-        setSocialButtons(is_career ? socialIconCareer : region_buttons)
+        const buttons = is_career ? socialIconCareer : region_buttons
+        setSocialButtons(overrideWithLang(buttons, lang))
         if (is_eu) setNavData(EuFooterNavData)
         setWarnText(!is_eu && !is_cpa_plan ? warnText : null)
     }, [

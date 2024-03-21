@@ -26,7 +26,7 @@ export interface HomeHeroProps {
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
     const [is_mounted] = usePageLoaded()
-    const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
+    const { visibilityPercentage, entryRef } = useFloatingCtaContext()
     const show_banner = useShowCfdBanner()
 
     return (
@@ -76,7 +76,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             <FloatingCta
                 style={{
                     transform: `translateY(${visibilityPercentage - 100}%)`,
-                    bottom: `${-68 + ctaBottom}px`,
+                    bottom: '-68px',
                 }}
             />
         </>

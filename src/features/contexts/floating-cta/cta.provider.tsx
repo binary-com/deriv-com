@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useContext, useEffect, useRef, useState } from 'react'
 import { useIntersectionObserver, useWindowSize } from 'usehooks-ts'
 import FloatingCtaContext from './cta.context'
 import useAuthCheck from 'components/hooks/use-auth-check'
@@ -8,7 +8,6 @@ type TFloatingCtaProps = {
 }
 
 const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
-    const [ctaBottom, setCtaBottom] = useState<number>(0)
     const [visibilityPercentage, setVisibilityPercentage] = useState(100)
     const [is_logged_in] = useAuthCheck()
     const entryRef = useRef<HTMLButtonElement | null>(null)
@@ -42,15 +41,9 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
         isExitVisible,
     ])
 
-    const ctaBottomHandler = useCallback((value: number) => {
-        setCtaBottom(value)
-    }, [])
-
     return (
         <FloatingCtaContext.Provider
             value={{
-                ctaBottom,
-                setCtaBottom: ctaBottomHandler,
                 entryRef,
                 visibilityPercentage,
                 exitRef,

@@ -35,7 +35,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 className={qtJoin(
                     'min-h-[587px] relative isolate overflow-hidden',
                     show_banner
-                        ? 'h-[calc(100vh-230px)] min-[402px]:h-[calc(100vh-212px)] sm:h-[calc(100vh-262px)] min-[708px]:h-[calc(100vh-240px)] min-[952px]:h-[calc(100vh-218px)]'
+                        ? 'h-[calc(100vh-222px)] min-[402px]:h-[calc(100vh-204px)] sm:h-[calc(100vh-278px)] min-[708px]:h-[calc(100vh-256px)] min-[952px]:h-[calc(100vh-234px)]'
                         : 'h-[calc(100vh-136px)]',
                 )}
             >

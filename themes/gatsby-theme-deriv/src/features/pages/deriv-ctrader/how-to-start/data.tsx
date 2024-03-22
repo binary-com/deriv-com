@@ -128,7 +128,6 @@ export const demo: TradingPlatformStepperViewType = [
                 url={{
                     type: 'company',
                     url_name: 'deriv_app_login',
-                    target: '_blank',
                 }}
             />,
             <Link
@@ -161,7 +160,6 @@ export const demo_mobile: TradingPlatformStepperViewType = [
                 url={{
                     type: 'company',
                     url_name: 'deriv_app_login',
-                    target: '_blank',
                 }}
             />,
             <Link
@@ -194,7 +192,6 @@ export const real: TradingPlatformStepperViewType = [
                 url={{
                     type: 'company',
                     url_name: 'deriv_app_login',
-                    target: '_blank',
                 }}
             />,
             <Link
@@ -227,7 +224,6 @@ export const real_mobile: TradingPlatformStepperViewType = [
                 url={{
                     type: 'company',
                     url_name: 'deriv_app_login',
-                    target: '_blank',
                 }}
             />,
             <Link

@@ -98,13 +98,6 @@ const DerivMT5GetApp = () => {
             visibility: mt5_apps_app_gallery,
         },
         {
-            text: 'Web Browser',
-            icon: BrowserIcon,
-            link: dmt5_web_browser_url,
-            smallText: '_t_Use it on your_t_',
-            visibility: mt5_apps_web_browser,
-        },
-        {
             text: 'Windows',
             icon: WinIcon,
             link: dmt5_windows,

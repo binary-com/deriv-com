@@ -1,11 +1,7 @@
 import React from 'react'
-<<<<<<< HEAD:themes/gatsby-theme-deriv/src/pages/derivx/_other-apps.tsx
-import { MT5Icon, DTIcon, DGoIcon, DBIcon } from '../../images/svg/deriv-x'
-=======
-import { MT5Icon, DTIcon, EZIcon, DGoIcon, DBIcon } from '../../images/svg/deriv-x'
-import ctIcon from '../../images/svg/ctrader/light-ctrader-logo.svg'
->>>>>>> master:src/pages/derivx/_other-apps.tsx
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
+import { MT5Icon, DTIcon, DGoIcon, DBIcon } from '../../images/svg/deriv-x'
+import ctIcon from '../../images/svg/ctrader/light-ctrader-logo.svg'
 
 const carouselData: TRenderableData[] = [
     {

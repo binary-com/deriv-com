@@ -3,15 +3,13 @@ import { isStorageSupported } from './storage'
 import { getCookiesFields, getCookiesObject, getDataLink, getDataObjFromCookies } from './cookies'
 import { getAppId } from './websocket/config'
 import { isBrowser, redirectToTradingPlatform } from './utility'
-import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
+import { brand_name, deriv_app_id, deriv_bot_app_id, oauth_url } from 'common/constants'
 
 export type TSocialProvider = 'google' | 'facebook' | 'apple'
 
 const Login = (() => {
     const url = isBrowser() && window.location.href
     const is_academy = isBrowser() && url.includes('academy')
-
-    console.log('login ==>', url)
 
     const redirectToLogin = () => {
         if (isStorageSupported(sessionStorage)) {
@@ -36,12 +34,7 @@ const Login = (() => {
 
         const sub_url = redirectToTradingPlatform()
 
-        const mutated_deriv_app_id = sub_url[0] === 'bot' ? 19111 : deriv_app_id
-        console.log('login ==>', {
-            sub_url: sub_url[0],
-            mutated_deriv_app_id,
-            yy: sub_url[0] === 'bot' ? 19111 : deriv_app_id,
-        })
+        const mutated_deriv_app_id = sub_url[0] === 'bot' ? deriv_bot_app_id : deriv_app_id
 
         if (is_academy) {
             if (server_url && /qa/.test(server_url)) {

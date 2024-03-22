@@ -17,7 +17,11 @@ const MobileText = ({ loss_percent }: TextProps) => {
 
     return (
         <div className="block sm:!hidden">
-            <Section className="bg-solid-slate-700 py-general-xs fixed left-general-none top-general-none w-full z-[60]">
+            <Section
+                className={qtJoin(
+                    'bg-solid-slate-700 py-general-xs fixed left-general-none top-general-none w-full z-[60]',
+                )}
+            >
                 <FluidContainer>
                     {expanded ? (
                         <Text className="text-solid-slate-50 text-50 leading-100">
@@ -49,7 +53,7 @@ const MobileText = ({ loss_percent }: TextProps) => {
             <div
                 className={qtJoin(
                     'w-full',
-                    expanded ? 'h-[184px] min-[402px]:h-[148px]' : 'h-[94px] min-[402px]:h-[76px]',
+                    expanded ? 'h-[158px] min-[402px]:h-[104px]' : 'h-[86px] min-[402px]:h-[68px]',
                 )}
             ></div>
         </div>

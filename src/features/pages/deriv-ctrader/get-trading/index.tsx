@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import GrayAngle30 from '../../../../images/common/gray-angle.png'
-import AppleIcon from '../../../../images/svg/apple-icon.svg'
 import WindowsIcon from '../../../../images/svg/windows-icon.svg'
 import AndroidIcon from '../../../../images/svg/android-icon.svg'
 import BrowserIcon from '../../../../images/svg/browser-icon.svg'
@@ -15,7 +14,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { ctrader_android_url, ctrader_traders_hub_url, ctrader_windows_url } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
@@ -104,6 +103,9 @@ const DerivCtraderApp = () => {
                             margin_title={is_mobile_or_tablet ? '0' : '0 0 18px'}
                             line_height_title={is_mobile_or_tablet ? '50px' : 'normal'}
                         />
+                        <h2 className="text-[32px] md:text-[64px] text-center md:rtl:text-right md:text-left w-full md:mb-[50px] leading-[50px] md:leading-[normal]">
+                            <Localize translate_text="_t_Get trading with Deriv cTrader_t_" />
+                        </h2>
                     </TextAndButtonWrapper>
                 </ContentWrapper>
                 <DownloadColumn

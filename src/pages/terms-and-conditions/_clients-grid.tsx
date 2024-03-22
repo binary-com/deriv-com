@@ -149,6 +149,12 @@ const columns: ColProps[] = [
         Icon: BFX,
         title: '_t_Additional terms_t_',
         content: '_t_Additional terms and restrictions for Deriv clients in certain countries_t_',
+        eu_links: [
+            {
+                url: '/tnc/deriv-investments-(europe)-limited-eu.pdf',
+                title: '_t_Deriv Investments (Europe) Limited_t_',
+            },
+        ],
         non_eu_links: [
             {
                 url: '/tnc/deriv-(fx)-ltd.pdf',

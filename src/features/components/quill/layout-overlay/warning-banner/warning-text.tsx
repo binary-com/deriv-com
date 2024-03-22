@@ -4,7 +4,6 @@ import { FluidContainer, qtJoin, Text } from '@deriv/quill-design'
 import { useWindowSize } from 'usehooks-ts'
 // eslint-disable-next-line import/no-unresolved
 import { LabelPairedChevronDownMdRegularIcon } from '@deriv/quill-icons/LabelPaired'
-import { MobileText } from './mobile-text'
 import DesktopText from './desktop-text'
 import { Localize } from 'components/localization'
 

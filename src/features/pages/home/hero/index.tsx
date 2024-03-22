@@ -34,9 +34,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             <Section
                 className={qtJoin(
                     'min-h-[587px] relative isolate overflow-hidden',
-                    show_banner
-                        ? 'h-[calc(100vh-222px)] min-[402px]:h-[calc(100vh-204px)] sm:h-[calc(100vh-278px)] min-[708px]:h-[calc(100vh-256px)] min-[952px]:h-[calc(100vh-234px)]'
-                        : 'h-[calc(100vh-136px)]',
+                    show_banner ? 'h-[calc(100vh-var(--hero-offset))]' : 'h-[calc(100vh-136px)]',
                 )}
             >
                 <StaticImage

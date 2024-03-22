@@ -606,18 +606,17 @@ export const socialButtonsCareers = [
         'data-cy': 'facebook',
         'aria-label': 'facebook',
     },
-
-    {
-        icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
-        href: 'https://www.linkedin.com/company/derivdotcom/life/',
-        'data-cy': 'linkedin',
-        'aria-label': 'linkedin',
-    },
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/derivcareers/',
         'data-cy': 'instagram',
         'aria-label': 'instagram',
+    },
+    {
+        icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://www.linkedin.com/company/derivdotcom/life/',
+        'data-cy': 'linkedin',
+        'aria-label': 'linkedin',
     },
 ]
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import GrayAngle30 from '../../../../images/common/gray-angle.png'
 import AppleIcon from '../../../../images/svg/apple-icon.svg'
@@ -48,10 +48,23 @@ const Wrapper = styled.div`
 
 const DerivCtraderApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
     const is_rtl = useIsRtl()
     const ctrader_apps_windows = useThirdPartyFlags('ctrader_apps.windows')
     const ctrader_apps_android = useThirdPartyFlags('ctrader_apps.android')
     const ctrader_apps_web_browser = useThirdPartyFlags('ctrader_apps.web_browser')
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768)
+        }
+
+        window.addEventListener('resize', handleResize)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        }
+    }, [])
 
     const items: TDownloadColumnItem[] = [
         {
@@ -83,8 +96,6 @@ const DerivCtraderApp = () => {
                 firstColumnWidth="58%"
                 secondColumnWidth="42%"
                 mobileBackgroundImage={GetAppMobileBG}
-                mobilePadding="25px 0 120px 0"
-                secondColumnMobileMargin="95px 0 0"
             >
                 <ContentWrapper is_rtl={is_rtl}>
                     <img
@@ -96,12 +107,13 @@ const DerivCtraderApp = () => {
                     <TextAndButtonWrapper>
                         <CommonHeaderSection
                             title="_t_Get trading with Deriv cTrader_t_"
-                            title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
+                            title_font_size={isMobile ? '32px' : '64px'}
                             align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
                             width="100%"
                             font_family_title="Ubuntu"
                             color="#fff"
-                            margin_title="0 0 18px"
+                            margin_title={is_mobile_or_tablet ? '0' : '0 0 18px'}
+                            line_height_title={is_mobile_or_tablet ? '50px' : 'normal'}
                         />
                     </TextAndButtonWrapper>
                 </ContentWrapper>

@@ -114,4 +114,10 @@ module.exports = {
         short_name: 'SW',
         affiliate_lang: 18,
     },
+    mn: {
+        path: 'mn',
+        displayName: 'монгол',
+        shortName: 'MN',
+        affiliateLang: 19,
+    },
 }

@@ -4,6 +4,7 @@ import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
 import BrowserUpdateAlert from '../browser-update-alert'
 import LayoutOverlay from '../layout-overlay'
 import GatsbySharedLink from '../shared-link'
+import WarningBanner from '../layout-overlay/warning-banner'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { getLanguage, isBrowser } from 'common/utility'
@@ -71,6 +72,7 @@ const QuillLayout = ({
                     <BreakpointProvider>
                         <ThemeProvider theme="light">
                             <FloatingCtaProvider>
+                                <WarningBanner />
                                 <main className="relative max-w-[256rem] mx-auto">{children}</main>
                                 <BrowserUpdateAlert />
                                 {!hide_layout_overlay && <LayoutOverlay />}

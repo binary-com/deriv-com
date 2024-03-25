@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
-import CfdWarningBanner from 'features/components/molecules/layout-overlay/cfd-warning-banner'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
 const LiveChat = Loadable(() => import('./livechat'))
@@ -31,7 +30,6 @@ const LayoutOverlay = () => {
             {isLiveChat && <LiveChat />}
             {isWhatsappChat && <WhatsApp />}
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
-            <CfdWarningBanner />
         </OverlayContainer>
     )
 }

@@ -12,9 +12,9 @@ const InvestmentEurope = ({ locale }: { locale: RegulatoryProps }) => {
     return (
         <>
             <div className="max-w-[1232px] mx-auto py-2400 md:py-3600 px-800 md:px-1200 lg:px-50">
-                <Heading.H1 className={styles.heading_alignment}>
+                <Heading.H2 className={styles.heading_alignment}>
                     Deriv Investments (Europe) Limited
-                </Heading.H1>
+                </Heading.H2>
                 <Text className={styles.text_alignment_with_padding}>
                     <Localize
                         translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (<0>view licence</0>). It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights._t_"

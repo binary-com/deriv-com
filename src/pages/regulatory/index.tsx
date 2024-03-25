@@ -236,8 +236,8 @@ export default WithIntl()(Regulatory)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
-        title="_t_Licence and regulatory information | Deriv_t_"
-        description="_t_Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions._t_"
+        title="_t_Financial Regulators Information | Deriv_t_"
+        description="_t_At Deriv, we adhere to the most stringent ethical standards. Learn more about our licensing, financial regulators, and regulatory information._t_"
         pageContext={pageContext}
     />
 )

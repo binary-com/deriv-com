@@ -38,6 +38,9 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
 
     const params = new URLSearchParams(isBrowser() && location.search)
     const codeValue = params.get('code')
+    const utm_source = params.get('utm_source')
+    const utm_campaign = params.get('utm_campaign')
+    const utm_medium = params.get('utm_medium')
 
     const GetDerivAcademy = () => {
         apiManager
@@ -47,6 +50,9 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                 client_password: password,
                 residence: residence,
                 verification_code: codeValue,
+                utm_source: utm_source,
+                utm_campaign: utm_campaign,
+                utm_medium: utm_medium,
             })
             .then((response) => {
                 console.log(response)

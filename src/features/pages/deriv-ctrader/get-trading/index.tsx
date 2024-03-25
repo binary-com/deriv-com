@@ -101,8 +101,7 @@ const DerivCtraderApp = () => {
                             width="100%"
                             font_family_title="Ubuntu"
                             color="#fff"
-                            margin_title={is_mobile_or_tablet ? '0' : '0 0 18px'}
-                            line_height_title={is_mobile_or_tablet ? '50px' : 'normal'}
+                            margin_title="0 0 18px"
                         />
                     </TextAndButtonWrapper>
                 </ContentWrapper>

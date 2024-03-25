@@ -2,12 +2,14 @@ import React, { ReactNode, useContext, useEffect, useRef, useState } from 'react
 import { useIntersectionObserver, useWindowSize } from 'usehooks-ts'
 import FloatingCtaContext from './cta.context'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import useRegion from 'components/hooks/use-region'
 
 type TFloatingCtaProps = {
     children: ReactNode
 }
 
 const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
+    const { is_eu, is_cpa_plan } = useRegion()
     const [visibilityPercentage, setVisibilityPercentage] = useState(100)
     const [is_logged_in] = useAuthCheck()
     const entryRef = useRef<HTMLButtonElement | null>(null)
@@ -15,7 +17,7 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const { width } = useWindowSize()
     const entry = useIntersectionObserver(entryRef, {
         threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: '-80px 0px 0px 0px',
+        rootMargin: is_eu || is_cpa_plan ? '-140px 0px 0px 0px' : '-80px 0px 0px 0px',
     })
     const exit = useIntersectionObserver(exitRef, {
         threshold: 0,
@@ -23,7 +25,10 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const isExitVisible = !!exit?.isIntersecting
 
     useEffect(() => {
-        if (width < 1024 && !is_logged_in) {
+        const buttonRect = entryRef.current.getBoundingClientRect()
+        const isButtonVisible = buttonRect.top >= 0 && buttonRect.bottom <= window.innerHeight
+
+        if (isButtonVisible && width < 1024 && !is_logged_in) {
             const targetHeight = entry?.boundingClientRect?.height
             const intersectionHeight = entry?.intersectionRect?.height
             const percentage = (intersectionHeight / targetHeight) * 100

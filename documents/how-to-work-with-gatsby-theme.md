@@ -53,6 +53,8 @@ const Hero = () => {
 
 **Basically, use this hook instead of `useRegion` hook and the we can use `region==="row"` instead of `is_row` and `region==="eu"` instead of`is_eu`**
 
+Now, you will have two different test link for ROW and EU in your PR. Such as: [https://row-pr-00-theme-docs.deriv-com-preview-links.pages.dev](https://row-pr-00-theme-docs.deriv-com-preview-links.pages.dev) and [https://eu-pr-00-theme-docs.deriv-com-preview-links.pages.dev](https://eu-pr-00-theme-docs.deriv-com-preview-links.pages.dev)
+
 
 ## Learn more about gatsby theme
 

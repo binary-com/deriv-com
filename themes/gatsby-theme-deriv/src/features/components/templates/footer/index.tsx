@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtJoin } from '@deriv/quill-design'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
+import { getLocationPathname } from 'common/utility'
+import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
 import {
     EuFooterNavData,
     RowFooterNavData,
@@ -8,23 +13,30 @@ import {
     socialButtonsEU,
     socialButtonsROW,
     socialButtonsCPA,
+    specialLanguageUrls,
     warnText,
 } from './data'
 // import { socialIconROW, socialIconEU, socialIconCareer } from './validate-social-icons-data'
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
-import useRegion from 'components/hooks/use-region'
-import { getLocationPathname } from 'common/utility'
-import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
-import useBuildVariant from 'features/hooks/use-build-variant'
+
+const overrideWithLang = (buttons, lang) =>
+    buttons.map((button) =>
+        lang in specialLanguageUrls
+            ? button['aria-label'] in specialLanguageUrls[lang]
+                ? { ...button, href: specialLanguageUrls[lang][button['aria-label']] }
+                : button
+            : button,
+    )
 
 export const MainFooter = () => {
     const { region } = useBuildVariant()
-    const { is_cpa_plan } = useRegion()
     const [is_career, setIsCareer] = useState(false)
+    const { is_cpa_plan } = useRegion()
     const [social_buttons, setSocialButtons] = useState(socialButtonsROW)
     const [warn_text, setWarnText] = useState(warnText)
+    const lang = Cookies.get('user_language') || 'en'
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -48,18 +60,19 @@ export const MainFooter = () => {
         const socialIconCareer = filterSocialIcons(career_social_media_icons, socialButtonsCareers)
         const socialIconCPA = filterSocialIcons(cpa_social_media_icons, socialButtonsCPA)
 
-        const cpaAndRowBtns = is_cpa_plan ? socialIconCPA : socialIconROW
-        const region_buttons = region === "eu" ? socialIconEU : cpaAndRowBtns
-        setSocialButtons(is_career ? socialIconCareer : region_buttons)
+        const region_buttons = region === "eu" ? socialIconEU : is_cpa_plan ? socialIconCPA : socialIconROW
+        const buttons = is_career ? socialIconCareer : region_buttons
+        setSocialButtons(overrideWithLang(buttons, lang))
         setWarnText(region !== "eu" && !is_cpa_plan ? warnText : null)
     }, [
+        lang,
         region,
         is_cpa_plan,
         is_career,
         career_social_media_icons,
         row_social_media_icons,
         eu_social_media_icons,
-        cpa_social_media_icons
+        cpa_social_media_icons,
     ])
 
     return (

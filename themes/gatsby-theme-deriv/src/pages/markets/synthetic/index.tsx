@@ -14,7 +14,6 @@ const Markets = ({pageContext}: TGatsbyHead) => {
     const {region} = pageContext
     
     const { is_deriv_go } = usePlatformQueryParam()
-<<<<<<< HEAD:src/pages/markets/synthetic/index.tsx
     const [description, setDescription] = useState<TString>(
         '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_',
     )
@@ -26,11 +25,6 @@ const Markets = ({pageContext}: TGatsbyHead) => {
             )
         }
     }, [is_eu])
-=======
-    const description = region === 'eu' ?
-        '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_' :
-        '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_'
->>>>>>> master:themes/gatsby-theme-deriv/src/pages/markets/synthetic/index.tsx
 
     return (
         <Layout type="noNav" padding_top="0" region={region}>

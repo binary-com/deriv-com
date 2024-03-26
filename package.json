@@ -59,6 +59,7 @@
         "lodash.isequal": "^4.5.0",
         "lottie-web": "^5.12.2",
         "match-sorter": "^6.3.1",
+        "moment": "^2.30.1",
         "npm": "^9.9.2",
         "p-min-delay": "^4.0.2",
         "postcss-discard-duplicates": "^5.1.0",

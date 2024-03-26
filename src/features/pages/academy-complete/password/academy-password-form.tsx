@@ -50,9 +50,9 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
                 client_password: password,
                 residence: residence,
                 verification_code: codeValue,
-                utm_source: utm_source,
-                utm_campaign: utm_campaign,
-                utm_medium: utm_medium,
+                // utm_source: utm_source,
+                // utm_campaign: utm_campaign,
+                // utm_medium: utm_medium,
             })
             .then((response) => {
                 console.log(response)

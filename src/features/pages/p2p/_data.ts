@@ -1,3 +1,4 @@
+import type { RoadmapType } from 'features/components/organisms/roadmap'
 import GPlayIcon from 'images/svg/p2p/gplay_icon.svg'
 import AppStoreIcon from 'images/svg/p2p/apple_store_icon.svg'
 import AppGalleryIcon from 'images/svg/p2p/app_gallery_icon.svg'
@@ -11,7 +12,6 @@ import {
 import P2PImage from 'images/svg/p2p/deriv_p2p.svg'
 import p2pQrImage from 'images/svg/p2p/p2p_qr.svg'
 import type { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
-import type { RoadmapType } from 'features/components/organisms/roadmap'
 
 export const banner_data: BannerType = {
     information: {

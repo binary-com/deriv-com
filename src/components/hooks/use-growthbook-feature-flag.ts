@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { Analytics } from '@deriv-com/analytics'
 
 interface UseGrowthbookFeatureFlagArgs {
@@ -9,11 +9,7 @@ const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs)
     const [featureFlagValue, setFeatureFlagValue] = useState(
         Analytics?.getFeatureValue(featureFlag),
     )
-
-    const isFeatureAvailable = useMemo(
-        () => typeof featureFlagValue !== 'undefined',
-        [featureFlagValue],
-    )
+    const [isFeatureAvailable, setIsFeatureAvailable] = useState<boolean>(false)
 
     useEffect(() => {
         // Set the renderer for GrowthBook to update the value when the feature flag changes
@@ -22,6 +18,12 @@ const useGrowthbookFeatureFlag = ({ featureFlag }: UseGrowthbookFeatureFlagArgs)
             setFeatureFlagValue(value)
         })
     }, [featureFlag])
+
+    useEffect(() => {
+        if (typeof featureFlagValue !== 'undefined') {
+            setIsFeatureAvailable(true)
+        }
+    }, [featureFlagValue])
 
     return { isFeatureAvailable, featureFlagValue }
 }

@@ -4,7 +4,7 @@ preserve_hierarchy: true
 
 files:
     - source: /crowdin/messages.json
-      translation: /src/translations/%two_letters_code%.json
+      translation: /themes/gatsby-theme-deriv/src/translations/%two_letters_code%.json
       languages_mapping:
           two_letters_code:
               zh-CN: zh_cn

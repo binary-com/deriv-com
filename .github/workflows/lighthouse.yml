@@ -37,7 +37,7 @@ jobs:
 
             - name: Add comment to PR
               id: loading_comment_to_pr
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   number: ${{ steps.pr_information.outputs.issue_number }}
@@ -98,7 +98,7 @@ jobs:
 
             - name: Add comment to PR
               id: comment_to_pr
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   number: ${{ github.event.issue.number }}

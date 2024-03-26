@@ -57,14 +57,6 @@ jobs:
             - name: Setup node
               uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8
 
-            - name: Create npmrc file
-              shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
-
-            - name: Setup install read-only token for deriv-com org
-              shell: bash
-              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
-
             - name: Get build output from master cache
               uses: actions/cache/restore@e12d46a63a90f2fae62d114769bbf2a179198b5c
               with:

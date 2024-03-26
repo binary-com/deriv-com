@@ -1,4 +1,4 @@
-name: Test production CF for Row
+name: Production CF for Row
 
 on:
   push:
@@ -36,13 +36,6 @@ jobs:
               with:
                   node-version: '18.x'
                   cache: 'npm'
-
-            - name: Set version env variable
-              run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-            - name: Create npmrc file
-              shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
 
             - name: Setup install read-only token for deriv-com org
               shell: bash

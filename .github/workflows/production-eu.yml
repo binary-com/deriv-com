@@ -1,4 +1,4 @@
-name: Test production CF for EU
+name: Production CF for EU
 
 on:
   push:
@@ -39,14 +39,6 @@ jobs:
 
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-            - name: Create npmrc file
-              shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
-
-            - name: Setup install read-only token for deriv-com org
-              shell: bash
-              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
             - run: npm ci
             - run: npm run format

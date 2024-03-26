@@ -7,12 +7,17 @@ import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
+import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
 const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 5000))
+const WarningBanner = loadable(() =>
+    pMinDelay(import('features/components/quill/layout-overlay/warnings-alerts'), 5000),
+)
 
 const LayoutOverlay = () => {
+    const cookie = useCookieBanner()
     const is_rtl = useIsRtl()
     const [is_mounted] = usePageLoaded()
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
@@ -34,9 +39,20 @@ const LayoutOverlay = () => {
                 justify="between"
                 align="end"
             >
-                <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                    <CookieBanner />
-                </Flex.Box>
+                {cookie?.should_show ? (
+                    <>
+                        <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
+                            <CookieBanner />
+                        </Flex.Box>
+                        <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
+                            <WarningBanner />
+                        </Flex.Box>
+                    </>
+                ) : (
+                    <Flex.Box justify={'center'} grow={'1'}>
+                        <WarningBanner />
+                    </Flex.Box>
+                )}
                 <Flex.Box direction="col">
                     {isLiveChat && <LiveChatButton />}
                     {isWhatsappChat && <WhatsappButton />}

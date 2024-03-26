@@ -394,7 +394,7 @@ const ib_dmt5_swapFree: DMT5Type = {
                     list: [
                         '_t_Commodities_t_',
                         '_t_Cryptocurrencies_t_',
-                        '_t_Stocks, Stock Indices & ETFs_t_',
+                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
                         '_t_Volatility indices_t_',
                         '_t_Step Index_t_',
                         '_t_Range break indices_t_',
@@ -445,7 +445,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [
                         '_t_Commodities_t_',
                         '_t_Cryptocurrencies_t_',
-                        '_t_Stocks, Stock Indices & ETFs_t_',
+                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
                     ],
                 },
                 {
@@ -492,7 +492,7 @@ const ib_dx: DMT5Type = {
                         '_t_Forex & Metals_t_',
                         '_t_Commodities_t_',
                         '_t_Cryptocurrencies_t_',
-                        '_t_Stocks, Stock Indices & ETFs_t_',
+                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
                         '_t_Crash/Boom indices_t_',
                         '_t_Volatility indices_t_',
                         '_t_Step Index_t_',

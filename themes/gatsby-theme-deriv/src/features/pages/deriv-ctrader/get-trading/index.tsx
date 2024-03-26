@@ -18,6 +18,7 @@ import {
     ctrader_traders_hub_url,
     ctrader_windows_url,
     ctrader_apple_store_url,
+    ctrader_mac_os_url,
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
@@ -90,7 +91,7 @@ const DerivCtraderApp = () => {
         {
             text: 'macOS',
             icon: MacIcon,
-            link: ctrader_apple_store_url,
+            link: ctrader_mac_os_url,
             visibility: ctrader_apps_mac_os,
         },
     ]

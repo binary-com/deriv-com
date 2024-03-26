@@ -6,10 +6,11 @@ import NavTemplate from 'features/components/templates/navigation/template'
 import LogoImage from 'images/common/deriv_academy.svg'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
+import { BuildVariantType } from 'features/types'
 
-const SignupCompleteAcademy = () => {
+const SignupCompleteAcademy = ({region}: BuildVariantType) => {
     return (
-        <Layout>
+        <Layout region={region}>
             <NavTemplate
                 has_centered_items
                 has_centered_logo

@@ -12,14 +12,14 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
+import useRegion from 'components/hooks/use-region'
 import Login from 'common/login'
 import { isBrowser } from 'common/utility'
-import useBuildVariant from 'features/hooks/use-build-variant'
 
 const SignUpFormContainer = () => {
-    const { region } = useBuildVariant()
+    const { is_eu } = useRegion()
 
-    const security_pdf_link = `/tnc${region === "eu" ? '/eu' : ''}/security-and-privacy.pdf`
+    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
 
     return (
         <Flex.Box

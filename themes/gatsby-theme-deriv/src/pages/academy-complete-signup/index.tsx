@@ -4,8 +4,9 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import SignupCompleteAcademy from 'features/pages/academy-complete'
 
-const CompleteSignupPage = () => {
-    return <SignupCompleteAcademy />
+const CompleteSignupPage = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <SignupCompleteAcademy region={region} />
 }
 
 export default WithIntl()(CompleteSignupPage)

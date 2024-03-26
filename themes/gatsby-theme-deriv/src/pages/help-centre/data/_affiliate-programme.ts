@@ -355,12 +355,12 @@ const affiliate_programme: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_We'll credit your commission for the previous month into your trading account after the 20th of every month. As an affiliate, you’ll earn commission when your referred clients trade on options and multipliers. To earn from your clients' MT5 trades, you'll need to sign up as an introducing broker. (see <0>How do I sign up as an introducing broker (IB)?</0>)_t_",
+                        "_t_We'll credit your commission for the previous month into your trading account after the 15th of every month. As an affiliate, you’ll earn commission when your referred clients trade on options and multipliers. To earn from your clients' MT5 trades, you'll need to sign up as an introducing broker. (see <0>How do I sign up as an introducing broker (IB)?</0>)_t_",
                     translation_components: [
                         { key: 0, type: 'link', to: '/help-centre/ib-programme/#ib-sign-up' },
                     ],
                     eu_translation_text:
-                        "_t_We'll credit your commission for the previous month into your trading account after the 20th of every month. You’ll earn a commission based on each successful referral when your referred client deposits the required minimum amount into their Deriv account._t_",
+                        "_t_We'll credit your commission for the previous month into your trading account after the 15th of every month. You’ll earn a commission based on each successful referral when your referred client deposits the required minimum amount into their Deriv account._t_",
                 },
             ],
         },

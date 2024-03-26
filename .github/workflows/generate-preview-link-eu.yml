@@ -16,7 +16,6 @@ concurrency:
 jobs:
     build_eu_to_cloudflare_pages:
         runs-on: Ubuntu-latest
-        if: contains(github.event.pull_request.head.ref, 'multiple-build')
         permissions:
           checks: write
           pull-requests: write
@@ -47,9 +46,8 @@ jobs:
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
-
             - name: Post Cloudflare Pages Preview comment
-              uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   header: Cloudflare Pages EU Preview Comment
                   number: ${{github.event.pull_request.user.login}}
@@ -76,7 +74,6 @@ jobs:
                   path: |
                       sites/eu/.cache
                       sites/eu/public
-
             - name: Install Dependencies
               uses: "./.github/actions/npm_install_from_cache"
 
@@ -105,7 +102,6 @@ jobs:
                   echo "$EVENT_NUMBER" > .pr/NR
                   echo "$EVENT_USERNAME" > .pr/USERNAME
                   echo "$HEAD_REF" > .pr/BRANCHNAME
-
             - name: Publish to Cloudflare Pages
               id: publish-to-pages
               env:
@@ -130,7 +126,6 @@ jobs:
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1
                   fi
-
             - name: 'Generate preview link comment'
               if: success()
               id: generate_preview_url
@@ -168,7 +163,7 @@ jobs:
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
               if: success() || failure()
-              uses: marocchino/sticky-pull-request-comment@efaaab3fd41a9c3de579aba759d2552635e590fd
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   header: Cloudflare Pages Preview Comment
                   number: ${{github.event.number}}

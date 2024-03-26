@@ -6,16 +6,20 @@ const program = require('commander')
 const crc32 = require('crc-32').str
 const fs = require('fs')
 const glob = require('glob')
-const translated_keys = require('../src/translations/ach.json')
+const translated_keys = require('../themes/gatsby-theme-deriv/src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
-// Check if the file exists before requiring it
-let strap_data
-const strapDataPath = '../public/page-data/404/page-data.json'
-if (fs.existsSync(strapDataPath)) {
-    strap_data = require(strapDataPath)
-} else {
-    strap_data = [] // Provide default value if the file is missing
-}
+const strap_data_row = path.resolve(__dirname, '../sites/row/public/page-data/404/page-data.json')
+const strap_data_eu = path.resolve(__dirname, '../sites/eu/public/page-data/404/page-data.json')
+
+const strap_data_paths = [strap_data_row, strap_data_eu]
+
+let strap_data = []
+
+strap_data_paths.forEach((data_path) => {
+    if(fs.existsSync(data_path)){
+        strap_data.push(require(data_path))
+    }
+})
 
 /*
 (_t_)                     = the capturing group for prefix "_t_"
@@ -93,7 +97,7 @@ function extractTranslations() {
 
             // Find all file types listed in `globs`
             for (let i = 0; i < globs.length; i++) {
-                let filesFound = glob.sync(`../src/${globs[i]}`);
+                let filesFound = glob.sync(`../themes/gatsby-theme-deriv/src/${globs[i]}`);
                 filesFound = filesFound.filter(path => path.indexOf('__tests__') === -1);
                 file_paths.push(...filesFound);
             }
@@ -113,14 +117,20 @@ function extractTranslations() {
                     console.log(e);
                 }
             }
-            const data_from_strapi =
-                getStrapiStrings(strap_data?.result?.data?.strapiWhoWeArePage) || []
-            const messages = new Array(...pre_messages, ...data_from_strapi)
+
+            let messages = new Array(...pre_messages);
+
+            strap_data.forEach(item => {
+                if(item){
+                    const strapi_messgaes = getStrapiStrings(item?.result?.data?.strapiWhoWeArePage) || []
+                    messages.push(...strapi_messgaes)
+                }
+            })
+
 
             const untranslated = []
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {
-
                 const key = getKeyHash(messages[i])
                 messages_json[key] = messages[i];
 

@@ -1,9 +1,9 @@
-name: Test Production CF for Row
+name: Test production CF for EU
 
 on:
   push:
-      branches:
-          - multiple-build-region
+      tags:
+          - 'production*'
       paths-ignore:
           - '**.md'
 
@@ -51,7 +51,7 @@ jobs:
             - run: npm ci
             - run: npm run format
             - run: npm run test
-            - run: npm run build:row
+            - run: npm run build:eu
 
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
@@ -61,13 +61,13 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy sites/row/public --project-name=row-deriv-com-pages --branch=main
+                  command: pages deploy sites/eu/public --project-name=eu-deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
-              run: echo "New website - http://row-deriv-com-pages.pages.dev"
+              run: echo "New website - http://eu-deriv-com-pages.pages.dev"
             - name: upload-artifact
               uses: actions/upload-artifact@v4
               with:    
                 name: production
-                path: sites/row/public
+                path: sites/eu/public
                 retention-days: 5

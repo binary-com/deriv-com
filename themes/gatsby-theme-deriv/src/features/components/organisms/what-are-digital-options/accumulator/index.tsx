@@ -31,24 +31,16 @@ const WhatAreDigitalOptions = ({
     return (
         <>
             <Hero.ContentLess
-                className="px-800  md:px-1200 lg:px-gap-none"
-                description={
-                    <Text className="leading-6">
-                        <Localize translate_text={description} />
-                    </Text>
-                }
-                title={
-                    <Heading>
-                        <Localize translate_text={heading} />
-                    </Heading>
-                }
+                className="px-800 md:px-1200 lg:px-gap-none"
+                description={<Localize translate_text={description} />}
+                title={<Localize translate_text={heading} />}
             >
                 {is_coming_soon && (
                     <Label text="_t_Available on Demo accounts only_t_" bgcolor="blue" />
                 )}
                 {has_content_block && (
                     <div
-                        className="flex flex-col items-center gap-400 md:!flex-row md:justify-center"
+                        className="flex flex-col items-center gap-400 md:!flex-row md:justify-center mt-general-2xl"
                         id={uniq}
                     >
                         <TradersHubCtaButton

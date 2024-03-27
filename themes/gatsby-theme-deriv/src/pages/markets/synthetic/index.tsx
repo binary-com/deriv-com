@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import SyntheticIndices from '../components/markets/_synthetic-indices'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import NavTab from '../components/sections/_nav-tab'
@@ -9,10 +9,11 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TGatsbyHead } from 'features/types'
+import useRegion from 'components/hooks/use-region'
 
 const Markets = ({pageContext}: TGatsbyHead) => {
     const {region} = pageContext
-    
+    const {is_eu} = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
     const [description, setDescription] = useState<TString>(
         '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_',

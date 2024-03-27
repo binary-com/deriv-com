@@ -1,8 +1,0 @@
-@use 'features/styles/theme/theme-mixins' as *;
-
-.button_table {
-    inline-size: 90%;
-    @include breakpoints(tablet) {
-        inline-size: auto;
-    }
-}

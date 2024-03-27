@@ -13,14 +13,17 @@ import useRegion from 'components/hooks/use-region'
 import InitialLoader from 'components/elements/dot-loader'
 import PageNotFound from 'features/pages/404'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
-import { TGatsbyHead } from 'features/types'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 
 const MainFooter = loadable(() => import('features/components/templates/footer'))
 
-const DP2PPage = ({ pageContext }: TGatsbyHead) => {
+type PageProps = {
+    region: BuildVariantContextType['region']
+}
+
+const DP2PPage = ({ region }: PageProps) => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country, is_p2p_loading } = useRegion()
-    const {region} = pageContext
 
     if (!is_p2p_loading) {
         if (is_p2p_allowed_country) {

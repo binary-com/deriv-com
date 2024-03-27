@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "gatsby": "^5.12.11",
-    "gatsby-theme-deriv": "*",
+    "gatsby-theme-deriv": "file:../../themes/gatsby-theme-deriv",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

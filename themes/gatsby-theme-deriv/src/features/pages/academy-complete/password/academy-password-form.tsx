@@ -41,35 +41,55 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const utm_source = params.get('utm_source')
     const utm_campaign = params.get('utm_campaign')
     const utm_medium = params.get('utm_medium')
-
+    const affiliate_token = params.get('affiliate_token')
+    type requestDataProps = {
+        new_account_virtual: number
+        type: 'trading' | 'wallet'
+        client_password: string
+        residence: string
+        verification_code: string
+        utm_source?: string
+        utm_campaign?: string
+        utm_medium?: string
+        affiliate_token?: string
+    }
     const GetDerivAcademy = () => {
-        apiManager
-            .augmentedSend('new_account_virtual', {
-                new_account_virtual: 1,
-                type: 'trading',
-                client_password: password,
-                residence: residence,
-                verification_code: codeValue,
-                utm_source: utm_source,
-                utm_campaign: utm_campaign,
-                utm_medium: utm_medium,
-            })
-            .then((response) => {
-                console.log(response)
-                if (response.error) {
-                    setSubmitStatus('error')
-                    setSubmitErrorMsg(response.error.message)
-                } else {
-                    const auth_token = response.new_account_virtual.oauth_token
-                    apiManager.augmentedSend('authorize', {
-                        authorize: auth_token,
-                    })
-                    setSubmitStatus('success')
+        const requestData: requestDataProps = {
+            new_account_virtual: 1,
+            type: 'trading',
+            client_password: password,
+            residence: residence,
+            verification_code: codeValue,
+        }
+        if (utm_source !== null) {
+            requestData.utm_source = utm_source
+        }
+        if (utm_campaign !== null) {
+            requestData.utm_campaign = utm_campaign
+        }
+        if (utm_medium !== null) {
+            requestData.utm_medium = utm_medium
+        }
+        if (affiliate_token !== null) {
+            requestData.affiliate_token = affiliate_token
+        }
 
-                    //setting the session token
-                    window.location.href = `https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228&token1=${auth_token}`
-                }
-            })
+        apiManager.augmentedSend('new_account_virtual', requestData).then((response) => {
+            console.log(response)
+            if (response.error) {
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+            } else {
+                const auth_token = response.new_account_virtual.oauth_token
+                apiManager.augmentedSend('authorize', {
+                    authorize: auth_token,
+                })
+                setSubmitStatus('success')
+
+                //setting the session token
+                window.location.href = `https://oauth.deriv.com/oauth2/session/thinkific/create?app_id=37228&token1=${auth_token}`
+            }
+        })
     }
 
     return (

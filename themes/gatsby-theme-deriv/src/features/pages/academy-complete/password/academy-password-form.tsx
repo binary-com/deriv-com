@@ -82,32 +82,8 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
         return signup_params
     }
 
-    // type requestDataProps = {
-    //     new_account_virtual: number
-    //     type: 'trading' | 'wallet'
-    //     client_password: string
-    //     residence: string
-    //     verification_code: string
-    //     // utm_source?: string
-    //     // utm_campaign?: string
-    //     // utm_medium?: string
-    //     // affiliate_token?: string
-    //     // date_first_contact?: string
-    //     // signup_device?: string
-    //     // getSignupParams?:()=>void
-    // }
     const GetDerivAcademy = () => {
-        // const requestData: requestDataProps = {
-        //     new_account_virtual: 1,
-        //     type: 'trading',
-        //     client_password: password,
-        //     residence: residence,
-        //     verification_code: codeValue,
-        // }
-        // console.log('requestdata', requestData)
-        console.log('getsignupparam', getSignupParams())
         apiManager.augmentedSend('new_account_virtual', getSignupParams()).then((response) => {
-            console.log(response)
             if (response.error) {
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)

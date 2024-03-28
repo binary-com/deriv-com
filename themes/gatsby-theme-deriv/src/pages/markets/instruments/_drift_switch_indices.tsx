@@ -1,10 +1,10 @@
 import React from 'react'
+import { drift_switch_indices } from '../static/content/_market-symbols'
+import Symbol from '../components/helper/_symbol'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import dclsx from 'features/utils/dclsx'
 import useBuildVariant from 'features/hooks/use-build-variant'
-import { drift_switch_indices } from '../static/content/_market-symbols'
-import Symbol from '../components/helper/_symbol'
 
 const DriftSwitchIndices = () => {
     const { region } = useBuildVariant()

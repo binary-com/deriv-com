@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Analytics } from '@deriv-com/analytics'
 import styled from 'styled-components'
 import { Submit, trackEvent } from './utils/_utils'
 import { AffiliateAccountTypes, SignUpStatusTypes } from './_types'
@@ -111,6 +112,7 @@ const AffiliateSignup = ({ pageContext }: TGatsbyHead) => {
                     JSON.stringify(affiliate_api_error?.echo_req) ||
                     'success, but without echo_req',
                 success_source: partner_signup_error_message ? 'failed_popup' : 'last_step',
+                affiliate_id: affiliate_api_data?.affiliate_user_id,
             })
             setSignupStatus('success')
         } else if (partner_signup_error_message == 'Username not available') {
@@ -147,7 +149,7 @@ const AffiliateSignup = ({ pageContext }: TGatsbyHead) => {
 
     return (
         <Layout type="affiliates" padding_top="7" show_footer={false} region={region}>
-            <ParentWrapper pop_up_opened={!!signup_status}>
+            <ParentWrapper isPopupOpen={!!signup_status}>
                 <AtomicContainer.Fluid dir="row">
                     <StyledContainer>
                         {show_wizard ? (

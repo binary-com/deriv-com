@@ -1,164 +1,121 @@
 import React from 'react'
-import styled from 'styled-components'
-import { CssGrid, CssGridColumn } from 'components/containers'
+import {
+    FlagAustriaIcon,
+    FlagBulgariaIcon,
+    FlagCroatiaIcon,
+    FlagCyprusIcon,
+    FlagCzechRepublicIcon,
+    FlagDenmarkIcon,
+    FlagEstoniaIcon,
+    FlagFinlandIcon,
+    FlagFranceIcon,
+    FlagGermanyIcon,
+    FlagGreeceIcon,
+    FlagHungaryIcon,
+    FlagItalyIcon,
+    FlagIrelandIcon,
+    FlagLatviaIcon,
+    FlagLithuaniaIcon,
+    FlagLuxembourgIcon,
+    FlagNetherlandIcon,
+    FlagPolandIcon,
+    FlagPortugalIcon,
+    FlagRomaniaIcon,
+    FlagSlovakiaIcon,
+    FlagSloveniaIcon,
+    FlagSpainIcon,
+    FlagSwedenIcon, // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/Flags'
+import { Text } from '@deriv/quill-design'
+import { CustomLink } from '@deriv-com/components'
+import * as styles from './eu_grid.module.scss'
 import { WithIntl, Localize } from 'components/localization'
-import { ReactComponent as ViewLicense } from 'images/svg/regulatory/view-license.svg'
-import { TString } from 'types/generics'
 
-type GridItemProps = {
-    name: TString
-    order: string
-    url: string
-}
-
-const Country = styled.div`
-    margin-bottom: 2.4rem;
-    text-align: start;
-    display: grid;
-    grid-template-columns: 1.9rem 1fr;
-    grid-column-gap: 0.8rem;
-    font-size: var(--text-size-s);
-    color: var(--color-grey-3);
-    align-items: center;
-    inline-size: 20rem;
-
-    & a {
-        display: inline;
-        font-size: 1rem;
-        line-height: 1rem;
-        color: var(--color-grey-3);
-    }
-
-    @media (max-width: 425px) {
-        font-size: var(--text-size-xs);
-        inline-size: 16rem;
-    }
-`
-const Order = styled.div`
-    display: inline-block;
-    font-size: 1rem;
-    line-height: 1.9rem;
-    font-weight: 500;
-    border: 0.1rem solid var(--color-grey-3);
-    border-radius: 100%;
-    width: 2rem;
-    height: 2rem;
-    text-align: center;
-`
-const License = styled.div`
-    margin: 0;
-    display: flex;
-    align-items: center;
-
-    & a {
-        margin-left: 0.3rem;
-        font-size: 1rem;
-        line-height: 1rem;
-        color: var(--color-grey-3);
-        text-decoration: none;
-
-        :hover {
-            color: var(--color-red);
-            text-decoration: underline;
-        }
-    }
-`
-
-const AttachmentIcon = styled(ViewLicense)`
-    margin-left: 1rem;
-
-    path {
-        transition: 0.2s fill;
-    }
-    &:hover {
-        path {
-            fill: red;
-        }
-    }
-`
-
-const GridItem = ({ name, order, url }: GridItemProps) => (
-    <Country>
-        <Order>{order}</Order>
-        <License>
-            <Localize translate_text={name} />
-            <a href={url} target="_blank" rel="noopener noreferrer">
-                <AttachmentIcon />
-            </a>
-        </License>
-    </Country>
-)
+const countries = [
+    { href: '/regulatory/countries/Austria.pdf', icon: <FlagAustriaIcon />, text: '_t_Austria_t_' },
+    {
+        href: '/regulatory/countries/Bulgaria.pdf',
+        icon: <FlagBulgariaIcon />,
+        text: '_t_Bulgaria_t_',
+    },
+    { href: '/regulatory/countries/Croatia.pdf', icon: <FlagCroatiaIcon />, text: '_t_Croatia_t_' },
+    { href: '/regulatory/countries/Cyprus.pdf', icon: <FlagCyprusIcon />, text: '_t_Cyprus_t_' },
+    {
+        href: '/regulatory/countries/CzechRepublic.pdf',
+        icon: <FlagCzechRepublicIcon />,
+        text: '_t_Czech Republic_t_',
+    },
+    { href: '/regulatory/countries/Denmark.pdf', icon: <FlagDenmarkIcon />, text: '_t_Denmark_t_' },
+    { href: '/regulatory/countries/Estonia.pdf', icon: <FlagEstoniaIcon />, text: '_t_Estonia_t_' },
+    { href: '/regulatory/countries/Finland.pdf', icon: <FlagFinlandIcon />, text: '_t_Finland_t_' },
+    { href: '/regulatory/countries/France.pdf', icon: <FlagFranceIcon />, text: '_t_France_t_' },
+    { href: '/regulatory/countries/Germany.pdf', icon: <FlagGermanyIcon />, text: '_t_Germany_t_' },
+    { href: '/regulatory/countries/Greece.pdf', icon: <FlagGreeceIcon />, text: '_t_Greece_t_' },
+    { href: '/regulatory/countries/Hungary.pdf', icon: <FlagHungaryIcon />, text: '_t_Hungary_t_' },
+    { href: '/regulatory/countries/Italy.pdf', icon: <FlagItalyIcon />, text: '_t_Italy_t_' },
+    { href: '', icon: <FlagIrelandIcon />, text: '_t_Ireland_t_' },
+    { href: '/regulatory/countries/Latvia.pdf', icon: <FlagLatviaIcon />, text: '_t_Latvia_t_' },
+    {
+        href: '/regulatory/countries/Lithuania.pdf',
+        icon: <FlagLithuaniaIcon />,
+        text: '_t_Lithuania_t_',
+    },
+    {
+        href: '/regulatory/countries/Luxembourg.pdf',
+        icon: <FlagLuxembourgIcon />,
+        text: '_t_Luxembourg_t_',
+    },
+    {
+        href: '/regulatory/countries/Netherlands.pdf',
+        icon: <FlagNetherlandIcon />,
+        text: '_t_Netherlands_t_',
+    },
+    { href: '/regulatory/countries/Poland.pdf', icon: <FlagPolandIcon />, text: '_t_Poland_t_' },
+    {
+        href: '/regulatory/countries/Portugal.pdf',
+        icon: <FlagPortugalIcon />,
+        text: '_t_Portugal_t_',
+    },
+    { href: '/regulatory/countries/Romania.pdf', icon: <FlagRomaniaIcon />, text: '_t_Romania_t_' },
+    {
+        href: '/regulatory/countries/Slovakia.pdf',
+        icon: <FlagSlovakiaIcon />,
+        text: '_t_Slovakia_t_',
+    },
+    {
+        href: '/regulatory/countries/Slovenia.pdf',
+        icon: <FlagSloveniaIcon />,
+        text: '_t_Slovenia_t_',
+    },
+    { href: '/regulatory/countries/Spain.pdf', icon: <FlagSpainIcon />, text: '_t_Spain_t_' },
+    { href: '/regulatory/countries/Sweden.pdf', icon: <FlagSwedenIcon />, text: '_t_Sweden_t_' },
+]
 
 const EUgrid = () => {
     return (
-        <CssGrid columns="repeat(2, 1fr)">
-            <CssGridColumn>
-                <GridItem name="_t_Austria_t_" url="/regulatory/countries/Austria.pdf" order="1" />
-                <GridItem
-                    name="_t_Bulgaria_t_"
-                    url="/regulatory/countries/Bulgaria.pdf"
-                    order="2"
-                />
-                <GridItem name="_t_Croatia_t_" url="/regulatory/countries/Croatia.pdf" order="3" />
-                <GridItem name="_t_Cyprus_t_" url="/regulatory/countries/Cyprus.pdf" order="4" />
-                <GridItem
-                    name="_t_Czech Republic_t_"
-                    url="/regulatory/countries/CzechRepublic.pdf"
-                    order="5"
-                />
-                <GridItem name="_t_Denmark_t_" url="/regulatory/countries/Denmark.pdf" order="6" />
-                <GridItem name="_t_Estonia_t_" url="/regulatory/countries/Estonia.pdf" order="7" />
-                <GridItem name="_t_Finland_t_" url="/regulatory/countries/Finland.pdf" order="8" />
-                <GridItem name="_t_France_t_" url="/regulatory/countries/France.pdf" order="9" />
-                <GridItem name="_t_Germany_t_" url="/regulatory/countries/Germany.pdf" order="10" />
-                <GridItem name="_t_Greece_t_" url="/regulatory/countries/Greece.pdf" order="11" />
-                <GridItem name="_t_Hungary_t_" url="/regulatory/countries/Hungary.pdf" order="12" />
-                <GridItem name="_t_Italy_t_" url="/regulatory/countries/Italy.pdf" order="13" />
-            </CssGridColumn>
-            <CssGridColumn>
-                <Country>
-                    <Order>14</Order>
-                    <License>
-                        <Localize translate_text="_t_Ireland_t_" />
-                    </License>
-                </Country>
-                <GridItem name="_t_Latvia_t_" url="/regulatory/countries/Latvia.pdf" order="15" />
-                <GridItem
-                    name="_t_Lithuania_t_"
-                    url="/regulatory/countries/Lithuania.pdf"
-                    order="16"
-                />
-                <GridItem
-                    name="_t_Luxembourg_t_"
-                    url="/regulatory/countries/Luxembourg.pdf"
-                    order="17"
-                />
-                <GridItem
-                    name="_t_Netherlands_t_"
-                    url="/regulatory/countries/Netherlands.pdf"
-                    order="18"
-                />
-                <GridItem name="_t_Poland_t_" url="/regulatory/countries/Poland.pdf" order="19" />
-                <GridItem
-                    name="_t_Portugal_t_"
-                    url="/regulatory/countries/Portugal.pdf"
-                    order="20"
-                />
-                <GridItem name="_t_Romania_t_" url="/regulatory/countries/Romania.pdf" order="21" />
-                <GridItem
-                    name="_t_Slovakia_t_"
-                    url="/regulatory/countries/Slovakia.pdf"
-                    order="22"
-                />
-                <GridItem
-                    name="_t_Slovenia_t_"
-                    url="/regulatory/countries/Slovenia.pdf"
-                    order="23"
-                />
-                <GridItem name="_t_Spain_t_" url="/regulatory/countries/Spain.pdf" order="24" />
-                <GridItem name="_t_Sweden_t_" url="/regulatory/countries/Sweden.pdf" order="25" />
-            </CssGridColumn>
-        </CssGrid>
+        <div className={styles.eu_grid}>
+            {countries.map((country, index) => (
+                <div key={index} className="inline">
+                    {country.href ? (
+                        <a href={country.href} target="_blank" rel="noreferrer">
+                            <div className={styles.country_container}>
+                                {country.icon && <div className={styles.icon}>{country.icon}</div>}
+                                <Text className="text-base text-solid-slate-1400 leading-200 text-75 underline lg:!no-underline lg:hover:!underline">
+                                    <Localize translate_text={country.text} />
+                                </Text>
+                            </div>
+                        </a>
+                    ) : (
+                        <div className={styles.country_container}>
+                            {country.icon && <div className={styles.icon}>{country.icon}</div>}
+                            <Text className="text-base text-solid-slate-1400 leading-200 text-75 ">
+                                <Localize translate_text={country.text} />
+                            </Text>
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>
     )
 }
 

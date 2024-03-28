@@ -7,13 +7,13 @@ import {
 } from '@deriv/quill-icons'
 import { CustomLink } from '@deriv-com/components'
 import * as styles from './accumulators_faq.module.scss'
+import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
 import AccumulatorOptions from 'images/svg/trade-types/accumulator-options.svg'
 import { Localize, localize, is_rtl } from 'components/localization'
 import OptionsLayout from 'features/components/quill/options-layout'
 import Box from 'features/components/atoms/box'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { BuildVariantType } from 'features/types'
-import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
 
 interface SwiperOption {
     spaceBetween: number

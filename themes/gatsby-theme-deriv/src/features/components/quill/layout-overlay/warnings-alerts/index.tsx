@@ -7,8 +7,14 @@ import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 const WarningBanner = () => {
     const is_maintenance_mode = useThirdPartyFlags('maintenance_mode')
     const maintenance_mode_content = useThirdPartyFlags('maintenance_mode_content')
-    const [is_close_pressed, setIsClosedPressed] = useState(false)
-    const closeBanner = useCallback(() => setIsClosedPressed(true), [])
+    const [is_close_pressed, setIsClosedPressed] = useState(
+        sessionStorage.getItem('warningClosed') === 'true',
+    )
+
+    const closeBanner = useCallback(() => {
+        setIsClosedPressed(true)
+        sessionStorage.setItem('warningClosed', 'true')
+    }, [])
 
     if (!is_maintenance_mode || is_close_pressed) return null
     return (

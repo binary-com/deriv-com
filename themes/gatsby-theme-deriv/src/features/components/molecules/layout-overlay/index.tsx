@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { overlay_container } from './layout-overlay.module.scss'
@@ -23,6 +23,23 @@ const LayoutOverlay = () => {
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
 
+    const popup_show = useCallback(() => {
+        return cookie?.should_show ? (
+            <div
+                className={clsx(
+                    'flex basis-6/12 flex-grow',
+                    is_rtl ? 'justify-end' : 'justify-start',
+                )}
+            >
+                <CookieBanner />
+            </div>
+        ) : (
+            <div className={'flex flex-grow justify-center'}>
+                <WarningBanner />
+            </div>
+        )
+    }, [cookie?.should_show])
+
     return (
         <Flex.Box
             id="overlay-container"
@@ -39,15 +56,7 @@ const LayoutOverlay = () => {
                 justify="between"
                 align="end"
             >
-                {cookie?.should_show ? (
-                    <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                        <CookieBanner />
-                    </Flex.Box>
-                ) : (
-                    <Flex.Box justify={'center'} grow={'1'}>
-                        <WarningBanner />
-                    </Flex.Box>
-                )}
+                {popup_show()}
                 <Flex.Box direction="col">
                     {isLiveChat && <LiveChatButton />}
                     {isWhatsappChat && <WhatsappButton />}

@@ -8,12 +8,13 @@ import { Localize } from 'components/localization'
 
 const CookieBanner = () => {
     const cookie = useCookieBanner()
-    const [is_visible, setIsVisible] = useState(false)
+    const [is_visible, setIsVisible] = useState(true)
     const timer_ref = useRef<NodeJS.Timeout>()
 
     // Todo: Should simplify this useEffect and get rid of the duplicated state and find another solution
     // for removing the element from the DOM after the animation completes.
     useEffect(() => {
+        console.log(cookie.should_show, is_visible, 'wwwww')
         if (is_visible !== cookie.should_show) {
             if (cookie.should_show) {
                 setIsVisible(cookie.should_show)
@@ -26,6 +27,7 @@ const CookieBanner = () => {
             clearTimeout(timer_ref.current)
         }
     }, [cookie.should_show, is_visible])
+    console.log(is_visible, 'wwwww   q    qqqq')
 
     if (is_visible) {
         return (
@@ -60,7 +62,14 @@ const CookieBanner = () => {
                         </Button>
                     </div>
                     <div>
-                        <Button onClick={cookie.accept}>
+                        <Button
+                            onClick={() => {
+                                cookie.accept
+                                setTimeout(() => {
+                                    console.log(is_visible, cookie)
+                                }, 2000)
+                            }}
+                        >
                             <Localize translate_text="_t_Accept_t_" />
                         </Button>
                     </div>

@@ -27,18 +27,13 @@ const LayoutOverlay = () => {
         console.log(cookie, 'www inside')
 
         return cookie?.should_show ? (
-            <div
-                className={clsx(
-                    'flex basis-6/12 flex-grow',
-                    is_rtl ? 'justify-end' : 'justify-start',
-                )}
-            >
+            <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
                 <CookieBanner />
-            </div>
+            </Flex.Box>
         ) : (
-            <div className={'flex flex-grow justify-center'}>
+            <Flex.Box justify={'center'} grow={'1'}>
                 <WarningBanner />
-            </div>
+            </Flex.Box>
         )
     }, [cookie?.should_show])
     console.log(cookie, 'www')

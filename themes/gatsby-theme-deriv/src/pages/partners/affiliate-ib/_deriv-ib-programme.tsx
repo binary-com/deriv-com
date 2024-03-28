@@ -214,9 +214,12 @@ const RedButton = styled(LinkButton)<RedButtonProps>`
     padding-top: 0.5rem;
     height: 40px;
     border-radius: 16px;
-    display: block;
+    display: flex;
     margin: auto;
     margin-bottom: 40px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     @media ${device.tabletL} {
         padding-top: 10px;
         width: 100%;

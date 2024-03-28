@@ -24,6 +24,8 @@ const LayoutOverlay = () => {
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
 
     const popup_show = useCallback(() => {
+        console.log(cookie, 'www inside')
+
         return cookie?.should_show ? (
             <div
                 className={clsx(
@@ -39,6 +41,7 @@ const LayoutOverlay = () => {
             </div>
         )
     }, [cookie?.should_show])
+    console.log(cookie, 'www')
 
     return (
         <Flex.Box

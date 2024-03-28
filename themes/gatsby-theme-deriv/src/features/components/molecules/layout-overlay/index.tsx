@@ -40,14 +40,9 @@ const LayoutOverlay = () => {
                 align="end"
             >
                 {cookie?.should_show ? (
-                    <>
-                        <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                            <CookieBanner />
-                        </Flex.Box>
-                        <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                            <WarningBanner />
-                        </Flex.Box>
-                    </>
+                    <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
+                        <CookieBanner />
+                    </Flex.Box>
                 ) : (
                     <Flex.Box justify={'center'} grow={'1'}>
                         <WarningBanner />

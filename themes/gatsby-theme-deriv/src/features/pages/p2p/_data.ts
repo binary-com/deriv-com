@@ -1,3 +1,4 @@
+import type { RoadmapType } from 'features/components/organisms/roadmap'
 import GPlayIcon from 'images/svg/p2p/gplay_icon.svg'
 import AppStoreIcon from 'images/svg/p2p/apple_store_icon.svg'
 import AppGalleryIcon from 'images/svg/p2p/app_gallery_icon.svg'

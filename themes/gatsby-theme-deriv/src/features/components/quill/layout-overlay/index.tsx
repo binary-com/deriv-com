@@ -29,6 +29,7 @@ const LayoutOverlay = () => {
     const [is_mounted] = usePageLoaded()
 
     const popup_show = useCallback(() => {
+        console.log(cookie, 'www inside')
         return cookie?.should_show ? (
             <div
                 className={clsx(
@@ -44,6 +45,8 @@ const LayoutOverlay = () => {
             </div>
         )
     }, [cookie?.should_show])
+    console.log(cookie, 'www')
+
     return (
         <div
             className="flex flex-col justify-end items-stretch w-full fixed pointer-events-none inset-50 z-40"

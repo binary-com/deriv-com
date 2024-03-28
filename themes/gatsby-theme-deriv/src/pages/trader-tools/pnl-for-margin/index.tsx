@@ -6,9 +6,11 @@ import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { TGatsbyHead } from 'features/types'
 
-const PnLMarginCalculator = () => {
+const PnLMarginCalculator = ({ pageContext }: TGatsbyHead) => {
+    const {region} = pageContext
+    
     return (
-        <Layout>
+        <Layout region={region}>
             <Hero jc="center" ai="center">
                 <Container>
                     <StyledHeader as="h1" type="display-title" color="white" align="center">

@@ -1,10 +1,10 @@
 import React from 'react'
-import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 import mt5Icon from '../../images/svg/dtrader/mt5.svg'
 import goIcon from '../../images/svg/custom/rebranding/deriv-go-icon.svg'
 import ctIcon from '../../images/svg/ctrader/light-ctrader-logo.svg'
 import dxIcon from '../../images/svg/custom/rebranding/deriv-x-icon.svg'
 import dbIcon from '../../images/svg/dtrader/db-icon.svg'
+import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const carouselData: TRenderableData[] = [
     {

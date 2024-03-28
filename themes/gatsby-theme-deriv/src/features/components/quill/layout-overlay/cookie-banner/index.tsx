@@ -64,7 +64,7 @@ const CookieBanner = () => {
                     <div>
                         <Button
                             onClick={() => {
-                                cookie.accept
+                                cookie.accept()
                                 setTimeout(() => {
                                     console.log(is_visible, cookie)
                                 }, 2000)

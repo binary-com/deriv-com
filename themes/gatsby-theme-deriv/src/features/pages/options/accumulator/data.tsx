@@ -79,20 +79,15 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
             <Localize translate_text="_t_Check out our quick video walkthrough of how to trade accumulators on Deriv Trader._t_" />
         ),
         content: (
-            <CustomLink
-                target="_blank"
-                href="https://blog.deriv.com/videos/how-to-trade-accumulator-options-on-deriv-trader/"
-            >
-                <StaticImage
-                    src="../../../../images/common/trade-types/accumulator-video-bg-1.png"
-                    alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
-                    loading="lazy"
-                    formats={['webp', 'auto']}
-                    quality={100}
-                    style={{ position: 'relative' }}
-                    className="cursor-pointer"
-                />
-            </CustomLink>
+            <StaticImage
+                src="../../../../images/common/trade-types/accumulator-video-bg-1.png"
+                alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
+                loading="lazy"
+                formats={['webp', 'auto']}
+                quality={100}
+                style={{ position: 'relative' }}
+                className="cursor-pointer"
+            />
         ),
         size: 'md',
         align: 'start',

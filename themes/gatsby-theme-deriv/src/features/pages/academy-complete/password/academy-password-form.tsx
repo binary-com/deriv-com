@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
+import Cookies from 'js-cookie'
 import { trading_btn, signup_form_line } from '../signup-academy-complete.module.scss'
 import { passwordRegex } from './password-constants'
 import { PasswordInput } from '.'
@@ -10,6 +11,7 @@ import { Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
 import apiManager from 'common/websocket'
 import device from 'themes/device'
+import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 
 type AcademyPasswordFormProps = {
     residence: string
@@ -41,7 +43,16 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
     const utm_source = params.get('utm_source')
     const utm_campaign = params.get('utm_campaign')
     const utm_medium = params.get('utm_medium')
-    const affiliate_token = params.get('affiliate_token')
+    // const affiliate_token = params.get('affiliate_token')
+    const date_first_contact = params.get('ate_first_contact')
+    const signup_device = params.get('signup_device')
+    const affiliate_token = Cookies.getJSON('affiliate_tracking')
+    const cookies = getCookiesFields()
+    const cookies_objects = getCookiesObject(cookies)
+    const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const gclid = url_params.get('gclid')
+
     type requestDataProps = {
         new_account_virtual: number
         type: 'trading' | 'wallet'
@@ -52,6 +63,8 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
         utm_campaign?: string
         utm_medium?: string
         affiliate_token?: string
+        date_first_contact?: string
+        signup_device?: string
     }
     const GetDerivAcademy = () => {
         const requestData: requestDataProps = {
@@ -60,6 +73,11 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
             client_password: password,
             residence: residence,
             verification_code: codeValue,
+            date_first_contact: date_first_contact,
+            signup_device: signup_device,
+            ...(affiliate_token && { affiliate_token: affiliate_token }),
+            ...(cookies_value && { ...cookies_value }),
+            ...(gclid && { gclid_url: gclid }),
         }
         if (utm_source !== null) {
             requestData.utm_source = utm_source
@@ -70,10 +88,7 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
         if (utm_medium !== null) {
             requestData.utm_medium = utm_medium
         }
-        if (affiliate_token !== null) {
-            requestData.affiliate_token = affiliate_token
-        }
-
+        console.log('requestdata', requestData)
         apiManager.augmentedSend('new_account_virtual', requestData).then((response) => {
             console.log(response)
             if (response.error) {

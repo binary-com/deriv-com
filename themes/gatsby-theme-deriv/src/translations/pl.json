@@ -573,7 +573,7 @@
   "554620691": "Wprowadź prawidłowy numer",
   "554672635": "3. Proszę użyć bloku logicznego, aby sprawdzić, czy <0>Całkowity zysk/strata</0> przekracza wartość <0>Progową Stop Loss</0>. Zmienną <0>Całkowity zysk/strata</0> można znaleźć w zakładce <0>Analiza > Statystyki</0> w <0>Menu bloków</0> po lewej stronie. Twój bot będzie kontynuował kupowanie nowych kontraktów, dopóki <0>Całkowity zysk/strata</0> nie przekroczy <0>Progową Stop Loss</0>.",
   "554856552": "Aby zarejestrować się jako Deriv IB, muszą Państwo spełnić następujące kryteria:",
-  "556230348": "Wskaźniki przełączników driftu",
+  "556230348": "Wskaźniki Drift Switch",
   "557095822": "Kliknij przycisk <0>Odnów</0>, aby odnowić usługę lub<0>Rezygnuj z subskrypcji</0>, aby ją anulować.",
   "558735677": "Czy mogę otworzyć wiele kontraktów Asians jednocześnie?",
   "559921804": "<0>Nazywasz akcje. Zaj</0> mij pozycję na swoich ulubionych akcjach i indeksach.",

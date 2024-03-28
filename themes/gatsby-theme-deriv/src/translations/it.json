@@ -573,7 +573,7 @@
   "554620691": "Inserisci un numero valido",
   "554672635": "3. Utilizzi un blocco logico per verificare se il <0>Profitto/perdita totale</0> è superiore alla <0>soglia di Stop Loss</0>. Può trovare la variabile <0>Profitto/perdita totale</0> sotto <0>Analisi > Statistiche</0> nel <0>menu Blocchi</0> a sinistra. Il suo bot continuerà ad acquistare nuovi contratti fino a quando l'importo del <0>Profitto/perdita totale</0> non supererà l'importo della <0>soglia di Stop Loss</0>.",
   "554856552": "Per registrarsi come Deriv IB, deve soddisfare i seguenti criteri:",
-  "556230348": "Indici di commutazione della deriva",
+  "556230348": "Indici di Drift Switching",
   "557095822": "Clicca sul pulsante <0>Rinnova</0> per rinnovare il servizio oppure su <0>Annulla iscrizione</0> per annullarlo.",
   "558735677": "Posso aprire più contratti di opzioni Asians contemporaneamente?",
   "559921804": "<0>È lei a scegliere le azioni.</0> Prenda posizione sui suoi titoli e indici preferiti.",

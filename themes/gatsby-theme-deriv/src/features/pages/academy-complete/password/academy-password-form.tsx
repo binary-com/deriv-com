@@ -40,56 +40,73 @@ const AcademyPasswordForm = ({ residence }: AcademyPasswordFormProps) => {
 
     const params = new URLSearchParams(isBrowser() && location.search)
     const codeValue = params.get('code')
-    const utm_source = params.get('utm_source')
-    const utm_campaign = params.get('utm_campaign')
-    const utm_medium = params.get('utm_medium')
-    // const affiliate_token = params.get('affiliate_token')
-    const date_first_contact = params.get('ate_first_contact')
-    const signup_device = params.get('signup_device')
     const affiliate_token = Cookies.getJSON('affiliate_tracking')
     const cookies = getCookiesFields()
     const cookies_objects = getCookiesObject(cookies)
     const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
-    const gclid = url_params.get('gclid')
 
-    type requestDataProps = {
-        new_account_virtual: number
-        type: 'trading' | 'wallet'
-        client_password: string
-        residence: string
-        verification_code: string
-        utm_source?: string
-        utm_campaign?: string
-        utm_medium?: string
-        affiliate_token?: string
-        date_first_contact?: string
-        signup_device?: string
-    }
-    const GetDerivAcademy = () => {
-        const requestData: requestDataProps = {
+    const getSignupParams = () => {
+        const param_list = [
+            'date_first_contact',
+            'signup_device',
+            'gclid_url',
+            'utm_source',
+            'utm_ad_id',
+            'utm_adgroup_id',
+            'utm_adrollclk_id',
+            'utm_campaign_id',
+            'utm_campaign',
+            'utm_fbcl_id',
+            'utm_gl_client_id',
+            'utm_msclk_id',
+            'utm_medium',
+            'utm_term',
+            'utm_content',
+            'affiliate_token',
+        ]
+        const signup_params = {
             new_account_virtual: 1,
             type: 'trading',
             client_password: password,
             residence: residence,
             verification_code: codeValue,
-            date_first_contact: date_first_contact,
-            signup_device: signup_device,
-            ...(affiliate_token && { affiliate_token: affiliate_token }),
-            ...(cookies_value && { ...cookies_value }),
-            ...(gclid && { gclid_url: gclid }),
         }
-        if (utm_source !== null) {
-            requestData.utm_source = utm_source
-        }
-        if (utm_campaign !== null) {
-            requestData.utm_campaign = utm_campaign
-        }
-        if (utm_medium !== null) {
-            requestData.utm_medium = utm_medium
-        }
-        console.log('requestdata', requestData)
-        apiManager.augmentedSend('new_account_virtual', requestData).then((response) => {
+        const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+
+        param_list.forEach((key) => {
+            if (url_params.get(key)) {
+                signup_params[key] = url_params.get(key)
+            }
+        })
+
+        return signup_params
+    }
+
+    // type requestDataProps = {
+    //     new_account_virtual: number
+    //     type: 'trading' | 'wallet'
+    //     client_password: string
+    //     residence: string
+    //     verification_code: string
+    //     // utm_source?: string
+    //     // utm_campaign?: string
+    //     // utm_medium?: string
+    //     // affiliate_token?: string
+    //     // date_first_contact?: string
+    //     // signup_device?: string
+    //     // getSignupParams?:()=>void
+    // }
+    const GetDerivAcademy = () => {
+        // const requestData: requestDataProps = {
+        //     new_account_virtual: 1,
+        //     type: 'trading',
+        //     client_password: password,
+        //     residence: residence,
+        //     verification_code: codeValue,
+        // }
+        // console.log('requestdata', requestData)
+        console.log('getsignupparam', getSignupParams())
+        apiManager.augmentedSend('new_account_virtual', getSignupParams()).then((response) => {
             console.log(response)
             if (response.error) {
                 setSubmitStatus('error')

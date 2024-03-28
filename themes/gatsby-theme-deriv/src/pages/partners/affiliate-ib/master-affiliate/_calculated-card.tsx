@@ -15,34 +15,18 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                     <Localize translate_text="_t_This plan is not available for affiliates who promote to clients residing in the EU._t_" />
                 </Header>
                 <Header as="h2" type="paragraph-2" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="_t_Example 1:_t_" />
+                    <Localize translate_text="_t_Example :_t_" />
                 </Header>
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A sub-affiliate generates USD 300 worth of commission. Here is how we calculate their total commissions:_t_" />
+                            <Localize translate_text="_t_A sub-affiliate generates 300 USD worth of commission. Here is how we calculate their total commissions:_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Sub affiliate’s total commission: USD 300_t_" />
+                            <Localize translate_text="_t_Sub affiliate’s total commission: 300 USD_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Master affiliate’s total commission: USD 300 x 20% = USD 60_t_" />
-                        </Header>
-                    </Li>
-                </Ul>
-                <Header as="h2" type="paragraph-2" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="_t_Example 2:_t_" />
-                </Header>
-                <Ul>
-                    <Li>
-                        <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A sub-affiliate earns USD 200 from their Revenue Share plan. The same sub-affiliate earns USD 100 from their IB programme. Here is how we calculate their total commissions:_t_" />
-                        </Header>
-                        <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Sub-affiliate’s total commission: 200 + 100 = USD 300 (including IB commission)_t_" />
-                        </Header>
-                        <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Master affiliate’s total commission: USD 200 * 20% = USD 40_t_" />
+                            <Localize translate_text="_t_Master affiliate’s total commission: 300 USD x 20% = 60 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>

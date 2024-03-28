@@ -20,10 +20,10 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A client generates USD 10,000 monthly net revenue. Calculation is as follows:_t_" />
+                            <Localize translate_text="_t_A client generates 10,000 USD monthly net revenue. Calculation is as follows:_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned: USD 10,000 x 30% = USD 3,000_t_" />
+                            <Localize translate_text="_t_Total commission earned: 10,000 USD x 30% = 3,000 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -33,17 +33,17 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A client generates USD 25,000 monthly net revenue. Calculation is as follows:_t_" />
+                            <Localize translate_text="_t_A client generates 25,000 USD monthly net revenue. Calculation is as follows:_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_USD 20,000 x 30% = USD 6,000_t_" />
+                            <Localize translate_text="_t_20,000 USD x 30% = 6,000 USD_t_" />
                             <br />
-                            <Localize translate_text="_t_USD 5,000 x 45% = USD 2,250_t_" />
+                            <Localize translate_text="_t_5,000 USD x 45% = 2,250 USD_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Total commission earned:_t_" />
                             <br />
-                            <Localize translate_text="_t_6,000 + 2,250 = USD 8,250_t_" />
+                            <Localize translate_text="_t_6,000 + 2,250 = 8,250 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>

@@ -20,7 +20,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_Client trades with a stake of USD 10 and a payout of USD 15. Payout probability = 10/15 x 100 = 66.67%_t_" />
+                            <Localize translate_text="_t_Client trades with a stake of 10 USD and a payout of 15 USD. Payout probability = 10/15 x 100 = 66.67%_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Based on the chart, the probability of return falls under 0.5% commission_t_" />
@@ -28,7 +28,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
                             <br />
-                            <Localize translate_text="_t_Total commission earned: 10 x 0.5% = USD 0.05_t_" />
+                            <Localize translate_text="_t_Total commission earned: 10 x 0.5% = 0.05 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -38,12 +38,12 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_Client trades multipliers with a stake of USD 100. The commission generated from the client’s trade is USD 0.60._t_" />
+                            <Localize translate_text="_t_Client trades multipliers with a stake of 100 USD. The commission generated from the client’s trade is 0.60 USD._t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
                             <br />
-                            <Localize translate_text="_t_Total commission earned: USD 0.60 * 40% = USD 0.24_t_" />
+                            <Localize translate_text="_t_Total commission earned: 0.60 USD * 40% = 0.24 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -53,12 +53,12 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_Client trades with a stake of USD 10._t_" />
+                            <Localize translate_text="_t_Client trades with a stake of 10 USD._t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
                             <br />
-                            <Localize translate_text="_t_Total commission earned: USD 10 * 0.8% = USD 0.08_t_" />
+                            <Localize translate_text="_t_Total commission earned: 10 USD * 0.8% = 0.08 USD_t_" />
                         </Header>
                     </Li>
                 </Ul>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Features, AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
 import { Text, FluidContainer, Heading } from '@deriv/quill-design'
 import {
@@ -6,6 +6,7 @@ import {
     IllustrativeDerivedIcon,
 } from '@deriv/quill-icons'
 import { CustomLink } from '@deriv-com/components'
+import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
 import * as styles from './accumulators_faq.module.scss'
 import AccumulatorOptions from 'images/svg/trade-types/accumulator-options.svg'
 import { Localize, localize, is_rtl } from 'components/localization'
@@ -13,7 +14,7 @@ import OptionsLayout from 'features/components/quill/options-layout'
 import Box from 'features/components/atoms/box'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { BuildVariantType } from 'features/types'
-import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
+import VideoModal from 'features/components/quill/videoModal'
 
 interface SwiperOption {
     spaceBetween: number
@@ -29,7 +30,12 @@ const swiperOption: SwiperOption = {
     freeMode: true,
 }
 
-const AccumulatorsOptions = ({region}: BuildVariantType) => {
+const AccumulatorsOptions = ({ region }: BuildVariantType) => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const handleModalToggle = () => {
+        setIsModalOpen(!isModalOpen)
+    }
     return (
         <>
             <OptionsLayout
@@ -143,8 +149,12 @@ const AccumulatorsOptions = ({region}: BuildVariantType) => {
                     title={<Localize translate_text="_t_How to trade accumulator options_t_" />}
                     cols="two"
                     variant="ContentTop"
-                    cards={accumulatorOptionsVideoCard}
+                    cards={accumulatorOptionsVideoCard.map((card) => ({
+                        ...card,
+                        content: <div onClick={handleModalToggle}>{card.content}</div>,
+                    }))}
                 />
+                <VideoModal isOpen={isModalOpen} onClose={handleModalToggle} video_id="917007011" />
                 <div id="faqs">
                     <AccordionBlock
                         className="border-opacity-black-100 border-x-none"

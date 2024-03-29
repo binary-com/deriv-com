@@ -5,7 +5,10 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const AboutDeriv = () => <QuestionsTemplate data={about_deriv} />
+const AboutDeriv = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <QuestionsTemplate data={about_deriv} region={region}/>
+}
 
 export default WithIntl()(AboutDeriv)
 

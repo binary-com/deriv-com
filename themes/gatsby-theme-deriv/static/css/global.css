@@ -2,6 +2,7 @@
 @import '@deriv/quill-design/dist/quill-design.css';
 @import '@deriv-com/components/style.css';
 @import '@deriv/quill-design/quill-tailwind/styles.css';
+@import '@deriv-com/blocks/style.css';
 
 
 
@@ -57,7 +58,8 @@
 }
 /* Patch End */
 @media (min-width: 1232px){
-.min-\[1232px\]\:px-general-none {
-    padding-left: var(--semantic-spacing-general-none);
-    padding-right: var(--semantic-spacing-general-none);
-}}
+    .min-\[1232px\]\:px-general-none {
+        padding-left: var(--semantic-spacing-general-none) !important;
+        padding-right: var(--semantic-spacing-general-none) !important;
+    }
+}

@@ -43,7 +43,7 @@ const LayoutOverlay = () => {
                     is_rtl ? wrapper_rtl : wrapper_ltr,
                 )}
             >
-                {cookie.should_show && (
+                {cookie.should_show && !trigger_warning_popuop && (
                     <div
                         className={clsx(
                             'flex basis-6/12 flex-grow',

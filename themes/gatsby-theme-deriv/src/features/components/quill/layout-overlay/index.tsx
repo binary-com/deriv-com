@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
@@ -27,6 +27,10 @@ const LayoutOverlay = () => {
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
     const [is_mounted] = usePageLoaded()
+    const [trigger_warning_popuop, setTriggerWarningPopup] = useState(false)
+
+    useEffect(() => !cookie?.should_show && setTriggerWarningPopup(true), [cookie.should_show])
+
     console.log(cookie.should_show, 'www')
     return (
         <div
@@ -46,12 +50,12 @@ const LayoutOverlay = () => {
                             is_rtl ? 'justify-end' : 'justify-start',
                         )}
                     >
-                        <CookieBanner />
+                        <CookieBanner onCookieBannerClose={() => setTriggerWarningPopup(true)} />
                     </div>
                 )}
 
                 <div className={'flex flex-grow justify-center'}>
-                    <WarningBanner />
+                    <WarningBanner trigger_warning_popuop={trigger_warning_popuop} />
                 </div>
 
                 <div

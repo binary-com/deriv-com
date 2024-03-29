@@ -29,7 +29,7 @@ const LayoutOverlay = () => {
     const [is_mounted] = usePageLoaded()
     const [trigger_warning_popuop, setTriggerWarningPopup] = useState(false)
 
-    useEffect(() => !cookie?.should_show && setTriggerWarningPopup(true), [cookie.should_show])
+    useEffect(() => setTriggerWarningPopup(!cookie?.should_show), [cookie.should_show])
 
     console.log(cookie.should_show, 'www')
     return (

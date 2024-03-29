@@ -11,9 +11,9 @@ export const handleGetTrading = () => {
 }
 
 export const handleRedirectToTradersHub = () => {
-    const trading_hub_url_localized = getDerivAppLocalizedURL(
-        `${deriv_app_url}/appstore/traders-hub`,
-        getLanguage(),
-    )
+    const redirect_from_query_param = '&redirect_from=deriv_com'
+    const trading_hub_url_localized =
+        getDerivAppLocalizedURL(`${deriv_app_url}/appstore/traders-hub`, getLanguage()) +
+        redirect_from_query_param
     window.location.href = trading_hub_url_localized
 }

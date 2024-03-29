@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { overlay_container } from './layout-overlay.module.scss'
@@ -22,6 +22,9 @@ const LayoutOverlay = () => {
     const [is_mounted] = usePageLoaded()
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
+    const [trigger_warning_popuop, setTriggerWarningPopup] = useState(false)
+
+    useEffect(() => setTriggerWarningPopup(!cookie?.should_show), [cookie.should_show])
 
     return (
         <Flex.Box
@@ -39,20 +42,16 @@ const LayoutOverlay = () => {
                 justify="between"
                 align="end"
             >
-                {cookie?.should_show ? (
-                    <>
-                        <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                            <CookieBanner />
-                        </Flex.Box>
-                        <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                            <WarningBanner />
-                        </Flex.Box>
-                    </>
-                ) : (
-                    <Flex.Box justify={'center'} grow={'1'}>
-                        <WarningBanner />
+                {cookie.should_show && !trigger_warning_popuop && (
+                    <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
+                        <CookieBanner onCookieBannerClose={() => setTriggerWarningPopup(true)} />
                     </Flex.Box>
                 )}
+
+                <Flex.Box justify={'center'} grow={'1'}>
+                    <WarningBanner trigger_warning_popuop={trigger_warning_popuop} />
+                </Flex.Box>
+
                 <Flex.Box direction="col">
                     {isLiveChat && <LiveChatButton />}
                     {isWhatsappChat && <WhatsappButton />}

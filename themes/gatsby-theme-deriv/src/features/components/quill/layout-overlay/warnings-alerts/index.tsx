@@ -3,19 +3,23 @@ import { Text } from '@deriv/quill-design'
 import CloseIcon from 'images/svg/trading-specification/close-icon.svg'
 import WarningBlackIcon from 'images/svg/warning-icon.svg'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
-import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 
 interface WarningBannerProps {
     trigger_warning_popuop: boolean
 }
 
 const WarningBanner = ({ trigger_warning_popuop }: WarningBannerProps) => {
-    const cookie = useCookieBanner()
     const is_maintenance_mode = useThirdPartyFlags('maintenance_mode')
     const maintenance_mode_content = useThirdPartyFlags('maintenance_mode_content')
-    const [is_close_pressed, setIsClosedPressed] = useState(false)
+    const [is_close_pressed, setIsClosedPressed] = useState(
+        sessionStorage.getItem('warningClosed') === 'true',
+    )
+
     const [should_show_warning, setShouldShowWarning] = useState(false)
-    const closeBanner = useCallback(() => setIsClosedPressed(true), [])
+    const closeBanner = useCallback(() => {
+        setIsClosedPressed(true)
+        sessionStorage.setItem('warningClosed', 'true')
+    }, [])
 
     useEffect(() => {
         setShouldShowWarning(is_maintenance_mode && !is_close_pressed && trigger_warning_popuop)

@@ -32,7 +32,7 @@ const WarningBanner = ({ trigger_warning_popuop }: WarningBannerProps) => {
                 className="bg-background-primary-base p-general-sm relative max-w-[720px] flex justify-between items-center rounded-md"
                 role="alert"
             >
-                <div className="flex gap-gap-md pl-gap-sm items-center">
+                <div className="flex gap-gap-md pl-gap-sm items-center md:items-start">
                     <img className="!h-[24px]" src={WarningBlackIcon} alt="Warning" />
                     <Text size="sm">{maintenance_mode_content}</Text>
                 </div>

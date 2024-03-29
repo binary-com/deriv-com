@@ -2,7 +2,7 @@ import React from 'react'
 import { Hero } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
 import { v4 as uuidv4 } from 'uuid'
-import { Text, Heading, Button } from '@deriv/quill-design'
+import { Button } from '@deriv/quill-design'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import Label from 'features/components/atoms/label'

@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { london } from '../../_model/_locations/_locations'
+import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
-import { london } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
 
 const query = graphql`
     query {

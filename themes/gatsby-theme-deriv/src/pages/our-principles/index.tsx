@@ -93,9 +93,10 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const OurPrinciples = () => {
+const OurPrinciples = ({ pageContext }: TGatsbyHead) => {
+    const {region} = pageContext
     return (
-        <Layout>
+        <Layout region={region}>
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
                     <Header as="h1" type="hero" align="start" mb="24px">

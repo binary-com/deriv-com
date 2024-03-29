@@ -1,5 +1,4 @@
 import React from 'react'
-import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import UpAndDownDigitalOptionsPage from 'features/pages/options/digital/up-down'
 import { faq_schema } from 'features/pages/options/digital/up-down/_faq-schema'

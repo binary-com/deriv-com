@@ -28,21 +28,21 @@ const WarningBanner = ({ trigger_warning_popuop }: WarningBannerProps) => {
     if (!should_show_warning) return null
     return (
         <div
-            className="flex pointer-events-auto justify-center m-general-md md:m-general-2xl min-h-[60px]  shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)]  duration-200 [transition:opacity,translate] border border-solid-red-100 z-50"
+            className="flex pointer-events-auto justify-center m-general-md md:m-general-2xl min-h-[60px] shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] duration-200 [transition:opacity,translate] z-50 border border-solid border-gray-300 rounded-md"
             dir="ltr"
         >
             <div
-                className="bg-background-primary-base p-general-sm relative max-w-[720px] flex justify-between items-center rounded-md"
+                className="bg-background-primary-base p-general-sm relative max-w-[720px] flex justify-between items-center border border-solid border-gray-300 rounded-md"
                 role="alert"
             >
-                <div className="flex gap-gap-md pl-gap-sm items-center md:items-start">
+                <div className="flex gap-gap-md pl-gap-md items-center md:items-start">
                     <img className="!h-[24px]" src={WarningBlackIcon} alt="Warning" />
                     <Text size="sm">{maintenance_mode_content}</Text>
                 </div>
                 <img
                     width="12px"
                     height="12px"
-                    className="cursor-pointer"
+                    className="cursor-pointer -mt-general-md mr-general-md ml-general-md"
                     src={CloseIcon}
                     alt="Close"
                     onClick={closeBanner}

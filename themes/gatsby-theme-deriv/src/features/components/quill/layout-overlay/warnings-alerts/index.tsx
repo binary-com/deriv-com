@@ -27,7 +27,10 @@ const WarningBanner = ({ trigger_warning_popuop }: WarningBannerProps) => {
 
     if (!should_show_warning) return null
     return (
-        <div className="flex pointer-events-auto justify-center m-general-md md:m-general-3xl min-h-[60px] animate-fade-out shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] border border-solid-red-100 z-50">
+        <div
+            className="flex pointer-events-auto justify-center m-general-md md:m-general-3xl min-h-[60px] animate-fade-out shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] border border-solid-red-100 z-50"
+            dir="ltr"
+        >
             <div
                 className="bg-background-primary-base p-general-sm relative max-w-[720px] flex justify-between items-center rounded-md"
                 role="alert"

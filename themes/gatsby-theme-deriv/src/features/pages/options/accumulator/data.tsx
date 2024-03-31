@@ -112,6 +112,7 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
                 loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
+                className="cursor-pointer"
             />
         ),
         size: 'md',

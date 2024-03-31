@@ -12,16 +12,14 @@ const VideoModal = ({ video_id, isOpen, onClose }: VideoModalProps) => {
     const handleClose = useCallback(() => onClose(), [onClose])
 
     return (
-        <div>
-            <ModalVideo
-                channel="vimeo"
-                autoplay
-                loop="1"
-                isOpen={isOpen}
-                videoId={video_id}
-                onClose={handleClose}
-            />
-        </div>
+        <ModalVideo
+            channel="vimeo"
+            autoplay
+            loop="1"
+            isOpen={isOpen}
+            videoId={video_id}
+            onClose={handleClose}
+        />
     )
 }
 

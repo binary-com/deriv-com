@@ -129,7 +129,7 @@ export const ctrader_android_url = 'https://play.google.com/store/apps/details?i
 //to be updated with ctrader ios url later
 export const ctrader_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
-
+export const how_to_trade_accumulator_video_id = '917007011'
 export const ctrader_web_browser_url = 'ct.deriv.com'
 export const ctrader_traders_hub_url = ' https://app.deriv.com/appstore/traders-hub'
 export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'

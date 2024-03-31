@@ -3,19 +3,20 @@ import { Features, AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
 import { Text, FluidContainer, Heading } from '@deriv/quill-design'
 import {
     DerivProductDerivTraderBrandLightLogoHorizontalIcon,
+    DerivProductDerivGoBrandDarkLogoHorizontalIcon,
     IllustrativeDerivedIcon,
 } from '@deriv/quill-icons'
 import { CustomLink } from '@deriv-com/components'
+import { StaticImage } from 'gatsby-plugin-image'
 import { accumulatorCards, accumulatorOptionsVideoCard, mobileCards } from './data'
 import * as styles from './accumulators_faq.module.scss'
 import AccumulatorOptions from 'images/svg/trade-types/accumulator-options.svg'
 import { Localize, localize, is_rtl } from 'components/localization'
 import OptionsLayout from 'features/components/quill/options-layout'
-import Box from 'features/components/atoms/box'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { BuildVariantType } from 'features/types'
 import VideoModal from 'features/components/quill/videoModal'
-import { how_to_trade_accumulator_video_id } from 'common/constants'
+import { how_to_trade_accumulator_video_id, what_are_accumulator_video_id } from 'common/constants'
 
 interface SwiperOption {
     spaceBetween: number
@@ -32,10 +33,10 @@ const swiperOption: SwiperOption = {
 }
 
 const AccumulatorsOptions = ({ region }: BuildVariantType) => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState({ is_open: false, video_id: '' })
 
-    const handleModalToggle = (action: boolean) => {
-        action && setIsModalOpen(!isModalOpen)
+    const handleModalToggle = (action: boolean, video_id?: string) => {
+        action && setIsModalOpen({ is_open: !isModalOpen.is_open, video_id: video_id || '' })
     }
     return (
         <OptionsLayout
@@ -73,21 +74,26 @@ const AccumulatorsOptions = ({ region }: BuildVariantType) => {
                 background="light"
             >
                 <FluidContainer className="flex flex-col py-general-2xl gap-gap-xl">
-                    <div className="flex max-lg:flex-col justify-between gap-gap-xl">
+                    <div className="flex max-lg:flex-col justify-between gap-gap-xl items-center">
                         <div className="w-full md:w-1/2">
-                            <div>
-                                <Box
-                                    as="iframe"
-                                    src="https://player.vimeo.com/video/915479906?h=bf070a3ff6"
-                                    frameBorder="0"
-                                    width={'100%'}
-                                    height={'360'}
-                                    allowFullScreen
-                                ></Box>
+                            <div
+                                className="rounded-lg overflow-hidden"
+                                onClick={() =>
+                                    handleModalToggle(true, what_are_accumulator_video_id)
+                                }
+                            >
+                                <StaticImage
+                                    src="../../../../images/common/trade-types/accumulator-video-bg-3.png"
+                                    alt={localize('_t_what are trade accumulator options_t_')}
+                                    loading="lazy"
+                                    formats={['webp', 'auto']}
+                                    quality={100}
+                                    className="cursor-pointer object-cover h-full w-full"
+                                />
                             </div>
                         </div>
                         <div className="flex flex-col w-full md:w-1/2 gap-gap-md">
-                            <div className="flex flex-row gap-gap-md">
+                            <div className="flex flex-row gap-gap-md items-center">
                                 <img
                                     src={AccumulatorOptions}
                                     alt={localize('_t_Accumulator options icon_t_')}
@@ -99,12 +105,14 @@ const AccumulatorsOptions = ({ region }: BuildVariantType) => {
                                 </Heading.H3>
                             </div>
 
-                            <Text>
-                                <Localize translate_text="_t_With accumulator options, your payout grows exponentially as long as the current market spot price stays within a set range from the previous spot price. Choose between 1-5% growth rate - a higher growth rate means a narrower range for your price movements and higher risk. With volatility indices, you can also choose the volatility of your market._t_" />
-                            </Text>
-                            <Text>
-                                <Localize translate_text="_t_Secure your gains with manual or automatic profit-taking. With durations of up to 230 ticks, accumulator options are ideal for those looking for fast-paced, strategic trades while balancing risk and reward._t_" />
-                            </Text>
+                            <div className="flex-grow">
+                                <Text>
+                                    <Localize translate_text="_t_With accumulator options, your payout grows exponentially as long as the current market spot price stays within a set range from the previous spot price. Choose between 1-5% growth rate - a higher growth rate means a narrower range for your price movements and higher risk. With volatility indices, you can also choose the volatility of your market._t_" />
+                                </Text>
+                                <Text>
+                                    <Localize translate_text="_t_Secure your gains with manual or automatic profit-taking. With durations of up to 230 ticks, accumulator options are ideal for those looking for fast-paced, strategic trades while balancing risk and reward._t_" />
+                                </Text>
+                            </div>
                         </div>
                     </div>
                     <div className="flex max-lg:flex-col justify-between gap-gap-xl">
@@ -123,14 +131,25 @@ const AccumulatorsOptions = ({ region }: BuildVariantType) => {
                             <Heading.H3>
                                 <Localize translate_text="_t_Trade on_t_" />
                             </Heading.H3>
-                            <div className="flex gap-gap-md items-center">
-                                <DerivProductDerivTraderBrandLightLogoHorizontalIcon
-                                    height="24px"
-                                    width="24px"
-                                />
-                                <CustomLink href={'/dtrader/'} size="md">
-                                    <Localize translate_text="_t_Deriv Trader_t_" />
-                                </CustomLink>
+                            <div className="flex  gap-gap-lg ">
+                                <div className="flex gap-gap-md items-center">
+                                    <DerivProductDerivTraderBrandLightLogoHorizontalIcon
+                                        height="24px"
+                                        width="24px"
+                                    />
+                                    <CustomLink href={'/dtrader/'} size="md">
+                                        <Localize translate_text="_t_Deriv Trader_t_" />
+                                    </CustomLink>
+                                </div>
+                                <div className="flex gap-gap-md items-center">
+                                    <DerivProductDerivGoBrandDarkLogoHorizontalIcon
+                                        height="24px"
+                                        width="24px"
+                                    />
+                                    <CustomLink href={'/deriv-go'} size="md">
+                                        <Localize translate_text="_t_Deriv Go_t_" />
+                                    </CustomLink>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -148,14 +167,20 @@ const AccumulatorsOptions = ({ region }: BuildVariantType) => {
                 cards={accumulatorOptionsVideoCard.map((card) => ({
                     ...card,
                     content: (
-                        <div onClick={() => handleModalToggle(card.id === 1)}>{card.content}</div>
+                        <div
+                            onClick={() =>
+                                handleModalToggle(card.id === 1, how_to_trade_accumulator_video_id)
+                            }
+                        >
+                            {card.content}
+                        </div>
                     ),
                 }))}
             />
             <VideoModal
-                isOpen={isModalOpen}
+                isOpen={isModalOpen.is_open}
                 onClose={() => handleModalToggle(true)}
-                video_id={how_to_trade_accumulator_video_id}
+                video_id={isModalOpen.video_id}
             />
             <div id="faqs">
                 <AccordionBlock

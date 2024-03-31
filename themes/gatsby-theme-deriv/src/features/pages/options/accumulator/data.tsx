@@ -3,7 +3,6 @@ import { CardContent, CustomLink } from '@deriv-com/components'
 import {
     IllustrativePayoutIcon,
     IllustrativeMinimalCapitalIcon,
-    IllustrativeSupport247Icon,
     IllustrativePaidProgrammeIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustrative'
@@ -58,17 +57,6 @@ export const accumulatorCards: CardContent[] = [
         align: 'start',
         size: 'md',
     },
-    {
-        id: 5,
-        header: <Localize translate_text="_t_24/7 support_t_" />,
-        description: (
-            <Localize translate_text="_t_Get round-the-clock assistance from our Customer Support team._t_" />
-        ),
-        icon: <IllustrativeSupport247Icon width="48" height="48" />,
-        color: 'gray',
-        align: 'start',
-        size: 'md',
-    },
 ]
 
 export const accumulatorOptionsVideoCard: CardContent[] = [
@@ -106,14 +94,19 @@ export const accumulatorOptionsVideoCard: CardContent[] = [
             <Localize translate_text="_t_Open your first accumulator options trade with our step-by-step guide._t_" />
         ),
         content: (
-            <StaticImage
-                src="../../../../images/common/trade-types/accumulator-video-bg-2.png"
-                alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
-                loading="lazy"
-                formats={['webp', 'auto']}
-                quality={100}
-                className="cursor-pointer"
-            />
+            <CustomLink
+                target="_blank"
+                href="https://blog.deriv.com/posts/a-guide-to-accumulator-options-trading-on-deriv/"
+            >
+                <StaticImage
+                    src="../../../../images/common/trade-types/accumulator-video-bg-2.png"
+                    alt={localize('_t_Step-by-step guide to trade on accumulator options_t_')}
+                    loading="lazy"
+                    formats={['webp', 'auto']}
+                    quality={100}
+                    className="cursor-pointer"
+                />
+            </CustomLink>
         ),
         size: 'md',
         align: 'start',
@@ -174,18 +167,6 @@ export const mobileCards: CardContent[] = [
         color: 'gray',
         align: 'start',
         icon: <IllustrativePaidProgrammeIcon width="48" height="48" />,
-        className: 'h-full',
-    },
-    {
-        id: 5,
-        header: <Localize translate_text="_t_24/7 support_t_" />,
-        description: (
-            <Localize translate_text="_t_Get round-the-clock assistance from our Customer Support team._t_" />
-        ),
-        size: 'md',
-        color: 'gray',
-        align: 'start',
-        icon: <IllustrativeSupport247Icon width="48" height="48" />,
         className: 'h-full',
     },
 ]

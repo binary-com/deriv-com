@@ -22,7 +22,7 @@ export const affiliate_validation_regex = {
         value.length <= 69,
     postal_code: (value: string) => /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()),
     company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value),
-    url: (value: string) => /^[\w_@./:#&+-]+(?:\.[\w]{2,})$/.test(value),
+    url: (value: string) => /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(value),
     non_empty_string: (value: string) => /^\S.*$/.test(value),
 }
 

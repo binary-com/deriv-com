@@ -106,6 +106,12 @@ const StyledContainer = styled(Container)`
     }
 `
 
+const StyledHeader = styled(CommonHeaderSection)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`;
+
 const DHero = () => {
     const { is_large_tablet, is_mobile, is_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -118,9 +124,9 @@ const DHero = () => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivGOLogo} alt="Deriv Go" />
-                        <CommonHeaderSection
+                        <StyledHeader
                             title="_t_A trading platform for on-the-go traders_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            title_font_size='64px'
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }

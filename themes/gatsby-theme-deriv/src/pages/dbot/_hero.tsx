@@ -160,6 +160,12 @@ const StyledContainer = styled(Container)`
     }
 `
 
+const StyledHeader = styled(CommonHeaderSection)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`;
+
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
@@ -173,13 +179,13 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledLogo src={BotBannerLogo} alt={localize('_t_Deriv Bot_t_')} />
-                        <CommonHeaderSection
+                        <StyledHeader
                             title="_t_Automate your trading ideas without writing code_t_"
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
                             line_height_title={is_rtl ? '80px' : 'inherit'}
-                            title_font_size={is_mobile ? '32px' : '64px'}
+                            title_font_size='64px'
                             color="var(--color-black-9)"
                         />
                         <BannerButtonWrapper>

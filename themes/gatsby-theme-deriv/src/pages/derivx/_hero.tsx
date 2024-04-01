@@ -122,6 +122,12 @@ const StyledContainer = styled(Container)`
     }
 `
 
+const StyledHeader = styled(CommonHeaderSection)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`;
+
 const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -137,9 +143,9 @@ const DCommonBanner = () => {
                             src={DerivXBannerLogo}
                             alt={localize('_t_Deriv X_t_')}
                         />
-                        <CommonHeaderSection
+                        <StyledHeader
                             title="_t_The trading platform to fit your style_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            title_font_size='64px'
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
+import { useMediaQuery } from 'usehooks-ts'
 import { handleRedirectToTradersHub } from './utils'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
@@ -14,6 +15,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
 import { localize } from 'components/localization'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -126,11 +128,13 @@ const StyledContainer = styled(Container)`
 `
 
 const DCommonBanner = () => {
-    const { is_mobile } = useBreakpoints()
+    const is_mobile = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const { region } = useBuildVariant()
     const is_rtl = useIsRtl()
+
+    console.log("==>", is_mobile ? '32px' : '64px')
 
     return (
         <BackgroundStyle>

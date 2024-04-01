@@ -109,6 +109,7 @@ const CommonHeaderSection = ({
                         line_height={line_height}
                         font_weight_title={font_weight_title}
                         font_family_title={font_family_title}
+                        style={{fontSize: title_font_size}}
                     >
                         <Localize translate_text={title} />
                     </StyledTitle>

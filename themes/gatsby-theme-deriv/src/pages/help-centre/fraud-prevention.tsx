@@ -5,7 +5,10 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const FraudPrevention = () => <QuestionsTemplate data={fraud_prevention} />
+const FraudPrevention = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <QuestionsTemplate data={fraud_prevention} region={region}/>
+}
 
 export default WithIntl()(FraudPrevention)
 

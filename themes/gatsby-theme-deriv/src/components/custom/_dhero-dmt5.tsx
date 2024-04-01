@@ -127,6 +127,12 @@ const StyledContainer = styled(Container)`
     }
 `
 
+const StyledHeader = styled(CommonHeaderSection)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`;
+
 const DCommonBanner = () => {
     const is_mobile = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
@@ -134,17 +140,15 @@ const DCommonBanner = () => {
     const { region } = useBuildVariant()
     const is_rtl = useIsRtl()
 
-    console.log("==>", is_mobile ? '32px' : '64px')
-
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} alt={localize('_t_Deriv MT5_t_')} />
-                        <CommonHeaderSection
+                        <StyledHeader
                             title="_t_The all-in-one CFD trading platform_t_"
-                            title_font_size={is_mobile ? '32px' : '64px'}
+                            title_font_size='64px'
                             color="var(--color-black-9)"
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'

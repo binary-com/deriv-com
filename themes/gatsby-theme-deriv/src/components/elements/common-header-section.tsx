@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 
 type CommonHeaderSectionProps = {
+    className?: string;
     title?: TString
     subtitle?: TString
     subtitle_components?: React.ReactElement[]
@@ -66,6 +67,7 @@ const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
 `
 
 const CommonHeaderSection = ({
+    className,
     title,
     subtitle,
     subtitle_components,
@@ -109,7 +111,7 @@ const CommonHeaderSection = ({
                         line_height={line_height}
                         font_weight_title={font_weight_title}
                         font_family_title={font_family_title}
-                        style={{fontSize: title_font_size}}
+                        className={className}
                     >
                         <Localize translate_text={title} />
                     </StyledTitle>

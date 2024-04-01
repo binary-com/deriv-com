@@ -36,11 +36,12 @@ const query = graphql`
     }
 `
 
-const Dubai = () => {
+const Dubai = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
     const images = useStaticQuery<ImageDataLike>(query)
 
     return (
-        <Layout type="careers">
+        <Layout region={region} type="careers">
             <LocationLayout location={dubai} images={images} />
         </Layout>
     )

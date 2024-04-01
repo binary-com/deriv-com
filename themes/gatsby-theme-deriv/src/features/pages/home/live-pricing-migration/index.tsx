@@ -4,10 +4,10 @@ import { CustomLink } from '@deriv-com/components'
 import { Text } from '@deriv/quill-design'
 import { Analytics } from '@deriv-com/analytics'
 import { StandaloneChevronRightRegularIcon } from '@deriv/quill-icons'
-import useBuildVariant from 'features/hooks/use-build-variant'
-import { Localize } from 'components/localization'
 import LiveMarketProvider from './data-provider'
 import LiveMarketCard from './cards'
+import useBuildVariant from 'features/hooks/use-build-variant'
+import { Localize } from 'components/localization'
 
 const LiveMarketSection = () => {
     const { region } = useBuildVariant()

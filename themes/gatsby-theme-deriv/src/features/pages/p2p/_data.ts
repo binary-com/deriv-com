@@ -76,10 +76,3 @@ export const banner_data: BannerType = {
         },
     ],
 }
-
-export const portalData: RoadmapType = {
-    paragraph:
-        '_t_Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building and suggestions on what to build next._t_',
-    frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
-    link: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m',
-}

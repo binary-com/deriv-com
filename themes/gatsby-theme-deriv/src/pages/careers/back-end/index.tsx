@@ -5,8 +5,9 @@ import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
 
-const Career2 = () => {
-    return <DepartmentPage data={career_data.back_end[0]} />
+const Career2 = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
+    return <DepartmentPage region={region} data={career_data.back_end[0]} />
 }
 
 export default WithIntl()(Career2)

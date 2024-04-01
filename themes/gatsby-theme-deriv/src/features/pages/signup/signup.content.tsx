@@ -1,8 +1,8 @@
 import React from 'react'
+import Flex from 'features/components/atoms/flex-box'
+import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
 import ExperimentalSignUpContent from './content/ExperimentalContent'
 import OriginalSignUpContent from './content/OriginalContent'
-import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
-import Flex from 'features/components/atoms/flex-box'
 
 const SignUpContent = () => {
     const { featureFlagValue: growthbook_feature_flag__latam_signup_human_element_visible } =

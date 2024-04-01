@@ -19,8 +19,7 @@ const LayoutOverlay = () => {
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
     const path_name = getLocationPathname()
     const is_deriv_prime = path_name.includes('deriv-prime')
-    console.log('isLiveChat', isLiveChat)
-    console.log('isWhatsappChat', isWhatsappChat)
+
     return (
         <Flex.Box
             id="overlay-container"
@@ -42,8 +41,7 @@ const LayoutOverlay = () => {
                 </Flex.Box>
                 <Flex.Box direction="col">
                     {isLiveChat && <LiveChatButton />}
-                    {/* {!is_deriv_prime && isWhatsappChat && <WhatsappButton />} */}
-                    {isWhatsappChat && <WhatsappButton />}
+                    {!is_deriv_prime && isWhatsappChat && <WhatsappButton />}
                 </Flex.Box>
             </Flex.Box>
             {is_mounted && <CfdWarningBanner />}

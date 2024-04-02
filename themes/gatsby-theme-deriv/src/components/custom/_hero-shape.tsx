@@ -51,7 +51,7 @@ const Shape: React.FC<TProps> = ({ color = '#FF444F', angle = 0, angle_mobile = 
     return (
         <ContainerStyle>
             <ShapeStyle angle={angle} angle_mobile={angle_mobile}>
-                <BackgroundStyle color={color} width={width} width_mobile={width_mobile}></BackgroundStyle>
+                <BackgroundStyle color={color} width={width} width_mobile={width_mobile} width_tablet={width_tablet}></BackgroundStyle>
             </ShapeStyle>
             {children}
         </ContainerStyle>

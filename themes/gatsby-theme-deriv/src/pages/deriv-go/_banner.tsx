@@ -34,7 +34,8 @@ const ImageWrapper = styled.div`
         }
     }
     &.desktop-img{
-        @media screen and (min-width: 120px ) {
+        display: none;
+        @media screen and (min-width: 1201px ) {
             display: flex;
         }
     }

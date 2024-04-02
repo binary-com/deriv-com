@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import { useMediaQuery } from 'usehooks-ts'
 import { BotBannerLogo } from 'images/svg/dbot'
 import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import device from 'themes/device'
@@ -14,7 +13,6 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
-import { breakpoints } from 'themes/theme.breakpoints'
 
 type DHeroProps = {
     background_alt?: string
@@ -163,7 +161,6 @@ const StyledContainer = styled(Container)`
 
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
-    const is_mobile = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -215,7 +212,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 163} width="50%">
+                    <Shape angle={163} angle_mobile={101} width="50%">
                         <ImageWrapper>
                             <ImageStyle>
                                 <StaticImage

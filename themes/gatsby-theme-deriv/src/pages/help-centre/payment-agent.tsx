@@ -5,7 +5,10 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const PaymentAgent = () => <QuestionsTemplate data={payment_agent} />
+const PaymentAgent = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <QuestionsTemplate data={payment_agent} region={region} />
+}
 
 export default WithIntl()(PaymentAgent)
 

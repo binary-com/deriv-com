@@ -215,7 +215,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 193} width="60%">
+                    <Shape angle={193} angle_mobile={101} width="60%">
                         <ImageWrapper>
                             <ImageStyle>
                                 {region === "eu" ? (

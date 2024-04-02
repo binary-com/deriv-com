@@ -157,10 +157,20 @@ export const StyledHeaderForDownloadApp = styled(CommonHeaderSection)`
         text-align: center;
         margin: 0px;
     }
+    @media ${device.tablet} {
+        font-size: 32px;
+        line-height: 50px;
+        text-align: center;
+        margin: 0px;
+    }
 `;
 
 export const StyledHeaderForDmt5DownloadApp = styled(CommonHeaderSection)`
     @media ${breakpoints.md} {
+        font-size: 32px;
+        text-align: center;
+    }
+    @media ${device.tablet} {
         font-size: 32px;
         text-align: center;
     }

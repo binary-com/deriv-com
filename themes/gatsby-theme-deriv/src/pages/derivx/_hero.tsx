@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import { useMediaQuery } from 'usehooks-ts'
 import {StyledHeaderForDerivxHero} from 'components/elements/common-header-section'
 import { DerivXBannerLogo } from 'images/svg/deriv-x'
 import device from 'themes/device'
@@ -13,7 +12,6 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
 import { localize } from 'components/localization'
-import { breakpoints } from 'themes/theme.breakpoints'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -24,6 +22,18 @@ const ImageStyle = styled.div`
 
     @media ${device.tablet} {
         width: 100%;
+    }
+    &.mobile-img{
+        display: none;
+        @media ${device.tablet} {
+            display: block;
+        }
+    }
+    &.desktop-img{
+        display: block;
+        @media ${device.tablet} {
+            display: none;
+        }
     }
 `
 
@@ -124,7 +134,6 @@ const StyledContainer = styled(Container)`
 `
 
 const DCommonBanner = () => {
-    const is_mobile = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -168,27 +177,24 @@ const DCommonBanner = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 168} width="55%">
+                    <Shape angle={168} angle_mobile={101} width="55%">
                         <ImageWrapper>
-                            {is_mobile ? (
-                                <ImageStyle>
-                                    <StaticImage
-                                        src="../../images/common/deriv-x/banner_image_derivx_mobile.png"
-                                        loading="eager"
-                                        formats={['avif', 'webp', 'auto']}
-                                        alt="Banner"
-                                    />
-                                </ImageStyle>
-                            ) : (
-                                <ImageStyle>
-                                    <StaticImage
-                                        src="../../images/common/deriv-x/banner_image_derivx.png"
-                                        loading="eager"
-                                        formats={['avif', 'webp', 'auto']}
-                                        alt="Banner"
-                                    />
-                                </ImageStyle>
-                            )}
+                            <ImageStyle className='mobile-img'>
+                                <StaticImage
+                                    src="../../images/common/deriv-x/banner_image_derivx_mobile.png"
+                                    loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
+                                    alt="Banner"
+                                />
+                            </ImageStyle>
+                            <ImageStyle className='desktop-img'>
+                                <StaticImage
+                                    src="../../images/common/deriv-x/banner_image_derivx.png"
+                                    loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
+                                    alt="Banner"
+                                />
+                            </ImageStyle>
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

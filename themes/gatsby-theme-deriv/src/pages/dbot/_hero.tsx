@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
+import { useMediaQuery } from 'usehooks-ts'
 import { BotBannerLogo } from 'images/svg/dbot'
 import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
@@ -14,6 +14,7 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 type DHeroProps = {
     background_alt?: string
@@ -162,7 +163,7 @@ const StyledContainer = styled(Container)`
 
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
-    const { is_mobile } = useBreakpoints()
+    const is_mobile = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()

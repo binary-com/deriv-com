@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
+import { useMediaQuery } from 'usehooks-ts'
+import {StyledHeaderForDerivxHero} from 'components/elements/common-header-section'
 import { DerivXBannerLogo } from 'images/svg/deriv-x'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
@@ -13,6 +13,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
 import { localize } from 'components/localization'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -123,7 +124,7 @@ const StyledContainer = styled(Container)`
 `
 
 const DCommonBanner = () => {
-    const { is_mobile } = useBreakpoints()
+    const is_mobile = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -137,7 +138,7 @@ const DCommonBanner = () => {
                             src={DerivXBannerLogo}
                             alt={localize('_t_Deriv X_t_')}
                         />
-                        <StyledHeaderForPlatform
+                        <StyledHeaderForDerivxHero
                             title="_t_The trading platform to fit your style_t_"
                             title_font_size='64px'
                             font_family_title={
@@ -145,7 +146,7 @@ const DCommonBanner = () => {
                             }
                             line_height_title={is_rtl ? '80px' : 'inherit'}
                             color="var(--color-black-9)"
-                            margin_title={is_mobile ? '0 0 5px 0' : '0'}
+                            margin_title="0"
                         />
                         <BannerButtonWrapper>
                             {is_logged_in ? (

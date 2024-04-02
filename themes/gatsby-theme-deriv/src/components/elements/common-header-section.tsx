@@ -143,6 +143,13 @@ export const StyledHeaderForPlatform = styled(CommonHeaderSection)`
     }
 `;
 
+export const StyledHeaderForDerivxHero = styled(CommonHeaderSection)`
+    @media ${device.tablet} {
+        font-size: 32px;
+        margin: 0 0 5px 0;
+    }
+`;
+
 export const StyledHeaderForDownloadApp = styled(CommonHeaderSection)`
     @media ${breakpoints.md} {
         font-size: 32px;

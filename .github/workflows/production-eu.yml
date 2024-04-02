@@ -1,11 +1,11 @@
 name: Production CF for EU
 
 on:
-  push:
-      tags:
-          - 'production*'
-      paths-ignore:
-          - '**.md'
+    push:
+        tags:
+            - 'production*'
+        paths-ignore:
+            - '**.md'
 
 env:
     GATSBY_CPU_COUNT: 16
@@ -21,6 +21,7 @@ env:
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
     GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
     GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+    GATSBY_DATABASE_URL: ${{ secrets.GATSBY_DATABASE_URL }}
 
 jobs:
     release-production:
@@ -59,7 +60,7 @@ jobs:
               run: echo "New website - http://eu-deriv-com-pages.pages.dev"
             - name: upload-artifact
               uses: actions/upload-artifact@v4
-              with:    
-                name: production
-                path: sites/eu/public
-                retention-days: 5
+              with:
+                  name: production
+                  path: sites/eu/public
+                  retention-days: 5

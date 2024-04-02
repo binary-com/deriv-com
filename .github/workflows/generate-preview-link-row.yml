@@ -17,8 +17,8 @@ jobs:
     build_row_to_cloudflare_pages:
         runs-on: Ubuntu-latest
         permissions:
-          checks: write
-          pull-requests: write
+            checks: write
+            pull-requests: write
         steps:
             - name: Verify user
               uses: 'deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1'
@@ -69,7 +69,7 @@ jobs:
                       sites/row/public
 
             - name: Install Dependencies
-              uses: "./.github/actions/npm_install_from_cache"
+              uses: './.github/actions/npm_install_from_cache'
 
             - name: Build project
               id: build-project
@@ -83,6 +83,7 @@ jobs:
                   GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
                   GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
                   GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+                  GATSBY_DATABASE_URL: ${{ secrets.GATSBY_DATABASE_URL }}
 
               run: npm run build:row
 

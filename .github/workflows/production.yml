@@ -21,6 +21,7 @@ env:
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
     GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
     GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+    GATSBY_DATABASE_URL: ${{ secrets.GATSBY_DATABASE_URL }}
 
 jobs:
     release-production:
@@ -68,10 +69,10 @@ jobs:
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"
             - name: upload-artifact
               uses: actions/upload-artifact@v4
-              with:    
-                name: production
-                path: public
-                retention-days: 5
+              with:
+                  name: production
+                  path: public
+                  retention-days: 5
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
@@ -125,11 +126,11 @@ jobs:
             - name: Deploy 🚀
               id: build_and_push_docker_image
               env:
-                KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
-                SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
-                CA_CRT: ${{ secrets.CA_CRT }}
-                NAMESPACE: deriv-com-production
-                DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                  SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                  CA_CRT: ${{ secrets.CA_CRT }}
+                  NAMESPACE: deriv-com-production
+                  DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
@@ -144,12 +145,12 @@ jobs:
                   fields: workflow,repo
                   if_mention: failure,cancelled
                   custom_payload: |
-                    {
-                      attachments: [{
-                        color: '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                        text: `Release for *Deriv.com* with version *$GIT_TAG_NAME* has failed`
-                      }]
-                    }
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `Release for *Deriv.com* with version *$GIT_TAG_NAME* has failed`
+                        }]
+                      }
               env:
-                 SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
               if: failure()

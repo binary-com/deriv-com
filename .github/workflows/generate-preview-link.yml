@@ -17,8 +17,8 @@ jobs:
     build_to_cloudflare_pages:
         runs-on: Ubuntu-latest
         permissions:
-            checks: write
-            pull-requests: write
+          checks: write
+          pull-requests: write
         steps:
             - name: Verify user
               uses: 'deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1'

@@ -9,9 +9,9 @@ import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provid
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
-const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
-const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
-const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 5000))
+const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 2000))
+const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 2000))
+const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 2000))
 
 function calculatePercentageOfNumber(percentage: number, number: number) {
     const result = (percentage / 100) * number

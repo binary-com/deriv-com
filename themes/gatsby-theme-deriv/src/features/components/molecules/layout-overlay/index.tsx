@@ -8,9 +8,9 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 
-const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
-const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
-const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 5000))
+const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 2000))
+const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 2000))
+const CookieBanner = loadable(() => pMinDelay(import('./cookie-banner'), 2000))
 
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()

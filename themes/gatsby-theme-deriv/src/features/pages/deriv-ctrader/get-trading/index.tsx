@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import GrayAngle30 from '../../../../images/common/gray-angle.png'
-import AppleIcon from '../../../../images/svg/apple-icon.svg'
 import WindowsIcon from '../../../../images/svg/windows-icon.svg'
 import AndroidIcon from '../../../../images/svg/android-icon.svg'
 import BrowserIcon from '../../../../images/svg/browser-icon.svg'
 import GetAppMobileBG from '../../../../images/common/getAppMobileBG.png'
 import { DerivXLogo } from 'images/svg/deriv-x'
 import DerivCtraderQR from 'images/common/ctrader/derivCtraderQR.png'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForDownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -94,15 +93,15 @@ const DerivCtraderApp = () => {
                         height="64px"
                     />
                     <TextAndButtonWrapper>
-                        <CommonHeaderSection
+                        <StyledHeaderForDownloadApp
                             title="_t_Get trading with Deriv cTrader_t_"
-                            title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                            align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                            title_font_size='64px'
+                            align_title={is_rtl ? 'right' : 'left'}
                             width="100%"
                             font_family_title="Ubuntu"
                             color="#fff"
-                            margin_title={is_mobile_or_tablet ? '0' : '0 0 18px'}
-                            line_height_title={is_mobile_or_tablet ? '50px' : 'normal'}
+                            margin_title='0 0 18px'
+                            line_height_title='normal'
                         />
                     </TextAndButtonWrapper>
                 </ContentWrapper>

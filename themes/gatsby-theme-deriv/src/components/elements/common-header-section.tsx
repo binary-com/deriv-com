@@ -4,6 +4,7 @@ import { TString } from 'types/generics'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 type CommonHeaderSectionProps = {
     className?: string;
@@ -139,6 +140,22 @@ const CommonHeaderSection = ({
 export const StyledHeaderForPlatform = styled(CommonHeaderSection)`
     @media ${device.tablet} {
         font-size: 32px;
+    }
+`;
+
+export const StyledHeaderForDownloadApp = styled(CommonHeaderSection)`
+    @media ${breakpoints.md} {
+        font-size: 32px;
+        line-height: 50px;
+        text-align: center;
+        margin: 0px;
+    }
+`;
+
+export const StyledHeaderForDmt5DownloadApp = styled(CommonHeaderSection)`
+    @media ${breakpoints.md} {
+        font-size: 32px;
+        text-align: center;
     }
 `;
 

@@ -11,7 +11,7 @@ import LinuxIcon from '../../images/svg/linux-icon.svg'
 import MacIcon from '../../images/svg/mac-icon.svg'
 import WinIcon from '../../images/svg/windows-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForDmt5DownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -126,10 +126,10 @@ const DerivMT5GetApp = () => {
             <ContentWrapper is_rtl={is_rtl}>
                 <img src={dmt5Logo} alt="Deriv MT5" width="64px" height="64px" />
                 <TextAndButtonWrapper>
-                    <CommonHeaderSection
+                    <StyledHeaderForDmt5DownloadApp
                         title="_t_Get trading with Deriv MT5_t_"
-                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                        title_font_size='64px'
+                        align_title={is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"

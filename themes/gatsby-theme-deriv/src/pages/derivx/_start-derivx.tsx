@@ -1,7 +1,7 @@
 import React, { useState, ReactNode, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import StepperView from './_stepper_view'
+import StepperView from 'components/custom/_stepper_view'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'

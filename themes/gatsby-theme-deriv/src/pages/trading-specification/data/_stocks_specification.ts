@@ -54,7 +54,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -32.6,
             swap_short: 11.1,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -71,7 +71,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -113.52,
             swap_short: -8.11,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -88,7 +88,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -186.94,
             swap_short: -13.35,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -105,7 +105,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -412.12,
             swap_short: -29.44,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -140,7 +140,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -247.13,
             swap_short: -17.65,
-            trading_hours: 'Mon-Fri 08:00-19:00 GMT',
+            trading_hours: 'Mon-Fri 07:00-18:00 GMT',
         },
         {
             instrument: {
@@ -158,7 +158,7 @@ const stocks_specification: TSpecification = {
             swap_long: -215.54,
             swap_short: 14.07,
             trading_hours:
-                'Sun 23:05-24:00 GMT\nMon-Thur 00:00-21:55, 23:05-24:00 GMT\nFri 00:00-21:00 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
             instrument: {
@@ -283,7 +283,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.7,
             swap_short: -9.1,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -317,7 +317,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1,
             swap_short: -3.2,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -334,7 +334,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.036,
             swap_short: 0.002,
-            rading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -436,7 +436,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.062,
             swap_short: 0.062,
-            rading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -504,7 +504,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.455,
             swap_short: 0.084,
-            rading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -572,7 +572,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.11,
             swap_short: -0.35,
-            rading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -844,7 +844,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.19,
             swap_short: 0.011,
-            rading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1031,7 +1031,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.165,
             swap_short: 0.067,
-            trading_hours: 'Mon-Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon-Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1048,7 +1048,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.036,
             swap_short: 0.06,
-            trading_hours: 'Mon-Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon-Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1203,7 +1203,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -2.7,
             swap_short: -9.1,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1219,7 +1219,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1,
             swap_short: -3.2,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1235,7 +1235,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -0.036,
             swap_short: 0.002,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1251,7 +1251,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1.062,
             swap_short: 0.062,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1267,7 +1267,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -0.8,
             swap_short: -2.5,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1283,7 +1283,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1.455,
             swap_short: 0.084,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1299,7 +1299,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -0.11,
             swap_short: -0.35,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1315,7 +1315,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -0.19,
             swap_short: 0.011,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1331,7 +1331,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1.165,
             swap_short: 0.067,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1347,7 +1347,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '0.67',
             swap_long: -1.036,
             swap_short: 0.06,
-            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1380,7 +1380,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -113.52,
             swap_short: -8.11,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1396,7 +1396,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -186.94,
             swap_short: -13.35,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1412,7 +1412,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -412.12,
             swap_short: -29.44,
-            trading_hours: 'Mon-Fri 07:00-21:00 GMT',
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1445,7 +1445,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: '10.00',
             swap_long: -247.13,
             swap_short: -17.65,
-            trading_hours: 'Mon-Fri 08:00-19:00 GMT',
+            trading_hours: 'Mon-Fri 07:00-18:00 GMT',
         },
         {
             instrument: {
@@ -1462,7 +1462,7 @@ const stocks_specification: TSpecification = {
             swap_long: -215.54,
             swap_short: 14.07,
             trading_hours:
-                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:55-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
             instrument: {

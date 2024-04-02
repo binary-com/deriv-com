@@ -17,8 +17,8 @@ jobs:
     build_eu_to_cloudflare_pages:
         runs-on: Ubuntu-latest
         permissions:
-            checks: write
-            pull-requests: write
+          checks: write
+          pull-requests: write
         steps:
             - name: Verify user
               uses: 'deriv-com/shared-actions/.github/actions/verify_user_in_organization@v1'
@@ -67,7 +67,7 @@ jobs:
                       sites/eu/.cache
                       sites/eu/public
             - name: Install Dependencies
-              uses: './.github/actions/npm_install_from_cache'
+              uses: "./.github/actions/npm_install_from_cache"
 
             - name: Build project
               id: build-project

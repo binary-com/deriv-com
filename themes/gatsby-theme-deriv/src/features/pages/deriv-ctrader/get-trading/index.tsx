@@ -10,7 +10,6 @@ import DerivCtraderQR from 'images/common/ctrader/derivCtraderQR.png'
 import {StyledHeaderForDownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { ctrader_android_url, ctrader_traders_hub_url, ctrader_windows_url } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
@@ -46,7 +45,6 @@ const Wrapper = styled.div`
 `
 
 const DerivCtraderApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
     const ctrader_apps_windows = useThirdPartyFlags('ctrader_apps.windows')
     const ctrader_apps_android = useThirdPartyFlags('ctrader_apps.android')

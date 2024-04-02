@@ -11,7 +11,6 @@ import DerivXQR from 'images/svg/deriv-x/derivxQR.svg'
 import {StyledHeaderForDownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useRegion from 'components/hooks/use-region'
 import {
@@ -53,7 +52,6 @@ const Wrapper = styled.div`
 `
 
 const DerivXGetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
     const { is_appgallery_supported } = useRegion()
     const deriv_x_apps_android = useThirdPartyFlags('deriv_x_apps.android')

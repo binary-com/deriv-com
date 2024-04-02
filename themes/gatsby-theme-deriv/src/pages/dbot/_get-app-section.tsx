@@ -11,7 +11,6 @@ import Button from 'components/custom/_button'
 import { handleGetTrading } from 'components/custom/utils'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { localize } from 'components/localization'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
@@ -42,7 +41,6 @@ const TextAndButtonWrapper = styled.div`
 `
 
 const DBotGetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()

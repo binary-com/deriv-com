@@ -15,7 +15,6 @@ import {StyledHeaderForDmt5DownloadApp} from 'components/elements/common-header-
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import {
     dmt5_windows,
     dmt5_linux_url,
@@ -65,7 +64,6 @@ const StyledInfoIcon = styled.img`
 `
 
 const DerivMT5GetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
 
     const mt5_apps_android = useThirdPartyFlags('mt5_apps.android')

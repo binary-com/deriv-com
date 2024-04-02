@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import Shape from './_hero-shape'
 import Button from './_button'
 import { handleGetTrading } from './utils'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import DerivTLogo from 'images/svg/dtrader/deriv-trader-banner-logo.svg'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -154,12 +154,6 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledHeader = styled(CommonHeaderSection)`
-    @media ${device.tablet} {
-        font-size: 32px;
-    }
-`;
-
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
@@ -179,7 +173,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                             src={DerivTLogo}
                             alt={localize('_t_Deriv Trader_t_')}
                         />
-                        <StyledHeader
+                        <StyledHeaderForPlatform
                             title="_t_A user-friendly trading platform_t_"
                             title_font_size='64px'
                             font_family_title={

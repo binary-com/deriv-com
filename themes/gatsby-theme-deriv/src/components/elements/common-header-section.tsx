@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { TString } from 'types/generics'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
+import device from 'themes/device'
 
 type CommonHeaderSectionProps = {
     className?: string;
@@ -134,4 +135,11 @@ const CommonHeaderSection = ({
         </StyledCommonHeaderSection>
     )
 }
+
+export const StyledHeaderForPlatform = styled(CommonHeaderSection)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`;
+
 export default CommonHeaderSection

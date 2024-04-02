@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { handleRedirectToTradersHub } from './utils'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -125,12 +125,6 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledHeader = styled(CommonHeaderSection)`
-    @media ${device.tablet} {
-        font-size: 32px;
-    }
-`;
-
 const DCommonBanner = () => {
     const is_mobile = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -144,7 +138,7 @@ const DCommonBanner = () => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} alt={localize('_t_Deriv MT5_t_')} />
-                        <StyledHeader
+                        <StyledHeaderForPlatform
                             title="_t_The all-in-one CFD trading platform_t_"
                             title_font_size='64px'
                             color="var(--color-black-9)"

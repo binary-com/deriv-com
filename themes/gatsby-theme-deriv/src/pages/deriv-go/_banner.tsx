@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import DerivGOLogo from 'images/svg/deriv-go/deriv-go-banner-logo.svg'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -12,7 +12,6 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
-import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -106,12 +105,6 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledHeader = styled(CommonHeaderSection)`
-    @media ${device.tablet} {
-        font-size: 32px;
-    }
-`;
-
 const DHero = () => {
     const { is_large_tablet, is_mobile, is_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -124,7 +117,7 @@ const DHero = () => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivGOLogo} alt="Deriv Go" />
-                        <StyledHeader
+                        <StyledHeaderForPlatform
                             title="_t_A trading platform for on-the-go traders_t_"
                             title_font_size='64px'
                             font_family_title={

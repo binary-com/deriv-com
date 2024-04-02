@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { BotBannerLogo } from 'images/svg/dbot'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -160,12 +160,6 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledHeader = styled(CommonHeaderSection)`
-    @media ${device.tablet} {
-        font-size: 32px;
-    }
-`;
-
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
@@ -179,7 +173,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledLogo src={BotBannerLogo} alt={localize('_t_Deriv Bot_t_')} />
-                        <StyledHeader
+                        <StyledHeaderForPlatform
                             title="_t_Automate your trading ideas without writing code_t_"
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'

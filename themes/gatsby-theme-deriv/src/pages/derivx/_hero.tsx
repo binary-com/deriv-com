@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import { DerivXBannerLogo } from 'images/svg/deriv-x'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -122,12 +122,6 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const StyledHeader = styled(CommonHeaderSection)`
-    @media ${device.tablet} {
-        font-size: 32px;
-    }
-`;
-
 const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -143,7 +137,7 @@ const DCommonBanner = () => {
                             src={DerivXBannerLogo}
                             alt={localize('_t_Deriv X_t_')}
                         />
-                        <StyledHeader
+                        <StyledHeaderForPlatform
                             title="_t_The trading platform to fit your style_t_"
                             title_font_size='64px'
                             font_family_title={

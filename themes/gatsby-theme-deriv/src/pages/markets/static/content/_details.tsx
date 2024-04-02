@@ -339,13 +339,19 @@ export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 150%, and 250%.</0>_t_"
+                translate_text="_t_These indices correspond to simulated markets with constant volatilities of 50%, 75%, 100%, and 250%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>150 (1s), and 250 (1s).</0>_t_"
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>50, 75, and 100.</0>_t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>50 (1s), 75 (1s), 100(1s), 150 (1s), and 250 (1s).</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>

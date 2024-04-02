@@ -365,6 +365,12 @@ import CRASHI600 from 'images/svg/symbols/crash-indices-600.svg'
 import CRASHI900 from 'images/svg/symbols/crash-indices-900.svg'
 import BOOMI600 from 'images/svg/symbols/boom-indices-600.svg'
 import BOOMI900 from 'images/svg/symbols/boom-indices-900.svg'
+import VOL501S from 'images/svg/symbols/volatility_50_1s.svg'
+import VOL751S from 'images/svg/symbols/volatility_75_1s.svg'
+import VOL1001S from 'images/svg/symbols/volatility_100_1s.svg'
+import VOL50 from 'images/svg/symbols/volatility_50.svg'
+import VOL75 from 'images/svg/symbols/volatility_75.svg'
+import VOL100 from 'images/svg/symbols/volatility_100.svg'
 
 export {
     AAL,
@@ -734,4 +740,10 @@ export {
     CRASHI900,
     BOOMI600,
     BOOMI900,
+    VOL501S,
+    VOL751S,
+    VOL1001S,
+    VOL50,
+    VOL75,
+    VOL100,
 }

@@ -10,12 +10,8 @@ import { localize, Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
-<<<<<<< HEAD:src/pages/markets/components/markets/_cryptocurrencies.tsx
 import LeverageBalance from 'images/svg/markets/leveragebalance.svg'
 import useRegion from 'components/hooks/use-region'
-=======
-import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
->>>>>>> master:themes/gatsby-theme-deriv/src/pages/markets/components/markets/_cryptocurrencies.tsx
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'

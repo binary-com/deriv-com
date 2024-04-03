@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import DerivGOLogo from 'images/svg/deriv-go/deriv-go-banner-logo.svg'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/custom/utils'
@@ -12,14 +11,34 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
-import { localize } from 'components/localization'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
 const ImageWrapper = styled.div`
-    display: flex;
     flex: 1;
     justify-content: center;
+    &.mobile-img{
+        display: none;
+        @media ${device.tablet} {
+            display: flex;
+        }
+    }
+    &.tablet-img{
+        display: none;
+        @media ${breakpoints.sm} {
+            display: flex;
+        }
+        @media ${breakpoints.md} {
+            display: flex;
+        }
+    }
+    &.desktop-img{
+        display: none;
+        @media screen and (min-width: 1201px ) {
+            display: flex;
+        }
+    }
 `
 const BannerButtonWrapper = styled.div`
     display: flex;
@@ -107,7 +126,6 @@ const StyledContainer = styled(Container)`
 `
 
 const DHero = () => {
-    const { is_large_tablet, is_mobile, is_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -118,9 +136,9 @@ const DHero = () => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivGOLogo} alt="Deriv Go" />
-                        <CommonHeaderSection
+                        <StyledHeaderForPlatform
                             title="_t_A trading platform for on-the-go traders_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            title_font_size='64px'
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
@@ -148,34 +166,36 @@ const DHero = () => {
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
                     <Shape
-                        angle={is_mobile ? 101 : 163}
-                        width={is_large_tablet || is_tablet ? '55%' : '60%'}
+                        angle={163}
+                        angle_mobile={101}
+                        width={'60%'}
+                        width_tablet='55%'
                     >
-                        <ImageWrapper>
-                            {is_mobile ? (
-                                <StaticImage
-                                    src="../../images/common/deriv-go/deriv-go-mobile.png"
-                                    loading="eager"
-                                    formats={['avif', 'webp', 'auto']}
-                                    alt="banner"
-                                />
-                            ) : is_large_tablet || is_tablet ? (
-                                <StaticImage
-                                    src="../../images/common/deriv-go/banner_image_tablet.png"
-                                    loading="eager"
-                                    formats={['avif', 'webp', 'auto']}
-                                    alt="banner"
-                                    imgStyle={{ objectFit: 'contain' }}
-                                />
-                            ) : (
-                                <StaticImage
-                                    src="../../images/common/deriv-go/banner_image.png"
-                                    loading="eager"
-                                    formats={['avif', 'webp', 'auto']}
-                                    alt="banner"
-                                    imgStyle={{ objectFit: 'contain' }}
-                                />
-                            )}
+                        <ImageWrapper className='mobile-img'>
+                        <StaticImage
+                            src="../../images/common/deriv-go/deriv-go-mobile.png"
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            alt="banner"
+                        />
+                        </ImageWrapper>
+                        <ImageWrapper className='tablet-img'>
+                            <StaticImage
+                                src="../../images/common/deriv-go/banner_image_tablet.png"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                alt="banner"
+                                imgStyle={{ objectFit: 'contain' }}
+                            />
+                        </ImageWrapper>
+                        <ImageWrapper className='desktop-img'>
+                            <StaticImage
+                                src="../../images/common/deriv-go/banner_image.png"
+                                loading="eager"
+                                formats={['avif', 'webp', 'auto']}
+                                alt="banner"
+                                imgStyle={{ objectFit: 'contain' }}
+                            />
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

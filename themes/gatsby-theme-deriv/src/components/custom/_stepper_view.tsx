@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
@@ -8,6 +8,7 @@ type TStepperViewItem = {
     title: () => TString
     title_components?: () => React.ReactElement[]
     image: () => JSX.Element
+    image_mobile?: () => ReactElement
 }
 
 type TStepperView = {
@@ -83,6 +84,18 @@ const ImageInnerBox = styled.div<ImageWrapperProps>`
     max-width: ${(props) => (props.width ? props.width : 'inherit')};
     width: 100%;
     margin: 0 auto;
+    &.mobile_img{
+        display: none;
+        @media screen and (max-width: 992px ) {
+            display: block;
+        }
+    }
+    &.desktop_img{
+        display: block;
+        @media screen and (max-width: 992px ) {
+            display: none;
+        }
+    }
 `
 
 const StepperView = ({
@@ -108,7 +121,15 @@ const StepperView = ({
     return (
         <Wrapper reverse={reverse} gap={gap}>
             <ImageWrapper>
-                <ImageInnerBox width={imageWidth}>{items[selected]?.image()}</ImageInnerBox>
+                {items[selected]?.image_mobile ? (
+                    <>
+                        <ImageInnerBox width={imageWidth} className='desktop_img'>{items[selected]?.image()}</ImageInnerBox>
+                        <ImageInnerBox width={imageWidth} className='mobile_img'>{items[selected]?.image_mobile()}</ImageInnerBox>
+                    </>
+                ): (
+                    <ImageInnerBox width={imageWidth}>{items[selected]?.image()}</ImageInnerBox>
+                )}
+                
             </ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>

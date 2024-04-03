@@ -46,17 +46,6 @@ export const accumulatorCards: CardContent[] = [
         align: 'start',
         size: 'md',
     },
-    {
-        id: 4,
-        header: <Localize translate_text="_t_Practise with demo_t_" />,
-        description: (
-            <Localize translate_text="_t_Hone your strategies risk-free with a demo account._t_" />
-        ),
-        icon: <IllustrativePaidProgrammeIcon width="48" height="48" />,
-        color: 'gray',
-        align: 'start',
-        size: 'md',
-    },
 ]
 
 export const accumulatorOptionsVideoCard: CardContent[] = [
@@ -155,18 +144,6 @@ export const mobileCards: CardContent[] = [
         color: 'gray',
         align: 'start',
         icon: <IllustrativePayoutIcon width="48" height="48" />,
-        className: 'h-full',
-    },
-    {
-        id: 4,
-        header: <Localize translate_text="_t_Practise with demo_t_" />,
-        description: (
-            <Localize translate_text="_t_Hone your strategies risk-free with a demo account._t_" />
-        ),
-        size: 'md',
-        color: 'gray',
-        align: 'start',
-        icon: <IllustrativePaidProgrammeIcon width="48" height="48" />,
         className: 'h-full',
     },
 ]

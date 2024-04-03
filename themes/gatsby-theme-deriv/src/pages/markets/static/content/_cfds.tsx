@@ -206,11 +206,10 @@ export const synthetic_cfds_eu: TMarketContent = {
         },
         {
             id: 'jump-indices',
-            title: '_t_Jump Indices_t_',
+            title: '_t_Jump indices_t_',
             mobile_title: '_t_Jump Indices_t_',
             instruments: <JumpIndicesEU />,
             details: <JumpIndicesDetailsEU />,
-            content_template: 3,
         },
     ],
 }

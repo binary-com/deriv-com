@@ -192,30 +192,6 @@ export const volatility_indices: TMarketSymbol[] = [
         text: '_t_Volatility 250 (1s) Index_t_',
     },
     {
-        src: icons.VOL501S,
-        text: '_t_Volatility 50 (1s) Index_t_',
-    },
-    {
-        src: icons.VOL751S,
-        text: '_t_Volatility 75 (1s) Index_t_',
-    },
-    {
-        src: icons.VOL1001S,
-        text: '_t_Volatility 100 (1s) Index_t_',
-    },
-    {
-        src: icons.VOL50,
-        text: '_t_Volatility 50 Index_t_',
-    },
-    {
-        src: icons.VOL75,
-        text: '_t_Volatility 75 Index_t_',
-    },
-    {
-        src: icons.VOL100,
-        text: '_t_Volatility 100 Index_t_',
-    },
-    {
         src: icons.INDEX10NEW,
         text: '_t_Volatility 10 Index_t_',
     },

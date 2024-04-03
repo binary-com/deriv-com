@@ -1,18 +1,9 @@
 {
-    "include": [
-        "./src/**/*",
-        "./src/custom.d.ts",
-        "types/react-i18next.d.ts",
-        "./src/types/utils.d.ts",
-        "./src/global.d.ts"
-    ],
-    "jsx": "react",
     "compilerOptions": {
-        "baseUrl": "src",
         "paths": {
             "swiper": ["../node_modules/swiper"]
         },
-        "jsx": "preserve",
+        "jsx": "react",
         "lib": ["ES2021.String", "DOM", "DOM.Iterable"],
         "esModuleInterop": true,
         "experimentalDecorators": true,
@@ -22,18 +13,6 @@
         "moduleResolution": "Bundler",
         "module": "ESNext",
         "resolveJsonModule": true,
-        "downlevelIteration": true,
-        "plugins": [
-            {
-                "name": "typescript-plugin-css-modules",
-                "options": {
-                    "rendererOptions": {
-                        "sass": {
-                            "loadPaths": ["./src"]
-                        }
-                    }
-                }
-            }
-        ]
+        "downlevelIteration": true
     }
 }

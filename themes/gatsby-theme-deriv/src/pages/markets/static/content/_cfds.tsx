@@ -31,6 +31,7 @@ import {
     BasketFXDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
+    JumpIndicesDetailsEU,
     DerivedCFDsDetails,
     DexIndicesDetails,
     EuropeanIndicesDetails,
@@ -42,6 +43,7 @@ import {
     DriftSwitchDetails,
 } from './_details'
 import { TMarketContent } from './_types'
+import { JumpIndicesEU } from 'pages/markets/instruments/_markets'
 
 export const commodities_cfds: TMarketContent = {
     markets_list: {
@@ -200,6 +202,14 @@ export const synthetic_cfds_eu: TMarketContent = {
             mobile_title: '_t_Crash/Boom_t_',
             instruments: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
+            content_template: 3,
+        },
+        {
+            id: 'jump-indices',
+            title: '_t_Jump Indices_t_',
+            mobile_title: '_t_Jump Indices_t_',
+            instruments: <JumpIndicesEU />,
+            details: <JumpIndicesDetailsEU />,
             content_template: 3,
         },
     ],

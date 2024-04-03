@@ -144,7 +144,7 @@ const StartDerivX = () => {
                 image_mobile:  () => (
                     <QueryImage
                         data={data['step1_mobile']}
-                        alt={localize('_t_Sign in_t_')}
+                        alt={localize('_t_Deriv X demo account signup page_t_')}
                     />
                 ),
             },
@@ -159,7 +159,7 @@ const StartDerivX = () => {
                 image_mobile:  () => (
                     <QueryImage
                         data={data['demo_step2_mobile']}
-                        alt={localize('_t_Sign in_t_')}
+                        alt={localize('_t_Deriv X dashboard showing demo account comparison_t_')}
                     />
                 ),
             },
@@ -174,7 +174,7 @@ const StartDerivX = () => {
                 image_mobile:  () => (
                     <QueryImage
                         data={data['demo_step3_mobile']}
-                        alt={localize('_t_Sign in_t_')}
+                        alt={localize('_t_Deriv X trading dashboard_t_')}
                     />
                 ),
             },
@@ -211,7 +211,7 @@ const StartDerivX = () => {
                 image_mobile:  () => (
                     <QueryImage
                         data={data['real_step2_mobile']}
-                        alt={localize('_t_Sign in_t_')}
+                        alt={localize('_t_real account_t_')}
                     />
                 ),
             },
@@ -226,7 +226,7 @@ const StartDerivX = () => {
                 image_mobile:  () => (
                     <QueryImage
                         data={data['real_step3_mobile']}
-                        alt={localize('_t_Sign in_t_')}
+                        alt={localize('_t_Download the app_t_')}
                     />
                 ),
             },
@@ -241,7 +241,7 @@ const StartDerivX = () => {
                 image_mobile:  () => (
                     <QueryImage
                         data={data['real_step4_mobile']}
-                        alt={localize('_t_Sign in_t_')}
+                        alt={localize('_t_Trading_t_')}
                     />
                 ),
             },

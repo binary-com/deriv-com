@@ -53,7 +53,7 @@ jobs:
                   DATADOG_APP_KEY: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
 
             - name: Post audit comment
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   header: Core Web Vitals Audit

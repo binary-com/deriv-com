@@ -21,6 +21,7 @@ env:
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
     GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
     GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+    GATSBY_DATABASE_URL: ${{ secrets.GATSBY_DATABASE_URL }}
 
 jobs:
     release-production:
@@ -39,14 +40,6 @@ jobs:
 
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-            - name: Create npmrc file
-              shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
-
-            - name: Setup install read-only token for deriv-com org
-              shell: bash
-              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
             - run: npm ci
             - run: npm run format

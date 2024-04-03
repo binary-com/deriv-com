@@ -1,0 +1,22 @@
+{
+  "name": "@deriv/eu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+    "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o -p 7000",
+    "serve": "gatsby serve -p 5000",
+    "clean": "rimraf dist *.tsbuildinfo node_modules public .cache",
+    "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^5.12.11",
+    "gatsby-theme-deriv": "file:../../themes/gatsby-theme-deriv",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

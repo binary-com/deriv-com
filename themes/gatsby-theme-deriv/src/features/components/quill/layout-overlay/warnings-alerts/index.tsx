@@ -30,6 +30,7 @@ const WarningBanner = ({ trigger_warning_popuop }: WarningBannerProps) => {
         <div
             className="flex pointer-events-auto justify-center m-general-md md:m-general-2xl min-h-[60px] shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] duration-200 [transition:opacity,translate] z-50 border border-solid border-gray-300 rounded-md"
             dir="ltr"
+            data-testid="warning-pop-up"
         >
             <div
                 className="bg-background-primary-base p-general-sm relative max-w-[720px] flex justify-between items-center border border-solid border-gray-300 rounded-md"

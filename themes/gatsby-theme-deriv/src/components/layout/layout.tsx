@@ -24,6 +24,7 @@ import useLangSwitcher from 'features/components/molecules/language-switcher/use
 import { langItemsROW } from 'features/components/templates/layout/data'
 import PartnersNav from 'features/components/templates/navigation/partners-nav'
 import GatsbySharedLink from 'features/components/quill/shared-link'
+import WarningBanner from 'features/components/quill/layout-overlay/warning-banner'
 import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 import BuildVariantProvider from 'features/contexts/build-variant/build-variant.provider'
 
@@ -157,6 +158,7 @@ const Layout = ({
                             setModalPayload={setModalPayload}
                         >
                             <div className="styled-layout">
+                                <WarningBanner/>
                                 <Main padding_top={padding_top} type={type} is_static={is_static}>
                                     {children}
                                 </Main>

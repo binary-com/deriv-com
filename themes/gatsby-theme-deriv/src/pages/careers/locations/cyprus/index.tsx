@@ -35,11 +35,12 @@ const query = graphql`
     }
 `
 
-const Cyprus = () => {
+const Cyprus = ({pageContext}: TGatsbyHead) => {
+    const {region} = pageContext
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers">
+        <Layout region={region} type="careers">
             <LocationLayout location={cyprus} images={images} />
         </Layout>
     )

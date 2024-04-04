@@ -1,16 +1,16 @@
-import React from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { isBrowser } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
 import { CookieStorage } from 'common/storage'
 import useGTMData from 'components/hooks/use-gtm-data'
+import useBuildVariant from 'features/hooks/use-build-variant'
 
 export const useCookieBanner = () => {
-    const [should_show, setShouldShow] = React.useState(false)
+    const [should_show, setShouldShow] = useState(false)
     const [gtm_data, setGTMData] = useGTMData()
-    const { is_region_loading, is_eu } = useRegion()
+    const {region} = useBuildVariant()
     const has_dataLayer = isBrowser() && window.dataLayer
     const TRACKING_STATUS_KEY = 'tracking_status'
-    const tracking_status_cookie = React.useMemo(
+    const tracking_status_cookie = useMemo(
         () => new CookieStorage(TRACKING_STATUS_KEY),
         [TRACKING_STATUS_KEY],
     )
@@ -29,19 +29,17 @@ export const useCookieBanner = () => {
         setShouldShow(false)
     }
 
-    React.useEffect(() => {
-        if (!is_region_loading) {
-            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
-            const is_tracking_accepted = tracking_status === 'accepted'
-            const allow_tracking = (!is_eu || is_tracking_accepted) && !gtm_data && has_dataLayer
+    useEffect(() => {
+        const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
+        const is_tracking_accepted = tracking_status === 'accepted'
+        const allow_tracking = (region !== "eu" || is_tracking_accepted) && !gtm_data && has_dataLayer
 
-            if (is_eu && !tracking_status) setShouldShow(true)
+        if (region === "eu" && !tracking_status) setShouldShow(true)
 
-            if (allow_tracking && document.readyState === 'complete') {
-                setGTMData({ event: 'allow_tracking' })
-            }
+        if (allow_tracking && document.readyState === 'complete') {
+            setGTMData({ event: 'allow_tracking' })
         }
-    }, [is_eu, gtm_data, has_dataLayer, is_region_loading, setGTMData, tracking_status_cookie])
+    }, [region, gtm_data, has_dataLayer, setGTMData, tracking_status_cookie])
 
     return {
         should_show,

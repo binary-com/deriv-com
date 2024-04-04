@@ -8,10 +8,9 @@ import BrowserIcon from '../../images/svg/browser-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
 import { DerivXLogo } from 'images/svg/deriv-x'
 import DerivXQR from 'images/svg/deriv-x/derivxQR.svg'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForDownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useRegion from 'components/hooks/use-region'
 import {
@@ -53,7 +52,6 @@ const Wrapper = styled.div`
 `
 
 const DerivXGetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
     const { is_appgallery_supported } = useRegion()
     const deriv_x_apps_android = useThirdPartyFlags('deriv_x_apps.android')
@@ -112,15 +110,15 @@ const DerivXGetApp = () => {
                         height="64px"
                     />
                     <TextAndButtonWrapper>
-                        <CommonHeaderSection
+                        <StyledHeaderForDownloadApp
                             title="_t_Get trading with Deriv X_t_"
-                            title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                            align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                            title_font_size='64px'
+                            align_title={is_rtl ? 'right' : 'left'}
                             width="100%"
                             font_family_title="Ubuntu"
                             color="#fff"
-                            margin_title={is_mobile_or_tablet ? '0' : '0 0 18px'}
-                            line_height_title={is_mobile_or_tablet ? '50px' : 'normal'}
+                            margin_title='0 0 18px'
+                            line_height_title='normal'
                         />
                     </TextAndButtonWrapper>
                 </ContentWrapper>

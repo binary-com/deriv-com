@@ -11,7 +11,6 @@ import {
 import P2PImage from 'images/svg/p2p/deriv_p2p.svg'
 import p2pQrImage from 'images/svg/p2p/p2p_qr.svg'
 import type { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
-import type { RoadmapType } from 'features/components/organisms/roadmap'
 
 export const banner_data: BannerType = {
     information: {
@@ -75,11 +74,4 @@ export const banner_data: BannerType = {
             },
         },
     ],
-}
-
-export const portalData: RoadmapType = {
-    paragraph:
-        '_t_Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building and suggestions on what to build next._t_',
-    frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
-    link: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m',
 }

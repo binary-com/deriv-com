@@ -4,8 +4,9 @@ import DP2PPage from 'features/pages/p2p'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const DP2P = () => {
-    return <DP2PPage />
+const DP2P = ({ pageContext }: TGatsbyHead) => {
+    const {region} = pageContext
+    return <DP2PPage region={region} />
 }
 
 export default WithIntl()(DP2P)

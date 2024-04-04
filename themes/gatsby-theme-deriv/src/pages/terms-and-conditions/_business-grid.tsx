@@ -62,12 +62,11 @@ const PartnersGuidePdf = () => {
 }
 
 const BusinessGrid = () => {
-    const general_terms_url = `/tnc/[ES]_business-partners-general-terms-of-use-R23_12_1.pdf`
-    const affiliate_brokers_url = `/tnc/[ES]_business-partners-affiliates-and-introducing-brokers-R23_12_1.pdf`
-    const payment_agents_url = `/tnc/[ES]_business-partners-payment-agents-R23_12_1.pdf`
-    const api_user_url = `/tnc/[ES]_business-partners-api-user-R23_12_1.pdf`
-    const bug_bounty_url = `/tnc/[ES]_business-partners-bug-bounty-R23_12_1.pdf`
-    
+    const general_terms_url = `/tnc/business-partners-general-terms-es.pdf`
+    const affiliate_brokers_url = `/tnc/business-partners-affiliates-and-introducing-brokers-es.pdf`
+    const payment_agents_url = `/tnc/business-partners-payment-agents-es.pdf`
+    const api_user_url = `/tnc/business-partners-api-user-es.pdf`
+    const bug_bounty_url = `/tnc/business-partners-bug-bounty-es.pdf`
     const { region } = useBuildVariant()
     const language = getLanguage()
 

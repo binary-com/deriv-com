@@ -39,6 +39,8 @@ export type TLiveMarketTableProps = {
 
 const forex_note: TString =
     '_t_<0>Note:</0> There is a daily break during weekdays between 21:00-21:05 (GMT)_t_'
+const derived_note: TString =
+'_t_<0>Note:</0> Availability of instruments will vary by trading platform._t_'
 const row_disclaimer: TString =
     "_t_Information is updated monthly and may not represent today's trading conditions. Offerings can differ by location, jurisdiction, and trade scenario._t_"
 const eu_disclaimer: TString =
@@ -241,6 +243,14 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                             <StyledHeader as="p" type="paragraph-2" weight="normal">
                                 <Localize
                                     translate_text={forex_note}
+                                    components={[<strong key={0} />]}
+                                />
+                            </StyledHeader>
+                        )}
+                         {market === 'derived' && (
+                            <StyledHeader as="p" type="paragraph-2" weight="normal">
+                                <Localize
+                                    translate_text={derived_note}
                                     components={[<strong key={0} />]}
                                 />
                             </StyledHeader>

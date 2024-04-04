@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import DerivMT5 from 'images/common/markets/mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
+import DerivCTrader from 'images/svg/ctrader/light-ctrader-logo.svg'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -35,10 +36,11 @@ const FlexContainer = styled(Flex)`
     flex-direction: row;
 
     @media ${device.tablet} {
-        gap: 12px;
+        gap: 16px;
     }
-    @media ${device.mobileM} {
-        gap: 0px;
+    @media ${device.mobileS} {
+        gap: 16px;
+        display: block;
     }
 `
 const StyledLocalizedLink = styled(LocalizedLink)`
@@ -63,6 +65,7 @@ const StyledText = styled(Header)<TextProps>`
 `
 const deriv_mt5 = 'Deriv MT5'
 const deriv_x = 'Deriv X'
+const deriv_ctrader = 'Deriv cTrader'
 
 const AvailablePlatform = () => {
     const { region } = useBuildVariant()
@@ -93,6 +96,14 @@ const AvailablePlatform = () => {
                                         <img src={DerivX} alt={deriv_x} width="24" height="24" />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             {deriv_x}
+                                        </StyledHeader>
+                                    </Flex>
+                                </StyledLocalizedLink>
+                                <StyledLocalizedLink to="/deriv-ctrader/">
+                                    <Flex direction="row">
+                                        <img src={DerivCTrader} alt={deriv_ctrader} width="24" height="24" />
+                                        <StyledHeader type="paragraph-1" as="h2" width="auto">
+                                            {deriv_ctrader}
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>

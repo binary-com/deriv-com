@@ -14,8 +14,7 @@ type TextProps = {
 const WarningText = ({ loss_percent }: TextProps) => {
     const { width } = useWindowSize()
     const [isExpand, setIsExpanded] = useState(false)
-    const ref = useRef(null)
-    const textRef = useRef(null)
+    const ref = useRef(null) 
 
     const toggleExpansion = () => {
         setIsExpanded((prev) => !prev)
@@ -23,13 +22,10 @@ const WarningText = ({ loss_percent }: TextProps) => {
 
     useEffect(() => {
         const { clientHeight } = ref?.current
-        const textHeight = textRef?.current?.clientHeight
-        const r = document.querySelector<HTMLElement>(':root')
-        r.style.setProperty('--banner-height', `${clientHeight}px`)
-        if (width <= 640) {
-            textHeight && r.style.setProperty('--hero-offset', `${textHeight + 80 + 56}px`) // 80 is the header height and 56 is the height of the trustpilot
-        } else {
-            r.style.setProperty('--hero-offset', `${clientHeight + 80 + 56}px`) // 80 is the header height and 56 is the height of the trustpilot
+        const rootElement = document.querySelector<HTMLElement>(':root')
+        rootElement.style.setProperty('--banner-height', `${clientHeight}px`)
+        if(!isExpand){
+            rootElement.style.setProperty('--hero-offset', `${clientHeight + 80 + 56}px`) // 80 is header height and 56 is trustpilot height
         }
     }, [isExpand, width])
 
@@ -51,7 +47,7 @@ const WarningText = ({ loss_percent }: TextProps) => {
                                 />
                             </Text>
                         ) : (
-                            <Text className="text-solid-slate-50 text-50 leading-100" ref={textRef}>
+                            <Text className="text-solid-slate-50 text-50 leading-100">
                                 <Localize
                                     translate_text="_t_{{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv. Ensure you understand the high risk of loss before trading._t_"
                                     values={{ loss_percent }}

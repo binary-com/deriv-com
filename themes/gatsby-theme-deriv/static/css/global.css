@@ -1,0 +1,94 @@
+/* @import '@deriv/quill-design/quill-tailwind/fonts.css'; */
+@import '@deriv/quill-design/dist/quill-design.css';
+@import '@deriv-com/components/style.css';
+@import '@deriv/quill-design/quill-tailwind/styles.css';
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.\[-webkit-box-orient\:vertical\] {
+    -webkit-box-orient: vertical;
+}
+.\[-webkit-line-clamp\:2\] {
+    -webkit-line-clamp: 2;
+}
+.\[display\:-webkit-box\] {
+    display: -webkit-box;
+}
+
+/* This is a patch. cssnano plugin is removing space from between [dir=rtl] and .rtl. */
+
+/* Patch Start */
+[dir=rtl] .rtl\:left-auto {
+    left: auto
+}
+
+[dir=rtl] .rtl\:right-50 {
+    right: 0
+}
+
+[dir=rtl] .rtl\:mr-auto {
+    margin-right: auto
+}
+
+[dir=rtl] .rtl\:rotate-180 {
+    --tw-rotate: 180deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+[dir=rtl] .rtl\:flex-row-reverse {
+    flex-direction: row-reverse
+}
+
+[dir=rtl] .rtl\:\[direction\:ltr\] {
+    direction: ltr
+}
+[dir=rtl] .rtl\:\[direction\:ltr\] {
+    direction: ltr;
+}
+[dir=rtl] .rtl\:\!animate-\[100s_slideRtl_linear_infinite\] {
+    animation: slideRtl 100s linear infinite !important;
+}
+[dir=rtl] .rtl\:\!animate-\[40s_slideRtl_linear_infinite\] {
+    animation: slideRtl 40s linear infinite !important;
+}
+/* Patch End */
+@media (min-width: 1232px){
+    .min-\[1232px\]\:px-general-none {
+        padding-left: var(--semantic-spacing-general-none) !important;
+        padding-right: var(--semantic-spacing-general-none) !important;
+    }
+}
+/* CFD banner variable */
+:root{
+    --banner-height: 86px;
+    --hero-offset: 222px;
+}
+
+@media (min-width: 405px){
+    :root{
+        --banner-height: 68px;
+        --hero-offset: 204px;
+    }
+}
+@media (min-width: 640px){
+    :root{
+        --banner-height: 142px;
+        --hero-offset: 278px;
+    }
+}
+@media (min-width: 708px){
+    :root{
+        --banner-height: 120px;
+        --hero-offset: 256px;
+    }
+}
+@media (min-width: 952px){
+    :root{
+        --banner-height: 98px;
+        --hero-offset: 234px;
+    }
+}

@@ -73,6 +73,7 @@ const Layout = ({
                         onLangSelect={onLanguageChange}
                         activeLanguage={activeLang}
                     >
+                        <WarningBanner/>
                         <main className={main_wrapper}>{children}</main>
                         <BrowserUpdateAlert />
                         {!hide_layout_overlay && <LayoutOverlay />}

@@ -50,7 +50,6 @@
     }
 }
 
-// Todo: update with the commented one after multi build PR merged
 .hero_img_eu {
     right: -60px;
     width: 53vh;
@@ -106,7 +105,7 @@
     }
 }
 .hero_content_gradient{
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) -8.48%, rgba(0, 0, 0, 0.60) -8.46%, rgba(0, 0, 0, 0.00) 8.92%, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.70) 65.27%, rgba(0, 0, 0, 0.80) 102.14%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) -8.48%, rgba(0, 0, 0, 0.60) -8.46%, rgba(0, 0, 0, 0.00) 8.92%, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.70) 65.27%, rgba(0, 0, 0, 0.80) 102.14%);
     @media only screen and (min-width: 601px){
         background: linear-gradient(to left, rgba(0, 0, 0, 0) 1.45%, rgba(0, 0, 0, 0) 34.13%, rgba(15, 10, 10, .8) 86.38%);
     }

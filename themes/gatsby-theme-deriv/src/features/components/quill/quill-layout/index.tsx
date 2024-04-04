@@ -77,6 +77,7 @@ const QuillLayout = ({
                         <BreakpointProvider>
                             <ThemeProvider theme="light">
                                 <FloatingCtaProvider>
+                                    <WarningBanner/>
                                     <main className="relative max-w-[256rem] mx-auto">
                                         {children}
                                     </main>

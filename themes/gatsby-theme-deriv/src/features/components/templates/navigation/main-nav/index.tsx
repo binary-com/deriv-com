@@ -4,9 +4,11 @@ import MainNavigationButtons from './nav.buttons'
 import MainNavigationLogo from './nav.logo'
 import { mainEuNavItems, mainRowNavItems } from './data'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import { useShowCfdBanner } from 'components/hooks/use-show-cfd-banner'
 
 const MainRowNavigation = () => {
     const {region} = useBuildVariant()
+    const show_banner = useShowCfdBanner()
 
     return (
         <NavigationBlock

@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
+import { useMediaQuery } from 'usehooks-ts'
 import Shape from './_hero-shape'
 import Button from './_button'
 import { handleGetTrading } from './utils'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import DerivTLogo from 'images/svg/dtrader/deriv-trader-banner-logo.svg'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
@@ -15,6 +15,7 @@ import { Localize, localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 type DHeroProps = {
     is_live_demo?: boolean
@@ -156,7 +157,7 @@ const StyledContainer = styled(Container)`
 
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
-    const { is_mobile } = useBreakpoints()
+    const is_mobile = useMediaQuery(breakpoints.xs)
     const {region} = useBuildVariant()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
@@ -173,9 +174,9 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                             src={DerivTLogo}
                             alt={localize('_t_Deriv Trader_t_')}
                         />
-                        <CommonHeaderSection
+                        <StyledHeaderForPlatform
                             title="_t_A user-friendly trading platform_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            title_font_size='64px'
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
@@ -214,7 +215,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 193} width="60%">
+                    <Shape angle={193} angle_mobile={101} width="60%">
                         <ImageWrapper>
                             <ImageStyle>
                                 {region === "eu" ? (

@@ -7,11 +7,10 @@ import AppleIcon from '../../images/svg/apple-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
 import AndroidIcon from '../../images/svg/android-icon.svg'
 import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForDmt5DownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useRegion from 'components/hooks/use-region'
 import {
     deriv_go_playstore_url,
@@ -44,7 +43,6 @@ const TextAndButtonWrapper = styled.div`
 `
 
 const DerivGoGetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
     const { is_appgallery_supported, is_ios_supported, is_appgallery_and_ios_supported } =
         useRegion()
@@ -110,10 +108,10 @@ const DerivGoGetApp = () => {
             <ContentWrapper is_rtl={is_rtl}>
                 <img src={derivGoLogo} alt="Deriv Go" width="64px" height="64px" />
                 <TextAndButtonWrapper>
-                    <CommonHeaderSection
+                    <StyledHeaderForDmt5DownloadApp
                         title="_t_Get trading with Deriv GO_t_"
-                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                        title_font_size='64px'
+                        align_title={is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"

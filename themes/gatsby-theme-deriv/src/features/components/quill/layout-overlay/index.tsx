@@ -3,11 +3,9 @@ import clsx from 'clsx'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { wrapper_ltr, wrapper_rtl } from './styles.module.scss'
-import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
@@ -23,7 +21,6 @@ const LayoutOverlay = () => {
     const { visibilityPercentage } = useFloatingCtaContext()
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
-    const [is_mounted] = usePageLoaded()
 
     return (
         <div
@@ -57,7 +54,6 @@ const LayoutOverlay = () => {
                     {isWhatsappChat && <WhatsappButton />}
                 </div>
             </div>
-            {is_mounted && <CfdWarningBanner />}
         </div>
     )
 }

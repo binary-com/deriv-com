@@ -1,14 +1,15 @@
-import React, { ReactNode, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useContext, useEffect, useRef, useState } from 'react'
 import { useIntersectionObserver, useWindowSize } from 'usehooks-ts'
 import FloatingCtaContext from './cta.context'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useShowCfdBanner } from 'components/hooks/use-show-cfd-banner'
 
 type TFloatingCtaProps = {
     children: ReactNode
 }
 
 const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
-    const [ctaBottom, setCtaBottom] = useState<number>(0)
+    const show_banner = useShowCfdBanner()
     const [visibilityPercentage, setVisibilityPercentage] = useState(100)
     const [is_logged_in] = useAuthCheck()
     const entryRef = useRef<HTMLButtonElement | null>(null)
@@ -16,7 +17,7 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const { width } = useWindowSize()
     const entry = useIntersectionObserver(entryRef, {
         threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: '-80px 0px 0px 0px',
+        rootMargin: show_banner ? '-140px 0px 0px 0px' : '-80px 0px 0px 0px',
     })
     const exit = useIntersectionObserver(exitRef, {
         threshold: 0,
@@ -24,7 +25,10 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const isExitVisible = !!exit?.isIntersecting
 
     useEffect(() => {
-        if (width < 1024 && !is_logged_in) {
+        const buttonRect = entryRef.current.getBoundingClientRect()
+        const isButtonVisible = buttonRect.top >= 0 && buttonRect.bottom <= window.innerHeight
+
+        if (isButtonVisible && width < 1024 && !is_logged_in) {
             const targetHeight = entry?.boundingClientRect?.height
             const intersectionHeight = entry?.intersectionRect?.height
             const percentage = (intersectionHeight / targetHeight) * 100
@@ -42,15 +46,9 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
         isExitVisible,
     ])
 
-    const ctaBottomHandler = useCallback((value: number) => {
-        setCtaBottom(value)
-    }, [])
-
     return (
         <FloatingCtaContext.Provider
             value={{
-                ctaBottom,
-                setCtaBottom: ctaBottomHandler,
                 entryRef,
                 visibilityPercentage,
                 exitRef,

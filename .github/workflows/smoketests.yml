@@ -40,11 +40,11 @@ jobs:
                   echo "preview_url=$(cat ./pr/PREVIEW_URL)" >> $GITHUB_OUTPUT
                   echo "branch_name=$(cat ./pr/BRANCHNAME)" >> $GITHUB_OUTPUT
                   echo "user_name=$(cat ./pr/USERNAME)" >> $GITHUB_OUTPUT
-                  echo "draft=$(cat ./pr/DRAFT)" >> $GITHUB_OUTPUT
+                  # echo "draft=$(cat ./pr/DRAFT)" >> $GITHUB_OUTPUT
                   
             - name: pr_info_debug 🔍
               run: |
-               echo "PR Draft value ={{ $steps.pr_information.outputs.draft }}--"
+              #  echo "PR Draft value ={{ $steps.pr_information.outputs.draft }}--"
 
             - name: Checkout external repository with Cypress tests
               uses: actions/checkout@v4
@@ -53,7 +53,7 @@ jobs:
 
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
-              if: "contains(steps.pr_information.outputs.draft, 'false')"
+              # if: "contains(steps.pr_information.outputs.draft, 'false')"
               uses: cypress-io/github-action@v6
               with:
                   # Records to Cypress Cloud
@@ -76,7 +76,7 @@ jobs:
 
             - name: Set comments message
               id: set_msg
-              if: always() && contains(steps.pr_information.outputs.draft, 'false')
+              # if: always() && contains(steps.pr_information.outputs.draft, 'false')
               run: |
                   # Using shell script to conditionally set the message
                   if [[ "${{ job.status }}" == "success" ]]; then
@@ -86,7 +86,7 @@ jobs:
                   fi
 
             - name: Leave comment
-              if: always() && contains(steps.pr_information.outputs.draft, 'false')
+              # if: always() && contains(steps.pr_information.outputs.draft, 'false')
               uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   header: Smoke tests status update

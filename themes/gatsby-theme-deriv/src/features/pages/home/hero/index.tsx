@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { FluidContainer, Heading, Section } from '@deriv/quill-design'
+import { FluidContainer, Heading, Section, qtJoin } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import {
@@ -16,6 +16,7 @@ import Description from './description'
 import { Localize, get_lang_direction } from 'components/localization'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import { useShowCfdBanner } from 'components/hooks/use-show-cfd-banner'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
 export interface HomeHeroProps {
@@ -25,11 +26,17 @@ export interface HomeHeroProps {
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
     const { region } = useBuildVariant()
-    const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
+    const { visibilityPercentage, entryRef } = useFloatingCtaContext()
+    const show_banner = useShowCfdBanner()
 
     return (
         <>
-            <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
+            <Section
+                className={qtJoin(
+                    'min-h-[587px] relative isolate overflow-hidden',
+                    show_banner ? 'h-[calc(100vh-var(--hero-offset))]' : 'h-[calc(100vh-136px)]',
+                )}
+            >
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_bg.jpg"
                     alt="hero background image"
@@ -67,7 +74,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             <FloatingCta
                 style={{
                     transform: `translateY(${visibilityPercentage - 100}%)`,
-                    bottom: `${-68 + ctaBottom}px`,
+                    bottom: '-68px',
                 }}
             />
         </>

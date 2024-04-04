@@ -12,6 +12,7 @@ import { getLanguage, isBrowser } from 'common/utility'
 const getVerifyEmailRequest = (formatted_email: string) => {
     // TODO: this getJSON seems incorrect, we have to check it out, I don't know how this cookie is being populated
     const affiliate_token = Cookies.getJSON('affiliate_tracking')
+    const utm_fbcl_id = Cookies.get('utm_fbcl_id')
 
     const cookies = getCookiesFields()
     const cookies_objects = getCookiesObject(cookies)
@@ -26,6 +27,7 @@ const getVerifyEmailRequest = (formatted_email: string) => {
             ...(affiliate_token && { affiliate_token: affiliate_token }),
             ...(cookies_value && { ...cookies_value }),
             ...(gclid && { gclid_url: gclid }),
+            ...(utm_fbcl_id && { utm_fbcl_id: utm_fbcl_id }),
         },
     }
 }

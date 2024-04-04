@@ -41,6 +41,7 @@ const WarningBanner = ({ trigger_warning_popuop }: WarningBannerProps) => {
                     <Text size="sm">{maintenance_mode_content}</Text>
                 </div>
                 <img
+                    data-testid="warning-pop-up-close-button"
                     width="12px"
                     height="12px"
                     className="cursor-pointer -mt-general-md mr-general-md ml-general-md"

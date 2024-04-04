@@ -65,21 +65,21 @@ export const TableRow = styled.tr<TableRowProps>`
     padding: 10px;
     gap: 40px;
     th {
-        width: 8.6rem;
+        width: 7.3rem;
     }
     th: nth-child(1) {
         width: 180px;
     }
-    th: nth-child(11) {
+    th: nth-child(12) {
         width: 160px;
     }
     td {
-        width: 8.6rem;
+        width: 7.3rem;
     }
     td: nth-child(1) {
         width: 180px;
     }
-    td: nth-child(11) {
+    td: nth-child(12) {
         width: 190px;
     }
 
@@ -98,7 +98,7 @@ export const TableRow = styled.tr<TableRowProps>`
         td: nth-child(1) {
             width: 168px;
         }
-        td: nth-child(11) {
+        td: nth-child(12) {
             width: 190px;
         }
     }

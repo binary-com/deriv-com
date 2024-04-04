@@ -10,7 +10,7 @@ permissions:
 
 on:
     workflow_run:
-        workflows: ['Generate preview link']
+        workflows: ['Generate ROW preview link', 'Generate EU preview link']
         types:
             - completed
 
@@ -41,6 +41,7 @@ jobs:
                   echo "branch_name=$(cat ./pr/BRANCHNAME)" >> $GITHUB_OUTPUT
                   echo "user_name=$(cat ./pr/USERNAME)" >> $GITHUB_OUTPUT
                   echo "draft=$(cat ./pr/DRAFT)" >> $GITHUB_OUTPUT
+                  echo "Debug: ${{ $GITHUB_OUTPUT }}"
                   
             - name: pr_info_debug 🔍
               run: |

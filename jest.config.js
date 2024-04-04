@@ -11,7 +11,7 @@ module.exports = {
     collectCoverage: false,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
-    collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/node_modules/**', '!**/public/**', '!**/static/**'],
+    collectCoverageFrom: ['<rootDir>/themes/**/*.{js,jsx,ts,tsx}', '!**/node_modules/**', '!**/public/**', '!**/static/**'],
 
     // A list of reporter names that Jest uses when writing coverage reports
     coverageReporters: ['lcov'],
@@ -20,7 +20,7 @@ module.exports = {
     coverageDirectory: './coverage/',
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['<rootDir>/src/features/**/__tests__/**/?(*.)+(spec).[jt]s?(x)'],
+    testMatch: ['<rootDir>/themes/gatsby-theme-deriv/src/features/**/__tests__/**/?(*.)+(spec).[jt]s?(x)'],
 
     // The test environment that will be used for testing
     testEnvironment: 'jsdom',
@@ -38,21 +38,21 @@ module.exports = {
     moduleNameMapper: {
         '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
         '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file-mock.js`,
-        '^common/(.*)$': '<rootDir>/src/common/$1',
-        '^components/(.*)$': '<rootDir>/src/components/$1',
-        '^features/(.*)$': '<rootDir>/src/features/$1',
-        '^images/(.*)$': '<rootDir>/src/images/$1',
-        '^lotties/(.*)$': '<rootDir>/src/lotties/$1',
-        '^pages/(.*)$': '<rootDir>/src/pages/$1',
-        '^store/(.*)$': '<rootDir>/src/store/$1',
-        '^templates': '<rootDir>/src/templates/$1',
-        '^themes/(.*)$': '<rootDir>/src/themes/$1',
-        '^translations/(.*)$': '<rootDir>/src/translations/$1',
-        '^types/(.*)$': '<rootDir>/src/types/$1',
+        '^common/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/common/$1',
+        '^components/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/components/$1',
+        '^features/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/features/$1',
+        '^images/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/images/$1',
+        '^lotties/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/lotties/$1',
+        '^pages/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/pages/$1',
+        '^store/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/store/$1',
+        '^templates': '<rootDir>/themes/gatsby-theme-deriv/src/templates/$1',
+        '^themes/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/themes/$1',
+        '^translations/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/translations/$1',
+        '^types/(.*)$': '<rootDir>/themes/gatsby-theme-deriv/src/types/$1',
     },
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`, `<rootDir>/src/features/pages` ],
+    testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>*/public`, `<rootDir>/themes/gatsby-theme-deriv/src/features/pages` ],
 
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: ['node_modules'],

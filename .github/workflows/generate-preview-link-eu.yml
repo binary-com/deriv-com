@@ -16,7 +16,6 @@ concurrency:
 jobs:
     build_eu_to_cloudflare_pages:
         runs-on: Ubuntu-latest
-        if: contains(github.event.pull_request.head.ref, 'multiple-build')
         permissions:
           checks: write
           pull-requests: write
@@ -47,7 +46,6 @@ jobs:
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
-
             - name: Post Cloudflare Pages Preview comment
               uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
@@ -59,14 +57,6 @@ jobs:
             - name: Setup node
               uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8
 
-            - name: Create npmrc file
-              shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
-
-            - name: Setup install read-only token for deriv-com org
-              shell: bash
-              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
-
             - name: Get build output from master cache
               uses: actions/cache/restore@e12d46a63a90f2fae62d114769bbf2a179198b5c
               with:
@@ -76,7 +66,6 @@ jobs:
                   path: |
                       sites/eu/.cache
                       sites/eu/public
-
             - name: Install Dependencies
               uses: "./.github/actions/npm_install_from_cache"
 
@@ -92,6 +81,7 @@ jobs:
                   GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
                   GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
                   GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+                  GATSBY_DATABASE_URL: ${{ secrets.GATSBY_DATABASE_URL }}
 
               run: npm run build:eu
 
@@ -105,7 +95,6 @@ jobs:
                   echo "$EVENT_NUMBER" > .pr/NR
                   echo "$EVENT_USERNAME" > .pr/USERNAME
                   echo "$HEAD_REF" > .pr/BRANCHNAME
-
             - name: Publish to Cloudflare Pages
               id: publish-to-pages
               env:
@@ -130,7 +119,6 @@ jobs:
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1
                   fi
-
             - name: 'Generate preview link comment'
               if: success()
               id: generate_preview_url

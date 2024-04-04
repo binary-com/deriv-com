@@ -1,10 +1,10 @@
 import React from 'react'
+import Symbol from '../components/helper/_symbol'
+import { dex_indices } from '../static/content/_market-symbols'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import dclsx from 'features/utils/dclsx'
 import useBuildVariant from 'features/hooks/use-build-variant'
-import Symbol from '../components/helper/_symbol'
-import { dex_indices } from '../static/content/_market-symbols'
 
 const DexIndices = () => {
     const { region } = useBuildVariant()

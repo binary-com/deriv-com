@@ -2,10 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { handleRedirectToTradersHub } from './utils'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForPlatform} from 'components/elements/common-header-section'
 import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import Shape from 'components/custom/_hero-shape'
@@ -14,6 +13,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
 import { localize } from 'components/localization'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -126,7 +126,7 @@ const StyledContainer = styled(Container)`
 `
 
 const DCommonBanner = () => {
-    const { is_mobile } = useBreakpoints()
+    const is_mobile = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const { region } = useBuildVariant()
@@ -138,9 +138,9 @@ const DCommonBanner = () => {
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} alt={localize('_t_Deriv MT5_t_')} />
-                        <CommonHeaderSection
+                        <StyledHeaderForPlatform
                             title="_t_The all-in-one CFD trading platform_t_"
-                            title_font_size={is_mobile ? '32px' : '64px'}
+                            title_font_size='64px'
                             color="var(--color-black-9)"
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
@@ -168,8 +168,10 @@ const DCommonBanner = () => {
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
                     <Shape
-                        angle={is_mobile ? 101 : 194}
-                        width={is_mobile ? '55%' : '60%'}
+                        angle={194}
+                        angle_mobile={101}
+                        width='60%'
+                        width_mobile='55%'
                         color="#0364B9"
                     >
                         <ImageWrapper>

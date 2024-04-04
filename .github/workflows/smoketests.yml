@@ -10,7 +10,7 @@ permissions:
 
 on:
     workflow_run:
-        workflows: ['Generate preview link']
+        workflows: ['Generate ROW preview link', 'Generate EU preview link']
         types:
             - completed
 
@@ -87,7 +87,7 @@ jobs:
 
             - name: Leave comment
               if: always() && contains(steps.pr_information.outputs.draft, 'false')
-              uses: marocchino/sticky-pull-request-comment@v2
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
               with:
                   header: Smoke tests status update
                   number: ${{ steps.pr_information.outputs.issue_number }}

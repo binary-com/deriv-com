@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Hero, ContentText } from '@deriv-com/blocks'
 import { Text, Heading } from '@deriv/quill-design'
+import { RegulatoryProps } from './_type'
+import InfoRowCpa from './_info-row-cpa'
+import InvestmentEurope from './_investment-europe'
 import useRegion from 'components/hooks/use-region'
 import { useLivechat } from 'components/hooks/use-livechat'
 import InitialLoader from 'components/elements/dot-loader'
@@ -9,9 +12,8 @@ import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
-import { RegulatoryProps } from './_type'
-import InfoRowCpa from './_info-row-cpa'
-import InvestmentEurope from './_investment-europe'
+
+type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
 
 const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
     const {region} = pageContext;
@@ -35,9 +37,9 @@ const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
                     <Hero.ContentLess
                         className="bg-solid-slate-75 px-800 md:px-1200"
                         title={
-                            <Heading>
+                            <Heading.H1>
                                 <Localize translate_text="_t_Regulatory information_t_" />
-                            </Heading>
+                            </Heading.H1>
                         }
                         description={
                             <Localize translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements._t_" />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { ContentText } from '@deriv-com/blocks'
 import { Text } from '@deriv/quill-design'
 import { Localize } from 'components/localization'

@@ -1,14 +1,14 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
 import { Text, Heading } from '@deriv/quill-design'
+import EUgrid from './_eu-grid'
+import DocumentAccordion from './_document_accordion'
+import * as styles from './eu_grid.module.scss'
 import InitialLoader from 'components/elements/dot-loader'
 import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Localize, localize } from 'components/localization'
 import useBuildVariant from 'features/hooks/use-build-variant'
 import useRegion from 'components/hooks/use-region'
-import EUgrid from './_eu-grid'
-import DocumentAccordion from './_document_accordion'
-import * as styles from './eu_grid.module.scss'
 
 const InvestmentEurope = ({ language }: { language: string }) => {
     const {region} = useBuildVariant()

@@ -2543,7 +2543,7 @@
   "-690764846": "Só é possível fechar contratos baseados em tempo até 15 segundos antes do termo da duração do contrato. Se tiver aberto um contrato baseado em ticks, não pode encerrar a sua posição antes do termo do contrato.",
   "-1682252979": "Pode abrir contratos de opções \"turbo\" com durações de negociação de 5 a 10 ticks ou de 15 segundos a 365 dias.",
   "-181229027": "<p>Com as opções turbo, é necessário definir uma barreira antes de abrir um contrato. Se o preço à vista tocar ou ultrapassar esta barreira a qualquer momento no decorrer do contrato, o contrato expira sem valor. Isto significa que não irá receber um pagamento e vai perder o montante da sua entrada inicial. Para compensar este risco, as opções turbo apresentam um pagamento mais elevado por ponto e um pagamento potencial, dependendo da distância entre a barreira selecionada e o preço à vista de abertura. Outra diferença a ter em conta é que a negociação de opções turbo envolve mais risco do que a negociação de opções vanilla.</p><p>Com as opções vanilla, não existem barreiras envolvidas e o seu pagamento potencial é determinado por quanto o preço final está acima ou abaixo do preço de exercício predeterminado.</p>",
-  "-703542574": "Ascendente",
+  "-703542574": "Up",
   "-1601124598": "Gráfico que ilustra o pagamento de um contrato de turbos de tipo \"Up\"",
   "-487079900": "Gráfico que ilustra um contrato de \"Turbos\" de tipo \"Up\" terminado",
   "-912541883": "O seu lucro líquido vai depender de quanto o preço à vista excede a barreira, com os ganhos potenciais máximos a crescerem se o preço subjacente subir significativamente. As suas perdas estão limitadas à entrada inicial requerida para comprar a opção turbo \"Up\".",

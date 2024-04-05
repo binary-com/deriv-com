@@ -1,8 +1,8 @@
-import LongShortIcon from 'images/svg/trade-types/options/turbo/turbo_long_short.svg'
-import LongPayout from 'images/svg/trade-types/options/turbo/turbo_long_payout.svg'
-import LongNoPayout from 'images/svg/trade-types/options/turbo/turbo_long_no_payout.svg'
-import ShortPayout from 'images/svg/trade-types/options/turbo/turbo_short_payout.svg'
-import ShortNoPayout from 'images/svg/trade-types/options/turbo/turbo_short_no_payout.svg'
+import UpDownIcon from 'images/svg/trade-types/options/turbo/turbo_up_down.svg'
+import UpPayout from 'images/svg/trade-types/options/turbo/turbo_up_payout.svg'
+import UpNoPayout from 'images/svg/trade-types/options/turbo/turbo_up_no_payout.svg'
+import DownPayout from 'images/svg/trade-types/options/turbo/turbo_down_payout.svg'
+import DownNoPayout from 'images/svg/trade-types/options/turbo/turbo_down_no_payout.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,
@@ -17,43 +17,43 @@ export const turboOptionsContentItems: OptionContentItemData[] = [
     {
         type: 'sections',
         icon: {
-            src: LongShortIcon,
-            alt: '_t_Long/Short_t_',
+            src: UpDownIcon,
+            alt: '_t_Up/Down_t_',
         },
-        title: '_t_Long/Short_t_',
+        title: '_t_Up/Down_t_',
         sections: [
             {
-                title: '_t_Long_t_',
+                title: '_t_Up_t_',
                 images: [
                     {
-                        src: LongPayout,
-                        alt: '_t_A chart illustrating a turbos long contract payout_t_',
+                        src: UpPayout,
+                        alt: '_t_A chart illustrating a turbos Up contract payout_t_',
                     },
                     {
-                        src: LongNoPayout,
-                        alt: '_t_A chart illustrating a terminated turbos long contract_t_',
+                        src: UpNoPayout,
+                        alt: '_t_A chart illustrating a terminated turbos Up contract_t_',
                     },
                 ],
                 texts: [
                     '_t_You will receive a payout if the spot price remains above a predetermined barrier throughout the entire trade duration. If the spot price touches or breaches the barrier at any time before the contract expires, the initial stake (premium) is lost._t_',
-                    '_t_Your net profit will depend on how much the spot price exceeds the barrier, with the maximum potential gains growing if the underlying price rises significantly. Your losses are limited to the initial stake required to purchase the long turbo option._t_',
+                    '_t_Your net profit will depend on how much the spot price exceeds the barrier, with the maximum potential gains growing if the underlying price rises significantly. Your losses are limited to the initial stake required to purchase the Up turbo option._t_',
                 ],
             },
             {
-                title: '_t_Short_t_',
+                title: '_t_Down_t_',
                 images: [
                     {
-                        src: ShortPayout,
-                        alt: '_t_A chart illustrating a turbos short contract payout_t_',
+                        src: DownPayout,
+                        alt: '_t_A chart illustrating a turbos Down contract payout_t_',
                     },
                     {
-                        src: ShortNoPayout,
-                        alt: '_t_A chart illustrating a terminated turbos short contract_t_',
+                        src: DownNoPayout,
+                        alt: '_t_A chart illustrating a terminated turbos Down contract_t_',
                     },
                 ],
                 texts: [
                     '_t_You will receive a payout if the spot price remains below a predetermined barrier throughout the entire trade duration. If the spot price touches or breaches the barrier at any time before the contract expires, the initial stake (premium) is lost._t_',
-                    '_t_Your net profit will depend on how much the spot price falls below the barrier, with the maximum potential gains growing if the underlying price falls significantly. Your losses are limited to the initial stake required to purchase the short turbo option._t_',
+                    '_t_Your net profit will depend on how much the spot price falls below the barrier, with the maximum potential gains growing if the underlying price falls significantly. Your losses are limited to the initial stake required to purchase the Down turbo option._t_',
                 ],
             },
         ],
@@ -76,7 +76,7 @@ export const turboFAQ: OptionsFAQDataItem[] = [
                 list_items: [
                     '_t_- Select the underlying asset you want to trade._t_',
                     '_t_- Choose your preferred contract duration or end time._t_',
-                    '_t_- Select Long or Short depending on your market predictions._t_',
+                    '_t_- Select Up or Down depending on your market predictions._t_',
                     '_t_- Determine a trade barrier._t_',
                     '_t_- Enter your stake amount._t_',
                     '_t_- Open your contract._t_',
@@ -91,7 +91,7 @@ export const turboFAQ: OptionsFAQDataItem[] = [
             {
                 type: 'text',
                 id: 1,
-                text: '_t_Currently, you can only buy Long and Short turbo options contracts on Deriv._t_',
+                text: '_t_Currently, you can only buy Up and Down turbo options contracts on Deriv._t_',
             },
         ],
     },
@@ -133,12 +133,12 @@ export const turboFAQ: OptionsFAQDataItem[] = [
             {
                 id: 3,
                 type: 'text',
-                text: '_t_For Long turbo options, the payout per point indicates the amount of potential payout you gain for each point above the barrier, at the contract’s expiry._t_',
+                text: '_t_For Up turbo options, the payout per point indicates the amount of potential payout you gain for each point above the barrier, at the contract’s expiry._t_',
             },
             {
                 id: 4,
                 type: 'text',
-                text: '_t_For Short turbo options, the payout per point indicates the amount of potential payout you gain for each point below the barrier, at the contract’s expiry._t_',
+                text: '_t_For Down turbo options, the payout per point indicates the amount of potential payout you gain for each point below the barrier, at the contract’s expiry._t_',
             },
             {
                 id: 5,

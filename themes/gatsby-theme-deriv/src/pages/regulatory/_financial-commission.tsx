@@ -21,6 +21,8 @@ const FinancialCommission = () => {
         }
     }, [region, is_cpa_plan])
 
+    console.log("==>", "FinancialCommission", is_row_cpa)
+
     if(is_row_cpa){
         return (
             <ContentText

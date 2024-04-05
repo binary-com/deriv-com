@@ -5,8 +5,9 @@ import { TGatsbyHead } from 'features/types'
 import SecureAndResponsiblePage from 'features/pages/responsible'
 import useRegion from 'components/hooks/use-region'
 
-const SecureAndResponsible = () => {
-    return <SecureAndResponsiblePage />
+const SecureAndResponsible = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <SecureAndResponsiblePage region={region} />
 }
 
 export default WithIntl()(SecureAndResponsible)

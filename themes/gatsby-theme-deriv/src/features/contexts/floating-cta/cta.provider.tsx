@@ -25,8 +25,9 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const isExitVisible = !!exit?.isIntersecting
 
     useEffect(() => {
-        const buttonRect = entryRef.current.getBoundingClientRect()
-        const isButtonVisible = buttonRect.top >= 0 && buttonRect.bottom <= window.innerHeight
+        const buttonRect = entryRef.current?.getBoundingClientRect()
+        const isButtonVisible =
+            buttonRect && buttonRect.top >= 0 && buttonRect.bottom <= window.innerHeight
 
         if (isButtonVisible && width < 1024 && !is_logged_in) {
             const targetHeight = entry?.boundingClientRect?.height

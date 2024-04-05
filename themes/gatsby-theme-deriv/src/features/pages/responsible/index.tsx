@@ -9,10 +9,15 @@ import HowTradingLimits from './how-trading-limits'
 import NewToTrading from './new-to-trading'
 import MainFooter from 'features/components/templates/footer'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 
-const SecureAndResponsiblePage = () => {
+type PageProps = {
+    region: BuildVariantContextType['region']
+}
+
+const SecureAndResponsiblePage = ({ region }: PageProps) => {
     return (
-        <QuillLayout>
+        <QuillLayout region={region}>
             <MainRowNavigation />
             <PageLayout>
                 <HeroBanner />

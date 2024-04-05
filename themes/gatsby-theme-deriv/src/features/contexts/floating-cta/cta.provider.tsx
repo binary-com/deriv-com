@@ -25,10 +25,8 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const isExitVisible = !!exit?.isIntersecting
 
     useEffect(() => {
-        const buttonRect = entryRef.current.getBoundingClientRect()
-        const isButtonVisible = buttonRect.top >= 0 && buttonRect.bottom <= window.innerHeight
-
-        if (isButtonVisible && width < 1024 && !is_logged_in) {
+        const isScrollThroughTarget = entry?.rootBounds?.height > entry?.boundingClientRect?.top
+        if (isScrollThroughTarget && width < 1024 && !is_logged_in) {
             const targetHeight = entry?.boundingClientRect?.height
             const intersectionHeight = entry?.intersectionRect?.height
             const percentage = (intersectionHeight / targetHeight) * 100
@@ -39,6 +37,8 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
             }
         }
     }, [
+        entry?.rootBounds?.height,
+        entry?.boundingClientRect?.top,
         entry?.boundingClientRect?.height,
         entry?.intersectionRect?.height,
         width,

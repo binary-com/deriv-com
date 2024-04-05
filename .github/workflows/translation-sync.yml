@@ -70,7 +70,7 @@ jobs:
                 # Upload new strings to Crowdin
                 crowdin upload sources -b master -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b master -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
               with:
                   status: custom
                   fields: workflow,job,commit,repo
@@ -84,7 +84,7 @@ jobs:
               env:
                   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}
             - name: Slack Notification for Release Managers 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
               with:
                   status: custom
                   fields: workflow,job,commit,repo

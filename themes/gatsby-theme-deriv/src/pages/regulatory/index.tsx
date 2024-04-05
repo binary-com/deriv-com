@@ -15,8 +15,8 @@ import { TGatsbyHead } from 'features/types'
 
 type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
 
-const Regulatory = ({ language, pageContext }: RegulatoryPageProps) => {
-    const { region } = pageContext
+const Regulatory = ({ pageContext}: RegulatoryPageProps) => {
+    const {region} = pageContext;
     const { is_row, is_cpa_plan, is_region_loading } = useRegion()
     const [is_livechat_interactive, LC_API] = useLivechat()
     const [is_row_cpa, setIsRowCpa] = useState(true)

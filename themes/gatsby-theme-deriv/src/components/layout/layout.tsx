@@ -151,6 +151,7 @@ const Layout = ({
                         onLangSelect={onLanguageChange}
                         activeLanguage={activeLang}
                     >
+                        <WarningBanner/>
                         {Navs[type]}
                         <LocationProvider
                             has_mounted={is_mounted}
@@ -158,7 +159,6 @@ const Layout = ({
                             setModalPayload={setModalPayload}
                         >
                             <div className="styled-layout">
-                                <WarningBanner/>
                                 <Main padding_top={padding_top} type={type} is_static={is_static}>
                                     {children}
                                 </Main>

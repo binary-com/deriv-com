@@ -15,8 +15,8 @@ import { TGatsbyHead } from 'features/types'
 
 type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
 
-const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
-    const {region} = pageContext;
+const Regulatory = ({ language, pageContext }: RegulatoryPageProps) => {
+    const { region } = pageContext
     const { is_row, is_cpa_plan, is_region_loading } = useRegion()
     const [is_livechat_interactive, LC_API] = useLivechat()
     const [is_row_cpa, setIsRowCpa] = useState(true)
@@ -36,11 +36,7 @@ const Regulatory = ({language, pageContext}: RegulatoryPageProps) => {
                 <div className="max-w-[816px] mx-auto">
                     <Hero.ContentLess
                         className="bg-solid-slate-75 px-800 md:px-1200"
-                        title={
-                            <Heading.H1>
-                                <Localize translate_text="_t_Regulatory information_t_" />
-                            </Heading.H1>
-                        }
+                        title={<Localize translate_text="_t_Regulatory information_t_" />}
                         description={
                             <Localize translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements._t_" />
                         }

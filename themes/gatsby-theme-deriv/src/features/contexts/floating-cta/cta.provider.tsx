@@ -25,10 +25,7 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
     const isExitVisible = !!exit?.isIntersecting
 
     useEffect(() => {
-        const buttonRect = entryRef.current.getBoundingClientRect()
-        const isButtonVisible = buttonRect.top >= 0 && buttonRect.bottom <= window.innerHeight
-
-        if (isButtonVisible && width < 1024 && !is_logged_in) {
+        if (width < 1024 && !is_logged_in) {
             const targetHeight = entry?.boundingClientRect?.height
             const intersectionHeight = entry?.intersectionRect?.height
             const percentage = (intersectionHeight / targetHeight) * 100

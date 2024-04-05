@@ -10,7 +10,7 @@ import { Localize, localize } from 'components/localization'
 import useBuildVariant from 'features/hooks/use-build-variant'
 import useRegion from 'components/hooks/use-region'
 
-const InvestmentEurope = ({ language }: { language: string }) => {
+const InvestmentEurope = () => {
     const {region} = useBuildVariant()
     const { is_cpa_plan, is_region_loading } = useRegion()
     const [is_row_cpa, setIsRowCpa] = useState(true)

@@ -1,22 +1,11 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import { ContentText } from '@deriv-com/blocks'
 import { Text } from '@deriv/quill-design'
 import { Localize } from 'components/localization'
-import useBuildVariant from 'features/hooks/use-build-variant'
-import useRegion from 'components/hooks/use-region'
+import useIsRowCpa from 'components/hooks/use-is-row-cpa'
 
 const InfoRowCpa = () => {
-    const {region} = useBuildVariant()
-    const { is_cpa_plan } = useRegion()
-    const [is_row_cpa, setIsRowCpa] = useState(true)
-
-    useEffect(() => {
-        if (region === "row" || is_cpa_plan) {
-            setIsRowCpa(false)
-        } else {
-            setIsRowCpa(true)
-        }
-    }, [region, is_cpa_plan])
+    const is_row_cpa = useIsRowCpa()
 
     if(is_row_cpa) return null;
 

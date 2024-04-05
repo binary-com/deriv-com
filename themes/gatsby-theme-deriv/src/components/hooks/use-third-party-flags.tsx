@@ -5,7 +5,7 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 import featuresConfig from '../../../static/appConfig'
 
 const thirdPartyFlagsConfig = {
-    databaseURL: 'https://app-config-prod.firebaseio.com',
+    databaseURL: process.env.GATSBY_DATABASE_URL,
 }
 
 const useThirdPartyFlags = (featurePath) => {
@@ -33,7 +33,6 @@ const useThirdPartyFlags = (featurePath) => {
     useEffect(() => {
         const pathParts = featurePath.split('.')
         let currentFeature = data
-
         for (const part of pathParts) {
             if (currentFeature[part] === undefined) {
                 return // Feature path does not exist
@@ -43,7 +42,11 @@ const useThirdPartyFlags = (featurePath) => {
         if (typeof currentFeature === 'object') {
             setFeature(currentFeature)
         } else {
-            setFeature(Boolean(currentFeature))
+            if (featurePath === 'maintenance_mode_content') {
+                setFeature(currentFeature)
+            } else {
+                setFeature(Boolean(currentFeature))
+            }
         }
     }, [data, featurePath])
 

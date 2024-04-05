@@ -6,7 +6,11 @@ import { cookie_banner, desktop_text } from './styles.module.scss'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 import { Localize } from 'components/localization'
 
-const CookieBanner = () => {
+interface CookieBannerProps {
+    onCookieBannerClose: () => void
+}
+
+const CookieBanner = ({ onCookieBannerClose }: CookieBannerProps) => {
     const cookie = useCookieBanner()
     const [is_visible, setIsVisible] = useState(false)
     const timer_ref = useRef<NodeJS.Timeout>()
@@ -26,6 +30,16 @@ const CookieBanner = () => {
             clearTimeout(timer_ref.current)
         }
     }, [cookie.should_show, is_visible])
+
+    const handleAccept = () => {
+        onCookieBannerClose()
+        cookie.accept()
+    }
+
+    const handleDecline = () => {
+        onCookieBannerClose()
+        cookie.decline()
+    }
 
     if (is_visible) {
         return (
@@ -55,12 +69,12 @@ const CookieBanner = () => {
                 </Text>
                 <div className="flex justify-center gap-1000 items-center mt-1000">
                     <div>
-                        <Button variant="secondary" colorStyle="black" onClick={cookie.decline}>
+                        <Button variant="secondary" colorStyle="black" onClick={handleDecline}>
                             <Localize translate_text="_t_Don't accept_t_" />
                         </Button>
                     </div>
                     <div>
-                        <Button onClick={cookie.accept}>
+                        <Button onClick={handleAccept}>
                             <Localize translate_text="_t_Accept_t_" />
                         </Button>
                     </div>

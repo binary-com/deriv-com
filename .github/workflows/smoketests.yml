@@ -10,7 +10,7 @@ permissions:
 
 on:
     workflow_run:
-        workflows: ['Generate preview link']
+        workflows: ['Generate ROW preview link', 'Generate EU preview link']
         types:
             - completed
 

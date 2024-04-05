@@ -2543,7 +2543,7 @@
   "-690764846": "Kontrakty czasowe można zamknąć tylko do 15 sekund przed wygaśnięciem czasu trwania kontraktu. W przypadku otwarcia kontraktu opartego na tickach nie można zamknąć swojej pozycji przed jego wygaśnięciem.",
   "-1682252979": "Możesz otwierać kontrakty opcji Turbo o czasie trwania od 5 do 10 ticków lub od 15 sekund do 365 dni.",
   "-181229027": "<p>W przypadku opcji turbo, muszą Państwo zdefiniować barierę przed otwarciem kontraktu. Jeśli cena spot dotknie lub przekroczy tę barierę w dowolnym momencie trwania kontraktu, Państwa kontrakt wygaśnie jako bezwartościowy. Oznacza to, że nie otrzymają Państwo wypłaty i stracą początkową kwotę stawki. Aby zrekompensować to ryzyko, opcje turbo będą miały wyższą wypłatę za punkt i potencjalną wypłatę, w zależności od tego, jak daleko wybrana bariera znajduje się od ceny otwarcia spot. Kolejną różnicą, na którą należy zwrócić uwagę, jest to, że handel opcjami turbo wiąże się z większym ryzykiem niż handel opcjami vanilla.</p><p>W przypadku opcji vanilla nie ma żadnych barier, a potencjalna wypłata zależy od tego, o ile cena końcowa jest wyższa lub niższa od z góry określonej ceny wykonania.</p>",
-  "-703542574": "Góra",
+  "-703542574": "Up",
   "-1601124598": "Wykres ilustrujący wypłatę kontraktu Turbos Up",
   "-487079900": "Wykres ilustrujący rozwiązany kontrakt Turbos Up",
   "-912541883": "Twój zysk netto będzie zależał od tego, jak bardzo cena spot przekroczy barierę, przy czym maksymalne potencjalne zyski wzrosną, jeśli cena bazowa znacznie wzrośnie. Twoje straty są ograniczone do początkowej stawki wymaganej do zakupu opcji Up turbo.",

@@ -13,8 +13,7 @@ import useIsRowCpa from 'components/hooks/use-is-row-cpa'
 const InvestmentEurope = () => {
     const { is_region_loading } = useRegion()
     const is_row_cpa = useIsRowCpa()
-
-    if(is_region_loading) <InitialLoader/>
+    if(is_region_loading) return <InitialLoader/>
 
     if(!is_row_cpa) return null;
 

@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Hero, ContentText } from '@deriv-com/blocks'
 import { Text } from '@deriv/quill-design'
 import { RegulatoryProps } from './_type'
 import InfoRowCpa from './_info-row-cpa'
+import FinancialCommission from './_financial_commission'
 import InvestmentEurope from './_investment-europe'
-import useRegion from 'components/hooks/use-region'
-import { useLivechat } from 'components/hooks/use-livechat'
-import { deriv_app_url } from 'common/constants'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
-import FinancialCommission from './_financial_commission'
 
 type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
 
 const Regulatory = ({ pageContext}: RegulatoryPageProps) => {
     const {region} = pageContext;
-
 
     return (
         <Layout region={region}>

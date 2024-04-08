@@ -88,7 +88,7 @@ const InvestmentEurope = () => {
                                 content: function noRefCheck() {
                                     return (
                                         <div>
-                                            <DocumentAccordion locale={locale} />
+                                            <DocumentAccordion locale={localize} />
                                         </div>
                                     )
                                 },

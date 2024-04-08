@@ -55,8 +55,9 @@ const SecuringAccount = () => {
             content={rightImage}
             contentPadding={false}
             contentTop={true}
+            className="!pt-50 lg:!pt-general-4xl"
         >
-            <div className="flex gap-gap-lg  flex-col">
+            <div className="flex gap-gap-lg flex-col px-400">
                 {listData.map((item: listDataType) => {
                     return <IconWithList content={item.text} key={item.id} />
                 })}

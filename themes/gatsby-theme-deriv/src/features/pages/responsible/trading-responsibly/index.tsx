@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Features } from '@deriv-com/blocks'
 import { SectionMessage } from '@deriv/quill-design'
 import { cards } from './data'
-import { Localize, is_rtl, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import { LocaleContext, Localize, is_rtl, localize } from 'components/localization'
+import useBuildVariant from 'features/hooks/use-build-variant'
+import { CustomLink } from '@deriv-com/components'
+import { getDerivAppLocalizedURL, replaceLocale } from 'common/utility'
 
 interface SwiperOption {
     spaceBetween: number
@@ -19,7 +21,10 @@ const swiperOption: SwiperOption = {
 }
 
 const TradingResponsibly = () => {
-    const { is_eu } = useRegion()
+    const { region } = useBuildVariant()
+    const app_link = 'https://app.deriv.com/account/two-factor-authentication'
+    const { locale } = useContext(LocaleContext)
+    const localizedRedirectLink = replaceLocale(getDerivAppLocalizedURL(app_link, locale))
     return (
         <>
             <Features.ContentSlider
@@ -34,13 +39,25 @@ const TradingResponsibly = () => {
                     dir: is_rtl() ? 'rtl' : 'ltr',
                 }}
                 bottomContent={
-                    is_eu && (
+                    region === 'eu' && (
                         <SectionMessage.Information
                             size="sm"
                             colorStyle="information"
-                            description={localize(
-                                '_t_For more details on our products and the risks involved in online trading, read our key information documents (KIDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_',
-                            )}
+                            description={
+                                <Localize
+                                    translate_text="_t_For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_"
+                                    components={[
+                                        <CustomLink
+                                            key={0}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href={localizedRedirectLink}
+                                            size="md"
+                                            className="text-typography-default inline underline"
+                                        />,
+                                    ]}
+                                />
+                            }
                         />
                     )
                 }

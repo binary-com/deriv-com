@@ -17,7 +17,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'light',
         align: 'start',
-        icon: <DerivLightUnderstandTheRiskIcon height="120px" width="120px" />,
+        icon: <DerivLightUnderstandTheRiskIcon height={152} width={120} />,
         className: 'h-full',
     },
     {
@@ -28,7 +28,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'light',
         align: 'start',
-        icon: <DerivLightDemoAccountIcon height="120px" width="120px" />,
+        icon: <DerivLightDemoAccountIcon height={152} width={120} />,
         className: 'h-full',
     },
     {
@@ -39,7 +39,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'light',
         align: 'start',
-        icon: <DerivLightSetLimitIcon height="120px" width="120px" />,
+        icon: <DerivLightSetLimitIcon height={152} width={120} />,
         className: 'h-full',
     },
     {
@@ -50,7 +50,7 @@ export const cards: CardContent[] = [
         size: 'md',
         color: 'light',
         align: 'start',
-        icon: <DerivLightTradeWiselyIcon height="120px" width="120px" />,
+        icon: <DerivLightTradeWiselyIcon height={152} width={120} />,
         className: 'h-full',
     },
 ]

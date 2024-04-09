@@ -73,7 +73,8 @@ jobs:
                   CYPRESS_BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
                   # Send PR details to Cypress test run
                   COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" Changed By "${{ steps.pr_information.outputs.user_name }}" in Branch "${{ steps.pr_information.outputs.branch_name }}"
-
+                  EU_TEST_LINK: ${{ steps.pr_information.outputs.preview_url }}
+                  
             - name: Set comments message
               id: set_msg
               if: always() && contains(steps.pr_information.outputs.draft, 'false')

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { DbotIcon } from '../../images/svg/dbot'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForDmt5DownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
@@ -11,7 +11,6 @@ import Button from 'components/custom/_button'
 import { handleGetTrading } from 'components/custom/utils'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { localize } from 'components/localization'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
@@ -42,7 +41,6 @@ const TextAndButtonWrapper = styled.div`
 `
 
 const DBotGetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -58,10 +56,10 @@ const DBotGetApp = () => {
             <ContentWrapper is_rtl={is_rtl}>
                 <img src={DbotIcon} alt={localize('_t_dbot logo_t_')} width="64px" height="64px" />
                 <TextAndButtonWrapper>
-                    <CommonHeaderSection
+                    <StyledHeaderForDmt5DownloadApp
                         title="_t_Get into the Deriv Bot experience_t_"
-                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                        title_font_size='64px'
+                        align_title={is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"

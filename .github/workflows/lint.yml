@@ -57,6 +57,6 @@ jobs:
                   npm ci
                   npm test
             - name: Run linters
-              uses: wearerequired/lint-action@v1
+              uses: wearerequired/lint-action@42567b31ed576cdd5a431d77ca5bc8822430d1d0
               with:
                   eslint: true

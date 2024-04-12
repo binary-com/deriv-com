@@ -8,11 +8,11 @@ permissions:
     pull-requests: write
     statuses: write
 
-on:
-    workflow_run:
-        workflows: ['Generate EU preview link']
-        types:
-            - completed
+on: [push]
+    # workflow_run:
+    #     workflows: ['Generate EU preview link']
+    #     types:
+    #         - completed
 
 jobs:
     cypress-run:
@@ -83,9 +83,9 @@ jobs:
               run: |
                   # Using shell script to conditionally set the message
                   if [[ "${{ job.status }}" == "success" ]]; then
-                    echo "msg=:rocket: Smoke test run (${{ matrix.containers }}) passed successfully!" >> $GITHUB_OUTPUT
+                    echo "msg=:rocket: Smoke test run EU (${{ matrix.containers }}) passed successfully!" >> $GITHUB_OUTPUT
                   else
-                    echo "msg=:x: Smoke test run (${{ matrix.containers }}) failed. See logs for details: [Visit Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}})" >> $GITHUB_OUTPUT
+                    echo "msg=:x: Smoke test run EU (${{ matrix.containers }}) failed. See logs for details: [Visit Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}})" >> $GITHUB_OUTPUT
                   fi
 
             - name: Leave comment

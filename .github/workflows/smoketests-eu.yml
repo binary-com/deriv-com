@@ -8,11 +8,11 @@ permissions:
     pull-requests: write
     statuses: write
 
-on: [push]
-    # workflow_run:
-    #     workflows: ['Generate EU preview link']
-    #     types:
-    #         - completed
+on:
+    workflow_run:
+        workflows: ['Generate EU preview link']
+        types:
+            - completed
 
 jobs:
     cypress-run:

@@ -18,11 +18,11 @@ on:
         - full
 
     
-# on:
-    # workflow_run:
-    #     workflows: ['Generate ROW preview link']
-    #     types:
-    #         - completed
+on:
+    workflow_run:
+        workflows: ['Generate ROW preview link']
+        types:
+            - completed
 
 jobs:
     cypress-run:

@@ -10,7 +10,7 @@ permissions:
 
 on:
     workflow_run:
-        workflows: ['Generate ROW preview link', 'Generate EU preview link']
+        workflows: ['Generate ROW preview link']
         types:
             - completed
 
@@ -50,6 +50,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                   repository: deriv-com/e2e-deriv-com
+                  ref: bilal/POCTagging
 
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
@@ -73,8 +74,9 @@ jobs:
                   CYPRESS_BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
                   # Send PR details to Cypress test run
                   COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" Changed By "${{ steps.pr_information.outputs.user_name }}" in Branch "${{ steps.pr_information.outputs.branch_name }}"
-                  EU_TEST_LINK: ${{ steps.pr_information.outputs.preview_url }}
-                  
+                  GREP_TAGS: '@row-tests'
+                  BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
+
             - name: Set comments message
               id: set_msg
               if: always() && contains(steps.pr_information.outputs.draft, 'false')

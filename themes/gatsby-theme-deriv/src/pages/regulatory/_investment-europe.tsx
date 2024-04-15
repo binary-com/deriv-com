@@ -1,29 +1,19 @@
 import React from 'react'
 import { AccordionBlock, BlockWrapper } from '@deriv-com/blocks'
 import { Text, Heading } from '@deriv/quill-design'
-import InitialLoader from 'components/elements/dot-loader'
-import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
-import { Localize, localize } from 'components/localization'
-import useBuildVariant from 'features/hooks/use-build-variant'
-import useRegion from 'components/hooks/use-region'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import * as styles from './eu_grid.module.scss'
+import InitialLoader from 'components/elements/dot-loader'
+import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
+import { Localize, localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
+import useIsRowCpa from 'components/hooks/use-is-row-cpa'
 
-const InvestmentEurope = ({ language }: { language: string }) => {
-    const {region} = useBuildVariant()
-    const { is_cpa_plan, is_region_loading } = useRegion()
-    const [is_row_cpa, setIsRowCpa] = useState(true)
-
-    useEffect(() => {
-        if (region === "row" || is_cpa_plan) {
-            setIsRowCpa(false)
-        } else {
-            setIsRowCpa(true)
-        }
-    }, [region, is_cpa_plan])
-
-    if(is_region_loading) <InitialLoader/>
+const InvestmentEurope = () => {
+    const { is_region_loading } = useRegion()
+    const is_row_cpa = useIsRowCpa()
+    if(is_region_loading) return <InitialLoader/>
 
     if(!is_row_cpa) return null;
 
@@ -98,7 +88,7 @@ const InvestmentEurope = ({ language }: { language: string }) => {
                                 content: function noRefCheck() {
                                     return (
                                         <div>
-                                            <DocumentAccordion locale={locale} />
+                                            <DocumentAccordion locale={localize} />
                                         </div>
                                     )
                                 },

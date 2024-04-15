@@ -1,5 +1,10 @@
 import { deriv_app_url } from 'common/constants'
-import { getDerivAppLocalizedURL, getLanguage, redirectToTradingPlatform } from 'common/utility'
+import {
+    addQueryParam,
+    getDerivAppLocalizedURL,
+    getLanguage,
+    redirectToTradingPlatform,
+} from 'common/utility'
 
 export const handleGetTrading = () => {
     const sub_url = redirectToTradingPlatform()
@@ -15,5 +20,6 @@ export const handleRedirectToTradersHub = () => {
         `${deriv_app_url}/appstore/traders-hub`,
         getLanguage(),
     )
-    window.location.href = trading_hub_url_localized
+    const redirect_link = addQueryParam(trading_hub_url_localized, 'redirect_from', 'deriv_com')
+    window.location.href = redirect_link
 }

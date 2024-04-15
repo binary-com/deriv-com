@@ -37,10 +37,10 @@ import {
     EuropeanIndicesDetails,
     JumpIndicesDetails,
     RangeBreakIndicesDetails,
-    StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
     DriftSwitchDetails,
+    StepIndicesDetails_CFD,
 } from './_details'
 import { TMarketContent } from './_types'
 import { JumpIndicesEU } from 'pages/markets/instruments/_markets'
@@ -158,7 +158,7 @@ export const synthetic_cfds: TMarketContent = {
             id: 'step-indices',
             title: '_t_Step indices_t_',
             instruments: <StepIndices is_cfd />,
-            details: <StepIndicesDetails />,
+            details: <StepIndicesDetails_CFD />,
         },
         {
             id: 'range-break-indices',

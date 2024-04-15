@@ -1,4 +1,4 @@
-name: Smoke Tests RoW
+name: Smoke Tests RoW 
 
 permissions:
     actions: write
@@ -7,17 +7,7 @@ permissions:
     deployments: write
     pull-requests: write
     statuses: write
-
-on: 
-  workflow_dispatch:
-    inputs:
-      test_option:
-        type: choice
-        description: Run smoke or full test suite
-        options:
-        - full
-
-    
+   
 on:
     workflow_run:
         workflows: ['Generate ROW preview link']

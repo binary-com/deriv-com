@@ -36,10 +36,10 @@ const FlexContainer = styled(Flex)`
     flex-direction: row;
 
     @media ${device.tablet} {
-        gap: 16px;
+        gap: 20px;
     }
     @media ${device.mobileS} {
-        gap: 16px;
+        gap: 20px;
         display: block;
     }
 `

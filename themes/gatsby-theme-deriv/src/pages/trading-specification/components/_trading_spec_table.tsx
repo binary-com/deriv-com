@@ -39,7 +39,7 @@ export type TLiveMarketTableProps = {
 
 const forex_note: TString =
     '_t_<0>Note:</0> There is a daily break during weekdays between 21:00-21:05 (GMT)_t_'
-const derived_note: TString =
+const row_derived_note: TString =
 '_t_<0>Note:</0> Availability of instruments will vary by trading platform._t_'
 const row_disclaimer: TString =
     "_t_Information is updated monthly and may not represent today's trading conditions. Offerings can differ by location, jurisdiction, and trade scenario._t_"
@@ -116,6 +116,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const [markets_data, setMarketsData] = useState(forex_specification.data)
     const [filtered_data, setFilteredData] = useState(forex_specification.data)
     const disclaimer = region === "row" ? row_disclaimer : eu_disclaimer;
+    const derived_note = region === "row" ? row_derived_note : "";
     const is_rtl = useIsRtl()
 
     useEffect(() => {

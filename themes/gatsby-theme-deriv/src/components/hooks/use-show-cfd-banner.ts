@@ -10,7 +10,6 @@ export const useShowCfdBanner = () => {
     const [show_banner, setShowBanner] = useState(region === "eu" ? true : false)
 
     useEffect(() => {
-        console.log("==>", is_cpa_plan)
         if (is_ppc || is_cpa_plan) {
             setShowBanner(true)
         }

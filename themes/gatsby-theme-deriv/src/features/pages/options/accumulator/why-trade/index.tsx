@@ -41,7 +41,7 @@ const WhyTradeAccumulator = () => {
                     className: 'w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg ',
                     variant: 'ContentLeft',
                     cards: mobileCards,
-                    dir: is_rtl ? 'rtl' : 'ltr',
+                    dir: is_rtl() ? 'rtl' : 'ltr',
                 }}
             />
         </>

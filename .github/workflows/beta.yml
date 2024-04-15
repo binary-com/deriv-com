@@ -53,7 +53,7 @@ jobs:
             # - run: npm run format
             # - run: npm run test
             - run: npm run build
-            - uses: olegtarasov/get-tag@v2.1
+            - uses: olegtarasov/get-tag@53af8e1e538a0ffab949cdde3e332d8e58e8630f
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
@@ -70,7 +70,7 @@ jobs:
               run: echo "New beta website - https://beta.deriv.com"
 
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
               with:
                   status: ${{ job.status }}
                   fields: workflow,repo

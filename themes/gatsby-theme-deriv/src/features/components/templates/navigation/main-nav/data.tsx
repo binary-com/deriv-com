@@ -6,10 +6,10 @@ import {
     IllustrativeMultipliersIcon,
     IllustrativeOptionsIcon,
     IllustrativeForexIcon,
-    IllustrativeStocksAndIndicesIcon,
     IllustrativeCommoditiesIcon,
     IllustrativeCryptocurrenciesIcon,
     IllustrativeEtfIcon,
+    IllustrativeStocksIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustrative'
 import {
@@ -237,7 +237,7 @@ export const mainRowNavItems: NavLinkItems = {
                         href: '/markets/stock',
                         text: <Localize translate_text="_t_Stocks & indices_t_" />,
                         type: 'direct',
-                        icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
+                        icon: <IllustrativeStocksIcon width={24} height={24} />,
                         description: (
                             <Localize translate_text="_t_Leading company stocks and top global indices._t_" />
                         ),
@@ -586,7 +586,7 @@ export const mainEuNavItems: NavLinkItems = {
                         href: '/markets/stock',
                         text: <Localize translate_text="_t_Stocks & indices_t_" />,
                         type: 'direct',
-                        icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
+                        icon: <IllustrativeStocksIcon width={24} height={24} />,
                         description: (
                             <Localize translate_text="_t_Leading company stocks and top global indices._t_" />
                         ),

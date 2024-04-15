@@ -38,6 +38,10 @@ const getPlans = (country: string): AccountCardProps[] => {
     return plans
 }
 
+type AccountPlanProps = WizardStepProps<'account_plan'> & {
+    is_cpa_plan_aff: boolean
+}
+
 const AccountPlan = ({
     affiliate_account,
     updateData,
@@ -51,7 +55,6 @@ const AccountPlan = ({
         updateData(account_plan)
         onValidate(!!account_plan)
     }, [account_plan])
-
     return (
         <MainWrapper>
             <StyledHeader

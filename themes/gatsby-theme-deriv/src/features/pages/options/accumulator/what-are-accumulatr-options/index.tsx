@@ -95,7 +95,7 @@ const WhatAreAccumulatorOptions = ({ handleModalToggle }: WhatAreAccumulatorOpti
                                     width="24px"
                                 />
                                 <CustomLink href={'/deriv-go'} size="md">
-                                    <Localize translate_text="_t_Deriv Go_t_" />
+                                    <Localize translate_text="_t_Deriv GO_t_" />
                                 </CustomLink>
                             </div>
                         </div>

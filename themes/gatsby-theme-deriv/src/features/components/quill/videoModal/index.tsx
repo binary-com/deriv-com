@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import ModalVideo from 'react-modal-video'
 
 interface VideoModalProps {
@@ -9,6 +9,17 @@ interface VideoModalProps {
 
 const VideoModal = ({ video_id, isOpen, onClose }: VideoModalProps) => {
     const handleClose = useCallback(() => onClose(), [onClose])
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
 
     return (
         <ModalVideo

@@ -153,7 +153,7 @@ export const DerivedMarketsList = styled.div<MarketsListProps>`
     width: 100%;
     height: fit-content;
     padding: 24px;
-    gap: ${({ gap }) => (gap ? gap : '16px')};
+    gap: ${({ gap }) => (gap ? gap : '10px')};
     @media ${device.mobileL} {
         grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
@@ -243,7 +243,7 @@ export const SymbolWrapper = styled(Flex)`
     ${Text} {
         font-weight: normal;
         font-size: 14px;
-        line-height: 21px;
+        line-height: 20px;
     }
 
     @media ${device.mobileL} {

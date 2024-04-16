@@ -30,7 +30,7 @@ const revenue_data: AffiliateType = [
 
 const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
-        <StyledCard height="92rem" tabletHeight="auto" padding="2.4rem">
+        <StyledCard height="110rem" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_Revenue share_t_" />

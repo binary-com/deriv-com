@@ -54,7 +54,7 @@ export const domain_config = {
     },
     local: {
         hostname: 'localhost',
-        app_id: 10613,
+        app_id: deriv_com_app_id,
     },
 }
 

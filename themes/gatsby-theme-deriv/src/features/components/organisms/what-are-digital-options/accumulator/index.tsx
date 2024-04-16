@@ -26,7 +26,7 @@ const WhatAreDigitalOptions = ({
 }: WhatAreDigitalOptionsProps) => {
     const clickToScrollHandler = useScrollToElement('faqs', -100)
     const uniq = `navbuttons_uniq_class_${uuidv4()}`
-    const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
+    const { visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
         <>
@@ -64,7 +64,7 @@ const WhatAreDigitalOptions = ({
                 <FloatingCta
                     style={{
                         transform: `translateY(${visibilityPercentage - 100}%)`,
-                        bottom: `${-68 + ctaBottom}px`,
+                        bottom: '-68px',
                     }}
                 />
             )}

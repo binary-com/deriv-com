@@ -4247,6 +4247,7 @@
   "-1474274516": "Stato/Provincia*",
   "-1253349870": "Città/comune*",
   "-490553914": "Codice postale/CAP",
+  "-597462351": "${item.label}",
   "-1120954663": "Nome*",
   "-1929304521": "URL del sito web/social media*",
   "-1113902570": "Dettagli",

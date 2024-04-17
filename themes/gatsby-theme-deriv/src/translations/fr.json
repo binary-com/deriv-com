@@ -4247,6 +4247,7 @@
   "-1474274516": "État/province*",
   "-1253349870": "Localité/ville*",
   "-490553914": "Code postal/Code Zip",
+  "-597462351": "${item.label}",
   "-1120954663": "Prénom*",
   "-1929304521": "Site web / URL des réseaux sociaux*",
   "-1113902570": "Détails",

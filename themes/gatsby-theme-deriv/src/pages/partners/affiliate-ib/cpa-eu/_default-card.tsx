@@ -8,6 +8,7 @@ import {
     CPAContent,
 } from '../_style'
 import { Table, TRAPREVERSE, TC } from '../_table'
+import { TString } from 'types/generics'
 import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 

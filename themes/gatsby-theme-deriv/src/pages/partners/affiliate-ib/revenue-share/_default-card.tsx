@@ -19,7 +19,7 @@ type AffiliateType = {
 const revenue_data: AffiliateType = [
     {
         title: '_t_Trade types_t_',
-        data: ['_t_Options Multipliers (Synthetic indices)_t_', '_t_Options Multipliers (Synthetic indices)_t_'],
+        data: ['_t_Options <br>Multipliers<br> (Synthetic <br>indices)_t_', '_t_Options <br>Multipliers<br> (Synthetic <br>indices)_t_'],
     },
     {
         title: '_t_Net revenue_t_',

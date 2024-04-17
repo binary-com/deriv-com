@@ -982,7 +982,7 @@ const derived_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'VINDEX1001S',
+                symbol: 'INDEX100S1NEW',
                 instrument: 'Volatility 100 (1s) Index',
             },
             contract_size: 1,
@@ -999,7 +999,7 @@ const derived_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'VINDEX100',
+                symbol: 'INDEX100NEW',
                 instrument: 'Volatility 100 Index',
             },
             contract_size: 1,
@@ -1016,7 +1016,7 @@ const derived_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'VINDEX501S',
+                symbol: 'INDEX50S1NEW',
                 instrument: 'Volatility 50 (1s) Index',
             },
             contract_size: 1,
@@ -1033,7 +1033,7 @@ const derived_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'VINDEX50',
+                symbol: 'INDEX50NEW',
                 instrument: 'Volatility 50 Index',
             },
             contract_size: 1,
@@ -1050,7 +1050,7 @@ const derived_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'VINDEX751S',
+                symbol: 'INDEX75S1NEW',
                 instrument: 'Volatility 75 (1s) Index',
             },
             contract_size: 1,
@@ -1067,7 +1067,7 @@ const derived_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'VINDEX75',
+                symbol: 'INDEX75NEW',
                 instrument: 'Volatility 75 Index',
             },
             contract_size: 1,

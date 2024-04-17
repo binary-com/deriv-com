@@ -23,7 +23,7 @@ const revenue_data: AffiliateType = [
     },
     {
         title: '_t_Net revenue_t_',
-        data: ['_t_USD ≤ 20,000 per month_t_', '_t_USD > 20,000 per month_t_'],
+        data: ['_t_USD ≤ 20,000 <br>per month_t_', '_t_USD > 20,000 <br>per month_t_'],
     },
     {
         title: '_t_Commission_t_',

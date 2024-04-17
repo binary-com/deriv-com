@@ -9,7 +9,6 @@ import {
 import { Table, TRAPREVERSE, TC } from '../_table'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
-import { Li, Ul } from 'components/elements'
 import { TString } from 'types/generics'
 
 type AffiliateType = {

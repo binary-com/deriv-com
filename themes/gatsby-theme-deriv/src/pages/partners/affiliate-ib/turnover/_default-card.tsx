@@ -44,7 +44,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 </Header>
                 <Header as="p" type="paragraph-1" weight="normal">
                     <Localize
-                        translate_text="_t_<0>Options:</0> Earn based on each contract’s payout probability._t_"
+                        translate_text="_t_<0>Options:</0> Earn based on the turnover of your clients' trades._t_"
                         components={[<strong key={0} />]}
                     />
                 </Header>
@@ -68,7 +68,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 </Table>
                 <Header as="p" type="paragraph-1" weight="normal" mt="2.4rem">
                     <Localize
-                        translate_text="_t_<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades._t_"
+                        translate_text="_t_<0>Multipliers, accumulator options, vanilla options, and turbo options:</0> Earn 40% of the commissions generated from your clients’ trades._t_"
                         components={[<strong key={0} />]}
                     />
                 </Header>
@@ -81,18 +81,9 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
                     <Localize translate_text="_t_Disclaimer:_t_" />
                 </Header>
-                <Ul>
-                    <Li>
                         <Header as="p" type="paragraph-1">
-                            <Localize translate_text="_t_This plan is not available for affiliates who promote to clients residing in the EU._t_" />
+                            <Localize translate_text="_t_Affiliates residing in the EU can sign up for the Turnover plan but can only refer clients residing outside the EU._t_" />
                         </Header>
-                    </Li>
-                    <Li>
-                        <Header as="p" type="paragraph-1">
-                            <Localize translate_text="_t_Affiliates residing in the EU may sign up for the Turnover plan. However, only clients residing outside of the EU can be referred under this plan._t_" />
-                        </Header>
-                    </Li>
-                </Ul>
             </div>
             <StyledButtonWrap>
                 <StyledCalculatedButton flat onClick={toggleCalculated}>

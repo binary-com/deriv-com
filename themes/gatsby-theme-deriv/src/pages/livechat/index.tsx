@@ -28,7 +28,8 @@ const CoverMinimizeButton = styled.div<CoverMinimizeButtonTypes>`
     z-index: 999999999999999999;
 `
 
-const LiveChatPage = () => {
+const LiveChatPage = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const [is_livechat_interactive, LC_API] = useLivechat()
     const [loading, setLoading] = useState(true)
 
@@ -49,7 +50,7 @@ const LiveChatPage = () => {
     }, [is_livechat_interactive])
 
     return (
-        <Layout type="static" padding_top="0">
+        <Layout region={region} type="static" padding_top="0">
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
             <Mobile>
                 <CoverMinimizeButton loading={loading} />

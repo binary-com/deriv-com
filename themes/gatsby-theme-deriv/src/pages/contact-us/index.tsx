@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Loadable from '@loadable/component'
+import ContactWays from './_contact-ways'
+import { TContactUs } from './_types'
 import device from 'themes/device'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { Header, Text } from 'components/elements'
@@ -10,8 +12,6 @@ import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
-import ContactWays from './_contact-ways'
-import { TContactUs } from './_types'
 
 const Offices = Loadable(() => import('./_offices'))
 const Affiliates = Loadable(() => import('./_affiliates'))

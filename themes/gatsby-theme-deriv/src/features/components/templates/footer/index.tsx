@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
 import { qtJoin } from '@deriv/quill-design'
-import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
-import { getLocationPathname } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
-import useBuildVariant from 'features/hooks/use-build-variant'
 import {
     EuFooterNavData,
     RowFooterNavData,
@@ -16,10 +12,14 @@ import {
     specialLanguageUrls,
     warnText,
 } from './data'
-// import { socialIconROW, socialIconEU, socialIconCareer } from './validate-social-icons-data'
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
+import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
+import { getLocationPathname } from 'common/utility'
+import useRegion from 'components/hooks/use-region'
+import useBuildVariant from 'features/hooks/use-build-variant'
+// import { socialIconROW, socialIconEU, socialIconCareer } from './validate-social-icons-data'
 
 const overrideWithLang = (buttons, lang) =>
     buttons.map((button) =>

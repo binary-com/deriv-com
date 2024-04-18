@@ -7,18 +7,15 @@ import AppleIcon from '../../images/svg/apple-icon.svg'
 import InfoIcon from '../../images/svg/info-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
 import AndroidIcon from '../../images/svg/android-icon.svg'
-import BrowserIcon from '../../images/svg/browser-icon.svg'
 import LinuxIcon from '../../images/svg/linux-icon.svg'
 import MacIcon from '../../images/svg/mac-icon.svg'
 import WinIcon from '../../images/svg/windows-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import {StyledHeaderForDmt5DownloadApp} from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import {
-    dmt5_web_browser_url,
     dmt5_windows,
     dmt5_linux_url,
     dmt5_mac_app_url,
@@ -67,13 +64,11 @@ const StyledInfoIcon = styled.img`
 `
 
 const DerivMT5GetApp = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
 
     const mt5_apps_android = useThirdPartyFlags('mt5_apps.android')
     const mt5_apps_app_store = useThirdPartyFlags('mt5_apps.app_store')
     const mt5_apps_app_gallery = useThirdPartyFlags('mt5_apps.app_gallery')
-    const mt5_apps_web_browser = useThirdPartyFlags('mt5_apps.web_browser')
     const mt5_apps_windows = useThirdPartyFlags('mt5_apps.windows')
     const mt5_apps_mac_os = useThirdPartyFlags('mt5_apps.mac_os')
     const mt5_apps_linux = useThirdPartyFlags('mt5_apps.linux')
@@ -129,10 +124,10 @@ const DerivMT5GetApp = () => {
             <ContentWrapper is_rtl={is_rtl}>
                 <img src={dmt5Logo} alt="Deriv MT5" width="64px" height="64px" />
                 <TextAndButtonWrapper>
-                    <CommonHeaderSection
+                    <StyledHeaderForDmt5DownloadApp
                         title="_t_Get trading with Deriv MT5_t_"
-                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                        title_font_size='64px'
+                        align_title={is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"

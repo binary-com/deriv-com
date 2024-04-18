@@ -1,5 +1,5 @@
-import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 import type { HeadProps } from 'gatsby'
+import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 import { TString } from 'types/generics'
 
 export type ContentSectionTagOptions =

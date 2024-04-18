@@ -395,8 +395,9 @@ export const useCallbackRef = (callback: () => void) => {
 
 const getSubdomain = () => isBrowser() && window.location.hostname.split('.')[0]
 
-export const isEuDomain = () => !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
-    
+export const isEuDomain = () =>
+    !!eu_domains.some((eu_sub_domain) => eu_sub_domain.test(getSubdomain()))
+
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
 export const isTestlink = () =>
@@ -454,4 +455,10 @@ export const updateURLAsPerUserLanguage = () => {
 export const getP2PCookie = () => {
     const p2p_validity = Cookies.get('is_p2p_disabled')
     return p2p_validity
+}
+
+export const addQueryParam = (link: string, param: string, value: string) => {
+    const url = new URL(link)
+    url.searchParams.set(param, value)
+    return url.toString()
 }

@@ -26,6 +26,7 @@ env:
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
     GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
     GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
+    GATSBY_DATABASE_URL: ${{ secrets.GATSBY_DATABASE_URL }}
 
 jobs:
     release-staging:
@@ -49,7 +50,7 @@ jobs:
             # - run: npm run build:storybook
             - run: echo $GITHUB_SHA > sites/eu/public/version.txt
 
-            - uses: olegtarasov/get-tag@v2.1
+            - uses: olegtarasov/get-tag@53af8e1e538a0ffab949cdde3e332d8e58e8630f
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
@@ -94,7 +95,7 @@ jobs:
                   ./release.sh deriv-com ${GITHUB_SHA}
 
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
               with:
                   status: ${{ job.status }}
                   fields: workflow,repo

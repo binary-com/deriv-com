@@ -62,3 +62,33 @@
         padding-right: var(--semantic-spacing-general-none) !important;
     }
 }
+/* CFD banner variable */
+:root{
+    --banner-height: 86px;
+    --hero-offset: 222px;
+}
+
+@media (min-width: 405px){
+    :root{
+        --banner-height: 68px;
+        --hero-offset: 204px;
+    }
+}
+@media (min-width: 640px){
+    :root{
+        --banner-height: 142px;
+        --hero-offset: 278px;
+    }
+}
+@media (min-width: 708px){
+    :root{
+        --banner-height: 120px;
+        --hero-offset: 256px;
+    }
+}
+@media (min-width: 952px){
+    :root{
+        --banner-height: 98px;
+        --hero-offset: 234px;
+    }
+}

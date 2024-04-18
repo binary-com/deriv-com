@@ -26,7 +26,7 @@ const WhatAreDigitalOptions = ({
 }: WhatAreDigitalOptionsProps) => {
     const clickToScrollHandler = useScrollToElement('faqs', -100)
     const uniq = `navbuttons_uniq_class_${uuidv4()}`
-    const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
+    const { visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
         <>
@@ -44,9 +44,15 @@ const WhatAreDigitalOptions = ({
                         id={uniq}
                     >
                         <TradersHubCtaButton
-                            ref={entryRef}
-                            className="w-full md:!w-auto"
+                            className="w-full hidden md:!flex md:!w-auto "
                             size="lg"
+                        />
+
+                        <TradersHubCtaButton
+                            ref={entryRef}
+                            className="w-full flex md:hidden"
+                            size="lg"
+                            is_accumulator_mobile
                         />
                         <Button
                             size="lg"
@@ -64,7 +70,7 @@ const WhatAreDigitalOptions = ({
                 <FloatingCta
                     style={{
                         transform: `translateY(${visibilityPercentage - 100}%)`,
-                        bottom: `${-68 + ctaBottom}px`,
+                        bottom: '-68px',
                     }}
                 />
             )}

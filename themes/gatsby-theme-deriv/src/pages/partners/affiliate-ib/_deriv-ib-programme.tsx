@@ -10,6 +10,8 @@ import { LiveChatLinkText } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
+import { LinkButton } from 'components/form'
 
 type AssetsType = {
     title: TString
@@ -22,7 +24,6 @@ type DescType = {
 }
 
 type TypeForType = {
-    title: TString
     headerHeight: string
     assets: AssetsType
     class_name?: string
@@ -44,18 +45,10 @@ type ListType = {
     second_desc?: TString
 }[]
 
-type CountDetailsType = {
-    title: TString
-    list: ListType
-    notes: NoteType
-    disclaimer?: NoteType
-}[]
-
 type DMT5Type = {
     name: TString
     description: TString
     type: TypeForType
-    countDetails: CountDetailsType
 }
 
 type StyledSectionProps = {
@@ -186,7 +179,6 @@ const Item = styled.div<ItemProps>`
             : '0.2rem solid var(--color-black-3)'};
     cursor: pointer;
     z-index: 2;
-    white-space: nowrap;
 
     ${Header} {
         font-size: 2rem;
@@ -216,11 +208,30 @@ const Item = styled.div<ItemProps>`
     }
 `
 
+const RedButton = styled(LinkButton)<RedButtonProps>`
+    border-radius: 4px;
+    width: 364px;
+    padding-top: 0.5rem;
+    height: 40px;
+    border-radius: 16px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 40px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    @media ${device.tabletL} {
+        padding-top: 10px;
+        width: 100%;
+    }
+`
+
 const tabs = ['mt5', 'x']
 
 const DerivIBProgramme = () => {
     const [activeTab, setActiveTab] = useState<'x' | 'mt5'>('mt5')
     const [is_mounted] = usePageLoaded()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     const handleTabClick = (tabName: ItemProps['name']) => {
         if (tabName !== activeTab) {
@@ -298,6 +309,17 @@ const DerivIBProgramme = () => {
                             weight="medium"
                             mb="2.4rem"
                         >
+                            <RedButton
+                                id="dm-cta-affiliate-signup"
+                                mt="2rem"
+                                to={affiliate_signup_link}
+                                external
+                                target="_blank"
+                                // type="affiliate_sign_up"
+                                secondary
+                            >
+                                <Localize translate_text="_t_Sign up_t_" />
+                            </RedButton>
                             <Localize translate_text="_t_Can’t decide which programme or commission plan suits you?_t_" />
                         </StyledHeader>
                         <LiveChatLinkText text="_t_Contact us via live chat_t_" weight="bold" />
@@ -311,216 +333,37 @@ const DerivIBProgramme = () => {
 const ib_dmt5_synthetic: DMT5Type = {
     name: '_t_MT5 Derived_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Derived account.<br><br>All commission rates are quoted in USD._t_',
+        '_t_Earn when your clients trade on an MT5 Derived account.<br><br>All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
-            title: '_t_Crash/Boom indices_t_',
             headerHeight: '8rem',
+            styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
+                    title: '_t_Instruments_t_',
                     list: [
-                        '_t_Crash 300 Index_t_',
-                        '_t_Crash 500 Index_t_',
-                        '_t_Crash 1000 Index_t_',
-                        '_t_Boom 300 Index_t_',
-                        '_t_Boom 500 Index_t_',
-                        '_t_Boom 1000 Index_t_',
+                        '_t_Crash/Boom indices_t_',
+                        '_t_Volatility indices_t_',
+                        '_t_Step Index_t_',
+                        '_t_Range break indices_t_',
+                        '_t_Jump indices_t_',
+                        '_t_Basket indices_t_',
+                        '_t_DEX indices_t_',
+                        '_t_Drift Switch Indices_t_',
                     ],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
                     list: [
-                        '_t_1_t_',
-                        '_t_0.35_t_',
-                        '_t_0.25_t_',
-                        '_t_1_t_',
-                        '_t_0.35_t_',
-                        '_t_0.25_t_',
+                        '_t_Up to USD 4_t_',
+                        '_t_Up to USD 25_t_',
+                        '_t_Up to USD 0.3_t_',
+                        '_t_Up to USD 0.7_t_',
+                        '_t_Up to USD 10_t_',
+                        '_t_Up to USD 10_t_',
+                        '_t_Up to USD 7_t_',
+                        '_t_Up to USD 5_t_',
                     ],
-                },
-            ],
-        },
-        {
-            title: '_t_Volatility indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_Volatility 10 Index_t_',
-                        '_t_Volatility 10 (1s) Index_t_',
-                        '_t_Volatility 25 Index_t_',
-                        '_t_Volatility 25 (1s) Index_t_',
-                        '_t_Volatility 50 Index_t_',
-                        '_t_Volatility 50 (1s) Index_t_',
-                        '_t_Volatility 75 Index _t_',
-                        '_t_Volatility 75 (1s) Index_t_',
-                        '_t_Volatility 100 Index_t_',
-                        '_t_Volatility 100 (1s) Index_t_',
-                        '_t_Volatility 150 (1s) Index_t_',
-                        '_t_Volatility 250 (1s) Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: [
-                        '_t_0.75_t_',
-                        '_t_0.75_t_',
-                        '_t_1.75_t_',
-                        '_t_1.75_t_',
-                        '_t_3.75_t_',
-                        '_t_3.75_t_',
-                        '_t_5_t_',
-                        '_t_5_t_',
-                        '_t_7.5_t_',
-                        '_t_7.5_t_',
-                        '_t_7.5_t_',
-                        '_t_12.5_t_',
-                    ],
-                },
-            ],
-            class_name: 'volatility-indices',
-        },
-        {
-            title: '_t_Step Index_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Step Index_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.10_t_'],
-                },
-            ],
-            class_name: 'step-index',
-        },
-        {
-            title: '_t_Range Break Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Range Break 100 Index_t_', '_t_Range Break 200 Index_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['0.35', '0.25'],
-                },
-            ],
-        },
-        {
-            title: '_t_Jump indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_Jump 10 Index_t_',
-                        '_t_Jump 25 Index_t_',
-                        '_t_Jump 50 Index_t_',
-                        '_t_Jump 75 Index_t_',
-                        '_t_Jump 100 Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.50_t_', '_t_1.25_t_', '_t_2.50_t_', '_t_3.75_t_', '_t_5_t_'],
-                },
-            ],
-            class_name: 'jump-index',
-        },
-        {
-            title: '_t_Basket Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_AUD Basket_t_',
-                        '_t_EUR Basket_t_',
-                        '_t_GBP Basket_t_',
-                        '_t_USD Basket_t_',
-                        '_t_Gold Basket_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['2', '1.50', '1.50', '1', '5'],
-                },
-            ],
-        },
-        {
-            title: '_t_DEX Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_DEX 600 DOWN Index_t_',
-                        '_t_DEX 600 UP Index_t_',
-                        '_t_DEX 900 DOWN Index_t_',
-                        '_t_DEX 900 UP Index_t_',
-                        '_t_DEX 1500 DOWN Index_t_',
-                        '_t_DEX 1500 UP Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['3', '3.5', '2.2', '3', '1.8', '1.5'],
-                },
-            ],
-        },
-    ],
-    countDetails: [
-        {
-            title: '_t_How it’s calculated_t_',
-            list: [
-                {
-                    title: '_t_Crash/Boom indices_t_',
-                    details:
-                        '_t_A deal for 1 lot of the Crash 500 Index for a price of USD 500,000 will pay out USD 1.75 in commission based on the following formula:_t_',
-                    icon: 'derived_crash',
-                    iconAlt: '_t_Crash/Boom indices_t_',
-                },
-                {
-                    title: '_t_Volatility indices_t_',
-                    details:
-                        '_t_A deal for 1 lot of the Volatility 75 Index for a price of USD 500,000 will pay out USD 25 in commission based on the following formula:_t_',
-                    icon: 'derived_volatility',
-                    iconAlt: '_t_Volatility Indices_t_',
-                },
-                {
-                    title: '_t_Step Index_t_',
-                    details:
-                        '_t_A deal for 2 lots of the Step Index for a price of USD 500,000 will pay out USD 10 in commission based on the following formula:_t_',
-                    icon: 'derived_step',
-                    iconAlt: '_t_Step Index_t_',
-                },
-                {
-                    title: '_t_Jump indices_t_',
-                    details:
-                        '_t_A deal for 5 lots of the Jump 10 Index for a price of USD 90,000 will pay out USD 2.25 in commission based on the following formula:_t_',
-                    icon: 'derived_jump',
-                    iconAlt: '_t_Jump indices_t_',
-                },
-                {
-                    title: '_t_DEX indices_t_',
-                    details:
-                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula:_t_',
-                    icon: 'dx_dex_indices',
-                    iconAlt: '_t_DEX indices_t_',
-                },
-            ],
-            notes: [
-                {
-                    title: '_t_Please note:_t_',
-                    desc: {
-                        firstText:
-                            '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
-                    },
                 },
             ],
         },
@@ -529,223 +372,49 @@ const ib_dmt5_synthetic: DMT5Type = {
 const ib_dmt5_swapFree: DMT5Type = {
     name: '_t_MT5 Swap Free_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Swap Free account.<br><br>All commission rates are quoted in USD._t_',
+        '_t_Earn when your clients trade on an MT5 Swap Free account.<br><br>All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
-            title: '_t_Forex_t_',
             headerHeight: '8rem',
             styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Forex (Major)_t_', '_t_Forex (Minor)_t_'],
+                    title: '_t_Instruments_t_',
+                    list: ['_t_Forex & Metals_t_'],
                 },
                 {
-                    title: '_t_Commission per lot (1 standard forex lot is 100k units)_t_',
-                    list: ['_t_2_t_', '_t_2_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Commodities_t_',
-            headerHeight: '6.4rem',
-            styles: `minBlockSize: '6.2rem'`,
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Metals_t_', '_t_Energy (Oil)_t_'],
-                },
-                {
-                    title: '_t_Commission_t_',
-                    list: ['_t_4<br>(Per lot)_t_', '_t_5<br>(Per USD 100k<br>turnover)_t_'],
+                    title: '_t_Commission per lot_t_',
+                    list: ['_t_Up to USD 20_t_'],
                 },
             ],
         },
         {
-            title: '_t_Cryptocurrencies_t_',
             headerHeight: '6.4rem',
+            styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Cryptocurrencies_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Stocks, ETFs & Stock Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Stocks_t_', '_t_Stock indices_t_', 'ETFs'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['10', '1', '10'],
-                },
-            ],
-        },
-        {
-            title: '_t_Volatility indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
+                    title: '_t_Instruments_t_',
                     list: [
-                        '_t_Volatility 10 Index_t_',
-                        '_t_Volatility 10 (1s) Index_t_',
-                        '_t_Volatility 25 Index_t_',
-                        '_t_Volatility 25 (1s) Index_t_',
-                        '_t_Volatility 50 Index_t_',
-                        '_t_Volatility 50 (1s) Index_t_',
-                        '_t_Volatility 75 Index _t_',
-                        '_t_Volatility 75 (1s) Index_t_',
-                        '_t_Volatility 100 Index_t_',
-                        '_t_Volatility 100 (1s) Index_t_',
-                        '_t_Volatility 150 (1s) Index_t_',
-                        '_t_Volatility 250 (1s) Index_t_',
+                        '_t_Commodities_t_',
+                        '_t_Cryptocurrencies_t_',
+                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
+                        '_t_Volatility indices_t_',
+                        '_t_Step Index_t_',
+                        '_t_Range break indices_t_',
+                        '_t_Jump indices_t_',
                     ],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
                     list: [
-                        '_t_0.75_t_',
-                        '_t_0.75_t_',
-                        '_t_1.75_t_',
-                        '_t_1.75_t_',
-                        '_t_3.75_t_',
-                        '_t_3.75_t_',
-                        '_t_5_t_',
-                        '_t_5_t_',
-                        '_t_7.5_t_',
-                        '_t_7.5_t_',
-                        '_t_7.5_t_',
-                        '_t_12.5_t_',
+                        '_t_Up to USD 25_t_',
+                        '_t_Up to USD 50_t_',
+                        '_t_Up to USD 50_t_',
+                        '_t_Up to USD 25_t_',
+                        '_t_Up to USD 0.3_t_',
+                        '_t_Up to USD 0.7_t_',
+                        '_t_Up to USD 10_t_',
                     ],
-                },
-            ],
-            class_name: 'volatility-indices',
-        },
-        {
-            title: '_t_Step Index_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Step Index_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.10_t_'],
-                },
-            ],
-            class_name: 'step-index',
-        },
-        {
-            title: '_t_Range Break Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Range Break 100 Index_t_', '_t_Range Break 200 Index_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['0.35', '0.25'],
-                },
-            ],
-        },
-        {
-            title: '_t_Jump indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_Jump 10 Index_t_',
-                        '_t_Jump 25 Index_t_',
-                        '_t_Jump 50 Index_t_',
-                        '_t_Jump 75 Index_t_',
-                        '_t_Jump 100 Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.50_t_', '_t_1.25_t_', '_t_2.50_t_', '_t_3.75_t_', '_t_5_t_'],
-                },
-            ],
-            class_name: 'jump-index',
-        },
-    ],
-    countDetails: [
-        {
-            title: '_t_How it’s calculated_t_',
-            list: [
-                {
-                    title: '_t_Forex_t_',
-                    details:
-                        '_t_For forex, there is a fixed commission of USD 2 per lot. A deal of 0.2 lots of GBP/JPY will pay out USD 0.4 in commission based on the following formula:_t_',
-                    icon: 'mt5_forex',
-                    iconAlt: '_t_Forex_t_',
-                },
-                {
-                    title: '_t_Commodities_t_',
-                    details:
-                        '_t_For <0>metals</0>, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:_t_',
-                    icon: 'mt5_metal',
-                    iconAlt: '_t_Metals_t_',
-                },
-                {
-                    details:
-                        '_t_For <0>oil</0>, a deal for 10 lots for a price of USD 96 will pay out USD 0.05 in commission based on the following formula:_t_',
-                    icon: 'mt5_oil',
-                    iconAlt: '_t_Oil_t_',
-                },
-                {
-                    title: '_t_Cryptocurrencies_t_',
-                    details:
-                        '_t_For cryptocurrencies, a deal for 1 lot of BTC/USD will pay out USD 2 in commission based on the following formula:_t_',
-                    icon: 'mt5_crypto',
-                    iconAlt: '_t_Cryptocurrencies_t_',
-                },
-                {
-                    title: '_t_Stocks & stock indices_t_',
-                    details:
-                        '_t_For <0>stocks</0>, a deal for 1 lot of AAPL for a price of USD 178 will pay out USD 0.02 in commission based on the following formula:_t_',
-                    icon: 'mt5_stocks',
-                    iconAlt: '_t_Stocks_t_',
-                },
-                {
-                    details:
-                        '_t_For <0>stock indices</0>, a deal for 20 lots of JP225  for a price of JPY 32,500 will pay out USD 0.05 in commission based on the following formula:_t_',
-                    icon: 'mt5_stock_indices',
-                    iconAlt: '_t_Stock Indices_t_',
-                },
-                {
-                    title: '_t_Volatility indices_t_',
-                    details:
-                        '_t_A deal for 1 lot of the Volatility 50 (1s) Index for a price of USD 600,000 will pay out USD 22.50 in commission based on the following formula:_t_',
-                    icon: 'mt5_volatility',
-                    iconAlt: '_t_Volatility Indices_t_',
-                },
-                {
-                    details:
-                        '_t_The same formula applies to all synthetic indices except <0>Step Index</0>, which has the following formula:_t_',
-                    icon: 'mt5_step',
-                    iconAlt: '_t_Step Indexes_t_',
-                },
-            ],
-            notes: [
-                {
-                    title: '_t_Please note:_t_',
-                    desc: {
-                        firstText:
-                            '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
-                    },
                 },
             ],
         },
@@ -754,113 +423,37 @@ const ib_dmt5_swapFree: DMT5Type = {
 const ib_dmt5_financial: DMT5Type = {
     name: '_t_MT5 Financial_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Financial account.<br><br>All commission rates are quoted in USD._t_',
+        '_t_Earn when your clients trade on an MT5 Financial account.<br><br>All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
-            title: '_t_Forex_t_',
-            headerHeight: '8rem',
+            headerHeight: '5rem',
             styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Forex (Major)_t_', '_t_Forex (Minor)_t_', '_t_Forex (Micros)_t_'],
+                    title: '_t_Instruments_t_',
+                    list: ['_t_Forex & Metals_t_'],
                 },
                 {
-                    title: '_t_Commission per lot (1 standard forex lot is 100k units)_t_',
-                    list: ['2', '2', '0.02'],
-                },
-            ],
-        },
-        {
-            title: '_t_Commodities_t_',
-            headerHeight: '6.4rem',
-            styles: `minBlockSize: '6.2rem'`,
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Metals_t_', '_t_Energy (Oil)_t_'],
-                },
-                {
-                    title: '_t_Commission_t_',
-                    list: ['_t_4<br>(Per lot)_t_', '_t_5<br>(Per USD 100k<br>turnover)_t_'],
+                    title: '_t_Commission per lot_t_',
+                    list: ['_t_Up to USD 8_t_'],
                 },
             ],
         },
         {
-            title: '_t_Cryptocurrencies_t_',
-            headerHeight: '6.4rem',
+            headerHeight: '5rem',
+            styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Cryptocurrencies_t_'],
+                    title: '_t_Instruments_t_',
+                    list: [
+                        '_t_Commodities_t_',
+                        '_t_Cryptocurrencies_t_',
+                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
+                    ],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Stocks, ETFs & Stock Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Stocks_t_', '_t_Stock indices_t_', '_t_ETFs_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['10', '1', '10'],
-                },
-            ],
-        },
-    ],
-    countDetails: [
-        {
-            title: '_t_How it’s calculated_t_',
-            list: [
-                {
-                    title: '_t_Forex_t_',
-                    details:
-                        '_t_For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:_t_',
-                    icon: 'fin_forex',
-                    iconAlt: '_t_Forex_t_',
-                },
-                {
-                    title: '_t_Commodities_t_',
-                    details:
-                        '_t_For <0>metals</0>, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:_t_',
-                    icon: 'fin_metal',
-                    iconAlt: '_t_Metals_t_',
-                },
-                {
-                    details:
-                        '_t_For <0>oil</0>, a deal for 10 lots for a price of USD 96 will pay out USD 0.05 in commission based on the following formula:_t_',
-                    icon: 'fin_oil',
-                    iconAlt: '_t_Oil_t_',
-                },
-                {
-                    title: '_t_Cryptocurrencies_t_',
-                    details:
-                        '_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_',
-                    icon: 'fin_crypto',
-                    iconAlt: '_t_Cryptocurrencies_t_',
-                },
-                {
-                    title: '_t_Stocks & stock indices_t_',
-                    details:
-                        '_t_For stock indices assets, a deal for 2 lots of US Tech Index will pay out USD 0.26 in commission based on the following formula:_t_',
-                    icon: 'fin_stock',
-                    iconAlt: '_t_Stocks_t_',
-                },
-            ],
-            notes: [
-                {
-                    title: '_t_Please note:_t_',
-                    desc: {
-                        firstText:
-                            '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
-                    },
+                    list: ['_t_Up to USD 10_t_', '_t_Up to USD 20_t_', '_t_Up to USD 20_t_'],
                 },
             ],
         },
@@ -869,78 +462,19 @@ const ib_dmt5_financial: DMT5Type = {
 const ib_dmt5_financialSTP: DMT5Type = {
     name: '_t_MT5 Financial STP_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Financial STP account.<br><br>All commission rates are quoted in USD._t_',
+        '_t_Earn when your clients trade on an MT5 Financial STP account.<br><br>All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
-            title: '_t_Forex_t_',
             headerHeight: '8rem',
             styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Forex (Major)_t_', '_t_Forex (Minor)_t_', '_t_Forex (Exotic)_t_'],
-                },
-                {
-                    title: '_t_Commission per lot (1 standard forex lot is 100k units)_t_',
-                    list: ['_t_2.5_t_', '_t_2.5_t_', '_t_2.5_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Commodities_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Metals_t_'],
+                    title: '_t_Instruments_t_',
+                    list: ['_t_Forex & Metals_t_', '_t_Cryptocurrencies_t_'],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_2.5_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Cryptocurrencies_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Cryptocurrencies_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_'],
-                },
-            ],
-        },
-    ],
-    countDetails: [
-        {
-            title: '_t_How it’s calculated_t_',
-            list: [
-                {
-                    title: '_t_Forex_t_',
-                    details:
-                        '_t_For forex, a deal of 0.1 lots of GBP/USD will pay out USD 0.32 in commission based on the following formula:_t_',
-                    icon: 'stp_forex',
-                    iconAlt: '_t_Forex_t_',
-                },
-                {
-                    title: '_t_Cryptocurrencies_t_',
-                    details:
-                        '_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_',
-                    icon: 'stp_crypto',
-                    iconAlt: '_t_Cryptocurrencies_t_',
-                },
-            ],
-            notes: [
-                {
-                    title: '_t_Please note:_t_',
-                    desc: {
-                        firstText:
-                            '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
-                    },
+                    list: ['_t_Up to USD 5_t_', '_t_Up to USD 20_t_'],
                 },
             ],
         },
@@ -949,296 +483,45 @@ const ib_dmt5_financialSTP: DMT5Type = {
 const ib_dx: DMT5Type = {
     name: '_t_Deriv X_t_',
     description:
-        '_t_Earn when your clients trade on a Deriv X account.<br><br>All commission rates are quoted in USD._t_',
+        '_t_Earn when your clients trade on a Deriv X account.<br><br>All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
-            title: '_t_Forex_t_',
-            headerHeight: '8rem',
+            headerHeight: '5rem',
+            styled: ' ',
             assets: [
                 {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Forex (Majors)_t_', '_t_Forex (Minors)_t_', '_t_Forex (Micros)_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_2_t_', '_t_2_t_', '_t_2_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Commodities_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Metals_t_', '_t_Energy (Oil)_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_1.50_t_', '_t_5_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Cryptocurrencies_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Cryptocurrencies_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Stocks, ETFs, & stock indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Stocks_t_', '_t_ETFs_t_', '_t_Stock indices_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_', '_t_10_t_', '_t_1_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_Crash/Boom indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
+                    title: '_t_Instruments_t_',
                     list: [
-                        '_t_Crash 300 Index_t_',
-                        '_t_Crash 500 Index_t_',
-                        '_t_Crash 1000 Index_t_',
-                        '_t_Boom 300 Index_t_',
-                        '_t_Boom 500 Index_t_',
-                        '_t_Boom 1000 Index_t_',
+                        '_t_Forex & Metals_t_',
+                        '_t_Commodities_t_',
+                        '_t_Cryptocurrencies_t_',
+                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
+                        '_t_Crash/Boom indices_t_',
+                        '_t_Volatility indices_t_',
+                        '_t_Step Index_t_',
+                        '_t_Range break indices_t_',
+                        '_t_Jump indices_t_',
+                        '_t_Basket indices_t_',
+                        '_t_DEX indices_t_',
+                        '_t_Drift Switch Indices_t_',
                     ],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
                     list: [
-                        '_t_1_t_',
-                        '_t_0.35_t_',
-                        '_t_0.25_t_',
-                        '_t_1_t_',
-                        '_t_0.35_t_',
-                        '_t_0.25_t_',
+                        '_t_Up to USD 4_t_',
+                        '_t_Up to USD 10_t_',
+                        '_t_Up to USD 20_t_',
+                        '_t_Up to USD 20_t_',
+                        '_t_Up to USD 4_t_',
+                        '_t_Up to USD 20_t_',
+                        '_t_Up to USD 0.3_t_',
+                        '_t_Up to USD 0.7_t_',
+                        '_t_Up to USD 10_t_',
+                        '_t_Up to USD 10_t_',
+                        '_t_Up to USD 7_t_',
+                        '_t_Up to USD 5_t_',
                     ],
-                },
-            ],
-            class_name: 'crash-boom',
-        },
-        {
-            title: '_t_Volatility indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_Volatility 10 Index_t_',
-                        '_t_Volatility 10 (1s) Index_t_',
-                        '_t_Volatility 25 Index_t_',
-                        '_t_Volatility 25 (1s) Index_t_',
-                        '_t_Volatility 50 Index_t_',
-                        '_t_Volatility 50 (1s) Index_t_',
-                        '_t_Volatility 75 Index _t_',
-                        '_t_Volatility 75 (1s) Index_t_',
-                        '_t_Volatility 100 Index_t_',
-                        '_t_Volatility 100 (1s) Index_t_',
-                        '_t_Volatility 150 (1s) Index_t_',
-                        '_t_Volatility 250 (1s) Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: [
-                        '_t_0.75_t_',
-                        '_t_0.75_t_',
-                        '_t_1.75_t_',
-                        '_t_1.75_t_',
-                        '_t_3.75_t_',
-                        '_t_3.75_t_',
-                        '_t_5_t_',
-                        '_t_5_t_',
-                        '_t_7.5_t_',
-                        '_t_7.5_t_',
-                        '_t_7.5_t_',
-                        '_t_10_t_',
-                    ],
-                },
-            ],
-            class_name: 'volatility-indices',
-        },
-        {
-            title: '_t_Step Index_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Step Index_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.10_t_'],
-                },
-            ],
-            class_name: 'step-index',
-        },
-        {
-            title: '_t_Jump indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_Jump 10 Index_t_',
-                        '_t_Jump 25 Index_t_',
-                        '_t_Jump 50 Index_t_',
-                        '_t_Jump 75 Index_t_',
-                        '_t_Jump 100 Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.50_t_', '_t_1.25_t_', '_t_2.50_t_', '_t_3.75_t_', '_t_5_t_'],
-                },
-            ],
-            class_name: 'jump-index',
-        },
-        {
-            title: '_t_Range break indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: ['_t_Range Break 100 Index_t_', '_t_Range Break 200 Index_t_'],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['0.35', '0.25'],
-                },
-            ],
-        },
-        {
-            title: '_t_Basket indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_AUD Basket_t_',
-                        '_t_EUR Basket_t_',
-                        '_t_GBP Basket_t_',
-                        '_t_USD Basket_t_',
-                        '_t_Gold Basket_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_2_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_1_t_', '_t_5_t_'],
-                },
-            ],
-        },
-        {
-            title: '_t_DEX Indices_t_',
-            headerHeight: '6.4rem',
-            assets: [
-                {
-                    title: '_t_Asset_t_',
-                    list: [
-                        '_t_DEX 600 DOWN Index_t_',
-                        '_t_DEX 600 UP Index_t_',
-                        '_t_DEX 900 DOWN Index_t_',
-                        '_t_DEX 900 UP Index_t_',
-                        '_t_DEX 1500 DOWN Index_t_',
-                        '_t_DEX 1500 UP Index_t_',
-                    ],
-                },
-                {
-                    title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['3', '3.5', '2.2', '3', '1.8', '1.5'],
-                },
-            ],
-        },
-    ],
-    countDetails: [
-        {
-            title: '_t_How it’s calculated_t_',
-            list: [
-                {
-                    title: '_t_Forex_t_',
-                    details:
-                        '_t_For forex, a deal of 0.1 lots of GBP/USD will pay out USD 0.25 in commission based on the following formula:_t_',
-                    icon: 'deriv_x_forex',
-                    iconAlt: '_t_Forex_t_',
-                },
-                {
-                    title: '_t_Commodities_t_',
-                    details:
-                        '_t_For commodities, a deal for 10 lots of <0>oil</0> for a price of USD 96 will pay out USD 0.05 in commission based on the following formula:_t_',
-                    icon: 'deriv_x_commodities',
-                    iconAlt: '_t_Commodities_t_',
-                    second_desc:
-                        '_t_This formula also applies to <0>metals</0> & <0>basket indices</0>. Commission rates, contract sizes, and deal prices depend on the individual asset._t_',
-                },
-                {
-                    title: '_t_Cryptocurrencies_t_',
-                    details:
-                        '_t_For cryptocurrencies, a deal for 1 lot of BTC/USD will pay out USD 2 in commission based on the following formula:_t_',
-                    icon: 'deriv_x_crypto',
-                    iconAlt: '_t_Cryptocurrencies_t_',
-                },
-                {
-                    title: '_t_Stocks, ETFs, & stock indices_t_',
-                    details:
-                        '_t_For <0>stocks</0>, a deal for 1 lot of AAPL for a price of USD 178 will pay out USD 0.02 in commission based on the following formula:_t_',
-                    icon: 'deriv_x_stocks',
-                    iconAlt: '_t_Stocks_t_',
-                    second_desc:
-                        '_t_This formula also applies to <0>ETFs</0>. Contract sizes and deal prices depend on the individual asset._t_',
-                },
-                {
-                    details:
-                        '_t_For <0>stock indices</0>, a deal for 20 lots of JP225 for a price of JPY 32,500 will pay out USD 0.05 in commission based on the following formula:_t_',
-                    icon: 'deriv_x_indices',
-                    iconAlt: '_t_Stock Indices_t_',
-                },
-                {
-                    title: '_t_Volatility indices_t_',
-                    details:
-                        '_t_A deal for 1 lot of the Volatility 50 (1s) Index for a price of USD 600,000 will pay out USD 22.50 in commission based on the following formula:_t_',
-                    icon: 'deriv_x_vol',
-                    iconAlt: '_t_Volatility Indices_t_',
-                },
-                {
-                    details:
-                        '_t_The same formula applies to all synthetics except <0>Step Index</0>, which has the following formula:_t_',
-                    icon: 'deriv_x_step',
-                    iconAlt: '_t_Step Indexes_t_',
-                },
-                {
-                    title: '_t_DEX indices_t_',
-                    details:
-                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula:_t_',
-                    icon: 'dx_dex_indices',
-                    iconAlt: '_t_DEX indices_t_',
-                },
-            ],
-            notes: [
-                {
-                    title: '_t_Please note:_t_',
-                    desc: {
-                        firstText:
-                            '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
-                    },
                 },
             ],
         },

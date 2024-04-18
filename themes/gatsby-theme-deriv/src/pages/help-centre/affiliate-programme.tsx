@@ -5,7 +5,10 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const AffiliateProgramme = () => <QuestionsTemplate data={affiliate_programme} />
+const AffiliateProgramme = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
+    return <QuestionsTemplate data={affiliate_programme} region={region} />
+}
 
 export default WithIntl()(AffiliateProgramme)
 

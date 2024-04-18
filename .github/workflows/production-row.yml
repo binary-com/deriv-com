@@ -82,7 +82,7 @@ jobs:
                   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
               if: always()
     
-          build_and_publish_to_docker_k8s:
+    build_and_publish_to_docker_k8s:
               runs-on: Runner_16cores
               environment: production
               needs: [release-production]

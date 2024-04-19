@@ -1,0 +1,136 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.hero_container {
+    justify-content: flex-end;
+    @media only screen and (min-width: 601px){
+        justify-content: center;
+    }
+}
+.hero_content{
+    text-align: center;
+    align-items: center;
+    @media only screen and (min-width: 601px){
+        text-align: left;
+        width: 53%;
+        align-items: flex-start;
+    }
+    @media only screen and (min-width: 1024px){
+        width: 50%;
+    }
+    @media only screen and (min-width: 1920px){
+        margin-top: 0;
+    }
+}
+.hero_content_rtl{
+    @media only screen and (min-width: 601px){
+        &[dir="rtl"] {
+            text-align: right;
+            margin-right: auto;
+        }
+    }
+}
+.hero_content_btn {
+    margin-inline: auto;
+    @media only screen and (min-width: 601px){
+        margin-inline: 0;
+    }
+}
+.hero_img{
+    right: -72px;
+    width: 60vh;
+    @media only screen and (min-width: 601px){
+        margin-inline-start: auto;
+        left: auto;
+        right: -172px;
+    }
+    @media only screen and (min-width: 1024px){
+        width: 60vh;
+        right: -48px;
+    }
+}
+
+.hero_img_diel {
+    right: -72px;
+    width: 56vh;
+    @media only screen and (min-width: 601px){
+        margin-inline-start: auto;
+        left: auto;
+        right: -172px;
+    }
+    @media only screen and (min-width: 640px){
+        right: -126px;
+        width: 50vh;
+    }
+    @media only screen and (min-width: 1024px){
+        width: 52vh;
+        right: -40px;
+    }
+}
+
+.hero_img_eu {
+    width: 58vh;
+    @media only screen and (min-width: 601px){
+        margin-inline-start: auto;
+        left: auto;
+        bottom: 0;
+        right: -150px;
+        width: 59vh;
+    }
+    @media only screen and (min-width: 640px){
+        right: -141px;
+        width: 53vh;
+    }
+    @media only screen and (min-width: 708px){
+        right: -138px;
+        width: 54vh;
+    }
+    @media only screen and (min-width: 1024px){
+        right: -36px;
+        width: 57vh;
+    }
+}
+
+.hero_content_award_img {
+    margin-inline: auto;
+    gap: 10px;
+    @media only screen and (min-width: 601px){
+        position: absolute;
+        margin-inline: 0;
+        gap: 24px;
+        left: 24px;
+        bottom: 0;
+    }
+    @media screen and (min-width: 601px) and (min-height: 960px) {
+        bottom: auto;
+        top: clamp(72%,50vh + 210px,80%);
+    }
+    @media only screen and (min-width: 1024px){
+        left: 0;
+    }
+}
+.hero_content_award_img_rtl {
+    @media only screen and (min-width: 601px){
+        &[dir="rtl"] {
+            right: 50%;
+            left: auto;
+        }
+    }
+}
+.hero_content_text{
+    @media only screen and (min-width: 601px){
+        max-width: 325px;
+    }
+    @media only screen and (min-width: 1024px){
+        max-width: 100%;
+    }
+}
+.hero_content_gradient{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) -8.48%, rgba(0, 0, 0, 0.60) -8.46%, rgba(0, 0, 0, 0.00) 8.92%, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.70) 65.27%, rgba(0, 0, 0, 0.80) 102.14%);
+    @media only screen and (min-width: 601px){
+        background: linear-gradient(to left, rgba(0, 0, 0, 0) 1.45%, rgba(0, 0, 0, 0) 34.13%, rgba(15, 10, 10, .8) 86.38%);
+    }
+    @media only screen and (min-width: 1024px){
+        background: linear-gradient(to left, rgba(0, 0, 0, 0) 1.45%, rgba(0, 0, 0, 0) 34.13%, rgba(15, 10, 10, .8) 86.38%);
+    }
+}

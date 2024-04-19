@@ -158,7 +158,7 @@ export const DerivedMarketsList = styled.div<MarketsListProps>`
         grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
         padding: 24px;
-        gap: ${({ gap }) => (gap ? gap : '8px')};
+        gap: ${({ gap }) => (gap ? gap : '10px')};
 
     }
 `

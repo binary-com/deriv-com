@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import {StyledHeaderForDerivxHero} from 'components/elements/common-header-section'
+import { StyledHeaderForDerivxHero } from 'components/elements/common-header-section'
 import { DerivXBannerLogo } from 'images/svg/deriv-x'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -11,6 +11,12 @@ import Shape from 'components/custom/_hero-shape'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
+import { mobileOSDetect } from 'common/os-detect'
+import {
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+    deriv_go_playstore_url,
+} from 'common/constants'
 import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
@@ -23,13 +29,13 @@ const ImageStyle = styled.div`
     @media ${device.tablet} {
         width: 100%;
     }
-    &.mobile-img{
+    &.mobile-img {
         display: none;
         @media ${device.tablet} {
             display: block;
         }
     }
-    &.desktop-img{
+    &.desktop-img {
         display: block;
         @media ${device.tablet} {
             display: none;
@@ -138,6 +144,29 @@ const DCommonBanner = () => {
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
 
+    const handleGetTradingDesktop = () => {
+        const targetComponent = document.getElementById('target-component')
+        if (targetComponent) {
+            targetComponent.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    }
+
+    const handleGetTradingMobile = () => {
+        const os = mobileOSDetect()
+
+        switch (os) {
+            case 'Android':
+                window.open(deriv_go_playstore_url, '_blank')
+                break
+            case 'iOS':
+                window.open(deriv_go_ios_url, '_blank')
+                break
+            case 'Huawei':
+                window.open(deriv_go_huaweiappgallery_url, '_blank')
+                break
+        }
+    }
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
@@ -149,7 +178,7 @@ const DCommonBanner = () => {
                         />
                         <StyledHeaderForDerivxHero
                             title="_t_The trading platform to fit your style_t_"
-                            title_font_size='64px'
+                            title_font_size="64px"
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
@@ -179,7 +208,7 @@ const DCommonBanner = () => {
                 <HeroImageWrapper>
                     <Shape angle={168} angle_mobile={101} width="55%">
                         <ImageWrapper>
-                            <ImageStyle className='mobile-img'>
+                            <ImageStyle className="mobile-img">
                                 <StaticImage
                                     src="../../images/common/deriv-x/banner_image_derivx_mobile.png"
                                     loading="eager"
@@ -187,7 +216,7 @@ const DCommonBanner = () => {
                                     alt="Banner"
                                 />
                             </ImageStyle>
-                            <ImageStyle className='desktop-img'>
+                            <ImageStyle className="desktop-img">
                                 <StaticImage
                                     src="../../images/common/deriv-x/banner_image_derivx.png"
                                     loading="eager"

@@ -1,0 +1,124 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.signup_experimental_page_container {
+    height: 100dvh;
+    background-image: url('images/common/sign-up/signup-image-experimental.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.deriv_icon_wrapper {
+    padding: 0 1rem;
+    min-height: 80px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+}
+
+.signup_wrapper {
+    min-block-size: 100svh;
+    height: 100dvh;
+}
+
+.signup_form_container {
+    @include breakpoints(tablet) {
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.signup_form_line {
+    block-size: 1px;
+    background-color: $color-grey-7;
+}
+
+.sign_up_header {
+    font-size: 24px;
+}
+
+.sign_up_content {
+    font-size: 12px;
+}
+
+.signup_login_redirect {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.signup_fb_btn {
+    background-color: transparent;
+    border: 1px solid white;
+    position: relative;
+}
+
+.signup_apple_btn {
+    background-color: transparent;
+    border: 1px solid white;
+    position: relative;
+}
+.link_text {
+    text-decoration: underline;
+    &:hover {
+        text-decoration-color: #000000;
+        color: $text-color-primary;
+    }
+}
+
+.signup_latam_human_image {
+    width: 100%;
+    max-width: 610px;
+    padding: 0 3rem;
+    display: none;
+}
+
+.signup_latam_image_show {
+    display: block;
+}
+
+.signup_form_blur_effect {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100dvh;
+    padding-top: 70px;
+}
+
+.signup_pointer_events_none {
+    pointer-events: none;
+}
+
+.signup_hide_form {
+    opacity: 0;
+}
+
+.signup_text_underline {
+    text-decoration: underline;
+}
+
+.signup_left_gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+.signup_bottom_gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.signup_inline_display {
+    display: inline;
+}

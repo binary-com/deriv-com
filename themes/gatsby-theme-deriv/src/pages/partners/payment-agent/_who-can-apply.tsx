@@ -24,6 +24,7 @@ import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import { LocalizedLink } from '../../../components/localization'
 
 type ImageWrapperProps = {
     left_margin?: string
@@ -173,13 +174,14 @@ const WhoCanApply = () => {
                             <Localize
                                 translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
                                 components={[
-                                    <LocalizedLinkText
+                                    <LocalizedLink
                                         external
-                                        key={0}
-                                        color="red"
+                                        style={{ color: 'red', textDecoration: 'none' }}
+                                        to={`/tnc/business-partners-payment-agents.pdf`}
                                         target="_blank"
-                                        href="/tnc/business-partners-payment-agents.pdf"
                                         rel="noopener noreferrer"
+                                        key={0}
+                
                                     />,
                                 ]}
                             />

@@ -82,7 +82,7 @@ jobs:
                   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
               if: always()
     
-          build_and_publish_to_docker_k8s:
+    build_and_publish_to_docker_k8s:
               runs-on: Runner_16cores
               environment: production
               needs: [release-production]
@@ -99,7 +99,7 @@ jobs:
                         name: production
                         path: sites/row/public
                   - name: Set version env variable
-                    run: echo "GIT_TAG_NAME=$(cat public/version.txt)" >> $GITHUB_ENV
+                    run: echo "GIT_TAG_NAME=$(cat sites/row/public/version.txt)" >> $GITHUB_ENV
                   - name: Building docker image 🐳
                     run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
     

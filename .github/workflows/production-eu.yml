@@ -98,7 +98,7 @@ jobs:
                         name: production
                         path: sites/eu/public
                   - name: Set version env variable
-                    run: echo "GIT_TAG_NAME=$(cat public/version.txt)" >> $GITHUB_ENV
+                    run: echo "GIT_TAG_NAME=$(cat sites/eu/public/version.txt)" >> $GITHUB_ENV
                   - name: Building docker image 🐳
                     run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
     

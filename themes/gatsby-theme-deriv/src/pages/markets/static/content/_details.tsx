@@ -502,5 +502,8 @@ export const DriftSwitchDetails = () => (
                 components={[<strong key={0} />, <strong key={1} />]}
             />
         </Text>
+        <Text>
+            <Localize translate_text="_t_We offer dynamic spreads on DSI, which are calculated in real-time based on supply and demand._t_" />
+        </Text>
     </DetailsContainer>
 )

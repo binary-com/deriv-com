@@ -174,6 +174,7 @@ const WhoCanApply = () => {
                                 translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
                                 components={[
                                     <LocalizedLinkText
+                                        external
                                         key={0}
                                         color="red"
                                         target="_blank"

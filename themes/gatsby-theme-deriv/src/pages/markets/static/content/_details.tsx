@@ -182,6 +182,17 @@ export const CrashBoomDetailsEU = () => (
     </DetailsContainer>
 )
 
+export const JumpIndicesDetailsEU = () => (
+    <DetailsContainer>
+        <CrashText>
+            <Localize
+                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes,</0> on average. The jump size is <0> around 30 times </0>the normal price movement, on average._t_"
+                components={[<strong key={0} />]}
+            />
+        </CrashText>
+    </DetailsContainer>
+)
+
 export const DailyResetIndicesDetails = () => (
     <DetailsContainer>
         <Text>

@@ -22,7 +22,13 @@ const Home = ({ pageContext }: TGatsbyHead) => {
       
         return nodes.map(node => node.path)
       }
+    const urls = useInternalPaths()
     console.log("==>", useInternalPaths())
+    return (
+        <ul>
+            {urls?.map(url => <li key={url}>{url}</li>)}
+        </ul>
+    )
     return <HomePage region={region}/>
 }
 

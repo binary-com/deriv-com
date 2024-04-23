@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, useStaticQuery } from "gatsby"
 import HomePage from 'features/pages/home'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
@@ -6,6 +7,22 @@ import { WithIntl } from 'components/localization'
 
 const Home = ({ pageContext }: TGatsbyHead) => {
     const {region} = pageContext
+    const useInternalPaths = () => {
+        const {
+          pages: { nodes },
+        } = useStaticQuery(graphql`
+          {
+            pages: allSitePage {
+              nodes {
+                path
+              }
+            }
+          }
+        `)
+      
+        return nodes.map(node => node.path)
+      }
+    console.log("==>", useInternalPaths())
     return <HomePage region={region}/>
 }
 

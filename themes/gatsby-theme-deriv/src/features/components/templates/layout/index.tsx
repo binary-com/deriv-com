@@ -66,8 +66,6 @@ const Layout = ({
         return <>{children}</>
     }
 
-    console.log({ hide_layout_overlay }, '=====> ')
-
     return (
         <BuildVariantProvider region={region}>
             <SharedLinkProvider DerivLink={GatsbySharedLink}>

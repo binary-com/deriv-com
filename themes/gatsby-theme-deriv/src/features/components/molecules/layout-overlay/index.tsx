@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { overlay_container } from './layout-overlay.module.scss'
+import { getLocationPathname } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
@@ -23,6 +24,8 @@ const LayoutOverlay = ({ hide_live_chat }: { hide_live_chat: boolean } = default
     const is_rtl = useIsRtl()
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
     const isWhatsappChat = useThirdPartyFlags('chat.whatsapp_chat')
+    const path_name = getLocationPathname()
+    const is_deriv_prime = path_name.includes('deriv-prime')
     const [trigger_warning_popuop, setTriggerWarningPopup] = useState(false)
 
     useEffect(() => setTriggerWarningPopup(!cookie?.should_show), [cookie.should_show])
@@ -56,7 +59,7 @@ const LayoutOverlay = ({ hide_live_chat }: { hide_live_chat: boolean } = default
                 {!hide_live_chat && (
                     <Flex.Box direction="col">
                         {isLiveChat && <LiveChatButton />}
-                        {isWhatsappChat && <WhatsappButton />}
+                        {!is_deriv_prime && isWhatsappChat && <WhatsappButton />}
                     </Flex.Box>
                 )}
             </Flex.Box>

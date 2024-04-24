@@ -14,7 +14,7 @@ export const ETFStepItems: StepsTradeTypeItem[] = [
         id: 1,
         data: {
             description:
-                '_t_Open a real account, make a deposit, and start trading baskets and other markets._t_',
+                '_t_Open a real account, make a deposit, and start trading basket indices and other markets._t_',
             title: '_t_Trade_t_',
         },
     },

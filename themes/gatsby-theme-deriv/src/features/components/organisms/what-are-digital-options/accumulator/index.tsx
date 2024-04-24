@@ -44,9 +44,15 @@ const WhatAreDigitalOptions = ({
                         id={uniq}
                     >
                         <TradersHubCtaButton
-                            ref={entryRef}
-                            className="w-full md:!w-auto"
+                            className="w-full hidden md:!flex md:!w-auto "
                             size="lg"
+                        />
+
+                        <TradersHubCtaButton
+                            ref={entryRef}
+                            className="w-full flex md:hidden"
+                            size="lg"
+                            is_accumulator_mobile
                         />
                         <Button
                             size="lg"

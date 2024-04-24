@@ -121,6 +121,7 @@ const MultiWidthColumn = ({
             mobilePadding={mobilePadding}
             tabletPositionBackgroundImage={tabletPositionBackgroundImage}
             mobilePositionBackgroundImage={mobilePositionBackgroundImage}
+            id="target-component"
         >
             <StyledContainerBox ai="stretch" justify="flex-start" tablet_direction="column">
                 <FirstColumn

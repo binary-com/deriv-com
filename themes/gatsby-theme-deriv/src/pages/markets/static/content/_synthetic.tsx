@@ -12,7 +12,7 @@ export const simple_step_content_synthetic: TSimpleStepContent[] = [
     },
     {
         header: '_t_Trade_t_',
-        text: '_t_Open a real account, make a deposit, and start trading synthetics and other markets._t_',
+        text: '_t_Open a real account, make a deposit, and start trading synthetic indices and other markets._t_',
     },
     {
         header: '_t_Withdraw_t_',

@@ -20,7 +20,7 @@ const cpa_data: AffiliateType = [
     {
         title: '_t_Revenue_t_',
         data: [
-            '_t_Based on each successful referral with deposit of USD 100_t_',
+            '_t_Based on each<br> successful referral with<br> deposit of USD 100_t_',
         ],
     },
     {
@@ -34,7 +34,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
         <StyledCard height="110rem" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
-                    <Localize translate_text="_t_Turnover_t_" />
+                    <Localize translate_text="_t_CPA (EU-based clients only)_t_" />
                 </Header>
                 <Header as="p" type="paragraph-1" weight="normal">
                     <Localize

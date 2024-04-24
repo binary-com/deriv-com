@@ -1,6 +1,11 @@
 import React from 'react'
 import { Button, TextField } from '@deriv/quill-design'
-import { link_text, sign_up_content, signup_inline_display } from '../signup.module.scss'
+import {
+    link_text,
+    sign_up_content,
+    signup_inline_display,
+    signup_error_message,
+} from '../signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
 import { localize, Localize } from 'components/localization'
@@ -13,7 +18,9 @@ import useBuildVariant from 'features/hooks/use-build-variant'
 
 const SignUpPageForm = () => {
     const { region } = useBuildVariant()
-    const { onSignup, signUpForm } = useSignupForm()
+    const { onSignup, signUpForm } = useSignupForm({
+        form_name: 'virtual_signup_web_mobile_exp003',
+    })
     const [is_mounted] = usePageLoaded()
 
     const {
@@ -45,12 +52,20 @@ const SignUpPageForm = () => {
                 placeholder=""
                 autoCapitalize="none"
                 id="email_address"
+                required
+                type='email'
                 status={errors?.email?.message ? 'error' : 'neutral'}
-                leftStatusMessage={
-                    errors?.email?.message ? localize(errors?.email?.message as TString) : ''
-                }
                 {...register('email')}
             />
+
+            {errors?.email?.message ? (
+                <Typography.Paragraph
+                    className={signup_error_message}
+                    size="small"
+                >
+                    {localize(errors?.email?.message as TString)}
+                </Typography.Paragraph>
+            ) : null}
 
             <Typography.Paragraph textcolor="white" className={sign_up_content}>
                 <Localize

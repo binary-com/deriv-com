@@ -1,6 +1,6 @@
 import React from 'react'
 import { LabelPairedXmarkLgBoldIcon } from '@deriv/quill-icons'
-import { signup_form_container, sign_up_header } from '../signup.module.scss'
+import { signup_form_container, sign_up_header, signup_form_layout } from '../signup.module.scss'
 import FormSocialButtons from './form-social-buttons'
 import SignUpPageForm from './signup-page-form'
 import Flex from 'features/components/atoms/flex-box'
@@ -12,6 +12,8 @@ const SignUpFormContainer = ({ onModalClose }: { onModalClose: () => void }) => 
         <Flex.Box
             basis="full"
             padding="5x"
+            pl="8x"
+            pr="8x"
             radius="4x"
             direction="col"
             gap="8x"
@@ -28,15 +30,17 @@ const SignUpFormContainer = ({ onModalClose }: { onModalClose: () => void }) => 
                 <LabelPairedXmarkLgBoldIcon onClick={onModalClose} fill="white" />
             </Flex.Box>
 
-            <SignUpPageForm />
-            <Flex.Box justify="center" align="center" padding_block="1x">
-                <Flex.Item grow="1">
-                    <Typography.Paragraph align="center" textcolor="white">
-                        <Localize translate_text="_t_Or sign up with_t_" />
-                    </Typography.Paragraph>
-                </Flex.Item>
+            <Flex.Box className={signup_form_layout} direction="col" pb="6x" gap="8x">
+                <SignUpPageForm />
+                <Flex.Box justify="center" align="center">
+                    <Flex.Item grow="1">
+                        <Typography.Paragraph align="center" textcolor="white">
+                            <Localize translate_text="_t_Or sign up with_t_" />
+                        </Typography.Paragraph>
+                    </Flex.Item>
+                </Flex.Box>
+                <FormSocialButtons />
             </Flex.Box>
-            <FormSocialButtons />
         </Flex.Box>
     )
 }

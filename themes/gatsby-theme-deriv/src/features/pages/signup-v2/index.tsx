@@ -5,7 +5,7 @@ import {
     LabelPairedCheckLgRegularIcon,
     LabelPairedChevronUpMdBoldIcon,
 } from '@deriv/quill-icons'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { isMobile } from 'react-device-detect'
 import Layout from 'features/components/templates/layout'
 import {
@@ -16,6 +16,7 @@ import {
     signup_hide_form,
     signup_pointer_events_none,
     signup_text_underline,
+    signup_bullet_point_container,
 } from './signup.module.scss'
 import TrustpilotSection from './trustpilot'
 import SignUpFormContainer from './form-container'
@@ -29,28 +30,46 @@ import { Box } from 'components/containers'
 import dclsx from 'features/utils/dclsx'
 
 const SignUpExperimental = ({ region }: BuildVariantType) => {
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'virtual_signup_web_mobile_exp003',
+    }
+
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     useEffect(() => {
         if (isMobile) {
-            const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
-                form_source: isBrowser() && window.location.hostname,
-                form_name: 'default_diel_deriv',
-            }
-
             Analytics?.trackEvent('ce_virtual_signup_form', { action: 'open', ...analyticsData })
         } else {
             navigate('/signup')
         }
     }, [])
 
+    const handleModalOpen = () => {
+        setIsModalOpen(true)
+        Analytics?.trackEvent('ce_virtual_signup_form', {
+            action: 'signup_modal_open',
+            ...analyticsData,
+        })
+    }
+
+    const handleModalClose = () => {
+        setIsModalOpen(false)
+        Analytics?.trackEvent('ce_virtual_signup_form', {
+            action: 'signup_modal_close',
+            ...analyticsData,
+        })
+    }
+
     return (
         <Box className={signup_experimental_page_container}>
             <BackgroundGradient />
 
-            <Layout region={region}>
-                <Flex.Box className={deriv_icon_wrapper}>
-                    <BrandDerivWordmarkWhiteIcon width={73} height={24} />
+            <Layout hide_live_chat={true} region={region}>
+                <Flex.Box pl="8x" pr="8x" className={deriv_icon_wrapper}>
+                    <Link to="/">
+                        <BrandDerivWordmarkWhiteIcon width={73} height={24} />
+                    </Link>
                 </Flex.Box>
                 <Flex.Box justify="end" direction="col" className={signup_wrapper}>
                     <Box
@@ -59,12 +78,18 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
                             [signup_hide_form]: !isModalOpen,
                         })}
                     >
-                        <SignUpFormContainer onModalClose={() => setIsModalOpen(false)} />
+                        <SignUpFormContainer onModalClose={handleModalClose} />
                     </Box>
 
                     {!isModalOpen && (
                         <>
-                            <Flex.Box container="fluid" direction="col">
+                            <Flex.Box
+                                className={signup_bullet_point_container}
+                                container="fixed"
+                                pl="8x"
+                                pr="8x"
+                                direction="col"
+                            >
                                 <Typography.Heading
                                     textcolor="white"
                                     weight="bold"
@@ -109,26 +134,20 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
                                 <Typography.Paragraph size="large" textcolor="white" align="left">
                                     <Localize translate_text="_t_Join over 2.5 million traders around the globe and discover the Deriv difference with fast deposit and withdrawals_t_" />
                                 </Typography.Paragraph>
+                            </Flex.Box>
 
-                                <Flex.Box
-                                    mb="10x"
-                                    mt="10x"
-                                    justify="center"
-                                    direction="row"
-                                    gap="4x"
+                            <Flex.Box mb="8x" mt="8x" justify="center" direction="row" gap="4x">
+                                <Typography.Paragraph
+                                    onClick={handleModalOpen}
+                                    size="large"
+                                    className={signup_text_underline}
+                                    weight="bold"
+                                    textcolor="white"
+                                    align="center"
                                 >
-                                    <Typography.Paragraph
-                                        onClick={() => setIsModalOpen(true)}
-                                        size="large"
-                                        className={signup_text_underline}
-                                        weight="bold"
-                                        textcolor="white"
-                                        align="center"
-                                    >
-                                        <Localize translate_text="_t_YES, Start my trading journey_t_" />
-                                    </Typography.Paragraph>
-                                    <LabelPairedChevronUpMdBoldIcon fill="white" />
-                                </Flex.Box>
+                                    <Localize translate_text="_t_YES, start my trading journey_t_" />
+                                </Typography.Paragraph>
+                                <LabelPairedChevronUpMdBoldIcon fill="white" />
                             </Flex.Box>
                             <TrustpilotSection />
                         </>

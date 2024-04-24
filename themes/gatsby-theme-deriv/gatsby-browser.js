@@ -2,6 +2,7 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv-com/analytics'
+import { navigate } from 'gatsby'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -18,7 +19,7 @@ import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 import './static/css/global.css'
 import './static/css/google-fonts.css'
-import '@deriv-com/blocks/style.css';
+import '@deriv-com/blocks/style.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -90,6 +91,10 @@ export const onClientEntry = () => {
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+        growthbookOptions: {
+            navigate: (url) => navigate(url, { replace: true }),
+            navigateDelay: 0,
+        },
     })
     const utm_data = JSON?.parse(
         Cookies?.get('utm_data') ||

@@ -17,7 +17,7 @@ const FormSocialButtons = () => {
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         action: 'started',
         form_source: isBrowser() && window.location.hostname,
-        form_name: 'default_diel_deriv',
+        form_name: 'virtual_signup_web_mobile_exp003',
     }
     const google_signup = useThirdPartyFlags('google_signup')
     const facebook_signup = useThirdPartyFlags('facebook_signup')
@@ -88,7 +88,7 @@ const FormSocialButtons = () => {
                     <Localize translate_text={'_t_Apple_t_'} />
                 </Button>
             )}
-            <Typography.Paragraph mt='2x' textcolor="white" align="center">
+            <Typography.Paragraph mt="2x" textcolor="white" align="center">
                 <Localize
                     translate_text="_t_Already have an account? <0>Log in</0>_t_"
                     components={[
@@ -96,13 +96,14 @@ const FormSocialButtons = () => {
                             as="span"
                             textcolor="white"
                             key={0}
+                            weight='bold'
                             className={signup_login_redirect}
                             onClick={(event) => {
                                 event.preventDefault()
                                 Analytics?.trackEvent('ce_virtual_signup_form', {
                                     action: 'go_to_login',
                                     form_source: isBrowser() && window.location.hostname,
-                                    form_name: 'default_diel_deriv',
+                                    form_name: 'virtual_signup_web_mobile_exp003',
                                 })
                                 Login.redirectToLogin()
                             }}

@@ -10,7 +10,6 @@
 }
 
 .deriv_icon_wrapper {
-    padding: 0 1rem;
     min-height: 80px;
     position: fixed;
     left: 0px;
@@ -22,7 +21,7 @@
 
 .signup_wrapper {
     min-block-size: 100svh;
-    height: 100dvh;
+    height: 100svh;
 }
 
 .signup_form_container {
@@ -62,6 +61,7 @@
 }
 .link_text {
     text-decoration: underline;
+    font-weight: bold;
     &:hover {
         text-decoration-color: #000000;
         color: $text-color-primary;
@@ -79,13 +79,18 @@
     display: block;
 }
 
+.signup_form_layout {
+    overflow: scroll;
+    height: calc(100svh - 13.5rem);
+}
+
 .signup_form_blur_effect {
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
     position: fixed;
     transition: all 0.3s ease-in-out;
     background-color: rgba(0, 0, 0, 0.4);
-    height: 100dvh;
+    height: 100svh;
     padding-top: 70px;
 }
 
@@ -101,16 +106,21 @@
     text-decoration: underline;
 }
 
-.signup_left_gradient {
+.signup_bottom_gradient {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100dvw;
-    height: 100dvh;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    height: 70dvh;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.5) 90%,
+        rgba(0, 0, 0, 0) 100%
+    );
 }
 
-.signup_bottom_gradient {
+.signup_left_gradient {
     position: fixed;
     top: 0;
     left: 0;
@@ -121,4 +131,14 @@
 
 .signup_inline_display {
     display: inline;
+}
+
+.signup_error_message {
+    margin-top: -10px;
+    color: #ff9999;
+}
+
+.signup_bullet_point_container {
+    max-height: 40vh;
+    overflow: scroll;
 }

@@ -45,6 +45,9 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
+        // restore the body style to display block
+        // document.body.style.display = 'block'
+
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'
@@ -83,6 +86,9 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    // set body style to display none here
+    // to prevent flickering before the page is fully loaded
+    // document.body.style.display = 'none'
     // @deriv/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
@@ -94,7 +100,7 @@ export const onClientEntry = () => {
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
         growthbookOptions: {
             navigate: (url) => navigate(url, { replace: true }),
-            antiFlicker: false,
+            antiFlicker: true,
             navigateDelay: 0,
         },
     })
@@ -151,8 +157,8 @@ export const onRouteUpdate = ({ location }) => {
     Analytics.pageView(location.pathname, 'Deriv.com')
 
     checkDomain()
-    // can't be resolved by package function due the gatsby architecture
-    window?._growthbook?.GrowthBook?.setURL(window.location.href)
+
+    Analytics?.getInstances()?.ab?.GrowthBook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

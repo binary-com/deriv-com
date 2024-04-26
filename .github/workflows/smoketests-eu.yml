@@ -1,4 +1,4 @@
-name: Run Smoke Tests
+name: Smoke Tests EU
 
 permissions:
     actions: write
@@ -10,7 +10,7 @@ permissions:
 
 on:
     workflow_run:
-        workflows: ['Generate preview link']
+        workflows: ['Generate EU preview link']
         types:
             - completed
 
@@ -54,7 +54,7 @@ jobs:
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
               if: "contains(steps.pr_information.outputs.draft, 'false')"
-              uses: cypress-io/github-action@v6
+              uses: cypress-io/github-action@97d526c9027e1b1eedde4f37196aebe8834005ef
               with:
                   # Records to Cypress Cloud
                   # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
@@ -73,16 +73,18 @@ jobs:
                   CYPRESS_BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
                   # Send PR details to Cypress test run
                   COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" Changed By "${{ steps.pr_information.outputs.user_name }}" in Branch "${{ steps.pr_information.outputs.branch_name }}"
-
+                  GREP_TAGS: '@eu-tests'
+                  BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
+                  
             - name: Set comments message
               id: set_msg
               if: always() && contains(steps.pr_information.outputs.draft, 'false')
               run: |
                   # Using shell script to conditionally set the message
                   if [[ "${{ job.status }}" == "success" ]]; then
-                    echo "msg=:rocket: Smoke test run (${{ matrix.containers }}) passed successfully!" >> $GITHUB_OUTPUT
+                    echo "msg=:rocket: Smoke test run EU (${{ matrix.containers }}) passed successfully!" >> $GITHUB_OUTPUT
                   else
-                    echo "msg=:x: Smoke test run (${{ matrix.containers }}) failed. See logs for details: [Visit Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}})" >> $GITHUB_OUTPUT
+                    echo "msg=:x: Smoke test run EU (${{ matrix.containers }}) failed. See logs for details: [Visit Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}})" >> $GITHUB_OUTPUT
                   fi
 
             - name: Leave comment

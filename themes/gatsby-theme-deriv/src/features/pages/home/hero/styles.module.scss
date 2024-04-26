@@ -50,8 +50,25 @@
     }
 }
 
+.hero_img_diel {
+    right: -72px;
+    width: 56vh;
+    @media only screen and (min-width: 601px){
+        margin-inline-start: auto;
+        left: auto;
+        right: -172px;
+    }
+    @media only screen and (min-width: 640px){
+        right: -126px;
+        width: 50vh;
+    }
+    @media only screen and (min-width: 1024px){
+        width: 52vh;
+        right: -40px;
+    }
+}
+
 .hero_img_eu {
-    // right: -147px;
     width: 58vh;
     @media only screen and (min-width: 601px){
         margin-inline-start: auto;

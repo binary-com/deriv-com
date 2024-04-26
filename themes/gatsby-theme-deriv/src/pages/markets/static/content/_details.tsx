@@ -182,6 +182,17 @@ export const CrashBoomDetailsEU = () => (
     </DetailsContainer>
 )
 
+export const JumpIndicesDetailsEU = () => (
+    <DetailsContainer>
+        <CrashText>
+            <Localize
+                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes,</0> on average. The jump size is <0> around 30 times </0>the normal price movement, on average._t_"
+                components={[<strong key={0} />]}
+            />
+        </CrashText>
+    </DetailsContainer>
+)
+
 export const DailyResetIndicesDetails = () => (
     <DetailsContainer>
         <Text>
@@ -303,12 +314,21 @@ export const SmartGoldIndexDetails = () => (
         </Text>
     </DetailsContainer>
 )
-
 export const StepIndicesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize
                 translate_text="_t_With these indices, there is an equal probability of up/down movement in a price series with a <0>fixed step size of 0.1</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+export const StepIndicesDetails_CFD = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="_t_With these indices, there is an equal probability of up/down movement in a price series with a <0>fixed step size of 0.1, 0.2, 0.3, 0.4, and 0.5.</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -492,6 +512,9 @@ export const DriftSwitchDetails = () => (
                 translate_text="_t_The <0>DSI30</0> switches between regimes every <1>30 minutes</1> on average._t_"
                 components={[<strong key={0} />, <strong key={1} />]}
             />
+        </Text>
+        <Text>
+            <Localize translate_text="_t_We offer dynamic spreads on DSI, which are calculated in real-time based on supply and demand._t_" />
         </Text>
     </DetailsContainer>
 )

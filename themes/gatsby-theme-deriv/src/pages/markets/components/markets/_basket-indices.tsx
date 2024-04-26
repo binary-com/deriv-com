@@ -68,7 +68,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                             <Localize translate_text="_t_Check trading specs_t_" />
                         </LinkButton.Primary>
                     </Flex.Box>
-                    <FullWidthMultiColumn header="_t_Why trade baskets on Deriv_t_">
+                    <FullWidthMultiColumn header="_t_Why trade basket indices on Deriv_t_">
                         {(region === 'row' ? basket_indices_content : basket_indices_content_eu).map(
                             ({ alt, src, text }) => (
                                 <StyledBox

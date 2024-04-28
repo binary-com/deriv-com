@@ -45,9 +45,6 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
-        // restore the body style to display block
-        // document.body.style.display = 'block'
-
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'
@@ -85,11 +82,8 @@ export const onInitialClientRender = () => {
     }
 }
 
-export const onClientEntry = () => {
-    // set body style to display none here
-    // to prevent flickering before the page is fully loaded
-    // document.body.style.display = 'none'
-    // @deriv/analytics
+export const onClientEntry = async () => {
+    // @deriv-com/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
@@ -100,10 +94,12 @@ export const onClientEntry = () => {
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
         growthbookOptions: {
             navigate: (url) => navigate(url, { replace: true }),
-            antiFlicker: true,
+            antiFlicker: false,
             navigateDelay: 0,
         },
     })
+    await Analytics?.getInstances()?.ab?.GrowthBook?.loadFeatures()
+
     const utm_data = JSON?.parse(
         Cookies?.get('utm_data') ||
             `{"utm_source":"common","utm_medium":"common","utm_campaign":"common"}`,

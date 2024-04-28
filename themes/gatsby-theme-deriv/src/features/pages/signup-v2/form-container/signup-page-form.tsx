@@ -69,7 +69,7 @@ const SignUpPageForm = () => {
 
             <Typography.Paragraph textcolor="white" className={sign_up_content}>
                 <Localize
-                    translate_text="_t_By creating an account, you confirm you are 18+ and understand we may send you updates and marketing materials (see <0>Security and privacy policy</0). Unsubscribe in your account settings anytime._t_"
+                    translate_text="_t_By creating an account, you confirm you are 18+ and understand we may send you updates and marketing materials (see <0>Security and privacy policy</0>). Unsubscribe in your account settings anytime._t_"
                     components={[
                         <Link
                             className={link_text}

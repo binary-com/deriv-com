@@ -54,6 +54,11 @@ const kid_data: kidType[] = [
         ref: 'kid_deriv_cfds_dsi.pdf',
         is_only_en: true,
     },
+    {
+        title: '_t_Vanilla Options - Derived Indices_t_',
+        ref: 'kid_deriv_vanilla.pdf',
+        is_only_en: true,
+    },
 ]
 const kid_data_multiplier = [
     {

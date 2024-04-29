@@ -42,7 +42,7 @@ const forex_note: TString =
 const row_derived_note: TString =
 '_t_<0>Note:</0> Availability of instruments will vary by trading platform._t_'
 const eu_derived_note: TString =
-''
+'_t__t_'
 const row_disclaimer: TString =
     "_t_Information is updated monthly and may not represent today's trading conditions. Offerings can differ by location, jurisdiction, and trade scenario._t_"
 const eu_disclaimer: TString =

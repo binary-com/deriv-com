@@ -69,7 +69,7 @@ const InvestmentEurope = () => {
                                                             className="pr-400"
                                                         />
                                                         <Text className="text-solid-slate-1400">
-                                                            <Localize translate_text="_t_Financial Disclosures Annual Report 2022_t_" />
+                                                            <Localize translate_text="_t_Financial Disclosures Annual Report 2023_t_" />
                                                         </Text>
                                                     </div>
                                                 </a>

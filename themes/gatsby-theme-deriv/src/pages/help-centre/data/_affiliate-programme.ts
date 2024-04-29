@@ -429,5 +429,4 @@ const affiliate_programme: TQuestionsData = {
         },
     ],
 }
-
 export default affiliate_programme

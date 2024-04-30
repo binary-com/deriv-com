@@ -13,9 +13,9 @@ import useIsRowCpa from 'components/hooks/use-is-row-cpa'
 const InvestmentEurope = () => {
     const { is_region_loading } = useRegion()
     const is_row_cpa = useIsRowCpa()
-    if(is_region_loading) return <InitialLoader/>
+    if (is_region_loading) return <InitialLoader />
 
-    if(!is_row_cpa) return null;
+    if (!is_row_cpa) return null
 
     return (
         <>
@@ -57,7 +57,7 @@ const InvestmentEurope = () => {
                                         <>
                                             <div className="justify-start">
                                                 <a
-                                                    href="/regulatory/Financial_Disclosures_Annual_Report_2022.pdf"
+                                                    href="/regulatory/Financial_Disclosures_Annual_Report_2023.pdf"
                                                     className="underline lg:!no-underline lg:hover:!underline text-typography-default inline text-base"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -69,7 +69,7 @@ const InvestmentEurope = () => {
                                                             className="pr-400"
                                                         />
                                                         <Text className="text-solid-slate-1400">
-                                                            <Localize translate_text="_t_Financial Disclosures Annual Report 2022_t_" />
+                                                            <Localize translate_text="_t_Financial Disclosures Annual Report 2023_t_" />
                                                         </Text>
                                                     </div>
                                                 </a>

@@ -26,7 +26,7 @@ export const expo_cards: ExpoCardTypes[] = [
         date: '_t_16-18 September 2024_t_',
         image: (
             <StaticImage
-                src="../../../../../images/common/deriv-prime/ifx_expo_asia.png"
+                src="../../../../../images/common/deriv-prime/ifx_asia.png"
                 alt={localize('_t_iFX Expo Asia Exhibitor_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}

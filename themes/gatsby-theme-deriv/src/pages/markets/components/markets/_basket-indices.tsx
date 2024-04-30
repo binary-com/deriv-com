@@ -44,7 +44,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                             />
                         }
                         Multipliers={<Multipliers market_content={basket_multiplier} />}
-                        display_title="_t_Baskets trades  available on Deriv_t_"
+                        display_title="_t_Basket indices trades available on Deriv_t_"
                     />
                     <Flex.Box
                         direction="col"
@@ -68,7 +68,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                             <Localize translate_text="_t_Check trading specs_t_" />
                         </LinkButton.Primary>
                     </Flex.Box>
-                    <FullWidthMultiColumn header="_t_Why trade baskets on Deriv_t_">
+                    <FullWidthMultiColumn header="_t_Why trade basket indices on Deriv_t_">
                         {(region === 'row' ? basket_indices_content : basket_indices_content_eu).map(
                             ({ alt, src, text }) => (
                                 <StyledBox
@@ -87,7 +87,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         )}
                     </FullWidthMultiColumn>
                     <SimpleSteps
-                        header="_t_Start trading baskets on Deriv in 3 simple steps_t_"
+                        header="_t_Start trading basket indices on Deriv in 3 simple steps_t_"
                         content={simple_step_content}
                         sign_up
                     />

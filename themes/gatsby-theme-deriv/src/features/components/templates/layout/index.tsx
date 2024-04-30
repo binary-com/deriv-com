@@ -13,6 +13,7 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import GatsbySharedLink from 'features/components/quill/shared-link'
+import WarningBanner from 'features/components/quill/layout-overlay/warning-banner'
 import BuildVariantProvider from 'features/contexts/build-variant/build-variant.provider'
 import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 interface LayoutProps {
@@ -72,6 +73,7 @@ const Layout = ({
                         onLangSelect={onLanguageChange}
                         activeLanguage={activeLang}
                     >
+                        <WarningBanner/>
                         <main className={main_wrapper}>{children}</main>
                         <BrowserUpdateAlert />
                         {!hide_layout_overlay && <LayoutOverlay />}

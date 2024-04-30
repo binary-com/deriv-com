@@ -20,6 +20,7 @@ interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     hide_layout_overlay?: boolean
+    hide_live_chat?: boolean
     children: ReactNode
     region: BuildVariantContextType['region']
 }
@@ -35,6 +36,7 @@ const Layout = ({
     is_ppc_redirect = false,
     hide_layout_overlay = false,
     region = 'row',
+    hide_live_chat = false,
 }: LayoutProps) => {
     const { has_platform } = usePlatformQueryParam()
 
@@ -73,10 +75,10 @@ const Layout = ({
                         onLangSelect={onLanguageChange}
                         activeLanguage={activeLang}
                     >
-                        <WarningBanner/>
+                        <WarningBanner />
                         <main className={main_wrapper}>{children}</main>
                         <BrowserUpdateAlert />
-                        {!hide_layout_overlay && <LayoutOverlay />}
+                        {!hide_layout_overlay && <LayoutOverlay hide_live_chat={hide_live_chat} />}
                     </LanguageProvider>
                 </PpcProvider>
             </SharedLinkProvider>

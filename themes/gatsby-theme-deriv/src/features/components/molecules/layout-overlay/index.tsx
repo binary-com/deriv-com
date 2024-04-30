@@ -15,7 +15,11 @@ const WarningBanner = loadable(() =>
     pMinDelay(import('features/components/quill/layout-overlay/warnings-alerts'), 5000),
 )
 
-const LayoutOverlay = () => {
+const defaultProps = {
+    hide_live_chat: false,
+}
+
+const LayoutOverlay = ({ hide_live_chat }: { hide_live_chat: boolean } = defaultProps) => {
     const cookie = useCookieBanner()
     const is_rtl = useIsRtl()
     const isLiveChat = useThirdPartyFlags('chat.live_chat')
@@ -52,10 +56,12 @@ const LayoutOverlay = () => {
                     <WarningBanner trigger_warning_popuop={trigger_warning_popuop} />
                 </Flex.Box>
 
-                <Flex.Box direction="col">
-                    {isLiveChat && <LiveChatButton />}
-                    {!is_deriv_prime && isWhatsappChat && <WhatsappButton />}
-                </Flex.Box>
+                {!hide_live_chat && (
+                    <Flex.Box direction="col">
+                        {isLiveChat && <LiveChatButton />}
+                        {!is_deriv_prime && isWhatsappChat && <WhatsappButton />}
+                    </Flex.Box>
+                )}
             </Flex.Box>
         </Flex.Box>
     )

@@ -176,12 +176,11 @@ const WhoCanApply = () => {
                                 components={[
                                     <LocalizedLink
                                         external
-                                        style={{ color: 'red', textDecoration: 'none' }}
+                                        style={{ color: 'red'}}
                                         to={`/tnc/business-partners-payment-agents.pdf`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         key={0}
-                
                                     />,
                                 ]}
                             />

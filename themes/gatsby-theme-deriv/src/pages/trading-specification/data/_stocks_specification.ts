@@ -38,7 +38,7 @@ const stocks_specification: TSpecification = {
             swap_long: -196.3,
             swap_short: -4.5,
             trading_hours:
-                'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
+                'Sun 23:50-24:00 GMT\nMon-Thur 00:00-06:30, 07:10-20:00 23:50-24:00 GMT\nFri 00:00-06:30, 07:10-21:00 GMT',
         },
         {
             instrument: {
@@ -1446,7 +1446,7 @@ const stocks_specification: TSpecification = {
             swap_long: -196.3,
             swap_short: -4.5,
             trading_hours:
-                'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
+                'Sun 23:50-24:00 GMT\nMon-Thur 00:00-06:30, 07:10-20:00 23:50-24:00 GMT\nFri 00:00-06:30, 07:10-21:00 GMT',
         },
         {
             instrument: {

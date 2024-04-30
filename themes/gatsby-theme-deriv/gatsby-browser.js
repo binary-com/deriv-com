@@ -113,6 +113,7 @@ export const onClientEntry = async () => {
         utm_medium: utm_data?.['utm_medium'],
         utm_campaign: utm_data?.['utm_campaign'],
         is_authorised: !!Cookies?.get('client_information'),
+        url: window.location.href
     })
     //datadog
     const dd_options = {

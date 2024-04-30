@@ -29,6 +29,10 @@ const kid_data: kidType[] = [
         ref: 'kid_deriv_commodities.pdf',
     },
     {
+        title: '_t_CFDs - Derived indices: Volatility Indices_t_',
+        ref: 'kid_deriv_volatility.pdf',
+    },
+    {
         title: '_t_CFDs - Synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_CFD_synthetic_vol_250.pdf',
         is_only_en: true,

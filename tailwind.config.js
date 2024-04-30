@@ -2,9 +2,9 @@
 module.exports = {
     content: [
         './src/**/*.{js,jsx,ts,tsx}',
-        "./node_modules/@deriv-com/blocks/lib/index.js",
-        "./node_modules/@deriv-com/components/lib/index.js",
-        "./node_modules/@deriv/quill-design/dist/index.js",
+        "./node_modules/@deriv-com/blocks/lib/*.{js,mjs,jsx,ts,tsx}",
+        "./node_modules/@deriv-com/components/lib/*.{js,mjs,jsx,ts,tsx}",
+        "./node_modules/@deriv/quill-design/dist/*.{js,mjs,jsx,ts,tsx}",
     ],
     theme: {
         extend: {

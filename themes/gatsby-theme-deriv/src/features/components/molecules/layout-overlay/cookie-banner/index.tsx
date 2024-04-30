@@ -9,7 +9,11 @@ import Button from 'features/components/atoms/button'
 import dclsx from 'features/utils/dclsx'
 import Box from 'features/components/atoms/box'
 
-const CookieBanner = () => {
+interface CookieBannerProps {
+    onCookieBannerClose: () => void
+}
+
+const CookieBanner = ({ onCookieBannerClose }: CookieBannerProps) => {
     const cookie = useCookieBanner()
     const [is_visible, setIsVisible] = useState(false)
     const timer_ref = useRef<NodeJS.Timeout>()
@@ -29,6 +33,16 @@ const CookieBanner = () => {
             clearTimeout(timer_ref.current)
         }
     }, [cookie.should_show, is_visible])
+
+    const handleAccept = () => {
+        onCookieBannerClose()
+        cookie.accept()
+    }
+
+    const handleDecline = () => {
+        onCookieBannerClose()
+        cookie.decline()
+    }
 
     if (is_visible) {
         return (
@@ -63,12 +77,12 @@ const CookieBanner = () => {
                 </Typography.Paragraph>
                 <Flex.Box justify="center" gap={'10x'} align="center" mt="10x">
                     <Flex.Item>
-                        <Button.Secondary onClick={cookie.decline} outlined>
+                        <Button.Secondary onClick={handleDecline} outlined>
                             <Localize translate_text="_t_Don't accept_t_" />
                         </Button.Secondary>
                     </Flex.Item>
                     <Flex.Item>
-                        <Button.Primary onClick={cookie.accept}>
+                        <Button.Primary onClick={handleAccept}>
                             <Localize translate_text="_t_Accept_t_" />
                         </Button.Primary>
                     </Flex.Item>

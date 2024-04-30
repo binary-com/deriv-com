@@ -324,6 +324,11 @@ import STOCKSVISA from 'images/svg/symbols/markets-stocks-and-indices/american-s
 import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
 import STOCKSWALTDISNEY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import STOCKSZOOM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
+import STEPINDICIESMT5_100 from 'images/svg/symbols/step_index100_mt5.svg'
+import STEPINDICIESMT5_200 from 'images/svg/symbols/step_index200_mt5.svg'
+import STEPINDICIESMT5_500 from 'images/svg/symbols/step_index500_mt5.svg'
+import STEPINDICIESCTRDER_300 from 'images/svg/symbols/step_index300_ctrader.svg'
+import STEPINDICIESCTRDER_400 from 'images/svg/symbols/step_index400_ctrader.svg'
 import TERRA from 'images/svg/symbols/terra.svg'
 import ZINCUSD from 'images/svg/symbols/zinc-usd.svg'
 import ZM from 'images/svg/symbols/zm.svg'
@@ -365,6 +370,12 @@ import CRASHI600 from 'images/svg/symbols/crash-indices-600.svg'
 import CRASHI900 from 'images/svg/symbols/crash-indices-900.svg'
 import BOOMI600 from 'images/svg/symbols/boom-indices-600.svg'
 import BOOMI900 from 'images/svg/symbols/boom-indices-900.svg'
+import VOL501S from 'images/svg/symbols/volatility_50_1s.svg'
+import VOL751S from 'images/svg/symbols/volatility_75_1s.svg'
+import VOL1001S from 'images/svg/symbols/volatility_100_1s.svg'
+import VOL50 from 'images/svg/symbols/volatility_50.svg'
+import VOL75 from 'images/svg/symbols/volatility_75.svg'
+import VOL100 from 'images/svg/symbols/volatility_100.svg'
 
 export {
     AAL,
@@ -695,6 +706,11 @@ export {
     TERRA,
     STOCKSSWISS20,
     STOCKSHONGKONG50,
+    STEPINDICIESMT5_100,
+    STEPINDICIESMT5_200,
+    STEPINDICIESMT5_500,
+    STEPINDICIESCTRDER_300,
+    STEPINDICIESCTRDER_400,
     ZINCUSD,
     ZM,
     BNB,
@@ -734,4 +750,10 @@ export {
     CRASHI900,
     BOOMI600,
     BOOMI900,
+    VOL501S,
+    VOL751S,
+    VOL1001S,
+    VOL50,
+    VOL75,
+    VOL100,
 }

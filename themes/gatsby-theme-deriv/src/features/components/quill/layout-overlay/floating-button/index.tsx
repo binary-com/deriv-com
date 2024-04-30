@@ -13,7 +13,7 @@ const FloatingButton = ({ children, className, onClick }: TProps) => {
         <button
             className={clsx(
                 className,
-                'tap-highlight-transparent shadow-[0_16px_20px_0_rgba(0,0,0,0.05),0_0_20px_0_rgba(0,0,0,0.05)] bg-background-primary-container p-400 flex cursor-pointer border-[transparent] rounded-[50%] m-800 mt-50 pointer-events-auto transition-all select-none hover:scale-100',
+                'tap-highlight-transparent shadow-[0_16px_20px_0_rgba(0,0,0,0.05),0_0_20px_0_rgba(0,0,0,0.05)] bg-background-primary-container flex cursor-pointer border-[transparent] rounded-[50%] m-800 mt-50 pointer-events-auto transition-all select-none hover:scale-100',
                 floating_button,
             )}
             onMouseEnter={() => setHasHover(true)}

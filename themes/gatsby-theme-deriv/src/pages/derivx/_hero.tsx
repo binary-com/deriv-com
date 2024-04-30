@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import CommonHeaderSection from 'components/elements/common-header-section'
+import { StyledHeaderForDerivxHero } from 'components/elements/common-header-section'
 import { DerivXBannerLogo } from 'images/svg/deriv-x'
 import device from 'themes/device'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
@@ -12,6 +11,12 @@ import Shape from 'components/custom/_hero-shape'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
+import { mobileOSDetect } from 'common/os-detect'
+import {
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+    deriv_go_playstore_url,
+} from 'common/constants'
 import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
@@ -23,6 +28,18 @@ const ImageStyle = styled.div`
 
     @media ${device.tablet} {
         width: 100%;
+    }
+    &.mobile-img {
+        display: none;
+        @media ${device.tablet} {
+            display: block;
+        }
+    }
+    &.desktop-img {
+        display: block;
+        @media ${device.tablet} {
+            display: none;
+        }
     }
 `
 
@@ -123,10 +140,32 @@ const StyledContainer = styled(Container)`
 `
 
 const DCommonBanner = () => {
-    const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
+
+    const handleGetTradingDesktop = () => {
+        const targetComponent = document.getElementById('target-component')
+        if (targetComponent) {
+            targetComponent.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    }
+
+    const handleGetTradingMobile = () => {
+        const os = mobileOSDetect()
+
+        switch (os) {
+            case 'Android':
+                window.open(deriv_go_playstore_url, '_blank')
+                break
+            case 'iOS':
+                window.open(deriv_go_ios_url, '_blank')
+                break
+            case 'Huawei':
+                window.open(deriv_go_huaweiappgallery_url, '_blank')
+                break
+        }
+    }
 
     return (
         <BackgroundStyle>
@@ -137,15 +176,15 @@ const DCommonBanner = () => {
                             src={DerivXBannerLogo}
                             alt={localize('_t_Deriv X_t_')}
                         />
-                        <CommonHeaderSection
+                        <StyledHeaderForDerivxHero
                             title="_t_The trading platform to fit your style_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            title_font_size="64px"
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
                             line_height_title={is_rtl ? '80px' : 'inherit'}
                             color="var(--color-black-9)"
-                            margin_title={is_mobile ? '0 0 5px 0' : '0'}
+                            margin_title="0"
                         />
                         <BannerButtonWrapper>
                             {is_logged_in ? (
@@ -167,27 +206,24 @@ const DCommonBanner = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 168} width="55%">
+                    <Shape angle={168} angle_mobile={101} width="55%">
                         <ImageWrapper>
-                            {is_mobile ? (
-                                <ImageStyle>
-                                    <StaticImage
-                                        src="../../images/common/deriv-x/banner_image_derivx_mobile.png"
-                                        loading="eager"
-                                        formats={['avif', 'webp', 'auto']}
-                                        alt="Banner"
-                                    />
-                                </ImageStyle>
-                            ) : (
-                                <ImageStyle>
-                                    <StaticImage
-                                        src="../../images/common/deriv-x/banner_image_derivx.png"
-                                        loading="eager"
-                                        formats={['avif', 'webp', 'auto']}
-                                        alt="Banner"
-                                    />
-                                </ImageStyle>
-                            )}
+                            <ImageStyle className="mobile-img">
+                                <StaticImage
+                                    src="../../images/common/deriv-x/banner_image_derivx_mobile.png"
+                                    loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
+                                    alt="Banner"
+                                />
+                            </ImageStyle>
+                            <ImageStyle className="desktop-img">
+                                <StaticImage
+                                    src="../../images/common/deriv-x/banner_image_derivx.png"
+                                    loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
+                                    alt="Banner"
+                                />
+                            </ImageStyle>
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

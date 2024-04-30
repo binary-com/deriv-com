@@ -212,7 +212,8 @@ export const Offices = ({
                                             <OfficeHeader
                                                 style={
                                                     (city_name === 'Labuan' ||
-                                                        city_name === 'Ciudad del Este' || city_name === 'Reading') &&
+                                                        city_name === 'Ciudad del Este' ||
+                                                        city_name === 'Reading') &&
                                                     isDesktop
                                                         ? { height: '120px' }
                                                         : {}

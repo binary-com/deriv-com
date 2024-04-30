@@ -1,0 +1,97 @@
+name: Smoke Tests RoW 
+
+permissions:
+    actions: write
+    checks: write
+    contents: write
+    deployments: write
+    pull-requests: write
+    statuses: write
+   
+on:
+    workflow_run:
+        workflows: ['Generate ROW preview link']
+        types:
+            - completed
+
+jobs:
+    cypress-run:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2, 3, 4, 5]
+
+        steps:
+            - name: Download artifact
+              id: download-artifact
+              uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e
+              with:
+                  workflow_conclusion: success
+                  run_id: ${{ github.event.workflow_run.id }}
+                  name: 'pr-${{ github.event.workflow_run.id }}'
+                  path: pr
+
+            - name: Retrieve pull request
+              id: pr_information
+              run: |
+                  echo "issue_number=$(cat ./pr/NR)" >> $GITHUB_OUTPUT
+                  echo "preview_url=$(cat ./pr/PREVIEW_URL)" >> $GITHUB_OUTPUT
+                  echo "branch_name=$(cat ./pr/BRANCHNAME)" >> $GITHUB_OUTPUT
+                  echo "user_name=$(cat ./pr/USERNAME)" >> $GITHUB_OUTPUT
+                  echo "draft=$(cat ./pr/DRAFT)" >> $GITHUB_OUTPUT
+                  
+            - name: pr_info_debug 🔍
+              run: |
+               echo "PR Draft value ={{ $steps.pr_information.outputs.draft }}--"
+
+            - name: Checkout external repository with Cypress tests
+              uses: actions/checkout@v4
+              with:
+                  repository: deriv-com/e2e-deriv-com
+
+            - name: Cypress run
+              # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
+              if: "contains(steps.pr_information.outputs.draft, 'false')"
+              uses: cypress-io/github-action@97d526c9027e1b1eedde4f37196aebe8834005ef
+              with:
+                  # Records to Cypress Cloud
+                  # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
+                  record: true
+                  parallel: true # Runs test in parallel using settings above
+                  spec: cypress/e2e/smoke/*.js
+                  group: 'Smoke Tests'
+
+              env:
+                  # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
+                  # in GitHub repo → Settings → Secrets → Actions
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+                  GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                  # Set Base Url from client_payload.
+                  CYPRESS_BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
+                  # Send PR details to Cypress test run
+                  COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" Changed By "${{ steps.pr_information.outputs.user_name }}" in Branch "${{ steps.pr_information.outputs.branch_name }}"
+                  GREP_TAGS: '@row-tests'
+                  BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
+
+            - name: Set comments message
+              id: set_msg
+              if: always() && contains(steps.pr_information.outputs.draft, 'false')
+              run: |
+                  # Using shell script to conditionally set the message
+                  if [[ "${{ job.status }}" == "success" ]]; then
+                    echo "msg=:rocket: Smoke test run ROW (${{ matrix.containers }}) passed successfully!" >> $GITHUB_OUTPUT
+                  else
+                    echo "msg=:x: Smoke test run ROW (${{ matrix.containers }}) failed. See logs for details: [Visit Action](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}})" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Leave comment
+              if: always() && contains(steps.pr_information.outputs.draft, 'false')
+              uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31
+              with:
+                  header: Smoke tests status update
+                  number: ${{ steps.pr_information.outputs.issue_number }}
+                  message: '${{ steps.set_msg.outputs.msg }}'
+                  recreate: true

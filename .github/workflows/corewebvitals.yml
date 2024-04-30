@@ -64,7 +64,7 @@ jobs:
                       - Cumulative Layout Shift: ${{ steps.results.outputs.cls }}
 
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
               if: ${{ failure() }}
               with:
                   status: custom

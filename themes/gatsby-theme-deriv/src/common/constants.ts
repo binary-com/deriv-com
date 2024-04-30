@@ -10,6 +10,7 @@ export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 export const deriv_ctrader_app_id = 36218
+export const deriv_bot_app_id = 19111
 
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
@@ -129,7 +130,8 @@ export const ctrader_android_url = 'https://play.google.com/store/apps/details?i
 //to be updated with ctrader ios url later
 export const ctrader_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
-
+export const how_to_trade_accumulator_video_id = '917007011'
+export const what_are_accumulator_video_id = '915479906'
 export const ctrader_web_browser_url = 'ct.deriv.com'
 export const ctrader_traders_hub_url = ' https://app.deriv.com/appstore/traders-hub'
 export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'

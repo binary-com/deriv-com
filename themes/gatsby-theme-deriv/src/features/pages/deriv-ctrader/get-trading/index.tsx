@@ -11,6 +11,7 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import MacIcon from 'images/svg/mac-icon.svg'
+import AppleIcon from 'images/svg/apple-icon.svg'
 import {
     ctrader_android_url,
     ctrader_traders_hub_url,

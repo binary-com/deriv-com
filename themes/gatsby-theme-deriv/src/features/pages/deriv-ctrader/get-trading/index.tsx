@@ -22,6 +22,7 @@ import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-wi
 import { localize } from 'components/localization'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
+import AppleIcon from 'images/svg/apple-icon.svg'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;

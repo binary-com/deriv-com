@@ -42,7 +42,10 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 type TSignupFormOptions = {
-    form_name?: 'default_diel_deriv' | 'virtual_signup_homepage_embedded'
+    form_name?:
+        | 'default_diel_deriv'
+        | 'virtual_signup_homepage_embedded'
+        | 'virtual_signup_web_mobile_exp003'
 }
 
 const useSignupForm = (options?: TSignupFormOptions) => {

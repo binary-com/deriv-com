@@ -50,10 +50,12 @@ module.exports = {
         app_gallery: true,
         web_browser: true,
     },
-    ctrader_apps: {
-        android: true,
-        web_browser: true,
-        windows: true,
+    "ctrader_apps": {
+        "android": true,
+        "web_browser": true,
+        "windows": true,
+        "mac_os": true,
+        "app_store": true,
     },
     deriv_go_apps: {
         android: true,

@@ -49,7 +49,7 @@ const SignUpPageForm = () => {
             <TextField
                 label={localize('_t_Email_t_')}
                 autoComplete="none"
-                placeholder=""
+                placeholder="Email"
                 autoCapitalize="none"
                 id="email_address"
                 required

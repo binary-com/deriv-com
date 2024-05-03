@@ -9,7 +9,7 @@ import { Header } from 'components/elements/typography'
 
 const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
-        <StyledCard height="110rem" tabletHeight="auto" padding="2.4rem">
+        <StyledCard height="60rem" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_CPA_t_" />
@@ -20,13 +20,10 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                         components={[<strong key={0} />]}
                     />
                 </Header>
-                
+
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
-                    <Localize translate_text="_t_Disclaimer:_t_" />
+                    <Localize translate_text="_t_Disclaimer: Affiliates residing outside the EU can sign up for the CPA plan and can refer clients residing in the EU except Portugal and Spain._t_" />
                 </Header>
-                        <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
-                            <Localize translate_text="_t_Affiliates residing outside the EU can sign up for the CPA plan and can refer clients residing in the EU except Portugal and Spain._t_" />
-                        </Header>
             </div>
             <StyledButtonWrap>
                 <StyledCalculatedButton flat onClick={toggleCalculated}>

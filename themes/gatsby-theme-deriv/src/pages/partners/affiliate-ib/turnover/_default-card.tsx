@@ -19,11 +19,11 @@ type AffiliateType = {
 const turnover_data: AffiliateType = [
     {
         title: '_t_Instruments_t_',
-        data: ['_t_Options_t_','_t_Multipliers_t_', '_t_Lookbacks<br>(Only on Smart Trader)_t_'],
+        data: ['_t_Options_t_','_t_Multipliers_t_', '_t_Lookbacks<br>(Only on<br> Smart Trader)_t_'],
     },
     {
         title: '_t_Revenue based on_t_',
-        data: ["_t_Varies as per probability<br> of return_t_", "_t_Based on your client's<br> trades_t_", "_t_Based on the stake of<br> each trade_t_"],
+        data: ["_t_Varies as per<br> probability of return_t_", "_t_Based on your<br> client's trades_t_", "_t_Based on the<br> stake of each trade_t_"],
     },
     {
         title: '_t_Commission_t_',
@@ -33,7 +33,7 @@ const turnover_data: AffiliateType = [
 
 const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
-        <StyledCard height="110rem" tabletHeight="auto" padding="2.4rem">
+        <StyledCard height="60rem" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_Turnover_t_" />

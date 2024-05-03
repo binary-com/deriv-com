@@ -72,9 +72,6 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Header as="p" type="paragraph-2" weight="normal" mt="1.6rem">
                     <Localize translate_text="_t_(The CPA commission is a one-time payment.)_t_" />
                 </Header>
-                <Header as="h2" type="paragraph-2" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="_t_Disclaimer: Affiliates not residing in the EU may sign up for the CPA plan._t_" />
-                </Header>
             </div>
             <div>
                 <StyledBackButton tertiary onClick={toggleCalculated} mt="2.4rem">

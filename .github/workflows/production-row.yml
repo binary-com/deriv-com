@@ -66,7 +66,7 @@ jobs:
                   path: sites/row/public
                   retention-days: 5
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
+              uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
               with:
                   status: ${{ job.status }}
                   fields: workflow,repo
@@ -131,7 +131,7 @@ jobs:
                         ./release.sh deriv-com ${{ github.ref_name }}
     
                   - name: Send Slack Notification on Docker Publish and Kubernetes Deployment Failure
-                    uses: 8398a7/action-slack@21dc5d142b92115d9c154540e48df504ad4e9cf9
+                    uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
                     with:
                         status: ${{ job.status }}
                         fields: workflow,repo

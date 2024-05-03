@@ -5,7 +5,7 @@ import { Localize } from 'components/localization'
 
 const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
-        <StyledCard height="60rem" tabletHeight="auto" padding="2.4rem">
+        <StyledCard height="70rem" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_CPA_t_" />

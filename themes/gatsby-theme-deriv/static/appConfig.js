@@ -30,7 +30,6 @@ module.exports = {
         youtube: true,
         linkedin: true,
     },
-    trustpilot: true,
     live_pricing: true,
     google_signup: true,
     apple_signup: true,

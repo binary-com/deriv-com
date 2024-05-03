@@ -2,6 +2,7 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv-com/analytics'
+import { navigate } from 'gatsby'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -18,14 +19,15 @@ import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 import './static/css/global.css'
 import './static/css/google-fonts.css'
-import '@deriv-com/blocks/style.css';
+import '@deriv-com/blocks/style.css'
+import 'react-modal-video/scss/modal-video.scss'
 
 const is_browser = typeof window !== 'undefined'
 
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
-            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%7C%28%5Cbderiv-com-preview-links.pages.dev%29%7C%28row-deriv-com-pages%29%7C%28eu-deriv-com-pages%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D'
+            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%7C%28%5Cbderiv-com-preview-links.pages.dev%29%7C%28row-deriv-com-pages%29%7C%28eu-deriv-com-pages%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
 }
@@ -80,8 +82,8 @@ export const onInitialClientRender = () => {
     }
 }
 
-export const onClientEntry = () => {
-    // @deriv/analytics
+export const onClientEntry = async () => {
+    // @deriv-com/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
@@ -90,7 +92,14 @@ export const onClientEntry = () => {
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+        growthbookOptions: {
+            navigate: (url) => navigate(url, { replace: true }),
+            antiFlicker: false,
+            navigateDelay: 0,
+        },
     })
+    await Analytics?.getInstances()?.ab?.GrowthBook?.loadFeatures()
+
     const utm_data = JSON?.parse(
         Cookies?.get('utm_data') ||
             `{"utm_source":"common","utm_medium":"common","utm_campaign":"common"}`,
@@ -104,6 +113,7 @@ export const onClientEntry = () => {
         utm_medium: utm_data?.['utm_medium'],
         utm_campaign: utm_data?.['utm_campaign'],
         is_authorised: !!Cookies?.get('client_information'),
+        url: window.location.href
     })
     //datadog
     const dd_options = {
@@ -144,8 +154,8 @@ export const onRouteUpdate = ({ location }) => {
     Analytics.pageView(location.pathname, 'Deriv.com')
 
     checkDomain()
-    // can't be resolved by package function due the gatsby architecture
-    window?._growthbook?.GrowthBook?.setURL(window.location.href)
+
+    Analytics?.getInstances()?.ab?.GrowthBook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

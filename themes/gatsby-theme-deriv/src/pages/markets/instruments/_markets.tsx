@@ -9,6 +9,7 @@ import {
     continuous_indices,
     crash_boom_multipliers,
     crash_boom_eu,
+    jump_indices_eu,
     crash_boom,
     crash_boom_trade_type_eu,
     cryptocurrencies_cfds,
@@ -45,6 +46,8 @@ export const AsianIndices = () => <Symbol instruments_type={stocks_asian_indices
 export const ContinuousIndices = () => <Symbol instruments_type={continuous_indices} />
 
 export const CrashBoomEU = () => <Symbol instruments_type={crash_boom_eu} />
+
+export const JumpIndicesEU = () => <Symbol instruments_type={jump_indices_eu} />
 
 export const CrashBoomMultipliers = () => {
     const { region } = useBuildVariant()

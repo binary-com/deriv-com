@@ -23,7 +23,7 @@ const turnover_data: AffiliateType = [
     },
     {
         title: '_t_Revenue based on_t_',
-        data: ["_t_Varies as per probability of return_t_", "_t_Based on your client's trades_t_", "_t_Based on the stake of each trade_t_"],
+        data: ["_t_Varies as per probability<br> of return_t_", "_t_Based on your client's<br> trades_t_", "_t_Based on the stake of<br> each trade_t_"],
     },
     {
         title: '_t_Commission_t_',

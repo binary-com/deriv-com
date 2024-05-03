@@ -254,7 +254,7 @@ export const StyledCard = styled(Card)<FlexProps>`
 export const StyledTrap = styled(TRAP)`
     background-color: var(--color-grey-39);
     padding: 1rem 0.8rem;
-    height: 80px;
+    max-block-size: 80px;
     border-bottom: none;
 `
 

@@ -18,19 +18,16 @@ type AffiliateType = {
 
 const turnover_data: AffiliateType = [
     {
-        title: '_t_Probability of return_t_',
-        data: [
-            '_t_0–19.999%_t_',
-            '_t_20–39.999%_t_',
-            '_t_40–59.999%_t_',
-            '_t_60–79.999%_t_',
-            '_t_80–94.999%_t_',
-            '_t_95% and above_t_',
-        ],
+        title: '_t_Instruments_t_',
+        data: ['_t_Options_t_','_t_Multipliers_t_', '_t_Lookbacks<br>(Only on Smart Trader)_t_'],
+    },
+    {
+        title: '_t_Revenue based on_t_',
+        data: ["_t_Varies as per probability of return_t_", "_t_Based on your client's trades_t_", "_t_Based on the stake of each trade_t_"],
     },
     {
         title: '_t_Commission_t_',
-        data: ['_t_1.5%_t_', '_t_1%_t_', '_t_0.75%_t_', '_t_0.5%_t_', '_t_0.4%_t_', '_t_0%_t_'],
+        data: ['_t_Up to 1.5%_t_', '_t_40%_t_', '_t_0.8%_t_'],
     },
 ]
 
@@ -43,11 +40,10 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 </Header>
                 <Header as="p" type="paragraph-1" weight="normal">
                     <Localize
-                        translate_text="_t_<0>Options:</0> Earn based on the turnover of your clients' trades._t_"
-                        components={[<strong key={0} />]}
+                        translate_text="_t_Earn as your clients explore a range of trading opportunities with a commission structure that reflects the diverse outcomes of their trades._t_"
                     />
                 </Header>
-                <Table grid_col_number={2}>
+                <Table grid_col_number={3}>
                     {turnover_data.map(({ title, data }, index) => (
                         <TC grid_area={'area' + index} key={index}>
                             <StyledTrap isTitle="true">
@@ -65,24 +61,9 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                         </TC>
                     ))}
                 </Table>
-                <Header as="p" type="paragraph-1" weight="normal" mt="2.4rem">
-                    <Localize
-                        translate_text="_t_<0>Multipliers, accumulator options, vanilla options, and turbo options:</0> Earn 40% of the commissions generated from your clients’ trades._t_"
-                        components={[<strong key={0} />]}
-                    />
-                </Header>
-                <Header as="p" type="paragraph-1" weight="normal" mt="2.4rem">
-                    <Localize
-                        translate_text="_t_<0>Lookbacks:</0> Earn 0.8% on the stake of each lookbacks trade on SmartTrader._t_"
-                        components={[<strong key={0} />]}
-                    />
-                </Header>
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
-                    <Localize translate_text="_t_Disclaimer:_t_" />
+                    <Localize translate_text="_t_Disclaimer: Affiliates residing in the EU can sign up for the Turnover plan but can only refer clients residing outside the EU._t_" />
                 </Header>
-                        <Header as="p" type="paragraph-1">
-                            <Localize translate_text="_t_Affiliates residing in the EU can sign up for the Turnover plan but can only refer clients residing outside the EU._t_" />
-                        </Header>
             </div>
             <StyledButtonWrap>
                 <StyledCalculatedButton flat onClick={toggleCalculated}>

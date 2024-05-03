@@ -33,7 +33,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A referred client based in the EU deposits USD 100 in one transaction_t_" />
+                            <Localize translate_text="_t_A referred client with an EU account deposits USD 100 in one transaction_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Total commission earned: USD 100_t_" />
@@ -46,10 +46,10 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A referred client based in the EU deposits USD 50 in one transaction. Commission = USD 0_t_" />
+                            <Localize translate_text="_t_A referred client with an EU account deposits USD 50 in one transaction. Commission = USD 0_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_The same EU client deposits USD 50 in another transaction_t_" />
+                            <Localize translate_text="_t_The same client deposits USD 50 in another transaction_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Total commission earned: USD 100_t_" />
@@ -62,7 +62,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A referred client based in the EU deposits USD 200 in one transaction._t_" />
+                            <Localize translate_text="_t_A referred client with an EU account deposits USD 200 in one transaction._t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Total commission earned: USD 100_t_" />

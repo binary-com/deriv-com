@@ -6,7 +6,7 @@ import {
     StyledText,
     StyledButtonWrap,
 } from '../_style'
-import { Table, TRAPREVERSE, TC } from '../_table'
+import { Table, TRAPREVERSE, TC, TRAPREVERSECUSTOM } from '../_table'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import { TString } from 'types/generics'
@@ -19,7 +19,7 @@ type AffiliateType = {
 const revenue_data: AffiliateType = [
     {
         title: '_t_Trade types_t_',
-        data: ['_t_Options <br>Multipliers<br> (Synthetic <br>indices)_t_', '_t_Options <br>Multipliers<br> (Synthetic <br>indices)_t_'],
+        data: ['_t_Options <br>Multipliers<br> (Synthetic <br>indices)_t_'],
     },
     {
         title: '_t_Net revenue_t_',
@@ -49,25 +49,30 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                                     <Localize translate_text={title} />
                                 </StyledText>
                             </StyledTrap>
-                            {data.map((data, idx) => (
-                                <TRAPREVERSE even={idx % 2 ? 'true' : ''} key={idx}>
-                                    <StyledText>
-                                        <Localize translate_text={data} />
-                                    </StyledText>
-                                </TRAPREVERSE>
-                            ))}
+                            {data.map((data, idx) => {
+                                return data === '_t_Options <br>Multipliers<br> (Synthetic <br>indices)_t_' ? (
+                                    <TRAPREVERSECUSTOM even={idx % 2 ? 'true' : ''} key={idx}>
+                                        <StyledText>
+                                            <Localize translate_text={data} />
+                                        </StyledText>
+                                    </TRAPREVERSECUSTOM>
+                                ) : (
+                                    <TRAPREVERSE even={idx % 2 ? 'true' : ''} key={idx}>
+                                        <StyledText>
+                                            <Localize translate_text={data} />
+                                        </StyledText>
+                                    </TRAPREVERSE>
+                                );
+                            })}
                         </TC>
                     ))}
                 </Table>
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
-                    <Localize translate_text="_t_Disclaimer:_t_" />
+                    <Localize
+                        translate_text="_t_Disclaimer: Affiliates residing in the EU can sign up for the Revenue share plan but can only refer clients residing outside the EU._t_"
+                        components={[<strong key={0} />]}
+                    />
                 </Header>
-                        <Header as="p" type="paragraph-1">
-                            <Localize
-                                translate_text="_t_Affiliates residing in the EU can sign up for the Revenue share plan but can only refer clients residing outside the EU._t_"
-                                components={[<strong key={0} />]}
-                            />
-                        </Header>
             </div>
             <StyledButtonWrap>
                 <StyledCalculatedButton flat onClick={toggleCalculated}>

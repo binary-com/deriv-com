@@ -33,7 +33,7 @@ jobs:
             - run: npm i -g @crowdin/cli
             - run: npm ci
 
-            - uses: olegtarasov/get-tag@v2.1
+            - uses: olegtarasov/get-tag@53af8e1e538a0ffab949cdde3e332d8e58e8630f
               id: tagName
 
             - name: Extract, Upload and Download from Crowdin Platform

@@ -215,12 +215,36 @@ export const volatility_indices: TMarketSymbol[] = [
 
 export const volatility_indices_eu: TMarketSymbol[] = [
     {
+        src: icons.VOL501S,
+        text: '_t_Volatility 50 (1s) Index_t_',
+    },
+    {
+        src: icons.VOL751S,
+        text: '_t_Volatility 75 (1s) Index_t_',
+    },
+    {
+        src: icons.VOL1001S,
+        text: '_t_Volatility 100 (1s) Index_t_',
+    },
+    {
         src: icons.VINDEX1501S,
         text: '_t_Volatility 150 (1s) Index_t_',
     },
     {
         src: icons.VINDEX2501S,
         text: '_t_Volatility 250 (1s) Index_t_',
+    },
+    {
+        src: icons.VOL50,
+        text: '_t_Volatility 50 Index_t_',
+    },
+    {
+        src: icons.VOL75,
+        text: '_t_Volatility 75 Index_t_',
+    },
+    {
+        src: icons.VOL100,
+        text: '_t_Volatility 100 Index_t_',
     },
 ]
 export const volatility_indices_c_trader: TMarketSymbol[] = [
@@ -235,6 +259,37 @@ export const volatility_indices_c_trader: TMarketSymbol[] = [
     {
         src: icons.VINDEX90S1,
         text: '_t_Volatility 90 (1s) Index_t_',
+    },
+]
+export const step_indices_derivx: TMarketSymbol[] = [
+    {
+        src: icons.STEPINDICIESMT5_100,
+        text: '_t_Step 100_t_',
+    },
+]
+export const step_indices_mt5: TMarketSymbol[] = [
+    {
+        src: icons.STEPINDICIESMT5_100,
+        text: '_t_Step 100_t_',
+    },
+    {
+        src: icons.STEPINDICIESMT5_200,
+        text: '_t_Step 200_t_',
+    },
+    {
+        src: icons.STEPINDICIESMT5_500,
+        text: '_t_Step 500_t_',
+    },
+]
+
+export const step_indices_ctrader: TMarketSymbol[] = [
+    {
+        src: icons.STEPINDICIESCTRDER_300,
+        text: '_t_Step 300_t_',
+    },
+    {
+        src: icons.STEPINDICIESCTRDER_400,
+        text: '_t_Step 400_t_',
     },
 ]
 
@@ -311,6 +366,21 @@ export const crash_boom_eu: TMarketSymbol[] = [
     {
         src: icons.VBOOMIC300,
         text: '_t_Boom 300 Index_t_',
+    },
+]
+
+export const jump_indices_eu: TMarketSymbol[] = [
+    {
+        src: icons.JUMP50,
+        text: '_t_Jump 50 Index_t_',
+    },
+    {
+        src: icons.JUMP75,
+        text: '_t_Jump 75 Index_t_',
+    },
+    {
+        src: icons.JUMP100,
+        text: '_t_Jump 100 Index_t_',
     },
 ]
 

@@ -50,7 +50,7 @@ jobs:
             # - run: npm run build:storybook
             - run: echo $GITHUB_SHA > sites/eu/public/version.txt
 
-            - uses: olegtarasov/get-tag@v2.1
+            - uses: olegtarasov/get-tag@53af8e1e538a0ffab949cdde3e332d8e58e8630f
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
@@ -95,7 +95,7 @@ jobs:
                   ./release.sh deriv-com ${GITHUB_SHA}
 
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
               with:
                   status: ${{ job.status }}
                   fields: workflow,repo

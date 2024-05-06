@@ -31,17 +31,19 @@ import {
     BasketFXDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
+    JumpIndicesDetailsEU,
     DerivedCFDsDetails,
     DexIndicesDetails,
     EuropeanIndicesDetails,
     JumpIndicesDetails,
     RangeBreakIndicesDetails,
-    StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
     DriftSwitchDetails,
+    StepIndicesDetails_CFD,
 } from './_details'
 import { TMarketContent } from './_types'
+import { JumpIndicesEU } from 'pages/markets/instruments/_markets'
 
 export const commodities_cfds: TMarketContent = {
     markets_list: {
@@ -156,7 +158,7 @@ export const synthetic_cfds: TMarketContent = {
             id: 'step-indices',
             title: '_t_Step indices_t_',
             instruments: <StepIndices is_cfd />,
-            details: <StepIndicesDetails />,
+            details: <StepIndicesDetails_CFD />,
         },
         {
             id: 'range-break-indices',
@@ -201,6 +203,13 @@ export const synthetic_cfds_eu: TMarketContent = {
             instruments: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
             content_template: 3,
+        },
+        {
+            id: 'jump-indices',
+            title: '_t_Jump indices_t_',
+            mobile_title: '_t_Jump Indices_t_',
+            instruments: <JumpIndicesEU />,
+            details: <JumpIndicesDetailsEU />,
         },
     ],
 }

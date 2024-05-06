@@ -7,29 +7,29 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
-  
+
 on:
   workflow_run:
     workflows: ["Pre-push Translation"]
     types:
       - completed
-      
-env: 
+
+env:
  BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
     push-translation:
         if: |
               (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
                !contains(github.event.workflow_run.head_branch, '!') &&
-               !contains(github.event.workflow_run.head_branch, '@') &&   
-               !contains(github.event.workflow_run.head_branch, '#') &&   
-               !contains(github.event.workflow_run.head_branch, '$') &&   
-               !contains(github.event.workflow_run.head_branch, '%') &&   
-               !contains(github.event.workflow_run.head_branch, '^') &&   
-               !contains(github.event.workflow_run.head_branch, '&') &&   
-               !contains(github.event.workflow_run.head_branch, '*') &&   
-               !contains(github.event.workflow_run.head_branch, '(') &&   
-               !contains(github.event.workflow_run.head_branch, ')') 
+               !contains(github.event.workflow_run.head_branch, '@') &&
+               !contains(github.event.workflow_run.head_branch, '#') &&
+               !contains(github.event.workflow_run.head_branch, '$') &&
+               !contains(github.event.workflow_run.head_branch, '%') &&
+               !contains(github.event.workflow_run.head_branch, '^') &&
+               !contains(github.event.workflow_run.head_branch, '&') &&
+               !contains(github.event.workflow_run.head_branch, '*') &&
+               !contains(github.event.workflow_run.head_branch, '(') &&
+               !contains(github.event.workflow_run.head_branch, ')')
         runs-on: ubuntu-latest
         steps:
             - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
@@ -47,7 +47,7 @@ jobs:
               uses: actions/setup-node@v2.1.2
               with:
                   node-version: '18.x'
-            - name: Installing Crowdin     
+            - name: Installing Crowdin
               run: npm i -g @crowdin/cli@3.14.0
             - name: Download New Translations ⬇️
               if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
@@ -70,7 +70,7 @@ jobs:
                    CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
                    crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
               with:
                   status: custom
                   fields: workflow,job,commit,repo

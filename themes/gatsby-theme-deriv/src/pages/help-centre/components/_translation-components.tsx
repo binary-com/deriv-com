@@ -9,6 +9,7 @@ const Link = styled(LocalizedLink)`
     font-size: var(--text-size-s);
     font-weight: normal;
     color: var(--color-red);
+    display: --inline-flex;
 
     :hover {
         text-decoration: underline;

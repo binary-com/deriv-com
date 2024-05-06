@@ -83,6 +83,7 @@ const TRAPREVERSE = styled.div<TableProps>`
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    min-height: 62px;
 
     :nth-child(odd) {
         height: 100%;

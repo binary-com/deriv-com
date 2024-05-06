@@ -7,12 +7,12 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
-  
+
 on:
   push:
     branches:
         - 'master*'
-        
+
 jobs:
     sync-translation:
         runs-on: ubuntu-latest
@@ -42,11 +42,11 @@ jobs:
 
                 echo "Checking out new branch [$branch_name]"
                 git checkout -b "$branch_name"
-                
+
                 # Download new translated strings
                 echo 'Fetch Crowdin Master Translation ⬇️'
                 crowdin download -b  master -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b master -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
-               
+
                 if [ -n "$(git status --porcelain)" ]; then
                   # New strings are added, create a PR to update the master
 
@@ -54,7 +54,7 @@ jobs:
                   cd $(git rev-parse --show-toplevel)
                   git add .
                   git commit -m "translations: 📚 sync translations with crowdin"
-               
+
                   # Force push to this branch in case a previous run created it.
                   git push --set-upstream origin "$branch_name" -f
 
@@ -70,7 +70,7 @@ jobs:
                 # Upload new strings to Crowdin
                 crowdin upload sources -b master -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b master -T ${{ secrets.CROWDIN_API_KEY }}
             - name: Slack Notification 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
               with:
                   status: custom
                   fields: workflow,job,commit,repo
@@ -84,7 +84,7 @@ jobs:
               env:
                   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}
             - name: Slack Notification for Release Managers 📣
-              uses: 8398a7/action-slack@v3
+              uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
               with:
                   status: custom
                   fields: workflow,job,commit,repo

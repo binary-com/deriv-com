@@ -94,7 +94,8 @@ export const onClientEntry = async () => {
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
         growthbookOptions: {
             navigate: (url) => navigate(url, { replace: true }),
-            antiFlicker: true,
+            // antiFlicker: true,
+            antiFlicker: false,
             navigateDelay: 0,
         },
     })

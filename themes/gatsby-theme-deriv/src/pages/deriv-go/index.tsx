@@ -40,6 +40,13 @@ const items: ContentType[] = [
         image_name: 'better_risk',
         image_alt: '_t_Risk management on Deriv GO_t_',
     },
+    {
+        title: '_t_Exponential growth rate_t_',
+        subtitle:
+            '_t_Enjoy up to 5% compounding growth per tick in sideways markets with accumulator options._t_',
+        image_name: 'exponential_growth_rate',
+        image_alt: '_t_Growth rate of Volatility 75 (1s) Index on Deriv GO_t_',
+    },
 ]
 
 const DerivGo = ({ pageContext }: TGatsbyHead) => {

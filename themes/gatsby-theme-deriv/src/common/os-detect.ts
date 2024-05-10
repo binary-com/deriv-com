@@ -6,13 +6,17 @@ export const mobileOSDetect = () => {
         return 'Windows Phone'
     }
 
-    if (/android/i.test(userAgent)) {
-        return 'Android'
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod|Mac/.test(userAgent) && !window.MSStream) {
+        return 'iOS'
     }
 
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        return 'iOS'
+    if (/android/i.test(userAgent)) {
+        if (/huawei/i.test(userAgent)) {
+            return 'Huawei'
+        } else {
+            return 'Android'
+        }
     }
 
     return 'unknown'

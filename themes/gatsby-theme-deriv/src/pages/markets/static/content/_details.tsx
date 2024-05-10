@@ -182,6 +182,17 @@ export const CrashBoomDetailsEU = () => (
     </DetailsContainer>
 )
 
+export const JumpIndicesDetailsEU = () => (
+    <DetailsContainer>
+        <CrashText>
+            <Localize
+                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes,</0> on average. The jump size is <0> around 30 times </0>the normal price movement, on average._t_"
+                components={[<strong key={0} />]}
+            />
+        </CrashText>
+    </DetailsContainer>
+)
+
 export const DailyResetIndicesDetails = () => (
     <DetailsContainer>
         <Text>
@@ -337,7 +348,7 @@ export const VolatilityIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 15 (1s), 25 (1s), 30 (1s),50 (1s), 75 (1s), 90 (1s),100 (1s), 150 (1s), and 250 (1s)</0>._t_"
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 15 (1s), 25 (1s), 30 (1s),50 (1s), 75 (1s), 90 (1s), 100 (1s), 150 (1s), and 250 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -348,13 +359,19 @@ export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="_t_These indices correspond to simulated markets with <0>constant volatilities of 150%, and 250%.</0>_t_"
+                translate_text="_t_These indices correspond to simulated markets with constant volatilities of 50%, 75%, 100%, 150%, and 250%._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>150 (1s), and 250 (1s).</0>_t_"
+                translate_text="_t_<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>50, 75, and 100.</0>_t_"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>50 (1s), 75 (1s), 100 (1s), 150 (1s), and 250 (1s).</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>

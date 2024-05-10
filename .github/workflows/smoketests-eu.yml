@@ -26,7 +26,7 @@ jobs:
         steps:
             - name: Download artifact
               id: download-artifact
-              uses: dawidd6/action-download-artifact@v2
+              uses: actions/download-artifact@7a1cd3216ca9260cd8022db641d960b1db4d1be4
               with:
                   workflow_conclusion: success
                   run_id: ${{ github.event.workflow_run.id }}
@@ -54,7 +54,7 @@ jobs:
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
               if: "contains(steps.pr_information.outputs.draft, 'false')"
-              uses: cypress-io/github-action@v6
+              uses: cypress-io/github-action@97d526c9027e1b1eedde4f37196aebe8834005ef
               with:
                   # Records to Cypress Cloud
                   # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record

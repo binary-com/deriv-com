@@ -21,7 +21,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
         (gtmTrackingId && (
             <script
                 key="gtm-script"
-                type="text/partytown"
                 async
                 src={`https://www.googletagmanager.com/gtm.js?id=${gtmTrackingId}`}
             ></script>

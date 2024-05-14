@@ -52,6 +52,11 @@ const kid_data: kidType[] = [
         ref: 'kid_deriv_cfds_dsi.pdf',
         is_only_en: true,
     },
+    {
+        title: '_t_CFDs - Derived indices: Jump Indices_t_',
+        ref: 'kid_deriv_cfds_jump_indices.pdf',
+        is_only_en: true,
+    },
 ]
 
 const kid_data_options = [

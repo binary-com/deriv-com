@@ -61,7 +61,7 @@ const kid_data: kidType[] = [
 
 const kid_data_options = [
     {
-        title: '_t_Vanilla Options - Derived Indices_t_',
+        title: '_t_Vanilla Options - Derived indices_t_',
         ref: 'kid_deriv_vanilla.pdf',
         is_only_en: true,
     },

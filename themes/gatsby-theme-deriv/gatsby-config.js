@@ -44,12 +44,6 @@ module.exports = {
         author: 'Deriv.com',
         siteUrl: site_url,
     },
-    partytownProxiedURLs: [
-        `https://assets.customer.io/assets/track-eu.js`,
-        `https://assets.customer.io/assets/track.js`,
-        `https://static.deriv.com/scripts/cookie.js`,
-        `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
-    ],
     plugins: [
         'gatsby-plugin-postcss',
         {

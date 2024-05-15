@@ -8,7 +8,6 @@ import StatSection from './stats'
 import HomeHero from './hero'
 import CTA from './cta'
 import StartTradingSteps from './start-trading-steps'
-import TrustpilotSection from './trustpilot'
 import { BuildVariantContextType } from 'features/contexts/build-variant/build-variant.context'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import MainFooter from 'features/components/templates/footer'
@@ -25,7 +24,6 @@ type PageProps = {
 
 const HomePage = ({ region }: PageProps) => {
     useOpenLiveChat(true)
-    const isTrustpilot = useThirdPartyFlags('trustpilot')
     const isLivePricing = useThirdPartyFlags('live_pricing')
 
     return (
@@ -33,7 +31,6 @@ const HomePage = ({ region }: PageProps) => {
             <MainRowNavigation />
             <PageLayout>
                 <HomeHero />
-                {isTrustpilot && <TrustpilotSection />}
                 <StatSection />
                 <TwentyYearsStrong />
                 {isLivePricing && (

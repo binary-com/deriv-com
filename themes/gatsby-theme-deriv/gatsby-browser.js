@@ -2,6 +2,7 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv-com/analytics'
+import { navigate } from 'gatsby'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -81,8 +82,8 @@ export const onInitialClientRender = () => {
     }
 }
 
-export const onClientEntry = () => {
-    // @deriv/analytics
+export const onClientEntry = async () => {
+    // @deriv-com/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
@@ -91,7 +92,14 @@ export const onClientEntry = () => {
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+        growthbookOptions: {
+            navigate: (url) => navigate(url, { replace: true }),
+            antiFlicker: false,
+            navigateDelay: 0,
+        },
     })
+    await Analytics?.getInstances()?.ab?.GrowthBook?.loadFeatures()
+
     const utm_data = JSON?.parse(
         Cookies?.get('utm_data') ||
             `{"utm_source":"common","utm_medium":"common","utm_campaign":"common"}`,
@@ -105,6 +113,7 @@ export const onClientEntry = () => {
         utm_medium: utm_data?.['utm_medium'],
         utm_campaign: utm_data?.['utm_campaign'],
         is_authorised: !!Cookies?.get('client_information'),
+        url: window.location.href
     })
     //datadog
     const dd_options = {
@@ -145,8 +154,8 @@ export const onRouteUpdate = ({ location }) => {
     Analytics.pageView(location.pathname, 'Deriv.com')
 
     checkDomain()
-    // can't be resolved by package function due the gatsby architecture
-    window?._growthbook?.GrowthBook?.setURL(window.location.href)
+
+    Analytics?.getInstances()?.ab?.GrowthBook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

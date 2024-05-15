@@ -178,6 +178,7 @@ const WhoCanApply = () => {
                                         external
                                         style={{ color: 'red'}}
                                         to={`/tnc/business-partners-payment-agents.pdf`}
+                                        target="_blank"
                                         rel="noopener noreferrer"
                                         key={0}
                                     />,

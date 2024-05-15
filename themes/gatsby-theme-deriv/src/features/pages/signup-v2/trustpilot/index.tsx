@@ -1,7 +1,7 @@
 import React from 'react'
 import { SocialProof } from '@deriv-com/blocks'
-import { StaticImage } from 'gatsby-plugin-image'
 import { TPilotDataProps } from '@deriv-com/components'
+import { StaticImage } from 'gatsby-plugin-image'
 import truspilotData from '../../../../data/trustpilot.json'
 import { Localize } from 'components/localization'
 import widgetEvent from 'common/tracking-functions/widget'
@@ -13,8 +13,6 @@ type TrustPilotSectionProps = {
 
 const TrustpilotSection = ({ variant }: TrustPilotSectionProps = { variant: 'dark' }) => {
     const { numberOfReviews, trustScore, stars }: TPilotDataProps = truspilotData
-
-    const logoSrc = '../../../../images/common/home/trustpilot-slate-logo.png'
 
     return (
         <Flex.Box
@@ -43,13 +41,23 @@ const TrustpilotSection = ({ variant }: TrustPilotSectionProps = { variant: 'dar
                     stars,
                 }}
                 logo={
-                    <StaticImage
-                        src={logoSrc}
-                        loading="eager"
-                        formats={['avif', 'webp', 'auto']}
-                        alt={'Trustpilot'}
-                        className="w-[98px] h-[24px]"
-                    />
+                    variant === 'dark' ? (
+                        <StaticImage
+                            src={'../../../../images/common/home/trustpilot-logo.png'}
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            alt={'Trustpilot'}
+                            className="w-[98px] h-[24px]"
+                        />
+                    ) : (
+                        <StaticImage
+                            src={'../../../../images/common/home/trustpilot-slate-logo.png'}
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            alt={'Trustpilot'}
+                            className="w-[98px] h-[24px]"
+                        />
+                    )
                 }
                 onClick={() => {
                     widgetEvent('trustpilot')

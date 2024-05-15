@@ -3,6 +3,9 @@
 
 .signup_experimental_page_container {
     height: 100dvh;
+}
+
+.signup_experimental_page_bg_image {
     background-image: url('images/common/sign-up/signup-image-experimental.jpg');
     background-position: center;
     background-size: cover;
@@ -87,9 +90,12 @@
 .signup_form_blur_effect {
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    position: fixed;
     transition: all 0.3s ease-in-out;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.signup_modal_container {
+    position: fixed;
     height: 100svh;
     padding-top: 70px;
 }

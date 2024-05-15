@@ -16,7 +16,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import Typography from 'features/components/atoms/typography'
 import useBuildVariant from 'features/hooks/use-build-variant'
 
-const SignUpPageForm = () => {
+const SignUpPageForm = ({ theme }: { theme: 'dark' | 'plain' }) => {
     const { region } = useBuildVariant()
     const { onSignup, signUpForm } = useSignupForm({
         form_name: 'virtual_signup_web_mobile_exp003',
@@ -42,6 +42,8 @@ const SignUpPageForm = () => {
         }
     }
 
+    const textStyleOverrides = theme === 'dark' ? ({ textcolor: 'white' } as const) : {}
+
     if (!is_mounted) return null
 
     return (
@@ -53,46 +55,42 @@ const SignUpPageForm = () => {
                 autoCapitalize="none"
                 id="email_address"
                 required
-                type='email'
+                type="email"
                 status={errors?.email?.message ? 'error' : 'neutral'}
                 {...register('email')}
             />
 
             {errors?.email?.message ? (
-                <Typography.Paragraph
-                    className={signup_error_message}
-                    size="small"
-                >
+                <Typography.Paragraph className={signup_error_message} size="small">
                     {localize(errors?.email?.message as TString)}
                 </Typography.Paragraph>
             ) : null}
 
-            <Typography.Paragraph textcolor="white" className={sign_up_content}>
+            <Typography.Paragraph className={sign_up_content} {...textStyleOverrides}>
                 <Localize
                     translate_text="_t_By creating an account, you confirm you are 18+ and understand we may send you updates and marketing materials (see <0>Security and privacy policy</0>). Unsubscribe in your account settings anytime._t_"
                     components={[
                         <Link
                             className={link_text}
-                            textcolor="white"
                             key={0}
                             url={{
                                 target: '_blank',
                                 type: 'non-company',
                                 href: security_pdf_link,
                             }}
+                            {...textStyleOverrides}
                         />,
                     ]}
                 />
             </Typography.Paragraph>
             <Flex.Item padding_block="2x">
                 <Input.Checkbox required {...register('terms')} id="terms_and_conditions">
-                    <Typography.Paragraph className={signup_inline_display} textcolor="white">
+                    <Typography.Paragraph className={signup_inline_display} {...textStyleOverrides}>
                         <Localize
                             translate_text="_t_I agree to the <0>terms and conditions</0>_t_"
                             components={[
                                 <Link
                                     className={link_text}
-                                    textcolor="white"
                                     key={0}
                                     target="_blank"
                                     url={{
@@ -100,6 +98,7 @@ const SignUpPageForm = () => {
                                         target: '_blank',
                                         href: '/terms-and-conditions/#clients',
                                     }}
+                                    {...textStyleOverrides}
                                 />,
                             ]}
                         />

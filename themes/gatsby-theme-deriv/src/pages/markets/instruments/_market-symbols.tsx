@@ -178,6 +178,21 @@ export const crash_boom_eu: TMarketSymbol[] = [
     },
 ]
 
+export const jump_indices_eu: TMarketSymbol[] = [
+    {
+        src: icons.JUMP50NEW,
+        text: '_t_Jump 50 Index_t_',
+    },
+    {
+        src: icons.JUMP75NEW,
+        text: '_t_Jump 75 Index_t_',
+    },
+    {
+        src: icons.JUMP100NEW,
+        text: '_t_Jump 100 Index_t_',
+    },
+]
+
 export const daily_reset_indices: TMarketSymbol[] = [
     {
         src: icons.MARKETBEARNEW,

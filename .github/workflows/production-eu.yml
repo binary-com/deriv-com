@@ -64,3 +64,84 @@ jobs:
                   name: production
                   path: sites/eu/public
                   retention-days: 5
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
+              with:
+                  status: ${{ job.status }}
+                  fields: workflow,repo
+                  if_mention: failure,cancelled
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+              if: always()
+
+    build_and_publish_to_docker_k8s:
+              runs-on: Runner_16cores
+              environment: production
+              needs: [release-production]
+              steps:
+                  - name: Checkout 🛎️
+                    uses: actions/checkout@v2.3.1
+                  - name: Setup Node
+                    uses: actions/setup-node@v2
+                    with:
+                        node-version: '18.x'
+                  - name: Download Artifact
+                    uses: actions/download-artifact@v4
+                    with:
+                        name: production
+                        path: sites/eu/public
+                  - name: Set version env variable
+                    run: echo "GIT_TAG_NAME=$(cat sites/eu/public/version.txt)" >> $GITHUB_ENV
+                  - name: Building docker image 🐳
+                    run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
+    
+                  - name: Verify nginx image
+                    run: |
+                        set -e
+                        docker run --rm ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME nginx -t
+                        echo "docker image validated successfully"
+    
+                  - name: Pushing Image to docker hub 🐳
+                    run: |
+                        echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+                        docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest
+                        docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
+    
+                  - name: Deploy 🚀
+                    id: build_and_push_docker_image
+                    env:
+                      KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                      SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                      CA_CRT: ${{ secrets.CA_CRT }}
+                      NAMESPACE: deriv-com-production-eu
+                      DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+                    run: |
+                        git clone https://github.com/binary-com/devops-ci-scripts
+                        cd devops-ci-scripts/k8s-build_tools
+                        echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                        export CA="ca.crt"
+                        ./release.sh deriv-com ${{ github.ref_name }}
+    
+                  - name: Send Slack Notification on Docker Publish and Kubernetes Deployment Failure
+                    uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486
+                    with:
+                        status: ${{ job.status }}
+                        fields: workflow,repo
+                        if_mention: failure,cancelled
+                        custom_payload: |
+                          {
+                            attachments: [{
+                              color: '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                              text: `Release for *Deriv.com* with version *$GIT_TAG_NAME* has failed`
+                            }]
+                          }
+                    env:
+                        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+                    if: failure()

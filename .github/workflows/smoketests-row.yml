@@ -31,7 +31,7 @@ jobs:
                   workflow_conclusion: success
                   run_id: ${{ github.event.workflow_run.id }}
                   name: 'pr-${{ github.event.workflow_run.id }}'
-                  path: pr
+                  path: .pr
 
             - name: Retrieve pull request
               id: pr_information

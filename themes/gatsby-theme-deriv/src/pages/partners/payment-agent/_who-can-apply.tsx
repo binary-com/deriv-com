@@ -175,9 +175,9 @@ const WhoCanApply = () => {
                                 translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
                                 components={[
                                     <LocalizedLink
+                                        external
                                         style={{ color: 'red'}}
                                         to={`/tnc/business-partners-payment-agents.pdf`}
-                                        target="_blank"
                                         rel="noopener noreferrer"
                                         key={0}
                                     />,

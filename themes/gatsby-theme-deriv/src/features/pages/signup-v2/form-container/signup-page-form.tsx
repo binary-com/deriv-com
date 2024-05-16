@@ -5,6 +5,7 @@ import {
     sign_up_content,
     signup_inline_display,
     signup_error_message,
+    signup_email_input
 } from '../signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
@@ -52,6 +53,8 @@ const SignUpPageForm = ({ theme }: { theme: 'dark' | 'plain' }) => {
                 label={localize('_t_Email_t_')}
                 autoComplete="none"
                 placeholder="Email"
+                variant='outline'
+                className={signup_email_input}
                 autoCapitalize="none"
                 id="email_address"
                 required

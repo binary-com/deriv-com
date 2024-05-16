@@ -121,7 +121,10 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
                     {!isModalOpen && (
                         <>
                             <Flex.Box
-                                className={signup_bullet_point_container}
+                                className={dclsx({
+                                    [signup_bullet_point_container]:
+                                        !growthbook_feature_flag_signup_plain_background,
+                                })}
                                 container="fixed"
                                 pl="8x"
                                 pr="8x"

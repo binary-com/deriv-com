@@ -30,7 +30,7 @@ jobs:
               with:
                   run-id: ${{ github.event.workflow_run.id }}
                   name: 'pr-${{ github.event.workflow_run.id }}'
-                  path: .pr
+                  path: pr
                   github-token: ${{ secrets.GITHUB_TOKEN }} 
 
             - name: Retrieve pull request

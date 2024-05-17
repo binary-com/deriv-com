@@ -83,8 +83,6 @@
         "build:row": "npm run build --workspace @deriv/row && node scripts/copy-htaccess.js row",
         "build:eu": "npm run build --workspace @deriv/eu && node scripts/copy-htaccess.js eu",
         "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest --workspace gatsby-theme-deriv",
-        "partytown:row": "partytown copylib sites/row/public/~partytown",
-        "partytown:eu": "partytown copylib sites/eu/public/~partytown",
         "develop:row": "npm run develop --workspace @deriv/row",
         "clean:row": "npm run clean --workspace @deriv/row",
         "develop:eu": "npm run develop --workspace @deriv/eu",

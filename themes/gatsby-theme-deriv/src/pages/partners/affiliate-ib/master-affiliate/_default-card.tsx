@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledCard, StyledCalculatedButton, StyledButtonWrap } from '../_style'
+import { StyledCard} from '../_style'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 
@@ -23,11 +23,6 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     <Localize translate_text="_t_Only affiliates with Revenue share and/or Turnover plans are eligible to apply to become Master Affiliate._t_" />
                 </Header>
             </div>
-            <StyledButtonWrap>
-                <StyledCalculatedButton flat onClick={toggleCalculated}>
-                    <Localize translate_text="_t_How it’s calculated_t_" />
-                </StyledCalculatedButton>
-            </StyledButtonWrap>
         </StyledCard>
     )
 }

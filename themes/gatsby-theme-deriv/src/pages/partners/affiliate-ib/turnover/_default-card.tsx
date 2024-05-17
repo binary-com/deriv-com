@@ -1,10 +1,8 @@
 import React from 'react'
 import {
     StyledCard,
-    StyledCalculatedButton,
     StyledTrap,
     StyledText,
-    StyledButtonWrap,
 } from '../_style'
 import { Table, TRAPREVERSE, TC } from '../_table'
 import { Localize } from 'components/localization'
@@ -65,11 +63,6 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     <Localize translate_text="_t_Disclaimer: Affiliates residing in the EU can sign up for the Turnover plan but can only refer clients residing outside the EU._t_" />
                 </Header>
             </div>
-            <StyledButtonWrap>
-                <StyledCalculatedButton flat onClick={toggleCalculated}>
-                    <Localize translate_text="_t_How it’s calculated_t_" />
-                </StyledCalculatedButton>
-            </StyledButtonWrap>
         </StyledCard>
     )
 }

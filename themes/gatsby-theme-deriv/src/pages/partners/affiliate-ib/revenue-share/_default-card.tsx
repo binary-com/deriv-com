@@ -1,10 +1,8 @@
 import React from 'react'
 import {
     StyledCard,
-    StyledCalculatedButton,
     StyledTrap,
     StyledText,
-    StyledButtonWrap,
 } from '../_style'
 import { Table, TRAPREVERSE, TC, TRAPREVERSECUSTOM } from '../_table'
 import { Localize } from 'components/localization'
@@ -74,11 +72,6 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     />
                 </Header>
             </div>
-            <StyledButtonWrap>
-                <StyledCalculatedButton flat onClick={toggleCalculated}>
-                    <Localize translate_text="_t_How it’s calculated_t_" />
-                </StyledCalculatedButton>
-            </StyledButtonWrap>
         </StyledCard>
     )
 }

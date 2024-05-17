@@ -29,11 +29,9 @@ const kid_data: kidType[] = [
         ref: 'kid_deriv_commodities.pdf',
     },
     {
-        title: '_t_CFDs - Synthetics: Volatility 250 (1s) Index_t_',
-        ref: 'kid_deriv_CFD_synthetic_vol_250.pdf',
-        is_only_en: true,
+        title: '_t_CFDs - Derived indices: Volatility Indices_t_',
+        ref: 'kid_deriv_volatility.pdf',
     },
-
     {
         title: '_t_CFDs - Synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_CFD_synthetic_crash_300.pdf',
@@ -52,6 +50,19 @@ const kid_data: kidType[] = [
     {
         title: '_t_CFDs - Synthetics: Drift Switch Index_t_',
         ref: 'kid_deriv_cfds_dsi.pdf',
+        is_only_en: true,
+    },
+    {
+        title: '_t_CFDs - Derived indices: Jump Indices_t_',
+        ref: 'kid_deriv_cfds_jump_indices.pdf',
+        is_only_en: true,
+    },
+]
+
+const kid_data_options = [
+    {
+        title: '_t_Vanilla Options - Derived indices_t_',
+        ref: 'kid_deriv_vanilla.pdf',
         is_only_en: true,
     },
 ]
@@ -76,4 +87,4 @@ const kid_data_multiplier = [
     },
 ]
 
-export { kid_data, kid_data_multiplier }
+export { kid_data, kid_data_multiplier, kid_data_options}

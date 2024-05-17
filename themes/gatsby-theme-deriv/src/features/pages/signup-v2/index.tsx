@@ -33,8 +33,12 @@ import { Localize } from 'components/localization'
 import { Box } from 'components/containers'
 import dclsx from 'features/utils/dclsx'
 import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const SignUpExperimental = ({ region }: BuildVariantType) => {
+
+    const [is_mounted] = usePageLoaded()
+
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
         form_name: 'virtual_signup_web_mobile_exp003',
@@ -81,6 +85,8 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
     const iconStyleOverrides = !growthbook_feature_flag_signup_plain_background
         ? ({ fill: 'white' } as const)
         : {}
+    
+    if(!is_mounted) return null;
 
     return (
         <Box

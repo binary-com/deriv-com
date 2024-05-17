@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { senegal } from '../../_model/_locations/_locations'
+import { dakar } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -9,7 +9,7 @@ import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        living_in_senegal: file(relativePath: { eq: "careers/living_in_senegal.png" }) {
+        living_in_dakar: file(relativePath: { eq: "careers/living_in_senegal.png" }) {
             ...fadeIn
         }
         rwanda_grid_1: file(relativePath: { eq: "careers/rwanda_grid_1.jpg" }) {
@@ -35,18 +35,18 @@ const query = graphql`
     }
 `
 
-const Senegal = ({ pageContext }: TGatsbyHead) => {
+const Dakar = ({ pageContext }: TGatsbyHead) => {
     const {region} = pageContext
     const images = useStaticQuery(query)
 
     return (
         <Layout region={region} type="careers">
-            <LocationLayout location={senegal} images={images} />
+            <LocationLayout location={dakar} images={images} />
         </Layout>
     )
 }
 
-export default WithIntl()(Senegal)
+export default WithIntl()(Dakar)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO

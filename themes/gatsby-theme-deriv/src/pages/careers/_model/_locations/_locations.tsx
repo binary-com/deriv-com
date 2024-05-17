@@ -22,7 +22,7 @@ import {
     address_reading,
     address_berlin,
     address_london,
-    address_senegal,
+    address_dakar,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -428,8 +428,8 @@ export const rwanda: LocationsType = {
     has_iframe: true,
 }
 
-export const senegal: LocationsType = {
-    name: 'senegal',
+export const dakar: LocationsType = {
+    name: 'dakar',
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/senegal.png"
@@ -441,7 +441,7 @@ export const senegal: LocationsType = {
     job_location: 'Dakar',
     continent: 'africa',
     display_continent: 'Africa',
-    link: '/careers/locations/senegal/',
+    link: '/careers/locations/dakar',
     display_name: 'Dakar',
     display_thumbnail_name: 'Dakar',
     display_title_name: 'Dakar',
@@ -449,15 +449,15 @@ export const senegal: LocationsType = {
     map_office_name: 'SASU',
     country: 'Senegal',
     flagIcon: RwandaFlagIcon,
-    thumbnail: 'thumbnail_senegal',
+    thumbnail: 'thumbnail_dakar',
     first_p:
         'Our Dakar office serves as a global customer support centre for Deriv. This strategic location enables us to provide dedicated, around-the-clock assistance to our diverse client base across Africa and beyond.',
-    first_img: 'living_in_senegal',
+    first_img: 'living_in_dakar',
     first_img_alt: 'Senegal view',
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
     map_text:
         'We’re building a team of customer-focused professionals in our growing Dakar office. If you have strong problem-solving skills, a passion for client service, and thrive in a collaborative environment, join us for an excellent opportunity to make a global impact.',
-    address: address_senegal,
+    address: address_dakar,
     map_img: 'senegal_map',
     google_map_link: 'https://maps.app.goo.gl/QHDRW2bFtMDyRKFn8',
     has_iframe: true,
@@ -950,7 +950,7 @@ export const all_offices: LocationsType[] = [
     ciudad,
     georgetown,
     roadtown,
-    senegal,
+    dakar,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -974,7 +974,7 @@ export const locations = {
     hongkong: `${hongkong.display_name}, ${hongkong.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
-    senegal: `${senegal.display_name}, ${senegal.country}`,
+    dakar: `${dakar.display_name}, ${dakar.country}`,
 }
 
 export const allContinents = {

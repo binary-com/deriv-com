@@ -96,31 +96,31 @@ export const DescriptionContentEU = () => {
 export const DescriptionContentCPA = () => {
     return (
         <>
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act._t_" />
             </Text>
 
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize translate_text="_t_Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority._t_" />
             </Text>
 
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize translate_text="_t_Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission._t_" />
             </Text>
 
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize translate_text="_t_Deriv (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission._t_" />
             </Text>
 
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize translate_text="_t_Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines._t_" />
             </Text>
 
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize translate_text="_t_Deriv.com Limited, a company registered in Guernsey, is the holding company for these entities._t_" />
             </Text>
 
-            <Text size="sm" className="pt-general-lg">
+            <Text size="sm" className="pt-general-lg text-solid-slate-1400">
                 <Localize
                     translate_text="_t_Make sure to read our <0>Terms and Conditions</0>, <1>Risk Disclosure</1>, and <2>Secure and Responsible Trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_"
                     components={[

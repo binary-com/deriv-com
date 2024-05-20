@@ -13,9 +13,9 @@ import useIsRowCpa from 'components/hooks/use-is-row-cpa'
 const InvestmentEurope = () => {
     const { is_region_loading } = useRegion()
     const is_row_cpa = useIsRowCpa()
-    if(is_region_loading) return <InitialLoader/>
+    if (is_region_loading) return <InitialLoader />
 
-    if(!is_row_cpa) return null;
+    if (!is_row_cpa) return null
 
     return (
         <>
@@ -25,7 +25,7 @@ const InvestmentEurope = () => {
                 </Heading.H1>
                 <Text className={styles.text_alignment_with_padding}>
                     <Localize
-                        translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (<0>view licence</0>). It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights._t_"
+                        translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (view licence). This website is intended for Retail, Professional Clients, and Eligible Counterparties. It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights in the following member states:_t_"
                         components={[
                             <a
                                 key={0}
@@ -36,9 +36,6 @@ const InvestmentEurope = () => {
                             />,
                         ]}
                     />
-                </Text>
-                <Text className={styles.text_alignment}>
-                    <Localize translate_text="_t_Here are the EU countries with access to Deriv.com through EU passporting rights._t_" />
                 </Text>
                 <BlockWrapper className="flex items-start md:items-center !pt-1600 !pb-50 lg:!pt-2400">
                     <EUgrid />
@@ -57,7 +54,7 @@ const InvestmentEurope = () => {
                                         <>
                                             <div className="justify-start">
                                                 <a
-                                                    href="/regulatory/Financial_Disclosures_Annual_Report_2022.pdf"
+                                                    href="/regulatory/Financial_Disclosures_Annual_Report_2023.pdf"
                                                     className="underline lg:!no-underline lg:hover:!underline text-typography-default inline text-base"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -69,7 +66,7 @@ const InvestmentEurope = () => {
                                                             className="pr-400"
                                                         />
                                                         <Text className="text-solid-slate-1400">
-                                                            <Localize translate_text="_t_Financial Disclosures Annual Report 2022_t_" />
+                                                            <Localize translate_text="_t_Financial Disclosures Annual Report 2023_t_" />
                                                         </Text>
                                                     </div>
                                                 </a>

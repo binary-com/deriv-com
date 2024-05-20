@@ -17,8 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@artsy/fresnel": "^6.2.1",
-    "@builder.io/partytown": "^0.8.1",
-    "@deriv-com/analytics": "^1.4.10",
+    "@deriv-com/analytics": "^1.5.0",
     "@deriv-com/blocks": "^0.118.0",
     "@deriv-com/components": "^0.59.0",
     "@deriv-com/hooks": "^0.11.0",

@@ -26,6 +26,10 @@ const query = graphql`
         better_risk: file(relativePath: { eq: "deriv-go/better-risk.png" }) {
             ...fadeIn
         }
+        exponential_growth_rate: file(relativePath: { eq: "deriv-go/exponential-growth.png" }) {
+            ...fadeIn
+        }
+        
     }
 `
 

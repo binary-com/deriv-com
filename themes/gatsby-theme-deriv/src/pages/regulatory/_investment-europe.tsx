@@ -37,9 +37,6 @@ const InvestmentEurope = () => {
                         ]}
                     />
                 </Text>
-                <Text className={styles.text_alignment}>
-                    <Localize translate_text="_t_Here are the EU countries with access to Deriv.com through EU passporting rights._t_" />
-                </Text>
                 <BlockWrapper className="flex items-start md:items-center !pt-1600 !pb-50 lg:!pt-2400">
                     <EUgrid />
                 </BlockWrapper>

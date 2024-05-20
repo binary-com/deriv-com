@@ -134,6 +134,7 @@ const AccountDetails = ({
                       !form_errors.last_name_error_msg &&
                       !form_errors.website_url_error_msg &&
                       !form_errors.phone_error_msg &&
+                      !form_errors.username_error_msg &&
                       !form_errors.password_error_msg
                 : form_data.first_name &&
                       form_data.last_name &&
@@ -148,6 +149,7 @@ const AccountDetails = ({
                       !form_errors.last_name_error_msg &&
                       !form_errors.phone_error_msg &&
                       !form_errors.website_url_error_msg &&
+                      !form_errors.username_error_msg &&
                       !form_errors.password_error_msg &&
                       !form_errors.company_name_error_msg &&
                       !form_errors.company_registration_number_error_msg,

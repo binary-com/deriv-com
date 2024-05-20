@@ -420,7 +420,7 @@ const OurHiringProcess = () => {
                             color="red"
                             key={0}
                             target="_blank"
-                            href="/regulatory/Job_application_privacy_policy_.pdf"
+                            href="/regulatory/Job_application_privacy_policy.pdf"
                             rel="noopener noreferrer"
                         >
                             privacy policy

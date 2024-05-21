@@ -45,7 +45,7 @@ jobs:
 
             - run: npm ci
             # - run: npm run format
-            # - run: npm run test
+            - run: npm run clean:eu
             - run: npm run build:eu
             # - run: npm run build:storybook
             - run: echo $GITHUB_SHA > sites/eu/public/version.txt

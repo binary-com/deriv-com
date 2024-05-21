@@ -45,6 +45,7 @@ jobs:
             - run: npm ci
             - run: npm run format
             - run: npm run test
+            - run: npm run clean:row
             - run: npm run build:row
 
               # For using same tag for staging and production we need to uncomment these two below lines:

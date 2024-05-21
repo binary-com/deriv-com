@@ -144,6 +144,13 @@ const urlValidation = (input: string) => {
         return localize('_t_You should enter 2-50 characters._t_')
     }
 }
+const urlValidation_2 = (input: string) => {
+    if (!affiliate_validation_regex.url(input)) {
+        return localize('_t_Please enter a valid url_t_')
+    } else if (input.length > 50) {
+        return localize('_t_You should enter less than 50 characters._t_')
+    }
+}
 
 const affiliate_validation = {
     email: (input: string) => emailValidation(input),
@@ -156,7 +163,7 @@ const affiliate_validation = {
     company_name: (input: string) => companyNameValidation(input),
     company_registration_number: (input: string) => registrationNumberValidation(input),
     website_url: (input: string) => urlValidation(input),
-    second_website_url: (input: string) => urlValidation(input),
+    second_website_url: (input: string) => urlValidation_2(input),
     username: (input: string) => userNameValidation(input),
     password: (input: string) => passwordValidation(input),
     country: (input: any) => {

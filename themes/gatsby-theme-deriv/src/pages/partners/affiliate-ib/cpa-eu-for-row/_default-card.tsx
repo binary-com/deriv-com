@@ -1,9 +1,29 @@
 import React from 'react'
 import {
     StyledCard,
+    StyledTrap,
+    StyledText,
 } from '../_style'
-import { Localize } from 'components/localization'
+import { Table, TRAPREVERSE, TC, TRAPREVERSECUSTOM } from '../_table'
 import { Header } from 'components/elements/typography'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
+
+type AffiliateType = {
+    title: TString
+    data: TString[]
+}[]
+
+const cpa_data: AffiliateType = [
+    {
+        title: '_t_Revenue_t_',
+        data: ['_t_Based on each<br /> successful referral with<br /> deposit of USD 100_t_'],
+    },
+    {
+        title: '_t_Commission_t_',
+        data: ['_t_USD 100_t_'],
+    },
+]
 
 const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
@@ -18,7 +38,24 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                         components={[<strong key={0} />]}
                     />
                 </Header>
-
+                <Table grid_col_number={2}>
+                    {cpa_data.map(({ title, data }, index) => (
+                        <TC grid_area={'area' + index} key={index}>
+                            <StyledTrap isTitle="true">
+                                <StyledText weight="bold">
+                                    <Localize translate_text={title} />
+                                </StyledText>
+                            </StyledTrap>
+                            {data.map((data, id) => (
+                                <TRAPREVERSE even={id % 2 ? 'true' : ''} key={id}>
+                                    <StyledText>
+                                        <Localize translate_text={data} />
+                                    </StyledText>
+                                </TRAPREVERSE>
+                            ))}
+                        </TC>
+                    ))}
+                </Table>
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
                     <Localize translate_text="_t_Disclaimer: Affiliates residing outside the EU can sign up for the CPA plan and can refer clients residing in the EU except Portugal and Spain._t_" />
                 </Header>

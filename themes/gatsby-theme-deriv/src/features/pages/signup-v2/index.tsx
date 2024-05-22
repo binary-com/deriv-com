@@ -21,6 +21,7 @@ import {
     signup_text_underline,
     signup_bullet_point_container,
     signup_experimental_page_bg_image,
+    signup_plain_background_layout,
 } from './signup.module.scss'
 import TrustpilotSection from './trustpilot'
 import SignUpFormContainer from './form-container'
@@ -36,7 +37,6 @@ import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-fl
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const SignUpExperimental = ({ region }: BuildVariantType) => {
-
     const [is_mounted] = usePageLoaded()
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
@@ -85,8 +85,8 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
     const iconStyleOverrides = !growthbook_feature_flag_signup_plain_background
         ? ({ fill: 'white' } as const)
         : {}
-    
-    if(!is_mounted) return null;
+
+    if (!is_mounted) return null
 
     return (
         <Box
@@ -128,92 +128,94 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
                         <>
                             <Flex.Box
                                 className={dclsx({
-                                    [signup_bullet_point_container]:
-                                        !growthbook_feature_flag_signup_plain_background,
+                                    [signup_plain_background_layout]:
+                                        growthbook_feature_flag_signup_plain_background,
                                 })}
-                                container="fixed"
-                                pl="8x"
-                                pr="8x"
                                 direction="col"
                             >
-                                <Typography.Heading
-                                    weight="bold"
-                                    size="medium"
-                                    align="left"
-                                    mb="10x"
-                                    {...textStyleOverrides}
+                                <Flex.Box
+                                    className={dclsx({
+                                        [signup_bullet_point_container]:
+                                            !growthbook_feature_flag_signup_plain_background,
+                                    })}
+                                    container="fixed"
+                                    pl="8x"
+                                    pr="8x"
+                                    direction="col"
                                 >
-                                    <Localize translate_text="_t_Start trading today from just $5_t_" />
-                                </Typography.Heading>
-
-                                <Flex.Box direction="row" gap="8x">
-                                    <LabelPairedCheckLgRegularIcon {...iconStyleOverrides} />
-                                    <Typography.Paragraph
-                                        size="large"
+                                    <Typography.Heading
+                                        weight="bold"
+                                        size="medium"
                                         align="left"
+                                        mb="10x"
                                         {...textStyleOverrides}
                                     >
-                                        <Localize translate_text="_t_Master your skills with a free $10.000 practice account_t_" />
-                                    </Typography.Paragraph>
-                                </Flex.Box>
-                                <Flex.Box direction="row" gap="8x">
-                                    <LabelPairedCheckLgRegularIcon {...iconStyleOverrides} />
-                                    <Typography.Paragraph
-                                        size="large"
-                                        align="left"
-                                        {...textStyleOverrides}
-                                    >
-                                        <Localize translate_text="_t_Access free trading tools, video tutorials and eBooks_t_" />
-                                    </Typography.Paragraph>
-                                </Flex.Box>
-                                <Flex.Box direction="row" gap="8x">
-                                    <LabelPairedCheckLgRegularIcon {...iconStyleOverrides} />
-                                    <Typography.Paragraph
-                                        size="large"
-                                        align="left"
-                                        {...textStyleOverrides}
-                                    >
-                                        <Localize translate_text="_t_Trade from a trusted secure and friendly platform 24/7_t_" />
-                                    </Typography.Paragraph>
-                                </Flex.Box>
+                                        <Localize translate_text="_t_Start trading today from just $5_t_" />
+                                    </Typography.Heading>
 
-                                <Typography.Paragraph
-                                    size="large"
-                                    align="left"
-                                    {...textStyleOverrides}
-                                >
-                                    <Localize translate_text="_t_Join over 2.5 million traders around the globe and discover the Deriv difference with fast deposit and withdrawals_t_" />
-                                </Typography.Paragraph>
-                            </Flex.Box>
-
-                            <Flex.Box
-                                mb="8x"
-                                mt="8x"
-                                pl="8x"
-                                pr="8x"
-                                justify="center"
-                                direction="row"
-                                gap="4x"
-                            >
-                                {growthbook_feature_flag_start_signup_journey_cta_button ? (
-                                    <Button onClick={handleModalOpen} fullWidth size="lg">
-                                        <Localize translate_text="_t_YES, start my trading journey_t_" />
-                                    </Button>
-                                ) : (
-                                    <>
+                                    <Flex.Box direction="row" gap="8x">
+                                        <LabelPairedCheckLgRegularIcon {...iconStyleOverrides} />
                                         <Typography.Paragraph
-                                            onClick={handleModalOpen}
                                             size="large"
-                                            className={signup_text_underline}
-                                            weight="bold"
-                                            align="center"
+                                            align="left"
                                             {...textStyleOverrides}
                                         >
-                                            <Localize translate_text="_t_YES, start my trading journey_t_" />
+                                            <Localize translate_text="_t_Master your skills with a free $10.000 practice account_t_" />
                                         </Typography.Paragraph>
-                                        <LabelPairedChevronUpMdBoldIcon {...iconStyleOverrides} />
-                                    </>
-                                )}
+                                    </Flex.Box>
+                                    <Flex.Box direction="row" gap="8x">
+                                        <LabelPairedCheckLgRegularIcon {...iconStyleOverrides} />
+                                        <Typography.Paragraph
+                                            size="large"
+                                            align="left"
+                                            {...textStyleOverrides}
+                                        >
+                                            <Localize translate_text="_t_Access free trading tools, video tutorials and eBooks_t_" />
+                                        </Typography.Paragraph>
+                                    </Flex.Box>
+                                    <Flex.Box direction="row" gap="8x">
+                                        <LabelPairedCheckLgRegularIcon {...iconStyleOverrides} />
+                                        <Typography.Paragraph
+                                            size="large"
+                                            align="left"
+                                            {...textStyleOverrides}
+                                        >
+                                            <Localize translate_text="_t_Trade from a trusted secure and friendly platform 24/7_t_" />
+                                        </Typography.Paragraph>
+                                    </Flex.Box>
+
+                                    <Typography.Paragraph
+                                        size="large"
+                                        align="left"
+                                        {...textStyleOverrides}
+                                    >
+                                        <Localize translate_text="_t_Join over 2.5 million traders around the globe and discover the Deriv difference with fast deposit and withdrawals_t_" />
+                                    </Typography.Paragraph>
+                                </Flex.Box>
+
+                                <Flex.Box padding="8x" justify="center" direction="row" gap="4x">
+                                    {growthbook_feature_flag_start_signup_journey_cta_button ? (
+                                        <Button onClick={handleModalOpen} fullWidth size="lg">
+                                            <Localize translate_text="_t_YES, start my trading journey_t_" />
+                                        </Button>
+                                    ) : (
+                                        <>
+                                            <Typography.Paragraph
+                                                onClick={handleModalOpen}
+                                                size="large"
+                                                className={signup_text_underline}
+                                                weight="bold"
+                                                align="center"
+                                                {...textStyleOverrides}
+                                            >
+                                                <Localize translate_text="_t_YES, start my trading journey_t_" />
+                                            </Typography.Paragraph>
+                                            <LabelPairedChevronUpMdBoldIcon
+                                                {...iconStyleOverrides}
+                                            />
+                                        </>
+                                    )}
+                                </Flex.Box>
                             </Flex.Box>
                             <TrustpilotSection
                                 variant={

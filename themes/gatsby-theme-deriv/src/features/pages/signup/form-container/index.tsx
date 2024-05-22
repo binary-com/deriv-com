@@ -26,8 +26,6 @@ const SignUpFormContainer = () => {
         featureFlag: 'signup-without-checkbox',
     })
 
-    if (!is_mounted) return null
-
     return (
         <Flex.Box
             basis="full"
@@ -46,7 +44,7 @@ const SignUpFormContainer = () => {
             </Typography.Heading>
 
             <SignUpPageForm />
-            {!growthbook_feature_flag_signup_without_checkbox && (
+            {!growthbook_feature_flag_signup_without_checkbox && is_mounted && (
                 <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
                     <Localize
                         translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy policy</0>._t_"

@@ -187,6 +187,16 @@ const SignUpExperimental = ({ region }: BuildVariantType) => {
                                     <Typography.Paragraph
                                         size="large"
                                         align="left"
+                                        pb={
+                                            growthbook_feature_flag_signup_plain_background
+                                                ? '8x'
+                                                : '0x'
+                                        }
+                                        pt={
+                                            growthbook_feature_flag_signup_plain_background
+                                                ? '8x'
+                                                : '0x'
+                                        }
                                         {...textStyleOverrides}
                                     >
                                         <Localize translate_text="_t_Join over 2.5 million traders around the globe and discover the Deriv difference with fast deposit and withdrawals_t_" />

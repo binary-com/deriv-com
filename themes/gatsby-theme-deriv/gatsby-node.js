@@ -520,6 +520,15 @@ exports.onPostBuild = (_, {buildDirPath}) => {
                 console.log('index.html has been saved!');
                 resolve();
             });
+
+            const staticDir = path.join(__dirname, 'sites/row/public', '.well-known');
+                const sourceDir = path.join(__dirname, '.well-known');
+
+                if (!fs.existsSync(staticDir)) {
+                    fs.mkdirSync(staticDir);
+                }
+
+                fs.copySync(sourceDir, staticDir);
         });
     });
 };

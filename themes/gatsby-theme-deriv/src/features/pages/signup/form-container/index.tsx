@@ -13,18 +13,11 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 import useBuildVariant from 'features/hooks/use-build-variant'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import useGrowthbookFeatureFlag from 'components/hooks/use-growthbook-feature-flag'
 
 const SignUpFormContainer = () => {
     const { region } = useBuildVariant()
-    const [is_mounted] = usePageLoaded()
 
     const security_pdf_link = `/tnc${region === 'eu' ? '/eu' : ''}/security-and-privacy.pdf`
-
-    const growthbook_feature_flag_signup_without_checkbox = useGrowthbookFeatureFlag({
-        featureFlag: 'signup-without-checkbox',
-    })
 
     return (
         <Flex.Box
@@ -44,25 +37,23 @@ const SignUpFormContainer = () => {
             </Typography.Heading>
 
             <SignUpPageForm />
-            {!growthbook_feature_flag_signup_without_checkbox && is_mounted && (
-                <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
-                    <Localize
-                        translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy policy</0>._t_"
-                        components={[
-                            <Link
-                                className={link_text}
-                                textcolor="primary"
-                                key={0}
-                                url={{
-                                    target: '_blank',
-                                    type: 'non-company',
-                                    href: security_pdf_link,
-                                }}
-                            />,
-                        ]}
-                    />
-                </Typography.Paragraph>
-            )}
+            <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
+                <Localize
+                    translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy policy</0>._t_"
+                    components={[
+                        <Link
+                            className={link_text}
+                            textcolor="primary"
+                            key={0}
+                            url={{
+                                target: '_blank',
+                                type: 'non-company',
+                                href: security_pdf_link,
+                            }}
+                        />,
+                    ]}
+                />
+            </Typography.Paragraph>
             <Flex.Box justify="center" align="center" padding_block="4x">
                 <Flex.Item className={signup_form_line} basis="4-12" />
                 <Flex.Item grow="1">

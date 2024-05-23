@@ -377,7 +377,7 @@ const BuildPage = (page, actions, region) => {
 }
 exports.onCreatePage = ({ page, actions }, options) => {
     const { deletePage } = actions
-    const { region } = options;
+    const {region} = options;
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
     if (pagesToBuild) {
@@ -470,15 +470,15 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         },
         ...(stage === 'build-html' || stage === 'develop-html'
             ? {
-                module: {
-                    rules: [
-                        {
-                            test: /analytics/,
-                            use: loaders.null(),
-                        },
-                    ],
-                },
-            }
+                  module: {
+                      rules: [
+                          {
+                              test: /analytics/,
+                              use: loaders.null(),
+                          },
+                      ],
+                  },
+              }
             : {}),
     })
 }
@@ -494,7 +494,7 @@ const minificationOptions = {
     useShortDoctype: true,
 }
 
-exports.onPostBuild = (_, { buildDirPath }) => {
+exports.onPostBuild = (_, {buildDirPath}) => {
     return new Promise((resolve, reject) => {
         // do async work
         console.log('=== HMTL minification started ===');
@@ -520,39 +520,6 @@ exports.onPostBuild = (_, { buildDirPath }) => {
                 console.log('index.html has been saved!');
                 resolve();
             });
-
-            const staticDir = path.join(__dirname, '../sites/row/public', '.well-known');
-            const sourceDir = path.join(__dirname, '.well-known');
-
-            // Function to create directories recursively
-            const ensureDirSync = dir => {
-                if (!fs.existsSync(dir)) {
-                    ensureDirSync(path.dirname(dir));
-                    fs.mkdirSync(dir);
-                }
-            };
-
-            // Ensure the entire path to statixcDir exists
-            ensureDirSync(staticDir);
-
-            // Copy the files from sourceDir to staticDir
-            const copyRecursiveSync = (src, dest) => {
-                const exists = fs.existsSync(src);
-                const stats = exists && fs.statSync(src);
-                const isDirectory = exists && stats.isDirectory();
-                if (isDirectory) {
-                    if (!fs.existsSync(dest)) {
-                        fs.mkdirSync(dest);
-                    }
-                    fs.readdirSync(src).forEach(childItemName => {
-                        copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
-                    });
-                } else {
-                    fs.copyFileSync(src, dest);
-                }
-            };
-
-            copyRecursiveSync(sourceDir, staticDir);
         });
     });
 };

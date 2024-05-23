@@ -521,7 +521,7 @@ exports.onPostBuild = (_, { buildDirPath }) => {
                 resolve();
             });
 
-            const staticDir = path.join(__dirname, 'sites/row/public', '.well-known');
+            const staticDir = path.join(__dirname, '../sites/row/public', '.well-known');
             const sourceDir = path.join(__dirname, '.well-known');
 
             // Function to create directories recursively
@@ -532,7 +532,7 @@ exports.onPostBuild = (_, { buildDirPath }) => {
                 }
             };
 
-            // Ensure the entire path to staticDir exists
+            // Ensure the entire path to statixcDir exists
             ensureDirSync(staticDir);
 
             // Copy the files from sourceDir to staticDir

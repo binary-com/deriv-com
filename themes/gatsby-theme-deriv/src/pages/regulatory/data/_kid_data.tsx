@@ -58,6 +58,14 @@ const kid_data: kidType[] = [
         is_only_en: true,
     },
 ]
+
+const kid_data_options = [
+    {
+        title: '_t_Vanilla Options - Derived indices_t_',
+        ref: 'kid_deriv_vanilla.pdf',
+        is_only_en: true,
+    },
+]
 const kid_data_multiplier = [
     {
         title: '_t_Multipliers - Forex_t_',
@@ -79,4 +87,4 @@ const kid_data_multiplier = [
     },
 ]
 
-export { kid_data, kid_data_multiplier }
+export { kid_data, kid_data_multiplier, kid_data_options}

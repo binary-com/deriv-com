@@ -7,7 +7,16 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
-const SignUpFormContainer = ({ onModalClose }: { onModalClose: () => void }) => {
+const SignUpFormContainer = ({
+    onModalClose,
+    theme,
+}: {
+    onModalClose: () => void
+    theme: 'plain' | 'dark'
+}) => {
+    const textStyleOverrides = theme === 'dark' ? ({ textcolor: 'white' } as const) : {}
+    const logoStyleOverrides = theme === 'dark' ? ({ fill: 'white' } as const) : {}
+
     return (
         <Flex.Box
             basis="full"
@@ -24,22 +33,22 @@ const SignUpFormContainer = ({ onModalClose }: { onModalClose: () => void }) => 
             className={signup_form_container}
         >
             <Flex.Box justify="between" pr="5x" align="center">
-                <Typography.Heading size="xxl" textcolor="white" className={sign_up_header}>
+                <Typography.Heading size="xxl" className={sign_up_header} {...textStyleOverrides}>
                     <Localize translate_text="_t_Sign Up_t_" />
                 </Typography.Heading>
-                <LabelPairedXmarkLgBoldIcon onClick={onModalClose} fill="white" />
+                <LabelPairedXmarkLgBoldIcon onClick={onModalClose} {...logoStyleOverrides} />
             </Flex.Box>
 
             <Flex.Box className={signup_form_layout} direction="col" pb="6x" gap="8x">
-                <SignUpPageForm />
+                <SignUpPageForm theme={theme} />
                 <Flex.Box justify="center" align="center">
                     <Flex.Item grow="1">
-                        <Typography.Paragraph align="center" textcolor="white">
+                        <Typography.Paragraph align="center" {...textStyleOverrides}>
                             <Localize translate_text="_t_Or sign up with_t_" />
                         </Typography.Paragraph>
                     </Flex.Item>
                 </Flex.Box>
-                <FormSocialButtons />
+                <FormSocialButtons theme={theme} />
             </Flex.Box>
         </Flex.Box>
     )

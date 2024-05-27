@@ -1226,7 +1226,6 @@
   "1199693297": "20 - 800",
   "1203468323": "- Set other optional contract parameters.",
   "1203741029": "Use this variable to store your loss limit. You can assign any amount you want. Your bot will stop when your losses hits or exceeds this amount.",
-  "1204425290": "You should enter less than 50 characters.",
   "1206098262": "zero commission",
   "1206384192": "VTI.US",
   "1207548197": "Payouts for all potential outcomes are calculated based strictly on the probabilities of each occurring at the time the trade is placed.",

@@ -25,7 +25,7 @@ const InvestmentEurope = () => {
                 </Heading.H1>
                 <Text className={styles.text_alignment_with_padding}>
                     <Localize
-                        translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (view licence). This website is intended for Retail, Professional Clients, and Eligible Counterparties. It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights in the following member states:_t_"
+                        translate_text="_t_Deriv Investments (Europe) Limited, incorporated on 22 April 2015 (Company No. C 70156), is based in Malta with its registered address at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, and is regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services (<0>view licence</0>). This website is intended for Retail, Professional Clients, and Eligible Counterparties. It serves clients in the European Union, offering accounts for trading financial instruments, and is authorised to operate in other EU member states through EU passporting rights in the following member states:_t_"
                         components={[
                             <a
                                 key={0}

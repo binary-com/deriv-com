@@ -82,7 +82,7 @@ export const getDerivAppLocalizedURL = (link: string, locale: string, to = '') =
 
 export const TradersHubURL: ProductLinkGenerator = ({ locale }) => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
-    return `https://app.deriv.com/appstore/traders-hub?lang=${lang.toUpperCase()}`
+    return `https://app.deriv.com/?lang=${lang.toUpperCase()}`
 }
 export const getSmartTraderLocalizedURL = (link: string, locale: string) => {
     const lang = smart_trader_languages.includes(locale) ? locale : 'en'

@@ -30,7 +30,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/appstore/traders-hub',
+            href: 'https://app.deriv.com/',
         },
         image_url: <Image src={AddAccountImage} width={325} alt={'_t_Add account image_t_'} />,
         image_url_mobile: (

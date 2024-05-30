@@ -127,7 +127,7 @@ const DtraderEasySteps = () => {
                             <GoToLiveDemo
                                 secondary
                                 external
-                                type="deriv_app"
+                                type="dtrader"
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
                             >

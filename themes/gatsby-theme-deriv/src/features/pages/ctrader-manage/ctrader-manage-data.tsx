@@ -77,7 +77,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/appstore/traders-hub',
+            href: 'https://app.deriv.com/',
         },
         button_text: "_t_Go to Trader's Hub_t_",
     },

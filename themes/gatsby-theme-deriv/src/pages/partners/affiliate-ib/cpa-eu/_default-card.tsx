@@ -34,8 +34,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 </Header>
                 <Header as="p" type="paragraph-1" weight="normal">
                     <Localize
-                        translate_text="_t_Earn a <0>USD 100</0> when your new referred client deposits a total of <0>USD 100</0> (or its equivalent) into their Deriv account, either all at once or over time._t_"
-                        components={[<strong key={0} />]}
+                        translate_text="_t_Earn a USD 100 when your new referred client deposits a total of USD 100 (or its equivalent) into their Deriv account, either all at once or over time._t_"
                     />
                 </Header>
                 <Table grid_col_number={2}>
@@ -57,7 +56,10 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     ))}
                 </Table>
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
-                    <Localize translate_text="_t_Disclaimer: Affiliates residing outside the EU can sign up for the CPA plan and can refer clients residing in the EU except Portugal and Spain._t_" />
+                    <Localize translate_text="_t_Disclaimer:_t_" />
+                </Header>
+                <Header as="p" type="paragraph-1">
+                    <Localize translate_text="_t_ Affiliates residing outside the EU can sign up for the CPA plan and can refer clients residing in the EU except Portugal and Spain._t_" />
                 </Header>
             </div>
         </StyledCard>

@@ -66,8 +66,11 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     ))}
                 </Table>
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
+                    <Localize translate_text="_t_Disclaimer:_t_" />
+                </Header>
+                <Header as="p" type="paragraph-1">
                     <Localize
-                        translate_text="_t_Disclaimer: Affiliates residing in the EU can sign up for the Revenue share plan but can only refer clients residing outside the EU._t_"
+                        translate_text="_t_Affiliates residing in the EU can sign up for the Revenue share plan but can only refer clients residing outside the EU._t_"
                         components={[<strong key={0} />]}
                     />
                 </Header>

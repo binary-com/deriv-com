@@ -60,7 +60,10 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     ))}
                 </Table>
                 <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
-                    <Localize translate_text="_t_Disclaimer: Affiliates residing in the EU can sign up for the Turnover plan but can only refer clients residing outside the EU._t_" />
+                    <Localize translate_text="_t_Disclaimer:_t_" />
+                </Header>
+                <Header as="p" type="paragraph-1">
+                    <Localize translate_text="_t_Affiliates residing in the EU can sign up for the Turnover plan but can only refer clients residing outside the EU._t_" />
                 </Header>
             </div>
         </StyledCard>

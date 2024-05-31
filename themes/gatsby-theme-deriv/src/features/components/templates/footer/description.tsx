@@ -57,7 +57,7 @@ export const DescriptionContentROW = () => {
 export const DescriptionContentEU = () => {
     return (
         <>
-            <Text size="sm">
+            <Text size="sm" className="text-solid-slate-1400">
                 <Localize
                     translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act._t_"
                     components={[
@@ -70,7 +70,7 @@ export const DescriptionContentEU = () => {
                     ]}
                 />
             </Text>
-            <Text size="sm" className="pt-general-lg">
+            <Text size="sm" className="pt-general-lg text-solid-slate-1400">
                 <Localize
                     translate_text="_t_Make sure to read our <0>Terms and Conditions</0>, <1>Risk Disclosure</1>, and <2>Secure and Responsible Trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice. The value of investments may go down as well as up._t_"
                     components={[
@@ -147,7 +147,9 @@ export const DescriptionContent = () => {
     const { region } = useBuildVariant()
     const { is_cpa_plan } = useRegion()
     const { exitRef } = useFloatingCtaContext()
-    const descriptionContent = (region === "row" && <DescriptionContentROW />) || (region === "eu" && <DescriptionContentEU />);
+    const descriptionContent =
+        (region === 'row' && <DescriptionContentROW />) ||
+        (region === 'eu' && <DescriptionContentEU />)
     const [content, setContent] = useState(descriptionContent)
 
     useEffect(() => {

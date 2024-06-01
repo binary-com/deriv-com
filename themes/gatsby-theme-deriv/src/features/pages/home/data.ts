@@ -8,6 +8,12 @@ export const langItemsROW: LangItems = {
         shortName: 'EN',
         affiliateLang: 0,
     },
+    th: {
+        path: 'th',
+        displayName: 'ไทย',
+        shortName: 'TH',
+        affiliateLang: 12,
+    },
     // es: {
     //     path: 'es',
     //     displayName: 'Español',

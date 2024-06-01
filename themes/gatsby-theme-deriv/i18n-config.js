@@ -43,12 +43,12 @@ module.exports = {
     //     short_name: 'RU',
     //     affiliate_lang: 1,
     // },
-    // th: {
-    //     path: 'th',
-    //     display_name: 'ไทย',
-    //     short_name: 'TH',
-    //     affiliate_lang: 12,
-    // },
+    th: {
+        path: 'th',
+        display_name: 'ไทย',
+        short_name: 'TH',
+        affiliate_lang: 12,
+    },
     // vi: {
     //     path: 'vi',
     //     display_name: 'Tiếng Việt',

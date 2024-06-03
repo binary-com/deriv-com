@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { dakar } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
+import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
@@ -12,24 +12,7 @@ const query = graphql`
         living_in_dakar: file(relativePath: { eq: "careers/living_in_senegal.png" }) {
             ...fadeIn
         }
-        rwanda_grid_1: file(relativePath: { eq: "careers/rwanda_grid_1.jpg" }) {
-            ...fadeIn
-        }
-        rwanda_grid_2: file(relativePath: { eq: "careers/rwanda_grid_2.jpg" }) {
-            ...fadeIn
-        }
-        rwanda_grid_3: file(relativePath: { eq: "careers/rwanda_grid_3.jpg" }) {
-            ...fadeIn
-        }
-        rwanda_grid_4: file(relativePath: { eq: "careers/rwanda_grid_4.png" }) {
-            ...fadeIn
-        }
         senegal_map: file(relativePath: { eq: "careers/maps/map-senegal-career.png" }) {
-            ...fadeIn
-        }
-        rwanda_great_place_to_work_badge: file(
-            relativePath: { eq: "careers/rwanda_great_place_to_work_badge.png" }
-        ) {
             ...fadeIn
         }
     }
@@ -41,7 +24,7 @@ const Dakar = ({ pageContext }: TGatsbyHead) => {
 
     return (
         <Layout region={region} type="careers">
-            <LocationLayout location={dakar} images={images} />
+            <NewLocationLayout location={dakar} images = {images} />
         </Layout>
     )
 }
@@ -51,7 +34,7 @@ export default WithIntl()(Dakar)
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
         title="_t_Dakar | Our office – Senegal | Deriv_t_"
-        description="_t_Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda._t_"
+        description="_t_Hi._t_"
         pageContext={pageContext}
     />
 )

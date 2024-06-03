@@ -12,6 +12,7 @@ import {
     address_melaka,
     address_cyprus,
     address_rwanda,
+    address_agrim,
     address_france,
     address_guernsey,
     address_roadtown,
@@ -42,6 +43,7 @@ import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 import { localize } from 'components/localization'
 import HongKong from 'images/svg/careers/flag_hongkong.svg'
+import SenegalFlag from 'images/common/careers/senegal_flag.png'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -432,37 +434,37 @@ export const dakar: LocationsType = {
     name: 'dakar',
     hero_image: (
         <StaticImage
-            src="../../../../images/common/careers/senegal.png"
-            alt={localize('_t_Blue sky and buildings - Kigali_t_')}
+            src="../../../../images/common/careers/dakar.jpg"
+            alt={localize('_t_Vanuatu alt img_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
+            style={{ width: '100%' }}
         />
     ),
     job_location: 'Dakar',
     continent: 'africa',
     display_continent: 'Africa',
-    link: '/careers/locations/dakar',
+    link: '/careers/locations/dakar/',
     display_name: 'Dakar',
     display_thumbnail_name: 'Dakar',
     display_title_name: 'Dakar',
-    img_alt: 'Blue sky and buildings - Kigali',
-    map_office_name: 'SASU',
+    img_alt: 'Dakar picture',
+    map_office_name: 'Senegal (SASU)',
     country: 'Senegal',
-    flagIcon: RwandaFlagIcon,
+    flagIcon: SenegalFlag,
     thumbnail: 'thumbnail_dakar',
     first_p:
         'Our Dakar office serves as a global customer support centre for Deriv. This strategic location enables us to provide dedicated, around-the-clock assistance to our diverse client base across Africa and beyond.',
     first_img: 'living_in_dakar',
-    first_img_alt: 'Senegal view',
-    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
+    map: 'ChIJU5rXel5Z14cREREd888GBrw',
+    address: address_dakar,
     map_text:
         'We’re building a team of customer-focused professionals in our growing Dakar office. If you have strong problem-solving skills, a passion for client service, and thrive in a collaborative environment, join us for an excellent opportunity to make a global impact.',
-    address: address_dakar,
-    map_img: 'senegal_map',
     google_map_link: 'https://maps.app.goo.gl/QHDRW2bFtMDyRKFn8',
     has_iframe: true,
+    has_map: true,
 }
-
 export const paris: LocationsType = {
     name: 'paris',
     hero_image: (
@@ -531,12 +533,12 @@ export const guernsey: LocationsType = {
     first_img_alt: 'living_in_guernsey alt img',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
-    map: 'ChIJc-QshyFzDUgRy9q1rkkXFqs',
+    // map: 'ChIJc-QshyFzDUgRy9q1rkkXFqs',
     map_text:
         'Deriv (Guernsey) Ltd can be an ideal work environment for those who have strong attention to detail, motivation, and interest in law. Joining us at Guernsey gives you the opportunity to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to ensure the efficiency of Deriv Group’s compliance strategies.',
     address: address_guernsey,
     map_img: 'guernsey_map',
-    google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
+    // google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
     has_map: true,
     has_iframe: true,
 }

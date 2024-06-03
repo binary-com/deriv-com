@@ -144,8 +144,8 @@ const urlValidation = (input: string, website_number: number ) => {
     } else if ((website_number == 1) && (input.length < 2 || input.length > 50)) {
         return localize('_t_You should enter 2-50 characters._t_')
     } else  if ((website_number == 2) && 
-         (!affiliate_validation_regex.url(input) || (input.length > 50) || (input.trim().length == 1)))
-         return localize('_t_You should enter 2-50 characters._t_');
+        (!affiliate_validation_regex.url(input) || (input.length > 50)))
+        return localize('_t_You should enter 2-50 characters._t_');
 }
 
 const affiliate_validation = {

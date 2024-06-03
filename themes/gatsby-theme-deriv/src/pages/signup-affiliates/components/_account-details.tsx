@@ -113,7 +113,9 @@ const AccountDetails = ({
         website_url_error_msg:
             form_data.website_url &&
             (affiliate_validation['website_url'](form_data['website_url']) ?? ''),
-        second_website_url_error_msg: affiliate_validation['second_website_url'](form_data['second_website_url']) ?? '',
+        second_website_url_error_msg:
+            form_data.second_website_url &&
+            (affiliate_validation['second_website_url'](form_data['second_website_url']) ?? ''),
         password_error_msg:
             form_data.password && (affiliate_validation['password'](form_data['password']) ?? ''),
     })

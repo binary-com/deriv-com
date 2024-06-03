@@ -136,12 +136,15 @@ const cityValidation = (input: string) => {
 const urlValidation = (input: string, website_number: number ) => {
     if (!input && website_number == 1 ) return localize('_t_Website url is required_t_')
     if (
-        !affiliate_validation_regex.url(input) ||
-        !affiliate_validation_regex.non_empty_string(input)
+        (website_number == 1) &&
+        (!affiliate_validation_regex.url(input) ||
+        !affiliate_validation_regex.non_empty_string(input))
     ) {
         return localize('_t_Please enter a valid url_t_')
     } else if (input.length < 2 || input.length > 50) {
         return localize('_t_You should enter 2-50 characters._t_')
+    } else {
+        return null;
     }
 }
 

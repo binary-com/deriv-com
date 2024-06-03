@@ -245,7 +245,7 @@ const getLimit = (input: string, limit: number) => {
 export const truncateString = (input: string, limit: number) =>
     input.length > limit ? `${input.substring(0, getLimit(input, limit))}...` : input
 // Function which returns sub path to the specific trading platform
-const supported_platforms = ['mt5', 'bot', 'derivx']
+const supported_platforms = ['mt5', 'bot', 'derivx', 'dtrader']
 export const redirectToTradingPlatform = () =>
     supported_platforms.filter(
         (platform) => window.location.pathname.includes(platform) && platform,

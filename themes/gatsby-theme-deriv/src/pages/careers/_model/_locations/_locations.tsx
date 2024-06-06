@@ -12,7 +12,6 @@ import {
     address_melaka,
     address_cyprus,
     address_rwanda,
-    address_agrim,
     address_france,
     address_guernsey,
     address_roadtown,

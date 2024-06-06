@@ -34,7 +34,7 @@ export default WithIntl()(Dakar)
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
         title="_t_Dakar | Our office – Senegal | Deriv_t_"
-        description="_t_Hi._t_"
+        description="_t_ind your role with us by browsing Deriv job opportunities in Dakar, Senegal._t_"
         pageContext={pageContext}
     />
 )

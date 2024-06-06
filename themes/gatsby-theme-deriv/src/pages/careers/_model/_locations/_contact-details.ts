@@ -64,8 +64,6 @@ const address_london = ['First Floor, 68 - 72 Leonard Street, London, EC2A 4QX']
 
 const address_dakar = ['66, boulevard de la République, Immeuble Seydou Nourou Tall, 1er étage, BP11417 Dakar, Sénégal']
 
-const address_agrim = ['Hi']
-
 export {
     address_asuncion,
     address_cyberjaya,
@@ -89,5 +87,4 @@ export {
     address_berlin,
     address_london,
     address_dakar,
-    address_agrim,
 }

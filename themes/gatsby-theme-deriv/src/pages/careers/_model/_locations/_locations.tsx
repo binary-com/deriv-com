@@ -448,7 +448,7 @@ export const dakar: LocationsType = {
     display_thumbnail_name: 'Dakar',
     display_title_name: 'Dakar',
     img_alt: 'Dakar picture',
-    map_office_name: 'Senegal (SASU)',
+    map_office_name: '(Senegal) SASU',
     country: 'Senegal',
     flagIcon: SenegalFlag,
     thumbnail: 'thumbnail_dakar',

@@ -102,6 +102,9 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
 const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: BirthPickerProps) => {
     const [is_date_field, selectDateField] = useState(false)
 
+    console.log(is_date_field, 'is_date');
+    console.log(value, 'value');
+
     const subtractYears = (numOfYears, date = new Date()) => {
         date.setFullYear(date.getFullYear() - numOfYears)
         return date

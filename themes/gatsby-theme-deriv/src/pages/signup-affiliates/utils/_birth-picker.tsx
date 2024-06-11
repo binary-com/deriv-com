@@ -111,7 +111,10 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
     }
     const max_date = subtractYears(18)
 
-    const handleDateChange = (date) => setFieldValue((prev) => ({ ...prev, date_birth: date }))
+    const handleDateChange = (date) => {
+        console.log('==>', date)
+        setFieldValue((prev) => ({ ...prev, date_birth: date }))
+    }
 
     return (
         <BirthPickerWrapper is_date_field={is_date_field} value={value} error={error}>

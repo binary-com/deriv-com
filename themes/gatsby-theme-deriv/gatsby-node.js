@@ -250,6 +250,19 @@ const BuildPage = (page, actions, region) => {
                 redirectInBrowser: true,
                 isPermanent: true,
             })
+            const mn_path = `/mn${localized_path.slice(0, -1)}`
+            createRedirect({
+                fromPath: mn_path,
+                toPath: localized_path,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `${mn_path}/`,
+                toPath: localized_path,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
         }
 
         if (is_responsible_trading) {
@@ -343,20 +356,6 @@ const BuildPage = (page, actions, region) => {
         }
 
         if (is_cfds) {
-            if(lang === 'mn'){
-                createRedirect({
-                    fromPath: `/trade-types/margin/`,
-                    toPath: `/trade-types/cfds/`,
-                    redirectInBrowser: true,
-                    isPermanent: true,
-                })
-                createRedirect({
-                    fromPath: `/trade-types/margin`,
-                    toPath: `/trade-types/cfds/`,
-                    redirectInBrowser: true,
-                    isPermanent: true,
-                })
-            }
             createRedirect({
                 fromPath: `/${lang}/trade-types/margin/`,
                 toPath: `/${lang}/trade-types/cfds/`,
@@ -372,21 +371,6 @@ const BuildPage = (page, actions, region) => {
         }
 
         if (is_options) {
-            if(lang == 'mn'){
-                createRedirect({
-                    fromPath: `/trade-types/options/`,
-                    toPath: `/trade-types/options/digital-options/up-and-down/`,
-                    redirectInBrowser: true,
-                    isPermanent: true,
-                })
-                createRedirect({
-                    fromPath: `/trade-types/options`,
-                    toPath: `/trade-types/options/digital-options/up-and-down/`,
-                    redirectInBrowser: true,
-                    isPermanent: true,
-                })
-            }
-            else{
             createRedirect({
                 fromPath: `/${lang}/trade-types/options/`,
                 toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
@@ -399,7 +383,6 @@ const BuildPage = (page, actions, region) => {
                 redirectInBrowser: true,
                 isPermanent: true,
             })
-            }
         }
 
         return current_page

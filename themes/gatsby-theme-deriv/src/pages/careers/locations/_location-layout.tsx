@@ -414,23 +414,23 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
                             <InnerLeftFlex mb="0.8rem">
                                 <First>
                                     <QueryImage
-                                        data={images[location.grid_images[0]]}
-                                        alt={location.grid_img_alt[0]}
+                                        data={images[location.grid_images?.[0]]}
+                                        alt={location.grid_img_alt?.[0]}
                                         width="100%"
                                     />
                                 </First>
                                 <Second>
                                     <QueryImage
-                                        data={images[location.grid_images[1]]}
-                                        alt={location.grid_img_alt[1]}
+                                        data={images[location.grid_images?.[1]]}
+                                        alt={location.grid_img_alt?.[1]}
                                         width="100%"
                                     />
                                 </Second>
                             </InnerLeftFlex>
                             <Third>
                                 <QueryImage
-                                    data={images[location.grid_images[2]]}
-                                    alt={location.grid_img_alt[2]}
+                                    data={images[location.grid_images?.[2]]}
+                                    alt={location.grid_img_alt?.[2]}
                                     width="100%"
                                 />
                             </Third>
@@ -438,8 +438,8 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
                         <RightFlex>
                             <Fourth>
                                 <QueryImage
-                                    data={images[location.grid_images[3]]}
-                                    alt={location.grid_img_alt[3]}
+                                    data={images[location.grid_images?.[3]]}
+                                    alt={location.grid_img_alt?.[3]}
                                     width="100%"
                                 />
                             </Fourth>

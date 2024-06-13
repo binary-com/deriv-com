@@ -113,7 +113,9 @@ const AccountDetails = ({
         website_url_error_msg:
             form_data.website_url &&
             (affiliate_validation['website_url'](form_data['website_url']) ?? ''),
-        second_website_url_error_msg: '',
+        second_website_url_error_msg:
+            form_data.second_website_url &&
+            (affiliate_validation['second_website_url'](form_data['second_website_url']) ?? ''),
         password_error_msg:
             form_data.password && (affiliate_validation['password'](form_data['password']) ?? ''),
     })
@@ -133,7 +135,9 @@ const AccountDetails = ({
                       !form_errors.first_name_error_msg &&
                       !form_errors.last_name_error_msg &&
                       !form_errors.website_url_error_msg &&
+                      !form_errors.second_website_url_error_msg &&
                       !form_errors.phone_error_msg &&
+                      !form_errors.username_error_msg &&
                       !form_errors.password_error_msg
                 : form_data.first_name &&
                       form_data.last_name &&
@@ -148,6 +152,8 @@ const AccountDetails = ({
                       !form_errors.last_name_error_msg &&
                       !form_errors.phone_error_msg &&
                       !form_errors.website_url_error_msg &&
+                      !form_errors.second_website_url_error_msg &&
+                      !form_errors.username_error_msg &&
                       !form_errors.password_error_msg &&
                       !form_errors.company_name_error_msg &&
                       !form_errors.company_registration_number_error_msg,

@@ -18,6 +18,7 @@ import {
     derivx_huawei_url,
     derivx_ios_url,
     derivx_app_url,
+    traders_hub,
 } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
@@ -85,7 +86,7 @@ const DerivXGetApp = () => {
         {
             text: 'Web Browser',
             icon: BrowserIcon,
-            link: derivx_app_url,
+            link: traders_hub,
             smallText: '_t_Use it on your_t_',
             visibility: deriv_x_apps_web_browser,
         },

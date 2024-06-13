@@ -555,7 +555,7 @@ const deriv_p2p: TQuestionsData = {
                 },
                 {
                     translation_text:
-                        '_t_We’ll seek more info on the transaction by reaching out to you and the trader you are dealing with, and we’ll try to resolve the issue within 12 hours. We’ll keep you informed of the status._t_',
+                        '_t_We’ll seek more info on the transaction by reaching out to you and the trader you are dealing with, and we’ll try to resolve the issue within 6 hours. We’ll keep you informed of the status._t_',
                     has_margin_top: true,
                 },
                 {

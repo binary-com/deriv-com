@@ -10,6 +10,7 @@ import { LinkButton } from 'components/form'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { QueryImage } from 'components/elements'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import { dtrader_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -127,7 +128,7 @@ const DtraderEasySteps = () => {
                             <GoToLiveDemo
                                 secondary
                                 external
-                                type="deriv_app"
+                                to={dtrader_url}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
                             >

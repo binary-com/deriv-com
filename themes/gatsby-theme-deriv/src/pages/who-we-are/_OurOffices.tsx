@@ -77,8 +77,9 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
         { left: '44.5%', top: '30.9%' },
         { left: '92.2%', top: '69.7%' },
         { left: '74.6%', top: '61%' },
-        { left: '45.9%', top: '28%' },
+        { left: '45.7%', top: '29%' },
         { left: '78%', top: '48%' },
+        { left: '46.5%', top: '29.5%' },
     ]
     const mobile_pins: MapPinType[] = [
         { left: '28.5%', top: '71%' },
@@ -99,8 +100,9 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
         { left: '43%', top: '26.9%' },
         { left: '92.5%', top: '65.1%' },
         { left: '74.5%', top: '57.9%' },
-        { left: '45.9%', top: '20%' },
+        { left: '45.7%', top: '20%' },
         { left: '76%', top: '45%' },
+        { left: '46.5%', top: '20%' },
     ]
     const desktop = []
     const mobile = []

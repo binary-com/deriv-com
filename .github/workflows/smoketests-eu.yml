@@ -26,12 +26,12 @@ jobs:
         steps:
             - name: Download artifact
               id: download-artifact
-              uses: actions/download-artifact@9c19ed7fe5d278cd354c7dfd5d3b88589c7e2395
+              uses: actions/download-artifact@7a1cd3216ca9260cd8022db641d960b1db4d1be4
               with:
-                  workflow_conclusion: success
-                  run_id: ${{ github.event.workflow_run.id }}
+                  run-id: ${{ github.event.workflow_run.id }}
                   name: 'pr-${{ github.event.workflow_run.id }}'
                   path: pr
+                  github-token: ${{ secrets.GITHUB_TOKEN }} 
 
             - name: Retrieve pull request
               id: pr_information

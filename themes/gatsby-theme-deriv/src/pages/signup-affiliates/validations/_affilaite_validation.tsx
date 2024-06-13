@@ -7,7 +7,7 @@ export const affiliate_validation_regex = {
     name: (value: string) =>
         /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u.test(value) &&
         value.trim().length >= 2 &&
-        value.length <= 50,
+        value.trim().length <= 50,
     phone: (value: string) => /^\+?\d+$/.test(value),
     username: (value: string) => /^[A-Za-z0-9_]{3,20}$/.test(value),
     password: (value: string) =>
@@ -15,13 +15,13 @@ export const affiliate_validation_regex = {
     city: (value: string) =>
         /^[\p{L}][\p{L}\s'.-]{0,49}$/u.test(value) &&
         value.trim().length >= 2 &&
-        value.length <= 50,
+        value.trim().length <= 50,
     street: (value: string) =>
         /^[\p{L}\p{Nd}'.,:;()\\x{b0}@#/-][\p{L}\p{Nd}\s'.,:;()\\x{b0}@#/-]{0,68}$/u.test(value) &&
         value.trim().length >= 2 &&
-        value.length <= 69,
+        value.trim().length <= 69,
     postal_code: (value: string) => /^[a-zA-Z 0-9-]{2,10}$/.test(value.trim()),
-    company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value),
+    company_registration_number: (value: string) => /^[a-zA-Z0-9]{2,20}$/.test(value.trim()),
     url: (value: string) => /^[\w_@.\/:#&+-]*$/.test(value),
     non_empty_string: (value: string) => /^\S.*$/.test(value),
 }
@@ -133,16 +133,19 @@ const cityValidation = (input: string) => {
         return localize('_t_Please enter a valid city_t_')
     }
 }
-const urlValidation = (input: string) => {
-    if (!input) return localize('_t_Website url is required_t_')
+const urlValidation = (input: string, website_number: number ) => {
+    if (!input && website_number == 1 ) return localize('_t_Website url is required_t_')
     if (
-        !affiliate_validation_regex.url(input) ||
-        !affiliate_validation_regex.non_empty_string(input)
+        (website_number == 1) &&
+        (!affiliate_validation_regex.url(input) ||
+        !affiliate_validation_regex.non_empty_string(input))
     ) {
         return localize('_t_Please enter a valid url_t_')
-    } else if (input.length < 2 || input.length > 50) {
+    } else if ((website_number == 1) && (input.length < 2 || input.length > 50)) {
         return localize('_t_You should enter 2-50 characters._t_')
-    }
+    } else  if ((website_number == 2) && 
+        (!affiliate_validation_regex.url(input) || (input.trim().length > 50) || (input.trim().length == 1)))
+        return localize('_t_Please enter a valid url_t_');
 }
 
 const affiliate_validation = {
@@ -155,8 +158,8 @@ const affiliate_validation = {
     phone: (input: string) => phoneValidation(input),
     company_name: (input: string) => companyNameValidation(input),
     company_registration_number: (input: string) => registrationNumberValidation(input),
-    website_url: (input: string) => urlValidation(input),
-    second_website_url: (input: string) => urlValidation(input),
+    website_url: (input: string) => urlValidation(input, 1),
+    second_website_url: (input: string) => urlValidation(input, 2),
     username: (input: string) => userNameValidation(input),
     password: (input: string) => passwordValidation(input),
     country: (input: any) => {

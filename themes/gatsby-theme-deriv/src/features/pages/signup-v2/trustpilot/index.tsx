@@ -1,17 +1,26 @@
 import React from 'react'
 import { SocialProof } from '@deriv-com/blocks'
-import { StaticImage } from 'gatsby-plugin-image'
 import { TPilotDataProps } from '@deriv-com/components'
+import { StaticImage } from 'gatsby-plugin-image'
 import truspilotData from '../../../../data/trustpilot.json'
 import { Localize } from 'components/localization'
 import widgetEvent from 'common/tracking-functions/widget'
 import Flex from 'features/components/atoms/flex-box'
 
-const TrustpilotSection = () => {
+type TrustPilotSectionProps = {
+    variant?: 'dark' | 'plain'
+}
+
+const TrustpilotSection = ({ variant }: TrustPilotSectionProps = { variant: 'dark' }) => {
     const { numberOfReviews, trustScore, stars }: TPilotDataProps = truspilotData
 
     return (
-        <Flex.Box style={{ background: 'rgba(0,0,0,0.16)' }}>
+        <Flex.Box
+            style={{
+                background: variant === 'plain' ? 'transparent' : 'rgba(0,0,0,0.16)',
+                borderTop: variant === 'plain' ? '1px solid rgba(230, 233, 233, 1)' : 'none',
+            }}
+        >
             <SocialProof.Horizontal
                 content={({ numberOfReviews, trustScore }) => [
                     <Localize key={0} translate_text="_t_Our customers say_t_" />,
@@ -24,7 +33,7 @@ const TrustpilotSection = () => {
                 ]}
                 theme={{
                     color: '!text-[#ffffff]',
-                    background: 'transparent'
+                    background: 'transparent',
                 }}
                 data={{
                     trustScore,
@@ -32,13 +41,23 @@ const TrustpilotSection = () => {
                     stars,
                 }}
                 logo={
-                    <StaticImage
-                        src="../../../../images/common/home/trustpilot-logo.png"
-                        loading="eager"
-                        formats={['avif', 'webp', 'auto']}
-                        alt={'Trustpilot'}
-                        className="w-[98px] h-[24px]"
-                    />
+                    variant === 'dark' ? (
+                        <StaticImage
+                            src={'../../../../images/common/home/trustpilot-logo.png'}
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            alt={'Trustpilot'}
+                            className="w-[98px] h-[24px]"
+                        />
+                    ) : (
+                        <StaticImage
+                            src={'../../../../images/common/home/trustpilot-slate-logo.png'}
+                            loading="eager"
+                            formats={['avif', 'webp', 'auto']}
+                            alt={'Trustpilot'}
+                            className="w-[98px] h-[24px]"
+                        />
+                    )
                 }
                 onClick={() => {
                     widgetEvent('trustpilot')

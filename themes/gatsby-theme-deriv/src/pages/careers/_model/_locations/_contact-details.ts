@@ -62,6 +62,8 @@ const address_berlin = ['Kemperplatz 1 Mitte D, 10785 Berlin, Germany']
 
 const address_london = ['First Floor, 68 - 72 Leonard Street, London, EC2A 4QX']
 
+const address_dakar = ['66, boulevard de la République, Immeuble Seydou Nourou Tall, 1er étage, BP11417 Dakar, Sénégal']
+
 export {
     address_asuncion,
     address_cyberjaya,
@@ -84,4 +86,5 @@ export {
     address_reading,
     address_berlin,
     address_london,
+    address_dakar,
 }

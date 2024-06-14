@@ -25,6 +25,7 @@ export class ApiManager {
     public derivApi: TDerivApi
     private ready: boolean
     public static readyState: number
+    private pingInterval: NodeJS.Timer
 
     public static instance: ApiManager
     public static getInstance() {
@@ -98,7 +99,26 @@ export class ApiManager {
         return this.derivApi.authorize({ authorize: token })
     }
 
-    public reset(language: string) {
+    private registerKeepAlive() {
+        if (this.pingInterval) {
+            clearInterval(this.pingInterval)
+        }
+        this.socket.addEventListener('open', () => {
+            this.pingInterval = setInterval(() => {
+                this.socket.send(JSON.stringify({ ping: 1 }))
+            }, PING_INTERVAL)
+        })
+
+        this.socket.addEventListener('close', () => {
+            clearInterval(this.pingInterval)
+        })
+
+        this.socket.addEventListener('error', () => {
+            clearInterval(this.pingInterval)
+        })
+    }
+
+    public reset(language: string, registerKeepAlive = false) {
         const socket_url = getSocketURL()
         const app_id = getAppId()
         const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
@@ -108,6 +128,10 @@ export class ApiManager {
 
         this.socket = new WebSocket(websocket_connection_url)
         this.derivApi = new DerivAPIBasic({ connection: this.socket })
+
+        if (registerKeepAlive) {
+            this.registerKeepAlive()
+        }
     }
 }
 let apiManager: ApiManager

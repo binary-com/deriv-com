@@ -162,6 +162,22 @@ export const onRouteUpdate = ({ location }) => {
     const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
+    const path = location.pathname;
+
+    if (path === '/mn') {
+        navigate('/', { replace: true });
+    } else if (path.startsWith('/mn/')) {
+        const newPath = path.replace(/^\/mn/, '');
+        navigate(newPath || '/', { replace: true });
+    }
+
+    if (path === '/km') {
+        navigate('/', { replace: true });
+      } else if (path.startsWith('/km/')) {
+        const newPath = path.replace(/^\/km/, '');
+        navigate(newPath || '/', { replace: true });
+      }
+
     // wrap inside a timeout to ensure the title has properly been changed
     setTimeout(() => {
         const eventName = 'page_load'

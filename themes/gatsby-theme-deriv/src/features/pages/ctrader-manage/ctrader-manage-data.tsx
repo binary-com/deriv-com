@@ -30,7 +30,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/appstore/traders-hub',
+            href: 'https://app.deriv.com/',
         },
         image_url: <Image src={AddAccountImage} width={325} alt={'_t_Add account image_t_'} />,
         image_url_mobile: (
@@ -77,7 +77,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/appstore/traders-hub',
+            href: 'https://app.deriv.com/',
         },
         button_text: "_t_Go to Trader's Hub_t_",
     },
@@ -116,7 +116,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/cashier/account-transfer',
+            href: 'https://app.deriv.com/redirect?action=payment_transfer',
         },
     },
 }

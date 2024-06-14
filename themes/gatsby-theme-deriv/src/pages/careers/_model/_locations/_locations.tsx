@@ -22,6 +22,7 @@ import {
     address_reading,
     address_berlin,
     address_london,
+    address_dakar,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -41,6 +42,7 @@ import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 import { localize } from 'components/localization'
 import HongKong from 'images/svg/careers/flag_hongkong.svg'
+import SenegalFlag from 'images/common/careers/senegal_flag.png'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -427,6 +429,41 @@ export const rwanda: LocationsType = {
     has_iframe: true,
 }
 
+export const dakar: LocationsType = {
+    name: 'dakar',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/dakar.jpg"
+            alt={localize('_t_Vanuatu alt img_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+            style={{ width: '100%' }}
+        />
+    ),
+    job_location: 'Dakar',
+    continent: 'africa',
+    display_continent: 'Africa',
+    link: '/careers/locations/dakar/',
+    display_name: 'Dakar',
+    display_thumbnail_name: 'Dakar',
+    display_title_name: 'Dakar',
+    img_alt: 'Dakar picture',
+    map_office_name: '(Senegal) SASU',
+    country: 'Senegal',
+    flagIcon: SenegalFlag,
+    thumbnail: 'thumbnail_dakar',
+    first_p:
+        'Our Dakar office serves as a global customer support centre for Deriv. This strategic location enables us to provide dedicated, around-the-clock assistance to our diverse client base across Africa and beyond.',
+    first_img: 'living_in_dakar',
+    first_img_alt: 'Deriv’s Vanuatu office at Port Vila',
+    map: 'ChIJU5rXel5Z14cREREd888GBrw',
+    address: address_dakar,
+    map_text:
+        'We’re building a team of customer-focused professionals in our growing Dakar office. If you have strong problem-solving skills, a passion for client service, and thrive in a collaborative environment, join us for an excellent opportunity to make a global impact.',
+    google_map_link: 'https://maps.app.goo.gl/QHDRW2bFtMDyRKFn8',
+    has_iframe: true,
+    has_map: true,
+}
 export const paris: LocationsType = {
     name: 'paris',
     hero_image: (
@@ -914,6 +951,7 @@ export const all_offices: LocationsType[] = [
     ciudad,
     georgetown,
     roadtown,
+    dakar,
 ]
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
@@ -937,6 +975,7 @@ export const locations = {
     hongkong: `${hongkong.display_name}, ${hongkong.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
+    dakar: `${dakar.display_name}, ${dakar.country}`,
 }
 
 export const allContinents = {

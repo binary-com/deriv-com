@@ -163,11 +163,14 @@ export const onRouteUpdate = ({ location }) => {
     const is_logged_in = !!client_information
 
     const path = location.pathname;
-    const localizedPath = '/';
 
-    if (path.startsWith('/mn/') || path.startsWith('/en/')) {
-        navigate(localizedPath, { replace: true });
-    }
+        if (path === '/mn') {
+          navigate('/', { replace: true });
+        } else if (path.startsWith('/mn/')) {
+          const newPath = path.replace(/^\/mn/, '');
+          navigate(newPath || '/', { replace: true });
+        }
+
     setTimeout(() => {
         const eventName = 'page_load'
 

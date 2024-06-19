@@ -250,19 +250,6 @@ const BuildPage = (page, actions, region) => {
                 redirectInBrowser: true,
                 isPermanent: true,
             })
-            const mn_path = `/mn${localized_path.slice(0, -1)}`
-            createRedirect({
-                fromPath: mn_path,
-                toPath: localized_path,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `${mn_path}/`,
-                toPath: localized_path,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
         }
 
         if (is_responsible_trading) {

@@ -127,7 +127,6 @@ const DtraderEasySteps = () => {
                         <GotoLiveWrapper>
                             <GoToLiveDemo
                                 secondary
-                                external
                                 to={dtrader_url}
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"

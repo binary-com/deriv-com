@@ -509,21 +509,21 @@ const dmt5: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll deactivate it automatically. You can still create a new one in the <0>Deriv MT5 dashboard</0>._t_",
+                        "_t_You can use your Deriv MT5 demo account for as long as you want. However, if your account is inactive for 30 days, we'll archive it automatically. You can still create a new one in the <0>Deriv MT5 dashboard</0>._t_",
                     translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                 },
             ],
         },
         {
             question:
-                '_t_Will my inactive Deriv MT5 account be deactivated even though I still have a balance?_t_',
+                '_t_Will my inactive Deriv MT5 account be archived even though I still have a balance?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
             label: 'Will-my-inactive-Deriv-MT5-account-be-deactivated',
             answer: [
                 {
                     translation_text:
-                        '_t_Yes, we’ll transfer your balance to your Deriv account before your Deriv MT5 account is deactivated._t_',
+                        '_t_Yes, we’ll transfer your balance to your Deriv account before your Deriv MT5 account is archived._t_',
                 },
             ],
         },

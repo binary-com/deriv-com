@@ -162,7 +162,15 @@ export const onRouteUpdate = ({ location }) => {
     const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
-    // wrap inside a timeout to ensure the title has properly been changed
+    const path = location.pathname;
+
+        if (path === '/mn') {
+          navigate('/', { replace: true });
+        } else if (path.startsWith('/mn/')) {
+          const newPath = path.replace(/^\/mn/, '');
+          navigate(newPath || '/', { replace: true });
+        }
+
     setTimeout(() => {
         const eventName = 'page_load'
 

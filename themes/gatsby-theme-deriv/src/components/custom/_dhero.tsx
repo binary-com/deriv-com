@@ -204,7 +204,6 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                             {is_live_demo && (
                                 <GoToLiveDemo
                                     tertiary
-                                    external
                                     to={dtrader_url}
                                     target="_blank"
                                     rel="noopener noreferrer nofollow"

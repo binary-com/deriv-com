@@ -217,9 +217,9 @@ const RedButton = styled(LinkButton)<RedButtonProps>`
     display: flex;
     margin: auto;
     margin-bottom: 40px;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     @media ${device.tabletL} {
         padding-top: 10px;
         width: 100%;
@@ -333,7 +333,7 @@ const DerivIBProgramme = () => {
 const ib_dmt5_synthetic: DMT5Type = {
     name: '_t_MT5 Derived_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Derived account.<br><br>All commission rates are quoted in USD, per round trade._t_',
+        '_t_Earn when your clients trade on an MT5 Derived account. All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
             headerHeight: '8rem',
@@ -372,7 +372,7 @@ const ib_dmt5_synthetic: DMT5Type = {
 const ib_dmt5_swapFree: DMT5Type = {
     name: '_t_MT5 Swap Free_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Swap Free account.<br><br>All commission rates are quoted in USD, per round trade._t_',
+        '_t_Earn when your clients trade on an MT5 Swap Free account. All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
             headerHeight: '8rem',
@@ -397,7 +397,7 @@ const ib_dmt5_swapFree: DMT5Type = {
                     list: [
                         '_t_Commodities_t_',
                         '_t_Cryptocurrencies_t_',
-                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
+                        '_t_Stocks, Stock Indices &  ETFs_t_',
                         '_t_Volatility indices_t_',
                         '_t_Step Index_t_',
                         '_t_Range break indices_t_',
@@ -423,7 +423,7 @@ const ib_dmt5_swapFree: DMT5Type = {
 const ib_dmt5_financial: DMT5Type = {
     name: '_t_MT5 Financial_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Financial account.<br><br>All commission rates are quoted in USD, per round trade._t_',
+        '_t_Earn when your clients trade on an MT5 Financial account. All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
             headerHeight: '5rem',
@@ -448,7 +448,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [
                         '_t_Commodities_t_',
                         '_t_Cryptocurrencies_t_',
-                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
+                        '_t_Stocks, Stock Indices &  ETFs_t_',
                     ],
                 },
                 {
@@ -462,7 +462,7 @@ const ib_dmt5_financial: DMT5Type = {
 const ib_dmt5_financialSTP: DMT5Type = {
     name: '_t_MT5 Financial STP_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Financial STP account.<br><br>All commission rates are quoted in USD, per round trade._t_',
+        '_t_Earn when your clients trade on an MT5 Financial STP account. All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
             headerHeight: '8rem',
@@ -483,7 +483,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
 const ib_dx: DMT5Type = {
     name: '_t_Deriv X_t_',
     description:
-        '_t_Earn when your clients trade on a Deriv X account.<br><br>All commission rates are quoted in USD, per round trade._t_',
+        '_t_Earn when your clients trade on a Deriv X account. All commission rates are quoted in USD, per round trade._t_',
     type: [
         {
             headerHeight: '5rem',
@@ -495,7 +495,7 @@ const ib_dx: DMT5Type = {
                         '_t_Forex & Metals_t_',
                         '_t_Commodities_t_',
                         '_t_Cryptocurrencies_t_',
-                        '_t_Stocks, Stock Indices & <br>ETFs_t_',
+                        '_t_Stocks, Stock Indices &  ETFs_t_',
                         '_t_Crash/Boom indices_t_',
                         '_t_Volatility indices_t_',
                         '_t_Step Index_t_',

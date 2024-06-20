@@ -86,7 +86,7 @@ const OurValues = () => (
             >
                 <FirstColumn>
                     <StyledHeader as="h3" type="section-title">
-                        Everything is built around <br /> <span>our values</span>
+                        Everything is built around <span>our values</span>
                     </StyledHeader>
                 </FirstColumn>
                 <div>

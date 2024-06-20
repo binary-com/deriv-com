@@ -37,12 +37,12 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_USD 20,000 x 30% = USD 6,000_t_" />
-                            <br />
+
                             <Localize translate_text="_t_USD 5,000 x 45% = USD 2,250_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Total commission earned:_t_" />
-                            <br />
+
                             <Localize translate_text="_t_6,000 + 2,250 = USD 8,250_t_" />
                         </Header>
                     </Li>

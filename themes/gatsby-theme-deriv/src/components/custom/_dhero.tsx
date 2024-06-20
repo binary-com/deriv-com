@@ -204,9 +204,10 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                             {is_live_demo && (
                                 <GoToLiveDemo
                                     tertiary
-                                    to={dtrader_url}
+                                    external
+                                    to = {dtrader_url}
                                     target="_blank"
-                                    rel="noopener noreferrer nofollow"
+                                    rel="noopener noreferrer"
                                 >
                                     <Localize translate_text="_t_Go to live demo_t_" />
                                 </GoToLiveDemo>

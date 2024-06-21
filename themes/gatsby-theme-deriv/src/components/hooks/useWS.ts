@@ -19,7 +19,7 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
             const readyState = parseInt(ApiManager.readyState)
             if (readyState !== 1 && readyState !== 0) {
                 if (isBrowser()) {
-                    const currentLanguage = getLanguage() ?? 'en'
+                    const currentLanguage = 'en'
                     try {
                         // Connect to WebSocket if not connected
                         await apiManager.reconnectIfNotConnected(currentLanguage)

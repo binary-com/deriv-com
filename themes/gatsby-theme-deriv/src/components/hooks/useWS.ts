@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { TSocketEndpointNames, TSocketResponseData } from 'common/websocket/types'
 import apiManager, { ApiManager } from 'common/websocket'
-import { getLanguage, isBrowser } from 'common/utility'
+import { isBrowser } from 'common/utility'
 
 const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [is_loading, setIsLoading] = useState(false)

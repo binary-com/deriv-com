@@ -112,7 +112,7 @@ export const langItemsROW: LangItems = {
     km: {
         path: 'km',
         displayName: 'ខ្មែរ',
-        shortName: 'km',
+        shortName: 'KM',
         affiliateLang: 19,
     },
 }

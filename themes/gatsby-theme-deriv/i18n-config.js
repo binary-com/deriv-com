@@ -117,7 +117,7 @@ module.exports = {
     km: {
         path: 'km',
         display_name: 'ខ្មែរ',
-        short_name: 'km',
+        short_name: 'KM',
         affiliate_lang: 19,
     },
 }

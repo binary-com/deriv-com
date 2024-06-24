@@ -108,11 +108,4 @@ export const langItemsROW: LangItems = {
         shortName: 'SW',
         affiliateLang: 18,
     },
-    km: {
-        isDefault: true,
-        path: 'km',
-        displayName: 'ខ្មែរ',
-        shortName: 'KM',
-        affiliateLang: 19,
-    },
 }

@@ -2,7 +2,6 @@ import { LangItems } from '@deriv-com/providers'
 
 export const langItemsROW: LangItems = {
     en: {
-        isDefault: true,
         path: 'en',
         displayName: 'English',
         shortName: 'EN',
@@ -110,6 +109,7 @@ export const langItemsROW: LangItems = {
         affiliateLang: 18,
     },
     km: {
+        isDefault: true,
         path: 'km',
         displayName: 'ខ្មែរ',
         shortName: 'KM',

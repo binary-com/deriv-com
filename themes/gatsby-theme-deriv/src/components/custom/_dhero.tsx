@@ -17,6 +17,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import useBuildVariant from 'features/hooks/use-build-variant'
 import { breakpoints } from 'themes/theme.breakpoints'
 import { dtrader_url } from 'common/constants'
+import { getLanguage } from 'common/utility'
 
 type DHeroProps = {
     is_live_demo?: boolean
@@ -205,7 +206,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                 <GoToLiveDemo
                                     tertiary
                                     external
-                                    to = {dtrader_url}
+                                    to={`https://app.deriv.com/dtrader?lang=${getLanguage()}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

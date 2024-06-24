@@ -11,6 +11,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import { QueryImage } from 'components/elements'
 import useBuildVariant from 'features/hooks/use-build-variant'
 import { dtrader_url } from 'common/constants'
+import { getLanguage } from 'common/utility'
 
 const query = graphql`
     query {

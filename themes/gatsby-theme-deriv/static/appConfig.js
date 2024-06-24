@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     chat: {
         live_chat: true,
         whatsapp_chat: true,

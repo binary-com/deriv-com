@@ -5,8 +5,8 @@ const path = require('path')
 const { exec } = require('child_process')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const minify = require('html-minifier').minify;
-const fs = require('fs');
+const minify = require('html-minifier').minify
+const fs = require('fs')
 
 const translations_cache = {}
 
@@ -21,20 +21,6 @@ function OSFunction() {
             callback(stdout)
         })
     }
-}
-
-const fetchTrustpilotData = () => {
-    // Trustpilot on-build data fetching
-    const os = new OSFunction()
-
-    os.execCommand('node scripts/trustpilot.js', (returnvalue) => {
-        console.log(returnvalue)
-    })
-}
-
-exports.onPreInit = () => {
-    // Update truspilot.json file with latest data
-    fetchTrustpilotData()
 }
 
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
@@ -377,7 +363,7 @@ const BuildPage = (page, actions, region) => {
 }
 exports.onCreatePage = ({ page, actions }, options) => {
     const { deletePage } = actions
-    const {region} = options;
+    const { region } = options
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
     if (pagesToBuild) {
@@ -494,32 +480,29 @@ const minificationOptions = {
     useShortDoctype: true,
 }
 
-exports.onPostBuild = (_, {buildDirPath}) => {
+exports.onPostBuild = (_, { buildDirPath }) => {
     return new Promise((resolve, reject) => {
         // do async work
-        console.log('=== HMTL minification started ===');
+        console.log('=== HMTL minification started ===')
 
-        console.log('full path', buildDirPath);
+        console.log('full path', buildDirPath)
         fs.readFile(buildDirPath, 'utf8', (err, inp) => {
             if (err) {
-                reject();
-                throw err;
+                reject()
+                throw err
             }
-            var result = minify(inp, minificationOptions);
-            var reducedPercentage = (
-                ((inp.length - result.length) / inp.length) *
-                100
-            ).toFixed(2);
-            console.log(`We have reduced index.html by ${reducedPercentage}%`);
+            var result = minify(inp, minificationOptions)
+            var reducedPercentage = (((inp.length - result.length) / inp.length) * 100).toFixed(2)
+            console.log(`We have reduced index.html by ${reducedPercentage}%`)
 
-            fs.writeFile(buildDirPath, result, err2 => {
+            fs.writeFile(buildDirPath, result, (err2) => {
                 if (err2) {
-                    reject();
-                    throw err;
+                    reject()
+                    throw err
                 }
-                console.log('index.html has been saved!');
-                resolve();
-            });
-        });
-    });
-};
+                console.log('index.html has been saved!')
+                resolve()
+            })
+        })
+    })
+}

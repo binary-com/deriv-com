@@ -124,7 +124,7 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const {region} = useBuildVariant()
+    const { region } = useBuildVariant()
     const { is_p2p_allowed_country, is_region_loading } = useRegion()
     const [is_mobile] = useBrowserResize(992)
     const { data, send } = useWS('crypto_config')
@@ -138,7 +138,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     useEffect(() => {
         // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
 
-        if (region === "eu") {
+        if (region === 'eu') {
             setPaymentMethodData(
                 payment_method_data.filter((payment_method) => payment_method.is_eu),
             )
@@ -204,16 +204,16 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           paddingBottom: pdata.note ? '5rem' : '3.8rem',
                           boxShadow: 'rgba(195, 195, 195, 0.31) 0px 20px 15px 0px',
                       }
-                if (pdata.is_row && region === "eu") {
+                if (pdata.is_row && region === 'eu') {
                     return []
                 }
-                if (pdata.is_eu && region !== "eu") {
+                if (pdata.is_eu && region !== 'eu') {
                     return []
                 }
-                if (pdata.is_crypto && region === "eu") {
+                if (pdata.is_crypto && region === 'eu') {
                     return []
                 }
-                if (pdata.is_fiat_onramp && region === "eu") {
+                if (pdata.is_fiat_onramp && region === 'eu') {
                     return []
                 } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
                     return null
@@ -467,7 +467,7 @@ const PaymentMethods = ({ pageContext }: TGatsbyHead) => {
                     align="center"
                 >
                     <Localize translate_text="_t_We support a variety of deposit and withdrawal options._t_" />
-                    <br />
+
                     <Localize translate_text="_t_Learn more about our payment methods and how to use them._t_" />
                 </Typography.Paragraph>
             </Flex.Box>

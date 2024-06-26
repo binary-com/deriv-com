@@ -68,13 +68,13 @@ const faq_schema: TFaqSchemaData = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_The Deriv MT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.<br />The Deriv MT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.<br />The Deriv MT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party._t_',
+                    '_t_The Deriv MT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility. The Deriv MT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. The Deriv MT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party._t_',
                 ),
             },
             acceptedAnswerEU: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_DTrader allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.<br />Deriv MT5 is a multi-asset trading platform that you can use to trade spot forex and contracts for difference (CFDs) with leverage._t_',
+                    '_t_DTrader allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options. Deriv MT5 is a multi-asset trading platform that you can use to trade spot forex and contracts for difference (CFDs) with leverage._t_',
                 ),
             },
         },

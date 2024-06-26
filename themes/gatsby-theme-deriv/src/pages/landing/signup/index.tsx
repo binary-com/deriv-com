@@ -77,7 +77,7 @@ const NewSignup = ({ pageContext }: TGatsbyHead) => {
                         <Header mt="2.4rem" as="h3" type="section-title">
                             <Localize translate_text="_t_Start trading with Deriv_t_" />
                         </Header>
-                        <br />
+
                         <Text>
                             <Localize translate_text="_t_Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years._t_" />
                         </Text>

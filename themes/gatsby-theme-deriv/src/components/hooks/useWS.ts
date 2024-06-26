@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { TSocketEndpointNames, TSocketResponseData } from 'common/websocket/types'
 import apiManager, { ApiManager } from 'common/websocket'
-import { getLanguage, isBrowser } from 'common/utility'
+import { isBrowser } from 'common/utility'
 
 const useWS = <T extends TSocketEndpointNames>(name: T) => {
     const [is_loading, setIsLoading] = useState(false)
@@ -19,7 +19,7 @@ const useWS = <T extends TSocketEndpointNames>(name: T) => {
             const readyState = parseInt(ApiManager.readyState)
             if (readyState !== 1 && readyState !== 0) {
                 if (isBrowser()) {
-                    const currentLanguage = getLanguage() ?? 'en'
+                    const currentLanguage = 'en'
                     try {
                         // Connect to WebSocket if not connected
                         await apiManager.reconnectIfNotConnected(currentLanguage)

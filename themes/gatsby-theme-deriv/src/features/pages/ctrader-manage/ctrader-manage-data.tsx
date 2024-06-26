@@ -14,7 +14,7 @@ type ParagraphType = {
 
 type CtraderManageDataType = { [page: string]: CtraderManageProps }
 
-export type CtraderManageProps =  {
+export type CtraderManageProps = {
     title: TString
     paragraph: ParagraphType
     steps?: ParagraphType[]
@@ -90,7 +90,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         },
         paragraph: {
             text: '_t_Your cTrader credentials are the same as your Deriv credentials. <0/>Please click the button to proceed with <1>changing your Deriv credentials</1>._t_',
-            components: [<br key={0} />, <strong key={1} />],
+            components: [<div key={0} />, <strong key={1} />],
         },
         button_text: '_t_Change credentials_t_',
     },
@@ -103,7 +103,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         },
         paragraph: {
             text: '_t_Your cTrader account is linked to your Deriv account. <0/>Please click the button to proceed with <1>deleting your Deriv account</1>._t_',
-            components: [<br key={0} />, <strong key={1} />],
+            components: [<div key={0} />, <strong key={1} />],
         },
         button_text: '_t_Delete account_t_',
     },

@@ -114,4 +114,10 @@ module.exports = {
         short_name: 'SW',
         affiliate_lang: 18,
     },
+    km: {
+        path: 'km',
+        display_name: 'ខ្មែរ',
+        short_name: 'km',
+        affiliate_lang: 19,
+    },
 }

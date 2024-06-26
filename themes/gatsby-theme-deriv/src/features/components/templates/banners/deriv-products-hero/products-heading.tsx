@@ -21,7 +21,7 @@ const ProductsHeading = ({ title }: ProductsHeadingProps) => {
             >
                 {title.map((text, index) => (
                     <React.Fragment key={index}>
-                        <Localize translate_text={text} /> <br />
+                        <Localize translate_text={text} />
                     </React.Fragment>
                 ))}
             </Typography.Heading>

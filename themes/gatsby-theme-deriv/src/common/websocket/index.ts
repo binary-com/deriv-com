@@ -41,10 +41,12 @@ export class ApiManager {
     public init(lang?: string) {
         if (!this.ready) {
             if (!this.socket) {
+                // unsupported lang handler
                 const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
+                const socket_lang = ['km'].includes(language) ? 'en' : language
                 const socket_url = getSocketURL()
                 const app_id = getAppId()
-                const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
+                const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${socket_lang}&brand=${brand_name.toLowerCase()}`
 
                 this.socket = new WebSocket(websocket_connection_url)
                 this.setReadyState(this.socket?.readyState)
@@ -99,9 +101,11 @@ export class ApiManager {
     }
 
     public reset(language: string) {
+        // unsupported lang handler
+        const socket_lang = ['km'].includes(language) ? 'en' : language
         const socket_url = getSocketURL()
         const app_id = getAppId()
-        const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
+        const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${socket_lang}&brand=${brand_name.toLowerCase()}`
 
         this.derivApi.disconnect()
         this.socket.close()

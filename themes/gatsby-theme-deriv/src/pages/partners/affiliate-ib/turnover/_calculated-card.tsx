@@ -27,7 +27,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
-                            <br />
+
                             <Localize translate_text="_t_Total commission earned: 10 x 0.5% = USD 0.05_t_" />
                         </Header>
                     </Li>
@@ -42,7 +42,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
-                            <br />
+
                             <Localize translate_text="_t_Total commission earned: USD 0.60 * 40% = USD 0.24_t_" />
                         </Header>
                     </Li>
@@ -57,7 +57,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
-                            <br />
+
                             <Localize translate_text="_t_Total commission earned: USD 10 * 0.8% = USD 0.08_t_" />
                         </Header>
                     </Li>

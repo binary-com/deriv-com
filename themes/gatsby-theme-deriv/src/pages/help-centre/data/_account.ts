@@ -610,7 +610,7 @@ const account: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    "_t_<0>Proof of identity</0><br />You’ll need a valid government-issued identity document such as a national ID card, passport, or driver's licence. Your document must clearly show your name, photo, and date of birth._t_",
+                                    "_t_<0>Proof of identity</0> You’ll need a valid government-issued identity document such as a national ID card, passport, or driver's licence. Your document must clearly show your name, photo, and date of birth._t_",
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {

@@ -113,7 +113,7 @@ export const onClientEntry = async () => {
         utm_medium: utm_data?.['utm_medium'],
         utm_campaign: utm_data?.['utm_campaign'],
         is_authorised: !!Cookies?.get('client_information'),
-        url: window.location.href
+        url: window.location.href,
     })
     //datadog
     const dd_options = {
@@ -155,28 +155,26 @@ export const onRouteUpdate = ({ location }) => {
 
     checkDomain()
 
-    Analytics?.getInstances()?.ab?.GrowthBook?.setURL(window.location.href)
-
     const dataLayer = window.dataLayer
     const domain = getDomain()
     const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
-    const path = location.pathname;
+    const path = location.pathname
 
     if (path === '/mn') {
-        navigate('/', { replace: true });
+        navigate('/', { replace: true })
     } else if (path.startsWith('/mn/')) {
-        const newPath = path.replace(/^\/mn/, '');
-        navigate(newPath || '/', { replace: true });
+        const newPath = path.replace(/^\/mn/, '')
+        navigate(newPath || '/', { replace: true })
     }
 
     if (path === '/km') {
-        navigate('/', { replace: true });
-      } else if (path.startsWith('/km/')) {
-        const newPath = path.replace(/^\/km/, '');
-        navigate(newPath || '/', { replace: true });
-      }
+        navigate('/', { replace: true })
+    } else if (path.startsWith('/km/')) {
+        const newPath = path.replace(/^\/km/, '')
+        navigate(newPath || '/', { replace: true })
+    }
 
     // wrap inside a timeout to ensure the title has properly been changed
     setTimeout(() => {

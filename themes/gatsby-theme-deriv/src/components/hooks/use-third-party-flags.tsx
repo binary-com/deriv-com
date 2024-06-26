@@ -1,34 +1,9 @@
-import { useState, useEffect } from 'react'
-import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, onValue } from 'firebase/database'
-// import useRegion from 'components/hooks/use-region'
+import { useEffect, useState } from 'react'
 import featuresConfig from '../../../static/appConfig'
 
-const thirdPartyFlagsConfig = {
-    databaseURL: process.env.GATSBY_DATABASE_URL,
-}
-
 const useThirdPartyFlags = (featurePath) => {
-    const [data, setData] = useState(featuresConfig)
+    const [data] = useState(featuresConfig)
     const [feature, setFeature] = useState(null)
-
-    useEffect(() => {
-        const app = initializeApp(thirdPartyFlagsConfig, 'thirdPartyFlagsConfig')
-        const db = getDatabase(app)
-
-        // let fetchedData = featuresConfig
-        const starCountRef = ref(db, 'remote_config/deriv-com')
-        const flagsData = onValue(
-            starCountRef,
-            (snapshot) => {
-                setData(snapshot.val())
-            },
-            (error) => {
-                console.error(error)
-            },
-        )
-        return flagsData
-    }, [])
 
     useEffect(() => {
         const pathParts = featurePath.split('.')
@@ -52,5 +27,4 @@ const useThirdPartyFlags = (featurePath) => {
 
     return feature
 }
-
 export default useThirdPartyFlags

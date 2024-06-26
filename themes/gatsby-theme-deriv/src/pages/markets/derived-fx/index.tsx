@@ -9,10 +9,10 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const DerivedFxPage = ({pageContext}: TGatsbyHead) => {
-    const {region} = pageContext
+const DerivedFxPage = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const description_eu =
-        '_t_Trade 24/7 on our proprietary synthetics that simulate real-world market movements. These indices are unaffected by regular<br /> market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite._t_'
+        '_t_Trade 24/7 on our proprietary synthetics that simulate real-world market movements. These indices are unaffected by regular  market hours, global events, or market and liquidity risks. Manage your exposure by selecting the volatility level to suit your risk appetite._t_'
     const description_row =
         '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_'
 

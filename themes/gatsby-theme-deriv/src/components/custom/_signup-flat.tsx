@@ -137,7 +137,7 @@ const SignupFlat = ({
                     >
                         <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
                     </StyledHeader>
-                    <br />
+
                     <Text color={dark ? 'white' : 'black'}>
                         <Localize translate_text="_t_Sign up for your demo account now._t_" />
                     </Text>

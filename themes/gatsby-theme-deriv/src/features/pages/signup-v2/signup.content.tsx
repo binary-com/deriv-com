@@ -52,7 +52,7 @@ const SignUpContent = () => {
                 <>
                     <Typography.Heading weight="bold" size="small" align="left" mb="10x">
                         <Localize translate_text="_t_New to trading?_t_" />
-                        <br />
+
                         <Localize translate_text="_t_We got you covered_t_" />
                     </Typography.Heading>
 

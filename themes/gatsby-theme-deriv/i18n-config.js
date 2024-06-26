@@ -1,7 +1,6 @@
 module.exports = {
     en: {
         // language for the root path e.g. for www.deriv.com
-        is_default: true,
         path: 'en',
         display_name: 'English',
         short_name: 'EN',
@@ -113,5 +112,12 @@ module.exports = {
         display_name: 'Kiswahili',
         short_name: 'SW',
         affiliate_lang: 18,
+    },
+    km: {
+        is_default: true,
+        path: 'km',
+        display_name: 'ខ្មែរ',
+        short_name: 'KM',
+        affiliate_lang: 19,
     },
 }

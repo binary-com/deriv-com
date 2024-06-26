@@ -12,8 +12,8 @@ import { TGatsbyHead } from 'features/types'
 
 type RegulatoryPageProps = RegulatoryProps & TGatsbyHead
 
-const Regulatory = ({ pageContext}: RegulatoryPageProps) => {
-    const {region} = pageContext;
+const Regulatory = ({ pageContext }: RegulatoryPageProps) => {
+    const { region } = pageContext
 
     return (
         <Layout region={region}>
@@ -23,7 +23,7 @@ const Regulatory = ({ pageContext}: RegulatoryPageProps) => {
                         className="bg-solid-slate-75 px-600 md:px-180"
                         title={<Localize translate_text="_t_Regulatory information_t_" />}
                         description={
-                            <Localize translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We<br /> always hold ourselves to the highest ethical standards and regulatory requirements._t_" />
+                            <Localize translate_text="_t_Since 1999, the Deriv group of companies has served traders around the world with integrity and reliability. We  always hold ourselves to the highest ethical standards and regulatory requirements._t_" />
                         }
                     >
                         <Text className="text-center pt-800">

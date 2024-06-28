@@ -90,7 +90,7 @@ jobs:
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
-                  echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                  echo "$CA_CRT" | base64 --decode > ca.crt
                   export CA="ca.crt"
                   ./release.sh deriv-com ${GITHUB_SHA}
 

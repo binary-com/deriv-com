@@ -11,6 +11,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import { QueryImage } from 'components/elements'
 import useBuildVariant from 'features/hooks/use-build-variant'
 import { dtrader_url } from 'common/constants'
+import { getLanguage } from 'common/utility'
 
 const query = graphql`
     query {
@@ -126,10 +127,11 @@ const DtraderEasySteps = () => {
                     renderFooter={() => (
                         <GotoLiveWrapper>
                             <GoToLiveDemo
-                                secondary
-                                to={dtrader_url}
-                                target="_blank"
-                                rel="noopener noreferrer nofollow"
+                               tertiary
+                               external
+                               to={`https://app.deriv.com/dtrader?lang=${getLanguage()}`}
+                               target="_blank"
+                               rel="noopener noreferrer"
                             >
                                 <Localize translate_text="_t_Go to live demo_t_" />
                             </GoToLiveDemo>

@@ -5,23 +5,42 @@ import { getLocationPathname } from 'common/utility'
 import { Localize, LocalizedLink } from 'components/localization'
 import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import useBuildVariant from 'features/hooks/use-build-variant'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 
 const AffiliateButtons = () => {
     const { affiliate_signup_link } = useAffiliateSignupLink()
+    const { website_status } = useWebsiteStatus()
+
+    const user_ip_country = website_status?.clients_country || ''
+
     return (
         <>
             <Button
                 variant="secondary"
                 colorStyle="black"
                 size="lg"
-                onClick={() => window.open('https://login.deriv.com/signin.php?lang=0', '_blank')}
+                onClick={() =>
+                    window.open(
+                        user_ip_country === 'my'
+                            ? 'https://dynamicworks-dev.deriv.services/login?brd=1'
+                            : 'https://login.deriv.com/signin.php?lang=0',
+                        '_blank',
+                    )
+                }
             >
                 <Localize translate_text="_t_Log in_t_" />
             </Button>
             <Button
                 className="hidden lg:block"
                 size="lg"
-                onClick={() => window.open(affiliate_signup_link, '_blank')}
+                onClick={() =>
+                    window.open(
+                        user_ip_country === 'my'
+                            ? 'https://dynamicworks-dev.deriv.services/live_signup?brd=1'
+                            : affiliate_signup_link,
+                        '_blank',
+                    )
+                }
             >
                 <Localize translate_text="_t_Sign up_t_" />
             </Button>
@@ -60,7 +79,7 @@ const PartnersNavButtons = () => {
     }, [path_name])
 
     useEffect(() => {
-        setShowPaymentBtns(path_name.includes('payment-agent') && region !== "eu")
+        setShowPaymentBtns(path_name.includes('payment-agent') && region !== 'eu')
     }, [region, path_name])
 
     return (

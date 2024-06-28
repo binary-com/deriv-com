@@ -12,6 +12,7 @@ const AffiliateButtons = () => {
     const { website_status } = useWebsiteStatus()
 
     const user_ip_country = website_status?.clients_country || ''
+    const is_gh = user_ip_country === 'gh'
 
     return (
         <>
@@ -21,7 +22,7 @@ const AffiliateButtons = () => {
                 size="lg"
                 onClick={() =>
                     window.open(
-                        user_ip_country === 'my'
+                        is_gh
                             ? 'https://dynamicworks-dev.deriv.services/login?brd=1'
                             : 'https://login.deriv.com/signin.php?lang=0',
                         '_blank',
@@ -35,7 +36,7 @@ const AffiliateButtons = () => {
                 size="lg"
                 onClick={() =>
                     window.open(
-                        user_ip_country === 'my'
+                        is_gh
                             ? 'https://dynamicworks-dev.deriv.services/live_signup?brd=1'
                             : affiliate_signup_link,
                         '_blank',

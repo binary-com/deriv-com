@@ -39,8 +39,7 @@ type RegionContextType = Record<
     | 'is_africa'
     | 'is_appgallery_supported'
     | 'is_appgallery_and_ios_supported'
-    | 'is_ios_supported'
-    | 'is_ghana',
+    | 'is_ios_supported',
     boolean
 > & { user_country: string }
 
@@ -59,7 +58,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_row: !isEuDomain(),
         is_dev: false,
         is_africa: false,
-        is_ghana: false,
     })
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [is_appgallery_supported, setAppgallerySupported] = useState(false)
@@ -77,8 +75,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
 
     useEffect(() => {
         const is_eu_country_ip = eu_countries.includes(user_ip_country)
-        const is_ghana = user_ip_country === 'gh' || qa_url_region === 'gh'
-        debugger
         const is_africa =
             african_countries.includes(user_ip_country) || african_countries.includes(qa_url_region)
         const is_eu_residence = eu_countries.includes(residence)
@@ -118,7 +114,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_africa,
                 is_row,
                 is_dev,
-                is_ghana,
             })
         }
     }, [residence, user_ip_country, website_status])
@@ -154,7 +149,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_africa,
         is_row,
         is_dev,
-        is_ghana,
     } = region
 
     return (
@@ -175,7 +169,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_appgallery_supported,
                 is_appgallery_and_ios_supported,
                 is_ios_supported,
-                is_ghana,
             }}
         >
             {children}

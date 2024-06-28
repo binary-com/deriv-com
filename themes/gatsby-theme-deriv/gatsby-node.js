@@ -2,26 +2,12 @@
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
-const { exec } = require('child_process')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const minify = require('html-minifier').minify
 const fs = require('fs')
 
 const translations_cache = {}
-
-function OSFunction() {
-    this.execCommand = function (cmd, callback) {
-        exec(cmd, (error, stdout) => {
-            if (error) {
-                console.error(`exec error: ${error}`)
-                return
-            }
-
-            callback(stdout)
-        })
-    }
-}
 
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 

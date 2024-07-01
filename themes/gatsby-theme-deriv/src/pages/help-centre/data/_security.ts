@@ -19,18 +19,6 @@ const security: TQuestionsData = {
             ],
         },
         {
-            question: '_t_How long does verification take?_t_',
-            category: 'Security',
-            sub_category: '_t_Verification_t_',
-            label: 'verification-duration',
-            answer: [
-                {
-                    translation_text:
-                        '_t_We’ll typically take 1-3 business days to review your documents and will inform you of the result via email once it’s done._t_',
-                },
-            ],
-        },
-        {
             question: '_t_Why were my documents declined?_t_',
             category: 'Security',
             sub_category: '_t_Verification_t_',

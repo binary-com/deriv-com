@@ -130,9 +130,10 @@ State.prototype.getResponse = function (pathname) {
 State.set('response', {})
 
 const CookieStorage = function (cookie_name, cookie_domain = '') {
+    const allowed_domains = ["deriv.com", "binary.sx"] //static array of allowed domains
     const hostname = isBrowser() && window.location.hostname
-    const is_deriv_com = String(hostname).includes('deriv.com')
-    const is_binary_sx = String(hostname).includes('binary.sx')
+    const is_deriv_com = allowed_domains.includes(hostname) && String(hostname).includes('deriv.com')
+    const is_binary_sx = allowed_domains.includes(hostname) && String(hostname).includes('binary.sx')
 
     this.initialized = false
     this.cookie_name = cookie_name

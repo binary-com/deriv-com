@@ -83,11 +83,26 @@ const TRAPREVERSE = styled.div<TableProps>`
     align-items: center;
     justify-content: center;
     white-space: nowrap;
-    min-height: 62px;
+    min-height: 75px;
+
+    :nth-child(odd) {
+        height: 100%;
+    }
+`
+const TRAPREVERSECUSTOM = styled.div<TableProps>`
+    padding: 1rem 0.8rem;
+    background-color: ${(props) => (props.even === 'true' ? 'var(--color-grey-39)' : 'unset')};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    min-height: 75px;
+    top: 18px;
+    position: relative;
 
     :nth-child(odd) {
         height: 100%;
     }
 `
 
-export { TR, TRAP, TRAPREVERSE, TC, Table }
+export { TR, TRAP, TRAPREVERSE, TC, Table,TRAPREVERSECUSTOM   }

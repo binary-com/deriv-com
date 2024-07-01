@@ -30,7 +30,6 @@ type TPopUpMenuProps = {
     toggle: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const how_it_is_calculated: TString = '_t_How it’s calculated_t_'
 const back: TString = '_t_Back_t_'
 const dl_description: TString =
     '_t_With dynamic leverage, the higher the trading volume, the lower the leverage, to reduce your risk and protect you from adverse market movements. At the same time, the first tiers offer high leverage to allow you more trading opportunities._t_'

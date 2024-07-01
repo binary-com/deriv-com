@@ -24,7 +24,7 @@ const complaints_procedure: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_To register a complaint and seek assistance, follow these easy steps_t_',
+                        '_t_To register a complaint about our Services, follow these easy steps:_t_',
                 },
 
                 {
@@ -36,18 +36,17 @@ const complaints_procedure: TQuestionsData = {
                         items: [
                             {
                                 translation_text:
-                                    '_t_Locate the live chat widget on our website or app at the bottom right corner of the screen._t_',
+                                    '_t_Compose an email detailing your complaint and attach any supporting evidence._t_',
                             },
                             {
-                                translation_text: '_t_Click the widget to open the chat window._t_',
+                                translation_text: '_t_Send the email to <0>complaints@deriv.com</0>._t_',
+                                translation_components: [
+                                    { key: 0, type: 'strong' },
+                                ],
                             },
                             {
                                 translation_text:
-                                    '_t_Once you’re shown options to select from, choose “Complaints”. You can also type "complaint"._t_',
-                            },
-                            {
-                                translation_text:
-                                    '_t_Respond to the questions that appear on your screen._t_',
+                                    '_t_We will acknowledge receipt of your complaint via email and aim to provide a final response within fifteen (15) business days._t_',
                             },
                         ],
                     },

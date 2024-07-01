@@ -59,8 +59,8 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
-const WhyChooseUs = ({pageContext}: TGatsbyHead) => {
-    const {region} = pageContext
+const WhyChooseUs = ({ pageContext }: TGatsbyHead) => {
+    const { region } = pageContext
     const { is_latam, is_africa } = useRegion()
     const handleSignup = useHandleSignup()
 

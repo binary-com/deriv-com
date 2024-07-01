@@ -7,7 +7,7 @@
         "@commitlint/cli": "^16.3.0",
         "@commitlint/config-conventional": "^16.2.4",
         "@deriv/api-types": "^1.0.137",
-        "@graphql-codegen/cli": "^2.16.5",
+        "@graphql-codegen/cli": "^5.0.2",
         "@graphql-codegen/typescript": "^2.8.8",
         "@graphql-codegen/typescript-operations": "^2.5.13",
         "@loadable/babel-plugin": "^5.16.1",

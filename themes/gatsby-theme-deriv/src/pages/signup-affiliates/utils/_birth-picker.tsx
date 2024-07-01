@@ -108,7 +108,11 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
     }
     const max_date = subtractYears(18)
 
-    const handleDateChange = (date) => setFieldValue((prev) => ({ ...prev, date_birth: date }))
+    const handleDateChange = (date,e) => {
+        console.log(e.target)
+        console.log('==>', date)
+        setFieldValue((prev) => ({ ...prev, date_birth: date }))
+    }
 
     return (
         <BirthPickerWrapper is_date_field={is_date_field} value={value} error={error}>
@@ -120,7 +124,12 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
                 showLeadingZeros={false}
                 calendarIcon={<img src={Calendar} alt="calendar icon" />}
                 clearIcon={null}
-                onChange={handleDateChange}
+                onChange={(date) => {
+                    console.log("selected date is:", date)
+                    // const d = new Date(date).toLocaleDateString('fr-FR');
+                    // console.log(d);
+                    // setDate(d);
+                  }}
             />
             <AffiliateLabel htmlFor={id} label_color={label_color}>
                 {label}

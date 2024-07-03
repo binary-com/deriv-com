@@ -172,6 +172,18 @@ const AccountDetails = ({
         }
     }, [])
 
+    const handleInput2 = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({ ...prev, [name]: value.replace(/  +/g, " ") }))
+        if (affiliate_validation[name]) {
+            const error_msg = affiliate_validation[name](value) || ''
+            setFormErrors((errors) => ({
+                ...errors,
+                [`${name}_error_msg`]: error_msg,
+            }))
+        }
+    }, [])
+
     const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
@@ -212,6 +224,25 @@ const AccountDetails = ({
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
+                                    handleError={() => handleError(item)}
+                                />
+                            </li>
+                        )
+                    } else if (item.name === 'first_name') {
+                        return (
+                            <li key={item.id}>
+                                <AffiliateInput
+                                    id={item.id}
+                                    name={item.name}
+                                    type={item.type}
+                                    label={item.label}
+                                    value={form_data[item.name]}
+                                    error={form_errors[`${item.name}_error_msg`]}
+                                    placeholder={item.label}
+                                    password_icon={item.type == 'password'}
+                                    onChange={handleInput2}
+                                    onBlur={handleInput2}
+                                    data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />
                             </li>

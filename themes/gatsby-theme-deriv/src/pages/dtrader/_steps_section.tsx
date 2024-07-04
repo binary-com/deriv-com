@@ -127,7 +127,7 @@ const DtraderEasySteps = () => {
                     renderFooter={() => (
                         <GotoLiveWrapper>
                             <GoToLiveDemo
-                               tertiary
+                               secondary
                                external
                                to={`https://app.deriv.com/dtrader?lang=${getLanguage()}`}
                                target="_blank"

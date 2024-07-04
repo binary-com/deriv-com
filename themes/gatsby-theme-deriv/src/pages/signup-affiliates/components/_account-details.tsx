@@ -184,6 +184,18 @@ const AccountDetails = ({
         }
     }, [])
 
+    const handleInputTrim = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
+        if (affiliate_validation[name]) {
+            const error_msg = affiliate_validation[name](value) || ''
+            setFormErrors((errors) => ({
+                ...errors,
+                [`${name}_error_msg`]: error_msg,
+            }))
+        }
+    }, [])
+
     const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
@@ -228,7 +240,7 @@ const AccountDetails = ({
                                 />
                             </li>
                         )
-                    } else if (item.name === 'first_name') {
+                    } else if (item.name === 'first_name' || item.name === 'last_name' ) {
                         return (
                             <li key={item.id}>
                                 <AffiliateInput
@@ -241,7 +253,7 @@ const AccountDetails = ({
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}
                                     onChange={handleInput2}
-                                    onBlur={handleInput2}
+                                    onBlur={handleInputTrim}
                                     data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />

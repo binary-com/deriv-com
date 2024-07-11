@@ -15,6 +15,7 @@ import {
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 import { getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
@@ -76,13 +77,15 @@ export const MainFooter = () => {
         cpa_social_media_icons,
     ])
 
+    const[is_mounted] = usePageLoaded();
+    if(!is_mounted) return null
+
     return (
         <Footer.FooterBlock
             warningText={warn_text && (
                 <Text className={`text-solid-slate-600 ${region !== 'eu' && !is_cpa_plan ? 'additional-warning-classname' : ''}`} size="sm">
                     <Localize
                         translate_text={warn_text}
-                        values={{ loss_percent: 'some_value' }} // Replace 'some_value' with the appropriate value
                     />
                 </Text>
             )}

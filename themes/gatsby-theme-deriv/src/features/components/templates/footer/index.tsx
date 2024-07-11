@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import { Footer } from '@deriv-com/blocks'
-import { qtJoin, Text } from '@deriv/quill-design'
+import { qtJoin } from '@deriv/quill-design'
 import {
     EuFooterNavData,
     RowFooterNavData,
@@ -15,11 +15,11 @@ import {
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
 import { DescriptionContent } from './description'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useThirdPartyFlags from 'components/hooks/use-third-party-flags'
 import { getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 import useBuildVariant from 'features/hooks/use-build-variant'
-import { Localize } from 'components/localization'
 // import { socialIconROW, socialIconEU, socialIconCareer } from './validate-social-icons-data'
 
 const overrideWithLang = (buttons, lang) =>
@@ -61,10 +61,10 @@ export const MainFooter = () => {
         const socialIconCareer = filterSocialIcons(career_social_media_icons, socialButtonsCareers)
         const socialIconCPA = filterSocialIcons(cpa_social_media_icons, socialButtonsCPA)
 
-        const region_buttons = region === 'eu' ? socialIconEU : is_cpa_plan ? socialIconCPA : socialIconROW
+        const region_buttons = region === "eu" ? socialIconEU : is_cpa_plan ? socialIconCPA : socialIconROW
         const buttons = is_career ? socialIconCareer : region_buttons
         setSocialButtons(overrideWithLang(buttons, lang))
-        setWarnText(region !== 'eu' && !is_cpa_plan ? warnText : null)
+        setWarnText(region !== "eu" && !is_cpa_plan ? warnText : null)
     }, [
         lang,
         region,
@@ -76,23 +76,20 @@ export const MainFooter = () => {
         cpa_social_media_icons,
     ])
 
+    const[is_mounted] = usePageLoaded();
+
+    if(!is_mounted) return null
+
     return (
         <Footer.FooterBlock
-            warningText={warn_text && (
-                <Text className={`text-solid-slate-600 ${region !== 'eu' && !is_cpa_plan ? 'additional-warning-classname' : ''}`} size="sm">
-                    <Localize
-                        translate_text={warn_text}
-                        values={{ loss_percent: 'some_value' }} // Replace 'some_value' with the appropriate value
-                    />
-                </Text>
-            )}
+            warningText={warn_text}
             socialButtons={social_buttons}
             banner={DerivGoBanner}
             awards={IIPAward}
             descriptionContent={DescriptionContent}
-            className={qtJoin((region === 'eu' || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
+            className={qtJoin((region === "eu" || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Footer.MainNavContent items={region === 'eu' ? EuFooterNavData : RowFooterNavData} cols='six' />
+            <Footer.MainNavContent items={region === "eu" ? EuFooterNavData : RowFooterNavData} cols="six" />
         </Footer.FooterBlock>
     )
 }

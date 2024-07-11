@@ -86,7 +86,6 @@ export const MainFooter = () => {
                 <Text className={`text-solid-slate-600 ${region !== 'eu' && !is_cpa_plan ? 'additional-warning-classname' : ''}`} size="sm">
                     <Localize
                         translate_text={warn_text}
-                        values={{ loss_percent: 'some_value' }}
                     />
                 </Text>
             )}

@@ -71,7 +71,9 @@ const useSignupForm = (options?: TSignupFormOptions) => {
                 try {
                     // Connect to WebSocket if not connected
                     await apiManager.reconnectIfNotConnected(currentLanguage)
-                } catch (e) {}
+                } catch (e) {
+                    console.log(e)
+                }
             }
         }
         const formatted_email = getVerifyEmailRequest(email)

@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
-import apiManager from 'common/websocket'
+import apiManager, { ApiManager } from 'common/websocket'
 import { getLanguage, isBrowser } from 'common/utility'
 
 const getVerifyEmailRequest = (formatted_email: string) => {
@@ -58,13 +58,24 @@ const useSignupForm = (options?: TSignupFormOptions) => {
         resolver: yupResolver(schema),
     })
 
-    const onSignup = ({ email }: FormData) => {
+    const onSignup = async ({ email }: FormData) => {
         Analytics?.trackEvent('ce_virtual_signup_form', {
             action: 'started',
             signup_provider: 'email',
             ...analyticsData,
         })
-
+        const readyState = parseInt(ApiManager.readyState)
+        if (readyState !== 1 && readyState !== 0) {
+            if (isBrowser()) {
+                const currentLanguage = getLanguage() ?? 'en'
+                try {
+                    // Connect to WebSocket if not connected
+                    await apiManager.reconnectIfNotConnected(currentLanguage)
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+        }
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
             .augmentedSend('verify_email', {

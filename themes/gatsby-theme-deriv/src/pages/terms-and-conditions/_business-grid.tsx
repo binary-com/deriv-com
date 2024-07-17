@@ -62,26 +62,31 @@ const PartnersGuidePdf = () => {
 }
 
 const BusinessGrid = () => {
-    // const general_terms_url = `/tnc/business-partners-general-terms-es.pdf`
-    // const affiliate_brokers_url = `/tnc/business-partners-affiliates-and-introducing-brokers-es.pdf`
-    // const payment_agents_url = `/tnc/business-partners-payment-agents-es.pdf`
-    // const api_user_url = `/tnc/business-partners-api-user-es.pdf`
-    // const bug_bounty_url = `/tnc/business-partners-bug-bounty-es.pdf`
-    const { region } = useBuildVariant()
-    // const language = getLanguage()
-
-    const general_terms_url_region = region === "row"
-        ? '/tnc/business-partners-general-terms.pdf'
-        : '/tnc/business-partners-general-terms-eu.pdf'
-    const affiliate_brokers_url_region = region === "row"
-        ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
-        : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
-    const api_user_url_region = region === "row"
-        ? '/tnc/business-partners-api-user.pdf'
-        : '/tnc/business-partners-api-user-eu.pdf'
-    const bug_bounty_url_region = region === "row"
-        ? '/tnc/business-partners-bug-bounty.pdf'
-        : '/tnc/business-partners-bug-bounty-eu.pdf'
+    
+    const { region } = useBuildVariant();
+    const language = getLanguage();
+    
+    let general_terms_url_region, affiliate_brokers_url_region, api_user_url_region, bug_bounty_url_region;
+    
+    if (language === "es") {
+        general_terms_url_region = '/tnc/business-partners-general-terms-es.pdf';
+        affiliate_brokers_url_region = '/tnc/business-partners-affiliates-and-introducing-brokers-es.pdf';
+        api_user_url_region = '/tnc/business-partners-api-user-es.pdf';
+        bug_bounty_url_region = '/tnc/business-partners-bug-bounty-es.pdf';
+    } else {
+        general_terms_url_region = region === "row"
+            ? '/tnc/business-partners-general-terms.pdf'
+            : '/tnc/business-partners-general-terms-eu.pdf';
+        affiliate_brokers_url_region = region === "row"
+            ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
+            : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf';
+        api_user_url_region = region === "row"
+            ? '/tnc/business-partners-api-user.pdf'
+            : '/tnc/business-partners-api-user-eu.pdf';
+        bug_bounty_url_region = region === "row"
+            ? '/tnc/business-partners-bug-bounty.pdf'
+            : '/tnc/business-partners-bug-bounty-eu.pdf';
+    }
 
         return (
             <StyledContainer>

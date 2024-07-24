@@ -162,18 +162,6 @@ const AccountDetails = ({
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
-        setFormData((prev) => ({ ...prev, [name]: value }))
-        if (affiliate_validation[name]) {
-            const error_msg = affiliate_validation[name](value) || ''
-            setFormErrors((errors) => ({
-                ...errors,
-                [`${name}_error_msg`]: error_msg,
-            }))
-        }
-    }, [])
-
-    const handleInput2 = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
         setFormData((prev) => ({ ...prev, [name]: value.replace(/  +/g, " ") }))
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value) || ''
@@ -240,25 +228,6 @@ const AccountDetails = ({
                                 />
                             </li>
                         )
-                    } else if (item.name === 'first_name' || item.name === 'last_name' ) {
-                        return (
-                            <li key={item.id}>
-                                <AffiliateInput
-                                    id={item.id}
-                                    name={item.name}
-                                    type={item.type}
-                                    label={item.label}
-                                    value={form_data[item.name]}
-                                    error={form_errors[`${item.name}_error_msg`]}
-                                    placeholder={item.label}
-                                    password_icon={item.type == 'password'}
-                                    onChange={handleInput2}
-                                    onBlur={handleInputTrim}
-                                    data-lpignore="true"
-                                    handleError={() => handleError(item)}
-                                />
-                            </li>
-                        )
                     } else {
                         return (
                             <li key={item.id}>
@@ -272,7 +241,7 @@ const AccountDetails = ({
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}
                                     onChange={handleInput}
-                                    onBlur={handleInput}
+                                    onBlur={handleInputTrim}
                                     data-lpignore="true"
                                     handleError={() => handleError(item)}
                                 />

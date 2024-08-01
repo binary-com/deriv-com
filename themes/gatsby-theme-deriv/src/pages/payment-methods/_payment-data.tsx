@@ -539,9 +539,9 @@ const payment_data: PaymentDataProps[] = [
         data: [
             {
                 method: <StyledIcon src={Visa} alt="visa" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_10 - 5,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
                 description:
@@ -550,9 +550,9 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={VisaElectron} alt="visa electron" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_10 - 5,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
                 description:
@@ -561,9 +561,9 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={Maestro} alt="maestro" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_10 - 5,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10-500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
                 description: '_t_Make deposits using your credit and debit cards._t_',
@@ -571,9 +571,9 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={MasterCard} alt="mastercard" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_10 - 5,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
                 description: '_t_Make deposits using your credit and debit cards._t_',
@@ -589,9 +589,9 @@ const payment_data: PaymentDataProps[] = [
         data: [
             {
                 method: <StyledIcon src={Skrill} alt="skrill" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',
@@ -599,9 +599,9 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={Neteller} alt="neteller" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',
@@ -626,8 +626,8 @@ const payment_data: PaymentDataProps[] = [
         data: [
             {
                 method: <StyledIcon src={Eps} alt="eps" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_25 - 100_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_25 - 200_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
@@ -636,8 +636,8 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={GiroPay} alt="giropay" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_25 - 100_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_25 - 200_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
@@ -646,8 +646,8 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={Przelewy24} alt="przelewy24" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_25 - 100_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_25 - 200_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
@@ -656,8 +656,8 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
-                currencies: 'USD, EUR, GBP',
-                min_max_deposit: '_t_25 - 100_t_',
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_25 - 200_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
@@ -667,7 +667,7 @@ const payment_data: PaymentDataProps[] = [
             },
             {
                 method: <StyledIcon src={Ideals} alt="ideals" />,
-                currencies: 'USD, EUR, GBP',
+                currencies: 'USD, EUR',
                 min_max_deposit: '_t_10 - 10,000_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',

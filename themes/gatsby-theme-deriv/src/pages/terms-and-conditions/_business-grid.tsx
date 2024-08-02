@@ -19,8 +19,8 @@ import useBuildVariant from 'features/hooks/use-build-variant'
 type ColProps = {
     Icon: string
     content: TString
-    title: TString
-    link_title: TString
+    title: TString | string
+    link_title: TString | string
     url: string
 }
 
@@ -65,6 +65,14 @@ const BusinessGrid = () => {
     
     const { region } = useBuildVariant();
     const language = getLanguage();
+
+    const title = region === "row" 
+    ? "_t_Affiliates & introduction brokers (IBs)_t_"
+    : "Affiliates";
+
+    const link_title = region === "row"
+    ? "_t_Affiliates & introduction brokers (IBs)_t_"
+    : "Affiliates";
     
     let general_terms_url_region, affiliate_brokers_url_region, api_user_url_region, bug_bounty_url_region;
     
@@ -105,13 +113,13 @@ const BusinessGrid = () => {
                         url={general_terms_url_region}
                         link_title="_t_General terms of use_t_"
                     />
-                    <Col
-                        Icon={Partners}
-                        title="_t_Affiliates & introducing brokers (IBs)_t_"
-                        content="_t_Additional terms for our affiliates and introducing brokers_t_"
-                        url={affiliate_brokers_url_region}
-                        link_title="_t_Affiliates & introducing brokers (IBs)_t_"
-                    />
+                     <Col
+                Icon={Partners}
+                title={region === "row" ? "_t_Affiliates & introducing brokers (IBs)_t_" : "Affiliates"}
+                content="_t_Additional terms for our affiliates and introducing brokers_t_"
+                url={affiliate_brokers_url_region}
+                link_title={link_title}
+                />
     
                     <PartnersGuidePdf />
                     {region === "row" && (

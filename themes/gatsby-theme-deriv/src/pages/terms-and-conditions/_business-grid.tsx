@@ -107,7 +107,7 @@ const BusinessGrid = () => {
                     />
                      <Col
                 Icon={Partners}
-                title={region === "row" ? "_t_Affiliates & introducing brokers (IBs)_t_" : "Affiliates"}
+                title={region === "row" ? "_t_Affiliates & introducing brokers (IBs)_t_" : "_t_Affiliates_t_"}
                 content="_t_Additional terms for our affiliates and introducing brokers_t_"
                 url={affiliate_brokers_url_region}
                 link_title={link_title}

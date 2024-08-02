@@ -1587,7 +1587,6 @@
   "1548745350": "Deriv Prime is the institutional arm of Deriv Group, and staying true to its guiding principles, effectively democratises liquidity provision to financial institutions. No matter if you are large, small, or have just started, Deriv Prime will provide top-of-book liquidity solutions with very fast execution at unmatched fair pricing and conditions.",
   "1549352292": "With turbo options, you need to define a barrier before opening a contract. If the spot price touches or breaches this barrier at any time throughout the contract duration, your contract will expire worthless. This means that you will not receive a payout and will lose your initial stake amount. To compensate for this risk, turbo options will have a higher payout per point and potential payout, depending on how far the selected barrier is from the opening spot price. Another difference to note is that trading turbo options carries more risk than trading vanilla options.",
   "1549497379": "High leverage, tight forex spreads",
-  "1549777785": "Affiliates & introduction brokers (IBs)",
   "1550413103": "checklist",
   "1550574351": "Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.",
   "1551172020": "AUD Basket",

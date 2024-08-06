@@ -610,8 +610,8 @@ const payment_data: PaymentDataProps[] = [
             {
                 method: <StyledIcon src={Jeton} alt="jeton" />,
                 currencies: 'EUR',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_5 - 1,000_t_',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 500_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',

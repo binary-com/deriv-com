@@ -328,7 +328,7 @@ export const StepIndicesDetails_CFD = () => (
     <DetailsContainer>
         <Text>
             <Localize
-                translate_text="_t_With these indices, there is an equal probability of up/down movement in a price series with a <0>fixed step size of 0.1, 0.2, 0.3, 0.4, and 0.5.</0>_t_"
+                translate_text="_t_With these indices, there is an equal probability of up/down movement in a price series with a <0>fixed step size of 0.1, 0.2, 0.3, 0.4, or 0.5.</0>_t_"
                 components={[<strong key={0} />]}
             />
         </Text>

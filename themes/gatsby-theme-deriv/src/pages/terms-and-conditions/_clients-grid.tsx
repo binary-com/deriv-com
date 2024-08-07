@@ -17,8 +17,9 @@ type ColProps = {
     Icon: string
     content: TString
     title: TString
-    non_eu_links: Link[]
+    non_eu_links?: Link[]
     eu_links?: Link[]
+    row_links?: Link[]
 }
 
 type Link = {
@@ -26,9 +27,15 @@ type Link = {
     title: TString
 }
 
-const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
+const Col = ({ Icon, content, title, eu_links, non_eu_links, row_links }: ColProps) => {
     const { region } = useBuildVariant()
-    const links = region === "eu" ? eu_links : non_eu_links
+    let links = non_eu_links
+
+    if (region === 'eu') {
+        links = eu_links
+    } else if (region === 'row') {
+        links = row_links
+    }
 
     return (
         <GridCol>
@@ -91,8 +98,7 @@ const columns: ColProps[] = [
     {
         Icon: Funds,
         title: '_t_Funds & transfers_t_',
-        content:
-            '_t_Terms that govern keeping and transferring funds in Deriv and the bonuses you might get_t_',
+        content: '_t_Terms that govern keeping and transferring funds in Deriv and the bonuses you might get_t_',
         eu_links: [
             {
                 url: '/tnc/eu/funds-and-transfers.pdf',
@@ -126,8 +132,7 @@ const columns: ColProps[] = [
     {
         Icon: Risk,
         title: '_t_Risk disclosure_t_',
-        content:
-            '_t_A notice to help you understand the risks that might arise when you trade on Deriv_t_',
+        content: '_t_A notice to help you understand the risks that might arise when you trade on Deriv_t_',
         eu_links: [
             {
                 url: '/tnc/eu/risk-disclosure.pdf',
@@ -141,34 +146,33 @@ const columns: ColProps[] = [
             },
         ],
     },
-    {
-        Icon: BFX,
-        title: '_t_Additional terms_t_',
-        content: '_t_Additional terms and restrictions for Deriv clients in certain countries_t_',
-        eu_links: [
-            {
-                url: '/tnc/deriv-investments-(europe)-limited-eu.pdf',
-                title: '_t_Deriv Investments (Europe) Limited_t_',
-            },
-        ],
-        non_eu_links: [
-            {
-                url: '/tnc/deriv-(fx)-ltd.pdf',
-                title: '_t_Deriv (FX) Ltd_t_',
-            },
-            {
-                url: '/tnc/deriv-(bvi)-ltd.pdf',
-                title: '_t_Deriv (BVI) Ltd_t_',
-            },
-            {
-                url: '/tnc/deriv-(v)-ltd.pdf',
-                title: '_t_Deriv (V) Ltd_t_',
-            },
-        ],
-    },
 ]
 
+const additionalTermsColumn: ColProps = {
+    Icon: BFX,
+    title: '_t_Additional terms_t_',
+    content: '_t_Additional terms and restrictions for Deriv clients in certain countries_t_',
+    row_links: [
+        {
+            url: '/tnc/deriv-(fx)-ltd.pdf',
+            title: '_t_Deriv (FX) Ltd_t_',
+        },
+        {
+            url: '/tnc/deriv-(bvi)-ltd.pdf',
+            title: '_t_Deriv (BVI) Ltd_t_',
+        },
+        {
+            url: '/tnc/deriv-(v)-ltd.pdf',
+            title: '_t_Deriv (V) Ltd_t_',
+        },
+    ],
+}
+
 const IconGrid = () => {
+    const { region } = useBuildVariant()
+
+    const displayedColumns = region === 'row' ? [...columns, additionalTermsColumn] : columns
+
     return (
         <StyledContainer>
             <StyledGrid
@@ -179,9 +183,9 @@ const IconGrid = () => {
                 mobile_columns="1fr"
                 mobile_row_gap="10rem"
             >
-                {columns.map((col, index) => {
-                    return <Col {...col} key={index} />
-                })}
+                {displayedColumns.map((col, index) => (
+                    <Col {...col} key={index} />
+                ))}
             </StyledGrid>
         </StyledContainer>
     )

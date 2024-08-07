@@ -5,7 +5,7 @@ export const affiliate_validation_regex = {
     email: (value: string) => /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value),
     latin: (value: string) => /[^a-zA-Za 0-9-]/.test(value),
     name: (value: string) =>
-        /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u.test(value) &&
+        /^(?!.*\s{2,})[\p{L}\s'.-]{2,50}$/u.test(value.trim()) &&
         value.trim().length >= 2 &&
         value.trim().length <= 50,
     phone: (value: string) => /^\+?\d+$/.test(value),
@@ -47,9 +47,8 @@ const nameValidation = (input: string, text: string) => {
     if (!input) {
         return text + localize('_t_ is required_t_')
     } else if (
-        input.length < 2 ||
-        input.length > 50 ||
-        !affiliate_validation_regex.non_empty_string(input)
+        input.trim().length < 2 ||
+        input.trim().length > 50
     ) {
         return localize('_t_You should enter 2-50 characters._t_')
     } else if (affiliate_validation_regex.latin(input) || !affiliate_validation_regex.name(input)) {
